@@ -12,6 +12,15 @@
 		0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */; };
 		0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */; };
 		0C28B2A117DC1D1200BD0EC2 /* AviarySDKResources.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C28B29817DC1BC300BD0EC2 /* AviarySDKResources.bundle */; };
+		0C28B2A617DC269500BD0EC2 /* TMEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C28B2A217DC269500BD0EC2 /* TMEViewController.m */; };
+		0C28B2A717DC269500BD0EC2 /* TMEViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B2A317DC269500BD0EC2 /* TMEViewController_iPad.xib */; };
+		0C28B2A817DC269500BD0EC2 /* TMEViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B2A417DC269500BD0EC2 /* TMEViewController_iPhone.xib */; };
+		0C28B2B017DC26DF00BD0EC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C28B2AA17DC26DF00BD0EC2 /* AppDelegate.m */; };
+		0C28B2B117DC26DF00BD0EC2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B2AC17DC26DF00BD0EC2 /* InfoPlist.strings */; };
+		0C28B2B217DC26DF00BD0EC2 /* PhotoButton-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B2AE17DC26DF00BD0EC2 /* PhotoButton-Info.plist */; };
+		0C28B2B617DC271600BD0EC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C28B2B517DC271600BD0EC2 /* main.m */; };
+		0C74C12F17DC276900D8AF83 /* PBImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C74C12C17DC276900D8AF83 /* PBImageHelper.m */; };
+		0C74C13017DC276900D8AF83 /* TMEPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C74C12E17DC276900D8AF83 /* TMEPhotoButton.m */; };
 		0CBE48AE17D1C02E00DC7482 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48AD17D1C02E00DC7482 /* Accelerate.framework */; };
 		0CBE48B017D1C03700DC7482 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48AF17D1C03700DC7482 /* AdSupport.framework */; };
 		0CBE48B217D1C03E00DC7482 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B117D1C03E00DC7482 /* CoreData.framework */; };
@@ -27,14 +36,7 @@
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
 		5976C04E15925D2D007F6FC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5976C04C15925D2D007F6FC3 /* InfoPlist.strings */; };
-		5976C05015925D2D007F6FC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5976C04F15925D2D007F6FC3 /* main.m */; };
 		5976C05415925D2D007F6FC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5976C05315925D2D007F6FC3 /* AppDelegate.m */; };
-		5976C05715925D2D007F6FC3 /* TMEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5976C05615925D2D007F6FC3 /* TMEViewController.m */; };
-		5976C05A15925D2D007F6FC3 /* TMEViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5976C05815925D2D007F6FC3 /* TMEViewController_iPhone.xib */; };
-		5976C05D15925D2D007F6FC3 /* TMEViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5976C05B15925D2D007F6FC3 /* TMEViewController_iPad.xib */; };
-		5976C06515925E17007F6FC3 /* add_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5976C06415925E17007F6FC3 /* add_photo.png */; };
-		5976C06915926324007F6FC3 /* TMEPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5976C06815926324007F6FC3 /* TMEPhotoButton.m */; };
-		5976C06F15926658007F6FC3 /* PBImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5976C06E15926658007F6FC3 /* PBImageHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,20 @@
 		0C28B29817DC1BC300BD0EC2 /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
 		0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_57x57.png; sourceTree = "<group>"; };
 		0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_114x114.png; sourceTree = "<group>"; };
+		0C28B2A217DC269500BD0EC2 /* TMEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEViewController.m; sourceTree = "<group>"; };
+		0C28B2A317DC269500BD0EC2 /* TMEViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEViewController_iPad.xib; sourceTree = "<group>"; };
+		0C28B2A417DC269500BD0EC2 /* TMEViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEViewController_iPhone.xib; sourceTree = "<group>"; };
+		0C28B2A517DC269500BD0EC2 /* TMEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEViewController.h; sourceTree = "<group>"; };
+		0C28B2A917DC26DF00BD0EC2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0C28B2AA17DC26DF00BD0EC2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0C28B2AD17DC26DF00BD0EC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		0C28B2AE17DC26DF00BD0EC2 /* PhotoButton-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PhotoButton-Info.plist"; sourceTree = "<group>"; };
+		0C28B2AF17DC26DF00BD0EC2 /* PhotoButton-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PhotoButton-Prefix.pch"; sourceTree = "<group>"; };
+		0C28B2B517DC271600BD0EC2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0C74C12B17DC276900D8AF83 /* PBImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBImageHelper.h; sourceTree = "<group>"; };
+		0C74C12C17DC276900D8AF83 /* PBImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBImageHelper.m; sourceTree = "<group>"; };
+		0C74C12D17DC276900D8AF83 /* TMEPhotoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPhotoButton.h; sourceTree = "<group>"; };
+		0C74C12E17DC276900D8AF83 /* TMEPhotoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPhotoButton.m; sourceTree = "<group>"; };
 		0CBE48AD17D1C02E00DC7482 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		0CBE48AF17D1C03700DC7482 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		0CBE48B117D1C03E00DC7482 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -65,19 +81,9 @@
 		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5976C04B15925D2D007F6FC3 /* PhotoButton-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoButton-Info.plist"; sourceTree = "<group>"; };
 		5976C04D15925D2D007F6FC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5976C04F15925D2D007F6FC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5976C05115925D2D007F6FC3 /* PhotoButton-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoButton-Prefix.pch"; sourceTree = "<group>"; };
 		5976C05215925D2D007F6FC3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5976C05315925D2D007F6FC3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5976C05515925D2D007F6FC3 /* TMEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMEViewController.h; sourceTree = "<group>"; };
-		5976C05615925D2D007F6FC3 /* TMEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMEViewController.m; sourceTree = "<group>"; };
-		5976C05915925D2D007F6FC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TMEViewController_iPhone.xib; sourceTree = "<group>"; };
-		5976C05C15925D2D007F6FC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TMEViewController_iPad.xib; sourceTree = "<group>"; };
-		5976C06415925E17007F6FC3 /* add_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo.png; sourceTree = "<group>"; };
-		5976C06715926324007F6FC3 /* TMEPhotoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPhotoButton.h; sourceTree = "<group>"; };
-		5976C06815926324007F6FC3 /* TMEPhotoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPhotoButton.m; sourceTree = "<group>"; };
-		5976C06D15926658007F6FC3 /* PBImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBImageHelper.h; sourceTree = "<group>"; };
-		5976C06E15926658007F6FC3 /* PBImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBImageHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,10 @@
 		0C28B28B17DC1B9200BD0EC2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0C28B2A217DC269500BD0EC2 /* TMEViewController.m */,
+				0C28B2A317DC269500BD0EC2 /* TMEViewController_iPad.xib */,
+				0C28B2A417DC269500BD0EC2 /* TMEViewController_iPhone.xib */,
+				0C28B2A517DC269500BD0EC2 /* TMEViewController.h */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -133,7 +143,7 @@
 		0C28B28C17DC1B9200BD0EC2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				0C28B28E17DC1BC300BD0EC2 /* AviarySDK */,
+				0C74C12A17DC276900D8AF83 /* PhotoButton */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -152,7 +162,8 @@
 				0C28B29617DC1BC300BD0EC2 /* libAviarySDK.a */,
 				0C28B29717DC1BC300BD0EC2 /* Resources */,
 			);
-			path = AviarySDK;
+			name = AviarySDK;
+			path = Vendors/AviarySDK;
 			sourceTree = "<group>";
 		};
 		0C28B28F17DC1BC300BD0EC2 /* Headers */ = {
@@ -176,16 +187,34 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		0C28B2AB17DC26DF00BD0EC2 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				0C28B2AC17DC26DF00BD0EC2 /* InfoPlist.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		0C74C12A17DC276900D8AF83 /* PhotoButton */ = {
+			isa = PBXGroup;
+			children = (
+				0C74C12B17DC276900D8AF83 /* PBImageHelper.h */,
+				0C74C12C17DC276900D8AF83 /* PBImageHelper.m */,
+				0C74C12D17DC276900D8AF83 /* TMEPhotoButton.h */,
+				0C74C12E17DC276900D8AF83 /* TMEPhotoButton.m */,
+			);
+			path = PhotoButton;
+			sourceTree = "<group>";
+		};
 		5976C03415925D2D007F6FC3 = {
 			isa = PBXGroup;
 			children = (
+				5976C04915925D2D007F6FC3 /* PhotoButton */,
 				0C28B28A17DC1B9200BD0EC2 /* Categories */,
 				0C28B28B17DC1B9200BD0EC2 /* Controllers */,
-				0C28B28C17DC1B9200BD0EC2 /* Vendors */,
 				0C28B28D17DC1B9200BD0EC2 /* Views */,
-				5976C06615926324007F6FC3 /* Classes */,
-				5976C06315925E17007F6FC3 /* Images */,
-				5976C04915925D2D007F6FC3 /* PhotoButton */,
+				0C28B28C17DC1B9200BD0EC2 /* Vendors */,
+				5976C04A15925D2D007F6FC3 /* Supporting Files */,
 				5976C04215925D2D007F6FC3 /* Frameworks */,
 				0C28B28717DC1A1400BD0EC2 /* Resources */,
 				5976C04015925D2D007F6FC3 /* Products */,
@@ -203,6 +232,7 @@
 		5976C04215925D2D007F6FC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0C28B28E17DC1BC300BD0EC2 /* AviarySDK */,
 				0CBE48C117D1C0B500DC7482 /* SystemConfiguration.framework */,
 				0CBE48BF17D1C0AB00DC7482 /* StoreKit.framework */,
 				0CBE48BD17D1C0A400DC7482 /* QuartzCore.framework */,
@@ -224,13 +254,6 @@
 		5976C04915925D2D007F6FC3 /* PhotoButton */ = {
 			isa = PBXGroup;
 			children = (
-				5976C05215925D2D007F6FC3 /* AppDelegate.h */,
-				5976C05315925D2D007F6FC3 /* AppDelegate.m */,
-				5976C05515925D2D007F6FC3 /* TMEViewController.h */,
-				5976C05615925D2D007F6FC3 /* TMEViewController.m */,
-				5976C05815925D2D007F6FC3 /* TMEViewController_iPhone.xib */,
-				5976C05B15925D2D007F6FC3 /* TMEViewController_iPad.xib */,
-				5976C04A15925D2D007F6FC3 /* Supporting Files */,
 			);
 			path = PhotoButton;
 			sourceTree = "<group>";
@@ -238,33 +261,20 @@
 		5976C04A15925D2D007F6FC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0C28B2B517DC271600BD0EC2 /* main.m */,
+				5976C05215925D2D007F6FC3 /* AppDelegate.h */,
+				5976C05315925D2D007F6FC3 /* AppDelegate.m */,
 				5976C04B15925D2D007F6FC3 /* PhotoButton-Info.plist */,
 				5976C04C15925D2D007F6FC3 /* InfoPlist.strings */,
-				5976C04F15925D2D007F6FC3 /* main.m */,
 				5976C05115925D2D007F6FC3 /* PhotoButton-Prefix.pch */,
+				0C28B2A917DC26DF00BD0EC2 /* AppDelegate.h */,
+				0C28B2AA17DC26DF00BD0EC2 /* AppDelegate.m */,
+				0C28B2AB17DC26DF00BD0EC2 /* en.lproj */,
+				0C28B2AE17DC26DF00BD0EC2 /* PhotoButton-Info.plist */,
+				0C28B2AF17DC26DF00BD0EC2 /* PhotoButton-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5976C06315925E17007F6FC3 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				5976C06415925E17007F6FC3 /* add_photo.png */,
-			);
-			name = Images;
-			path = PhotoButton/Images;
-			sourceTree = "<group>";
-		};
-		5976C06615926324007F6FC3 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				5976C06D15926658007F6FC3 /* PBImageHelper.h */,
-				5976C06E15926658007F6FC3 /* PBImageHelper.m */,
-				5976C06715926324007F6FC3 /* TMEPhotoButton.h */,
-				5976C06815926324007F6FC3 /* TMEPhotoButton.m */,
-			);
-			name = Classes;
-			path = PhotoButton/Classes;
+			path = PhotoButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,12 +328,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5976C04E15925D2D007F6FC3 /* InfoPlist.strings in Resources */,
-				5976C05A15925D2D007F6FC3 /* TMEViewController_iPhone.xib in Resources */,
+				0C28B2B117DC26DF00BD0EC2 /* InfoPlist.strings in Resources */,
+				0C28B2A817DC269500BD0EC2 /* TMEViewController_iPhone.xib in Resources */,
 				0C28B29B17DC1BC300BD0EC2 /* AviarySDKResources.bundle in Resources */,
 				0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */,
-				5976C05D15925D2D007F6FC3 /* TMEViewController_iPad.xib in Resources */,
-				5976C06515925E17007F6FC3 /* add_photo.png in Resources */,
+				0C28B2A717DC269500BD0EC2 /* TMEViewController_iPad.xib in Resources */,
 				0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */,
+				0C28B2B217DC26DF00BD0EC2 /* PhotoButton-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,39 +345,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5976C05015925D2D007F6FC3 /* main.m in Sources */,
+				0C28B2B017DC26DF00BD0EC2 /* AppDelegate.m in Sources */,
+				0C74C13017DC276900D8AF83 /* TMEPhotoButton.m in Sources */,
 				5976C05415925D2D007F6FC3 /* AppDelegate.m in Sources */,
-				5976C05715925D2D007F6FC3 /* TMEViewController.m in Sources */,
-				5976C06915926324007F6FC3 /* TMEPhotoButton.m in Sources */,
-				5976C06F15926658007F6FC3 /* PBImageHelper.m in Sources */,
+				0C74C12F17DC276900D8AF83 /* PBImageHelper.m in Sources */,
+				0C28B2B617DC271600BD0EC2 /* main.m in Sources */,
+				0C28B2A617DC269500BD0EC2 /* TMEViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0C28B2AC17DC26DF00BD0EC2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0C28B2AD17DC26DF00BD0EC2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		5976C04C15925D2D007F6FC3 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5976C04D15925D2D007F6FC3 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		5976C05815925D2D007F6FC3 /* TMEViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5976C05915925D2D007F6FC3 /* en */,
-			);
-			name = TMEViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		5976C05B15925D2D007F6FC3 /* TMEViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5976C05C15925D2D007F6FC3 /* en */,
-			);
-			name = TMEViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
