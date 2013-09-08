@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C28B29A17DC1BC300BD0EC2 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C28B29617DC1BC300BD0EC2 /* libAviarySDK.a */; };
+		0C28B29B17DC1BC300BD0EC2 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29817DC1BC300BD0EC2 /* AviarySDKResources.bundle */; };
+		0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */; };
+		0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */; };
+		0C28B2A117DC1D1200BD0EC2 /* AviarySDKResources.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C28B29817DC1BC300BD0EC2 /* AviarySDKResources.bundle */; };
+		0CBE48AE17D1C02E00DC7482 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48AD17D1C02E00DC7482 /* Accelerate.framework */; };
+		0CBE48B017D1C03700DC7482 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48AF17D1C03700DC7482 /* AdSupport.framework */; };
+		0CBE48B217D1C03E00DC7482 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B117D1C03E00DC7482 /* CoreData.framework */; };
+		0CBE48B417D1C04400DC7482 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B317D1C04400DC7482 /* CoreText.framework */; };
+		0CBE48B617D1C08900DC7482 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B517D1C08900DC7482 /* libsqlite3.0.dylib */; };
+		0CBE48B817D1C08F00DC7482 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B717D1C08F00DC7482 /* libz.1.2.5.dylib */; };
+		0CBE48BA17D1C09B00DC7482 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B917D1C09B00DC7482 /* MessageUI.framework */; };
+		0CBE48BC17D1C0A100DC7482 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48BB17D1C0A100DC7482 /* OpenGLES.framework */; };
+		0CBE48BE17D1C0A400DC7482 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48BD17D1C0A400DC7482 /* QuartzCore.framework */; };
+		0CBE48C017D1C0AB00DC7482 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48BF17D1C0AB00DC7482 /* StoreKit.framework */; };
+		0CBE48C217D1C0B500DC7482 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48C117D1C0B500DC7482 /* SystemConfiguration.framework */; };
+		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
+		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
+		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
+		5976C04E15925D2D007F6FC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5976C04C15925D2D007F6FC3 /* InfoPlist.strings */; };
+		5976C05015925D2D007F6FC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5976C04F15925D2D007F6FC3 /* main.m */; };
+		5976C05415925D2D007F6FC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5976C05315925D2D007F6FC3 /* AppDelegate.m */; };
+		5976C05715925D2D007F6FC3 /* TMEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5976C05615925D2D007F6FC3 /* TMEViewController.m */; };
+		5976C05A15925D2D007F6FC3 /* TMEViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5976C05815925D2D007F6FC3 /* TMEViewController_iPhone.xib */; };
+		5976C05D15925D2D007F6FC3 /* TMEViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5976C05B15925D2D007F6FC3 /* TMEViewController_iPad.xib */; };
+		5976C06515925E17007F6FC3 /* add_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5976C06415925E17007F6FC3 /* add_photo.png */; };
+		5976C06915926324007F6FC3 /* TMEPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5976C06815926324007F6FC3 /* TMEPhotoButton.m */; };
+		5976C06F15926658007F6FC3 /* PBImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5976C06E15926658007F6FC3 /* PBImageHelper.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0C28B29017DC1BC300BD0EC2 /* AFOpenGLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenGLManager.h; sourceTree = "<group>"; };
+		0C28B29117DC1BC300BD0EC2 /* AFPhotoEditorContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorContext.h; sourceTree = "<group>"; };
+		0C28B29217DC1BC300BD0EC2 /* AFPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorController.h; sourceTree = "<group>"; };
+		0C28B29317DC1BC300BD0EC2 /* AFPhotoEditorControllerOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorControllerOptions.h; sourceTree = "<group>"; };
+		0C28B29417DC1BC300BD0EC2 /* AFPhotoEditorCustomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorCustomization.h; sourceTree = "<group>"; };
+		0C28B29517DC1BC300BD0EC2 /* AFPhotoEditorSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorSession.h; sourceTree = "<group>"; };
+		0C28B29617DC1BC300BD0EC2 /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
+		0C28B29817DC1BC300BD0EC2 /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
+		0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_57x57.png; sourceTree = "<group>"; };
+		0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_114x114.png; sourceTree = "<group>"; };
+		0CBE48AD17D1C02E00DC7482 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		0CBE48AF17D1C03700DC7482 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		0CBE48B117D1C03E00DC7482 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0CBE48B317D1C04400DC7482 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		0CBE48B517D1C08900DC7482 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		0CBE48B717D1C08F00DC7482 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		0CBE48B917D1C09B00DC7482 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		0CBE48BB17D1C0A100DC7482 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		0CBE48BD17D1C0A400DC7482 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0CBE48BF17D1C0AB00DC7482 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		0CBE48C117D1C0B500DC7482 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5976C03F15925D2D007F6FC3 /* PhotoButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5976C04B15925D2D007F6FC3 /* PhotoButton-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoButton-Info.plist"; sourceTree = "<group>"; };
+		5976C04D15925D2D007F6FC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5976C04F15925D2D007F6FC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5976C05115925D2D007F6FC3 /* PhotoButton-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoButton-Prefix.pch"; sourceTree = "<group>"; };
+		5976C05215925D2D007F6FC3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5976C05315925D2D007F6FC3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5976C05515925D2D007F6FC3 /* TMEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMEViewController.h; sourceTree = "<group>"; };
+		5976C05615925D2D007F6FC3 /* TMEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMEViewController.m; sourceTree = "<group>"; };
+		5976C05915925D2D007F6FC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TMEViewController_iPhone.xib; sourceTree = "<group>"; };
+		5976C05C15925D2D007F6FC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TMEViewController_iPad.xib; sourceTree = "<group>"; };
+		5976C06415925E17007F6FC3 /* add_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo.png; sourceTree = "<group>"; };
+		5976C06715926324007F6FC3 /* TMEPhotoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPhotoButton.h; sourceTree = "<group>"; };
+		5976C06815926324007F6FC3 /* TMEPhotoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPhotoButton.m; sourceTree = "<group>"; };
+		5976C06D15926658007F6FC3 /* PBImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBImageHelper.h; sourceTree = "<group>"; };
+		5976C06E15926658007F6FC3 /* PBImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBImageHelper.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5976C03C15925D2D007F6FC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */,
+				0CBE48C217D1C0B500DC7482 /* SystemConfiguration.framework in Frameworks */,
+				0CBE48C017D1C0AB00DC7482 /* StoreKit.framework in Frameworks */,
+				0CBE48BE17D1C0A400DC7482 /* QuartzCore.framework in Frameworks */,
+				0CBE48BC17D1C0A100DC7482 /* OpenGLES.framework in Frameworks */,
+				0CBE48BA17D1C09B00DC7482 /* MessageUI.framework in Frameworks */,
+				5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */,
+				0CBE48B817D1C08F00DC7482 /* libz.1.2.5.dylib in Frameworks */,
+				0CBE48B617D1C08900DC7482 /* libsqlite3.0.dylib in Frameworks */,
+				0C28B2A117DC1D1200BD0EC2 /* AviarySDKResources.bundle in Frameworks */,
+				0C28B29A17DC1BC300BD0EC2 /* libAviarySDK.a in Frameworks */,
+				0CBE48B417D1C04400DC7482 /* CoreText.framework in Frameworks */,
+				0CBE48B217D1C03E00DC7482 /* CoreData.framework in Frameworks */,
+				0CBE48B017D1C03700DC7482 /* AdSupport.framework in Frameworks */,
+				0CBE48AE17D1C02E00DC7482 /* Accelerate.framework in Frameworks */,
+				5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C28B28717DC1A1400BD0EC2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */,
+				0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0C28B28A17DC1B9200BD0EC2 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		0C28B28B17DC1B9200BD0EC2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0C28B28C17DC1B9200BD0EC2 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				0C28B28E17DC1BC300BD0EC2 /* AviarySDK */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		0C28B28D17DC1B9200BD0EC2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0C28B28E17DC1BC300BD0EC2 /* AviarySDK */ = {
+			isa = PBXGroup;
+			children = (
+				0C28B28F17DC1BC300BD0EC2 /* Headers */,
+				0C28B29617DC1BC300BD0EC2 /* libAviarySDK.a */,
+				0C28B29717DC1BC300BD0EC2 /* Resources */,
+			);
+			path = AviarySDK;
+			sourceTree = "<group>";
+		};
+		0C28B28F17DC1BC300BD0EC2 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				0C28B29017DC1BC300BD0EC2 /* AFOpenGLManager.h */,
+				0C28B29117DC1BC300BD0EC2 /* AFPhotoEditorContext.h */,
+				0C28B29217DC1BC300BD0EC2 /* AFPhotoEditorController.h */,
+				0C28B29317DC1BC300BD0EC2 /* AFPhotoEditorControllerOptions.h */,
+				0C28B29417DC1BC300BD0EC2 /* AFPhotoEditorCustomization.h */,
+				0C28B29517DC1BC300BD0EC2 /* AFPhotoEditorSession.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		0C28B29717DC1BC300BD0EC2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0C28B29817DC1BC300BD0EC2 /* AviarySDKResources.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5976C03415925D2D007F6FC3 = {
+			isa = PBXGroup;
+			children = (
+				0C28B28A17DC1B9200BD0EC2 /* Categories */,
+				0C28B28B17DC1B9200BD0EC2 /* Controllers */,
+				0C28B28C17DC1B9200BD0EC2 /* Vendors */,
+				0C28B28D17DC1B9200BD0EC2 /* Views */,
+				5976C06615926324007F6FC3 /* Classes */,
+				5976C06315925E17007F6FC3 /* Images */,
+				5976C04915925D2D007F6FC3 /* PhotoButton */,
+				5976C04215925D2D007F6FC3 /* Frameworks */,
+				0C28B28717DC1A1400BD0EC2 /* Resources */,
+				5976C04015925D2D007F6FC3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5976C04015925D2D007F6FC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5976C03F15925D2D007F6FC3 /* PhotoButton.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5976C04215925D2D007F6FC3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CBE48C117D1C0B500DC7482 /* SystemConfiguration.framework */,
+				0CBE48BF17D1C0AB00DC7482 /* StoreKit.framework */,
+				0CBE48BD17D1C0A400DC7482 /* QuartzCore.framework */,
+				0CBE48BB17D1C0A100DC7482 /* OpenGLES.framework */,
+				0CBE48B917D1C09B00DC7482 /* MessageUI.framework */,
+				0CBE48B717D1C08F00DC7482 /* libz.1.2.5.dylib */,
+				0CBE48B517D1C08900DC7482 /* libsqlite3.0.dylib */,
+				0CBE48B317D1C04400DC7482 /* CoreText.framework */,
+				0CBE48B117D1C03E00DC7482 /* CoreData.framework */,
+				0CBE48AF17D1C03700DC7482 /* AdSupport.framework */,
+				0CBE48AD17D1C02E00DC7482 /* Accelerate.framework */,
+				5976C04315925D2D007F6FC3 /* UIKit.framework */,
+				5976C04515925D2D007F6FC3 /* Foundation.framework */,
+				5976C04715925D2D007F6FC3 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5976C04915925D2D007F6FC3 /* PhotoButton */ = {
+			isa = PBXGroup;
+			children = (
+				5976C05215925D2D007F6FC3 /* AppDelegate.h */,
+				5976C05315925D2D007F6FC3 /* AppDelegate.m */,
+				5976C05515925D2D007F6FC3 /* TMEViewController.h */,
+				5976C05615925D2D007F6FC3 /* TMEViewController.m */,
+				5976C05815925D2D007F6FC3 /* TMEViewController_iPhone.xib */,
+				5976C05B15925D2D007F6FC3 /* TMEViewController_iPad.xib */,
+				5976C04A15925D2D007F6FC3 /* Supporting Files */,
+			);
+			path = PhotoButton;
+			sourceTree = "<group>";
+		};
+		5976C04A15925D2D007F6FC3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5976C04B15925D2D007F6FC3 /* PhotoButton-Info.plist */,
+				5976C04C15925D2D007F6FC3 /* InfoPlist.strings */,
+				5976C04F15925D2D007F6FC3 /* main.m */,
+				5976C05115925D2D007F6FC3 /* PhotoButton-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5976C06315925E17007F6FC3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5976C06415925E17007F6FC3 /* add_photo.png */,
+			);
+			name = Images;
+			path = PhotoButton/Images;
+			sourceTree = "<group>";
+		};
+		5976C06615926324007F6FC3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5976C06D15926658007F6FC3 /* PBImageHelper.h */,
+				5976C06E15926658007F6FC3 /* PBImageHelper.m */,
+				5976C06715926324007F6FC3 /* TMEPhotoButton.h */,
+				5976C06815926324007F6FC3 /* TMEPhotoButton.m */,
+			);
+			name = Classes;
+			path = PhotoButton/Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5976C03E15925D2D007F6FC3 /* PhotoButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5976C06015925D2D007F6FC3 /* Build configuration list for PBXNativeTarget "PhotoButton" */;
+			buildPhases = (
+				5976C03B15925D2D007F6FC3 /* Sources */,
+				5976C03C15925D2D007F6FC3 /* Frameworks */,
+				5976C03D15925D2D007F6FC3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhotoButton;
+			productName = PhotoButton;
+			productReference = 5976C03F15925D2D007F6FC3 /* PhotoButton.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5976C03615925D2D007F6FC3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 5976C03915925D2D007F6FC3 /* Build configuration list for PBXProject "PhotoButton" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5976C03415925D2D007F6FC3;
+			productRefGroup = 5976C04015925D2D007F6FC3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5976C03E15925D2D007F6FC3 /* PhotoButton */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5976C03D15925D2D007F6FC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5976C04E15925D2D007F6FC3 /* InfoPlist.strings in Resources */,
+				5976C05A15925D2D007F6FC3 /* TMEViewController_iPhone.xib in Resources */,
+				0C28B29B17DC1BC300BD0EC2 /* AviarySDKResources.bundle in Resources */,
+				0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */,
+				5976C05D15925D2D007F6FC3 /* TMEViewController_iPad.xib in Resources */,
+				5976C06515925E17007F6FC3 /* add_photo.png in Resources */,
+				0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5976C03B15925D2D007F6FC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5976C05015925D2D007F6FC3 /* main.m in Sources */,
+				5976C05415925D2D007F6FC3 /* AppDelegate.m in Sources */,
+				5976C05715925D2D007F6FC3 /* TMEViewController.m in Sources */,
+				5976C06915926324007F6FC3 /* TMEPhotoButton.m in Sources */,
+				5976C06F15926658007F6FC3 /* PBImageHelper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5976C04C15925D2D007F6FC3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5976C04D15925D2D007F6FC3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5976C05815925D2D007F6FC3 /* TMEViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5976C05915925D2D007F6FC3 /* en */,
+			);
+			name = TMEViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		5976C05B15925D2D007F6FC3 /* TMEViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5976C05C15925D2D007F6FC3 /* en */,
+			);
+			name = TMEViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5976C05E15925D2D007F6FC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5976C05F15925D2D007F6FC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5976C06115925D2D007F6FC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoButton/PhotoButton-Prefix.pch";
+				INFOPLIST_FILE = "PhotoButton/PhotoButton-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/khang/Downloads/PhotoButton-master/AviarySDK",
+					"/Users/khang/Downloads/PhotoButton-master/Vendors/AviarySDK",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5976C06215925D2D007F6FC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoButton/PhotoButton-Prefix.pch";
+				INFOPLIST_FILE = "PhotoButton/PhotoButton-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/khang/Downloads/PhotoButton-master/AviarySDK",
+					"/Users/khang/Downloads/PhotoButton-master/Vendors/AviarySDK",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5976C03915925D2D007F6FC3 /* Build configuration list for PBXProject "PhotoButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5976C05E15925D2D007F6FC3 /* Debug */,
+				5976C05F15925D2D007F6FC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5976C06015925D2D007F6FC3 /* Build configuration list for PBXNativeTarget "PhotoButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5976C06115925D2D007F6FC3 /* Debug */,
+				5976C06215925D2D007F6FC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5976C03615925D2D007F6FC3 /* Project object */;
+}
