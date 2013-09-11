@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TMEPhotoButton.h"
+#import "AFPhotoEditorController.h"
 
-@interface TMEPublishProductViewController : UIViewController
+@interface TMEPublishProductViewController : TMEBaseViewController
 
 @end

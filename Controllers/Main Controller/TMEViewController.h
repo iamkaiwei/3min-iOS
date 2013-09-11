@@ -11,11 +11,5 @@
 @class TMEPhotoButton;
 
 @interface TMEViewController : UIViewController
-{
-}
-
-@property (nonatomic, assign) IBOutlet TMEPhotoButton *photoButton;
-
-- (IBAction)photoSaved:(id)sender;
 
 @end
