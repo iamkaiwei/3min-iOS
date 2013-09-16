@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TMEPhotoButton.h"
-#import "AFPhotoEditorController.h"
+#import "TMEBasePhotoEditorViewController.h"
 
 @interface TMEPublishProductViewController : TMEBaseViewController
 

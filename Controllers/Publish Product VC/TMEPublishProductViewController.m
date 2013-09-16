@@ -24,6 +24,7 @@ AFPhotoEditorControllerDelegate
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"Publish Product";
     for (TMEPhotoButton *button in self.view.subviews) {
         if ([button isKindOfClass:[TMEPhotoButton class]]) {
             [button addTarget:self action:@selector(photoSaved:) forControlEvents:UIControlEventValueChanged];            
@@ -44,14 +45,16 @@ AFPhotoEditorControllerDelegate
 #pragma mark - AFPhotoController delegate
 - (void)displayEditorForImage:(UIImage *)imageToEdit
 {
-    AFPhotoEditorController *editorController = [[AFPhotoEditorController alloc] initWithImage:imageToEdit];
+    TMEBasePhotoEditorViewController *editorController = [[TMEBasePhotoEditorViewController alloc] initWithImage:imageToEdit];
     [editorController setDelegate:self];
     [self.navigationController pushViewController:editorController animated:YES];
+    self.navigationController.navigationBarHidden = YES;
 }
 
-- (void)photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)image
+- (void)photoEditor:(TMEBasePhotoEditorViewController *)editor finishedWithImage:(UIImage *)image
 {
     [self.navigationController popViewControllerAnimated:YES];
+    self.navigationController.navigationBarHidden = NO;
     [self.currentPhotoButton setBackgroundImage:image forState:UIControlStateNormal];
     self.currentPhotoButton = nil;
 }

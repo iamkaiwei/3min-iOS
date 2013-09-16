@@ -21,6 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Main Menu";
 }
 
 #pragma mark - Link to product config

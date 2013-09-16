@@ -12,3 +12,8 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+// common VCs
+#import "TMEBaseNavigationController.h"
+#import "TMEBaseTableViewController.h"
+#import "TMEBaseViewController.h"
