@@ -13,4 +13,8 @@
     #import <Foundation/Foundation.h>
 #endif
 
+// Vendors
+#import "CoreData+MagicalRecord.h"
+
+// Common VCs
 #import "TMEBaseViewController.h"
