@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0C5C14F217E6BA89004F30D9 /* TMEModelsGenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0C5C14F317E6BA89004F30D9 /* Build configuration list for PBXAggregateTarget "TMEModelsGenerator" */;
+			buildPhases = (
+				0C24C1EF17E71F5E007FAAD4 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = TMEModelsGenerator;
+			productName = TMEModelsGenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */; };
 		0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */; };
@@ -241,14 +255,6 @@
 			path = Superclass;
 			sourceTree = "<group>";
 		};
-		0C6E06A617E0CE4C0003F104 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Models;
-			path = Categories/Models;
-			sourceTree = "<group>";
-		};
 		0C74C12A17DC276900D8AF83 /* PhotoButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,7 +272,6 @@
 				0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */,
 				5976C04915925D2D007F6FC3 /* PhotoButton */,
 				0C28B28A17DC1B9200BD0EC2 /* Categories */,
-				0C6E06A617E0CE4C0003F104 /* Models */,
 				0C28B28B17DC1B9200BD0EC2 /* Controllers */,
 				0C28B28D17DC1B9200BD0EC2 /* Views */,
 				0C28B28C17DC1B9200BD0EC2 /* Vendors */,
@@ -371,6 +376,7 @@
 			projectRoot = "";
 			targets = (
 				5976C03E15925D2D007F6FC3 /* PhotoButton */,
+				0C5C14F217E6BA89004F30D9 /* TMEModelsGenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -392,6 +398,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C24C1EF17E71F5E007FAAD4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mogenerator -m TMEModels.xcdatamodeld/TMEModels.xcdatamodel/ --machine-dir Models/Machine/ --human-dir Models/ --template-var arc=true";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5976C03B15925D2D007F6FC3 /* Sources */ = {
@@ -434,6 +456,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0C5C14F417E6BA89004F30D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0C5C14F517E6BA89004F30D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		5976C05E15925D2D007F6FC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -543,6 +579,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0C5C14F317E6BA89004F30D9 /* Build configuration list for PBXAggregateTarget "TMEModelsGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C5C14F417E6BA89004F30D9 /* Debug */,
+				0C5C14F517E6BA89004F30D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5976C03915925D2D007F6FC3 /* Build configuration list for PBXProject "PhotoButton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
