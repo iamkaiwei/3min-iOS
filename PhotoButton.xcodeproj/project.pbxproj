@@ -316,7 +316,6 @@
 			children = (
 				0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */,
 				0CAE977217E765FF003A22CA /* Models */,
-				5976C04915925D2D007F6FC3 /* PhotoButton */,
 				0C28B28A17DC1B9200BD0EC2 /* Categories */,
 				0C28B28B17DC1B9200BD0EC2 /* Controllers */,
 				0C28B28D17DC1B9200BD0EC2 /* Views */,
@@ -356,13 +355,6 @@
 				5976C04715925D2D007F6FC3 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5976C04915925D2D007F6FC3 /* PhotoButton */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PhotoButton;
 			sourceTree = "<group>";
 		};
 		5976C04A15925D2D007F6FC3 /* Supporting Files */ = {
