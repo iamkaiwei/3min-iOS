@@ -572,8 +572,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PhotoButton/PhotoButton-Prefix.pch";
-				INFOPLIST_FILE = "PhotoButton/PhotoButton-Info.plist";
+				GCC_PREFIX_HEADER = "Supporting Files/PhotoButton-Prefix.pch";
+				INFOPLIST_FILE = "Supporting Files/PhotoButton-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/khang/Downloads/PhotoButton-master/AviarySDK",
@@ -594,8 +594,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PhotoButton/PhotoButton-Prefix.pch";
-				INFOPLIST_FILE = "PhotoButton/PhotoButton-Info.plist";
+				GCC_PREFIX_HEADER = "Supporting Files/PhotoButton-Prefix.pch";
+				INFOPLIST_FILE = "Supporting Files/PhotoButton-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/khang/Downloads/PhotoButton-master/AviarySDK",
