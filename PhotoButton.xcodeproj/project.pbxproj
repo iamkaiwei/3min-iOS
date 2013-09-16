@@ -12,6 +12,7 @@
 		0C28B2B017DC26DF00BD0EC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C28B2AA17DC26DF00BD0EC2 /* AppDelegate.m */; };
 		0C28B2B117DC26DF00BD0EC2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B2AC17DC26DF00BD0EC2 /* InfoPlist.strings */; };
 		0C28B2B617DC271600BD0EC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C28B2B517DC271600BD0EC2 /* main.m */; };
+		0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */; };
 		0C6E068817E0C9F90003F104 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C6E068517E0C9F90003F104 /* libAviarySDK.a */; };
 		0C6E068917E0C9F90003F104 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0C6E068717E0C9F90003F104 /* AviarySDKResources.bundle */; };
 		0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B717D1C08F00DC7482 /* libz.1.2.5.dylib */; };
@@ -51,6 +52,7 @@
 		0C28B2AE17DC26DF00BD0EC2 /* PhotoButton-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PhotoButton-Info.plist"; sourceTree = "<group>"; };
 		0C28B2AF17DC26DF00BD0EC2 /* PhotoButton-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PhotoButton-Prefix.pch"; sourceTree = "<group>"; };
 		0C28B2B517DC271600BD0EC2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMEModels.xcdatamodel; sourceTree = "<group>"; };
 		0C6E067F17E0C9F90003F104 /* AFOpenGLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenGLManager.h; sourceTree = "<group>"; };
 		0C6E068017E0C9F90003F104 /* AFPhotoEditorContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorContext.h; sourceTree = "<group>"; };
 		0C6E068117E0C9F90003F104 /* AFPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorController.h; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		5976C03415925D2D007F6FC3 = {
 			isa = PBXGroup;
 			children = (
+				0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */,
 				5976C04915925D2D007F6FC3 /* PhotoButton */,
 				0C28B28A17DC1B9200BD0EC2 /* Categories */,
 				0C6E06A617E0CE4C0003F104 /* Models */,
@@ -395,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */,
 				0C6E069017E0CBF60003F104 /* TMEViewController.m in Sources */,
 				0C6E069717E0CC3D0003F104 /* TMEPublishProductViewController.m in Sources */,
 				0C28B2B017DC26DF00BD0EC2 /* AppDelegate.m in Sources */,
@@ -558,6 +562,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */,
+			);
+			currentVersion = 0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */;
+			path = TMEModels.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5976C03615925D2D007F6FC3 /* Project object */;
 }
