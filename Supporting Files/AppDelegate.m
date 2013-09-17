@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "Crittercism.h"
 
 #import "TMEViewController.h"
 

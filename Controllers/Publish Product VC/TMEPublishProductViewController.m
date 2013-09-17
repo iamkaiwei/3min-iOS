@@ -34,6 +34,21 @@ AFPhotoEditorControllerDelegate
     }
 }
 
+#pragma mark - Rotation
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+    }else{
+        return YES;
+    }
+}
+
+- (BOOL) shouldAutorotate
+{
+    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+}
+
 # pragma mark - selectors
 - (IBAction)photoSaved:(id)sender {
     TMEPhotoButton *btnPhoto = (TMEPhotoButton *)sender;
