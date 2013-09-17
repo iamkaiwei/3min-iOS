@@ -13,8 +13,150 @@
     #import <Foundation/Foundation.h>
 #endif
 
+//------------------------------------------------------------------------------------------------------
+// Debug vs Production configurations
+//------------------------------------------------------------------------------------------------------
+
+//Use this "EagleChild Production" scheme to upload to app store
+#ifdef PRODUCTION
+
+#define API_SERVER_HOST                             @"https://eagle-child-production.herokuapp.com"      //production url
+#define URBAN_AIRSHIP_APP_KEY                       @""
+#define URBAN_AIRSHIP_APP_SECRET                    @""
+#define SETTINGS_CRITERCISM_TOKEN_DEFAULT           @"51df74ddc463c2113c000002"
+#define SETTINGS_LOCALYTICS_TOKEN_DEFAULT           @"f7e86c8413e50da8f46d1af-130c72d6-0489-11e3-11a5-004a77f8b47f"
+#define SETTINGS_NEW_RELIC_TOKEN_DEFAULT            @""
+#define SETTINGS_ITUNE_APP_ID                       @""
+#define ENABLE_TRIPPLE_TAP_PREFILL                  NO
+
+
+//Normal development environment
+#else
+#ifdef DEBUG
+
+#define API_SERVER_HOST                             @""
+#define URBAN_AIRSHIP_APP_KEY                       @""
+#define URBAN_AIRSHIP_APP_SECRET                    @""
+#define SETTINGS_CRITERCISM_TOKEN_DEFAULT           @""
+#define SETTINGS_LOCALYTICS_TOKEN_DEFAULT           @""
+#define SETTINGS_NEW_RELIC_TOKEN_DEFAULT            @""
+#define SETTINGS_ITUNE_APP_ID                       @""
+#define ENABLE_TRIPPLE_TAP_PREFILL                  YES
+
+
+//Staging, archive to app manager
+#else
+
+#define API_SERVER_HOST                             @""        //app manager
+#define URBAN_AIRSHIP_APP_KEY                       @""
+#define URBAN_AIRSHIP_APP_SECRET                    @""
+#define SETTINGS_CRITERCISM_TOKEN_DEFAULT           @""
+#define SETTINGS_LOCALYTICS_TOKEN_DEFAULT           @""
+#define SETTINGS_NEW_RELIC_TOKEN_DEFAULT            @""
+#define SETTINGS_ITUNE_APP_ID                       @""
+#define ENABLE_TRIPPLE_TAP_PREFILL                  YES
+
+#endif
+#endif
+
+// Categories
+#import "ISO8601DateFormatter.h"
+#import "MKMapView+Additions.h"
+#import "NSArray+Additions.h"
+#import "NSMutableArray+Additions.h"
+#import "NSCalendar+Additions.h"
+#import "NSData+Base64.h"
+#import "NSDate+Additions.h"
+#import "NSDictionary+Additions.h"
+#import "NSObject+Additions.h"
+#import "NSNumber+Additions.h"
+#import "NSString+ActiveSupportInflector.h"
+#import "NSString+Additions.h"
+#import "NSString+Validation.h"
+#import "UIAlertView+Additions.h"
+#import "UIBarButtonItem+Custom.h"
+#import "UIColor+Additions.h"
+#import "UIColor+Custom.h"
+#import "UIFont+Additions.h"
+#import "UIImage+Additions.h"
+#import "UIImage+ImageEffects.h"
+#import "UIImageView+Additions.h"
+#import "UILabel+Additions.h"
+#import "UITextView+Additions.h"
+#import "UINavigationController+Additions.h"
+#import "UIView+Additions.h"
+#import "UIView+Nib.h"
+#import "UIView+Glow.h"
+#import "UIScrollView+Additions.h"
+#import "UIViewController+Additions.h"
+#import "UIWebView+Additions.h"
+#import "UIButton+Additions.h"
+#import "UIFont+FontAwesome.h"
+#import "NSString+FontAwesome.h"
+
 // Vendors
 #import "CoreData+MagicalRecord.h"
+#import "Crittercism.h"
+#import "SVProgressHUD.h"
 
 // Common VCs
 #import "TMEBaseViewController.h"
+
+
+
+//------------------------------------------------------------------------------------------------------
+
+//
+// Convenient macro to check app version
+//
+#define APP_VERSION                                 ([[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleVersionKey])
+#define APP_VERSION_EQUAL_TO(v)                     ([APP_VERSION compare:v options:NSNumericSearch] == NSOrderedSame)
+#define APP_VERSION_GREATER_THAN(v)                 ([APP_VERSION compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define APP_VERSION_GREATER_THAN_OR_EQUAL_TO(v)     ([APP_VERSION compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define APP_VERSION_LESS_THAN(v)                    ([APP_VERSION compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define APP_VERSION_LESS_THAN_OR_EQUAL_TO(v)        ([APP_VERSION compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+//
+// Convenient macro to check system version
+// Source: http://stackoverflow.com/questions/3339722/check-iphone-ios-version
+//
+#define SYSTEM_VERSION                              ([[UIDevice currentDevice] systemVersion])
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([SYSTEM_VERSION compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([SYSTEM_VERSION compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([SYSTEM_VERSION compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([SYSTEM_VERSION compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([SYSTEM_VERSION compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+#define DEVICE_NAME                                 ([[UIDevice currentDevice] name])
+
+#define IS_LANDSCAPE                                (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation))
+#define IS_PORTRAIT                                 (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation))
+#define IS_SIMULATOR                                ([[[UIDevice currentDevice] model] hasSuffix:@"Simulator"])
+#define IS_IPAD                                     ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPad)
+#define IS_NOT_IPAD                                 ([UIDevice currentDevice].userInterfaceIdiom!=UIUserInterfaceIdiomPad)
+#define IS_RETINA                                   ([UIScreen mainScreen].scale > 1)
+#define DEVICE_SCALE                                ([UIScreen mainScreen].scale)
+
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
+//
+// Source: http://iphoneincubator.com/blog/debugging/the-evolution-of-a-replacement-for-nslog
+// Source: http://www.cimgf.com/2010/05/02/my-current-prefix-pch-file/
+//
+// DLog is almost a drop-in replacement for NSLog to turn off logging for release build
+//
+// add -DDEBUG to OTHER_CFLAGS in the build user defined settings
+//
+// Usage:
+//
+// DLog();
+// DLog(@"here");
+// DLog(@"value: %d", x);
+// Unfortunately this doesn't work DLog(aStringVariable); you have to do this instead DLog(@"%@", aStringVariable);
+//
+
+#ifdef DEBUG
+#define DLog(__FORMAT__, ...) NSLog((@"%s [L:%d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#define DLog(...) do {} while (0)
+#endif~

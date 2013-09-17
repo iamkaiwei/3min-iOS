@@ -1,5 +1,5 @@
 //
-//  BaseViewController.m
+//  TMETMEBaseViewController.m
 //  MyBaseProject
 //
 //  Created by Torin on 1/12/12.
@@ -79,9 +79,6 @@
     
     if (self.shouldAvoidKeyboard)
         [self registerForKeyboardNotifications];
-    
-    //Reload Settings, use cache if available and not too old
-    [[EGCLoadingManager sharedInstance] downloadSettings:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -299,12 +296,12 @@
 
 #pragma mark - Helpers
 
-- (void)showWebviewWithURL:(NSString *)urlString
-{
-    TMEBaseWebViewController *vc = [[TMEBaseWebViewController alloc] initWithNib];
-    vc.url = urlString;
-    [self.navigationController pushViewController:vc animated:YES];
-}
+//- (void)showWebviewWithURL:(NSString *)urlString
+//{
+//    BaseWebViewController *vc = [[BaseWebViewController alloc] initWithNib];
+//    vc.url = urlString;
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
 
 - (void)registerForKeyboardNotifications
 {
