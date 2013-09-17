@@ -104,6 +104,7 @@
 		0C7EFBEC17E8D5790054C4DE /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFBE817E8D5780054C4DE /* NSString+FontAwesome.m */; };
 		0C7EFBED17E8D5790054C4DE /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFBEA17E8D5790054C4DE /* UIFont+FontAwesome.m */; };
 		0C7EFBEF17E8D86E0054C4DE /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7EFBEE17E8D86E0054C4DE /* CoreImage.framework */; };
+		0C7EFBF117E8DBE50054C4DE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7EFBF017E8DBE50054C4DE /* MapKit.framework */; };
 		0CAE978017E765FF003A22CA /* _TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977517E765FF003A22CA /* _TMECategory.m */; };
 		0CAE978117E765FF003A22CA /* _TMEProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977717E765FF003A22CA /* _TMEProduct.m */; };
 		0CAE978217E765FF003A22CA /* _TMEProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977917E765FF003A22CA /* _TMEProductImages.m */; };
@@ -290,6 +291,7 @@
 		0C7EFBE917E8D5790054C4DE /* UIFont+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+FontAwesome.h"; sourceTree = "<group>"; };
 		0C7EFBEA17E8D5790054C4DE /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FontAwesome.m"; sourceTree = "<group>"; };
 		0C7EFBEE17E8D86E0054C4DE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		0C7EFBF017E8DBE50054C4DE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0CAE977417E765FF003A22CA /* _TMECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMECategory.h; sourceTree = "<group>"; };
 		0CAE977517E765FF003A22CA /* _TMECategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMECategory.m; sourceTree = "<group>"; };
 		0CAE977617E765FF003A22CA /* _TMEProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEProduct.h; sourceTree = "<group>"; };
@@ -338,6 +340,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C7EFBF117E8DBE50054C4DE /* MapKit.framework in Frameworks */,
+				0CAE979D17E7666D003A22CA /* libAviarySDK.a in Frameworks */,
 				0CBE48AE17D1C02E00DC7482 /* Accelerate.framework in Frameworks */,
 				0C7EFBEF17E8D86E0054C4DE /* CoreImage.framework in Frameworks */,
 				5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */,
@@ -354,7 +358,6 @@
 				0CBE48B217D1C03E00DC7482 /* CoreData.framework in Frameworks */,
 				0CBE48B017D1C03700DC7482 /* AdSupport.framework in Frameworks */,
 				5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */,
-				0CAE979D17E7666D003A22CA /* libAviarySDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,6 +754,7 @@
 		5976C04215925D2D007F6FC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0C7EFBF017E8DBE50054C4DE /* MapKit.framework */,
 				0C7EFBEE17E8D86E0054C4DE /* CoreImage.framework */,
 				0CBE48C117D1C0B500DC7482 /* SystemConfiguration.framework */,
 				0CBE48BF17D1C0AB00DC7482 /* StoreKit.framework */,
@@ -1058,7 +1062,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/khang/2359Media/PhotoButton/Vendors/CrittercismSDK,
-					"\\\"$(SRCROOT)/Vendors/AviarySDK\"",
+					"\\\\\\\"$(SRCROOT)/Vendors/AviarySDK\\\"",
+					/Users/khang/2359Media/PhotoButton/Vendors/AviarySDK,
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1078,7 +1083,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/khang/2359Media/PhotoButton/Vendors/CrittercismSDK,
-					"\\\"$(SRCROOT)/Vendors/AviarySDK\"",
+					"\\\\\\\"$(SRCROOT)/Vendors/AviarySDK\\\"",
+					/Users/khang/2359Media/PhotoButton/Vendors/AviarySDK,
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
