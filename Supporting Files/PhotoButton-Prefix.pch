@@ -94,12 +94,15 @@
 #import "UIFont+FontAwesome.h"
 #import "NSString+FontAwesome.h"
 
+// Managers
+#import "BaseManager.h"
+#import "BaseNetworkManager.h"
+
 // Models
 #import "TMEProduct.h"
 #import "TMEProductImages.h"
 #import "TMECategory.h"
 #import "TMEUser.h"
-
 
 // Vendors
 #import "CoreData+MagicalRecord.h"
