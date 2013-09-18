@@ -19,6 +19,9 @@
     // Crittercism
     [Crittercism enableWithAppID: @"51f8bef646b7c2316f000007"];
     
+    // start MR
+    [MagicalRecord setupCoreDataStack];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     UIViewController *rootVC;
