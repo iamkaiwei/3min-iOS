@@ -14,9 +14,9 @@ extern const struct TMEProductAttributes {
 } TMEProductAttributes;
 
 extern const struct TMEProductRelationships {
-	__unsafe_unretained NSString *categoryID;
+	__unsafe_unretained NSString *category;
 	__unsafe_unretained NSString *images;
-	__unsafe_unretained NSString *userID;
+	__unsafe_unretained NSString *user;
 } TMEProductRelationships;
 
 extern const struct TMEProductFetchedProperties {
@@ -114,9 +114,9 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, strong) TMECategory *categoryID;
+@property (nonatomic, strong) TMECategory *category;
 
-//- (BOOL)validateCategoryID:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateCategory:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -128,9 +128,9 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, strong) TMEUser *userID;
+@property (nonatomic, strong) TMEUser *user;
 
-//- (BOOL)validateUserID:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateUser:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -193,8 +193,8 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-- (TMECategory*)primitiveCategoryID;
-- (void)setPrimitiveCategoryID:(TMECategory*)value;
+- (TMECategory*)primitiveCategory;
+- (void)setPrimitiveCategory:(TMECategory*)value;
 
 
 
@@ -203,8 +203,8 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-- (TMEUser*)primitiveUserID;
-- (void)setPrimitiveUserID:(TMEUser*)value;
+- (TMEUser*)primitiveUser;
+- (void)setPrimitiveUser:(TMEUser*)value;
 
 
 @end

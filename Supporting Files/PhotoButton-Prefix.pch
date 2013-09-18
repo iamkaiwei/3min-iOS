@@ -98,7 +98,7 @@
 #import "TMEProduct.h"
 #import "TMEProductImages.h"
 #import "TMECategory.h"
-#import "TME"
+#import "TMEUser.h"
 
 
 // Vendors

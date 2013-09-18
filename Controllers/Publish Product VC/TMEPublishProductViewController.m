@@ -79,7 +79,23 @@ UITextFieldDelegate
 
 # pragma marks - Actions
 - (IBAction)onPublishButton:(id)sender {
-    TMEP
+    
+    // create dummy user
+    TMEUser *user = [TMEUser MR_createEntity];
+    user.name = "Trieu Khang";
+    user.userID = 1;
+    
+    // create dummy category
+    TMECategory *category = [TMECategory MR_createEntity];
+    category.name = "Dummy category";
+    category.categoryID = 1;
+    
+    // create product
+    TMEProduct *product = [TMEProduct MR_createEntity];
+    product.name = @"";
+    product.productID = @"";
+    product.details = @"";
+    product.categoryID = category;
 }
 
 

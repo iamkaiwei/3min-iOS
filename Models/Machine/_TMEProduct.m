@@ -13,9 +13,9 @@ const struct TMEProductAttributes TMEProductAttributes = {
 };
 
 const struct TMEProductRelationships TMEProductRelationships = {
-	.categoryID = @"categoryID",
+	.category = @"category",
 	.images = @"images",
-	.userID = @"userID",
+	.user = @"user",
 };
 
 const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
@@ -144,7 +144,7 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 
 
 
-@dynamic categoryID;
+@dynamic category;
 
 	
 
@@ -161,7 +161,7 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 }
 	
 
-@dynamic userID;
+@dynamic user;
 
 	
 

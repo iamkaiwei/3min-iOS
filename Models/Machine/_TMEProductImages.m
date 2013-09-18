@@ -9,7 +9,7 @@ const struct TMEProductImagesAttributes TMEProductImagesAttributes = {
 };
 
 const struct TMEProductImagesRelationships TMEProductImagesRelationships = {
-	.productID = @"productID",
+	.product = @"product",
 };
 
 const struct TMEProductImagesFetchedProperties TMEProductImagesFetchedProperties = {
@@ -86,7 +86,7 @@ const struct TMEProductImagesFetchedProperties TMEProductImagesFetchedProperties
 
 
 
-@dynamic productID;
+@dynamic product;
 
 	
 

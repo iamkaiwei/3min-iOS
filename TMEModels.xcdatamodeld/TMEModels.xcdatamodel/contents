@@ -3,7 +3,7 @@
     <entity name="TMECategory" representedClassName="TMECategory" syncable="YES">
         <attribute name="categoryID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="categoryID" inverseEntity="TMEProduct" syncable="YES"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="category" inverseEntity="TMEProduct" syncable="YES"/>
     </entity>
     <entity name="TMEProduct" representedClassName="TMEProduct" syncable="YES">
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,19 +12,19 @@
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="productID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="publishDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="categoryID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMECategory" inverseName="products" inverseEntity="TMECategory" syncable="YES"/>
-        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProductImages" inverseName="productID" inverseEntity="TMEProductImages" syncable="YES"/>
-        <relationship name="userID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEUser" inverseName="products" inverseEntity="TMEUser" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMECategory" inverseName="products" inverseEntity="TMECategory" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProductImages" inverseName="product" inverseEntity="TMEProductImages" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEUser" inverseName="products" inverseEntity="TMEUser" syncable="YES"/>
     </entity>
     <entity name="TMEProductImages" representedClassName="TMEProductImages" syncable="YES">
         <attribute name="imageID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="productID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="images" inverseEntity="TMEProduct" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="images" inverseEntity="TMEProduct" syncable="YES"/>
     </entity>
     <entity name="TMEUser" representedClassName="TMEUser" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="userID" inverseEntity="TMEProduct" syncable="YES"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="user" inverseEntity="TMEProduct" syncable="YES"/>
     </entity>
     <elements>
         <element name="TMECategory" positionX="153" positionY="360" width="128" height="88"/>
