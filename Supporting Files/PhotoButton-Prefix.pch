@@ -96,7 +96,6 @@
 
 // Managers
 #import "BaseManager.h"
-#import "BaseNetworkManager.h"
 
 // Models
 #import "TMEProduct.h"
@@ -108,6 +107,7 @@
 #import "CoreData+MagicalRecord.h"
 #import "Crittercism.h"
 #import "SVProgressHUD.h"
+#import "AFNetworking.h"
 
 // Common VCs
 #import "TMEBaseViewController.h"
