@@ -11,10 +11,13 @@
 
 @interface TMEPublishProductViewController ()
 <
-AFPhotoEditorControllerDelegate
+AFPhotoEditorControllerDelegate,
+UITextFieldDelegate
 >
 
 @property (strong, nonatomic) TMEPhotoButton     * currentPhotoButton;
+@property (weak, nonatomic) IBOutlet UITextField *txtProductName;
+
 
 @end
 

@@ -46,10 +46,12 @@
     height = ABS(height);
     
     offset.y = CGRectGetMidY(subviewFrame) - height/2;
-    if (offset.y + height > self.contentSize.height)
-        offset.y = self.contentSize.height - height;
-    if (offset.y < 0)
-        offset.y = 0;
+
+#warning THIS PART NEED TO BE IMPROVED
+//    if (offset.y + height > self.contentSize.height)
+//        offset.y = self.contentSize.height - height;
+//    if (offset.y < 0)
+//        offset.y = 0;
     
     [self setContentOffset:offset animated:animated];
 }
