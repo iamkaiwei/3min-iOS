@@ -24,7 +24,7 @@ extern const struct TMEProductFetchedProperties {
 
 @class TMECategory;
 @class TMEProductImages;
-@class TMEProduct;
+@class TMEUser;
 
 
 
@@ -128,7 +128,7 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, strong) TMEProduct *userID;
+@property (nonatomic, strong) TMEUser *userID;
 
 //- (BOOL)validateUserID:(id*)value_ error:(NSError**)error_;
 
@@ -203,8 +203,8 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-- (TMEProduct*)primitiveUserID;
-- (void)setPrimitiveUserID:(TMEProduct*)value;
+- (TMEUser*)primitiveUserID;
+- (void)setPrimitiveUserID:(TMEUser*)value;
 
 
 @end

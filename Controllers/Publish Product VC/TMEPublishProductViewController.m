@@ -60,7 +60,7 @@ UITextFieldDelegate
     [self displayEditorForImage:image];
 }
 
-#pragma mark - AFPhotoController delegate
+# pragma mark - AFPhotoController delegate
 - (void)displayEditorForImage:(UIImage *)imageToEdit
 {
     TMEBasePhotoEditorViewController *editorController = [[TMEBasePhotoEditorViewController alloc] initWithImage:imageToEdit];
@@ -76,5 +76,11 @@ UITextFieldDelegate
     [self.currentPhotoButton setBackgroundImage:image forState:UIControlStateNormal];
     self.currentPhotoButton = nil;
 }
+
+# pragma marks - Actions
+- (IBAction)onPublishButton:(id)sender {
+    TMEP
+}
+
 
 @end

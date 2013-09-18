@@ -10,7 +10,7 @@ extern const struct TMEProductImagesAttributes {
 } TMEProductImagesAttributes;
 
 extern const struct TMEProductImagesRelationships {
-	__unsafe_unretained NSString *userID;
+	__unsafe_unretained NSString *productID;
 } TMEProductImagesRelationships;
 
 extern const struct TMEProductImagesFetchedProperties {
@@ -58,9 +58,9 @@ extern const struct TMEProductImagesFetchedProperties {
 
 
 
-@property (nonatomic, strong) TMEProduct *userID;
+@property (nonatomic, strong) TMEProduct *productID;
 
-//- (BOOL)validateUserID:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateProductID:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -91,8 +91,8 @@ extern const struct TMEProductImagesFetchedProperties {
 
 
 
-- (TMEProduct*)primitiveUserID;
-- (void)setPrimitiveUserID:(TMEProduct*)value;
+- (TMEProduct*)primitiveProductID;
+- (void)setPrimitiveProductID:(TMEProduct*)value;
 
 
 @end

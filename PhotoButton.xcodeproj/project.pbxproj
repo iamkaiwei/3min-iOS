@@ -11,7 +11,7 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 0C5C14F317E6BA89004F30D9 /* Build configuration list for PBXAggregateTarget "TMEModelsGenerator" */;
 			buildPhases = (
-				0C24C1EF17E71F5E007FAAD4 /* ShellScript */,
+				0C24C1EF17E71F5E007FAAD4 /* Run Script */,
 			);
 			dependencies = (
 			);
@@ -24,6 +24,8 @@
 		0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */; };
 		0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */; };
 		0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */; };
+		0C6D86A417EA061A00D959F8 /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D86A317EA061A00D959F8 /* TMEUser.m */; };
+		0C6D86A717EA062100D959F8 /* _TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D86A617EA062100D959F8 /* _TMEUser.m */; };
 		0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B717D1C08F00DC7482 /* libz.1.2.5.dylib */; };
 		0C6E069017E0CBF60003F104 /* TMEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6E068D17E0CBF60003F104 /* TMEViewController.m */; };
 		0C6E069117E0CBF60003F104 /* TMEViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6E068E17E0CBF60003F104 /* TMEViewController_iPad.xib */; };
@@ -136,6 +138,10 @@
 		0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_57x57.png; sourceTree = "<group>"; };
 		0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_114x114.png; sourceTree = "<group>"; };
 		0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMEModels.xcdatamodel; sourceTree = "<group>"; };
+		0C6D86A217EA061A00D959F8 /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
+		0C6D86A317EA061A00D959F8 /* TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUser.m; sourceTree = "<group>"; };
+		0C6D86A517EA062100D959F8 /* _TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEUser.h; sourceTree = "<group>"; };
+		0C6D86A617EA062100D959F8 /* _TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEUser.m; sourceTree = "<group>"; };
 		0C6E068C17E0CBF60003F104 /* TMEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEViewController.h; sourceTree = "<group>"; };
 		0C6E068D17E0CBF60003F104 /* TMEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEViewController.m; sourceTree = "<group>"; };
 		0C6E068E17E0CBF60003F104 /* TMEViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEViewController_iPad.xib; sourceTree = "<group>"; };
@@ -670,6 +676,8 @@
 				0CAE977D17E765FF003A22CA /* TMEProduct.m */,
 				0CAE977E17E765FF003A22CA /* TMEProductImages.h */,
 				0CAE977F17E765FF003A22CA /* TMEProductImages.m */,
+				0C6D86A217EA061A00D959F8 /* TMEUser.h */,
+				0C6D86A317EA061A00D959F8 /* TMEUser.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -677,6 +685,8 @@
 		0CAE977317E765FF003A22CA /* Machine */ = {
 			isa = PBXGroup;
 			children = (
+				0C6D86A517EA062100D959F8 /* _TMEUser.h */,
+				0C6D86A617EA062100D959F8 /* _TMEUser.m */,
 				0CAE977417E765FF003A22CA /* _TMECategory.h */,
 				0CAE977517E765FF003A22CA /* _TMECategory.m */,
 				0CAE977617E765FF003A22CA /* _TMEProduct.h */,
@@ -857,13 +867,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0C24C1EF17E71F5E007FAAD4 /* ShellScript */ = {
+		0C24C1EF17E71F5E007FAAD4 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -934,6 +945,7 @@
 				0C7EFB6B17E768C70054C4DE /* MagicalRecord+ErrorHandling.m in Sources */,
 				0CAE978317E765FF003A22CA /* TMECategory.m in Sources */,
 				0C7EFBD717E8D5170054C4DE /* UIColor+Custom.m in Sources */,
+				0C6D86A417EA061A00D959F8 /* TMEUser.m in Sources */,
 				0C7EFBD317E8D5170054C4DE /* UIBarButtonItem+Custom.m in Sources */,
 				0C7EFB6117E768C70054C4DE /* NSManagedObject+MagicalRecord.m in Sources */,
 				0C7EFB5817E768C70054C4DE /* NSAttributeDescription+MagicalDataImport.m in Sources */,
@@ -955,6 +967,7 @@
 				0C7EFBD817E8D5170054C4DE /* UIFont+Additions.m in Sources */,
 				0C7EFBE117E8D5170054C4DE /* UIView+Glow.m in Sources */,
 				0C7EFB5F17E768C70054C4DE /* NSManagedObject+MagicalDataImport.m in Sources */,
+				0C6D86A717EA062100D959F8 /* _TMEUser.m in Sources */,
 				0C7EFBD017E8D5170054C4DE /* NSString+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

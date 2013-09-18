@@ -94,6 +94,13 @@
 #import "UIFont+FontAwesome.h"
 #import "NSString+FontAwesome.h"
 
+// Models
+#import "TMEProduct.h"
+#import "TMEProductImages.h"
+#import "TMECategory.h"
+#import "TME"
+
+
 // Vendors
 #import "CoreData+MagicalRecord.h"
 #import "Crittercism.h"
