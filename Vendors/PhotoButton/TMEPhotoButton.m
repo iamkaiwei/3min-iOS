@@ -63,6 +63,8 @@
 {
 	[picker dismissModalViewControllerAnimated:YES];
     
+    [self beforeGetImageWithPhotoButton:self];
+    
     UIImage *image = nil;
     
     image = [info objectForKey:UIImagePickerControllerEditedImage];
@@ -78,6 +80,8 @@
         
         [PBImageHelper saveImageToDocuments:image withName:photoName];
     }
+    
+    [self didFinishGetImageWithImageUrl:photoName];
     
     [self setBackgroundImage:image forState:UIControlStateNormal];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
@@ -129,6 +133,20 @@
         [self takeOrChoosePhoto:FALSE];
     } else {                       // cancel
       return;
+    }
+}
+
+#pragma mark - Blocks actions
+- (void)beforeGetImageWithPhotoButton:(TMEPhotoButton *)photoButton
+{
+    if ([self.viewController respondsToSelector:@selector(beforeGetImageWithPhotoButton:)]) {
+        [self.viewController performSelector:@selector(beforeGetImageWithPhotoButton:) withObject:self];
+    }
+}
+- (void)didFinishGetImageWithImageUrl:(NSString *)localURL
+{
+    if ([self.viewController respondsToSelector:@selector(didFinishGetImageWithImageUrl:)]) {
+        [self.viewController performSelector:@selector(didFinishGetImageWithImageUrl:) withObject:localURL];
     }
 }
 

@@ -15,16 +15,14 @@
 @property (weak, nonatomic) IBOutlet UILabel        * lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel        * lblProductPrice;
 
-
 @end
 
 @implementation TMEBrowserProductsTableCell
 
 - (void)configCellWithProduct:(TMEProduct *)product{
-    
     TMEProductImages *img = [product.images anyObject];
     UIImage *image = [PBImageHelper loadImageFromDocuments:img.url];
-    [self.imageView setImage:image];
+    [self.imgProductImage setImage:image];
     
     self.lblProductName.text = product.name;
     self.lblProductPrice.text = [product.price stringValue];

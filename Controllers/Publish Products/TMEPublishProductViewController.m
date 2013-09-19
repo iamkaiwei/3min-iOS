@@ -12,7 +12,8 @@
 @interface TMEPublishProductViewController ()
 <
 AFPhotoEditorControllerDelegate,
-UITextFieldDelegate
+UITextFieldDelegate,
+TMEPhotoButtonDelegate
 >
 
 @property (strong, nonatomic) TMEPhotoButton     * currentPhotoButton;
@@ -77,6 +78,17 @@ UITextFieldDelegate
     self.currentPhotoButton = nil;
 }
 
+#pragma marks - TMEPhotoButton delegate
+- (void)beforeGetImageWithPhotoButton:(TMEPhotoButton *)photoButton
+{
+    photoButton.photoName = [@([[NSDate date] timeIntervalSince1970]) stringValue];
+}
+
+- (void)didFinishGetImageWithImageUrl:(NSString *)localURL
+{
+    
+}
+
 # pragma marks - Actions
 - (IBAction)onPublishButton:(id)sender {
     
@@ -102,7 +114,9 @@ UITextFieldDelegate
     NSMutableArray *arrImages = [@[] mutableCopy];
     for (TMEPhotoButton *view in self.view.subviews) {
         if ([view isKindOfClass:[TMEPhotoButton class]] && view.photoName) {
-            [arrImages addObject:view.photoName];
+            TMEProductImages *image = [TMEProductImages MR_createEntity];
+            image.url = view.photoName;
+            [arrImages addObject:image];
         }
     }
     
@@ -113,9 +127,8 @@ UITextFieldDelegate
     [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
         DLog(@"Finish save to magical record");
     }];
-    
-    NSArray *arrProduct = [TMEProduct MR_findAll];
 }
+
 
 
 @end
