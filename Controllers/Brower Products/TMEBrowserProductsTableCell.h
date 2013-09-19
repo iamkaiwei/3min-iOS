@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TMEBrowerProductsTableCell : UITableViewCell
+@interface TMEBrowserProductsTableCell : UITableViewCell
 
 - (void)configCellWithProduct:(TMEProduct *)product;
 

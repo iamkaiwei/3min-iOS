@@ -6,9 +6,9 @@
 //
 //
 
-#import "TMEBrowerProductsTableCell.h"
+#import "TMEBrowserProductsTableCell.h"
 
-@implementation TMEBrowerProductsTableCell
+@implementation TMEBrowserProductsTableCell
 
 - (void)configCellWithProduct:(TMEProduct *)product{
     

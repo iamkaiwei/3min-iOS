@@ -6,13 +6,13 @@
 //
 //
 
-#import "TMEBrowerProductsViewController.h"
+#import "TMEBrowserProductsViewController.h"
 
-@interface TMEBrowerProductsViewController ()
+@interface TMEBrowserProductsViewController ()
 
 @end
 
-@implementation TMEBrowerProductsViewController
+@implementation TMEBrowserProductsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

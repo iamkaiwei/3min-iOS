@@ -27,9 +27,9 @@
 		0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */; };
 		0C2CE1C117EAEAC20074C57F /* TMEPublishProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1BD17EAEAC20074C57F /* TMEPublishProductViewController.m */; };
 		0C2CE1C217EAEAC20074C57F /* TMEPublishProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2CE1BE17EAEAC20074C57F /* TMEPublishProductViewController.xib */; };
-		0C2CE1C717EAEB3F0074C57F /* TMEBrowerProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1C517EAEB3F0074C57F /* TMEBrowerProductsViewController.m */; };
-		0C2CE1C817EAEB3F0074C57F /* TMEBrowerProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2CE1C617EAEB3F0074C57F /* TMEBrowerProductsViewController.xib */; };
-		0C2CE1CB17EAEBEA0074C57F /* TMEBrowerProductsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1CA17EAEBEA0074C57F /* TMEBrowerProductsTableCell.m */; };
+		0C2CE1C717EAEB3F0074C57F /* TMEBrowserProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1C517EAEB3F0074C57F /* TMEBrowserProductsViewController.m */; };
+		0C2CE1C817EAEB3F0074C57F /* TMEBrowserProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2CE1C617EAEB3F0074C57F /* TMEBrowserProductsViewController.xib */; };
+		0C2CE1CB17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1CA17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m */; };
 		0C2CE1CD17EAEBFB0074C57F /* TMEBrowerProductsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2CE1CC17EAEBFB0074C57F /* TMEBrowerProductsTableCell.xib */; };
 		0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
@@ -162,11 +162,11 @@
 		0C2CE1BC17EAEAC20074C57F /* TMEPublishProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPublishProductViewController.h; sourceTree = "<group>"; };
 		0C2CE1BD17EAEAC20074C57F /* TMEPublishProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPublishProductViewController.m; sourceTree = "<group>"; };
 		0C2CE1BE17EAEAC20074C57F /* TMEPublishProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEPublishProductViewController.xib; sourceTree = "<group>"; };
-		0C2CE1C417EAEB3F0074C57F /* TMEBrowerProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowerProductsViewController.h; sourceTree = "<group>"; };
-		0C2CE1C517EAEB3F0074C57F /* TMEBrowerProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowerProductsViewController.m; sourceTree = "<group>"; };
-		0C2CE1C617EAEB3F0074C57F /* TMEBrowerProductsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowerProductsViewController.xib; sourceTree = "<group>"; };
-		0C2CE1C917EAEBEA0074C57F /* TMEBrowerProductsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowerProductsTableCell.h; sourceTree = "<group>"; };
-		0C2CE1CA17EAEBEA0074C57F /* TMEBrowerProductsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowerProductsTableCell.m; sourceTree = "<group>"; };
+		0C2CE1C417EAEB3F0074C57F /* TMEBrowserProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductsViewController.h; sourceTree = "<group>"; };
+		0C2CE1C517EAEB3F0074C57F /* TMEBrowserProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductsViewController.m; sourceTree = "<group>"; };
+		0C2CE1C617EAEB3F0074C57F /* TMEBrowserProductsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserProductsViewController.xib; sourceTree = "<group>"; };
+		0C2CE1C917EAEBEA0074C57F /* TMEBrowserProductsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductsTableCell.h; sourceTree = "<group>"; };
+		0C2CE1CA17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductsTableCell.m; sourceTree = "<group>"; };
 		0C2CE1CC17EAEBFB0074C57F /* TMEBrowerProductsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowerProductsTableCell.xib; sourceTree = "<group>"; };
 		0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMEModels.xcdatamodel; sourceTree = "<group>"; };
 		0C5C936817EA162100ECF9B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -551,11 +551,11 @@
 		0C2CE1C317EAEB3F0074C57F /* Brower Products */ = {
 			isa = PBXGroup;
 			children = (
-				0C2CE1C417EAEB3F0074C57F /* TMEBrowerProductsViewController.h */,
-				0C2CE1C517EAEB3F0074C57F /* TMEBrowerProductsViewController.m */,
-				0C2CE1C617EAEB3F0074C57F /* TMEBrowerProductsViewController.xib */,
-				0C2CE1C917EAEBEA0074C57F /* TMEBrowerProductsTableCell.h */,
-				0C2CE1CA17EAEBEA0074C57F /* TMEBrowerProductsTableCell.m */,
+				0C2CE1C417EAEB3F0074C57F /* TMEBrowserProductsViewController.h */,
+				0C2CE1C517EAEB3F0074C57F /* TMEBrowserProductsViewController.m */,
+				0C2CE1C617EAEB3F0074C57F /* TMEBrowserProductsViewController.xib */,
+				0C2CE1C917EAEBEA0074C57F /* TMEBrowserProductsTableCell.h */,
+				0C2CE1CA17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m */,
 				0C2CE1CC17EAEBFB0074C57F /* TMEBrowerProductsTableCell.xib */,
 			);
 			path = "Brower Products";
@@ -980,7 +980,7 @@
 				0CAE979E17E7666D003A22CA /* AviarySDKResources.bundle in Resources */,
 				0C2CE1CD17EAEBFB0074C57F /* TMEBrowerProductsTableCell.xib in Resources */,
 				0C7EFBEB17E8D5790054C4DE /* FontAwesome.ttf in Resources */,
-				0C2CE1C817EAEB3F0074C57F /* TMEBrowerProductsViewController.xib in Resources */,
+				0C2CE1C817EAEB3F0074C57F /* TMEBrowserProductsViewController.xib in Resources */,
 				0C2CE1C217EAEAC20074C57F /* TMEPublishProductViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1065,7 +1065,7 @@
 				0CD9CF5F17EA0FD400402E91 /* UIImageView+AFNetworking.m in Sources */,
 				0C7EFB6D17E768C70054C4DE /* MagicalRecord+Options.m in Sources */,
 				0CAE978117E765FF003A22CA /* _TMEProduct.m in Sources */,
-				0C2CE1C717EAEB3F0074C57F /* TMEBrowerProductsViewController.m in Sources */,
+				0C2CE1C717EAEB3F0074C57F /* TMEBrowserProductsViewController.m in Sources */,
 				0C7EFB6917E768C70054C4DE /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				0C7EFBE217E8D5170054C4DE /* UIView+Nib.m in Sources */,
 				0CD9CF5E17EA0FD400402E91 /* AFXMLRequestOperation.m in Sources */,
@@ -1089,7 +1089,7 @@
 				0CAE978E17E76635003A22CA /* AppDelegate.m in Sources */,
 				0CAE979017E76635003A22CA /* main.m in Sources */,
 				0C7EFBED17E8D5790054C4DE /* UIFont+FontAwesome.m in Sources */,
-				0C2CE1CB17EAEBEA0074C57F /* TMEBrowerProductsTableCell.m in Sources */,
+				0C2CE1CB17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m in Sources */,
 				0CD9CF5A17EA0FD400402E91 /* AFJSONRequestOperation.m in Sources */,
 				0C7EFBDE17E8D5170054C4DE /* UIScrollView+Additions.m in Sources */,
 				0C7EFB6317E768C70054C4DE /* NSManagedObjectContext+MagicalObserving.m in Sources */,
