@@ -18,6 +18,9 @@ TMEPhotoButtonDelegate
 
 @property (strong, nonatomic) TMEPhotoButton     * currentPhotoButton;
 @property (weak, nonatomic) IBOutlet UITextField *txtProductName;
+@property (strong, nonatomic) IBOutlet UITextField *txtCategoryName;
+@property (weak, nonatomic) IBOutlet UITextField *txtProductDetails;
+@property (weak, nonatomic) IBOutlet UITextField *txtProductPrice;
 
 
 @end
@@ -99,14 +102,15 @@ TMEPhotoButtonDelegate
     
     // create dummy category
     TMECategory *category = [TMECategory MR_createEntity];
-    category.name = @"Dummy category";
+    category.name = self.txtCategoryName.text;
     category.categoryID = @1;
     
     // create product
     TMEProduct *product = [TMEProduct MR_createEntity];
-    product.name = @"";
+    product.name = self.txtProductName.text;
     product.productID = @1;
-    product.details = @"";
+    product.details = self.txtProductDetails.text;
+    product.price = @([self.txtProductPrice.text doubleValue]);
     product.category = category;
     product.user = user;
     
