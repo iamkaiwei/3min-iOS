@@ -25,6 +25,16 @@
                         <action selector="onBtnTakePictures:" destination="-1" eventType="touchUpInside" id="iRa-rl-v8J"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SXj-BS-Gda">
+                    <rect key="frame" x="81" y="144" width="158" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Show products">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onBtnBrowserProducts:" destination="-1" eventType="touchUpInside" id="kje-UU-KiG"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

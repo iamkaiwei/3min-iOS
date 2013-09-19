@@ -10,4 +10,6 @@
 
 @interface TMEProductManager : BaseManager
 
+- (NSArray *)fakeGetAllStoredProducts;
+
 @end

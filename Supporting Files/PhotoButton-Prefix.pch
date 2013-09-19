@@ -96,6 +96,7 @@
 
 // Managers
 #import "BaseManager.h"
+#import "TMEProductManager.h"
 
 // Models
 #import "TMEProduct.h"

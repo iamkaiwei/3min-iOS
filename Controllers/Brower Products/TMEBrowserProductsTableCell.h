@@ -11,5 +11,6 @@
 @interface TMEBrowserProductsTableCell : UITableViewCell
 
 - (void)configCellWithProduct:(TMEProduct *)product;
++ (CGFloat)getHeight;
 
 @end

@@ -8,6 +8,6 @@
 
 #import "TMEBaseViewController.h"
 
-@interface TMEBrowserProductsViewController : TMEBaseTableViewController
+@interface TMEBrowserProductsViewController : UIViewController
 
 @end

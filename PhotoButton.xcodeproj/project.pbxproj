@@ -30,7 +30,7 @@
 		0C2CE1C717EAEB3F0074C57F /* TMEBrowserProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1C517EAEB3F0074C57F /* TMEBrowserProductsViewController.m */; };
 		0C2CE1C817EAEB3F0074C57F /* TMEBrowserProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2CE1C617EAEB3F0074C57F /* TMEBrowserProductsViewController.xib */; };
 		0C2CE1CB17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1CA17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m */; };
-		0C2CE1CD17EAEBFB0074C57F /* TMEBrowerProductsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2CE1CC17EAEBFB0074C57F /* TMEBrowerProductsTableCell.xib */; };
+		0C2CE1CD17EAEBFB0074C57F /* TMEBrowserProductsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2CE1CC17EAEBFB0074C57F /* TMEBrowserProductsTableCell.xib */; };
 		0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
 		0C6D86A417EA061A00D959F8 /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D86A317EA061A00D959F8 /* TMEUser.m */; };
@@ -167,7 +167,7 @@
 		0C2CE1C617EAEB3F0074C57F /* TMEBrowserProductsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserProductsViewController.xib; sourceTree = "<group>"; };
 		0C2CE1C917EAEBEA0074C57F /* TMEBrowserProductsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductsTableCell.h; sourceTree = "<group>"; };
 		0C2CE1CA17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductsTableCell.m; sourceTree = "<group>"; };
-		0C2CE1CC17EAEBFB0074C57F /* TMEBrowerProductsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowerProductsTableCell.xib; sourceTree = "<group>"; };
+		0C2CE1CC17EAEBFB0074C57F /* TMEBrowserProductsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserProductsTableCell.xib; sourceTree = "<group>"; };
 		0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMEModels.xcdatamodel; sourceTree = "<group>"; };
 		0C5C936817EA162100ECF9B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0C6D86A217EA061A00D959F8 /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
@@ -556,7 +556,7 @@
 				0C2CE1C617EAEB3F0074C57F /* TMEBrowserProductsViewController.xib */,
 				0C2CE1C917EAEBEA0074C57F /* TMEBrowserProductsTableCell.h */,
 				0C2CE1CA17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m */,
-				0C2CE1CC17EAEBFB0074C57F /* TMEBrowerProductsTableCell.xib */,
+				0C2CE1CC17EAEBFB0074C57F /* TMEBrowserProductsTableCell.xib */,
 			);
 			path = "Brower Products";
 			sourceTree = "<group>";
@@ -978,7 +978,7 @@
 				0CAE978F17E76635003A22CA /* InfoPlist.strings in Resources */,
 				0CAE979117E76635003A22CA /* PhotoButton-Info.plist in Resources */,
 				0CAE979E17E7666D003A22CA /* AviarySDKResources.bundle in Resources */,
-				0C2CE1CD17EAEBFB0074C57F /* TMEBrowerProductsTableCell.xib in Resources */,
+				0C2CE1CD17EAEBFB0074C57F /* TMEBrowserProductsTableCell.xib in Resources */,
 				0C7EFBEB17E8D5790054C4DE /* FontAwesome.ttf in Resources */,
 				0C2CE1C817EAEB3F0074C57F /* TMEBrowserProductsViewController.xib in Resources */,
 				0C2CE1C217EAEAC20074C57F /* TMEPublishProductViewController.xib in Resources */,

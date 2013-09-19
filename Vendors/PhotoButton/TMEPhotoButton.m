@@ -109,7 +109,7 @@
     }
 }
 
-- (void) deletePhoto
+- (void)deletePhoto
 {
     [PBImageHelper deleteFileFromDocuments: photoName];
     UIImage *image = [UIImage imageNamed:@"add_photo.png"];
