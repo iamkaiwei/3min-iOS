@@ -153,6 +153,8 @@
 		0CFC0FF917ECBA3F008FBD92 /* bt_fb_signin_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC0FF517ECBA3E008FBD92 /* bt_fb_signin_normal@2x.png */; };
 		0CFC0FFA17ECBA3F008FBD92 /* bt_fb_signin_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC0FF617ECBA3E008FBD92 /* bt_fb_signin_pressed.png */; };
 		0CFC0FFB17ECBA3F008FBD92 /* bt_fb_signin_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC0FF717ECBA3E008FBD92 /* bt_fb_signin_pressed@2x.png */; };
+		0CFC100017ECBE06008FBD92 /* TMELoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC0FFE17ECBE06008FBD92 /* TMELoginViewController.m */; };
+		0CFC100117ECBE06008FBD92 /* TMELoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC0FFF17ECBE06008FBD92 /* TMELoginViewController.xib */; };
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
@@ -399,6 +401,9 @@
 		0CFC0FF517ECBA3E008FBD92 /* bt_fb_signin_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_fb_signin_normal@2x.png"; sourceTree = "<group>"; };
 		0CFC0FF617ECBA3E008FBD92 /* bt_fb_signin_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_fb_signin_pressed.png; sourceTree = "<group>"; };
 		0CFC0FF717ECBA3E008FBD92 /* bt_fb_signin_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_fb_signin_pressed@2x.png"; sourceTree = "<group>"; };
+		0CFC0FFD17ECBE06008FBD92 /* TMELoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoginViewController.h; sourceTree = "<group>"; };
+		0CFC0FFE17ECBE06008FBD92 /* TMELoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoginViewController.m; sourceTree = "<group>"; };
+		0CFC0FFF17ECBE06008FBD92 /* TMELoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMELoginViewController.xib; sourceTree = "<group>"; };
 		5976C03F15925D2D007F6FC3 /* PhotoButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -524,6 +529,7 @@
 			isa = PBXGroup;
 			children = (
 				0C6E069C17E0CC650003F104 /* Superclass */,
+				0CFC0FFC17ECBAAE008FBD92 /* Login Page */,
 				0C6E068B17E0CBF60003F104 /* Main Controller */,
 				0CFC0FE317ECB690008FBD92 /* Browser Products */,
 				0CFC0FD717ECB66E008FBD92 /* Product Details */,
@@ -889,6 +895,16 @@
 			path = "Login Page";
 			sourceTree = "<group>";
 		};
+		0CFC0FFC17ECBAAE008FBD92 /* Login Page */ = {
+			isa = PBXGroup;
+			children = (
+				0CFC0FFD17ECBE06008FBD92 /* TMELoginViewController.h */,
+				0CFC0FFE17ECBE06008FBD92 /* TMELoginViewController.m */,
+				0CFC0FFF17ECBE06008FBD92 /* TMELoginViewController.xib */,
+			);
+			path = "Login Page";
+			sourceTree = "<group>";
+		};
 		5976C03415925D2D007F6FC3 = {
 			isa = PBXGroup;
 			children = (
@@ -1009,6 +1025,7 @@
 				0C6E069117E0CBF60003F104 /* TMEViewController_iPad.xib in Resources */,
 				0C7EFBC417E8D5170054C4DE /* ActiveSupportInflector.plist in Resources */,
 				0CFC0FFA17ECBA3F008FBD92 /* bt_fb_signin_pressed.png in Resources */,
+				0CFC100117ECBE06008FBD92 /* TMELoginViewController.xib in Resources */,
 				0C6E069217E0CBF60003F104 /* TMEViewController_iPhone.xib in Resources */,
 				0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */,
 				0CFC0FF817ECBA3F008FBD92 /* bt_fb_signin_normal.png in Resources */,
@@ -1111,6 +1128,7 @@
 				0C7EFBE217E8D5170054C4DE /* UIView+Nib.m in Sources */,
 				0CD9CF5E17EA0FD400402E91 /* AFXMLRequestOperation.m in Sources */,
 				0C7EFB6617E768C70054C4DE /* NSManagedObjectContext+MagicalThreading.m in Sources */,
+				0CFC100017ECBE06008FBD92 /* TMELoginViewController.m in Sources */,
 				0C7EFBC517E8D5170054C4DE /* ISO8601DateFormatter.m in Sources */,
 				0C7EFBDD17E8D5170054C4DE /* UINavigationController+Additions.m in Sources */,
 				0CAE978217E765FF003A22CA /* _TMEProductImages.m in Sources */,
