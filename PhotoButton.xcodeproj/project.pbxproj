@@ -27,10 +27,6 @@
 		0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */; };
 		0C2CE1C117EAEAC20074C57F /* TMEPublishProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1BD17EAEAC20074C57F /* TMEPublishProductViewController.m */; };
 		0C2CE1C217EAEAC20074C57F /* TMEPublishProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2CE1BE17EAEAC20074C57F /* TMEPublishProductViewController.xib */; };
-		0C2CE1C717EAEB3F0074C57F /* TMEBrowserProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1C517EAEB3F0074C57F /* TMEBrowserProductsViewController.m */; };
-		0C2CE1C817EAEB3F0074C57F /* TMEBrowserProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2CE1C617EAEB3F0074C57F /* TMEBrowserProductsViewController.xib */; };
-		0C2CE1CB17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1CA17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m */; };
-		0C2CE1CD17EAEBFB0074C57F /* TMEBrowserProductsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2CE1CC17EAEBFB0074C57F /* TMEBrowserProductsTableCell.xib */; };
 		0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
 		0C6D86A417EA061A00D959F8 /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D86A317EA061A00D959F8 /* TMEUser.m */; };
@@ -147,6 +143,16 @@
 		0CD9CF5E17EA0FD400402E91 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD9CF5417EA0FD400402E91 /* AFXMLRequestOperation.m */; };
 		0CD9CF5F17EA0FD400402E91 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD9CF5617EA0FD400402E91 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		0CD9CF6117EA10DF00402E91 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD9CF6017EA10DF00402E91 /* MobileCoreServices.framework */; };
+		0CFC0FEA17ECB690008FBD92 /* TMEBrowserProductsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC0FE517ECB690008FBD92 /* TMEBrowserProductsTableCell.m */; };
+		0CFC0FEB17ECB690008FBD92 /* TMEBrowserProductsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC0FE617ECB690008FBD92 /* TMEBrowserProductsTableCell.xib */; };
+		0CFC0FEC17ECB690008FBD92 /* TMEBrowserProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC0FE817ECB690008FBD92 /* TMEBrowserProductsViewController.m */; };
+		0CFC0FED17ECB690008FBD92 /* TMEBrowserProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC0FE917ECB690008FBD92 /* TMEBrowserProductsViewController.xib */; };
+		0CFC0FF117ECB8BB008FBD92 /* TMEProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC0FEF17ECB8BB008FBD92 /* TMEProductDetailsViewController.m */; };
+		0CFC0FF217ECB8BB008FBD92 /* TMEProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC0FF017ECB8BB008FBD92 /* TMEProductDetailsViewController.xib */; };
+		0CFC0FF817ECBA3F008FBD92 /* bt_fb_signin_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC0FF417ECBA3E008FBD92 /* bt_fb_signin_normal.png */; };
+		0CFC0FF917ECBA3F008FBD92 /* bt_fb_signin_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC0FF517ECBA3E008FBD92 /* bt_fb_signin_normal@2x.png */; };
+		0CFC0FFA17ECBA3F008FBD92 /* bt_fb_signin_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC0FF617ECBA3E008FBD92 /* bt_fb_signin_pressed.png */; };
+		0CFC0FFB17ECBA3F008FBD92 /* bt_fb_signin_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC0FF717ECBA3E008FBD92 /* bt_fb_signin_pressed@2x.png */; };
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
@@ -162,12 +168,6 @@
 		0C2CE1BC17EAEAC20074C57F /* TMEPublishProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPublishProductViewController.h; sourceTree = "<group>"; };
 		0C2CE1BD17EAEAC20074C57F /* TMEPublishProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPublishProductViewController.m; sourceTree = "<group>"; };
 		0C2CE1BE17EAEAC20074C57F /* TMEPublishProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEPublishProductViewController.xib; sourceTree = "<group>"; };
-		0C2CE1C417EAEB3F0074C57F /* TMEBrowserProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductsViewController.h; sourceTree = "<group>"; };
-		0C2CE1C517EAEB3F0074C57F /* TMEBrowserProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductsViewController.m; sourceTree = "<group>"; };
-		0C2CE1C617EAEB3F0074C57F /* TMEBrowserProductsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserProductsViewController.xib; sourceTree = "<group>"; };
-		0C2CE1C917EAEBEA0074C57F /* TMEBrowserProductsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductsTableCell.h; sourceTree = "<group>"; };
-		0C2CE1CA17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductsTableCell.m; sourceTree = "<group>"; };
-		0C2CE1CC17EAEBFB0074C57F /* TMEBrowserProductsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserProductsTableCell.xib; sourceTree = "<group>"; };
 		0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMEModels.xcdatamodel; sourceTree = "<group>"; };
 		0C5C936817EA162100ECF9B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0C6D86A217EA061A00D959F8 /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
@@ -386,6 +386,19 @@
 		0CD9CF5517EA0FD400402E91 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		0CD9CF5617EA0FD400402E91 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		0CD9CF6017EA10DF00402E91 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		0CFC0FE417ECB690008FBD92 /* TMEBrowserProductsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductsTableCell.h; sourceTree = "<group>"; };
+		0CFC0FE517ECB690008FBD92 /* TMEBrowserProductsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductsTableCell.m; sourceTree = "<group>"; };
+		0CFC0FE617ECB690008FBD92 /* TMEBrowserProductsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserProductsTableCell.xib; sourceTree = "<group>"; };
+		0CFC0FE717ECB690008FBD92 /* TMEBrowserProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductsViewController.h; sourceTree = "<group>"; };
+		0CFC0FE817ECB690008FBD92 /* TMEBrowserProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductsViewController.m; sourceTree = "<group>"; };
+		0CFC0FE917ECB690008FBD92 /* TMEBrowserProductsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserProductsViewController.xib; sourceTree = "<group>"; };
+		0CFC0FEE17ECB8BB008FBD92 /* TMEProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductDetailsViewController.h; sourceTree = "<group>"; };
+		0CFC0FEF17ECB8BB008FBD92 /* TMEProductDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductDetailsViewController.m; sourceTree = "<group>"; };
+		0CFC0FF017ECB8BB008FBD92 /* TMEProductDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEProductDetailsViewController.xib; sourceTree = "<group>"; };
+		0CFC0FF417ECBA3E008FBD92 /* bt_fb_signin_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_fb_signin_normal.png; sourceTree = "<group>"; };
+		0CFC0FF517ECBA3E008FBD92 /* bt_fb_signin_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_fb_signin_normal@2x.png"; sourceTree = "<group>"; };
+		0CFC0FF617ECBA3E008FBD92 /* bt_fb_signin_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_fb_signin_pressed.png; sourceTree = "<group>"; };
+		0CFC0FF717ECBA3E008FBD92 /* bt_fb_signin_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_fb_signin_pressed@2x.png"; sourceTree = "<group>"; };
 		5976C03F15925D2D007F6FC3 /* PhotoButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -426,6 +439,7 @@
 		0C28B28717DC1A1400BD0EC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0CFC0FF317ECBA2A008FBD92 /* Login Page */,
 				0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */,
 				0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */,
 			);
@@ -510,8 +524,9 @@
 			isa = PBXGroup;
 			children = (
 				0C6E069C17E0CC650003F104 /* Superclass */,
-				0C2CE1C317EAEB3F0074C57F /* Brower Products */,
 				0C6E068B17E0CBF60003F104 /* Main Controller */,
+				0CFC0FE317ECB690008FBD92 /* Browser Products */,
+				0CFC0FD717ECB66E008FBD92 /* Product Details */,
 				0C2CE1B817EAEAC20074C57F /* Publish Products */,
 			);
 			path = Controllers;
@@ -546,19 +561,6 @@
 				0C2CE1BE17EAEAC20074C57F /* TMEPublishProductViewController.xib */,
 			);
 			path = "Publish Products";
-			sourceTree = "<group>";
-		};
-		0C2CE1C317EAEB3F0074C57F /* Brower Products */ = {
-			isa = PBXGroup;
-			children = (
-				0C2CE1C417EAEB3F0074C57F /* TMEBrowserProductsViewController.h */,
-				0C2CE1C517EAEB3F0074C57F /* TMEBrowserProductsViewController.m */,
-				0C2CE1C617EAEB3F0074C57F /* TMEBrowserProductsViewController.xib */,
-				0C2CE1C917EAEBEA0074C57F /* TMEBrowserProductsTableCell.h */,
-				0C2CE1CA17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m */,
-				0C2CE1CC17EAEBFB0074C57F /* TMEBrowserProductsTableCell.xib */,
-			);
-			path = "Brower Products";
 			sourceTree = "<group>";
 		};
 		0C6D86A817EA0E9A00D959F8 /* Managers */ = {
@@ -853,6 +855,40 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		0CFC0FD717ECB66E008FBD92 /* Product Details */ = {
+			isa = PBXGroup;
+			children = (
+				0CFC0FEE17ECB8BB008FBD92 /* TMEProductDetailsViewController.h */,
+				0CFC0FEF17ECB8BB008FBD92 /* TMEProductDetailsViewController.m */,
+				0CFC0FF017ECB8BB008FBD92 /* TMEProductDetailsViewController.xib */,
+			);
+			path = "Product Details";
+			sourceTree = "<group>";
+		};
+		0CFC0FE317ECB690008FBD92 /* Browser Products */ = {
+			isa = PBXGroup;
+			children = (
+				0CFC0FE417ECB690008FBD92 /* TMEBrowserProductsTableCell.h */,
+				0CFC0FE517ECB690008FBD92 /* TMEBrowserProductsTableCell.m */,
+				0CFC0FE617ECB690008FBD92 /* TMEBrowserProductsTableCell.xib */,
+				0CFC0FE717ECB690008FBD92 /* TMEBrowserProductsViewController.h */,
+				0CFC0FE817ECB690008FBD92 /* TMEBrowserProductsViewController.m */,
+				0CFC0FE917ECB690008FBD92 /* TMEBrowserProductsViewController.xib */,
+			);
+			path = "Browser Products";
+			sourceTree = "<group>";
+		};
+		0CFC0FF317ECBA2A008FBD92 /* Login Page */ = {
+			isa = PBXGroup;
+			children = (
+				0CFC0FF417ECBA3E008FBD92 /* bt_fb_signin_normal.png */,
+				0CFC0FF517ECBA3E008FBD92 /* bt_fb_signin_normal@2x.png */,
+				0CFC0FF617ECBA3E008FBD92 /* bt_fb_signin_pressed.png */,
+				0CFC0FF717ECBA3E008FBD92 /* bt_fb_signin_pressed@2x.png */,
+			);
+			path = "Login Page";
+			sourceTree = "<group>";
+		};
 		5976C03415925D2D007F6FC3 = {
 			isa = PBXGroup;
 			children = (
@@ -863,9 +899,9 @@
 				0C28B28B17DC1B9200BD0EC2 /* Controllers */,
 				0C28B28D17DC1B9200BD0EC2 /* Views */,
 				0C28B28C17DC1B9200BD0EC2 /* Vendors */,
+				0C28B28717DC1A1400BD0EC2 /* Resources */,
 				5976C04A15925D2D007F6FC3 /* Supporting Files */,
 				5976C04215925D2D007F6FC3 /* Frameworks */,
-				0C28B28717DC1A1400BD0EC2 /* Resources */,
 				5976C04015925D2D007F6FC3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -968,20 +1004,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CFC0FF217ECB8BB008FBD92 /* TMEProductDetailsViewController.xib in Resources */,
 				0C7EFB7717E8C46E0054C4DE /* dsym_upload.sh in Resources */,
 				0C6E069117E0CBF60003F104 /* TMEViewController_iPad.xib in Resources */,
 				0C7EFBC417E8D5170054C4DE /* ActiveSupportInflector.plist in Resources */,
+				0CFC0FFA17ECBA3F008FBD92 /* bt_fb_signin_pressed.png in Resources */,
 				0C6E069217E0CBF60003F104 /* TMEViewController_iPhone.xib in Resources */,
 				0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */,
+				0CFC0FF817ECBA3F008FBD92 /* bt_fb_signin_normal.png in Resources */,
+				0CFC0FEB17ECB690008FBD92 /* TMEBrowserProductsTableCell.xib in Resources */,
 				0C7EFB7E17E8D2ED0054C4DE /* SVProgressHUD.bundle in Resources */,
 				0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */,
 				0CAE978F17E76635003A22CA /* InfoPlist.strings in Resources */,
 				0CAE979117E76635003A22CA /* PhotoButton-Info.plist in Resources */,
+				0CFC0FF917ECBA3F008FBD92 /* bt_fb_signin_normal@2x.png in Resources */,
 				0CAE979E17E7666D003A22CA /* AviarySDKResources.bundle in Resources */,
-				0C2CE1CD17EAEBFB0074C57F /* TMEBrowserProductsTableCell.xib in Resources */,
 				0C7EFBEB17E8D5790054C4DE /* FontAwesome.ttf in Resources */,
-				0C2CE1C817EAEB3F0074C57F /* TMEBrowserProductsViewController.xib in Resources */,
+				0CFC0FED17ECB690008FBD92 /* TMEBrowserProductsViewController.xib in Resources */,
 				0C2CE1C217EAEAC20074C57F /* TMEPublishProductViewController.xib in Resources */,
+				0CFC0FFB17ECBA3F008FBD92 /* bt_fb_signin_pressed@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1015,6 +1056,7 @@
 				0C7EFBC617E8D5170054C4DE /* MKMapView+Additions.m in Sources */,
 				0CD9CF5D17EA0FD400402E91 /* AFURLConnectionOperation.m in Sources */,
 				0CD9CF5B17EA0FD400402E91 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				0CFC0FEA17ECB690008FBD92 /* TMEBrowserProductsTableCell.m in Sources */,
 				0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */,
 				0C6E069017E0CBF60003F104 /* TMEViewController.m in Sources */,
 				0C7EFBCE17E8D5170054C4DE /* NSObject+Additions.m in Sources */,
@@ -1065,7 +1107,6 @@
 				0CD9CF5F17EA0FD400402E91 /* UIImageView+AFNetworking.m in Sources */,
 				0C7EFB6D17E768C70054C4DE /* MagicalRecord+Options.m in Sources */,
 				0CAE978117E765FF003A22CA /* _TMEProduct.m in Sources */,
-				0C2CE1C717EAEB3F0074C57F /* TMEBrowserProductsViewController.m in Sources */,
 				0C7EFB6917E768C70054C4DE /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				0C7EFBE217E8D5170054C4DE /* UIView+Nib.m in Sources */,
 				0CD9CF5E17EA0FD400402E91 /* AFXMLRequestOperation.m in Sources */,
@@ -1089,7 +1130,6 @@
 				0CAE978E17E76635003A22CA /* AppDelegate.m in Sources */,
 				0CAE979017E76635003A22CA /* main.m in Sources */,
 				0C7EFBED17E8D5790054C4DE /* UIFont+FontAwesome.m in Sources */,
-				0C2CE1CB17EAEBEA0074C57F /* TMEBrowserProductsTableCell.m in Sources */,
 				0CD9CF5A17EA0FD400402E91 /* AFJSONRequestOperation.m in Sources */,
 				0C7EFBDE17E8D5170054C4DE /* UIScrollView+Additions.m in Sources */,
 				0C7EFB6317E768C70054C4DE /* NSManagedObjectContext+MagicalObserving.m in Sources */,
@@ -1097,6 +1137,8 @@
 				0C7EFB5717E768C70054C4DE /* MagicalImportFunctions.m in Sources */,
 				0C7EFBE317E8D5170054C4DE /* UIViewController+Additions.m in Sources */,
 				0C7EFB6017E768C70054C4DE /* NSManagedObject+MagicalFinders.m in Sources */,
+				0CFC0FEC17ECB690008FBD92 /* TMEBrowserProductsViewController.m in Sources */,
+				0CFC0FF117ECB8BB008FBD92 /* TMEProductDetailsViewController.m in Sources */,
 				0C7EFBD817E8D5170054C4DE /* UIFont+Additions.m in Sources */,
 				0C7EFBE117E8D5170054C4DE /* UIView+Glow.m in Sources */,
 				0CD9CF5917EA0FD400402E91 /* AFImageRequestOperation.m in Sources */,
