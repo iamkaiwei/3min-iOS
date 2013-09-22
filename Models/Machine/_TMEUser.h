@@ -5,18 +5,34 @@
 
 
 extern const struct TMEUserAttributes {
+	__unsafe_unretained NSString *email;
+	__unsafe_unretained NSString *facebook_id;
+	__unsafe_unretained NSString *id;
 	__unsafe_unretained NSString *name;
-	__unsafe_unretained NSString *userID;
+	__unsafe_unretained NSString *password;
+	__unsafe_unretained NSString *photo_url;
+	__unsafe_unretained NSString *udid;
+	__unsafe_unretained NSString *username;
 } TMEUserAttributes;
 
 extern const struct TMEUserRelationships {
+	__unsafe_unretained NSString *buyTransactions;
 	__unsafe_unretained NSString *products;
+	__unsafe_unretained NSString *sellTransactions;
 } TMEUserRelationships;
 
 extern const struct TMEUserFetchedProperties {
 } TMEUserFetchedProperties;
 
+@class TMETransaction;
 @class TMEProduct;
+@class TMETransaction;
+
+
+
+
+
+
 
 
 
@@ -34,6 +50,40 @@ extern const struct TMEUserFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* email;
+
+
+
+//- (BOOL)validateEmail:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* facebook_id;
+
+
+
+//- (BOOL)validateFacebook_id:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* id;
+
+
+
+@property int64_t idValue;
+- (int64_t)idValue;
+- (void)setIdValue:(int64_t)value_;
+
+//- (BOOL)validateId:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSString* name;
 
 
@@ -44,16 +94,49 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber* userID;
+@property (nonatomic, strong) NSString* password;
 
 
 
-@property int64_t userIDValue;
-- (int64_t)userIDValue;
-- (void)setUserIDValue:(int64_t)value_;
+//- (BOOL)validatePassword:(id*)value_ error:(NSError**)error_;
 
-//- (BOOL)validateUserID:(id*)value_ error:(NSError**)error_;
 
+
+
+
+@property (nonatomic, strong) NSString* photo_url;
+
+
+
+//- (BOOL)validatePhoto_url:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* udid;
+
+
+
+//- (BOOL)validateUdid:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* username;
+
+
+
+//- (BOOL)validateUsername:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSSet *buyTransactions;
+
+- (NSMutableSet*)buyTransactionsSet;
 
 
 
@@ -65,19 +148,57 @@ extern const struct TMEUserFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSSet *sellTransactions;
+
+- (NSMutableSet*)sellTransactionsSet;
+
+
+
+
 
 @end
 
 @interface _TMEUser (CoreDataGeneratedAccessors)
+
+- (void)addBuyTransactions:(NSSet*)value_;
+- (void)removeBuyTransactions:(NSSet*)value_;
+- (void)addBuyTransactionsObject:(TMETransaction*)value_;
+- (void)removeBuyTransactionsObject:(TMETransaction*)value_;
 
 - (void)addProducts:(NSSet*)value_;
 - (void)removeProducts:(NSSet*)value_;
 - (void)addProductsObject:(TMEProduct*)value_;
 - (void)removeProductsObject:(TMEProduct*)value_;
 
+- (void)addSellTransactions:(NSSet*)value_;
+- (void)removeSellTransactions:(NSSet*)value_;
+- (void)addSellTransactionsObject:(TMETransaction*)value_;
+- (void)removeSellTransactionsObject:(TMETransaction*)value_;
+
 @end
 
 @interface _TMEUser (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSString*)primitiveEmail;
+- (void)setPrimitiveEmail:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveFacebook_id;
+- (void)setPrimitiveFacebook_id:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveId;
+- (void)setPrimitiveId:(NSNumber*)value;
+
+- (int64_t)primitiveIdValue;
+- (void)setPrimitiveIdValue:(int64_t)value_;
+
+
 
 
 - (NSString*)primitiveName;
@@ -86,18 +207,43 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-- (NSNumber*)primitiveUserID;
-- (void)setPrimitiveUserID:(NSNumber*)value;
-
-- (int64_t)primitiveUserIDValue;
-- (void)setPrimitiveUserIDValue:(int64_t)value_;
+- (NSString*)primitivePassword;
+- (void)setPrimitivePassword:(NSString*)value;
 
 
+
+
+- (NSString*)primitivePhoto_url;
+- (void)setPrimitivePhoto_url:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveUdid;
+- (void)setPrimitiveUdid:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveUsername;
+- (void)setPrimitiveUsername:(NSString*)value;
+
+
+
+
+
+- (NSMutableSet*)primitiveBuyTransactions;
+- (void)setPrimitiveBuyTransactions:(NSMutableSet*)value;
 
 
 
 - (NSMutableSet*)primitiveProducts;
 - (void)setPrimitiveProducts:(NSMutableSet*)value;
+
+
+
+- (NSMutableSet*)primitiveSellTransactions;
+- (void)setPrimitiveSellTransactions:(NSMutableSet*)value;
 
 
 @end

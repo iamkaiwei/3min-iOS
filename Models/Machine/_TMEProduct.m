@@ -4,17 +4,22 @@
 #import "_TMEProduct.h"
 
 const struct TMEProductAttributes TMEProductAttributes = {
+	.comments = @"comments",
+	.created_at = @"created_at",
 	.details = @"details",
-	.lastModify = @"lastModify",
+	.dislikes = @"dislikes",
+	.id = @"id",
+	.likes = @"likes",
 	.name = @"name",
 	.price = @"price",
-	.productID = @"productID",
-	.publishDate = @"publishDate",
+	.sold_out = @"sold_out",
+	.updated_at = @"updated_at",
 };
 
 const struct TMEProductRelationships TMEProductRelationships = {
 	.category = @"category",
 	.images = @"images",
+	.transaction = @"transaction",
 	.user = @"user",
 };
 
@@ -47,19 +52,48 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"dislikesValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"dislikes"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"idValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"id"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"likesValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"likes"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"priceValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"price"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
-	if ([key isEqualToString:@"productIDValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"productID"];
+	if ([key isEqualToString:@"sold_outValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"sold_out"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic comments;
+
+
+
+
+
+
+@dynamic created_at;
+
+
 
 
 
@@ -71,8 +105,79 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 
 
 
-@dynamic lastModify;
+@dynamic dislikes;
 
+
+
+- (int64_t)dislikesValue {
+	NSNumber *result = [self dislikes];
+	return [result longLongValue];
+}
+
+- (void)setDislikesValue:(int64_t)value_ {
+	[self setDislikes:[NSNumber numberWithLongLong:value_]];
+}
+
+- (int64_t)primitiveDislikesValue {
+	NSNumber *result = [self primitiveDislikes];
+	return [result longLongValue];
+}
+
+- (void)setPrimitiveDislikesValue:(int64_t)value_ {
+	[self setPrimitiveDislikes:[NSNumber numberWithLongLong:value_]];
+}
+
+
+
+
+
+@dynamic id;
+
+
+
+- (int64_t)idValue {
+	NSNumber *result = [self id];
+	return [result longLongValue];
+}
+
+- (void)setIdValue:(int64_t)value_ {
+	[self setId:[NSNumber numberWithLongLong:value_]];
+}
+
+- (int64_t)primitiveIdValue {
+	NSNumber *result = [self primitiveId];
+	return [result longLongValue];
+}
+
+- (void)setPrimitiveIdValue:(int64_t)value_ {
+	[self setPrimitiveId:[NSNumber numberWithLongLong:value_]];
+}
+
+
+
+
+
+@dynamic likes;
+
+
+
+- (int64_t)likesValue {
+	NSNumber *result = [self likes];
+	return [result longLongValue];
+}
+
+- (void)setLikesValue:(int64_t)value_ {
+	[self setLikes:[NSNumber numberWithLongLong:value_]];
+}
+
+- (int64_t)primitiveLikesValue {
+	NSNumber *result = [self primitiveLikes];
+	return [result longLongValue];
+}
+
+- (void)setPrimitiveLikesValue:(int64_t)value_ {
+	[self setPrimitiveLikes:[NSNumber numberWithLongLong:value_]];
+}
 
 
 
@@ -111,33 +216,33 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 
 
 
-@dynamic productID;
+@dynamic sold_out;
 
 
 
-- (int64_t)productIDValue {
-	NSNumber *result = [self productID];
-	return [result longLongValue];
+- (BOOL)sold_outValue {
+	NSNumber *result = [self sold_out];
+	return [result boolValue];
 }
 
-- (void)setProductIDValue:(int64_t)value_ {
-	[self setProductID:[NSNumber numberWithLongLong:value_]];
+- (void)setSold_outValue:(BOOL)value_ {
+	[self setSold_out:[NSNumber numberWithBool:value_]];
 }
 
-- (int64_t)primitiveProductIDValue {
-	NSNumber *result = [self primitiveProductID];
-	return [result longLongValue];
+- (BOOL)primitiveSold_outValue {
+	NSNumber *result = [self primitiveSold_out];
+	return [result boolValue];
 }
 
-- (void)setPrimitiveProductIDValue:(int64_t)value_ {
-	[self setPrimitiveProductID:[NSNumber numberWithLongLong:value_]];
+- (void)setPrimitiveSold_outValue:(BOOL)value_ {
+	[self setPrimitiveSold_out:[NSNumber numberWithBool:value_]];
 }
 
 
 
 
 
-@dynamic publishDate;
+@dynamic updated_at;
 
 
 
@@ -159,6 +264,10 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 	[self didAccessValueForKey:@"images"];
 	return result;
 }
+	
+
+@dynamic transaction;
+
 	
 
 @dynamic user;

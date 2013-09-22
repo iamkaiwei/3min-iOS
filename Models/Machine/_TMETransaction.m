@@ -1,42 +1,44 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to TMECategory.m instead.
+// Make changes to TMETransaction.m instead.
 
-#import "_TMECategory.h"
+#import "_TMETransaction.h"
 
-const struct TMECategoryAttributes TMECategoryAttributes = {
+const struct TMETransactionAttributes TMETransactionAttributes = {
+	.chat = @"chat",
 	.id = @"id",
-	.name = @"name",
-	.photo_url = @"photo_url",
+	.meetup_place = @"meetup_place",
 };
 
-const struct TMECategoryRelationships TMECategoryRelationships = {
-	.products = @"products",
+const struct TMETransactionRelationships TMETransactionRelationships = {
+	.buyer = @"buyer",
+	.product = @"product",
+	.seller = @"seller",
 };
 
-const struct TMECategoryFetchedProperties TMECategoryFetchedProperties = {
+const struct TMETransactionFetchedProperties TMETransactionFetchedProperties = {
 };
 
-@implementation TMECategoryID
+@implementation TMETransactionID
 @end
 
-@implementation _TMECategory
+@implementation _TMETransaction
 
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"TMECategory" inManagedObjectContext:moc_];
+	return [NSEntityDescription insertNewObjectForEntityForName:@"TMETransaction" inManagedObjectContext:moc_];
 }
 
 + (NSString*)entityName {
-	return @"TMECategory";
+	return @"TMETransaction";
 }
 
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"TMECategory" inManagedObjectContext:moc_];
+	return [NSEntityDescription entityForName:@"TMETransaction" inManagedObjectContext:moc_];
 }
 
-- (TMECategoryID*)objectID {
-	return (TMECategoryID*)[super objectID];
+- (TMETransactionID*)objectID {
+	return (TMETransactionID*)[super objectID];
 }
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
@@ -50,6 +52,13 @@ const struct TMECategoryFetchedProperties TMECategoryFetchedProperties = {
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic chat;
+
+
 
 
 
@@ -80,31 +89,23 @@ const struct TMECategoryFetchedProperties TMECategoryFetchedProperties = {
 
 
 
-@dynamic name;
+@dynamic meetup_place;
 
 
 
 
 
 
-@dynamic photo_url;
-
-
-
-
-
-
-@dynamic products;
+@dynamic buyer;
 
 	
-- (NSMutableSet*)productsSet {
-	[self willAccessValueForKey:@"products"];
-  
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"products"];
-  
-	[self didAccessValueForKey:@"products"];
-	return result;
-}
+
+@dynamic product;
+
+	
+
+@dynamic seller;
+
 	
 
 

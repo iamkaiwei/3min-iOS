@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3394" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="TMECategory" representedClassName="TMECategory" syncable="YES">
-        <attribute name="categoryID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo_url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="category" inverseEntity="TMEProduct" syncable="YES"/>
     </entity>
     <entity name="TMEProduct" representedClassName="TMEProduct" syncable="YES">
+        <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="lastModify" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dislikes" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="likes" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="productID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="publishDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sold_out" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMECategory" inverseName="products" inverseEntity="TMECategory" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProductImages" inverseName="product" inverseEntity="TMEProductImages" syncable="YES"/>
+        <relationship name="transaction" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMETransaction" inverseName="product" inverseEntity="TMETransaction" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEUser" inverseName="products" inverseEntity="TMEUser" syncable="YES"/>
     </entity>
     <entity name="TMEProductImages" representedClassName="TMEProductImages" syncable="YES">
@@ -21,15 +27,32 @@
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="images" inverseEntity="TMEProduct" syncable="YES"/>
     </entity>
+    <entity name="TMETransaction" representedClassName="TMETransaction" syncable="YES">
+        <attribute name="chat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="meetup_place" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="buyer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEUser" inverseName="buyTransactions" inverseEntity="TMEUser" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="transaction" inverseEntity="TMEProduct" syncable="YES"/>
+        <relationship name="seller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEUser" inverseName="sellTransactions" inverseEntity="TMEUser" syncable="YES"/>
+    </entity>
     <entity name="TMEUser" representedClassName="TMEUser" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facebook_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="udid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="buyTransactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMETransaction" inverseName="buyer" inverseEntity="TMETransaction" syncable="YES"/>
         <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="user" inverseEntity="TMEProduct" syncable="YES"/>
+        <relationship name="sellTransactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMETransaction" inverseName="seller" inverseEntity="TMETransaction" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TMECategory" positionX="153" positionY="360" width="128" height="88"/>
-        <element name="TMEProduct" positionX="432" positionY="98" width="128" height="178"/>
+        <element name="TMECategory" positionX="214" positionY="72" width="128" height="103"/>
+        <element name="TMEProduct" positionX="432" positionY="98" width="128" height="253"/>
         <element name="TMEProductImages" positionX="439" positionY="423" width="128" height="88"/>
-        <element name="TMEUser" positionX="27" positionY="171" width="128" height="88"/>
+        <element name="TMEUser" positionX="-11" positionY="152" width="128" height="208"/>
+        <element name="TMETransaction" positionX="252" positionY="441" width="128" height="133"/>
     </elements>
 </model>

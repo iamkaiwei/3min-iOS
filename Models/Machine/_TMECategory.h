@@ -5,8 +5,9 @@
 
 
 extern const struct TMECategoryAttributes {
-	__unsafe_unretained NSString *categoryID;
+	__unsafe_unretained NSString *id;
 	__unsafe_unretained NSString *name;
+	__unsafe_unretained NSString *photo_url;
 } TMECategoryAttributes;
 
 extern const struct TMECategoryRelationships {
@@ -17,6 +18,7 @@ extern const struct TMECategoryFetchedProperties {
 } TMECategoryFetchedProperties;
 
 @class TMEProduct;
+
 
 
 
@@ -34,15 +36,15 @@ extern const struct TMECategoryFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber* categoryID;
+@property (nonatomic, strong) NSNumber* id;
 
 
 
-@property int64_t categoryIDValue;
-- (int64_t)categoryIDValue;
-- (void)setCategoryIDValue:(int64_t)value_;
+@property int64_t idValue;
+- (int64_t)idValue;
+- (void)setIdValue:(int64_t)value_;
 
-//- (BOOL)validateCategoryID:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateId:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -53,6 +55,16 @@ extern const struct TMECategoryFetchedProperties {
 
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* photo_url;
+
+
+
+//- (BOOL)validatePhoto_url:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -80,17 +92,23 @@ extern const struct TMECategoryFetchedProperties {
 @interface _TMECategory (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSNumber*)primitiveCategoryID;
-- (void)setPrimitiveCategoryID:(NSNumber*)value;
+- (NSNumber*)primitiveId;
+- (void)setPrimitiveId:(NSNumber*)value;
 
-- (int64_t)primitiveCategoryIDValue;
-- (void)setPrimitiveCategoryIDValue:(int64_t)value_;
+- (int64_t)primitiveIdValue;
+- (void)setPrimitiveIdValue:(int64_t)value_;
 
 
 
 
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
+
+
+
+
+- (NSString*)primitivePhoto_url;
+- (void)setPrimitivePhoto_url:(NSString*)value;
 
 
 

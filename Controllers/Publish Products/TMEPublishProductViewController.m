@@ -98,17 +98,17 @@ TMEPhotoButtonDelegate
     // create dummy user
     TMEUser *user = [TMEUser MR_createEntity];
     user.name = @"Trieu Khang";
-    user.userID = @1;
+    user.id = @1;
     
     // create dummy category
     TMECategory *category = [TMECategory MR_createEntity];
     category.name = self.txtCategoryName.text;
-    category.categoryID = @1;
+    category.id = @1;
     
     // create product
     TMEProduct *product = [TMEProduct MR_createEntity];
     product.name = self.txtProductName.text;
-    product.productID = @1;
+    product.id = @1;
     product.details = self.txtProductDetails.text;
     product.price = @([self.txtProductPrice.text doubleValue]);
     product.category = category;

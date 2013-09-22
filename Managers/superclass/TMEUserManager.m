@@ -17,7 +17,7 @@ SINGLETON_MACRO
 {
     TMEUser *user = [TMEUser MR_createEntity];
     user.name = dicData[@"name"];
-    user.userID = @([[TMEUserManager sharedInstance] getTheLargestUserID]);
+    user.id = @([[TMEUserManager sharedInstance] getTheLargestUserID]);
     return user;
 }
 
@@ -26,7 +26,7 @@ SINGLETON_MACRO
 {
     TMEUser *user = [[TMEUser MR_findAll] lastObject];
     if (user) {
-        return [user.userID intValue] + 1;
+        return [user.id intValue] + 1;
     }
     return 1;
 }

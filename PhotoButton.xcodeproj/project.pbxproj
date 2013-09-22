@@ -29,8 +29,6 @@
 		0C2CE1C217EAEAC20074C57F /* TMEPublishProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2CE1BE17EAEAC20074C57F /* TMEPublishProductViewController.xib */; };
 		0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
-		0C6D86A417EA061A00D959F8 /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D86A317EA061A00D959F8 /* TMEUser.m */; };
-		0C6D86A717EA062100D959F8 /* _TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D86A617EA062100D959F8 /* _TMEUser.m */; };
 		0C6D86AE17EA0E9A00D959F8 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D86AB17EA0E9A00D959F8 /* BaseManager.m */; };
 		0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B717D1C08F00DC7482 /* libz.1.2.5.dylib */; };
 		0C6E069017E0CBF60003F104 /* TMEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6E068D17E0CBF60003F104 /* TMEViewController.m */; };
@@ -40,6 +38,16 @@
 		0C6E06A217E0CCAE0003F104 /* TMEBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6E06A117E0CCAE0003F104 /* TMEBaseNavigationController.m */; };
 		0C6E06A517E0CCD10003F104 /* TMEBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6E06A417E0CCD10003F104 /* TMEBaseTableViewController.m */; };
 		0C6E06A917E0DA590003F104 /* TMEBasePhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6E06A817E0DA590003F104 /* TMEBasePhotoEditorViewController.m */; };
+		0C7053C217EF5E5E00E7615F /* _TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053AF17EF5E5E00E7615F /* _TMECategory.m */; };
+		0C7053C317EF5E5E00E7615F /* _TMEProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053B117EF5E5E00E7615F /* _TMEProduct.m */; };
+		0C7053C417EF5E5E00E7615F /* _TMEProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053B317EF5E5E00E7615F /* _TMEProductImages.m */; };
+		0C7053C517EF5E5E00E7615F /* _TMETransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053B517EF5E5E00E7615F /* _TMETransaction.m */; };
+		0C7053C617EF5E5E00E7615F /* _TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053B717EF5E5E00E7615F /* _TMEUser.m */; };
+		0C7053C717EF5E5E00E7615F /* TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053B917EF5E5E00E7615F /* TMECategory.m */; };
+		0C7053C817EF5E5E00E7615F /* TMEProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053BB17EF5E5E00E7615F /* TMEProduct.m */; };
+		0C7053C917EF5E5E00E7615F /* TMEProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053BD17EF5E5E00E7615F /* TMEProductImages.m */; };
+		0C7053CA17EF5E5E00E7615F /* TMETransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053BF17EF5E5E00E7615F /* TMETransaction.m */; };
+		0C7053CB17EF5E5E00E7615F /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053C117EF5E5E00E7615F /* TMEUser.m */; };
 		0C74C12F17DC276900D8AF83 /* PBImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C74C12C17DC276900D8AF83 /* PBImageHelper.m */; };
 		0C74C13017DC276900D8AF83 /* TMEPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C74C12E17DC276900D8AF83 /* TMEPhotoButton.m */; };
 		0C7EFB5717E768C70054C4DE /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFB1F17E768C70054C4DE /* MagicalImportFunctions.m */; };
@@ -114,12 +122,6 @@
 		0CA51A6A17EEC8E600AD55E6 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA51A6917EEC8E600AD55E6 /* FacebookManager.m */; };
 		0CA51A6C17EECFB000AD55E6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA51A6B17EECFB000AD55E6 /* FacebookSDK.framework */; };
 		0CA51A6F17EED4BA00AD55E6 /* FacebookSDKOverrides.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0CA51A6D17EED02000AD55E6 /* FacebookSDKOverrides.bundle */; };
-		0CAE978017E765FF003A22CA /* _TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977517E765FF003A22CA /* _TMECategory.m */; };
-		0CAE978117E765FF003A22CA /* _TMEProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977717E765FF003A22CA /* _TMEProduct.m */; };
-		0CAE978217E765FF003A22CA /* _TMEProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977917E765FF003A22CA /* _TMEProductImages.m */; };
-		0CAE978317E765FF003A22CA /* TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977B17E765FF003A22CA /* TMECategory.m */; };
-		0CAE978417E765FF003A22CA /* TMEProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977D17E765FF003A22CA /* TMEProduct.m */; };
-		0CAE978517E765FF003A22CA /* TMEProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977F17E765FF003A22CA /* TMEProductImages.m */; };
 		0CAE978E17E76635003A22CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE978717E76635003A22CA /* AppDelegate.m */; };
 		0CAE978F17E76635003A22CA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0CAE978917E76635003A22CA /* InfoPlist.strings */; };
 		0CAE979017E76635003A22CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE978B17E76635003A22CA /* main.m */; };
@@ -176,10 +178,6 @@
 		0C2CE1BE17EAEAC20074C57F /* TMEPublishProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEPublishProductViewController.xib; sourceTree = "<group>"; };
 		0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMEModels.xcdatamodel; sourceTree = "<group>"; };
 		0C5C936817EA162100ECF9B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		0C6D86A217EA061A00D959F8 /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
-		0C6D86A317EA061A00D959F8 /* TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUser.m; sourceTree = "<group>"; };
-		0C6D86A517EA062100D959F8 /* _TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEUser.h; sourceTree = "<group>"; };
-		0C6D86A617EA062100D959F8 /* _TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEUser.m; sourceTree = "<group>"; };
 		0C6D86AA17EA0E9A00D959F8 /* BaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
 		0C6D86AB17EA0E9A00D959F8 /* BaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManager.m; sourceTree = "<group>"; };
 		0C6E068C17E0CBF60003F104 /* TMEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEViewController.h; sourceTree = "<group>"; };
@@ -194,6 +192,26 @@
 		0C6E06A417E0CCD10003F104 /* TMEBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseTableViewController.m; sourceTree = "<group>"; };
 		0C6E06A717E0DA590003F104 /* TMEBasePhotoEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBasePhotoEditorViewController.h; sourceTree = "<group>"; };
 		0C6E06A817E0DA590003F104 /* TMEBasePhotoEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBasePhotoEditorViewController.m; sourceTree = "<group>"; };
+		0C7053AE17EF5E5E00E7615F /* _TMECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMECategory.h; sourceTree = "<group>"; };
+		0C7053AF17EF5E5E00E7615F /* _TMECategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMECategory.m; sourceTree = "<group>"; };
+		0C7053B017EF5E5E00E7615F /* _TMEProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEProduct.h; sourceTree = "<group>"; };
+		0C7053B117EF5E5E00E7615F /* _TMEProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEProduct.m; sourceTree = "<group>"; };
+		0C7053B217EF5E5E00E7615F /* _TMEProductImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEProductImages.h; sourceTree = "<group>"; };
+		0C7053B317EF5E5E00E7615F /* _TMEProductImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEProductImages.m; sourceTree = "<group>"; };
+		0C7053B417EF5E5E00E7615F /* _TMETransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMETransaction.h; sourceTree = "<group>"; };
+		0C7053B517EF5E5E00E7615F /* _TMETransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMETransaction.m; sourceTree = "<group>"; };
+		0C7053B617EF5E5E00E7615F /* _TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEUser.h; sourceTree = "<group>"; };
+		0C7053B717EF5E5E00E7615F /* _TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEUser.m; sourceTree = "<group>"; };
+		0C7053B817EF5E5E00E7615F /* TMECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECategory.h; sourceTree = "<group>"; };
+		0C7053B917EF5E5E00E7615F /* TMECategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECategory.m; sourceTree = "<group>"; };
+		0C7053BA17EF5E5E00E7615F /* TMEProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProduct.h; sourceTree = "<group>"; };
+		0C7053BB17EF5E5E00E7615F /* TMEProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProduct.m; sourceTree = "<group>"; };
+		0C7053BC17EF5E5E00E7615F /* TMEProductImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductImages.h; sourceTree = "<group>"; };
+		0C7053BD17EF5E5E00E7615F /* TMEProductImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductImages.m; sourceTree = "<group>"; };
+		0C7053BE17EF5E5E00E7615F /* TMETransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETransaction.h; sourceTree = "<group>"; };
+		0C7053BF17EF5E5E00E7615F /* TMETransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETransaction.m; sourceTree = "<group>"; };
+		0C7053C017EF5E5E00E7615F /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
+		0C7053C117EF5E5E00E7615F /* TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUser.m; sourceTree = "<group>"; };
 		0C74C12B17DC276900D8AF83 /* PBImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBImageHelper.h; sourceTree = "<group>"; };
 		0C74C12C17DC276900D8AF83 /* PBImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBImageHelper.m; sourceTree = "<group>"; };
 		0C74C12D17DC276900D8AF83 /* TMEPhotoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPhotoButton.h; sourceTree = "<group>"; };
@@ -339,18 +357,6 @@
 		0CA51A6917EEC8E600AD55E6 /* FacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookManager.m; sourceTree = "<group>"; };
 		0CA51A6B17EECFB000AD55E6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		0CA51A6D17EED02000AD55E6 /* FacebookSDKOverrides.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKOverrides.bundle; sourceTree = "<group>"; };
-		0CAE977417E765FF003A22CA /* _TMECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMECategory.h; sourceTree = "<group>"; };
-		0CAE977517E765FF003A22CA /* _TMECategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMECategory.m; sourceTree = "<group>"; };
-		0CAE977617E765FF003A22CA /* _TMEProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEProduct.h; sourceTree = "<group>"; };
-		0CAE977717E765FF003A22CA /* _TMEProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEProduct.m; sourceTree = "<group>"; };
-		0CAE977817E765FF003A22CA /* _TMEProductImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEProductImages.h; sourceTree = "<group>"; };
-		0CAE977917E765FF003A22CA /* _TMEProductImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEProductImages.m; sourceTree = "<group>"; };
-		0CAE977A17E765FF003A22CA /* TMECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECategory.h; sourceTree = "<group>"; };
-		0CAE977B17E765FF003A22CA /* TMECategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECategory.m; sourceTree = "<group>"; };
-		0CAE977C17E765FF003A22CA /* TMEProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProduct.h; sourceTree = "<group>"; };
-		0CAE977D17E765FF003A22CA /* TMEProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProduct.m; sourceTree = "<group>"; };
-		0CAE977E17E765FF003A22CA /* TMEProductImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductImages.h; sourceTree = "<group>"; };
-		0CAE977F17E765FF003A22CA /* TMEProductImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductImages.m; sourceTree = "<group>"; };
 		0CAE978617E76635003A22CA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Supporting Files/AppDelegate.h"; sourceTree = SOURCE_ROOT; };
 		0CAE978717E76635003A22CA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Supporting Files/AppDelegate.m"; sourceTree = SOURCE_ROOT; };
 		0CAE978A17E76635003A22CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -636,6 +642,23 @@
 			path = Superclass;
 			sourceTree = "<group>";
 		};
+		0C7053AD17EF5E5E00E7615F /* Machine */ = {
+			isa = PBXGroup;
+			children = (
+				0C7053AE17EF5E5E00E7615F /* _TMECategory.h */,
+				0C7053AF17EF5E5E00E7615F /* _TMECategory.m */,
+				0C7053B017EF5E5E00E7615F /* _TMEProduct.h */,
+				0C7053B117EF5E5E00E7615F /* _TMEProduct.m */,
+				0C7053B217EF5E5E00E7615F /* _TMEProductImages.h */,
+				0C7053B317EF5E5E00E7615F /* _TMEProductImages.m */,
+				0C7053B417EF5E5E00E7615F /* _TMETransaction.h */,
+				0C7053B517EF5E5E00E7615F /* _TMETransaction.m */,
+				0C7053B617EF5E5E00E7615F /* _TMEUser.h */,
+				0C7053B717EF5E5E00E7615F /* _TMEUser.m */,
+			);
+			path = Machine;
+			sourceTree = "<group>";
+		};
 		0C74C12A17DC276900D8AF83 /* PhotoButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -786,32 +809,19 @@
 		0CAE977217E765FF003A22CA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0CAE977317E765FF003A22CA /* Machine */,
-				0CAE977A17E765FF003A22CA /* TMECategory.h */,
-				0CAE977B17E765FF003A22CA /* TMECategory.m */,
-				0CAE977C17E765FF003A22CA /* TMEProduct.h */,
-				0CAE977D17E765FF003A22CA /* TMEProduct.m */,
-				0CAE977E17E765FF003A22CA /* TMEProductImages.h */,
-				0CAE977F17E765FF003A22CA /* TMEProductImages.m */,
-				0C6D86A217EA061A00D959F8 /* TMEUser.h */,
-				0C6D86A317EA061A00D959F8 /* TMEUser.m */,
+				0C7053AD17EF5E5E00E7615F /* Machine */,
+				0C7053B817EF5E5E00E7615F /* TMECategory.h */,
+				0C7053B917EF5E5E00E7615F /* TMECategory.m */,
+				0C7053BA17EF5E5E00E7615F /* TMEProduct.h */,
+				0C7053BB17EF5E5E00E7615F /* TMEProduct.m */,
+				0C7053BC17EF5E5E00E7615F /* TMEProductImages.h */,
+				0C7053BD17EF5E5E00E7615F /* TMEProductImages.m */,
+				0C7053BE17EF5E5E00E7615F /* TMETransaction.h */,
+				0C7053BF17EF5E5E00E7615F /* TMETransaction.m */,
+				0C7053C017EF5E5E00E7615F /* TMEUser.h */,
+				0C7053C117EF5E5E00E7615F /* TMEUser.m */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		0CAE977317E765FF003A22CA /* Machine */ = {
-			isa = PBXGroup;
-			children = (
-				0C6D86A517EA062100D959F8 /* _TMEUser.h */,
-				0C6D86A617EA062100D959F8 /* _TMEUser.m */,
-				0CAE977417E765FF003A22CA /* _TMECategory.h */,
-				0CAE977517E765FF003A22CA /* _TMECategory.m */,
-				0CAE977617E765FF003A22CA /* _TMEProduct.h */,
-				0CAE977717E765FF003A22CA /* _TMEProduct.m */,
-				0CAE977817E765FF003A22CA /* _TMEProductImages.h */,
-				0CAE977917E765FF003A22CA /* _TMEProductImages.m */,
-			);
-			path = Machine;
 			sourceTree = "<group>";
 		};
 		0CAE978817E76635003A22CA /* en.lproj */ = {
@@ -1106,6 +1116,7 @@
 				0C7EFB6717E768C70054C4DE /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */,
 				0C7EFBC617E8D5170054C4DE /* MKMapView+Additions.m in Sources */,
+				0C7053C917EF5E5E00E7615F /* TMEProductImages.m in Sources */,
 				0CD9CF5D17EA0FD400402E91 /* AFURLConnectionOperation.m in Sources */,
 				0CD9CF5B17EA0FD400402E91 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				0CFC0FEA17ECB690008FBD92 /* TMEBrowserProductsTableCell.m in Sources */,
@@ -1114,6 +1125,7 @@
 				0C7EFBCE17E8D5170054C4DE /* NSObject+Additions.m in Sources */,
 				0C2CE1AF17EAE1FB0074C57F /* TMEProductManager.m in Sources */,
 				0C7EFB6E17E768C70054C4DE /* MagicalRecord+Setup.m in Sources */,
+				0C7053C717EF5E5E00E7615F /* TMECategory.m in Sources */,
 				0C7EFBD917E8D5170054C4DE /* UIImage+Additions.m in Sources */,
 				0CA51A6A17EEC8E600AD55E6 /* FacebookManager.m in Sources */,
 				0C7EFBCA17E8D5170054C4DE /* NSDate+Additions.m in Sources */,
@@ -1125,6 +1137,7 @@
 				0C7EFB5A17E768C70054C4DE /* NSNumber+MagicalDataImport.m in Sources */,
 				0C7EFBD417E8D5170054C4DE /* UIBezierPath-Points.m in Sources */,
 				0C6E069F17E0CC850003F104 /* TMEBaseViewController.m in Sources */,
+				0C7053C817EF5E5E00E7615F /* TMEProduct.m in Sources */,
 				0C7EFB6817E768C70054C4DE /* NSPersistentStore+MagicalRecord.m in Sources */,
 				0C7EFB5E17E768C70054C4DE /* NSManagedObject+MagicalAggregation.m in Sources */,
 				0C7EFBD517E8D5170054C4DE /* UIButton+Additions.m in Sources */,
@@ -1136,6 +1149,7 @@
 				0C7EFBDC17E8D5170054C4DE /* UILabel+Additions.m in Sources */,
 				0C7EFB6C17E768C70054C4DE /* MagicalRecord+iCloud.m in Sources */,
 				0C74C13017DC276900D8AF83 /* TMEPhotoButton.m in Sources */,
+				0C7053CB17EF5E5E00E7615F /* TMEUser.m in Sources */,
 				0C7EFBD117E8D5170054C4DE /* NSString+Validation.m in Sources */,
 				0C6E06A217E0CCAE0003F104 /* TMEBaseNavigationController.m in Sources */,
 				0C7EFBCB17E8D5170054C4DE /* NSDictionary+Additions.m in Sources */,
@@ -1154,30 +1168,27 @@
 				0C6E06A917E0DA590003F104 /* TMEBasePhotoEditorViewController.m in Sources */,
 				0C7EFBC317E8D5170054C4DE /* ActiveSupportInflector.m in Sources */,
 				0C6D86AE17EA0E9A00D959F8 /* BaseManager.m in Sources */,
-				0CAE978017E765FF003A22CA /* _TMECategory.m in Sources */,
 				0C7EFBC917E8D5170054C4DE /* NSData+Base64.m in Sources */,
 				0CD9CF5717EA0FD400402E91 /* AFHTTPClient.m in Sources */,
 				0CD9CF5F17EA0FD400402E91 /* UIImageView+AFNetworking.m in Sources */,
 				0C7EFB6D17E768C70054C4DE /* MagicalRecord+Options.m in Sources */,
-				0CAE978117E765FF003A22CA /* _TMEProduct.m in Sources */,
 				0C7EFB6917E768C70054C4DE /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				0C7EFBE217E8D5170054C4DE /* UIView+Nib.m in Sources */,
 				0CD9CF5E17EA0FD400402E91 /* AFXMLRequestOperation.m in Sources */,
 				0C7EFB6617E768C70054C4DE /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				0CFC100017ECBE06008FBD92 /* TMELoginViewController.m in Sources */,
 				0C7EFBC517E8D5170054C4DE /* ISO8601DateFormatter.m in Sources */,
+				0C7053CA17EF5E5E00E7615F /* TMETransaction.m in Sources */,
 				0C7EFBDD17E8D5170054C4DE /* UINavigationController+Additions.m in Sources */,
-				0CAE978217E765FF003A22CA /* _TMEProductImages.m in Sources */,
 				0C7EFB6B17E768C70054C4DE /* MagicalRecord+ErrorHandling.m in Sources */,
-				0CAE978317E765FF003A22CA /* TMECategory.m in Sources */,
+				0C7053C417EF5E5E00E7615F /* _TMEProductImages.m in Sources */,
 				0C7EFBD717E8D5170054C4DE /* UIColor+Custom.m in Sources */,
-				0C6D86A417EA061A00D959F8 /* TMEUser.m in Sources */,
 				0C7EFBD317E8D5170054C4DE /* UIBarButtonItem+Custom.m in Sources */,
+				0C7053C517EF5E5E00E7615F /* _TMETransaction.m in Sources */,
 				0C7EFB6117E768C70054C4DE /* NSManagedObject+MagicalRecord.m in Sources */,
 				0C7EFB5817E768C70054C4DE /* NSAttributeDescription+MagicalDataImport.m in Sources */,
+				0C7053C217EF5E5E00E7615F /* _TMECategory.m in Sources */,
 				0C7EFBCD17E8D5170054C4DE /* NSNumber+Additions.m in Sources */,
-				0CAE978417E765FF003A22CA /* TMEProduct.m in Sources */,
-				0CAE978517E765FF003A22CA /* TMEProductImages.m in Sources */,
 				0C7EFB7017E768C70054C4DE /* MagicalRecord.m in Sources */,
 				0C7EFB6A17E768C70054C4DE /* MagicalRecord+Actions.m in Sources */,
 				0C7EFBC717E8D5170054C4DE /* NSArray+Additions.m in Sources */,
@@ -1194,11 +1205,12 @@
 				0CFC0FEC17ECB690008FBD92 /* TMEBrowserProductsViewController.m in Sources */,
 				0CFC0FF117ECB8BB008FBD92 /* TMEProductDetailsViewController.m in Sources */,
 				0C7EFBD817E8D5170054C4DE /* UIFont+Additions.m in Sources */,
+				0C7053C317EF5E5E00E7615F /* _TMEProduct.m in Sources */,
+				0C7053C617EF5E5E00E7615F /* _TMEUser.m in Sources */,
 				0C7EFBE117E8D5170054C4DE /* UIView+Glow.m in Sources */,
 				0CD9CF5917EA0FD400402E91 /* AFImageRequestOperation.m in Sources */,
 				0C7EFB5F17E768C70054C4DE /* NSManagedObject+MagicalDataImport.m in Sources */,
 				0CD9CF5C17EA0FD400402E91 /* AFPropertyListRequestOperation.m in Sources */,
-				0C6D86A717EA062100D959F8 /* _TMEUser.m in Sources */,
 				0C7EFBD017E8D5170054C4DE /* NSString+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,12 +4,20 @@
 #import "_TMEUser.h"
 
 const struct TMEUserAttributes TMEUserAttributes = {
+	.email = @"email",
+	.facebook_id = @"facebook_id",
+	.id = @"id",
 	.name = @"name",
-	.userID = @"userID",
+	.password = @"password",
+	.photo_url = @"photo_url",
+	.udid = @"udid",
+	.username = @"username",
 };
 
 const struct TMEUserRelationships TMEUserRelationships = {
+	.buyTransactions = @"buyTransactions",
 	.products = @"products",
+	.sellTransactions = @"sellTransactions",
 };
 
 const struct TMEUserFetchedProperties TMEUserFetchedProperties = {
@@ -41,14 +49,54 @@ const struct TMEUserFetchedProperties TMEUserFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"userIDValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"userID"];
+	if ([key isEqualToString:@"idValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"id"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic email;
+
+
+
+
+
+
+@dynamic facebook_id;
+
+
+
+
+
+
+@dynamic id;
+
+
+
+- (int64_t)idValue {
+	NSNumber *result = [self id];
+	return [result longLongValue];
+}
+
+- (void)setIdValue:(int64_t)value_ {
+	[self setId:[NSNumber numberWithLongLong:value_]];
+}
+
+- (int64_t)primitiveIdValue {
+	NSNumber *result = [self primitiveId];
+	return [result longLongValue];
+}
+
+- (void)setPrimitiveIdValue:(int64_t)value_ {
+	[self setPrimitiveId:[NSNumber numberWithLongLong:value_]];
+}
+
 
 
 
@@ -60,31 +108,46 @@ const struct TMEUserFetchedProperties TMEUserFetchedProperties = {
 
 
 
-@dynamic userID;
+@dynamic password;
 
 
 
-- (int64_t)userIDValue {
-	NSNumber *result = [self userID];
-	return [result longLongValue];
+
+
+
+@dynamic photo_url;
+
+
+
+
+
+
+@dynamic udid;
+
+
+
+
+
+
+@dynamic username;
+
+
+
+
+
+
+@dynamic buyTransactions;
+
+	
+- (NSMutableSet*)buyTransactionsSet {
+	[self willAccessValueForKey:@"buyTransactions"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"buyTransactions"];
+  
+	[self didAccessValueForKey:@"buyTransactions"];
+	return result;
 }
-
-- (void)setUserIDValue:(int64_t)value_ {
-	[self setUserID:[NSNumber numberWithLongLong:value_]];
-}
-
-- (int64_t)primitiveUserIDValue {
-	NSNumber *result = [self primitiveUserID];
-	return [result longLongValue];
-}
-
-- (void)setPrimitiveUserIDValue:(int64_t)value_ {
-	[self setPrimitiveUserID:[NSNumber numberWithLongLong:value_]];
-}
-
-
-
-
+	
 
 @dynamic products;
 
@@ -95,6 +158,19 @@ const struct TMEUserFetchedProperties TMEUserFetchedProperties = {
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"products"];
   
 	[self didAccessValueForKey:@"products"];
+	return result;
+}
+	
+
+@dynamic sellTransactions;
+
+	
+- (NSMutableSet*)sellTransactionsSet {
+	[self willAccessValueForKey:@"sellTransactions"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"sellTransactions"];
+  
+	[self didAccessValueForKey:@"sellTransactions"];
 	return result;
 }
 	

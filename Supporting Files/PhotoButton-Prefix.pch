@@ -109,6 +109,7 @@
 #import "TMEProductImages.h"
 #import "TMECategory.h"
 #import "TMEUser.h"
+#import "TMETransaction.h"
 
 // Vendors
 #import "CoreData+MagicalRecord.h"
