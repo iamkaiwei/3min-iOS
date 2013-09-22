@@ -13,7 +13,12 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 @property (strong, nonatomic) UINavigationController *navVC;
+
+// Facebook stuff
+- (void)openSession;
+
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
 
 @end

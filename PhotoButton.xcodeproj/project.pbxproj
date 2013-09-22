@@ -111,7 +111,9 @@
 		0C7EFBED17E8D5790054C4DE /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFBEA17E8D5790054C4DE /* UIFont+FontAwesome.m */; };
 		0C7EFBEF17E8D86E0054C4DE /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7EFBEE17E8D86E0054C4DE /* CoreImage.framework */; };
 		0C7EFBF117E8DBE50054C4DE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7EFBF017E8DBE50054C4DE /* MapKit.framework */; };
-		0CA51A6717EEC6E500AD55E6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA51A6617EEC6E500AD55E6 /* FacebookSDK.framework */; };
+		0CA51A6A17EEC8E600AD55E6 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA51A6917EEC8E600AD55E6 /* FacebookManager.m */; };
+		0CA51A6C17EECFB000AD55E6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA51A6B17EECFB000AD55E6 /* FacebookSDK.framework */; };
+		0CA51A6F17EED4BA00AD55E6 /* FacebookSDKOverrides.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0CA51A6D17EED02000AD55E6 /* FacebookSDKOverrides.bundle */; };
 		0CAE978017E765FF003A22CA /* _TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977517E765FF003A22CA /* _TMECategory.m */; };
 		0CAE978117E765FF003A22CA /* _TMEProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977717E765FF003A22CA /* _TMEProduct.m */; };
 		0CAE978217E765FF003A22CA /* _TMEProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977917E765FF003A22CA /* _TMEProductImages.m */; };
@@ -332,7 +334,10 @@
 		0C7EFBEA17E8D5790054C4DE /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FontAwesome.m"; sourceTree = "<group>"; };
 		0C7EFBEE17E8D86E0054C4DE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		0C7EFBF017E8DBE50054C4DE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		0CA51A6617EEC6E500AD55E6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		0CA51A6817EEC8E600AD55E6 /* FacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookManager.h; sourceTree = "<group>"; };
+		0CA51A6917EEC8E600AD55E6 /* FacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookManager.m; sourceTree = "<group>"; };
+		0CA51A6B17EECFB000AD55E6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		0CA51A6D17EED02000AD55E6 /* FacebookSDKOverrides.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKOverrides.bundle; sourceTree = "<group>"; };
 		0CAE977417E765FF003A22CA /* _TMECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMECategory.h; sourceTree = "<group>"; };
 		0CAE977517E765FF003A22CA /* _TMECategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMECategory.m; sourceTree = "<group>"; };
 		0CAE977617E765FF003A22CA /* _TMEProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEProduct.h; sourceTree = "<group>"; };
@@ -437,7 +442,7 @@
 				0CBE48B217D1C03E00DC7482 /* CoreData.framework in Frameworks */,
 				0CBE48B017D1C03700DC7482 /* AdSupport.framework in Frameworks */,
 				5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */,
-				0CA51A6717EEC6E500AD55E6 /* FacebookSDK.framework in Frameworks */,
+				0CA51A6C17EECFB000AD55E6 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +592,8 @@
 		0C6D86A917EA0E9A00D959F8 /* Superclass */ = {
 			isa = PBXGroup;
 			children = (
+				0CA51A6817EEC8E600AD55E6 /* FacebookManager.h */,
+				0CA51A6917EEC8E600AD55E6 /* FacebookManager.m */,
 				0C6D86AA17EA0E9A00D959F8 /* BaseManager.h */,
 				0C6D86AB17EA0E9A00D959F8 /* BaseManager.m */,
 			);
@@ -936,7 +943,8 @@
 		5976C04215925D2D007F6FC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0CA51A6617EEC6E500AD55E6 /* FacebookSDK.framework */,
+				0CA51A6D17EED02000AD55E6 /* FacebookSDKOverrides.bundle */,
+				0CA51A6B17EECFB000AD55E6 /* FacebookSDK.framework */,
 				0C5C936817EA162100ECF9B3 /* Security.framework */,
 				0CD9CF6017EA10DF00402E91 /* MobileCoreServices.framework */,
 				0C7EFBF017E8DBE50054C4DE /* MapKit.framework */,
@@ -1024,6 +1032,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CA51A6F17EED4BA00AD55E6 /* FacebookSDKOverrides.bundle in Resources */,
 				0CFC0FF217ECB8BB008FBD92 /* TMEProductDetailsViewController.xib in Resources */,
 				0C7EFB7717E8C46E0054C4DE /* dsym_upload.sh in Resources */,
 				0C6E069117E0CBF60003F104 /* TMEViewController_iPad.xib in Resources */,
@@ -1084,6 +1093,7 @@
 				0C2CE1AF17EAE1FB0074C57F /* TMEProductManager.m in Sources */,
 				0C7EFB6E17E768C70054C4DE /* MagicalRecord+Setup.m in Sources */,
 				0C7EFBD917E8D5170054C4DE /* UIImage+Additions.m in Sources */,
+				0CA51A6A17EEC8E600AD55E6 /* FacebookManager.m in Sources */,
 				0C7EFBCA17E8D5170054C4DE /* NSDate+Additions.m in Sources */,
 				0C7EFB5917E768C70054C4DE /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				0C7EFB6517E768C70054C4DE /* NSManagedObjectContext+MagicalSaves.m in Sources */,

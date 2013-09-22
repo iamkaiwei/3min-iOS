@@ -7,8 +7,11 @@
 //
 
 #import "TMELoginViewController.h"
+#import "AppDelegate.h"
 
-@interface TMELoginViewController ()
+@interface TMELoginViewController () <FBLoginViewDelegate>
+
+@property (weak, nonatomic) IBOutlet FBLoginView *FBLoginView;
 
 @end
 
@@ -19,6 +22,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.FBLoginView.readPermissions = @[@"publish_actions", @"email", @"user_likes"];
+        self.FBLoginView.defaultAudience = FBSessionDefaultAudienceFriends;
     }
     return self;
 }
@@ -33,6 +38,52 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma marks - Facebook delegates
+- (IBAction)performLogin:(id)sender
+{
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate openSession];
+}
+
+- (void)loginFailed
+{
+    // User switched back to the app without authorizing. Stay here, but
+    // stop the spinner.
+}
+
+- (void)showLoginView
+{
+    UIViewController *topViewController = [self.navigationController topViewController];
+    UIViewController *modalViewController = [topViewController modalViewController];
+    
+    // If the login screen is not already displayed, display it. If the login screen is
+    // displayed, then getting back here means the login in progress did not successfully
+    // complete. In that case, notify the login view so it can update its UI appropriately.
+    if (![modalViewController isKindOfClass:[TMELoginViewController class]]) {
+        TMELoginViewController* loginViewController = [[TMELoginViewController alloc] init];
+        [topViewController presentModalViewController:loginViewController animated:NO];
+    } else {
+        TMELoginViewController* loginViewController = (TMELoginViewController*)modalViewController;
+        [loginViewController loginFailed];
+    }
+}
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
+    
+}
+
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
+{
+
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user
+{
+    DLog(@"logged User: %@", [user description]);
 }
 
 @end

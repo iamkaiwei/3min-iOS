@@ -38,5 +38,9 @@
     self.browser = [[TMEBrowserProductsViewController alloc] init];
     [self.navigationController pushViewController:self.browser animated:YES];
 }
+- (IBAction)onBtnShowFBPage:(id)sender {
+    TMELoginViewController *loginVC = [[TMELoginViewController alloc] init];
+    [self.navigationController pushViewController:loginVC animated:YES];
+}
 
 @end

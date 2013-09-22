@@ -13,6 +13,8 @@
     #import <Foundation/Foundation.h>
 #endif
 
+#import <FacebookSDK/FacebookSDK.h>
+
 //------------------------------------------------------------------------------------------------------
 // Debug vs Production configurations
 //------------------------------------------------------------------------------------------------------
@@ -97,6 +99,7 @@
 // Managers
 #import "BaseManager.h"
 #import "TMEProductManager.h"
+#import "FacebookManager.h"
 
 // Models
 #import "TMEProduct.h"
@@ -111,6 +114,7 @@
 #import "AFNetworking.h"
 
 // Common VCs
+#import "TMELoginViewController.h"
 #import "TMEBaseViewController.h"
 #import "TMEBaseNavigationController.h"
 #import "TMEBaseTableViewController.h"
