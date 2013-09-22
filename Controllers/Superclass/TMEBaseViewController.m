@@ -75,6 +75,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    // Google Analytics
+    self.trackedViewName = self.title;
+    
     [self trackCritercismBreadCrumb:__LINE__];
     
     if (self.shouldAvoidKeyboard)
@@ -132,8 +136,6 @@
 {
     return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
 }
-
-
 
 #pragma mark - UI Helpers
 

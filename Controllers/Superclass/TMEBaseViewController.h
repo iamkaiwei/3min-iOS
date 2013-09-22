@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
 #define LABEL_SPACING             5
 
-@interface TMEBaseViewController : UIViewController <UITextFieldDelegate>
+@interface TMEBaseViewController : GAITrackedViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *activeTextField;
 @property (nonatomic, assign) BOOL previousVCIsHome;

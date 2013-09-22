@@ -30,12 +30,14 @@
 #define SETTINGS_NEW_RELIC_TOKEN_DEFAULT            @""
 #define SETTINGS_ITUNE_APP_ID                       @""
 #define ENABLE_TRIPPLE_TAP_PREFILL                  NO
+#define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
 
 
 //Normal development environment
 #else
 #ifdef DEBUG
 
+#define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
 #define API_SERVER_HOST                             @""
 #define URBAN_AIRSHIP_APP_KEY                       @""
 #define URBAN_AIRSHIP_APP_SECRET                    @""
@@ -49,6 +51,7 @@
 //Staging, archive to app manager
 #else
 
+#define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
 #define API_SERVER_HOST                             @""        //app manager
 #define URBAN_AIRSHIP_APP_KEY                       @""
 #define URBAN_AIRSHIP_APP_SECRET                    @""

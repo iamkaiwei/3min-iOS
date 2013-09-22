@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "TMEViewController.h"
+#import "GAI.h"
 
 @interface AppDelegate()
 
@@ -47,6 +48,10 @@
         //        [self showLoginView];
     }
     
+    // Google analytics
+    [self setUpGoogleAnalytics];
+    
+    // VCs stuff
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     UIViewController *rootVC;
@@ -202,6 +207,21 @@
     UIViewController *topViewController = [self.navVC topViewController];
     TMELoginViewController* loginViewController = [[TMELoginViewController alloc]init];
     [topViewController presentModalViewController:loginViewController animated:NO];
+}
+
+#pragma marks - Google Analytics
+- (void)setUpGoogleAnalytics
+{
+    
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    // Optional: set debug to YES for extra debugging information.
+    [GAI sharedInstance].debug = YES;
+    // Create tracker instance.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_APP_KEY];
+    [GAI sharedInstance].debug = YES;
 }
 
 @end

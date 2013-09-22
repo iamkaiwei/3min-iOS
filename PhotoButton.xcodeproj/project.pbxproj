@@ -126,6 +126,7 @@
 		0CAE979117E76635003A22CA /* PhotoButton-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CAE978C17E76635003A22CA /* PhotoButton-Info.plist */; };
 		0CAE979D17E7666D003A22CA /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAE979A17E7666D003A22CA /* libAviarySDK.a */; };
 		0CAE979E17E7666D003A22CA /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0CAE979C17E7666D003A22CA /* AviarySDKResources.bundle */; };
+		0CB8EB4C17EEF4EB008F2CED /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB8EB4B17EEF4EB008F2CED /* libGoogleAnalytics.a */; };
 		0CBE48AE17D1C02E00DC7482 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48AD17D1C02E00DC7482 /* Accelerate.framework */; };
 		0CBE48B017D1C03700DC7482 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48AF17D1C03700DC7482 /* AdSupport.framework */; };
 		0CBE48B217D1C03E00DC7482 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B117D1C03E00DC7482 /* CoreData.framework */; };
@@ -364,6 +365,12 @@
 		0CAE979917E7666D003A22CA /* AFPhotoEditorSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorSession.h; sourceTree = "<group>"; };
 		0CAE979A17E7666D003A22CA /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
 		0CAE979C17E7666D003A22CA /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
+		0CB8EB4617EEF4EB008F2CED /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		0CB8EB4717EEF4EB008F2CED /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		0CB8EB4817EEF4EB008F2CED /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		0CB8EB4917EEF4EB008F2CED /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		0CB8EB4A17EEF4EB008F2CED /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		0CB8EB4B17EEF4EB008F2CED /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		0CBE48AD17D1C02E00DC7482 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		0CBE48AF17D1C03700DC7482 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		0CBE48B117D1C03E00DC7482 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -431,6 +438,7 @@
 				0C7EFBEF17E8D86E0054C4DE /* CoreImage.framework in Frameworks */,
 				5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */,
 				0CBE48BE17D1C0A400DC7482 /* QuartzCore.framework in Frameworks */,
+				0CB8EB4C17EEF4EB008F2CED /* libGoogleAnalytics.a in Frameworks */,
 				0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */,
 				5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */,
 				0C7EFB7817E8C46E0054C4DE /* libCrittercism_v4_0_7.a in Frameworks */,
@@ -549,6 +557,7 @@
 		0C28B28C17DC1B9200BD0EC2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				0CB8EB4517EEF4EB008F2CED /* Google Analytics */,
 				0CD9CF4317EA0FD400402E91 /* AFNetworking */,
 				0CAE979217E7666D003A22CA /* AviarySDK */,
 				0C7EFBE517E8D5780054C4DE /* FontAwesome */,
@@ -845,6 +854,19 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		0CB8EB4517EEF4EB008F2CED /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				0CB8EB4617EEF4EB008F2CED /* GAI.h */,
+				0CB8EB4717EEF4EB008F2CED /* GAITrackedViewController.h */,
+				0CB8EB4817EEF4EB008F2CED /* GAITracker.h */,
+				0CB8EB4917EEF4EB008F2CED /* GAITransaction.h */,
+				0CB8EB4A17EEF4EB008F2CED /* GAITransactionItem.h */,
+				0CB8EB4B17EEF4EB008F2CED /* libGoogleAnalytics.a */,
+			);
+			path = "Google Analytics";
+			sourceTree = "<group>";
+		};
 		0CD9CF4317EA0FD400402E91 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -884,12 +906,12 @@
 		0CFC0FE317ECB690008FBD92 /* Browser Products */ = {
 			isa = PBXGroup;
 			children = (
-				0CFC0FE417ECB690008FBD92 /* TMEBrowserProductsTableCell.h */,
-				0CFC0FE517ECB690008FBD92 /* TMEBrowserProductsTableCell.m */,
-				0CFC0FE617ECB690008FBD92 /* TMEBrowserProductsTableCell.xib */,
 				0CFC0FE717ECB690008FBD92 /* TMEBrowserProductsViewController.h */,
 				0CFC0FE817ECB690008FBD92 /* TMEBrowserProductsViewController.m */,
 				0CFC0FE917ECB690008FBD92 /* TMEBrowserProductsViewController.xib */,
+				0CFC0FE417ECB690008FBD92 /* TMEBrowserProductsTableCell.h */,
+				0CFC0FE517ECB690008FBD92 /* TMEBrowserProductsTableCell.m */,
+				0CFC0FE617ECB690008FBD92 /* TMEBrowserProductsTableCell.xib */,
 			);
 			path = "Browser Products";
 			sourceTree = "<group>";
@@ -1288,8 +1310,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/khang/2359Media/PhotoButton/Vendors/CrittercismSDK,
-					"\\\\\\\"$(SRCROOT)/Vendors/AviarySDK\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/AviarySDK\\\\\\\"",
 					/Users/khang/2359Media/PhotoButton/Vendors/AviarySDK,
+					"/Users/khang/2359Media/PhotoButton/Vendors/Google\\ Analytics",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1313,8 +1336,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/khang/2359Media/PhotoButton/Vendors/CrittercismSDK,
-					"\\\\\\\"$(SRCROOT)/Vendors/AviarySDK\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/AviarySDK\\\\\\\"",
 					/Users/khang/2359Media/PhotoButton/Vendors/AviarySDK,
+					"/Users/khang/2359Media/PhotoButton/Vendors/Google\\ Analytics",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
