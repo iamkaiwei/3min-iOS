@@ -11,6 +11,6 @@
 
 @class TMEPhotoButton;
 
-@interface TMEViewController : UIViewController
+@interface TMEViewController : TMEBaseViewController
 
 @end

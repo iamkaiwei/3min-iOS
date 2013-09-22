@@ -6,8 +6,6 @@
 //
 //
 
-#import "TMEBaseViewController.h"
-
 @interface TMEProductDetailsViewController : TMEBaseViewController
 
 @end

@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) UITextField *activeTextField;
 @property (nonatomic, assign) BOOL previousVCIsHome;
+@property (nonatomic, strong) UILabel *titleLabel;
 
 /**
  A Boolean value that specifies whether views should avoid keyboard. Default is YES.
@@ -38,8 +39,6 @@
  */
 - (void)setCustomNavbarLeftButtonTitle:(NSString*)title selector:(SEL)selector;
 - (void)setCustomNavbarRightButtonTitle:(NSString*)title selector:(SEL)selector;
-- (void)setCustomNavbarLeftButtonWithImageName:(NSString*)imageName selector:(SEL)selector;
-- (void)setCustomNavbarRightButtonWithImageName:(NSString*)imageName selector:(SEL)selector;
 
 /*
  * Auto adjust content size for UIScrollView according to its subviews
@@ -49,7 +48,7 @@
 /*
  * Show a standard webview controller
  */
-- (void)showWebviewWithURL:(NSString *)urlString;
+//- (void)showWebviewWithURL:(NSString *)urlString;
 
 /*
  * Pops navigation controller
@@ -76,9 +75,5 @@
 - (void)sendNotification:(NSString *)notificationName body:(id)body;
 - (void)sendNotification:(NSString *)notificationName body:(id)body type:(id)type;
 
-/**
- * Generic function to handle most common server error
- */
-- (BOOL)handleStandardServerError:(NSError *)error;
-
 @end
+

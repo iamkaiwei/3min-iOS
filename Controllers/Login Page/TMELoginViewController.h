@@ -8,6 +8,6 @@
 
 #import "TMEBaseViewController.h"
 
-@interface TMELoginViewController : UIViewController
+@interface TMELoginViewController : TMEBaseViewController
 
 @end
