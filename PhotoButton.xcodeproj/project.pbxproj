@@ -111,6 +111,7 @@
 		0C7EFBED17E8D5790054C4DE /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFBEA17E8D5790054C4DE /* UIFont+FontAwesome.m */; };
 		0C7EFBEF17E8D86E0054C4DE /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7EFBEE17E8D86E0054C4DE /* CoreImage.framework */; };
 		0C7EFBF117E8DBE50054C4DE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7EFBF017E8DBE50054C4DE /* MapKit.framework */; };
+		0CA51A6717EEC6E500AD55E6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA51A6617EEC6E500AD55E6 /* FacebookSDK.framework */; };
 		0CAE978017E765FF003A22CA /* _TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977517E765FF003A22CA /* _TMECategory.m */; };
 		0CAE978117E765FF003A22CA /* _TMEProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977717E765FF003A22CA /* _TMEProduct.m */; };
 		0CAE978217E765FF003A22CA /* _TMEProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE977917E765FF003A22CA /* _TMEProductImages.m */; };
@@ -331,6 +332,7 @@
 		0C7EFBEA17E8D5790054C4DE /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FontAwesome.m"; sourceTree = "<group>"; };
 		0C7EFBEE17E8D86E0054C4DE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		0C7EFBF017E8DBE50054C4DE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0CA51A6617EEC6E500AD55E6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		0CAE977417E765FF003A22CA /* _TMECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMECategory.h; sourceTree = "<group>"; };
 		0CAE977517E765FF003A22CA /* _TMECategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMECategory.m; sourceTree = "<group>"; };
 		0CAE977617E765FF003A22CA /* _TMEProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEProduct.h; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 				0CBE48B217D1C03E00DC7482 /* CoreData.framework in Frameworks */,
 				0CBE48B017D1C03700DC7482 /* AdSupport.framework in Frameworks */,
 				5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */,
+				0CA51A6717EEC6E500AD55E6 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -933,6 +936,7 @@
 		5976C04215925D2D007F6FC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CA51A6617EEC6E500AD55E6 /* FacebookSDK.framework */,
 				0C5C936817EA162100ECF9B3 /* Security.framework */,
 				0CD9CF6017EA10DF00402E91 /* MobileCoreServices.framework */,
 				0C7EFBF017E8DBE50054C4DE /* MapKit.framework */,
@@ -1264,6 +1268,10 @@
 		5976C06115925D2D007F6FC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/khang/2359Media/PhotoButton,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/PhotoButton-Prefix.pch";
 				INFOPLIST_FILE = "Supporting Files/PhotoButton-Info.plist";
@@ -1285,6 +1293,10 @@
 		5976C06215925D2D007F6FC3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/khang/2359Media/PhotoButton,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/PhotoButton-Prefix.pch";
 				INFOPLIST_FILE = "Supporting Files/PhotoButton-Info.plist";
