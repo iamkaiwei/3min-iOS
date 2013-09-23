@@ -38,7 +38,7 @@
 #ifdef DEBUG
 
 #define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
-#define API_SERVER_HOST                             @""
+#define API_SERVER_HOST                             @"http://threemins-server-staging.herokuapp.com/api/v1/"
 #define URBAN_AIRSHIP_APP_KEY                       @""
 #define URBAN_AIRSHIP_APP_SECRET                    @""
 #define SETTINGS_CRITERCISM_TOKEN_DEFAULT           @""

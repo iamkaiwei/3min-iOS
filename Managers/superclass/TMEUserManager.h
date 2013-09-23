@@ -10,4 +10,10 @@
 
 @interface TMEUserManager : BaseManager
 
+@property (assign, nonatomic) id<FBGraphUser>           loggedUser;
+
+- (void)setLoggedUser:(id<FBGraphUser>)loggedUser;
+- (void)logOut;
+- (BOOL)isLoggedUser;
+
 @end

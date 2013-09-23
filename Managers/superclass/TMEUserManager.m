@@ -12,6 +12,25 @@
 
 SINGLETON_MACRO
 
+#pragma marks - Login/logout
+- (BOOL)isLoggedUser
+{
+    if (self.loggedUser)
+        return YES;
+    
+    return NO;
+}
+
+- (void)setLoggedUser:(id<FBGraphUser>)loggedUser
+{
+    _loggedUser = loggedUser;
+}
+
+- (void)logOut
+{
+    self.loggedUser = nil;
+}
+
 #pragma marks - Fake functions to handle users stuffs
 - (TMEUser *)userWithDictionary:(NSDictionary *)dicData
 {
