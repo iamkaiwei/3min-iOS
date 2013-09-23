@@ -31,6 +31,12 @@ SINGLETON_MACRO
     self.loggedUser = nil;
 }
 
+- (NSString *)getAccessToken
+{
+#warning MUST HANDLE LATER
+    return @"";
+}
+
 #pragma marks - Fake functions to handle users stuffs
 - (TMEUser *)userWithDictionary:(NSDictionary *)dicData
 {

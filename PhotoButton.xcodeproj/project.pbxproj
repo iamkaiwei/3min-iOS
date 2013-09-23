@@ -23,10 +23,13 @@
 /* Begin PBXBuildFile section */
 		0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */; };
 		0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */; };
-		0C2CE1AF17EAE1FB0074C57F /* TMEProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1AE17EAE1FB0074C57F /* TMEProductManager.m */; };
 		0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */; };
 		0C2CE1C117EAEAC20074C57F /* TMEPublishProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1BD17EAEAC20074C57F /* TMEPublishProductViewController.m */; };
 		0C2CE1C217EAEAC20074C57F /* TMEPublishProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2CE1BE17EAEAC20074C57F /* TMEPublishProductViewController.xib */; };
+		0C34A89817F0A5CF003ACEFF /* TMEProductsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C34A89717F0A5CE003ACEFF /* TMEProductsManager.m */; };
+		0C34A89B17F0A665003ACEFF /* TMEHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C34A89A17F0A665003ACEFF /* TMEHTTPClient.m */; };
+		0C34A89E17F0ACEF003ACEFF /* BaseNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C34A89D17F0ACEF003ACEFF /* BaseNetworkManager.m */; };
+		0C34A8A117F0ADFE003ACEFF /* AFDownloadRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C34A8A017F0ADFE003ACEFF /* AFDownloadRequestOperation.m */; };
 		0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
 		0C6D86AE17EA0E9A00D959F8 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D86AB17EA0E9A00D959F8 /* BaseManager.m */; };
@@ -169,13 +172,19 @@
 /* Begin PBXFileReference section */
 		0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_57x57.png; sourceTree = "<group>"; };
 		0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_114x114.png; sourceTree = "<group>"; };
-		0C2CE1AD17EAE1FB0074C57F /* TMEProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductManager.h; sourceTree = "<group>"; };
-		0C2CE1AE17EAE1FB0074C57F /* TMEProductManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductManager.m; sourceTree = "<group>"; };
 		0C2CE1B017EAE30F0074C57F /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEUserManager.h; path = superclass/TMEUserManager.h; sourceTree = "<group>"; };
 		0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEUserManager.m; path = superclass/TMEUserManager.m; sourceTree = "<group>"; };
 		0C2CE1BC17EAEAC20074C57F /* TMEPublishProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPublishProductViewController.h; sourceTree = "<group>"; };
 		0C2CE1BD17EAEAC20074C57F /* TMEPublishProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPublishProductViewController.m; sourceTree = "<group>"; };
 		0C2CE1BE17EAEAC20074C57F /* TMEPublishProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEPublishProductViewController.xib; sourceTree = "<group>"; };
+		0C34A89617F0A5CE003ACEFF /* TMEProductsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductsManager.h; sourceTree = "<group>"; };
+		0C34A89717F0A5CE003ACEFF /* TMEProductsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductsManager.m; sourceTree = "<group>"; };
+		0C34A89917F0A665003ACEFF /* TMEHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEHTTPClient.h; path = ../TMEHTTPClient.h; sourceTree = "<group>"; };
+		0C34A89A17F0A665003ACEFF /* TMEHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEHTTPClient.m; path = ../TMEHTTPClient.m; sourceTree = "<group>"; };
+		0C34A89C17F0ACEF003ACEFF /* BaseNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetworkManager.h; sourceTree = "<group>"; };
+		0C34A89D17F0ACEF003ACEFF /* BaseNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetworkManager.m; sourceTree = "<group>"; };
+		0C34A89F17F0ADFE003ACEFF /* AFDownloadRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFDownloadRequestOperation.h; sourceTree = "<group>"; };
+		0C34A8A017F0ADFE003ACEFF /* AFDownloadRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFDownloadRequestOperation.m; sourceTree = "<group>"; };
 		0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMEModels.xcdatamodel; sourceTree = "<group>"; };
 		0C5C936817EA162100ECF9B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0C6D86AA17EA0E9A00D959F8 /* BaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
@@ -596,10 +605,10 @@
 			isa = PBXGroup;
 			children = (
 				0C6D86A917EA0E9A00D959F8 /* Superclass */,
-				0C2CE1AD17EAE1FB0074C57F /* TMEProductManager.h */,
-				0C2CE1AE17EAE1FB0074C57F /* TMEProductManager.m */,
 				0C2CE1B017EAE30F0074C57F /* TMEUserManager.h */,
 				0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */,
+				0C34A89617F0A5CE003ACEFF /* TMEProductsManager.h */,
+				0C34A89717F0A5CE003ACEFF /* TMEProductsManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -609,8 +618,12 @@
 			children = (
 				0CA51A6817EEC8E600AD55E6 /* FacebookManager.h */,
 				0CA51A6917EEC8E600AD55E6 /* FacebookManager.m */,
+				0C34A89C17F0ACEF003ACEFF /* BaseNetworkManager.h */,
+				0C34A89D17F0ACEF003ACEFF /* BaseNetworkManager.m */,
 				0C6D86AA17EA0E9A00D959F8 /* BaseManager.h */,
 				0C6D86AB17EA0E9A00D959F8 /* BaseManager.m */,
+				0C34A89917F0A665003ACEFF /* TMEHTTPClient.h */,
+				0C34A89A17F0A665003ACEFF /* TMEHTTPClient.m */,
 			);
 			name = Superclass;
 			path = superclass;
@@ -899,6 +912,8 @@
 				0CD9CF5417EA0FD400402E91 /* AFXMLRequestOperation.m */,
 				0CD9CF5517EA0FD400402E91 /* UIImageView+AFNetworking.h */,
 				0CD9CF5617EA0FD400402E91 /* UIImageView+AFNetworking.m */,
+				0C34A89F17F0ADFE003ACEFF /* AFDownloadRequestOperation.h */,
+				0C34A8A017F0ADFE003ACEFF /* AFDownloadRequestOperation.m */,
 			);
 			path = AFNetworking;
 			sourceTree = "<group>";
@@ -1123,7 +1138,6 @@
 				0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */,
 				0C6E069017E0CBF60003F104 /* TMEViewController.m in Sources */,
 				0C7EFBCE17E8D5170054C4DE /* NSObject+Additions.m in Sources */,
-				0C2CE1AF17EAE1FB0074C57F /* TMEProductManager.m in Sources */,
 				0C7EFB6E17E768C70054C4DE /* MagicalRecord+Setup.m in Sources */,
 				0C7053C717EF5E5E00E7615F /* TMECategory.m in Sources */,
 				0C7EFBD917E8D5170054C4DE /* UIImage+Additions.m in Sources */,
@@ -1144,6 +1158,7 @@
 				0C7EFBCF17E8D5170054C4DE /* NSString+ActiveSupportInflector.m in Sources */,
 				0C7EFBE417E8D5170054C4DE /* UIWebView+Additions.m in Sources */,
 				0C7EFBCC17E8D5170054C4DE /* NSMutableArray+Additions.m in Sources */,
+				0C34A8A117F0ADFE003ACEFF /* AFDownloadRequestOperation.m in Sources */,
 				0C7EFBE017E8D5170054C4DE /* UIView+Additions.m in Sources */,
 				0C7EFBD217E8D5170054C4DE /* UIAlertView+Additions.m in Sources */,
 				0C7EFBDC17E8D5170054C4DE /* UILabel+Additions.m in Sources */,
@@ -1172,6 +1187,7 @@
 				0CD9CF5717EA0FD400402E91 /* AFHTTPClient.m in Sources */,
 				0CD9CF5F17EA0FD400402E91 /* UIImageView+AFNetworking.m in Sources */,
 				0C7EFB6D17E768C70054C4DE /* MagicalRecord+Options.m in Sources */,
+				0C34A89E17F0ACEF003ACEFF /* BaseNetworkManager.m in Sources */,
 				0C7EFB6917E768C70054C4DE /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				0C7EFBE217E8D5170054C4DE /* UIView+Nib.m in Sources */,
 				0CD9CF5E17EA0FD400402E91 /* AFXMLRequestOperation.m in Sources */,
@@ -1179,7 +1195,9 @@
 				0CFC100017ECBE06008FBD92 /* TMELoginViewController.m in Sources */,
 				0C7EFBC517E8D5170054C4DE /* ISO8601DateFormatter.m in Sources */,
 				0C7053CA17EF5E5E00E7615F /* TMETransaction.m in Sources */,
+				0C34A89B17F0A665003ACEFF /* TMEHTTPClient.m in Sources */,
 				0C7EFBDD17E8D5170054C4DE /* UINavigationController+Additions.m in Sources */,
+				0C34A89817F0A5CF003ACEFF /* TMEProductsManager.m in Sources */,
 				0C7EFB6B17E768C70054C4DE /* MagicalRecord+ErrorHandling.m in Sources */,
 				0C7053C417EF5E5E00E7615F /* _TMEProductImages.m in Sources */,
 				0C7EFBD717E8D5170054C4DE /* UIColor+Custom.m in Sources */,

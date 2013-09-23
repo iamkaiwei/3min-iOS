@@ -38,7 +38,7 @@
 #ifdef DEBUG
 
 #define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
-#define API_SERVER_HOST                             @"http://threemins-server-staging.herokuapp.com/api/v1/"
+#define API_SERVER_HOST                             @"http://threemins-server-staging.herokuapp.com/"
 #define URBAN_AIRSHIP_APP_KEY                       @""
 #define URBAN_AIRSHIP_APP_SECRET                    @""
 #define SETTINGS_CRITERCISM_TOKEN_DEFAULT           @""
@@ -63,6 +63,9 @@
 
 #endif
 #endif
+
+#define CLASS_PREFIX_LENGTH                         3
+#define API_PREFIX                                  @"/api/v1"
 
 // Categories
 #import "ISO8601DateFormatter.h"
@@ -98,10 +101,11 @@
 #import "UIButton+Additions.h"
 #import "UIFont+FontAwesome.h"
 #import "NSString+FontAwesome.h"
+#import "AFDownloadRequestOperation.h"
 
 // Managers
 #import "BaseManager.h"
-#import "TMEProductManager.h"
+#import "TMEProductsManager.h"
 #import "FacebookManager.h"
 
 // Models
