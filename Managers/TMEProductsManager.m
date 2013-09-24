@@ -14,13 +14,7 @@ SINGLETON_MACRO
 
 -(void)getAllProductsOnSuccessBlock:(TMEJSONRequestSuccessBlock)successBlock andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
-    NSString *productAPI = @"/products/";
-    
-    [[TMEHTTPClient sharedClient] getPath:productAPI parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
 }
 
 #pragma marks - Fake functions to handle products.

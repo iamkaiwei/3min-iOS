@@ -131,6 +131,31 @@ TMEPhotoButtonDelegate
     [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
         DLog(@"Finish save to magical record");
     }];
+    
+    NSString *imageName = [(TMEProductImages *)[setImages anyObject] url];
+    UIImage *image = [PBImageHelper loadImageFromDocuments:imageName];
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+
+    NSDictionary *params = @{@"user_id": @1,
+                           @"name": @"Product 1",
+                           @"category_id": @1,
+                           @"description": @"Product 1 description",
+                           @"price": @1,
+                           @"sold_out": @YES,
+                           @"images": @[imageData]};
+
+    [[BaseNetworkManager sharedInstance] sendMultipartFormRequestForPath:API_PRODUCTS
+                                                              parameters:params
+                                                                  method:POST_METHOD
+                                               constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                                                   
+//        [formData appendPartWithFileData:imageData name:@"image" fileName:imageName mimeType:@"image/jpeg"];
+        
+    } success:^(NSHTTPURLResponse *response, id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 

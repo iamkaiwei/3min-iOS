@@ -66,6 +66,7 @@
 
 #define CLASS_PREFIX_LENGTH                         3
 #define API_PREFIX                                  @"/api/v1"
+#define API_PRODUCTS                                @"products"
 
 // Categories
 #import "ISO8601DateFormatter.h"
@@ -107,6 +108,7 @@
 #import "BaseManager.h"
 #import "TMEProductsManager.h"
 #import "FacebookManager.h"
+#import "BaseNetworkManager.h"
 
 // Models
 #import "TMEProduct.h"
