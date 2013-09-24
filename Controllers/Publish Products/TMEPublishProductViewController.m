@@ -141,15 +141,14 @@ TMEPhotoButtonDelegate
                            @"category_id": @1,
                            @"description": @"Product 1 description",
                            @"price": @1,
-                           @"sold_out": @YES,
-                           @"images": @[imageData]};
+                           @"sold_out": @YES};
 
     [[BaseNetworkManager sharedInstance] sendMultipartFormRequestForPath:API_PRODUCTS
                                                               parameters:params
                                                                   method:POST_METHOD
                                                constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                                    
-//        [formData appendPartWithFileData:imageData name:@"image" fileName:imageName mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:imageData name:@"images[]" fileName:imageName mimeType:@"image/jpeg"];
         
     } success:^(NSHTTPURLResponse *response, id responseObject) {
         
