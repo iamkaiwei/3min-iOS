@@ -21,8 +21,8 @@
 
 - (void)configCellWithProduct:(TMEProduct *)product{
     TMEProductImages *img = [product.images anyObject];
-    UIImage *image = [PBImageHelper loadImageFromDocuments:img.url];
-    [self.imgProductImage setImage:image];
+    [self.imgProductImage setImageWithURL:[NSURL URLWithString:img.url]];
+    [self.imgProductImage clipsToBounds];
     
     self.lblProductName.text = product.name;
     self.lblProductPrice.text = [product.price stringValue];
