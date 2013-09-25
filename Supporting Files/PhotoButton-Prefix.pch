@@ -103,6 +103,8 @@
 #import "UIFont+FontAwesome.h"
 #import "NSString+FontAwesome.h"
 #import "AFDownloadRequestOperation.h"
+#import "TMEProduct+Additions.h"
+#import "TMEProductImages+Additions.h"
 
 // Managers
 #import "BaseManager.h"

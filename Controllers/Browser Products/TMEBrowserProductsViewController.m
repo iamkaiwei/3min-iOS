@@ -39,6 +39,11 @@
     
     [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSInteger statusCode, id obj) {
         
+        if ([obj isKindOfClass:[NSArray class]]) {
+            self.arrProducts = [[TMEProduct arrayProductsFromArray:obj] mutableCopy];
+            [self.tableProducts reloadData];
+        }
+        
     } andFailureBlock:^(NSInteger statusCode, id obj) {
         
     }];

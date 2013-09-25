@@ -303,43 +303,37 @@ SINGLETON_MACRO
                            success:(void (^)(NSMutableArray *objectsArray))success
                            failure:(void (^)(NSError *error))failure
 {
-//  //Parameters
-//  NSMutableDictionary *parameters = [self getAuthParams];
-//  if ([params count] > 0)
-//    [parameters addEntriesFromDictionary:params];
-//  if ([parameters count] <= 0)
-//    parameters = nil;
-//
-//  //Path
-//  NSString *path = [self getServerListAPIStringForClass:classObject withParentId:parentId withParentClass:parentClassObject];
-//  if ([methodAPI length] > 0) {
-//    NSMutableString *newPath = [[NSMutableString alloc] initWithString:path];
-//    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"/([^/]+)?$" options:NSRegularExpressionCaseInsensitive error:nil];
-//    [regex replaceMatchesInString:newPath options:0 range:NSMakeRange(0, [path length]) withTemplate:methodAPI];
-//    path = [newPath copy];
-//  }
-//  
-//  NSMutableURLRequest *request = [self.httpClient requestWithMethod:GET_METHOD path:path parameters:parameters];
-//  
-//  [self sendRequest:request success:^(NSHTTPURLResponse *response, id responseObject) {
-//    
-//    //DLog(@"%@", responseObject);
-//      
-//    //Some listing API contains other metadata besides the raw array
-//    NSArray *rawArray = nil;
-//    if ([responseObject isKindOfClass:[NSDictionary class]] == YES)
-//    {
-//      NSString *keyToLookFor = [self getPluralizedClassNameForClassObject:classObject];
-//      id arr = [responseObject objectForKey:keyToLookFor];
-//      if (arr != nil)
-//        rawArray = arr;
-//    }
-//    else
-//    {
-//      rawArray = (NSArray*)responseObject;
-//    }
-//    
-//    //Crazy generic code to convert raw dictionary to proper model
+  //Parameters
+  NSMutableDictionary *parameters = [self getAuthParams];
+  if ([params count] > 0)
+    [parameters addEntriesFromDictionary:params];
+  if ([parameters count] <= 0)
+    parameters = nil;
+
+  //Path
+  NSString *path = [self getServerListAPIStringForClass:classObject withParentId:parentId withParentClass:parentClassObject];
+  
+  NSMutableURLRequest *request = [self.httpClient requestWithMethod:GET_METHOD path:path parameters:parameters];
+  
+  [self sendRequest:request success:^(NSHTTPURLResponse *response, id responseObject) {
+    
+    //DLog(@"%@", responseObject);
+      
+    //Some listing API contains other metadata besides the raw array
+    NSArray *rawArray = nil;
+    if ([responseObject isKindOfClass:[NSDictionary class]] == YES)
+    {
+      NSString *keyToLookFor = [self getPluralizedClassNameForClassObject:classObject];
+      id arr = [responseObject objectForKey:keyToLookFor];
+      if (arr != nil)
+        rawArray = arr;
+    }
+    else
+    {
+      rawArray = (NSArray*)responseObject;
+    }
+    
+    //Crazy generic code to convert raw dictionary to proper model
 //    NSMutableArray *outputArray = [NSMutableArray array];
 //    for (NSDictionary *dict in rawArray)
 //    {
@@ -348,15 +342,19 @@ SINGLETON_MACRO
 //      if (model)
 //        [outputArray addObject:model];
 //    }
-//    
-//    //If full list, save last updated date as now
+    
+    //If full list, save last updated date as now
 //    if (parentId == nil && parentClassObject == nil)
 //      [[BaseStorageManager sharedInstance] setCacheLastUpdatedForModelCache:classObject];
-//    
+    
 //    if (success)
 //      success(outputArray);
-//    
-//  } failure:failure];  
+   
+   if (success)
+        success(responseObject);
+
+   
+  } failure:failure];
 }
 
 

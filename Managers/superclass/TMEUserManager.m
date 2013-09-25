@@ -34,7 +34,7 @@ SINGLETON_MACRO
 - (NSString *)getAccessToken
 {
 #warning MUST HANDLE LATER
-    return @"";
+    return [[[FBSession activeSession] accessTokenData] accessToken];
 }
 
 #pragma marks - Fake functions to handle users stuffs

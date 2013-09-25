@@ -11,7 +11,7 @@
 
 @interface TMELoginViewController () <FBLoginViewDelegate>
 
-@property (weak, nonatomic) IBOutlet FBLoginView *FBLoginView;
+@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
 
 @end
 
@@ -22,8 +22,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.FBLoginView.readPermissions = @[@"publish_actions", @"email", @"user_likes"];
-        self.FBLoginView.defaultAudience = FBSessionDefaultAudienceFriends;
+        self.loginView.readPermissions = @[@"user_about_me"];
+        self.loginView.defaultAudience = FBSessionDefaultAudienceFriends;
     }
     return self;
 }
@@ -32,12 +32,22 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    self.navigationController.navigationBarHidden = YES;
+    
+    for(UIView *view in self.loginView.subviews)
+    {
+        if ([view isKindOfClass:[UIButton class]]) {
+            UIButton *loginBtn = (UIButton *)view;
+            [loginBtn setBackgroundImage:[UIImage imageNamed:@"bt_fb_signin_normal"] forState:UIControlStateNormal];
+            [loginBtn setBackgroundImage:[UIImage imageNamed:@"bt_fb_signin_pressed"] forState:UIControlStateHighlighted];
+        }
+        if ([view isKindOfClass:[UILabel class]]) {
+            UILabel *lblName = (UILabel *)view;
+            lblName.text = @"";
+            lblName.textAlignment = UITextAlignmentCenter;
+        }
+    }
 }
 
 #pragma marks - Facebook delegates
@@ -84,6 +94,8 @@
                             user:(id<FBGraphUser>)user
 {
     DLog(@"logged User: %@", [user description]);
+    NSString *token = [[[FBSession activeSession] accessTokenData] accessToken];
+    DLog(@"Token = %@", token);
 }
 
 @end

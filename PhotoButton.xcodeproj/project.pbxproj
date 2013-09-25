@@ -30,6 +30,9 @@
 		0C34A89B17F0A665003ACEFF /* TMEHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C34A89A17F0A665003ACEFF /* TMEHTTPClient.m */; };
 		0C34A89E17F0ACEF003ACEFF /* BaseNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C34A89D17F0ACEF003ACEFF /* BaseNetworkManager.m */; };
 		0C34A8A117F0ADFE003ACEFF /* AFDownloadRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C34A8A017F0ADFE003ACEFF /* AFDownloadRequestOperation.m */; };
+		0C43914717F2C88800640D82 /* login-bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C43914517F2C88800640D82 /* login-bg.jpg */; };
+		0C43914817F2C88800640D82 /* login-bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C43914617F2C88800640D82 /* login-bg@2x.jpg */; };
+		0C43914B17F2D27500640D82 /* TMEProduct+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C43914A17F2D27500640D82 /* TMEProduct+Additions.m */; };
 		0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
 		0C6D86AE17EA0E9A00D959F8 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D86AB17EA0E9A00D959F8 /* BaseManager.m */; };
@@ -122,6 +125,7 @@
 		0C7EFBED17E8D5790054C4DE /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFBEA17E8D5790054C4DE /* UIFont+FontAwesome.m */; };
 		0C7EFBEF17E8D86E0054C4DE /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7EFBEE17E8D86E0054C4DE /* CoreImage.framework */; };
 		0C7EFBF117E8DBE50054C4DE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7EFBF017E8DBE50054C4DE /* MapKit.framework */; };
+		0C9C957317F2D49B00E69F53 /* TMEProductImages+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C957217F2D49B00E69F53 /* TMEProductImages+Additions.m */; };
 		0CA51A6A17EEC8E600AD55E6 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA51A6917EEC8E600AD55E6 /* FacebookManager.m */; };
 		0CA51A6C17EECFB000AD55E6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA51A6B17EECFB000AD55E6 /* FacebookSDK.framework */; };
 		0CA51A6F17EED4BA00AD55E6 /* FacebookSDKOverrides.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0CA51A6D17EED02000AD55E6 /* FacebookSDKOverrides.bundle */; };
@@ -185,6 +189,10 @@
 		0C34A89D17F0ACEF003ACEFF /* BaseNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetworkManager.m; sourceTree = "<group>"; };
 		0C34A89F17F0ADFE003ACEFF /* AFDownloadRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFDownloadRequestOperation.h; sourceTree = "<group>"; };
 		0C34A8A017F0ADFE003ACEFF /* AFDownloadRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFDownloadRequestOperation.m; sourceTree = "<group>"; };
+		0C43914517F2C88800640D82 /* login-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "login-bg.jpg"; sourceTree = "<group>"; };
+		0C43914617F2C88800640D82 /* login-bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "login-bg@2x.jpg"; sourceTree = "<group>"; };
+		0C43914917F2D27500640D82 /* TMEProduct+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEProduct+Additions.h"; sourceTree = "<group>"; };
+		0C43914A17F2D27500640D82 /* TMEProduct+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEProduct+Additions.m"; sourceTree = "<group>"; };
 		0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMEModels.xcdatamodel; sourceTree = "<group>"; };
 		0C5C936817EA162100ECF9B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0C6D86AA17EA0E9A00D959F8 /* BaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
@@ -362,6 +370,8 @@
 		0C7EFBEA17E8D5790054C4DE /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FontAwesome.m"; sourceTree = "<group>"; };
 		0C7EFBEE17E8D86E0054C4DE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		0C7EFBF017E8DBE50054C4DE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0C9C957117F2D49B00E69F53 /* TMEProductImages+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEProductImages+Additions.h"; sourceTree = "<group>"; };
+		0C9C957217F2D49B00E69F53 /* TMEProductImages+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEProductImages+Additions.m"; sourceTree = "<group>"; };
 		0CA51A6817EEC8E600AD55E6 /* FacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookManager.h; sourceTree = "<group>"; };
 		0CA51A6917EEC8E600AD55E6 /* FacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookManager.m; sourceTree = "<group>"; };
 		0CA51A6B17EECFB000AD55E6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -552,6 +562,10 @@
 				0C7EFBC017E8D5170054C4DE /* UIViewController+Additions.m */,
 				0C7EFBC117E8D5170054C4DE /* UIWebView+Additions.h */,
 				0C7EFBC217E8D5170054C4DE /* UIWebView+Additions.m */,
+				0C43914917F2D27500640D82 /* TMEProduct+Additions.h */,
+				0C43914A17F2D27500640D82 /* TMEProduct+Additions.m */,
+				0C9C957117F2D49B00E69F53 /* TMEProductImages+Additions.h */,
+				0C9C957217F2D49B00E69F53 /* TMEProductImages+Additions.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -944,6 +958,8 @@
 		0CFC0FF317ECBA2A008FBD92 /* Login Page */ = {
 			isa = PBXGroup;
 			children = (
+				0C43914517F2C88800640D82 /* login-bg.jpg */,
+				0C43914617F2C88800640D82 /* login-bg@2x.jpg */,
 				0CFC0FF417ECBA3E008FBD92 /* bt_fb_signin_normal.png */,
 				0CFC0FF517ECBA3E008FBD92 /* bt_fb_signin_normal@2x.png */,
 				0CFC0FF617ECBA3E008FBD92 /* bt_fb_signin_pressed.png */,
@@ -1089,6 +1105,8 @@
 				0C6E069217E0CBF60003F104 /* TMEViewController_iPhone.xib in Resources */,
 				0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */,
 				0CFC0FF817ECBA3F008FBD92 /* bt_fb_signin_normal.png in Resources */,
+				0C43914817F2C88800640D82 /* login-bg@2x.jpg in Resources */,
+				0C43914717F2C88800640D82 /* login-bg.jpg in Resources */,
 				0CFC0FEB17ECB690008FBD92 /* TMEBrowserProductsTableCell.xib in Resources */,
 				0C7EFB7E17E8D2ED0054C4DE /* SVProgressHUD.bundle in Resources */,
 				0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */,
@@ -1153,6 +1171,7 @@
 				0C6E069F17E0CC850003F104 /* TMEBaseViewController.m in Sources */,
 				0C7053C817EF5E5E00E7615F /* TMEProduct.m in Sources */,
 				0C7EFB6817E768C70054C4DE /* NSPersistentStore+MagicalRecord.m in Sources */,
+				0C43914B17F2D27500640D82 /* TMEProduct+Additions.m in Sources */,
 				0C7EFB5E17E768C70054C4DE /* NSManagedObject+MagicalAggregation.m in Sources */,
 				0C7EFBD517E8D5170054C4DE /* UIButton+Additions.m in Sources */,
 				0C7EFBCF17E8D5170054C4DE /* NSString+ActiveSupportInflector.m in Sources */,
@@ -1180,6 +1199,7 @@
 				0C74C12F17DC276900D8AF83 /* PBImageHelper.m in Sources */,
 				0C7EFBDA17E8D5170054C4DE /* UIImage+ImageEffects.m in Sources */,
 				0C7EFBDB17E8D5170054C4DE /* UIImageView+Additions.m in Sources */,
+				0C9C957317F2D49B00E69F53 /* TMEProductImages+Additions.m in Sources */,
 				0C6E06A917E0DA590003F104 /* TMEBasePhotoEditorViewController.m in Sources */,
 				0C7EFBC317E8D5170054C4DE /* ActiveSupportInflector.m in Sources */,
 				0C6D86AE17EA0E9A00D959F8 /* BaseManager.m in Sources */,

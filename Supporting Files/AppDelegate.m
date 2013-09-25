@@ -39,8 +39,7 @@
     [FacebookManager sharedInstance].delegate = (id) self;
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         // Yes, so just open the session (this won't display any UX).
-        [self openSession];
-        
+        [self openSession];        
 #warning DO IT LATER
         //        [self.navController pushViewController:[[OFMenuViewController alloc] init] animated:YES];
     } else {

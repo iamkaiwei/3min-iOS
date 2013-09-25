@@ -14,7 +14,19 @@ SINGLETON_MACRO
 
 -(void)getAllProductsOnSuccessBlock:(TMEJSONRequestSuccessBlock)successBlock andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
-
+    NSMutableDictionary *params = [@{} mutableCopy];
+    [[BaseNetworkManager sharedInstance] getServerListForModelClass:[TMEProduct class]
+                                                         withParams:params
+                                                          methodAPI:GET_METHOD
+                                                           parentId:nil
+                                                    withParentClass:nil
+                                                            success:^(NSMutableArray *objectsArray) {
+                                                                if (successBlock)
+                                                                    successBlock(200 ,objectsArray);
+    } failure:^(NSError *error) {
+        if (failureBlock)
+            failureBlock(error.code ,error);
+    }];
 }
 
 #pragma marks - Fake functions to handle products.
