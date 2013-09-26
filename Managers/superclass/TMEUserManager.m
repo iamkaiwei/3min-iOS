@@ -39,12 +39,19 @@ SINGLETON_MACRO
 }
 
 - (NSString *)getAccessToken{
-    return @"";
+    return self.loggedUser.access_token;
+}
+
+- (NSString *)getFacebookID
+{
+    return self.loggedUser.facebook_id;
 }
 
 - (void)loginBySendingFacebookToken:(NSString *)token withSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock andFailureBlock:(TMEJSONLoginFailureSuccessBlock)failureBlock{
     
-    [[BaseNetworkManager sharedInstance] sendRequestForPath:API_USER_LOGIN parameters:nil method:POST_METHOD success:^(NSHTTPURLResponse *response, id responseObject) {
+    NSDictionary *params = @{@"fb_token": [[TMEUserManager sharedInstance] getFacebookToken]};
+    
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:API_USER_LOGIN parameters:params method:POST_METHOD success:^(NSHTTPURLResponse *response, id responseObject) {
         
         TMEUser *user = [TMEUser MR_createEntity];
         if (responseObject)

@@ -24,9 +24,18 @@
     
     if (data[@"user"]) {
         NSDictionary *userData = data[@"user"];
+        
         user.name = userData[@"username"];
         user.facebook_id = userData[@"facebook_id"];
         user.id = userData[@"id"];
+        user.username = userData[@"username"];
+        user.email = userData[@"email"];
+        user.access_token = data[@"auth_token"];
+        
+        if (userData[@"image"]) {
+            NSDictionary *imageData = userData[@"image"];
+            user.photo_url = imageData[@"url"];
+        }
     }
 
     return user;
