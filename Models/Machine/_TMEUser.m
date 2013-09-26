@@ -4,8 +4,10 @@
 #import "_TMEUser.h"
 
 const struct TMEUserAttributes TMEUserAttributes = {
+	.access_token = @"access_token",
 	.email = @"email",
 	.facebook_id = @"facebook_id",
+	.fullname = @"fullname",
 	.id = @"id",
 	.name = @"name",
 	.password = @"password",
@@ -61,6 +63,13 @@ const struct TMEUserFetchedProperties TMEUserFetchedProperties = {
 
 
 
+@dynamic access_token;
+
+
+
+
+
+
 @dynamic email;
 
 
@@ -69,6 +78,13 @@ const struct TMEUserFetchedProperties TMEUserFetchedProperties = {
 
 
 @dynamic facebook_id;
+
+
+
+
+
+
+@dynamic fullname;
 
 
 

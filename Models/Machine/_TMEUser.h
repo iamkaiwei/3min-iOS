@@ -5,8 +5,10 @@
 
 
 extern const struct TMEUserAttributes {
+	__unsafe_unretained NSString *access_token;
 	__unsafe_unretained NSString *email;
 	__unsafe_unretained NSString *facebook_id;
+	__unsafe_unretained NSString *fullname;
 	__unsafe_unretained NSString *id;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *password;
@@ -37,6 +39,8 @@ extern const struct TMEUserFetchedProperties {
 
 
 
+
+
 @interface TMEUserID : NSManagedObjectID {}
 @end
 
@@ -45,6 +49,16 @@ extern const struct TMEUserFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (TMEUserID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSString* access_token;
+
+
+
+//- (BOOL)validateAccess_token:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -65,6 +79,16 @@ extern const struct TMEUserFetchedProperties {
 
 
 //- (BOOL)validateFacebook_id:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* fullname;
+
+
+
+//- (BOOL)validateFullname:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -180,6 +204,12 @@ extern const struct TMEUserFetchedProperties {
 @interface _TMEUser (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSString*)primitiveAccess_token;
+- (void)setPrimitiveAccess_token:(NSString*)value;
+
+
+
+
 - (NSString*)primitiveEmail;
 - (void)setPrimitiveEmail:(NSString*)value;
 
@@ -188,6 +218,12 @@ extern const struct TMEUserFetchedProperties {
 
 - (NSString*)primitiveFacebook_id;
 - (void)setPrimitiveFacebook_id:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveFullname;
+- (void)setPrimitiveFullname:(NSString*)value;
 
 
 

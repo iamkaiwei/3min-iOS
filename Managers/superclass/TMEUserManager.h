@@ -16,6 +16,7 @@ typedef void (^TMEJSONLoginFailureSuccessBlock) (NSInteger statusCode, id obj);
 @property (assign, nonatomic) id<FBGraphUser>             loggedFacebookUser;
 @property (strong, nonatomic) TMEUser                   * loggedUser;
 
+- (NSString *)getFacebookToken;
 - (NSString *)getAccessToken;
 
 // login
