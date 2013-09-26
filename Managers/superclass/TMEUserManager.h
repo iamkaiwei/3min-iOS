@@ -8,13 +8,20 @@
 
 #import "BaseManager.h"
 
+typedef void (^TMEJSONLoginRequestSuccessBlock) (TMEUser *user);
+typedef void (^TMEJSONLoginFailureSuccessBlock) (NSInteger statusCode, id obj);
+
 @interface TMEUserManager : BaseManager
 
-@property (assign, nonatomic) id<FBGraphUser>           loggedUser;
+@property (assign, nonatomic) id<FBGraphUser>             loggedFacebookUser;
+@property (strong, nonatomic) TMEUser                   * loggedUser;
 
 - (NSString *)getAccessToken;
 
-- (void)setLoggedUser:(id<FBGraphUser>)loggedUser;
+// login
+- (void)loginBySendingFacebookToken:(NSString *)token withSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock andFailureBlock:(TMEJSONLoginFailureSuccessBlock)failureBlock;
+
+- (void)setLoggedUser:(TMEUser *)loggedUser andFacebookUser:(id<FBGraphUser>)user;
 - (void)logOut;
 - (BOOL)isLoggedUser;
 

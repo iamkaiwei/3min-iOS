@@ -20,6 +20,9 @@
 @implementation TMEBrowserProductsTableCell
 
 - (void)configCellWithProduct:(TMEProduct *)product{
+    
+    [self.imgProductImage setImage:nil];
+    
     TMEProductImages *img = [product.images anyObject];
     [self.imgProductImage setImageWithURL:[NSURL URLWithString:img.url]];
     [self.imgProductImage clipsToBounds];

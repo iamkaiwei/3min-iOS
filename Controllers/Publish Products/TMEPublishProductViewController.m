@@ -95,6 +95,9 @@ TMEPhotoButtonDelegate
 # pragma marks - Actions
 - (IBAction)onPublishButton:(id)sender {
     
+    [SVProgressHUD showWithStatus:@"Uploading product..."
+                         maskType:SVProgressHUDMaskTypeGradient];
+    
     // create dummy user
     TMEUser *user = [TMEUser MR_createEntity];
     user.name = @"Trieu Khang";
@@ -151,9 +154,10 @@ TMEPhotoButtonDelegate
         [formData appendPartWithFileData:imageData name:@"images[]" fileName:imageName mimeType:@"image/jpeg"];
         
     } success:^(NSHTTPURLResponse *response, id responseObject) {
-        
+        [SVProgressHUD dismiss];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     } failure:^(NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:@"Fail to upload, try again later"];
     }];
 }
 

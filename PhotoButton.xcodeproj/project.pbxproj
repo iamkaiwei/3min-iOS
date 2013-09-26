@@ -41,6 +41,7 @@
 		0C2F789717F2DBA600201783 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2F788817F2DBA600201783 /* UIImage+WebP.m */; };
 		0C2F789817F2DBA600201783 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2F788A17F2DBA600201783 /* UIImageView+WebCache.m */; };
 		0C2F789A17F2DD1F00201783 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2F789917F2DD1F00201783 /* ImageIO.framework */; };
+		0C2F789D17F3117F00201783 /* TMEUser+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2F789C17F3117F00201783 /* TMEUser+Additions.m */; };
 		0C34A89817F0A5CF003ACEFF /* TMEProductsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C34A89717F0A5CE003ACEFF /* TMEProductsManager.m */; };
 		0C34A89B17F0A665003ACEFF /* TMEHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C34A89A17F0A665003ACEFF /* TMEHTTPClient.m */; };
 		0C34A89E17F0ACEF003ACEFF /* BaseNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C34A89D17F0ACEF003ACEFF /* BaseNetworkManager.m */; };
@@ -226,6 +227,8 @@
 		0C2F788917F2DBA600201783 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		0C2F788A17F2DBA600201783 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		0C2F789917F2DD1F00201783 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		0C2F789B17F3117F00201783 /* TMEUser+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEUser+Additions.h"; sourceTree = "<group>"; };
+		0C2F789C17F3117F00201783 /* TMEUser+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEUser+Additions.m"; sourceTree = "<group>"; };
 		0C34A89617F0A5CE003ACEFF /* TMEProductsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductsManager.h; sourceTree = "<group>"; };
 		0C34A89717F0A5CE003ACEFF /* TMEProductsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductsManager.m; sourceTree = "<group>"; };
 		0C34A89917F0A665003ACEFF /* TMEHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEHTTPClient.h; path = ../TMEHTTPClient.h; sourceTree = "<group>"; };
@@ -612,6 +615,8 @@
 				0C43914A17F2D27500640D82 /* TMEProduct+Additions.m */,
 				0C9C957117F2D49B00E69F53 /* TMEProductImages+Additions.h */,
 				0C9C957217F2D49B00E69F53 /* TMEProductImages+Additions.m */,
+				0C2F789B17F3117F00201783 /* TMEUser+Additions.h */,
+				0C2F789C17F3117F00201783 /* TMEUser+Additions.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1338,6 +1343,7 @@
 				0C2F788E17F2DBA600201783 /* SDWebImageCompat.m in Sources */,
 				0C7EFB6017E768C70054C4DE /* NSManagedObject+MagicalFinders.m in Sources */,
 				0CFC0FEC17ECB690008FBD92 /* TMEBrowserProductsViewController.m in Sources */,
+				0C2F789D17F3117F00201783 /* TMEUser+Additions.m in Sources */,
 				0CFC0FF117ECB8BB008FBD92 /* TMEProductDetailsViewController.m in Sources */,
 				0C7EFBD817E8D5170054C4DE /* UIFont+Additions.m in Sources */,
 				0C7053C317EF5E5E00E7615F /* _TMEProduct.m in Sources */,

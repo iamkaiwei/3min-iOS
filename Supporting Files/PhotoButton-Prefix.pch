@@ -67,6 +67,7 @@
 #define CLASS_PREFIX_LENGTH                         3
 #define API_PREFIX                                  @"/api/v1"
 #define API_PRODUCTS                                @"products"
+#define API_USER_LOGIN                              @"users/login"
 
 // Categories
 #import "ISO8601DateFormatter.h"
@@ -103,13 +104,15 @@
 #import "UIFont+FontAwesome.h"
 #import "NSString+FontAwesome.h"
 #import "AFDownloadRequestOperation.h"
+#import "SDWebImageManager.h"
 #import "TMEProduct+Additions.h"
 #import "TMEProductImages+Additions.h"
-#import "SDWebImageManager.h"
+#import "TMEUser+Additions.h"
 
 // Managers
 #import "BaseManager.h"
 #import "TMEProductsManager.h"
+#import "TMEUserManager.h"
 #import "FacebookManager.h"
 #import "BaseNetworkManager.h"
 

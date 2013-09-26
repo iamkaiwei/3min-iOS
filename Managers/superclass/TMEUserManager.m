@@ -21,20 +21,43 @@ SINGLETON_MACRO
     return NO;
 }
 
-- (void)setLoggedUser:(id<FBGraphUser>)loggedUser
+- (void)setLoggedUser:(TMEUser *)loggedUser andFacebookUser:(id<FBGraphUser>)user
 {
-    _loggedUser = loggedUser;
+    self.loggedUser = loggedUser;
+    self.loggedFacebookUser = user;
 }
 
 - (void)logOut
 {
     self.loggedUser = nil;
+    self.loggedFacebookUser = nil;
 }
 
 - (NSString *)getAccessToken
 {
-#warning MUST HANDLE LATER
     return [[[FBSession activeSession] accessTokenData] accessToken];
+}
+
+- (void)loginBySendingFacebookToken:(NSString *)token withSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock andFailureBlock:(TMEJSONLoginFailureSuccessBlock)failureBlock{
+    
+    NSDictionary *params = @{@"fb_token": token};
+    
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:API_USER_LOGIN parameters:params method:POST_METHOD success:^(NSHTTPURLResponse *response, id responseObject) {
+        
+        TMEUser *user = [TMEUser MR_createEntity];
+        if (responseObject)
+            user = [TMEUser userByFacebookDictionary:responseObject];
+        
+        if (successBlock)
+            successBlock(user);
+        
+    } failure:^(NSError *error) {
+        
+        if (failureBlock)
+            failureBlock(error.code, error);
+        
+    }];
+    
 }
 
 #pragma marks - Fake functions to handle users stuffs

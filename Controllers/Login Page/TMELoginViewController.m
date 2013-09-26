@@ -96,6 +96,13 @@
     DLog(@"logged User: %@", [user description]);
     NSString *token = [[[FBSession activeSession] accessTokenData] accessToken];
     DLog(@"Token = %@", token);
+    
+    [[TMEUserManager sharedInstance] loginBySendingFacebookToken:token withSuccessBlock:^(TMEUser *tmeUser) {
+        [SVProgressHUD showSuccessWithStatus:@"Login successfully"];
+        [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:user];
+    } andFailureBlock:^(NSInteger statusCode, id obj) {
+        [SVProgressHUD showErrorWithStatus:@"Login failure"];
+    }];
 }
 
 @end
