@@ -31,6 +31,7 @@
         user.username = userData[@"username"];
         user.email = userData[@"email"];
         user.access_token = data[@"auth_token"];
+        user.udid = data[@"udid"];
         
         if (userData[@"image"]) {
             NSDictionary *imageData = userData[@"image"];

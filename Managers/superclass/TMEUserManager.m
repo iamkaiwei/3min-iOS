@@ -42,6 +42,11 @@ SINGLETON_MACRO
     return self.loggedUser.access_token;
 }
 
+- (NSString *)getUDID
+{
+    return [OpenUDID value];
+}
+
 - (NSString *)getFacebookID
 {
     return self.loggedUser.facebook_id;
@@ -49,7 +54,9 @@ SINGLETON_MACRO
 
 - (void)loginBySendingFacebookToken:(NSString *)token withSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock andFailureBlock:(TMEJSONLoginFailureSuccessBlock)failureBlock{
     
-    NSDictionary *params = @{@"fb_token": [[TMEUserManager sharedInstance] getFacebookToken]};
+    NSDictionary *params = @{
+                             @"fb_token": [[TMEUserManager sharedInstance] getFacebookToken],
+                             @"udid": [[TMEUserManager sharedInstance] getUDID]};
     
     [[BaseNetworkManager sharedInstance] sendRequestForPath:API_USER_LOGIN parameters:params method:POST_METHOD success:^(NSHTTPURLResponse *response, id responseObject) {
         
