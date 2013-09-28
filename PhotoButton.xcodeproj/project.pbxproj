@@ -197,13 +197,13 @@
 		0CFC0FFB17ECBA3F008FBD92 /* bt_fb_signin_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC0FF717ECBA3E008FBD92 /* bt_fb_signin_pressed@2x.png */; };
 		0CFC100017ECBE06008FBD92 /* TMELoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC0FFE17ECBE06008FBD92 /* TMELoginViewController.m */; };
 		0CFC100117ECBE06008FBD92 /* TMELoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC0FFF17ECBE06008FBD92 /* TMELoginViewController.xib */; };
-		20C10DA917F6E28D0036D9FF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C10DA817F6E28D0036D9FF /* FacebookSDK.framework */; };
+		205EACE217F6E5FA00EE9A76 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACE117F6E5FA00EE9A76 /* FacebookSDK.framework */; };
+		205EACE917F6E7BD00EE9A76 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 205EACE717F6E7BD00EE9A76 /* dsym_upload.sh */; };
+		205EACEA17F6E7BD00EE9A76 /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACE817F6E7BD00EE9A76 /* libCrittercism_v4_0_7.a */; };
+		205EACF217F6E83100EE9A76 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACF117F6E83100EE9A76 /* libGoogleAnalytics.a */; };
+		205EACFE17F6E83F00EE9A76 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACFB17F6E83F00EE9A76 /* libAviarySDK.a */; };
+		205EACFF17F6E83F00EE9A76 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 205EACFD17F6E83F00EE9A76 /* AviarySDKResources.bundle */; };
 		20C10DAB17F6E2960036D9FF /* FacebookSDKOverrides.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20C10DAA17F6E2960036D9FF /* FacebookSDKOverrides.bundle */; };
-		20C10DB317F6E31D0036D9FF /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C10DB217F6E31D0036D9FF /* libGoogleAnalytics.a */; };
-		20C10DBF17F6E3240036D9FF /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C10DBC17F6E3240036D9FF /* libAviarySDK.a */; };
-		20C10DC017F6E3240036D9FF /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20C10DBE17F6E3240036D9FF /* AviarySDKResources.bundle */; };
-		20C10DC717F6E3290036D9FF /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 20C10DC517F6E3290036D9FF /* dsym_upload.sh */; };
-		20C10DC817F6E3290036D9FF /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C10DC617F6E3290036D9FF /* libCrittercism_v4_0_7.a */; };
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
@@ -512,27 +512,27 @@
 		0CFC0FFD17ECBE06008FBD92 /* TMELoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoginViewController.h; sourceTree = "<group>"; };
 		0CFC0FFE17ECBE06008FBD92 /* TMELoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoginViewController.m; sourceTree = "<group>"; };
 		0CFC0FFF17ECBE06008FBD92 /* TMELoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMELoginViewController.xib; sourceTree = "<group>"; };
-		20C10DA817F6E28D0036D9FF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Vendors/FacebookSDK.framework; sourceTree = SOURCE_ROOT; };
+		205EACE117F6E5FA00EE9A76 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Vendors/FacebookSDK.framework; sourceTree = "<group>"; };
+		205EACE417F6E7BD00EE9A76 /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
+		205EACE517F6E7BD00EE9A76 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
+		205EACE617F6E7BD00EE9A76 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
+		205EACE717F6E7BD00EE9A76 /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
+		205EACE817F6E7BD00EE9A76 /* libCrittercism_v4_0_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_0_7.a; sourceTree = "<group>"; };
+		205EACEC17F6E83100EE9A76 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		205EACED17F6E83100EE9A76 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		205EACEE17F6E83100EE9A76 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		205EACEF17F6E83100EE9A76 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		205EACF017F6E83100EE9A76 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		205EACF117F6E83100EE9A76 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		205EACF517F6E83F00EE9A76 /* AFOpenGLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenGLManager.h; sourceTree = "<group>"; };
+		205EACF617F6E83F00EE9A76 /* AFPhotoEditorContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorContext.h; sourceTree = "<group>"; };
+		205EACF717F6E83F00EE9A76 /* AFPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorController.h; sourceTree = "<group>"; };
+		205EACF817F6E83F00EE9A76 /* AFPhotoEditorControllerOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorControllerOptions.h; sourceTree = "<group>"; };
+		205EACF917F6E83F00EE9A76 /* AFPhotoEditorCustomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorCustomization.h; sourceTree = "<group>"; };
+		205EACFA17F6E83F00EE9A76 /* AFPhotoEditorSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorSession.h; sourceTree = "<group>"; };
+		205EACFB17F6E83F00EE9A76 /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
+		205EACFD17F6E83F00EE9A76 /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
 		20C10DAA17F6E2960036D9FF /* FacebookSDKOverrides.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKOverrides.bundle; path = Vendors/FacebookSDKOverrides.bundle; sourceTree = "<group>"; };
-		20C10DAD17F6E31D0036D9FF /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		20C10DAE17F6E31D0036D9FF /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		20C10DAF17F6E31D0036D9FF /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		20C10DB017F6E31D0036D9FF /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
-		20C10DB117F6E31D0036D9FF /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
-		20C10DB217F6E31D0036D9FF /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
-		20C10DB617F6E3240036D9FF /* AFOpenGLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenGLManager.h; sourceTree = "<group>"; };
-		20C10DB717F6E3240036D9FF /* AFPhotoEditorContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorContext.h; sourceTree = "<group>"; };
-		20C10DB817F6E3240036D9FF /* AFPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorController.h; sourceTree = "<group>"; };
-		20C10DB917F6E3240036D9FF /* AFPhotoEditorControllerOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorControllerOptions.h; sourceTree = "<group>"; };
-		20C10DBA17F6E3240036D9FF /* AFPhotoEditorCustomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorCustomization.h; sourceTree = "<group>"; };
-		20C10DBB17F6E3240036D9FF /* AFPhotoEditorSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorSession.h; sourceTree = "<group>"; };
-		20C10DBC17F6E3240036D9FF /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
-		20C10DBE17F6E3240036D9FF /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
-		20C10DC217F6E3290036D9FF /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
-		20C10DC317F6E3290036D9FF /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
-		20C10DC417F6E3290036D9FF /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
-		20C10DC517F6E3290036D9FF /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
-		20C10DC617F6E3290036D9FF /* libCrittercism_v4_0_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_0_7.a; sourceTree = "<group>"; };
 		5976C03F15925D2D007F6FC3 /* PhotoButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -544,22 +544,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20C10DBF17F6E3240036D9FF /* libAviarySDK.a in Frameworks */,
 				0C7EFBEF17E8D86E0054C4DE /* CoreImage.framework in Frameworks */,
 				0C2F789A17F2DD1F00201783 /* ImageIO.framework in Frameworks */,
 				5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */,
 				5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */,
 				0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */,
 				0CD9CF6117EA10DF00402E91 /* MobileCoreServices.framework in Frameworks */,
+				205EACEA17F6E7BD00EE9A76 /* libCrittercism_v4_0_7.a in Frameworks */,
 				0CBE48C217D1C0B500DC7482 /* SystemConfiguration.framework in Frameworks */,
 				0C7EFBF117E8DBE50054C4DE /* MapKit.framework in Frameworks */,
+				205EACF217F6E83100EE9A76 /* libGoogleAnalytics.a in Frameworks */,
 				0CBE48AE17D1C02E00DC7482 /* Accelerate.framework in Frameworks */,
 				5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */,
-				20C10DC817F6E3290036D9FF /* libCrittercism_v4_0_7.a in Frameworks */,
+				205EACE217F6E5FA00EE9A76 /* FacebookSDK.framework in Frameworks */,
 				0CBE48BE17D1C0A400DC7482 /* QuartzCore.framework in Frameworks */,
-				20C10DB317F6E31D0036D9FF /* libGoogleAnalytics.a in Frameworks */,
-				20C10DA917F6E28D0036D9FF /* FacebookSDK.framework in Frameworks */,
 				0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */,
+				205EACFE17F6E83F00EE9A76 /* libAviarySDK.a in Frameworks */,
 				0CBE48C017D1C0AB00DC7482 /* StoreKit.framework in Frameworks */,
 				0CBE48BC17D1C0A100DC7482 /* OpenGLES.framework in Frameworks */,
 				0CBE48BA17D1C09B00DC7482 /* MessageUI.framework in Frameworks */,
@@ -682,9 +682,9 @@
 		0C28B28C17DC1B9200BD0EC2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				20C10DC117F6E3290036D9FF /* CrittercismSDK */,
-				20C10DB417F6E3240036D9FF /* AviarySDK */,
-				20C10DAC17F6E31C0036D9FF /* Google Analytics */,
+				205EACF317F6E83F00EE9A76 /* AviarySDK */,
+				205EACEB17F6E83100EE9A76 /* Google Analytics */,
+				205EACE317F6E7BD00EE9A76 /* CrittercismSDK */,
 				0C2F786D17F2DBA600201783 /* SDWebImage */,
 				0CD9CF4317EA0FD400402E91 /* AFNetworking */,
 				0C7EFBE517E8D5780054C4DE /* FontAwesome */,
@@ -1114,60 +1114,60 @@
 			path = "Login Page";
 			sourceTree = "<group>";
 		};
-		20C10DAC17F6E31C0036D9FF /* Google Analytics */ = {
+		205EACE317F6E7BD00EE9A76 /* CrittercismSDK */ = {
 			isa = PBXGroup;
 			children = (
-				20C10DAD17F6E31D0036D9FF /* GAI.h */,
-				20C10DAE17F6E31D0036D9FF /* GAITrackedViewController.h */,
-				20C10DAF17F6E31D0036D9FF /* GAITracker.h */,
-				20C10DB017F6E31D0036D9FF /* GAITransaction.h */,
-				20C10DB117F6E31D0036D9FF /* GAITransactionItem.h */,
-				20C10DB217F6E31D0036D9FF /* libGoogleAnalytics.a */,
+				205EACE417F6E7BD00EE9A76 /* CRFilter.h */,
+				205EACE517F6E7BD00EE9A76 /* Crittercism.h */,
+				205EACE617F6E7BD00EE9A76 /* CrittercismDelegate.h */,
+				205EACE717F6E7BD00EE9A76 /* dsym_upload.sh */,
+				205EACE817F6E7BD00EE9A76 /* libCrittercism_v4_0_7.a */,
+			);
+			path = CrittercismSDK;
+			sourceTree = "<group>";
+		};
+		205EACEB17F6E83100EE9A76 /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				205EACEC17F6E83100EE9A76 /* GAI.h */,
+				205EACED17F6E83100EE9A76 /* GAITrackedViewController.h */,
+				205EACEE17F6E83100EE9A76 /* GAITracker.h */,
+				205EACEF17F6E83100EE9A76 /* GAITransaction.h */,
+				205EACF017F6E83100EE9A76 /* GAITransactionItem.h */,
+				205EACF117F6E83100EE9A76 /* libGoogleAnalytics.a */,
 			);
 			path = "Google Analytics";
 			sourceTree = "<group>";
 		};
-		20C10DB417F6E3240036D9FF /* AviarySDK */ = {
+		205EACF317F6E83F00EE9A76 /* AviarySDK */ = {
 			isa = PBXGroup;
 			children = (
-				20C10DB517F6E3240036D9FF /* Headers */,
-				20C10DBC17F6E3240036D9FF /* libAviarySDK.a */,
-				20C10DBD17F6E3240036D9FF /* Resources */,
+				205EACF417F6E83F00EE9A76 /* Headers */,
+				205EACFB17F6E83F00EE9A76 /* libAviarySDK.a */,
+				205EACFC17F6E83F00EE9A76 /* Resources */,
 			);
 			path = AviarySDK;
 			sourceTree = "<group>";
 		};
-		20C10DB517F6E3240036D9FF /* Headers */ = {
+		205EACF417F6E83F00EE9A76 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				20C10DB617F6E3240036D9FF /* AFOpenGLManager.h */,
-				20C10DB717F6E3240036D9FF /* AFPhotoEditorContext.h */,
-				20C10DB817F6E3240036D9FF /* AFPhotoEditorController.h */,
-				20C10DB917F6E3240036D9FF /* AFPhotoEditorControllerOptions.h */,
-				20C10DBA17F6E3240036D9FF /* AFPhotoEditorCustomization.h */,
-				20C10DBB17F6E3240036D9FF /* AFPhotoEditorSession.h */,
+				205EACF517F6E83F00EE9A76 /* AFOpenGLManager.h */,
+				205EACF617F6E83F00EE9A76 /* AFPhotoEditorContext.h */,
+				205EACF717F6E83F00EE9A76 /* AFPhotoEditorController.h */,
+				205EACF817F6E83F00EE9A76 /* AFPhotoEditorControllerOptions.h */,
+				205EACF917F6E83F00EE9A76 /* AFPhotoEditorCustomization.h */,
+				205EACFA17F6E83F00EE9A76 /* AFPhotoEditorSession.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
 		};
-		20C10DBD17F6E3240036D9FF /* Resources */ = {
+		205EACFC17F6E83F00EE9A76 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				20C10DBE17F6E3240036D9FF /* AviarySDKResources.bundle */,
+				205EACFD17F6E83F00EE9A76 /* AviarySDKResources.bundle */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		20C10DC117F6E3290036D9FF /* CrittercismSDK */ = {
-			isa = PBXGroup;
-			children = (
-				20C10DC217F6E3290036D9FF /* CRFilter.h */,
-				20C10DC317F6E3290036D9FF /* Crittercism.h */,
-				20C10DC417F6E3290036D9FF /* CrittercismDelegate.h */,
-				20C10DC517F6E3290036D9FF /* dsym_upload.sh */,
-				20C10DC617F6E3290036D9FF /* libCrittercism_v4_0_7.a */,
-			);
-			path = CrittercismSDK;
 			sourceTree = "<group>";
 		};
 		5976C03415925D2D007F6FC3 = {
@@ -1198,8 +1198,8 @@
 		5976C04215925D2D007F6FC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				205EACE117F6E5FA00EE9A76 /* FacebookSDK.framework */,
 				20C10DAA17F6E2960036D9FF /* FacebookSDKOverrides.bundle */,
-				20C10DA817F6E28D0036D9FF /* FacebookSDK.framework */,
 				0C2F789917F2DD1F00201783 /* ImageIO.framework */,
 				0C5C936817EA162100ECF9B3 /* Security.framework */,
 				0CD9CF6017EA10DF00402E91 /* MobileCoreServices.framework */,
@@ -1290,7 +1290,6 @@
 			files = (
 				0C5954F117F6BDDD0076353E /* navigation_background.png in Resources */,
 				0C43CCA817F5D29A00D869F9 /* clock-icon.png in Resources */,
-				20C10DC017F6E3240036D9FF /* AviarySDKResources.bundle in Resources */,
 				0CFC0FF217ECB8BB008FBD92 /* TMEProductDetailsViewController.xib in Resources */,
 				0C43CC9E17F5CC4A00D869F9 /* big-logo@2x.png in Resources */,
 				0C43CC9B17F5CC4A00D869F9 /* arrow-down.png in Resources */,
@@ -1305,6 +1304,7 @@
 				0C43CC9C17F5CC4A00D869F9 /* arrow-down@2x.png in Resources */,
 				0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */,
 				0CFC0FF817ECBA3F008FBD92 /* bt_fb_signin_normal.png in Resources */,
+				205EACE917F6E7BD00EE9A76 /* dsym_upload.sh in Resources */,
 				0CFC0FEB17ECB690008FBD92 /* TMEBrowserProductsTableCell.xib in Resources */,
 				0C43CCAF17F5D29A00D869F9 /* share-button@2x.png in Resources */,
 				0C7EFB7E17E8D2ED0054C4DE /* SVProgressHUD.bundle in Resources */,
@@ -1321,12 +1321,12 @@
 				0C5954F217F6BDDD0076353E /* navigation_background@2x.png in Resources */,
 				0C5954F017F6BDDD0076353E /* grid-view-icon@2x.png in Resources */,
 				0C7EFBEB17E8D5790054C4DE /* FontAwesome.ttf in Resources */,
+				205EACFF17F6E83F00EE9A76 /* AviarySDKResources.bundle in Resources */,
 				0CFC0FED17ECB690008FBD92 /* TMEBrowserProductsViewController.xib in Resources */,
 				0C2CE1C217EAEAC20074C57F /* TMEPublishProductViewController.xib in Resources */,
 				0CFC0FFB17ECBA3F008FBD92 /* bt_fb_signin_pressed@2x.png in Resources */,
 				0C5954EF17F6BDDD0076353E /* grid-view-icon.png in Resources */,
 				0C43CC9D17F5CC4A00D869F9 /* big-logo.png in Resources */,
-				20C10DC717F6E3290036D9FF /* dsym_upload.sh in Resources */,
 				0C43CCAE17F5D29A00D869F9 /* share-button.png in Resources */,
 				0C5954F317F6BDDD0076353E /* simple-view-icon.png in Resources */,
 			);
@@ -1580,16 +1580,16 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/hoang/Documents/2359Media\\ projects/3Mins/Vendors",
+					"\"$(SRCROOT)/Vendors\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/PhotoButton-Prefix.pch";
 				INFOPLIST_FILE = "Supporting Files/PhotoButton-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/hoang/Documents/2359Media\\ projects/3Mins/Vendors/Google\\ Analytics",
-					"/Users/hoang/Documents/2359Media\\ projects/3Mins/Vendors/AviarySDK",
-					"/Users/hoang/Documents/2359Media\\ projects/3Mins/Vendors/CrittercismSDK",
+					"\"$(SRCROOT)/Vendors/CrittercismSDK\"",
+					"\"$(SRCROOT)/Vendors/Google\\ Analytics\"",
+					"\"$(SRCROOT)/Vendors/AviarySDK\"",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1605,16 +1605,16 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/hoang/Documents/2359Media\\ projects/3Mins/Vendors",
+					"\"$(SRCROOT)/Vendors\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/PhotoButton-Prefix.pch";
 				INFOPLIST_FILE = "Supporting Files/PhotoButton-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/hoang/Documents/2359Media\\ projects/3Mins/Vendors/Google\\ Analytics",
-					"/Users/hoang/Documents/2359Media\\ projects/3Mins/Vendors/AviarySDK",
-					"/Users/hoang/Documents/2359Media\\ projects/3Mins/Vendors/CrittercismSDK",
+					"\"$(SRCROOT)/Vendors/CrittercismSDK\"",
+					"\"$(SRCROOT)/Vendors/Google\\ Analytics\"",
+					"\"$(SRCROOT)/Vendors/AviarySDK\"",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
