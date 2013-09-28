@@ -18,6 +18,7 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
 
 @property (strong, nonatomic) iCarousel *iCarousel;
 @property (strong, nonatomic) UIButton *doneButton;
+@property (strong, nonatomic) UIButton *skipButton;
 @property (strong, nonatomic) UIPageControl *tutorialPageControl;
 
 @end
@@ -34,6 +35,7 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
     [super viewDidLoad];
     [self.view addSubview:self.iCarousel];
     [self.view addSubview:self.tutorialPageControl];
+    [self.view addSubview:self.skipButton];
 }
 
 - (iCarousel *)iCarousel
@@ -54,10 +56,23 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
   if (!_doneButton) {
     _doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _doneButton.frame = CGRectMake(90, self.view.height - 64, self.view.bounds.size.width - 180, 44);
-    _doneButton.backgroundColor = [UIColor blueTextColor];
+    _doneButton.backgroundColor = [UIColor grayColor];
+    [_doneButton setTitle:@"Start!" forState:UIControlStateNormal];
     [_doneButton addTarget:self action:@selector(closeTutorial) forControlEvents:UIControlEventTouchDown];
   }
   return _doneButton;
+}
+
+- (UIButton *)skipButton
+{
+  if (!_skipButton) {
+    _skipButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _skipButton.frame = CGRectMake(55, self.view.height - 84, self.view.bounds.size.width - 110, 44);
+    _skipButton.backgroundColor = [UIColor grayColor];
+    [_skipButton setTitle:@"I'm genius, just skip this!" forState:UIControlStateNormal];
+    [_skipButton addTarget:self action:@selector(closeTutorial) forControlEvents:UIControlEventTouchDown];
+  }
+  return _skipButton;
 }
 
 - (UIPageControl *)tutorialPageControl
@@ -101,6 +116,7 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel
 {
+  [self.skipButton removeFromSuperview];
   self.tutorialPageControl.currentPage = carousel.currentItemIndex;
 }
 @end
