@@ -65,9 +65,11 @@
     self.leftController = deckController.leftController;
     self.centerController = deckController.centerController;
     self.navController = (TMENavigationViewController *)deckController.centerController;
+    
     self.window.rootViewController = deckController;
   
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 

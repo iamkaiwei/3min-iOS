@@ -11,6 +11,8 @@
 #import "TMEBrowserProductsViewController.h"
 #import "TMEPhotoButton.h"
 #import "AFPhotoEditorController.h"
+#import "TMEBrowserProductsViewController.h"
+#import "TMEPublishProductViewController.h"
 #import "PBImageHelper.h"
 
 @interface TMEViewController () <AFPhotoEditorControllerDelegate>
@@ -25,6 +27,11 @@
 {
     [super viewDidLoad];
     self.title = @"Main Menu";
+    
+    TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
+    TMEPublishProductViewController *publishVC = [[TMEPublishProductViewController alloc] init];
+    
+    self.viewControllers = @[browserVC, publishVC];
 }
 
 #pragma mark - Link to product config

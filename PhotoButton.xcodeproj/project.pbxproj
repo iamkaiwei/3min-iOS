@@ -76,6 +76,7 @@
 		0C5954FE17F711200076353E /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5954FB17F711200076353E /* IIWrapController.m */; };
 		0C59550317F711CF0076353E /* TMELeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C59550117F711CF0076353E /* TMELeftMenuViewController.m */; };
 		0C59550417F711CF0076353E /* TMELeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C59550217F711CF0076353E /* TMELeftMenuViewController.xib */; };
+		0C59550717F73E380076353E /* TMEBaseTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C59550617F73E380076353E /* TMEBaseTabBarViewController.m */; };
 		0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
 		0C6D86AE17EA0E9A00D959F8 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D86AB17EA0E9A00D959F8 /* BaseManager.m */; };
@@ -300,6 +301,8 @@
 		0C59550017F711CF0076353E /* TMELeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELeftMenuViewController.h; sourceTree = "<group>"; };
 		0C59550117F711CF0076353E /* TMELeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELeftMenuViewController.m; sourceTree = "<group>"; };
 		0C59550217F711CF0076353E /* TMELeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMELeftMenuViewController.xib; sourceTree = "<group>"; };
+		0C59550517F73E380076353E /* TMEBaseTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseTabBarViewController.h; sourceTree = "<group>"; };
+		0C59550617F73E380076353E /* TMEBaseTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseTabBarViewController.m; sourceTree = "<group>"; };
 		0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMEModels.xcdatamodel; sourceTree = "<group>"; };
 		0C5C936817EA162100ECF9B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0C6D86AA17EA0E9A00D959F8 /* BaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
@@ -895,6 +898,8 @@
 				0C6E06A417E0CCD10003F104 /* TMEBaseTableViewController.m */,
 				0C6E06A717E0DA590003F104 /* TMEBasePhotoEditorViewController.h */,
 				0C6E06A817E0DA590003F104 /* TMEBasePhotoEditorViewController.m */,
+				0C59550517F73E380076353E /* TMEBaseTabBarViewController.h */,
+				0C59550617F73E380076353E /* TMEBaseTabBarViewController.m */,
 			);
 			path = Superclass;
 			sourceTree = "<group>";
@@ -1430,6 +1435,7 @@
 				0C6E069F17E0CC850003F104 /* TMEBaseViewController.m in Sources */,
 				0C7053C817EF5E5E00E7615F /* TMEProduct.m in Sources */,
 				0C7EFB6817E768C70054C4DE /* NSPersistentStore+MagicalRecord.m in Sources */,
+				0C59550717F73E380076353E /* TMEBaseTabBarViewController.m in Sources */,
 				0C43914B17F2D27500640D82 /* TMEProduct+Additions.m in Sources */,
 				0C43CCB317F5E62A00D869F9 /* TMEBaseTableViewCell.m in Sources */,
 				0C7EFB5E17E768C70054C4DE /* NSManagedObject+MagicalAggregation.m in Sources */,
