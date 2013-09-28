@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "TMETutorialViewController.h"
 #import "TMEViewController.h"
 #import "GAI.h"
 
@@ -29,6 +29,11 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize window = _window;
+
++ (AppDelegate *)sharedDelegate
+{
+  return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
@@ -60,13 +65,12 @@
                                                 animated:NO];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    IIViewDeckController *deckController = [self generateControllerStack];
-    self.leftController = deckController.leftController;
-    self.centerController = deckController.centerController;
-    self.navController = (TMENavigationViewController *)deckController.centerController;
-    
-    self.window.rootViewController = deckController;
+  
+    if (![TMETutorialViewController hasBeenPresented]) {
+      [self showTutorialController];
+    } else {
+      [self showHomeViewController];
+    }
   
     [self.window makeKeyAndVisible];
 
@@ -116,6 +120,60 @@
             abort();
         }
     }
+}
+
+#pragma mark - Switch View Controllers
+
+- (void)showHomeViewController
+{
+    IIViewDeckController *deckController = [self generateControllerStack];
+    self.leftController = deckController.leftController;
+    self.centerController = deckController.centerController;
+    self.navController = (TMENavigationViewController *)deckController.centerController;
+    [self switchRootViewController:deckController animated:YES completion:^{
+      //Some settings may be added later.
+    }];
+}
+
+- (void)showTutorialController
+{
+    [self switchRootViewController:[[TMETutorialViewController alloc] init] animated:YES completion:nil];
+}
+
+- (void)switchRootViewController:(UIViewController *)viewController animated:(BOOL)animated completion:(void (^)())completion
+{
+  if (animated) {
+    [UIView transitionWithView:self.window duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+      BOOL oldState = [UIView areAnimationsEnabled];
+      [UIView setAnimationsEnabled:NO];
+      self.window.rootViewController = viewController;
+      [UIView setAnimationsEnabled:oldState];
+    } completion:^(BOOL finished) {
+      if (completion) completion();
+    }];
+  } else {
+    self.window.rootViewController = viewController;
+    if (completion) completion();
+  }
+}
+
+- (IIViewDeckController*)generateControllerStack {
+  
+  TMELeftMenuViewController* leftController = [[TMELeftMenuViewController alloc] init];
+  
+  // Set up ViewDeck central
+  UIViewController *rootVC;
+  rootVC = [[TMEViewController alloc] initWithNibName:@"TMEViewController_iPhone" bundle:nil];
+  TMENavigationViewController *centralNavController = [[TMENavigationViewController alloc] initWithRootViewController:rootVC];
+  
+  IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centralNavController leftViewController:leftController];
+  
+  [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
+  [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
+  
+  deckController.rightSize = 60;
+  
+  return deckController;
 }
 
 #pragma mark - Core Data stack
@@ -226,26 +284,6 @@
     // Create tracker instance.
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_APP_KEY];
     [GAI sharedInstance].debug = YES;
-}
-
-#pragma marks - helpers
-- (IIViewDeckController*)generateControllerStack {
-    
-    TMELeftMenuViewController* leftController = [[TMELeftMenuViewController alloc] init];
-    
-    // Set up ViewDeck central
-    UIViewController *rootVC;
-    rootVC = [[TMEViewController alloc] initWithNibName:@"TMEViewController_iPhone" bundle:nil];
-    TMENavigationViewController *centralNavController = [[TMENavigationViewController alloc] initWithRootViewController:rootVC];
-    
-    IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centralNavController leftViewController:leftController];
-    
-    [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
-    [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
-    
-    deckController.rightSize = 60;
-    
-    return deckController;
 }
 
 @end

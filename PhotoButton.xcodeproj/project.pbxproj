@@ -210,6 +210,8 @@
 		205EACFE17F6E83F00EE9A76 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACFB17F6E83F00EE9A76 /* libAviarySDK.a */; };
 		205EACFF17F6E83F00EE9A76 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 205EACFD17F6E83F00EE9A76 /* AviarySDKResources.bundle */; };
 		20C10DAB17F6E2960036D9FF /* FacebookSDKOverrides.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20C10DAA17F6E2960036D9FF /* FacebookSDKOverrides.bundle */; };
+		20C4D5E017F725D40035BCA5 /* TMETutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C4D5DF17F725D40035BCA5 /* TMETutorialViewController.m */; };
+		20C4D5E817F733F80035BCA5 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C4D5E717F733F80035BCA5 /* iCarousel.m */; };
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
@@ -551,6 +553,10 @@
 		205EACFB17F6E83F00EE9A76 /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
 		205EACFD17F6E83F00EE9A76 /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
 		20C10DAA17F6E2960036D9FF /* FacebookSDKOverrides.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKOverrides.bundle; path = Vendors/FacebookSDKOverrides.bundle; sourceTree = "<group>"; };
+		20C4D5DE17F725D40035BCA5 /* TMETutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETutorialViewController.h; sourceTree = "<group>"; };
+		20C4D5DF17F725D40035BCA5 /* TMETutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETutorialViewController.m; sourceTree = "<group>"; };
+		20C4D5E617F733F80035BCA5 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		20C4D5E717F733F80035BCA5 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		5976C03F15925D2D007F6FC3 /* PhotoButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -686,6 +692,7 @@
 		0C28B28B17DC1B9200BD0EC2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				20C4D5DD17F722710035BCA5 /* Tutorial */,
 				0C6E069C17E0CC650003F104 /* Superclass */,
 				0C43CCB417F5E6A000D869F9 /* Navigation Controller */,
 				0CFC0FFC17ECBAAE008FBD92 /* Login Page */,
@@ -701,6 +708,7 @@
 		0C28B28C17DC1B9200BD0EC2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				20C4D5E517F733F80035BCA5 /* iCarousel */,
 				0C5954F517F711200076353E /* ViewDeck */,
 				205EACF317F6E83F00EE9A76 /* AviarySDK */,
 				205EACEB17F6E83100EE9A76 /* Google Analytics */,
@@ -1215,6 +1223,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		20C4D5DD17F722710035BCA5 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				20C4D5DE17F725D40035BCA5 /* TMETutorialViewController.h */,
+				20C4D5DF17F725D40035BCA5 /* TMETutorialViewController.m */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		20C4D5E517F733F80035BCA5 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				20C4D5E617F733F80035BCA5 /* iCarousel.h */,
+				20C4D5E717F733F80035BCA5 /* iCarousel.m */,
+			);
+			path = iCarousel;
+			sourceTree = "<group>";
+		};
 		5976C03415925D2D007F6FC3 = {
 			isa = PBXGroup;
 			children = (
@@ -1481,11 +1507,13 @@
 				0CD9CF5F17EA0FD400402E91 /* UIImageView+AFNetworking.m in Sources */,
 				0C5954FD17F711200076353E /* IIViewDeckController.m in Sources */,
 				0C7EFB6D17E768C70054C4DE /* MagicalRecord+Options.m in Sources */,
+				20C4D5E817F733F80035BCA5 /* iCarousel.m in Sources */,
 				0C34A89E17F0ACEF003ACEFF /* BaseNetworkManager.m in Sources */,
 				0C7EFB6917E768C70054C4DE /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				0C7EFBE217E8D5170054C4DE /* UIView+Nib.m in Sources */,
 				0CD9CF5E17EA0FD400402E91 /* AFXMLRequestOperation.m in Sources */,
 				0C7EFB6617E768C70054C4DE /* NSManagedObjectContext+MagicalThreading.m in Sources */,
+				20C4D5E017F725D40035BCA5 /* TMETutorialViewController.m in Sources */,
 				0CFC100017ECBE06008FBD92 /* TMELoginViewController.m in Sources */,
 				0C5954FC17F711200076353E /* IISideController.m in Sources */,
 				0C7EFBC517E8D5170054C4DE /* ISO8601DateFormatter.m in Sources */,

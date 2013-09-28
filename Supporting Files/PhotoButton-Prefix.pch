@@ -130,6 +130,7 @@
 #import "SVProgressHUD.h"
 #import "AFNetworking.h"
 #import "OpenUDID.h"
+#import "iCarousel.h"
 
 // Common VCs
 #import "TMENavigationViewController.h"
