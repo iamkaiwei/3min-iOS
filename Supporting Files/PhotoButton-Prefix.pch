@@ -148,6 +148,12 @@
 //------------------------------------------------------------------------------------------------------
 
 //
+// Convenient macros
+//
+
+#define getrandom(min, max) ((rand()%(int)(((max) + 1)-(min)))+ (min))
+
+//
 // Convenient macro to check app version
 //
 #define APP_VERSION                                 ([[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleVersionKey])

@@ -90,9 +90,7 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
   UIView *carouselView = [[UIView alloc] initWithFrame:self.view.bounds];
-  int c1 = rand(), c2 = rand(), c3 = rand(), c4 = rand(), c5 = rand(), c6 = rand();
-  float red = MIN(c1, c2) / (float)MAX(c1, c2), green =  MIN(c3, c4) / (float)MAX(c3, c4), blue = MIN(c5, c6) / (float)MAX(c5, c6);
-  carouselView.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1];
+  carouselView.backgroundColor = [UIColor colorWithRed:getrandom(0, 255)/255.0 green:getrandom(0, 255)/255.0 blue:getrandom(0, 255)/255.0 alpha:1];
   
   //Add Start Button if this is the last page.
   if (index == NUMBER_OF_TUTORIAL_PAGES - 1) {
