@@ -20,7 +20,10 @@
         product.name = @"";
     else product.name = data[@"name"];
 
-    product.created_at = data[@"create_at"];
+    NSInteger timeStamp = [data[@"create_at"] integerValue];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
+    NSLog(@"%@", date);
+    product.created_at = date;
     
     if ([data[@"description"] isEqual:[NSNull null]])
         product.details = @"";
@@ -37,19 +40,33 @@
     product.updated_at = data[@"update_at"];
     
     // category
-    TMECategory *category = [[TMECategory alloc] init];
+    TMECategory *category = [TMECategory MR_createEntity];
     if (data[@"category"]) {
         NSDictionary *categoryData = data[@"category"];
-        category.photo_url = categoryData[@"photo_url"];
+        category.name = categoryData[@"name"];
+        
+        // dig for category image
+        if (categoryData[@"image"]) {
+            NSDictionary *image = categoryData[@"image"];
+            category.photo_url = image[@"url"];
+        }
+        
         product.category = category;
     }
     
     // user
-    TMEUser *user = [[TMEUser alloc] init];
-    if (data[@"user"]) {
-        NSDictionary *userData = data[@"user"];
-        user.photo_url = userData[@"photo_url"];
+    TMEUser *user = [TMEUser MR_createEntity];
+    if (data[@"owner"]) {
+        NSDictionary *userData = data[@"owner"];
+        
+        // dig for user image
+        if (userData[@"image"]) {
+            NSDictionary *image = userData[@"image"];
+            user.photo_url = image[@"url"];
+        }
+        
         user.username = userData[@"username"];
+        product.user = user;
     }
     
     // images

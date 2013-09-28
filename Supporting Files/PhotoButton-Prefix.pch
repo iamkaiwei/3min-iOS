@@ -42,7 +42,8 @@
 #ifdef DEBUG
 
 #define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
-#define API_SERVER_HOST                             @"http://threemins-server-staging.herokuapp.com/"
+//#define API_SERVER_HOST                             @"http://threemins-server-staging.herokuapp.com/"
+#define API_SERVER_HOST                             @"http://192.168.1.47:5000/"
 #define API_CLIENT_ID                               @"36d9b0cae1fb797b3095ebd8c50ef4b58df47f16d5aa18f96704f4c484136869"
 #define API_CLIENT_SERCET                           @"8eb597435160bcef09084a9bbd32c9d2a309b97b33f2e7284d2ac8c3840a0834"
 #define API_GRANT_TYPE                              @"password"

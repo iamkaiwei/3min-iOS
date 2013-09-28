@@ -66,6 +66,8 @@
     self.lblUserName.text = product.user.username;
     self.lblTimestamp.text = [product.created_at relativeDate];
     
+    [self.imgProductCategoryAvatar setImageWithURL:[NSURL URLWithString:product.category.photo_url] placeholderImage:nil];
+    
     [self.imgProductImage setImage:nil];
     TMEProductImages *img = [product.images anyObject];
     [self.imgProductImage setImageWithURL:[NSURL URLWithString:img.url]];
