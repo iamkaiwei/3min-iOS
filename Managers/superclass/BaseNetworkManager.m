@@ -82,7 +82,7 @@ SINGLETON_MACRO
     if ([facebook_token length] > 0 && [access_token length] > 0 && [facebook_id length] > 0)
     {
         [dict setObject:facebook_token forKey:@"fb_token"];
-        [dict setObject:access_token forKey:@"auth_token"];
+        [dict setObject:access_token forKey:@"access_token"];
         [dict setObject:facebook_id forKey:@"fb_id"];
     }
     

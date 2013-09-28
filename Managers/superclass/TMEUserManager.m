@@ -61,7 +61,9 @@ SINGLETON_MACRO
                              @"client_id": API_CLIENT_ID,
                              @"grant_type": API_GRANT_TYPE};
     
-    [[BaseNetworkManager sharedInstance] sendRequestForPath:API_USER_LOGIN parameters:params method:POST_METHOD success:^(NSHTTPURLResponse *response, id responseObject) {
+    NSString *path = [NSString stringWithFormat:@"%@%@", API_SERVER_HOST, API_USER_LOGIN];
+    
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path parameters:params method:POST_METHOD success:^(NSHTTPURLResponse *response, id responseObject) {
         
         TMEUser *user = [TMEUser MR_createEntity];
         if (responseObject)

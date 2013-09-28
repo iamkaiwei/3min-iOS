@@ -35,26 +35,28 @@
     self = [super init];
     if (self) {
         
-        // Follow button
-        self.btnFollow.layer.borderWidth = 1;
-        self.btnFollow.layer.borderColor = [UIColor grayColor].CGColor;
-        self.btnFollow.layer.cornerRadius = 3;
-        
-        // Comment button
-        self.btnComment.layer.borderWidth = 1;
-        self.btnComment.layer.borderColor = [UIColor grayColor].CGColor;
-        self.btnComment.layer.cornerRadius = 3;
-        
-        // Share button
-        self.btnShare.layer.borderWidth = 1;
-        self.btnShare.layer.borderColor = [UIColor grayColor].CGColor;
-        self.btnShare.layer.cornerRadius = 3;
+
     }
     
     return self;
 }
 
 - (void)configCellWithProduct:(TMEProduct *)product{
+    
+    // Follow button
+    self.btnFollow.layer.borderWidth = 1;
+    self.btnFollow.layer.borderColor = [UIColor grayColor].CGColor;
+    self.btnFollow.layer.cornerRadius = 3;
+    
+    // Comment button
+    self.btnComment.layer.borderWidth = 1;
+    self.btnComment.layer.borderColor = [UIColor grayColor].CGColor;
+    self.btnComment.layer.cornerRadius = 3;
+    
+    // Share button
+    self.btnShare.layer.borderWidth = 1;
+    self.btnShare.layer.borderColor = [UIColor grayColor].CGColor;
+    self.btnShare.layer.cornerRadius = 3;
     
     // for now when we get product, we get all imformantion about this product like user, category, etc.
     

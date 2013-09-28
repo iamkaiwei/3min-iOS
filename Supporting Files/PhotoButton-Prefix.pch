@@ -74,7 +74,7 @@
 #define CLASS_PREFIX_LENGTH                         3
 #define API_PREFIX                                  @"/api/v1"
 #define API_PRODUCTS                                @"products"
-#define API_USER_LOGIN                              @"users/login"
+#define API_USER_LOGIN                              @"oauth/token"
 
 // Categories
 #import "ISO8601DateFormatter.h"

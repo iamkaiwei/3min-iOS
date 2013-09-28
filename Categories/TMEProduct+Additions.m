@@ -37,8 +37,20 @@
     product.updated_at = data[@"update_at"];
     
     // category
+    TMECategory *category = [[TMECategory alloc] init];
+    if (data[@"category"]) {
+        NSDictionary *categoryData = data[@"category"];
+        category.photo_url = categoryData[@"photo_url"];
+        product.category = category;
+    }
     
     // user
+    TMEUser *user = [[TMEUser alloc] init];
+    if (data[@"user"]) {
+        NSDictionary *userData = data[@"user"];
+        user.photo_url = userData[@"photo_url"];
+        user.username = userData[@"username"];
+    }
     
     // images
     NSSet *setImages = [[NSSet alloc] init];
