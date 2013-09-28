@@ -10,7 +10,4 @@
 
 @interface TMENavigationViewController : UINavigationController
 
-+ (TMENavigationViewController *)navigationController;
-+ (TMENavigationViewController *)navigationControllerWithRootViewController:(UIViewController *)rootViewController;
-
 @end
