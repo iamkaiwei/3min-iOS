@@ -37,7 +37,14 @@
     TMEBrowserProductsViewController *dummy1 = [[TMEBrowserProductsViewController alloc] init];
     TMEBrowserProductsViewController *dummy2 = [[TMEBrowserProductsViewController alloc] init];
     
-    self.viewControllers = @[browserVC, publishVC, loginVC, dummy1, dummy2];
+    UITabBar *tabBar = self.tabBarController.tabBar;
+    UITabBarItem *browserBtn = [tabBar.items objectAtIndex:0];
+    UITabBarItem *dummy1Btn = [tabBar.items objectAtIndex:1];
+    UITabBarItem *publishBtn = [tabBar.items objectAtIndex:2];
+    UITabBarItem *loginBtn = [tabBar.items objectAtIndex:3];
+    UITabBarItem *dummy2Btn = [tabBar.items objectAtIndex:4];
+    
+    self.viewControllers = @[browserVC, dummy1, publishVC, loginVC, dummy2];
 }
 
 #pragma mark - Link to product config
