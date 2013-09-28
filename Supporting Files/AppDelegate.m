@@ -71,9 +71,9 @@
     } else {
       [self showHomeViewController];
     }
-  
+    
     [self.window makeKeyAndVisible];
-
+    
     return YES;
 }
 
@@ -130,6 +130,11 @@
     self.leftController = deckController.leftController;
     self.centerController = deckController.centerController;
     self.navController = (TMENavigationViewController *)deckController.centerController;
+    
+    // config tabbar appear
+    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar-background"];
+    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+
     [self switchRootViewController:deckController animated:YES completion:^{
       //Some settings may be added later.
     }];

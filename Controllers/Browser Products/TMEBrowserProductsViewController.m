@@ -35,8 +35,20 @@
     NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
     [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
     
-//    self.arrProducts = [[[TMEProductsManager sharedInstance] fakeGetAllStoredProducts] mutableCopy];
-    
+    [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSInteger statusCode, id obj) {
+        
+        if ([obj isKindOfClass:[NSArray class]]) {
+            self.arrProducts = [[TMEProduct arrayProductsFromArray:obj] mutableCopy];
+            [self.tableProducts reloadData];
+        }
+        
+    } andFailureBlock:^(NSInteger statusCode, id obj) {
+        
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSInteger statusCode, id obj) {
         
         if ([obj isKindOfClass:[NSArray class]]) {

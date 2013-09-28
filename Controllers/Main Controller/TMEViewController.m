@@ -13,6 +13,7 @@
 #import "AFPhotoEditorController.h"
 #import "TMEBrowserProductsViewController.h"
 #import "TMEPublishProductViewController.h"
+#import "TMELoginViewController.h"
 #import "PBImageHelper.h"
 
 @interface TMEViewController () <AFPhotoEditorControllerDelegate>
@@ -30,8 +31,13 @@
     
     TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
     TMEPublishProductViewController *publishVC = [[TMEPublishProductViewController alloc] init];
+    TMELoginViewController *loginVC = [[TMELoginViewController alloc] init];
     
-    self.viewControllers = @[browserVC, publishVC];
+    // dummy VCs
+    TMEBrowserProductsViewController *dummy1 = [[TMEBrowserProductsViewController alloc] init];
+    TMEBrowserProductsViewController *dummy2 = [[TMEBrowserProductsViewController alloc] init];
+    
+    self.viewControllers = @[browserVC, publishVC, loginVC, dummy1, dummy2];
 }
 
 #pragma mark - Link to product config
