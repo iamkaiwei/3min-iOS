@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TMEBrowserProductsTableCell : UITableViewCell
+@interface TMEBrowserProductsTableCell : TMEBaseTableViewCell
 
 - (void)configCellWithProduct:(TMEProduct *)product;
 + (CGFloat)getHeight;

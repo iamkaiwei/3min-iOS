@@ -20,7 +20,7 @@
                     </imageView>
                     <view contentMode="scaleToFill" id="9yy-3J-gf7">
                         <rect key="frame" x="0.0" y="359" width="320" height="80"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T-shirt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0ub-uh-Y9C">
                                 <rect key="frame" x="11" y="9" width="229" height="23"/>
@@ -101,6 +101,9 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="btnComment" destination="ABa-Eq-EFj" id="BR9-6F-26j"/>
+                <outlet property="btnFollow" destination="50y-39-UUT" id="HJw-sD-d3d"/>
+                <outlet property="btnShare" destination="71R-rg-z1g" id="apb-kg-lcp"/>
                 <outlet property="imgProductImage" destination="BhY-iu-Fe8" id="CdA-Vi-AOl"/>
                 <outlet property="lblProductName" destination="0ub-uh-Y9C" id="s2O-u0-y46"/>
                 <outlet property="lblProductPrice" destination="oF0-2c-yHL" id="gCZ-JN-EjI"/>

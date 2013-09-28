@@ -27,7 +27,7 @@
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+{    
     // Crittercism
     [Crittercism enableWithAppID: @"51f8bef646b7c2316f000007"];
     
@@ -60,7 +60,7 @@
         rootVC = [[TMEViewController alloc] initWithNibName:@"TMEViewController_iPad" bundle:nil];
     }
     
-    self.navVC = [[UINavigationController alloc] initWithRootViewController:rootVC];
+    self.navVC = [[TMENavigationViewController alloc] initWithRootViewController:rootVC];
     self.window.rootViewController = self.navVC;
   
     [self.window makeKeyAndVisible];
