@@ -11,9 +11,16 @@
 
 @interface TMEBrowserProductsTableCell()
 
+// product
 @property (weak, nonatomic) IBOutlet UIImageView    * imgProductImage;
+@property (weak, nonatomic) IBOutlet UIImageView *imgProductCategoryAvatar;
 @property (weak, nonatomic) IBOutlet UILabel        * lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel        * lblProductPrice;
+
+// user
+@property (weak, nonatomic) IBOutlet UIImageView    * imgUserAvatar;
+@property (weak, nonatomic) IBOutlet UILabel        * lblUserName;
+@property (weak, nonatomic) IBOutlet UILabel        * lblTimestamp;
 
 // social
 @property (weak, nonatomic) IBOutlet UIButton       * btnFollow;
@@ -48,17 +55,25 @@
 }
 
 - (void)configCellWithProduct:(TMEProduct *)product{
-    [self.imgProductImage setImage:nil];
     
+    // for now when we get product, we get all imformantion about this product like user, category, etc.
+    
+    // user
+    self.imgUserAvatar.image = nil;
+    [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:product.user.photo_url] placeholderImage:nil];
+    self.lblUserName.text = product.user.username;
+    self.lblTimestamp.text = [product.created_at relativeDate];
+    
+    [self.imgProductImage setImage:nil];
     TMEProductImages *img = [product.images anyObject];
     [self.imgProductImage setImageWithURL:[NSURL URLWithString:img.url]];
     [self.imgProductImage clipsToBounds];
     
     self.lblProductName.text = product.name;
-    self.lblProductPrice.text = [product.price stringValue];
-    
-    
+    self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
 }
+
+
 
 + (CGFloat)getHeight{
     return 440;

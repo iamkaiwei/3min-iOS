@@ -29,13 +29,6 @@
                                 <color key="textColor" red="0.28235295414924622" green="0.27450981736183167" blue="0.27058824896812439" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oF0-2c-yHL">
-                                <rect key="frame" x="11" y="28" width="299" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OIZ-je-oXc">
                                 <rect key="frame" x="258" y="9" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -104,9 +97,13 @@
                 <outlet property="btnComment" destination="ABa-Eq-EFj" id="BR9-6F-26j"/>
                 <outlet property="btnFollow" destination="50y-39-UUT" id="HJw-sD-d3d"/>
                 <outlet property="btnShare" destination="71R-rg-z1g" id="apb-kg-lcp"/>
+                <outlet property="imgProductCategoryAvatar" destination="Ca5-iu-G3Y" id="KTN-OS-3fA"/>
                 <outlet property="imgProductImage" destination="BhY-iu-Fe8" id="CdA-Vi-AOl"/>
+                <outlet property="imgUserAvatar" destination="e7W-uL-Ygh" id="Pnv-VJ-Wb4"/>
                 <outlet property="lblProductName" destination="0ub-uh-Y9C" id="s2O-u0-y46"/>
-                <outlet property="lblProductPrice" destination="oF0-2c-yHL" id="gCZ-JN-EjI"/>
+                <outlet property="lblProductPrice" destination="OIZ-je-oXc" id="St2-tg-yvW"/>
+                <outlet property="lblTimestamp" destination="VUZ-Oe-KLE" id="xDK-7f-Zxv"/>
+                <outlet property="lblUserName" destination="v0G-NJ-IOn" id="hmi-dD-YSu"/>
             </connections>
         </tableViewCell>
     </objects>
