@@ -35,6 +35,6 @@
  * - #ABABAB: hex string containing a # character, will be used to colorize the base image
  * - 0-360: a number will be used to perform hue shift on the base image
  */
-+ (UIImage *)imageNamed:(NSString *)imageNamed withThemeName:(NSString *)themeName;
+//+ (UIImage *)imageNamed:(NSString *)imageNamed withThemeName:(NSString *)themeName;
 
 @end

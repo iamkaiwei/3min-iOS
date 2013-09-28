@@ -211,7 +211,6 @@
 #pragma marks - Google Analytics
 - (void)setUpGoogleAnalytics
 {
-    
     // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.

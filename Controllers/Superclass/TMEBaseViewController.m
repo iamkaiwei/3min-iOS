@@ -331,7 +331,7 @@
     UIViewAnimationOptions animationCurve = [[[sender userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
     
     UIScrollView *scrollView = (UIScrollView *)[self getScrollableView];
-    if ([self respondsToSelector:@selector(textView)])
+    if ([self respondsToSelector:NSSelectorFromString(@"textView")])
         scrollView = [self valueForKey:@"textView"];
     
     //Adjust tableView or scrollView inset
@@ -361,7 +361,7 @@
     UIViewAnimationOptions animationCurve = [[[sender userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
     
     UIScrollView *scrollView = (UIScrollView *)[self getScrollableView];
-    if ([self respondsToSelector:@selector(textView)])
+    if ([self respondsToSelector:NSSelectorFromString(@"textView")])
         scrollView = [self valueForKey:@"textView"];
     
     //Adjust tableView or scrollView inset

@@ -1,20 +1,3 @@
-//
-// Prefix header for all source files of the 'PhotoButton' target in the 'PhotoButton' project
-//
-
-#import <Availability.h>
-
-#ifndef __IPHONE_4_0
-#warning "This project uses features only available in iOS SDK 4.0 and later."
-#endif
-
-#ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
-#endif
-
-#import <FacebookSDK/FacebookSDK.h>
-
 //------------------------------------------------------------------------------------------------------
 // Debug vs Production configurations
 //------------------------------------------------------------------------------------------------------
@@ -75,6 +58,16 @@
 #define API_PREFIX                                  @"/api/v1"
 #define API_PRODUCTS                                @"products"
 #define API_USER_LOGIN                              @"oauth/token"
+
+//------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------
+
+#import <Availability.h>
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 
 // Categories
 #import "ISO8601DateFormatter.h"
@@ -203,4 +196,4 @@
 #define DLog(__FORMAT__, ...) NSLog((@"%s [L:%d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
 #define DLog(...) do {} while (0)
-#endif~
+#endif
