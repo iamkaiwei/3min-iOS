@@ -56,7 +56,10 @@ SINGLETON_MACRO
     
     NSDictionary *params = @{
                              @"fb_token": [[TMEUserManager sharedInstance] getFacebookToken],
-                             @"udid": [[TMEUserManager sharedInstance] getUDID]};
+                             @"udid": [[TMEUserManager sharedInstance] getUDID],
+                             @"client_secret": API_CLIENT_SERCET,
+                             @"client_id": API_CLIENT_ID,
+                             @"grant_type": API_GRANT_TYPE};
     
     [[BaseNetworkManager sharedInstance] sendRequestForPath:API_USER_LOGIN parameters:params method:POST_METHOD success:^(NSHTTPURLResponse *response, id responseObject) {
         

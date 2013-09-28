@@ -68,7 +68,6 @@
 		0C6D86AE17EA0E9A00D959F8 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D86AB17EA0E9A00D959F8 /* BaseManager.m */; };
 		0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B717D1C08F00DC7482 /* libz.1.2.5.dylib */; };
 		0C6E069017E0CBF60003F104 /* TMEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6E068D17E0CBF60003F104 /* TMEViewController.m */; };
-		0C6E069117E0CBF60003F104 /* TMEViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6E068E17E0CBF60003F104 /* TMEViewController_iPad.xib */; };
 		0C6E069217E0CBF60003F104 /* TMEViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6E068F17E0CBF60003F104 /* TMEViewController_iPhone.xib */; };
 		0C6E069F17E0CC850003F104 /* TMEBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6E069E17E0CC850003F104 /* TMEBaseViewController.m */; };
 		0C6E06A517E0CCD10003F104 /* TMEBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6E06A417E0CCD10003F104 /* TMEBaseTableViewController.m */; };
@@ -277,7 +276,6 @@
 		0C6D86AB17EA0E9A00D959F8 /* BaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManager.m; sourceTree = "<group>"; };
 		0C6E068C17E0CBF60003F104 /* TMEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEViewController.h; sourceTree = "<group>"; };
 		0C6E068D17E0CBF60003F104 /* TMEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEViewController.m; sourceTree = "<group>"; };
-		0C6E068E17E0CBF60003F104 /* TMEViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEViewController_iPad.xib; sourceTree = "<group>"; };
 		0C6E068F17E0CBF60003F104 /* TMEViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEViewController_iPhone.xib; sourceTree = "<group>"; };
 		0C6E069D17E0CC850003F104 /* TMEBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseViewController.h; sourceTree = "<group>"; };
 		0C6E069E17E0CC850003F104 /* TMEBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseViewController.m; sourceTree = "<group>"; };
@@ -811,7 +809,6 @@
 			children = (
 				0C6E068C17E0CBF60003F104 /* TMEViewController.h */,
 				0C6E068D17E0CBF60003F104 /* TMEViewController.m */,
-				0C6E068E17E0CBF60003F104 /* TMEViewController_iPad.xib */,
 				0C6E068F17E0CBF60003F104 /* TMEViewController_iPhone.xib */,
 			);
 			path = "Main Controller";
@@ -1265,7 +1262,6 @@
 				0C7EFB7717E8C46E0054C4DE /* dsym_upload.sh in Resources */,
 				0C43CC9E17F5CC4A00D869F9 /* big-logo@2x.png in Resources */,
 				0C43CC9B17F5CC4A00D869F9 /* arrow-down.png in Resources */,
-				0C6E069117E0CBF60003F104 /* TMEViewController_iPad.xib in Resources */,
 				0C43CCA917F5D29A00D869F9 /* clock-icon@2x.png in Resources */,
 				0C7EFBC417E8D5170054C4DE /* ActiveSupportInflector.plist in Resources */,
 				0CFC0FFA17ECBA3F008FBD92 /* bt_fb_signin_pressed.png in Resources */,
