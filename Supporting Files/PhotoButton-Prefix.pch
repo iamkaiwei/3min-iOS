@@ -105,6 +105,7 @@
 #import "NSString+FontAwesome.h"
 #import "AFDownloadRequestOperation.h"
 #import "SDWebImageManager.h"
+#import "IIViewDeckController.h"
 #import "TMEProduct+Additions.h"
 #import "TMEProductImages+Additions.h"
 #import "TMEUser+Additions.h"
@@ -135,6 +136,7 @@
 #import "TMELoginViewController.h"
 #import "TMEBaseViewController.h"
 #import "TMEBaseTableViewController.h"
+#import "TMELeftMenuViewController.h"
 
 // Views
 #import "TMEBaseTableViewCell.h"

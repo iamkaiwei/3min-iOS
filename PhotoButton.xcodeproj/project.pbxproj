@@ -71,6 +71,11 @@
 		0C5954F217F6BDDD0076353E /* navigation_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5954EA17F6BDDD0076353E /* navigation_background@2x.png */; };
 		0C5954F317F6BDDD0076353E /* simple-view-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5954EB17F6BDDD0076353E /* simple-view-icon.png */; };
 		0C5954F417F6BDDD0076353E /* simple-view-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5954EC17F6BDDD0076353E /* simple-view-icon@2x.png */; };
+		0C5954FC17F711200076353E /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5954F717F711200076353E /* IISideController.m */; };
+		0C5954FD17F711200076353E /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5954F917F711200076353E /* IIViewDeckController.m */; };
+		0C5954FE17F711200076353E /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5954FB17F711200076353E /* IIWrapController.m */; };
+		0C59550317F711CF0076353E /* TMELeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C59550117F711CF0076353E /* TMELeftMenuViewController.m */; };
+		0C59550417F711CF0076353E /* TMELeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C59550217F711CF0076353E /* TMELeftMenuViewController.xib */; };
 		0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
 		0C6D86AE17EA0E9A00D959F8 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D86AB17EA0E9A00D959F8 /* BaseManager.m */; };
@@ -286,6 +291,15 @@
 		0C5954EA17F6BDDD0076353E /* navigation_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_background@2x.png"; sourceTree = "<group>"; };
 		0C5954EB17F6BDDD0076353E /* simple-view-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "simple-view-icon.png"; sourceTree = "<group>"; };
 		0C5954EC17F6BDDD0076353E /* simple-view-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "simple-view-icon@2x.png"; sourceTree = "<group>"; };
+		0C5954F617F711200076353E /* IISideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IISideController.h; sourceTree = "<group>"; };
+		0C5954F717F711200076353E /* IISideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IISideController.m; sourceTree = "<group>"; };
+		0C5954F817F711200076353E /* IIViewDeckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIViewDeckController.h; sourceTree = "<group>"; };
+		0C5954F917F711200076353E /* IIViewDeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIViewDeckController.m; sourceTree = "<group>"; };
+		0C5954FA17F711200076353E /* IIWrapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIWrapController.h; sourceTree = "<group>"; };
+		0C5954FB17F711200076353E /* IIWrapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIWrapController.m; sourceTree = "<group>"; };
+		0C59550017F711CF0076353E /* TMELeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELeftMenuViewController.h; sourceTree = "<group>"; };
+		0C59550117F711CF0076353E /* TMELeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELeftMenuViewController.m; sourceTree = "<group>"; };
+		0C59550217F711CF0076353E /* TMELeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMELeftMenuViewController.xib; sourceTree = "<group>"; };
 		0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMEModels.xcdatamodel; sourceTree = "<group>"; };
 		0C5C936817EA162100ECF9B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0C6D86AA17EA0E9A00D959F8 /* BaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
@@ -676,6 +690,7 @@
 				0CFC0FE317ECB690008FBD92 /* Browser Products */,
 				0CFC0FD717ECB66E008FBD92 /* Product Details */,
 				0C2CE1B817EAEAC20074C57F /* Publish Products */,
+				0C5954FF17F711A90076353E /* Left Menu  */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -683,6 +698,7 @@
 		0C28B28C17DC1B9200BD0EC2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				0C5954F517F711200076353E /* ViewDeck */,
 				205EACF317F6E83F00EE9A76 /* AviarySDK */,
 				205EACEB17F6E83100EE9A76 /* Google Analytics */,
 				205EACE317F6E7BD00EE9A76 /* CrittercismSDK */,
@@ -807,6 +823,29 @@
 				0C5954EC17F6BDDD0076353E /* simple-view-icon@2x.png */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		0C5954F517F711200076353E /* ViewDeck */ = {
+			isa = PBXGroup;
+			children = (
+				0C5954F617F711200076353E /* IISideController.h */,
+				0C5954F717F711200076353E /* IISideController.m */,
+				0C5954F817F711200076353E /* IIViewDeckController.h */,
+				0C5954F917F711200076353E /* IIViewDeckController.m */,
+				0C5954FA17F711200076353E /* IIWrapController.h */,
+				0C5954FB17F711200076353E /* IIWrapController.m */,
+			);
+			path = ViewDeck;
+			sourceTree = "<group>";
+		};
+		0C5954FF17F711A90076353E /* Left Menu  */ = {
+			isa = PBXGroup;
+			children = (
+				0C59550017F711CF0076353E /* TMELeftMenuViewController.h */,
+				0C59550117F711CF0076353E /* TMELeftMenuViewController.m */,
+				0C59550217F711CF0076353E /* TMELeftMenuViewController.xib */,
+			);
+			path = "Left Menu ";
 			sourceTree = "<group>";
 		};
 		0C6D86A817EA0E9A00D959F8 /* Managers */ = {
@@ -1295,6 +1334,7 @@
 				0CFC0FF217ECB8BB008FBD92 /* TMEProductDetailsViewController.xib in Resources */,
 				0C43CC9E17F5CC4A00D869F9 /* big-logo@2x.png in Resources */,
 				0C43CC9B17F5CC4A00D869F9 /* arrow-down.png in Resources */,
+				0C59550417F711CF0076353E /* TMELeftMenuViewController.xib in Resources */,
 				20C10DAB17F6E2960036D9FF /* FacebookSDKOverrides.bundle in Resources */,
 				0C5954ED17F6BDDD0076353E /* category-list-icon.png in Resources */,
 				0C43CCA917F5D29A00D869F9 /* clock-icon@2x.png in Resources */,
@@ -1409,6 +1449,7 @@
 				0C7EFBD117E8D5170054C4DE /* NSString+Validation.m in Sources */,
 				0C7EFBCB17E8D5170054C4DE /* NSDictionary+Additions.m in Sources */,
 				0CD9CF5817EA0FD400402E91 /* AFHTTPRequestOperation.m in Sources */,
+				0C5954FE17F711200076353E /* IIWrapController.m in Sources */,
 				0C7EFBEC17E8D5790054C4DE /* NSString+FontAwesome.m in Sources */,
 				0C7EFB6417E768C70054C4DE /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				0C7EFBD617E8D5170054C4DE /* UIColor+Additions.m in Sources */,
@@ -1426,11 +1467,13 @@
 				0C9C957317F2D49B00E69F53 /* TMEProductImages+Additions.m in Sources */,
 				0C6E06A917E0DA590003F104 /* TMEBasePhotoEditorViewController.m in Sources */,
 				0C7EFBC317E8D5170054C4DE /* ActiveSupportInflector.m in Sources */,
+				0C59550317F711CF0076353E /* TMELeftMenuViewController.m in Sources */,
 				0C6D86AE17EA0E9A00D959F8 /* BaseManager.m in Sources */,
 				0C7EFBC917E8D5170054C4DE /* NSData+Base64.m in Sources */,
 				0C2F789717F2DBA600201783 /* UIImage+WebP.m in Sources */,
 				0CD9CF5717EA0FD400402E91 /* AFHTTPClient.m in Sources */,
 				0CD9CF5F17EA0FD400402E91 /* UIImageView+AFNetworking.m in Sources */,
+				0C5954FD17F711200076353E /* IIViewDeckController.m in Sources */,
 				0C7EFB6D17E768C70054C4DE /* MagicalRecord+Options.m in Sources */,
 				0C34A89E17F0ACEF003ACEFF /* BaseNetworkManager.m in Sources */,
 				0C7EFB6917E768C70054C4DE /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
@@ -1438,6 +1481,7 @@
 				0CD9CF5E17EA0FD400402E91 /* AFXMLRequestOperation.m in Sources */,
 				0C7EFB6617E768C70054C4DE /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				0CFC100017ECBE06008FBD92 /* TMELoginViewController.m in Sources */,
+				0C5954FC17F711200076353E /* IISideController.m in Sources */,
 				0C7EFBC517E8D5170054C4DE /* ISO8601DateFormatter.m in Sources */,
 				0C7053CA17EF5E5E00E7615F /* TMETransaction.m in Sources */,
 				0C34A89B17F0A665003ACEFF /* TMEHTTPClient.m in Sources */,

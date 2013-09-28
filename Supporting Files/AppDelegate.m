@@ -13,6 +13,10 @@
 
 @interface AppDelegate()
 
+@property (strong, nonatomic) TMENavigationViewController       * navController;
+@property (retain, nonatomic) UIViewController                  * centerController;
+@property (retain, nonatomic) UIViewController                  * leftController;
+
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -51,17 +55,17 @@
     [self setUpGoogleAnalytics];
     
     // VCs stuff
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    UIViewController *rootVC;
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        rootVC = [[TMEViewController alloc] initWithNibName:@"TMEViewController_iPhone" bundle:nil];
-    } else {
-        rootVC = [[TMEViewController alloc] initWithNibName:@"TMEViewController_iPad" bundle:nil];
-    }
+    // Make the color of Navigation bar no more effects the status bar
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque
+                                                animated:NO];
     
-    self.navVC = [[TMENavigationViewController alloc] initWithRootViewController:rootVC];
-    self.window.rootViewController = self.navVC;
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    IIViewDeckController *deckController = [self generateControllerStack];
+    self.leftController = deckController.leftController;
+    self.centerController = deckController.centerController;
+    self.navController = (TMENavigationViewController *)deckController.centerController;
+    self.window.rootViewController = deckController;
   
     [self.window makeKeyAndVisible];
     return YES;
@@ -203,7 +207,7 @@
 
 - (void)showLoginView
 {
-    UIViewController *topViewController = [self.navVC topViewController];
+    UIViewController *topViewController = [self.navController topViewController];
     TMELoginViewController* loginViewController = [[TMELoginViewController alloc]init];
     [topViewController presentModalViewController:loginViewController animated:NO];
 }
@@ -220,6 +224,26 @@
     // Create tracker instance.
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_APP_KEY];
     [GAI sharedInstance].debug = YES;
+}
+
+#pragma marks - helpers
+- (IIViewDeckController*)generateControllerStack {
+    
+    TMELeftMenuViewController* leftController = [[TMELeftMenuViewController alloc] init];
+    
+    // Set up ViewDeck central
+    UIViewController *rootVC;
+    rootVC = [[TMEViewController alloc] initWithNibName:@"TMEViewController_iPhone" bundle:nil];
+    TMENavigationViewController *centralNavController = [[TMENavigationViewController alloc] initWithRootViewController:rootVC];
+    
+    IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centralNavController leftViewController:leftController];
+    
+    [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
+    [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
+    
+    deckController.rightSize = 60;
+    
+    return deckController;
 }
 
 @end
