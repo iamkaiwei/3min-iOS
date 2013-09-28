@@ -31,7 +31,7 @@ TMEPhotoButtonDelegate
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"Publish Product";
+//    self.title = @"Publish Product";
     for (TMEPhotoButton *button in self.view.subviews) {
         if ([button isKindOfClass:[TMEPhotoButton class]]) {
             [button addTarget:self action:@selector(photoSaved:) forControlEvents:UIControlEventValueChanged];            

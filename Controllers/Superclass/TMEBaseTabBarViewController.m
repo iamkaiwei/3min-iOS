@@ -28,13 +28,8 @@
     // Nav left button
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    if (self == [[self.navigationController viewControllers] objectAtIndex:0]) {
-        [leftButton setImage:[UIImage imageNamed:@"category-list-icon"] forState:UIControlStateNormal];
-        [leftButton addTarget:self.viewDeckController action:@selector(toggleLeftView) forControlEvents:UIControlEventTouchUpInside];
-    }else{
-        [leftButton setImage:[UIImage imageNamed:@"category-list-icon"] forState:UIControlStateNormal];
-        [leftButton addTarget:self action:@selector(onBtnBack) forControlEvents:UIControlEventTouchUpInside];
-    }
+    [leftButton setImage:[UIImage imageNamed:@"category-list-icon"] forState:UIControlStateNormal];
+    [leftButton addTarget:self.viewDeckController action:@selector(toggleLeftView) forControlEvents:UIControlEventTouchUpInside];
     
     leftButton.frame = CGRectMake(0, 0, 40, 30);
     UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];

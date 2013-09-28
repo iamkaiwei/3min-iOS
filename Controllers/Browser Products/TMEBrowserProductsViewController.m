@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Browser Products";
+//    self.title = @"Browser Products";
     // Do any additional setup after loading the view from its nib.
     
     NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
