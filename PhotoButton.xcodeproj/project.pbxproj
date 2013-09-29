@@ -1737,6 +1737,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/PhotoButton-Prefix.pch";
 				INFOPLIST_FILE = "Supporting Files/PhotoButton-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Vendors/CrittercismSDK\"",
@@ -1762,6 +1763,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/PhotoButton-Prefix.pch";
 				INFOPLIST_FILE = "Supporting Files/PhotoButton-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Vendors/CrittercismSDK\"",

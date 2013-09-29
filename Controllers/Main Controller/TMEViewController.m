@@ -120,6 +120,7 @@ UIImagePickerControllerDelegate
             
             TMEPublishProductViewController *publishVC = (TMEPublishProductViewController *) [self.viewControllers objectAtIndex:TMETabbarButtonTypeSell];
             
+            // if user still editing a product.
             if([publishVC getStatusEditing])
                 return;
             

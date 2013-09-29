@@ -168,6 +168,7 @@ TMEPhotoButtonDelegate
 }
 
 #pragma marks - Helper methods
+
 - (TMEPhotoButton *)getFirstPhotoButton
 {
     for (TMEPhotoButton *button in self.view.subviews) {
@@ -182,6 +183,20 @@ TMEPhotoButtonDelegate
 - (BOOL)getStatusEditing
 {
     return self.isEditing;
+}
+
+- (void)resetAllForms
+{
+    for (TMEPhotoButton *button in self.view.subviews) {
+        if ([button isKindOfClass:[TMEPhotoButton class]]) {
+            [button addTarget:self action:@selector(photoSaved:) forControlEvents:UIControlEventValueChanged];
+            button.viewController = self;
+            button.photoSize = CGSizeMake(1000, 1000);
+            button.photoName = nil;
+        }
+    }
+    
+    self.
 }
 
 @end
