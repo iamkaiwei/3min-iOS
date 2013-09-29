@@ -148,7 +148,7 @@ UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     // close the picker VCs.
-    [self.navigationController dismissModalViewControllerAnimated:NO];
+    [self.navigationController dismissViewControllerAnimated:NO completion:nil];
     
     // Add that image to Publish VC
 }

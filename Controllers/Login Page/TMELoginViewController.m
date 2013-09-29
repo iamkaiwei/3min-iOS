@@ -45,7 +45,7 @@
         if ([view isKindOfClass:[UILabel class]]) {
             UILabel *lblName = (UILabel *)view;
             lblName.text = @"";
-            lblName.textAlignment = UITextAlignmentCenter;
+            lblName.textAlignment = NSTextAlignmentCenter;
         }
     }
 }
@@ -66,14 +66,16 @@
 - (void)showLoginView
 {
     UIViewController *topViewController = [self.navigationController topViewController];
-    UIViewController *modalViewController = [topViewController modalViewController];
+    UIViewController *modalViewController = [topViewController presentedViewController];
     
     // If the login screen is not already displayed, display it. If the login screen is
     // displayed, then getting back here means the login in progress did not successfully
     // complete. In that case, notify the login view so it can update its UI appropriately.
     if (![modalViewController isKindOfClass:[TMELoginViewController class]]) {
         TMELoginViewController* loginViewController = [[TMELoginViewController alloc] init];
-        [topViewController presentModalViewController:loginViewController animated:NO];
+      [topViewController presentViewController:loginViewController animated:NO completion:^{
+        //Some settings may be added later.
+      }];
     } else {
         TMELoginViewController* loginViewController = (TMELoginViewController*)modalViewController;
         [loginViewController loginFailed];

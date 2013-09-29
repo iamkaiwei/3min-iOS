@@ -61,7 +61,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	[picker dismissModalViewControllerAnimated:YES];
+	[picker dismissViewControllerAnimated:NO completion:nil];
     
     [self beforeGetImageWithPhotoButton:self];
     

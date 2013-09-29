@@ -274,7 +274,9 @@
 {
     UIViewController *topViewController = [self.navController topViewController];
     TMELoginViewController* loginViewController = [[TMELoginViewController alloc]init];
-    [topViewController presentModalViewController:loginViewController animated:NO];
+    [topViewController presentViewController:loginViewController animated:NO completion:^{
+      //Some settings may be added later.
+    }];
 }
 
 #pragma marks - Google Analytics

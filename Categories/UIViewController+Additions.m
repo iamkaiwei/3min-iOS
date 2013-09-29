@@ -31,8 +31,7 @@
       [[UIApplication sharedApplication] endIgnoringInteractionEvents];
     });
   }];
-  
-  [self presentModalViewController:modalViewController animated:NO];
+  [self presentViewController:modalViewController animated:NO completion:nil];
   
   [CATransaction commit];
 }
@@ -56,7 +55,7 @@
     });
   }];
   
-  [self dismissModalViewControllerAnimated:NO];
+  [self dismissViewControllerAnimated:NO completion:nil];
   
   [CATransaction commit];
 }
@@ -79,7 +78,7 @@
     });
   }];
   
-  [self dismissModalViewControllerAnimated:NO];
+  [self dismissViewControllerAnimated:NO completion:nil];
   
   [CATransaction commit];
 }
