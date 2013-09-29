@@ -43,6 +43,11 @@ TMEPhotoButtonDelegate
             button.photoSize = CGSizeMake(1000, 1000);
         }
     }
+    
+    // Expand self.view
+    UIView *detailsWrapperView = [self.txtCategoryName superview];
+    [(UIScrollView *)self.view setContentSize:CGSizeMake(self.view.frame.size.width,
+                                                         CGRectGetMaxY(detailsWrapperView.frame) + 20)];
 }
 
 #pragma mark - Rotation
