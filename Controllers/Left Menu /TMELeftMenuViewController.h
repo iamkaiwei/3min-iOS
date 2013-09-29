@@ -6,8 +6,8 @@
 //
 //
 
-#import "TMEBaseViewController.h"
+#import "TMEBaseTableViewController.h"
 
-@interface TMELeftMenuViewController : TMEBaseViewController
+@interface TMELeftMenuViewController : TMEBaseTableViewController
 
 @end
