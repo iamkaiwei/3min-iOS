@@ -22,7 +22,7 @@
     
     UIImage *image = [PBImageHelper loadImageFromDocuments: photoName];
     if (!image) {
-        image = [UIImage imageNamed:@"add_photo.png"];
+        image = [UIImage imageNamed:@"add-photo-placeholder"];
     }
     [self setBackgroundImage:image forState:UIControlStateNormal];
 }
