@@ -181,6 +181,39 @@ SINGLETON_MACRO
     return apiString;
 }
 
+- (void)sendHTTPRequest:(NSURLRequest *)request
+            success:(void (^)(NSHTTPURLResponse *response, id responseObject))success
+            failure:(void (^)(NSError *error))failure
+               progress:(void (^)(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite))progress
+{
+    AFHTTPRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
+        
+        BOOL hasError = [self handleServerError:responseObject response:operation.response failure:failure];
+        if (hasError)
+            return;
+        
+        if (success)
+            success(operation.response, responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
+
+        DLog(@"%@", [error description]);
+        if (failure)
+            failure(error);
+    }];
+    
+    [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+        if (progress) {
+            progress(bytesWritten, totalBytesWritten, totalBytesExpectedToWrite);
+        }
+    }];
+    
+}
+
 - (void)sendRequest:(NSURLRequest *)request
             success:(void (^)(NSHTTPURLResponse *response, id responseObject))success
             failure:(void (^)(NSError *error))failure
@@ -245,6 +278,23 @@ SINGLETON_MACRO
                                 success:(void (^)(NSHTTPURLResponse *response, id responseObject))success
                                 failure:(void (^)(NSError *error))failure
 {
+    [self sendMultipartFormRequestForPath:path
+                               parameters:parameters
+                                   method:method
+                constructingBodyWithBlock:block
+                                  success:success
+                                  failure:failure
+                                 progress:nil];
+}
+
+- (void)sendMultipartFormRequestForPath:(NSString*)path
+                             parameters:(NSDictionary*)parameters
+                                 method:(NSString*)method
+              constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))block
+                                success:(void (^)(NSHTTPURLResponse *response, id responseObject))success
+                                failure:(void (^)(NSError *error))failure
+                               progress:(void (^)(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite))progress
+{
     if ([method length] <= 0)
         method = POST_METHOD;
     
@@ -258,7 +308,7 @@ SINGLETON_MACRO
                                                                               path:fullPath
                                                                         parameters:params
                                                          constructingBodyWithBlock:block];
-    [self sendRequest:request success:success failure:failure];
+    [self sendHTTPRequest:request success:success failure:failure progress:progress];
 }
 
 

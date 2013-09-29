@@ -45,6 +45,13 @@
               constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))block
                                 success:(void (^)(NSHTTPURLResponse *response, id responseObject))success
                                 failure:(void (^)(NSError *error))failure;
+- (void)sendMultipartFormRequestForPath:(NSString*)path
+                             parameters:(NSDictionary*)parameters
+                                 method:(NSString*)method
+              constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))block
+                                success:(void (^)(NSHTTPURLResponse *response, id responseObject))success
+                                failure:(void (^)(NSError *error))failure
+                               progress:(void (^)(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite))progress;
 
 
 //Generic list

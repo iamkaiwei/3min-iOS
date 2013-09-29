@@ -98,8 +98,8 @@ TMEPhotoButtonDelegate
 # pragma marks - Actions
 - (IBAction)onPublishButton:(id)sender {
     
-    [SVProgressHUD showWithStatus:@"Uploading product..."
-                         maskType:SVProgressHUDMaskTypeGradient];
+//    [SVProgressHUD showWithStatus:@"Uploading product..."
+//                         maskType:SVProgressHUDMaskTypeGradient];
     
     // create dummy user
     TMEUser *user = [TMEUser MR_createEntity];
@@ -143,11 +143,11 @@ TMEPhotoButtonDelegate
     NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
 
     NSDictionary *params = @{@"user_id": @1,
-                           @"name": @"Product 1",
-                           @"category_id": @1,
-                           @"description": @"Product 1 description",
-                           @"price": @1,
-                           @"sold_out": @YES};
+                             @"name": @"Product 1",
+                             @"category_id": @1,
+                             @"description": @"Product 1 description",
+                             @"price": @1,
+                             @"sold_out": @YES};
 
     [[BaseNetworkManager sharedInstance] sendMultipartFormRequestForPath:API_PRODUCTS
                                                               parameters:params
@@ -155,15 +155,22 @@ TMEPhotoButtonDelegate
                                                constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                                    
         [formData appendPartWithFileData:imageData name:@"images[]" fileName:imageName mimeType:@"image/jpeg"];
-                                                   
-        // reset the flag
-                                                   self.isEditing = NO;
         
     } success:^(NSHTTPURLResponse *response, id responseObject) {
         [SVProgressHUD dismiss];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+        // reset the forms
+        [self resetAllForms];
+        
+        [SVProgressHUD showSuccessWithStatus:@"Upload successfully."];
+        
+        // move to browser tab
+        [self.tabBarController setSelectedIndex:0];
+        
     } failure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"Fail to upload, try again later"];
+    } progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+        [SVProgressHUD showProgress:totalBytesWritten/totalBytesExpectedToWrite status:@"Uploading..."];
     }];
 }
 
@@ -187,16 +194,22 @@ TMEPhotoButtonDelegate
 
 - (void)resetAllForms
 {
+    self.isEditing = NO;
+    
     for (TMEPhotoButton *button in self.view.subviews) {
         if ([button isKindOfClass:[TMEPhotoButton class]]) {
             [button addTarget:self action:@selector(photoSaved:) forControlEvents:UIControlEventValueChanged];
             button.viewController = self;
             button.photoSize = CGSizeMake(1000, 1000);
             button.photoName = nil;
+            button.imageView.image = nil;
         }
     }
     
-    self.
+    self.txtProductName.text = @"";
+    self.txtCategoryName.text = @"";
+    self.txtProductDetails.text = @"";
+    self.txtProductPrice.text = @"";
 }
 
 @end
