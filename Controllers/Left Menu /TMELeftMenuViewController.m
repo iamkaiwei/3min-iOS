@@ -56,10 +56,4 @@
   return cell;
 }
 
-#pragma marks - Helper
-- (void)onFinishLogin:(TMEUser *)user
-{
-    
-}
-
 @end

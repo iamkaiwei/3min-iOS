@@ -128,8 +128,8 @@
 - (void)showHomeViewController
 {
     IIViewDeckController *deckController = [self generateControllerStack];
-    self.leftController = (TMEBaseViewController *)deckController.leftController;
-    self.centerController = (TMEBaseViewController *)deckController.centerController;
+    self.leftController = deckController.leftController;
+    self.centerController = deckController.centerController;
     self.navController = (TMENavigationViewController *)deckController.centerController;
     
     // config tabbar appear
@@ -169,8 +169,8 @@
   TMELeftMenuViewController* leftController = [[TMELeftMenuViewController alloc] init];
   
   // Set up ViewDeck central
-  UIViewController *rootVC;
-  rootVC = [[TMEViewController alloc] initWithNibName:@"TMEViewController_iPhone" bundle:nil];
+  TMEViewController *rootVC;
+  rootVC = [[TMEViewController alloc] init];
   TMENavigationViewController *centralNavController = [[TMENavigationViewController alloc] initWithRootViewController:rootVC];
   
   IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centralNavController leftViewController:leftController];
@@ -208,7 +208,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"OrangeFashion" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"ThreeMins" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -221,7 +221,7 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"OrangeFashion.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"ThreeMins.sqlite"];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

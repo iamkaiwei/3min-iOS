@@ -44,33 +44,20 @@ UIImagePickerControllerDelegate
     
     TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
     TMEPublishProductViewController *publishVC = [[TMEPublishProductViewController alloc] init];
-    TMELoginViewController *loginVC = [[TMELoginViewController alloc] init];
+    TMEBrowserProductsViewController *dummy3 = [[TMEBrowserProductsViewController alloc] init];
     
     // dummy VCs
     TMEBrowserProductsViewController *dummy1 = [[TMEBrowserProductsViewController alloc] init];
     TMEBrowserProductsViewController *dummy2 = [[TMEBrowserProductsViewController alloc] init];
     
-    self.viewControllers = @[browserVC, dummy1, publishVC, loginVC, dummy2];
+    self.viewControllers = @[browserVC, dummy1, publishVC, dummy3, dummy2];
+    
+    // hack to fix weird bug "black-space at the top of view".
+    [self.tabBarController setSelectedIndex:1];
+//    [self.tabBarController setSelectedIndex:0];
     
     [self stypeTheTabbarButtons];
 }
-
-#pragma mark - Link to product config
-
-- (IBAction)onBtnTakePictures:(id)sender {
-    TMEPublishProductViewController *publishVC = [[TMEPublishProductViewController alloc] init];
-    [self.navigationController pushViewController:publishVC animated:YES];
-}
-
-- (IBAction)onBtnBrowserProducts:(id)sender {
-    self.browser = [[TMEBrowserProductsViewController alloc] init];
-    [self.navigationController pushViewController:self.browser animated:YES];
-}
-- (IBAction)onBtnShowFBPage:(id)sender {
-    TMELoginViewController *loginVC = [[TMELoginViewController alloc] init];
-    [self.navigationController pushViewController:loginVC animated:YES];
-}
-
 
 #pragma marks - UI helper
 - (void)stypeTheTabbarButtons{

@@ -31,11 +31,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.tableProducts.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     
     NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
     [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onFinishLogin:) name:NOTIFICATION_FINISH_LOGIN object:nil];
+    
+    if ([[TMEUserManager sharedInstance] loggedUser]) {
+        [self loadProductsTable];
+    }
 }
 
 #pragma marks - UITableView delegate
@@ -70,6 +75,10 @@
 
 - (void)onFinishLogin:(TMEUser *)user
 {
+    [self loadProductsTable];
+}
+
+- (void)loadProductsTable{
     [SVProgressHUD dismiss];
     
     [SVProgressHUD showWithStatus:@"Loading content..." maskType:SVProgressHUDMaskTypeGradient];

@@ -46,7 +46,9 @@
     [super viewDidLoad];
     
     // notification
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onFinishLogin:) name:NOTIFICATION_FINISH_LOGIN object:nil];
+    if ([self respondsToSelector:@selector(onFinishLogin:)]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onFinishLogin:) name:NOTIFICATION_FINISH_LOGIN object:nil];
+    }
     
     //Tap to dismiss keyboard
     self.isKeyboardShowing = NO;
@@ -481,5 +483,9 @@
     [Crittercism leaveBreadcrumb:breadcrumb];
 }
 
+- (void)onFinishLogin:(TMEUser *)user
+{
+    
+}
 
 @end
