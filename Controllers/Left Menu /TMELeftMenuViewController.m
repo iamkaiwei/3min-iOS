@@ -18,6 +18,17 @@
 {
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"]; //iOS 6+
+  
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSInteger statusCode, id obj) {
+    
+  } andFailureBlock:^(NSInteger statusCode, id obj) {
+    
+  }];
 }
 
 - (void)didReceiveMemoryWarning

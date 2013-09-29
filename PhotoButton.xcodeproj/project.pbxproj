@@ -223,6 +223,7 @@
 		205EACF217F6E83100EE9A76 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACF117F6E83100EE9A76 /* libGoogleAnalytics.a */; };
 		205EACFE17F6E83F00EE9A76 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACFB17F6E83F00EE9A76 /* libAviarySDK.a */; };
 		205EACFF17F6E83F00EE9A76 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 205EACFD17F6E83F00EE9A76 /* AviarySDKResources.bundle */; };
+		20A10FCD17F80FA200471983 /* TMECategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A10FCC17F80FA200471983 /* TMECategoryManager.m */; };
 		20C10DAB17F6E2960036D9FF /* FacebookSDKOverrides.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20C10DAA17F6E2960036D9FF /* FacebookSDKOverrides.bundle */; };
 		20C4D5E017F725D40035BCA5 /* TMETutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C4D5DF17F725D40035BCA5 /* TMETutorialViewController.m */; };
 		20C4D5E817F733F80035BCA5 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C4D5E717F733F80035BCA5 /* iCarousel.m */; };
@@ -580,6 +581,8 @@
 		205EACFA17F6E83F00EE9A76 /* AFPhotoEditorSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorSession.h; sourceTree = "<group>"; };
 		205EACFB17F6E83F00EE9A76 /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
 		205EACFD17F6E83F00EE9A76 /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
+		20A10FCB17F80FA200471983 /* TMECategoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECategoryManager.h; sourceTree = "<group>"; };
+		20A10FCC17F80FA200471983 /* TMECategoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECategoryManager.m; sourceTree = "<group>"; };
 		20C10DAA17F6E2960036D9FF /* FacebookSDKOverrides.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKOverrides.bundle; path = Vendors/FacebookSDKOverrides.bundle; sourceTree = "<group>"; };
 		20C4D5DE17F725D40035BCA5 /* TMETutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETutorialViewController.h; sourceTree = "<group>"; };
 		20C4D5DF17F725D40035BCA5 /* TMETutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETutorialViewController.m; sourceTree = "<group>"; };
@@ -921,10 +924,12 @@
 			isa = PBXGroup;
 			children = (
 				0C6D86A917EA0E9A00D959F8 /* Superclass */,
-				0C2CE1B017EAE30F0074C57F /* TMEUserManager.h */,
-				0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */,
 				0C34A89617F0A5CE003ACEFF /* TMEProductsManager.h */,
 				0C34A89717F0A5CE003ACEFF /* TMEProductsManager.m */,
+				0C2CE1B017EAE30F0074C57F /* TMEUserManager.h */,
+				0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */,
+				20A10FCB17F80FA200471983 /* TMECategoryManager.h */,
+				20A10FCC17F80FA200471983 /* TMECategoryManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1589,6 +1594,7 @@
 				0CFC100017ECBE06008FBD92 /* TMELoginViewController.m in Sources */,
 				0C5954FC17F711200076353E /* IISideController.m in Sources */,
 				0C7EFBC517E8D5170054C4DE /* ISO8601DateFormatter.m in Sources */,
+				20A10FCD17F80FA200471983 /* TMECategoryManager.m in Sources */,
 				0C7053CA17EF5E5E00E7615F /* TMETransaction.m in Sources */,
 				0C34A89B17F0A665003ACEFF /* TMEHTTPClient.m in Sources */,
 				0C7EFBDD17E8D5170054C4DE /* UINavigationController+Additions.m in Sources */,
