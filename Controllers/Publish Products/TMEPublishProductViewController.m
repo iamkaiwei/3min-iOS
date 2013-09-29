@@ -138,10 +138,6 @@ TMEPhotoButtonDelegate
         DLog(@"Finish save to magical record");
     }];
     
-    NSString *imageName = [(TMEProductImages *)[setImages anyObject] url];
-    UIImage *image = [PBImageHelper loadImageFromDocuments:imageName];
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
-
     NSDictionary *params = @{@"user_id": @1,
                              @"name": @"Product 1",
                              @"category_id": @1,
@@ -152,9 +148,13 @@ TMEPhotoButtonDelegate
     [[BaseNetworkManager sharedInstance] sendMultipartFormRequestForPath:API_PRODUCTS
                                                               parameters:params
                                                                   method:POST_METHOD
-                                               constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-                                                   
-        [formData appendPartWithFileData:imageData name:@"images[]" fileName:imageName mimeType:@"image/jpeg"];
+                                               constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+    {
+        for (TMEProductImages *image in [setImages allObjects]) {
+            UIImage *img = [PBImageHelper loadImageFromDocuments:image.url];
+            NSData *imageData = UIImageJPEGRepresentation(img, 0.5);
+            [formData appendPartWithFileData:imageData name:@"images[]" fileName:image.url mimeType:@"image/jpeg"];
+        }
         
     } success:^(NSHTTPURLResponse *response, id responseObject) {
         [SVProgressHUD dismiss];
@@ -162,6 +162,7 @@ TMEPhotoButtonDelegate
         // reset the forms
         [self resetAllForms];
         
+        [SVProgressHUD showProgress:1.0f status:@"Uploading..." maskType:SVProgressHUDMaskTypeGradient];
         [SVProgressHUD showSuccessWithStatus:@"Upload successfully."];
         
         // move to browser tab
@@ -170,7 +171,10 @@ TMEPhotoButtonDelegate
     } failure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"Fail to upload, try again later"];
     } progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-        [SVProgressHUD showProgress:totalBytesWritten/totalBytesExpectedToWrite status:@"Uploading..."];
+        
+        // save last 30% for response
+        float percent = ((float)totalBytesWritten)/totalBytesExpectedToWrite * 0.7;
+        [SVProgressHUD showProgress:percent status:@"Uploading..." maskType:SVProgressHUDMaskTypeGradient];
     }];
 }
 

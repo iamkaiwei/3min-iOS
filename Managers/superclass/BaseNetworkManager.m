@@ -182,18 +182,18 @@ SINGLETON_MACRO
 }
 
 - (void)sendHTTPRequest:(NSURLRequest *)request
-            success:(void (^)(NSHTTPURLResponse *response, id responseObject))success
-            failure:(void (^)(NSError *error))failure
+                success:(void (^)(NSHTTPURLResponse *response, id responseObject))success
+                failure:(void (^)(NSError *error))failure
                progress:(void (^)(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite))progress
 {
-    AFHTTPRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
         
-        BOOL hasError = [self handleServerError:responseObject response:operation.response failure:failure];
-        if (hasError)
-            return;
+//        BOOL hasError = [self handleServerError:responseObject response:operation.response failure:failure];
+//        if (hasError)
+//            return;
         
         if (success)
             success(operation.response, responseObject);
@@ -211,6 +211,8 @@ SINGLETON_MACRO
             progress(bytesWritten, totalBytesWritten, totalBytesExpectedToWrite);
         }
     }];
+    
+    [self.httpClient enqueueHTTPRequestOperation:operation];
     
 }
 
@@ -278,13 +280,20 @@ SINGLETON_MACRO
                                 success:(void (^)(NSHTTPURLResponse *response, id responseObject))success
                                 failure:(void (^)(NSError *error))failure
 {
-    [self sendMultipartFormRequestForPath:path
-                               parameters:parameters
-                                   method:method
-                constructingBodyWithBlock:block
-                                  success:success
-                                  failure:failure
-                                 progress:nil];
+    if ([method length] <= 0)
+        method = POST_METHOD;
+    
+    NSString *fullPath = [self getServerAPIPathWithPrefix:path];
+    
+    NSMutableDictionary *params = [self getAuthParams];
+    if ([parameters count] > 0)
+        [params addEntriesFromDictionary:parameters];
+    
+    NSMutableURLRequest *request = [self.httpClient multipartFormRequestWithMethod:method
+                                                                              path:fullPath
+                                                                        parameters:params
+                                                         constructingBodyWithBlock:block];
+    [self sendRequest:request success:success failure:failure];
 }
 
 - (void)sendMultipartFormRequestForPath:(NSString*)path
