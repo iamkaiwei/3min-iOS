@@ -14,15 +14,6 @@
 
 @implementation TMEBaseTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,85 +25,79 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return 0;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+  DLog(@"This method should be overrided in subclass");
+  return nil;
+}
+
+#pragma mark - Helpers
+
+- (void)deselectAllCellsAnimated:(BOOL)animated
+{
+  for (UITableViewCell *cell in self.tableView.visibleCells)
+  {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:animated];
+  }
+}
+- (void)fadeInTableView
+{
+  [self fadeInTableViewOnCompletion:nil];
+}
+
+- (void)fadeInTableViewOnCompletion:(void (^)(BOOL finished))completion
+{
+  [UIView animateWithDuration:0.3 animations:^{
+    self.tableView.alpha = 1;
+  } completion:completion];
+}
+
+- (void)fadeOutTableView
+{
+  [self fadeOutTableViewOnCompletion:nil];
+}
+
+- (void)fadeOutTableViewOnCompletion:(void (^)(BOOL finished))completion
+{
+  [UIView animateWithDuration:0.3 animations:^{
+    self.tableView.alpha = 0;
+  } completion:completion];
+}
+
+- (void)refreshTableViewAnimated:(BOOL)animated
+{
+  if (animated == NO) {
+    [self.tableView reloadData];
     
-    // Configure the cell...
+    if (self.dataArray != nil) {
+      self.tableView.hidden = [self.dataArray count] <= 0;
+      self.lblInstruction.hidden = !self.tableView.hidden;
+    }
+    return;
+  }
+  
+  [self refreshTableViewOnCompletion:nil];
+}
+
+- (void)refreshTableViewOnCompletion:(void (^)(BOOL finished))completion
+{
+  [self fadeOutTableViewOnCompletion:^(BOOL finished) {
+    [self.tableView reloadData];
     
-    return cell;
+    if (self.dataArray != nil) {
+      self.tableView.hidden = [self.dataArray count] <= 0;
+      self.lblInstruction.hidden = !self.tableView.hidden;
+    }
+    [self fadeInTableViewOnCompletion:completion];
+  }];
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end
