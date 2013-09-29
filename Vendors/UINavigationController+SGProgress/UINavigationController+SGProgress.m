@@ -48,7 +48,7 @@ NSInteger const SGProgressMiniMasktagId = 221222321;
 
 - (UIView *)setupSGProgressSubviewWithTintColor:(UIColor *)tintColor
 {
-	float height = 1;
+	float height = 2;
 	float y = self.navigationBar.frame.size.height - height;
     
     if(!tintColor)

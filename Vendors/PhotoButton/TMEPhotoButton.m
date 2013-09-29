@@ -110,7 +110,7 @@
 - (void)deletePhoto
 {
     [PBImageHelper deleteFileFromDocuments: photoName];
-    UIImage *image = [UIImage imageNamed:@"add_photo.png"];
+    UIImage *image = [UIImage imageNamed:@"add-photo-placeholder"];
     [self setBackgroundImage:image forState:UIControlStateNormal]; 
 }
 
