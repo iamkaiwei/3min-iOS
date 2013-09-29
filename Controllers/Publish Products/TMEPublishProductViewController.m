@@ -16,6 +16,7 @@ UITextFieldDelegate,
 TMEPhotoButtonDelegate
 >
 
+@property (assign, nonatomic) BOOL                  isEditing;
 @property (strong, nonatomic) TMEPhotoButton     * currentPhotoButton;
 @property (weak, nonatomic) IBOutlet UITextField *txtProductName;
 @property (strong, nonatomic) IBOutlet UITextField *txtCategoryName;
@@ -32,6 +33,8 @@ TMEPhotoButtonDelegate
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 //    self.title = @"Publish Product";
+    self.isEditing = YES;
+    
     for (TMEPhotoButton *button in self.view.subviews) {
         if ([button isKindOfClass:[TMEPhotoButton class]]) {
             [button addTarget:self action:@selector(photoSaved:) forControlEvents:UIControlEventValueChanged];            
@@ -152,6 +155,9 @@ TMEPhotoButtonDelegate
                                                constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                                    
         [formData appendPartWithFileData:imageData name:@"images[]" fileName:imageName mimeType:@"image/jpeg"];
+                                                   
+        // reset the flag
+                                                   self.isEditing = NO;
         
     } success:^(NSHTTPURLResponse *response, id responseObject) {
         [SVProgressHUD dismiss];
@@ -161,6 +167,21 @@ TMEPhotoButtonDelegate
     }];
 }
 
+#pragma marks - Helper methods
+- (TMEPhotoButton *)getFirstPhotoButton
+{
+    for (TMEPhotoButton *button in self.view.subviews) {
+        if ([button isKindOfClass:[TMEPhotoButton class]]) {
+            return button;
+        }
+    }
+    
+    return nil;
+}
 
+- (BOOL)getStatusEditing
+{
+    return self.isEditing;
+}
 
 @end

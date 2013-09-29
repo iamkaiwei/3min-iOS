@@ -6,6 +6,14 @@
 //  Copyright (c) 2013 hasBrain. All rights reserved.
 //
 
+typedef NS_ENUM(NSInteger, TMETabbarButtonType){
+    TMETabbarButtonTypeBrowser  = 0,
+    TMETabbarButtonTypeSearch   = 1,
+    TMETabbarButtonTypeSell     = 2,
+    TMETabbarButtonTypeActivity = 3,
+    TMETabbarButtonTypeMe       = 4
+};
+
 #import "TMEViewController.h"
 #import "TMEPublishProductViewController.h"
 #import "TMEBrowserProductsViewController.h"
@@ -16,7 +24,12 @@
 #import "TMELoginViewController.h"
 #import "PBImageHelper.h"
 
-@interface TMEViewController () <AFPhotoEditorControllerDelegate>
+@interface TMEViewController ()
+<
+AFPhotoEditorControllerDelegate,
+UITabBarDelegate,
+UIImagePickerControllerDelegate
+>
 
 @property (nonatomic, strong) TMEBrowserProductsViewController *browser;
 
@@ -96,6 +109,51 @@
     dummy2Btn.title = @"";
     UIImage *dummy2BtnBackground = [UIImage imageNamed:@"tabbar-me-icon"];
     [dummy2Btn setFinishedSelectedImage:dummy2BtnBackground withFinishedUnselectedImage:dummy2BtnBackground];
+}
+
+#pragma marks - UITabbarViewController delegate
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    NSUInteger idx = [tabBar.items indexOfObject:item];
+    switch (idx) {
+        case TMETabbarButtonTypeSell:{
+            
+            TMEPublishProductViewController *publishVC = (TMEPublishProductViewController *) [self.viewControllers objectAtIndex:TMETabbarButtonTypeSell];
+            
+            if([publishVC getStatusEditing])
+                return;
+            
+            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+            picker.delegate = [publishVC getFirstPhotoButton];
+            picker.allowsEditing=YES;
+            
+                if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+                    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                } else {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Oh Snap" delegate:nil cancelButtonTitle:@"Failed to load the camera." otherButtonTitles:nil];
+                    [alert show];
+                }
+            
+            [self.navigationController presentViewController:picker animated:NO completion:nil];
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+
+#pragma marks - UIImagePicker Delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // close the picker VCs.
+    [self.navigationController dismissModalViewControllerAnimated:NO];
+    
+    // Add that image to Publish VC
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
 }
 
 @end

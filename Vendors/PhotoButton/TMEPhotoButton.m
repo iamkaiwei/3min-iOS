@@ -104,13 +104,7 @@
         picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum; 
     }
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        [self.viewController presentViewController:picker animated:YES completion:nil];
-    }else {
-        popoverController=[[UIPopoverController alloc] initWithContentViewController:picker];
-        //popoverController.delegate=self;
-        [popoverController presentPopoverFromRect:self.bounds inView:self permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    }
+    [self.viewController presentViewController:picker animated:YES completion:nil];
 }
 
 - (void)deletePhoto
