@@ -7,6 +7,7 @@
 //
 
 #import "TMEPublishProductViewController.h"
+#import "TMEBrowserProductsViewController.h"
 #import "PBImageHelper.h"
 
 @interface TMEPublishProductViewController ()
@@ -98,8 +99,7 @@ TMEPhotoButtonDelegate
 # pragma marks - Actions
 - (IBAction)onPublishButton:(id)sender {
     
-//    [SVProgressHUD showWithStatus:@"Uploading product..."
-//                         maskType:SVProgressHUDMaskTypeGradient];
+    [self dismissKeyboard];
     
     // create dummy user
     TMEUser *user = [TMEUser MR_createEntity];
@@ -144,7 +144,8 @@ TMEPhotoButtonDelegate
                              @"description": @"Product 1 description",
                              @"price": @1,
                              @"sold_out": @YES};
-
+    
+    __block NSNumber *percent = @(0.0f);
     [[BaseNetworkManager sharedInstance] sendMultipartFormRequestForPath:API_PRODUCTS
                                                               parameters:params
                                                                   method:POST_METHOD
@@ -162,23 +163,45 @@ TMEPhotoButtonDelegate
         // reset the forms
         [self resetAllForms];
         
-        [SVProgressHUD showProgress:1.0f status:@"Uploading..." maskType:SVProgressHUDMaskTypeGradient];
         [SVProgressHUD showSuccessWithStatus:@"Upload successfully."];
+        [self.navigationController finishSGProgress];
         
-        // move to browser tab
-        [self.tabBarController setSelectedIndex:0];
+        // move to browser tab if they are another tab
+        if(![self.tabBarController.selectedViewController isKindOfClass:[TMEBrowserProductsViewController class]])
+            [self.tabBarController setSelectedIndex:0];
         
     } failure:^(NSError *error) {
+        
         [SVProgressHUD showErrorWithStatus:@"Fail to upload, try again later"];
+        [self.navigationController finishSGProgress];
+        
     } progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         
         // save last 30% for response
-        float percent = ((float)totalBytesWritten)/totalBytesExpectedToWrite * 0.7;
-        [SVProgressHUD showProgress:percent status:@"Uploading..." maskType:SVProgressHUDMaskTypeGradient];
+        percent = @(((float)totalBytesWritten)/totalBytesExpectedToWrite * 0.7);
+        float percentage = [percent floatValue];
+        percentage *= 100;
+        [self.navigationController setSGProgressPercentage:percentage];
     }];
 }
 
 #pragma marks - Helper methods
+
+- (void)showProgressWithPercent:(NSNumber *)percent
+{
+    float percentage = [percent floatValue];
+    percentage *= 100;
+	
+	while (percentage <= 200.0)
+	{
+		[self.navigationController setSGProgressPercentage:percentage];
+		if(percentage >= 100.0)
+		{
+            [self.navigationController finishSGProgress];
+			return;
+		}
+	}
+}
 
 - (TMEPhotoButton *)getFirstPhotoButton
 {

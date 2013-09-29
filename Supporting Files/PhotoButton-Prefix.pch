@@ -132,6 +132,7 @@
 #import "AFNetworking.h"
 #import "OpenUDID.h"
 #import "iCarousel.h"
+#import "UINavigationController+SGProgress.h"
 
 // Common VCs
 #import "TMENavigationViewController.h"

@@ -49,6 +49,7 @@
 		0C3CA94317F7F7130072117A /* add-photo-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C3CA94117F7F7130072117A /* add-photo-placeholder.png */; };
 		0C3CA94417F7F7130072117A /* add-photo-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C3CA94217F7F7130072117A /* add-photo-placeholder@2x.png */; };
 		0C3DFC5617F4042C00DB4DAB /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3DFC5517F4042C00DB4DAB /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0C41FEFF17F8826300C9CB50 /* UINavigationController+SGProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C41FEFE17F8826300C9CB50 /* UINavigationController+SGProgress.m */; };
 		0C43914B17F2D27500640D82 /* TMEProduct+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C43914A17F2D27500640D82 /* TMEProduct+Additions.m */; };
 		0C43CC9B17F5CC4A00D869F9 /* arrow-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C43CC9717F5CC4A00D869F9 /* arrow-down.png */; };
 		0C43CC9C17F5CC4A00D869F9 /* arrow-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C43CC9817F5CC4A00D869F9 /* arrow-down@2x.png */; };
@@ -284,6 +285,8 @@
 		0C3CA94217F7F7130072117A /* add-photo-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-photo-placeholder@2x.png"; sourceTree = "<group>"; };
 		0C3DFC5417F4042C00DB4DAB /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
 		0C3DFC5517F4042C00DB4DAB /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
+		0C41FEFD17F8826300C9CB50 /* UINavigationController+SGProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+SGProgress.h"; sourceTree = "<group>"; };
+		0C41FEFE17F8826300C9CB50 /* UINavigationController+SGProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+SGProgress.m"; sourceTree = "<group>"; };
 		0C43914917F2D27500640D82 /* TMEProduct+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEProduct+Additions.h"; sourceTree = "<group>"; };
 		0C43914A17F2D27500640D82 /* TMEProduct+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEProduct+Additions.m"; sourceTree = "<group>"; };
 		0C43CC9717F5CC4A00D869F9 /* arrow-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-down.png"; sourceTree = "<group>"; };
@@ -725,8 +728,8 @@
 		0C28B28B17DC1B9200BD0EC2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				20C4D5DD17F722710035BCA5 /* Tutorial */,
 				0C6E069C17E0CC650003F104 /* Superclass */,
+				20C4D5DD17F722710035BCA5 /* Tutorial */,
 				0C43CCB417F5E6A000D869F9 /* Navigation Controller */,
 				0CFC0FFC17ECBAAE008FBD92 /* Login Page */,
 				0C6E068B17E0CBF60003F104 /* Main Controller */,
@@ -741,6 +744,7 @@
 		0C28B28C17DC1B9200BD0EC2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				0C41FEFC17F8826300C9CB50 /* UINavigationController+SGProgress */,
 				20C4D5E517F733F80035BCA5 /* iCarousel */,
 				0C5954F517F711200076353E /* ViewDeck */,
 				205EACF317F6E83F00EE9A76 /* AviarySDK */,
@@ -827,6 +831,15 @@
 				0C3DFC5517F4042C00DB4DAB /* OpenUDID.m */,
 			);
 			path = OpenUDID;
+			sourceTree = "<group>";
+		};
+		0C41FEFC17F8826300C9CB50 /* UINavigationController+SGProgress */ = {
+			isa = PBXGroup;
+			children = (
+				0C41FEFD17F8826300C9CB50 /* UINavigationController+SGProgress.h */,
+				0C41FEFE17F8826300C9CB50 /* UINavigationController+SGProgress.m */,
+			);
+			path = "UINavigationController+SGProgress";
 			sourceTree = "<group>";
 		};
 		0C43CC9F17F5D29A00D869F9 /* Product Browser */ = {
@@ -1620,6 +1633,7 @@
 				0C7EFBDE17E8D5170054C4DE /* UIScrollView+Additions.m in Sources */,
 				0C7EFB6317E768C70054C4DE /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				0C7EFB6F17E768C70054C4DE /* MagicalRecord+ShorthandSupport.m in Sources */,
+				0C41FEFF17F8826300C9CB50 /* UINavigationController+SGProgress.m in Sources */,
 				0C7EFB5717E768C70054C4DE /* MagicalImportFunctions.m in Sources */,
 				0C7EFBE317E8D5170054C4DE /* UIViewController+Additions.m in Sources */,
 				0C2F788E17F2DBA600201783 /* SDWebImageCompat.m in Sources */,
