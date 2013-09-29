@@ -22,7 +22,8 @@ typedef void (^TMEJSONLoginFailureSuccessBlock) (NSInteger statusCode, id obj);
 - (NSString *)getUDID;
 
 // login
-- (void)loginBySendingFacebookToken:(NSString *)token withSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock andFailureBlock:(TMEJSONLoginFailureSuccessBlock)failureBlock;
+- (void)loginBySendingFacebookWithSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock
+                               andFailureBlock:(TMEJSONLoginFailureSuccessBlock)failureBlock;
 
 - (void)setLoggedUser:(TMEUser *)loggedUser andFacebookUser:(id<FBGraphUser>)user;
 - (void)logOut;

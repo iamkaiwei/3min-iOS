@@ -54,6 +54,8 @@
 #endif
 #endif
 
+#define NOTIFICATION_FINISH_LOGIN                   @"NotificationFinishLogin"
+
 #define CLASS_PREFIX_LENGTH                         3
 #define API_PREFIX                                  @"/api/v1"
 #define API_PRODUCTS                                @"products"

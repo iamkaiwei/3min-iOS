@@ -374,8 +374,51 @@ SINGLETON_MACRO
                            success:(void (^)(NSMutableArray *objectsArray))success
                            failure:(void (^)(NSError *error))failure
 {
+#warning For now, all request require login
+    //Parameters
+    NSMutableDictionary *parameters = [params mutableCopy];
+    parameters[@"require_login"] = @YES;
+    
+    if (parameters[@"require_login"] && ![[TMEUserManager sharedInstance] loggedUser]) {
+        
+        [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
+            
+            [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:nil];
+            
+            [self sendJSONRequestForModelClass:classObject
+                                    withParams:parameters
+                                     methodAPI:methodAPI
+                                      parentId:parentId
+                               withParentClass:parentClassObject
+                                       success:success falure:failure];
+            
+        } andFailureBlock:^(NSInteger statusCode, id obj) {
+
+        }];
+        
+        return;
+    }
+    
+    [self sendJSONRequestForModelClass:classObject
+                            withParams:parameters
+                             methodAPI:methodAPI
+                              parentId:parentId
+                       withParentClass:parentClassObject
+                               success:success falure:failure];
+    
+}
+
+- (void)sendJSONRequestForModelClass:(Class)classObject
+                          withParams:(NSDictionary *)params
+                           methodAPI:(NSString *)methodAPI
+                            parentId:(NSNumber *)parentId
+                     withParentClass:(Class)parentClassObject
+                             success:(void(^)(NSMutableArray *objectArray))success
+                              falure:(void (^)(NSError*error))failure
+{
     //Parameters
     NSMutableDictionary *parameters = [self getAuthParams];
+    
     if ([params count] > 0)
         [parameters addEntriesFromDictionary:params];
     if ([parameters count] <= 0)
@@ -403,23 +446,6 @@ SINGLETON_MACRO
         {
             rawArray = (NSArray*)responseObject;
         }
-        
-        //Crazy generic code to convert raw dictionary to proper model
-        //    NSMutableArray *outputArray = [NSMutableArray array];
-        //    for (NSDictionary *dict in rawArray)
-        //    {
-        //      id model = [[BaseStorageManager sharedInstance] addOrUpdateClassModel:classObject
-        //                                                             withDictionary:dict];
-        //      if (model)
-        //        [outputArray addObject:model];
-        //    }
-        
-        //If full list, save last updated date as now
-        //    if (parentId == nil && parentClassObject == nil)
-        //      [[BaseStorageManager sharedInstance] setCacheLastUpdatedForModelCache:classObject];
-        
-        //    if (success)
-        //      success(outputArray);
         
         if (success)
             success(responseObject);

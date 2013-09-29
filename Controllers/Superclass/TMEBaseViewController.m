@@ -45,6 +45,9 @@
 {
     [super viewDidLoad];
     
+    // notification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onFinishLogin:) name:NOTIFICATION_FINISH_LOGIN object:nil];
+    
     //Tap to dismiss keyboard
     self.isKeyboardShowing = NO;
     self.tapToDismissKeyboardGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGesture:)];
@@ -477,5 +480,6 @@
     NSString *breadcrumb = [NSString stringWithFormat:@"%@:%d", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], lineNumber];
     [Crittercism leaveBreadcrumb:breadcrumb];
 }
+
 
 @end

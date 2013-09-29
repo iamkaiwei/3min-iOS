@@ -99,7 +99,7 @@
     NSString *token = [[[FBSession activeSession] accessTokenData] accessToken];
     DLog(@"Token = %@", token);
     
-    [[TMEUserManager sharedInstance] loginBySendingFacebookToken:token withSuccessBlock:^(TMEUser *tmeUser) {
+    [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
         [SVProgressHUD showSuccessWithStatus:@"Login successfully"];
         [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:user];
     } andFailureBlock:^(NSInteger statusCode, id obj) {

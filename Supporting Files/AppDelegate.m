@@ -9,13 +9,14 @@
 #import "AppDelegate.h"
 #import "TMETutorialViewController.h"
 #import "TMEViewController.h"
+#import "TMEUserManager.h"
 #import "GAI.h"
 
 @interface AppDelegate()
 
 @property (strong, nonatomic) TMENavigationViewController       * navController;
-@property (retain, nonatomic) UIViewController                  * centerController;
-@property (retain, nonatomic) UIViewController                  * leftController;
+@property (retain, nonatomic) UIViewController             * centerController;
+@property (retain, nonatomic) UIViewController             * leftController;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -43,19 +44,6 @@
     // start MR
     [MagicalRecord setupCoreDataStack];
     
-    // Facebook Stuffs
-    [FBLoginView class];
-    [FacebookManager sharedInstance].delegate = (id) self;
-    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-        // Yes, so just open the session (this won't display any UX).
-        [self openSession];        
-#warning DO IT LATER
-        //        [self.navController pushViewController:[[OFMenuViewController alloc] init] animated:YES];
-    } else {
-        // No, display the login page.
-        //        [self showLoginView];
-    }
-    
     // Google analytics
     [self setUpGoogleAnalytics];
     
@@ -69,7 +57,20 @@
     if (![TMETutorialViewController hasBeenPresented]) {
       [self showTutorialController];
     } else {
-      [self showHomeViewController];
+        [self showHomeViewController];
+    }
+    
+    // Facebook Stuffs
+    [FBLoginView class];
+    [FacebookManager sharedInstance].delegate = (id) self;
+    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+        // Yes, so just open the session (this won't display any UX).
+        [self openSession];
+        [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:nil andFailureBlock:nil];
+        
+    } else {
+        // No, display the login page.
+        [self showLoginView];
     }
     
     [self.window makeKeyAndVisible];
@@ -127,8 +128,8 @@
 - (void)showHomeViewController
 {
     IIViewDeckController *deckController = [self generateControllerStack];
-    self.leftController = deckController.leftController;
-    self.centerController = deckController.centerController;
+    self.leftController = (TMEBaseViewController *)deckController.leftController;
+    self.centerController = (TMEBaseViewController *)deckController.centerController;
     self.navController = (TMENavigationViewController *)deckController.centerController;
     
     // config tabbar appear
@@ -137,6 +138,7 @@
 
     [self switchRootViewController:deckController animated:YES completion:^{
       //Some settings may be added later.
+        [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
     }];
 }
 

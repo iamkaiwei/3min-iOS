@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView        * tableProducts;
 @property (strong, nonatomic) NSMutableArray            * arrProducts;
+@property (strong, nonatomic) TMEUser                   *loginUser;
 
 @end
 
@@ -34,30 +35,7 @@
     NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
     [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
     
-    [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSInteger statusCode, id obj) {
-        
-        if ([obj isKindOfClass:[NSArray class]]) {
-            self.arrProducts = [[TMEProduct arrayProductsFromArray:obj] mutableCopy];
-            [self.tableProducts reloadData];
-        }
-        
-    } andFailureBlock:^(NSInteger statusCode, id obj) {
-        
-    }];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSInteger statusCode, id obj) {
-        
-        if ([obj isKindOfClass:[NSArray class]]) {
-            self.arrProducts = [[TMEProduct arrayProductsFromArray:obj] mutableCopy];
-            [self.tableProducts reloadData];
-        }
-        
-    } andFailureBlock:^(NSInteger statusCode, id obj) {
-        
-    }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onFinishLogin:) name:NOTIFICATION_FINISH_LOGIN object:nil];
 }
 
 #pragma marks - UITableView delegate
@@ -88,6 +66,25 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [TMEBrowserProductsTableCell getHeight];
+}
+
+- (void)onFinishLogin:(TMEUser *)user
+{
+    [SVProgressHUD dismiss];
+    
+    [SVProgressHUD showWithStatus:@"Loading content..." maskType:SVProgressHUDMaskTypeGradient];
+    [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSInteger statusCode, id obj) {
+        
+        if ([obj isKindOfClass:[NSArray class]]) {
+            self.arrProducts = [[TMEProduct arrayProductsFromArray:obj] mutableCopy];
+            [self.tableProducts reloadData];
+        }
+        
+        [SVProgressHUD dismiss];
+        
+    } andFailureBlock:^(NSInteger statusCode, id obj) {
+        [SVProgressHUD dismiss];
+    }];
 }
 
 @end

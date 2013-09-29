@@ -8,6 +8,12 @@
 
 #import "TMEUserManager.h"
 
+@interface TMEUserManager()
+
+@property (assign, nonatomic) BOOL                              isLogging;
+
+@end
+
 @implementation TMEUserManager
 
 SINGLETON_MACRO
@@ -52,7 +58,19 @@ SINGLETON_MACRO
     return self.loggedUser.facebook_id;
 }
 
-- (void)loginBySendingFacebookToken:(NSString *)token withSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock andFailureBlock:(TMEJSONLoginFailureSuccessBlock)failureBlock{
+- (void)loginBySendingFacebookWithSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock andFailureBlock:(TMEJSONLoginFailureSuccessBlock)failureBlock{
+    
+    // prevent login but dont needed
+    if (self.loggedUser && successBlock) {
+        successBlock(self.loggedUser);
+    }
+    
+    // prevent request login more then 1 time at the same time
+    if (self.isLogging) {
+        return;
+    }
+    
+    self.isLogging = YES;
     
     NSDictionary *params = @{
                              @"fb_token": [[TMEUserManager sharedInstance] getFacebookToken],
@@ -69,13 +87,22 @@ SINGLETON_MACRO
         if (responseObject)
             user = [TMEUser userByFacebookDictionary:responseObject];
         
+        [self setLoggedUser:user andFacebookUser:nil];
+        
+        // broadcast
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_FINISH_LOGIN object:user];
+        
         if (successBlock)
             successBlock(user);
+        
+        self.isLogging = NO;
         
     } failure:^(NSError *error) {
         
         if (failureBlock)
             failureBlock(error.code, error);
+        
+        self.isLogging = NO;
         
     }];
     
