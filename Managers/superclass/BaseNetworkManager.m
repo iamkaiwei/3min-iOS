@@ -249,9 +249,14 @@ SINGLETON_MACRO
         method = POST_METHOD;
     
     NSString *fullPath = [self getServerAPIPathWithPrefix:path];
+    
+    NSMutableDictionary *params = [self getAuthParams];
+    if ([parameters count] > 0)
+        [params addEntriesFromDictionary:parameters];
+    
     NSMutableURLRequest *request = [self.httpClient multipartFormRequestWithMethod:method
                                                                               path:fullPath
-                                                                        parameters:parameters
+                                                                        parameters:params
                                                          constructingBodyWithBlock:block];
     [self sendRequest:request success:success failure:failure];
 }
