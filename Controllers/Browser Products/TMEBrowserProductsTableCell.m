@@ -31,16 +31,6 @@
 
 @implementation TMEBrowserProductsTableCell
 
-- (id)init{
-    self = [super init];
-    if (self) {
-        
-
-    }
-    
-    return self;
-}
-
 - (void)configCellWithProduct:(TMEProduct *)product{
     
     // Follow button

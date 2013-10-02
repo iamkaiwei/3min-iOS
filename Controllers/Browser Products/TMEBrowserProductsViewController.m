@@ -59,10 +59,6 @@
     NSString *cellIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
     TMEBrowserProductsTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
     
-    if (!cell) {
-        cell = (TMEBrowserProductsTableCell *)[UINib nibWithNibName:cellIndentifier bundle:nil];
-    }
-    
     TMEProduct *product = [self.arrProducts objectAtIndex:indexPath.row];
     [cell configCellWithProduct:product];
     

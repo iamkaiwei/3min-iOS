@@ -52,9 +52,7 @@ UIImagePickerControllerDelegate
     
     self.viewControllers = @[browserVC, dummy1, publishVC, dummy3, dummy2];
     
-    // hack to fix weird bug "black-space at the top of view".
-    [self.tabBarController setSelectedIndex:1];
-//    [self.tabBarController setSelectedIndex:0];
+    [self.tabBarController setSelectedIndex:0];
     
     [self stypeTheTabbarButtons];
 }

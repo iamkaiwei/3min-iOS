@@ -374,7 +374,7 @@ SINGLETON_MACRO
                            success:(void (^)(NSMutableArray *objectsArray))success
                            failure:(void (^)(NSError *error))failure
 {
-#warning For now, all request require login
+#warning For now, all requests require login
     //Parameters
     NSMutableDictionary *parameters = [params mutableCopy];
     parameters[@"require_login"] = @YES;

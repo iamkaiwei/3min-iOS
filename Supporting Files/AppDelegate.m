@@ -59,7 +59,7 @@
     } else {
         [self showHomeViewController];
     }
-    
+
     // Facebook Stuffs
     [FBLoginView class];
     [FacebookManager sharedInstance].delegate = (id) self;
@@ -140,6 +140,8 @@
       //Some settings may be added later.
         [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
     }];
+    
+    [self.window makeKeyAndVisible];
 }
 
 - (void)showTutorialController
@@ -173,7 +175,7 @@
   rootVC = [[TMEViewController alloc] init];
   TMENavigationViewController *centralNavController = [[TMENavigationViewController alloc] initWithRootViewController:rootVC];
   
-  IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centralNavController leftViewController:leftController];
+  IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centralNavController leftViewController:nil];
   
   [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
   [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
@@ -274,9 +276,8 @@
 
 - (void)showLoginView
 {
-    UIViewController *topViewController = [self.navController topViewController];
     TMELoginViewController* loginViewController = [[TMELoginViewController alloc]init];
-    [topViewController presentViewController:loginViewController animated:NO completion:^{
+    [self.navController presentViewController:loginViewController animated:NO completion:^{
       //Some settings may be added later.
     }];
 }
