@@ -12,7 +12,7 @@
 
 SINGLETON_MACRO
 
--(void)getAllProductsOnSuccessBlock:(TMEJSONRequestSuccessBlock)successBlock andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
+-(void)getAllProductsOnSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
     NSMutableDictionary *params = [@{} mutableCopy];
     [[BaseNetworkManager sharedInstance] getServerListForModelClass:[TMEProduct class]
@@ -22,7 +22,7 @@ SINGLETON_MACRO
                                                     withParentClass:nil
                                                             success:^(NSMutableArray *objectsArray) {
                                                                 if (successBlock)
-                                                                    successBlock(200 ,objectsArray);
+                                                                    successBlock(objectsArray);
     } failure:^(NSError *error) {
         if (failureBlock)
             failureBlock(error.code ,error);

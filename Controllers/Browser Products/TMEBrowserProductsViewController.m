@@ -78,12 +78,10 @@
     [SVProgressHUD dismiss];
     
     [SVProgressHUD showWithStatus:@"Loading content..." maskType:SVProgressHUDMaskTypeGradient];
-    [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSInteger statusCode, id obj) {
+    [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
         
-        if ([obj isKindOfClass:[NSArray class]]) {
-            self.arrProducts = [[TMEProduct arrayProductsFromArray:obj] mutableCopy];
-            [self.tableProducts reloadData];
-        }
+        self.arrProducts = [arrProducts mutableCopy];
+        [self.tableProducts reloadData];
         
         [SVProgressHUD dismiss];
         
