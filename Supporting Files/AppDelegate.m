@@ -137,8 +137,14 @@
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
 
     [self switchRootViewController:deckController animated:YES completion:^{
-      //Some settings may be added later.
-        [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
+        
+#warning HAVE TO VERIFY THIS FLOW
+        
+        // if signup FB already
+        if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+            //Some settings may be added later.
+            [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
+        }
     }];
     
     [self.window makeKeyAndVisible];

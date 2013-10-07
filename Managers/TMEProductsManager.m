@@ -21,8 +21,11 @@ SINGLETON_MACRO
                                                            parentId:nil
                                                     withParentClass:nil
                                                             success:^(NSMutableArray *objectsArray) {
+                                                                
+                                                                NSArray *arrProducts = [TMEProduct arrayProductsFromArray:objectsArray];
+                                                                
                                                                 if (successBlock)
-                                                                    successBlock(objectsArray);
+                                                                    successBlock(arrProducts);
     } failure:^(NSError *error) {
         if (failureBlock)
             failureBlock(error.code ,error);
