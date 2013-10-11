@@ -43,61 +43,84 @@ UIImagePickerControllerDelegate
     [super viewDidLoad];
     self.title = @"Main Menu";
     
-    self.view.backgroundColor = [UIColor grayColor];
+    self.viewControllers = @[];
     
-    TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
-    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserVC];
-    
-    TMEPublishProductViewController *publishVC = [[TMEPublishProductViewController alloc] init];
-    TMEBrowserProductsViewController *dummy3 = [[TMEBrowserProductsViewController alloc] init];
-    
-    // dummy VCs
-    TMEBrowserProductsViewController *dummy1 = [[TMEBrowserProductsViewController alloc] init];
-    TMEBrowserProductsViewController *dummy2 = [[TMEBrowserProductsViewController alloc] init];
-    
-    self.viewControllers = @[navigationViewController, dummy1, publishVC, dummy3, dummy2];
-    
-    [self stypeTheTabbarButtons];
+    [self addBrowserProductTab];
+    [self addDummy1Button];
+    [self addPublishButton];
+    [self addDummy2Button];
+    [self addDummy3Button];
 }
 
 #pragma marks - UI helper
-- (void)stypeTheTabbarButtons{
+
+- (void)addViewController:(UIViewController *)viewController
+              withIconName:(NSString *)iconName
+{
+    NSMutableArray *VCs = [self.viewControllers mutableCopy];
     
+    if (!VCs)
+        VCs = [@[] mutableCopy];
+    
+    [VCs addObject:viewController];
+    self.viewControllers = VCs;
+
+    NSInteger index = [self.viewControllers indexOfObject:viewController];
+    [self createTabbarButtonWithIconName:iconName atIndex:index];
+}
+
+- (void)createTabbarButtonWithIconName:(NSString *)iconName
+                             atIndex:(NSInteger)index
+{
     UITabBar *tabBar = self.tabBar;
-    // browser button
-    UITabBarItem *browserBtn = [tabBar.items objectAtIndex:0];
-    browserBtn.imageInsets = UIEdgeInsetsMake(3, 0, -2, 0);
-    browserBtn.title = @"";
-    UIImage *browserBtnBackground = [UIImage imageNamed:@"tabbar-browser-icon"];
-    [browserBtn setFinishedSelectedImage:browserBtnBackground withFinishedUnselectedImage:browserBtnBackground];
+    UITabBarItem *button = [tabBar.items objectAtIndex:index];
+    button.imageInsets = UIEdgeInsetsMake(3, 0, -2, 0);
+    UIImage *browserBtnBackground = [UIImage imageNamed:iconName];
+    [button setFinishedSelectedImage:browserBtnBackground withFinishedUnselectedImage:browserBtnBackground];
+}
+
+- (void)addBrowserProductTab
+{
+    TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
+    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserVC];
+
+    [self addViewController:navigationViewController
+               withIconName:@"tabbar-browser-icon"];
+}
+
+- (void)addDummy1Button
+{
+    TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
+    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserVC];
+
+    [self addViewController:navigationViewController
+               withIconName:@"tabbar-search-icon"];
+}
+
+- (void)addDummy2Button
+{
+    TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
+    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserVC];
+
+    [self addViewController:navigationViewController
+               withIconName:@"tabbar-activity-icon"];
+}
+
+- (void)addDummy3Button
+{
+    TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
+    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserVC];
     
-    // search dummy button
-    UITabBarItem *dummy1Btn = [tabBar.items objectAtIndex:1];
-    dummy1Btn.imageInsets = UIEdgeInsetsMake(3, 0, -2, 0);
-    dummy1Btn.title = @"";
-    UIImage *dummy1BtnBtnBackground = [UIImage imageNamed:@"tabbar-search-icon"];
-    [dummy1Btn setFinishedSelectedImage:dummy1BtnBtnBackground withFinishedUnselectedImage:dummy1BtnBtnBackground];
-    
-    // publish button
-    UITabBarItem *publishBtn = [tabBar.items objectAtIndex:2];
-    publishBtn.imageInsets = UIEdgeInsetsMake(3, 0, -2, 0);
-    publishBtn.title = @"";
-    UIImage *publish1BtnBackground = [UIImage imageNamed:@"tabbar-sell-icon"];
-    [publishBtn setFinishedSelectedImage:publish1BtnBackground withFinishedUnselectedImage:publish1BtnBackground];
-    
-    // login button
-    UITabBarItem *loginBtn = [tabBar.items objectAtIndex:3];
-    loginBtn.imageInsets = UIEdgeInsetsMake(3, 0, -2, 0);
-    loginBtn.title = @"";
-    UIImage *loginBtnBackground = [UIImage imageNamed:@"tabbar-activity-icon"];
-    [loginBtn setFinishedSelectedImage:loginBtnBackground withFinishedUnselectedImage:loginBtnBackground];
-    
-    // me button
-    UITabBarItem *dummy2Btn = [tabBar.items objectAtIndex:4];
-    dummy2Btn.imageInsets = UIEdgeInsetsMake(3, 0, -2, 0);
-    dummy2Btn.title = @"";
-    UIImage *dummy2BtnBackground = [UIImage imageNamed:@"tabbar-me-icon"];
-    [dummy2Btn setFinishedSelectedImage:dummy2BtnBackground withFinishedUnselectedImage:dummy2BtnBackground];
+    [self addViewController:navigationViewController
+               withIconName:@"tabbar-me-icon"];
+}
+
+- (void)addPublishButton
+{
+    TMEPublishProductViewController *publishVC = [[TMEPublishProductViewController alloc] init];
+    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:publishVC];
+    [self addViewController:navigationViewController
+               withIconName:@"tabbar-sell-icon"];
 }
 
 #pragma marks - UITabbarViewController delegate
@@ -106,25 +129,7 @@ UIImagePickerControllerDelegate
     NSUInteger idx = [tabBar.items indexOfObject:item];
     switch (idx) {
         case TMETabbarButtonTypeSell:{
-            
-            TMEPublishProductViewController *publishVC = (TMEPublishProductViewController *) [self.viewControllers objectAtIndex:TMETabbarButtonTypeSell];
-            
-            // if user still editing a product.
-            if([publishVC getStatusEditing])
-                return;
-            
-            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-            picker.delegate = [publishVC getFirstPhotoButton];
-            picker.allowsEditing=YES;
-            
-            if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-                picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-            } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Oh Snap" delegate:nil cancelButtonTitle:@"Failed to load the camera." otherButtonTitles:nil];
-                [alert show];
-            }
-            
-            [self.navigationController presentViewController:picker animated:NO completion:nil];
+            [self onBtnSellProduction];
             break;
         }
             
@@ -144,6 +149,30 @@ UIImagePickerControllerDelegate
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     
+}
+
+#pragma marks - Action when click on sell product
+- (void)onBtnSellProduction
+{
+    TMENavigationViewController *navVC =[self.viewControllers objectAtIndex:TMETabbarButtonTypeSell];
+    TMEPublishProductViewController *publishVC = (TMEPublishProductViewController *) [navVC.viewControllers objectAtIndex:0];
+    
+    // if user still editing a product.
+    if([publishVC getStatusEditing])
+        return;
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = [publishVC getFirstPhotoButton];
+    picker.allowsEditing=YES;
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Oh Snap" delegate:nil cancelButtonTitle:@"Failed to load the camera." otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    [navVC presentViewController:picker animated:NO completion:nil];
 }
 
 @end
