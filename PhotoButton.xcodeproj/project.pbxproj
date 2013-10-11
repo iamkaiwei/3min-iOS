@@ -1412,6 +1412,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					5976C03E15925D2D007F6FC3 = {
+						DevelopmentTeam = BXU3B85A8F;
+					};
+				};
 			};
 			buildConfigurationList = 5976C03915925D2D007F6FC3 /* Build configuration list for PBXProject "PhotoButton" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1752,6 +1757,8 @@
 		5976C06115925D2D007F6FC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Vendors\"",
@@ -1771,6 +1778,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos6.1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1779,6 +1787,8 @@
 		5976C06215925D2D007F6FC3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Vendors\"",
@@ -1798,6 +1808,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos6.1;
 				WRAPPER_EXTENSION = app;
 			};
