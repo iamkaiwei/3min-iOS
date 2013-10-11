@@ -177,11 +177,9 @@
   TMELeftMenuViewController* leftController = [[TMELeftMenuViewController alloc] init];
   
   // Set up ViewDeck central
-  TMEViewController *rootVC;
-  rootVC = [[TMEViewController alloc] init];
-  TMENavigationViewController *centralNavController = [[TMENavigationViewController alloc] initWithRootViewController:rootVC];
-  
-  IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centralNavController leftViewController:nil];
+  TMEViewController *rootVC = [[TMEViewController alloc] init];
+    
+  IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:rootVC leftViewController:leftController];
   
   [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
   [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];

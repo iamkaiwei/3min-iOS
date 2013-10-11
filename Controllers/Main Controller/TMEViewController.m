@@ -1,3 +1,4 @@
+//    UIViewController * rootVC = [[UIViewController alloc] init];
 //
 //  ViewController.m
 //  PhotoButton
@@ -42,7 +43,11 @@ UIImagePickerControllerDelegate
     [super viewDidLoad];
     self.title = @"Main Menu";
     
+    self.view.backgroundColor = [UIColor grayColor];
+    
     TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
+    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserVC];
+    
     TMEPublishProductViewController *publishVC = [[TMEPublishProductViewController alloc] init];
     TMEBrowserProductsViewController *dummy3 = [[TMEBrowserProductsViewController alloc] init];
     
@@ -50,15 +55,14 @@ UIImagePickerControllerDelegate
     TMEBrowserProductsViewController *dummy1 = [[TMEBrowserProductsViewController alloc] init];
     TMEBrowserProductsViewController *dummy2 = [[TMEBrowserProductsViewController alloc] init];
     
-    self.viewControllers = @[browserVC, dummy1, publishVC, dummy3, dummy2];
-    
-    [self.tabBarController setSelectedIndex:0];
+    self.viewControllers = @[navigationViewController, dummy1, publishVC, dummy3, dummy2];
     
     [self stypeTheTabbarButtons];
 }
 
 #pragma marks - UI helper
 - (void)stypeTheTabbarButtons{
+    
     UITabBar *tabBar = self.tabBar;
     // browser button
     UITabBarItem *browserBtn = [tabBar.items objectAtIndex:0];
@@ -113,12 +117,12 @@ UIImagePickerControllerDelegate
             picker.delegate = [publishVC getFirstPhotoButton];
             picker.allowsEditing=YES;
             
-                if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-                    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-                } else {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Oh Snap" delegate:nil cancelButtonTitle:@"Failed to load the camera." otherButtonTitles:nil];
-                    [alert show];
-                }
+            if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+                picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Oh Snap" delegate:nil cancelButtonTitle:@"Failed to load the camera." otherButtonTitles:nil];
+                [alert show];
+            }
             
             [self.navigationController presentViewController:picker animated:NO completion:nil];
             break;

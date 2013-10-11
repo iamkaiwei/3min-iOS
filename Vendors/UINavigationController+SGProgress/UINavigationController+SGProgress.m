@@ -133,7 +133,7 @@ NSInteger const SGProgressMiniMasktagId = 221222321;
 				subview.alpha = 0;
 			} completion:^(BOOL finished) {
 				[subview removeFromSuperview];
-				self.view.tintAdjustmentMode = UIViewTintAdjustmentModeNormal;
+//				self.view.tintAdjustmentMode = UIViewTintAdjustmentModeNormal;
 			}];
 		}
 	}
@@ -173,7 +173,7 @@ NSInteger const SGProgressMiniMasktagId = 221222321;
 
 - (void)setTintModeAndSetupMask
 {
-	self.view.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
+//	self.view.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
 	[self setupSGProgressMask];
 }
 
@@ -253,7 +253,7 @@ NSInteger const SGProgressMiniMasktagId = 221222321;
 - (void)showSGProgressWithMaskAndDuration:(float)duration
 {
 	UIColor *tintColor = self.navigationBar.tintColor;
-	self.view.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
+//	self.view.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
 	[self setupSGProgressMask];
 	[self showSGProgressWithDuration:duration andTintColor:tintColor];
 	

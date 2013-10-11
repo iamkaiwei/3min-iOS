@@ -31,7 +31,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.tableProducts.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    
+    self.title = @"";
+    self.navigationController.navigationBar.topItem.title = @"Broswer Products";
     
     NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
     [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
