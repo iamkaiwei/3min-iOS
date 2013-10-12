@@ -54,11 +54,8 @@ UIScrollViewDelegate
     NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
     [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onFinishLogin:) name:NOTIFICATION_FINISH_LOGIN object:nil];
-    
-    if ([[TMEUserManager sharedInstance] loggedUser]) {
-        [self loadProductsTable];
-    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onFinishLogin:) name:NOTIFICATION_FINISH_LOGIN object:nil];    
+    [self loadProductsTable];
     
     self.scrollViewLastContentOffset = CGPointMake(0, 44);
 

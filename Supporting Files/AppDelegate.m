@@ -61,6 +61,7 @@
     }
     
     [self checkFacebookSessionAtTheAppLaunch];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -108,6 +109,10 @@
     [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
     
     deckController.rightSize = 60;
+    
+    self.leftController = deckController.leftController;
+    self.centerController = deckController.centerController;
+    self.navController = (TMENavigationViewController *)deckController.centerController;
     
     return deckController;
 }
@@ -181,11 +186,7 @@
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         [self openSession];
         
-        [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *user) {
-            [self showHomeViewController];
-        } andFailureBlock:^(NSInteger statusCode, id obj) {
-            [SVProgressHUD showErrorWithStatus:@"Something went wrongly, please try again."];
-        }];
+        [self showHomeViewController];
         
     } else {
         // No, display the login page.
@@ -208,7 +209,7 @@
 - (void)showLoginView
 {
     TMELoginViewController* loginViewController = [[TMELoginViewController alloc]init];
-    [self.navController presentViewController:loginViewController animated:NO completion:^{
+    [self.centerController presentViewController:loginViewController animated:NO completion:^{
         //Some settings may be added later.
     }];
 }
@@ -246,9 +247,6 @@
 - (void)showHomeViewController
 {
     IIViewDeckController *deckController = [self generateControllerStack];
-    self.leftController = deckController.leftController;
-    self.centerController = deckController.centerController;
-    self.navController = (TMENavigationViewController *)deckController.centerController;
     
     // config tabbar appear
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar-background"];
