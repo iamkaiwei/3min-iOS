@@ -14,13 +14,13 @@
 
 @interface AppDelegate()
 
-@property (strong, nonatomic) TMENavigationViewController       * navController;
-@property (retain, nonatomic) UIViewController             * centerController;
-@property (retain, nonatomic) UIViewController             * leftController;
+@property (strong, nonatomic) TMENavigationViewController               * navController;
+@property (retain, nonatomic) UIViewController                          * centerController;
+@property (retain, nonatomic) UIViewController                          * leftController;
 
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (readonly, strong, nonatomic) NSManagedObjectContext          * managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel            * managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator    * persistentStoreCoordinator;
 
 @end
 

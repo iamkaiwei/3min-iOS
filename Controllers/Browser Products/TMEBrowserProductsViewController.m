@@ -27,9 +27,9 @@ UIScrollViewDelegate
 
 @property (weak, nonatomic) IBOutlet UITableView        * tableProducts;
 @property (strong, nonatomic) NSMutableArray            * arrProducts;
-@property (strong, nonatomic) TMEUser                   *loginUser;
+@property (strong, nonatomic) TMEUser                   * loginUser;
 
-@property (nonatomic, assign) CGPoint scrollViewLastContentOffset;
+@property (nonatomic, assign) CGPoint                     scrollViewLastContentOffset;
 
 @end
 
@@ -64,10 +64,7 @@ UIScrollViewDelegate
 
 }
 
-#pragma marks - Hide and show navigation bar
-
 #pragma mark - UIScrollViewDelegate
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (/* scrollView.decelerating
@@ -83,9 +80,7 @@ UIScrollViewDelegate
     self.scrollViewLastContentOffset = scrollView.contentOffset;
 }
 
-
 #pragma mark - Top & Bottom bar animation
-
 - (BOOL)hideNavbar
 {
     CGFloat deltaHeight = self.navigationController.navigationBar.height;
