@@ -33,11 +33,11 @@
 
 + (AppDelegate *)sharedDelegate
 {
-  return (AppDelegate *)[UIApplication sharedApplication].delegate;
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
+{
     // Crittercism
     [Crittercism enableWithAppID: @"51f8bef646b7c2316f000007"];
     
@@ -53,52 +53,23 @@
                                                 animated:NO];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-  
+    
     if (![TMETutorialViewController hasBeenPresented]) {
-      [self showTutorialController];
-    } else {
-        [self showHomeViewController];
-    }
-
-    // Facebook Stuffs
-    [FBLoginView class];
-    [FacebookManager sharedInstance].delegate = (id) self;
-    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-        // Yes, so just open the session (this won't display any UX).
-        [self openSession];
-        [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:nil andFailureBlock:nil];
-        
-    } else {
-        // No, display the login page.
-        [self showLoginView];
+        [self showTutorialController];
+        [self.window makeKeyAndVisible];
+        return YES;
     }
     
-    [self.window makeKeyAndVisible];
-    
+    [self checkFacebookSessionAtTheAppLaunch];
     return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [FBSession.activeSession handleDidBecomeActive];
+    [FBAppEvents activateApp];
+    [FBAppCall handleDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -122,71 +93,23 @@
         }
     }
 }
-
-#pragma mark - Switch View Controllers
-
-- (void)showHomeViewController
-{
-    IIViewDeckController *deckController = [self generateControllerStack];
-    self.leftController = deckController.leftController;
-    self.centerController = deckController.centerController;
-    self.navController = (TMENavigationViewController *)deckController.centerController;
-    
-    // config tabbar appear
-    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar-background"];
-    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-
-    [self switchRootViewController:deckController animated:YES completion:^{
-        
-#warning HAVE TO VERIFY THIS FLOW
-        
-        // if signup FB already
-        if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-            //Some settings may be added later.
-            [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
-        }
-    }];
-    
-    [self.window makeKeyAndVisible];
-}
-
-- (void)showTutorialController
-{
-    [self switchRootViewController:[[TMETutorialViewController alloc] init] animated:YES completion:nil];
-}
-
-- (void)switchRootViewController:(UIViewController *)viewController animated:(BOOL)animated completion:(void (^)())completion
-{
-  if (animated) {
-    [UIView transitionWithView:self.window duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-      BOOL oldState = [UIView areAnimationsEnabled];
-      [UIView setAnimationsEnabled:NO];
-      self.window.rootViewController = viewController;
-      [UIView setAnimationsEnabled:oldState];
-    } completion:^(BOOL finished) {
-      if (completion) completion();
-    }];
-  } else {
-    self.window.rootViewController = viewController;
-    if (completion) completion();
-  }
-}
+#pragma mark - Generate ViewController stack
 
 - (IIViewDeckController*)generateControllerStack {
-  
-  TMELeftMenuViewController* leftController = [[TMELeftMenuViewController alloc] init];
-  
-  // Set up ViewDeck central
-  TMEViewController *rootVC = [[TMEViewController alloc] init];
     
-  IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:rootVC leftViewController:leftController];
-  
-  [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
-  [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
-  
-  deckController.rightSize = 60;
-  
-  return deckController;
+    TMELeftMenuViewController* leftController = [[TMELeftMenuViewController alloc] init];
+    
+    // Set up ViewDeck central
+    TMEViewController *rootVC = [[TMEViewController alloc] init];
+    
+    IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:rootVC leftViewController:leftController];
+    
+    [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
+    [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
+    
+    deckController.rightSize = 60;
+    
+    return deckController;
 }
 
 #pragma mark - Core Data stack
@@ -232,29 +155,6 @@
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-         
-         Typical reasons for an error here include:
-         * The persistent store is not accessible;
-         * The schema for the persistent store is incompatible with current managed object model.
-         Check the error message to determine what the actual problem was.
-         
-         
-         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-         
-         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-         * Simply deleting the existing store:
-         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-         
-         * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
-         @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
-         
-         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-         
-         */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
@@ -273,6 +173,33 @@
 
 #pragma mark - Facebook
 
+- (void)checkFacebookSessionAtTheAppLaunch
+{
+    // Facebook Stuffs
+    [FBLoginView class];
+    [FacebookManager sharedInstance].delegate = (id) self;
+    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+        [self openSession];
+        
+        [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *user) {
+            [self showHomeViewController];
+        } andFailureBlock:^(NSInteger statusCode, id obj) {
+            [SVProgressHUD showErrorWithStatus:@"Something went wrongly, please try again."];
+        }];
+        
+    } else {
+        // No, display the login page.
+        [self showLoginView];
+    }
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+}
+
 - (void)openSession
 {
     [[FacebookManager sharedInstance] openSession];
@@ -282,22 +209,67 @@
 {
     TMELoginViewController* loginViewController = [[TMELoginViewController alloc]init];
     [self.navController presentViewController:loginViewController animated:NO completion:^{
-      //Some settings may be added later.
+        //Some settings may be added later.
     }];
 }
 
-#pragma marks - Google Analytics
+#pragma mark - Google Analytics
 - (void)setUpGoogleAnalytics
 {
-    // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
-    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
     [GAI sharedInstance].dispatchInterval = 20;
-    // Optional: set debug to YES for extra debugging information.
     [GAI sharedInstance].debug = YES;
-    // Create tracker instance.
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_APP_KEY];
+    id<GAITracker> tracker = (id) [[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_APP_KEY];
     [GAI sharedInstance].debug = YES;
+}
+
+#pragma mark - ViewController change helpers
+- (void)switchRootViewController:(UIViewController *)viewController animated:(BOOL)animated completion:(void (^)())completion
+{
+    if (animated) {
+        [UIView transitionWithView:self.window duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+            BOOL oldState = [UIView areAnimationsEnabled];
+            [UIView setAnimationsEnabled:NO];
+            self.window.rootViewController = viewController;
+            [UIView setAnimationsEnabled:oldState];
+        } completion:^(BOOL finished) {
+            if (completion) completion();
+        }];
+    } else {
+        self.window.rootViewController = viewController;
+        if (completion) completion();
+    }
+}
+
+#pragma mark - Switch View Controllers
+
+- (void)showHomeViewController
+{
+    IIViewDeckController *deckController = [self generateControllerStack];
+    self.leftController = deckController.leftController;
+    self.centerController = deckController.centerController;
+    self.navController = (TMENavigationViewController *)deckController.centerController;
+    
+    // config tabbar appear
+    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar-background"];
+    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    
+    [self switchRootViewController:deckController animated:YES completion:^{
+        
+        // if signup FB already
+        if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+            //Some settings may be added later.
+            [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
+        }
+        
+    }];
+    
+    [self.window makeKeyAndVisible];
+}
+
+- (void)showTutorialController
+{
+    [self switchRootViewController:[[TMETutorialViewController alloc] init] animated:YES completion:nil];
 }
 
 @end

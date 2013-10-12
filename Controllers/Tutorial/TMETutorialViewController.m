@@ -93,6 +93,7 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
 {
   [[AppDelegate sharedDelegate] showHomeViewController];
   [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:TUTORIAL_HAS_BEEN_PRESENTED];
+    [[AppDelegate sharedDelegate] showLoginView];
 }
 
 #pragma mark iCarousel methods

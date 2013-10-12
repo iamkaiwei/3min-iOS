@@ -99,7 +99,6 @@ UIScrollViewDelegate
         self.navigationController.navigationBar.top = -deltaHeight;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:ANIMATION_DURATION delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            [[self navigationController] setNavigationBarHidden:YES animated:NO];
         } completion:nil];
     }];
     return YES;
@@ -111,12 +110,12 @@ UIScrollViewDelegate
         return NO;
     
     self.tableProducts.height -= 44;
-    self.tableProducts.top =  0;
     
     [UIView animateWithDuration:ANIMATION_DURATION delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.navigationController.navigationBar.top = 0;
-        [[self navigationController] setNavigationBarHidden:NO animated:NO];
-    } completion:nil];
+        self.tableProducts.top =  0;
+    } completion:^(BOOL finish){
+    }];
     return YES;
 }
 

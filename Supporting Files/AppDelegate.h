@@ -17,6 +17,7 @@
 + (AppDelegate *)sharedDelegate;
 
 - (void)showHomeViewController;
+- (void)showLoginView;
 
 // Facebook stuff
 - (void)openSession;
