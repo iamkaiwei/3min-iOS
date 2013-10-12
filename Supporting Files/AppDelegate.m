@@ -219,7 +219,7 @@
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     [GAI sharedInstance].dispatchInterval = 20;
     [GAI sharedInstance].debug = YES;
-    id<GAITracker> tracker = (id) [[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_APP_KEY];
+    [[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_APP_KEY];
     [GAI sharedInstance].debug = YES;
 }
 
