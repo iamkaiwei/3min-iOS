@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TMETutorialViewController.h"
-#import "TMEViewController.h"
+#import "TMEHomeViewController.h"
 #import "TMEUserManager.h"
 #import "GAI.h"
 
@@ -100,7 +100,7 @@
     TMELeftMenuViewController* leftController = [[TMELeftMenuViewController alloc] init];
     
     // Set up ViewDeck central
-    TMEViewController *rootVC = [[TMEViewController alloc] init];
+    TMEHomeViewController *rootVC = [[TMEHomeViewController alloc] init];
     
     IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:rootVC leftViewController:leftController];
     

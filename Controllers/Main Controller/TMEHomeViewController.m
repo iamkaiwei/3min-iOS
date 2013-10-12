@@ -1,4 +1,3 @@
-//    UIViewController * rootVC = [[UIViewController alloc] init];
 //
 //  ViewController.m
 //  PhotoButton
@@ -15,7 +14,7 @@ typedef NS_ENUM(NSInteger, TMETabbarButtonType){
     TMETabbarButtonTypeMe       = 4
 };
 
-#import "TMEViewController.h"
+#import "TMEHomeViewController.h"
 #import "TMEPublishProductViewController.h"
 #import "TMEBrowserProductsViewController.h"
 #import "TMEPhotoButton.h"
@@ -25,7 +24,7 @@ typedef NS_ENUM(NSInteger, TMETabbarButtonType){
 #import "TMELoginViewController.h"
 #import "PBImageHelper.h"
 
-@interface TMEViewController ()
+@interface TMEHomeViewController ()
 <
 AFPhotoEditorControllerDelegate,
 UITabBarDelegate,
@@ -36,7 +35,7 @@ UIImagePickerControllerDelegate
 
 @end
 
-@implementation TMEViewController
+@implementation TMEHomeViewController
 
 - (void)viewDidLoad
 {

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class TMEViewController;
+@class TMEHomeViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
