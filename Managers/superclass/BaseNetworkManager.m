@@ -429,6 +429,8 @@ SINGLETON_MACRO
     
     NSMutableURLRequest *request = [self.httpClient requestWithMethod:GET_METHOD path:path parameters:parameters];
     
+    DLog(@"Send timestamp %f", [[NSDate date] timeIntervalSince1970]);
+    
     [self sendRequest:request success:^(NSHTTPURLResponse *response, id responseObject) {
         
         //DLog(@"%@", responseObject);
@@ -446,6 +448,8 @@ SINGLETON_MACRO
         {
             rawArray = (NSArray*)responseObject;
         }
+        
+        DLog(@"Receive timestamp %f", [[NSDate date] timeIntervalSince1970]);
         
         if (success)
             success(responseObject);

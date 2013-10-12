@@ -54,7 +54,6 @@ UIScrollViewDelegate
     NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
     [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onFinishLogin:) name:NOTIFICATION_FINISH_LOGIN object:nil];    
     [self loadProductsTable];
     
     self.scrollViewLastContentOffset = CGPointMake(0, 44);
@@ -137,13 +136,7 @@ UIScrollViewDelegate
     return [TMEBrowserProductsTableCell getHeight];
 }
 
-- (void)onFinishLogin:(TMEUser *)user
-{
-    [self loadProductsTable];
-}
-
 - (void)loadProductsTable{
-    [SVProgressHUD dismiss];
     
     [SVProgressHUD showWithStatus:@"Loading content..." maskType:SVProgressHUDMaskTypeGradient];
     [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {

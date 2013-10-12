@@ -20,12 +20,13 @@ SINGLETON_MACRO
                                                           methodAPI:GET_METHOD
                                                            parentId:nil
                                                     withParentClass:nil
-                                                            success:^(NSMutableArray *objectsArray) {
-                                                                
-                                                                NSArray *arrProducts = [TMEProduct arrayProductsFromArray:objectsArray];
-                                                                
-                                                                if (successBlock)
-                                                                    successBlock(arrProducts);
+                                                            success:^(NSMutableArray *objectsArray)
+    {
+        
+        NSArray *arrProducts = [TMEProduct arrayProductsFromArray:objectsArray];
+        
+        if (successBlock)
+            successBlock(arrProducts);
     } failure:^(NSError *error) {
         if (failureBlock)
             failureBlock(error.code ,error);

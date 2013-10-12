@@ -91,9 +91,18 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
 
 - (void)closeTutorial
 {
-  [[AppDelegate sharedDelegate] showHomeViewController];
-  [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:TUTORIAL_HAS_BEEN_PRESENTED];
-    [[AppDelegate sharedDelegate] showLoginView];
+    [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:TUTORIAL_HAS_BEEN_PRESENTED];
+    
+    [[AppDelegate sharedDelegate] showHomeViewController];
+    
+//    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+//        [[AppDelegate sharedDelegate] openSession];
+//        [[AppDelegate sharedDelegate] showHomeViewController];
+//        
+//    } else {
+//        // No, display the login page.
+//        [[AppDelegate sharedDelegate] showLoginView];
+//    }
 }
 
 #pragma mark iCarousel methods

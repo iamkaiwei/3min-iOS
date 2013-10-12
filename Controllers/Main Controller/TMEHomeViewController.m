@@ -89,28 +89,25 @@ UIImagePickerControllerDelegate
 
 - (void)addDummy1Button
 {
-    TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
-    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserVC];
-
-    [self addViewController:navigationViewController
+    UIViewController *browserVC = [[UIViewController alloc] init];
+    
+    [self addViewController:browserVC
                withIconName:@"tabbar-search-icon"];
 }
 
 - (void)addDummy2Button
 {
-    TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
-    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserVC];
+    UIViewController *browserVC = [[UIViewController alloc] init];
 
-    [self addViewController:navigationViewController
+    [self addViewController:browserVC
                withIconName:@"tabbar-activity-icon"];
 }
 
 - (void)addDummy3Button
 {
-    TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
-    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserVC];
+    UIViewController *browserVC = [[UIViewController alloc] init];
     
-    [self addViewController:navigationViewController
+    [self addViewController:browserVC
                withIconName:@"tabbar-me-icon"];
 }
 

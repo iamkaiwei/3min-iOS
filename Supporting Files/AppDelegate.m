@@ -185,7 +185,6 @@
     [FacebookManager sharedInstance].delegate = (id) self;
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         [self openSession];
-        
         [self showHomeViewController];
         
     } else {
@@ -209,9 +208,10 @@
 - (void)showLoginView
 {
     TMELoginViewController* loginViewController = [[TMELoginViewController alloc]init];
-    [self.centerController presentViewController:loginViewController animated:NO completion:^{
-        //Some settings may be added later.
-    }];
+    [self switchRootViewController:loginViewController animated:YES completion:^{
+        
+    }];    
+    [self.window makeKeyAndVisible];
 }
 
 #pragma mark - Google Analytics
@@ -252,6 +252,11 @@
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar-background"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
     
+    if (![[TMEUserManager sharedInstance] loggedUser]) {
+        [self showLoginView];
+        return;
+    }
+    
     [self switchRootViewController:deckController animated:YES completion:^{
         
         // if signup FB already
@@ -259,10 +264,8 @@
             //Some settings may be added later.
             [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
         }
-        
     }];
     
-    [self.window makeKeyAndVisible];
 }
 
 - (void)showTutorialController

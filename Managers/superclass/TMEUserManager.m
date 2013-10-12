@@ -8,6 +8,11 @@
 
 #import "TMEUserManager.h"
 
+static NSString * const LAST_LOGIN_TIMESTAMP_STORED_KEY     = @"LAST_LOGIN_TIMESTAMP_STORED_KEY";
+static NSString * const LAST_LOGIN_FACEBOOK_TOKEN           = @"LAST_LOGIN_FACEBOOK_TOKEN";
+static NSString * const LAST_LOGIN_ACCESS_TOKEN             = @"LAST_LOGIN_ACCESS_TOKEN";
+static double const AVAIABLE_TOKEN_TIME_TO_EXPIRED           = 7200000;
+
 @interface TMEUserManager()
 
 @property (assign, nonatomic) BOOL                              isLogging;
@@ -70,6 +75,23 @@ SINGLETON_MACRO
         return;
     }
     
+    if (![self isAccessTokenExpired]) {
+        TMEUser *user = [TMEUser MR_createEntity];
+        user.access_token = [self getAccessTokenFromStore];
+        
+        if (successBlock) {
+            successBlock(user);
+        }
+    }
+    
+    [self sendNewLoginRequestWithSuccessBlock:successBlock
+                              andFailureBlock:failureBlock];
+    
+}
+
+- (void)sendNewLoginRequestWithSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock
+                            andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
+{
     self.isLogging = YES;
     
     NSDictionary *params = @{
@@ -84,8 +106,11 @@ SINGLETON_MACRO
     [[BaseNetworkManager sharedInstance] sendRequestForPath:path parameters:params method:POST_METHOD success:^(NSHTTPURLResponse *response, id responseObject) {
         
         TMEUser *user = [TMEUser MR_createEntity];
-        if (responseObject)
+        if (responseObject){
             user = [TMEUser userByFacebookDictionary:responseObject];
+            [self storeLastLoginWithFacebookToken:[self getFacebookToken]
+                                      accessToken:user.access_token];
+        }
         
         [self setLoggedUser:user andFacebookUser:nil];
         
@@ -105,7 +130,6 @@ SINGLETON_MACRO
         self.isLogging = NO;
         
     }];
-    
 }
 
 #pragma marks - Fake functions to handle users stuffs
@@ -125,6 +149,67 @@ SINGLETON_MACRO
         return [user.id intValue] + 1;
     }
     return 1;
+}
+
+#pragma mark - Improve login flow
+- (BOOL)storeLastLoginWithFacebookToken:(NSString *)facebookToken
+                            accessToken:(NSString *)accessToken
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:facebookToken forKey:LAST_LOGIN_FACEBOOK_TOKEN];
+    [defaults setObject:accessToken forKey:LAST_LOGIN_ACCESS_TOKEN];
+    [self storeTheLastLoginTimeStampWithtTimeIntervalSinceNow];
+    return YES;
+}
+- (BOOL)isAccessTokenExpired
+{
+    NSTimeInterval currentTimeStamp = [[NSDate date] timeIntervalSince1970];
+    
+    NSTimeInterval lastLoginTimeStamp = [self getLastLoginTimestamp] + AVAIABLE_TOKEN_TIME_TO_EXPIRED;
+    
+    if (currentTimeStamp > lastLoginTimeStamp)
+        return YES;
+    
+    return NO;
+}
+
+- (BOOL)storeTheLastLoginTimeStampWithtTimeIntervalSinceNow
+{
+    NSString *stringTimeStamp = [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:stringTimeStamp forKey:LAST_LOGIN_TIMESTAMP_STORED_KEY];
+    
+    return YES;
+}
+
+- (NSTimeInterval)getLastLoginTimestamp
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *stringTimeStamp = [defaults objectForKey:LAST_LOGIN_TIMESTAMP_STORED_KEY];
+    if ([stringTimeStamp isEqualToString:@""]) {
+        return NSTimeIntervalSince1970;
+    }
+    
+    NSTimeInterval lastLoginTimestamp = [stringTimeStamp doubleValue];
+    return lastLoginTimestamp;
+}
+
+- (NSString *)getFacebookTokenFromStore
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *facebookTokenString = [defaults objectForKey:LAST_LOGIN_FACEBOOK_TOKEN];
+    return facebookTokenString;
+}
+
+- (NSString *)getAccessTokenFromStore
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *accessToken = [defaults objectForKey:LAST_LOGIN_ACCESS_TOKEN];
+    return accessToken;
 }
 
 @end
