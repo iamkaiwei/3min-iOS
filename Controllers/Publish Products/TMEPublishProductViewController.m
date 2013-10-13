@@ -17,12 +17,12 @@ UITextFieldDelegate,
 TMEPhotoButtonDelegate
 >
 
-@property (assign, nonatomic) BOOL                  isEditing;
-@property (strong, nonatomic) TMEPhotoButton     * currentPhotoButton;
-@property (weak, nonatomic) IBOutlet UITextField *txtProductName;
-@property (strong, nonatomic) IBOutlet UITextField *txtCategoryName;
-@property (weak, nonatomic) IBOutlet UITextField *txtProductDetails;
-@property (weak, nonatomic) IBOutlet UITextField *txtProductPrice;
+@property (assign, nonatomic) BOOL                    isEditing;
+@property (strong, nonatomic) TMEPhotoButton        * currentPhotoButton;
+@property (weak, nonatomic) IBOutlet UITextField    * txtProductName;
+@property (strong, nonatomic) IBOutlet UITextField  * txtCategoryName;
+@property (weak, nonatomic) IBOutlet UITextField    * txtProductDetails;
+@property (weak, nonatomic) IBOutlet UITextField    * txtProductPrice;
 
 
 @end
@@ -103,10 +103,8 @@ TMEPhotoButtonDelegate
 }
 
 # pragma marks - Actions
-- (IBAction)onPublishButton:(id)sender {
-    
-    [self dismissKeyboard];
-    
+- (TMEProduct *)getTheInputProductFromForm
+{
     // create dummy user
     TMEUser *user = [TMEUser MR_createEntity];
     user.name = @"Trieu Khang";
@@ -135,14 +133,17 @@ TMEPhotoButtonDelegate
             [arrImages addObject:image];
         }
     }
-    
     NSSet *setImages = [NSSet setWithArray:arrImages];
     product.images = setImages;
     
-    NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
-    [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
-        DLog(@"Finish save to magical record");
-    }];
+    return product;
+}
+
+- (IBAction)onPublishButton:(id)sender {
+    
+    [self dismissKeyboard];
+    
+    TMEProduct *product = [self getTheInputProductFromForm];
     
     NSDictionary *params = @{@"user_id": @1,
                              @"name": @"Product 1",
@@ -157,7 +158,7 @@ TMEPhotoButtonDelegate
                                                                   method:POST_METHOD
                                                constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
     {
-        for (TMEProductImages *image in [setImages allObjects]) {
+        for (TMEProductImages *image in [product.images allObjects]) {
             UIImage *img = [PBImageHelper loadImageFromDocuments:image.url];
             NSData *imageData = UIImageJPEGRepresentation(img, 0.5);
             [formData appendPartWithFileData:imageData name:@"images[]" fileName:image.url mimeType:@"image/jpeg"];
@@ -192,22 +193,6 @@ TMEPhotoButtonDelegate
 }
 
 #pragma marks - Helper methods
-
-- (void)showProgressWithPercent:(NSNumber *)percent
-{
-    float percentage = [percent floatValue];
-    percentage *= 100;
-	
-	while (percentage <= 200.0)
-	{
-		[self.navigationController setSGProgressPercentage:percentage];
-		if(percentage >= 100.0)
-		{
-            [self.navigationController finishSGProgress];
-			return;
-		}
-	}
-}
 
 - (TMEPhotoButton *)getFirstPhotoButton
 {
