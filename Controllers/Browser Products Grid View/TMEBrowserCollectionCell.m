@@ -10,12 +10,13 @@
 
 @implementation TMEBrowserCollectionCell
 
-- (id)initWithFrame:(CGRect)frame
+- (id)init
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
-        // Initialization code
+        self.backgroundColor = [UIColor whiteColor];
     }
+    
     return self;
 }
 

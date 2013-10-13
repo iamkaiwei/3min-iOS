@@ -231,10 +231,10 @@
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
-		B420222F180A83F900F62FF0 /* TMEBrowserCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B420222D180A83F900F62FF0 /* TMEBrowserCollectionViewController.m */; };
-		B4202230180A83F900F62FF0 /* TMEBrowserCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B420222E180A83F900F62FF0 /* TMEBrowserCollectionViewController.xib */; };
 		B4202233180A842500F62FF0 /* TMEBrowserCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4202232180A842500F62FF0 /* TMEBrowserCollectionCell.m */; };
 		B4202235180A844F00F62FF0 /* TMEBrowserCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4202234180A844F00F62FF0 /* TMEBrowserCollectionCell.xib */; };
+		B4E9664B180AE4DA004A6530 /* TMEBrowserCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E96649180AE4DA004A6530 /* TMEBrowserCollectionViewController.m */; };
+		B4E9664C180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4E9664A180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -599,12 +599,12 @@
 		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B420222C180A83F900F62FF0 /* TMEBrowserCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserCollectionViewController.h; sourceTree = "<group>"; };
-		B420222D180A83F900F62FF0 /* TMEBrowserCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserCollectionViewController.m; sourceTree = "<group>"; };
-		B420222E180A83F900F62FF0 /* TMEBrowserCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserCollectionViewController.xib; sourceTree = "<group>"; };
 		B4202231180A842500F62FF0 /* TMEBrowserCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserCollectionCell.h; sourceTree = "<group>"; };
 		B4202232180A842500F62FF0 /* TMEBrowserCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserCollectionCell.m; sourceTree = "<group>"; };
 		B4202234180A844F00F62FF0 /* TMEBrowserCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserCollectionCell.xib; sourceTree = "<group>"; };
+		B4E96648180AE4DA004A6530 /* TMEBrowserCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserCollectionViewController.h; sourceTree = "<group>"; };
+		B4E96649180AE4DA004A6530 /* TMEBrowserCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserCollectionViewController.m; sourceTree = "<group>"; };
+		B4E9664A180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserCollectionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1399,9 +1399,9 @@
 		B420222B180A83BC00F62FF0 /* Browser Products Grid View */ = {
 			isa = PBXGroup;
 			children = (
-				B420222C180A83F900F62FF0 /* TMEBrowserCollectionViewController.h */,
-				B420222D180A83F900F62FF0 /* TMEBrowserCollectionViewController.m */,
-				B420222E180A83F900F62FF0 /* TMEBrowserCollectionViewController.xib */,
+				B4E96648180AE4DA004A6530 /* TMEBrowserCollectionViewController.h */,
+				B4E96649180AE4DA004A6530 /* TMEBrowserCollectionViewController.m */,
+				B4E9664A180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib */,
 				B4202231180A842500F62FF0 /* TMEBrowserCollectionCell.h */,
 				B4202232180A842500F62FF0 /* TMEBrowserCollectionCell.m */,
 				B4202234180A844F00F62FF0 /* TMEBrowserCollectionCell.xib */,
@@ -1499,11 +1499,11 @@
 				0C59551F17F743260076353E /* tabbar-sell-icon.png in Resources */,
 				0CAE978F17E76635003A22CA /* InfoPlist.strings in Resources */,
 				0C59551817F743260076353E /* tabbar-background@2x.png in Resources */,
-				B4202230180A83F900F62FF0 /* TMEBrowserCollectionViewController.xib in Resources */,
 				0CFC0FF917ECBA3F008FBD92 /* bt_fb_signin_normal@2x.png in Resources */,
 				0C5954EE17F6BDDD0076353E /* category-list-icon@2x.png in Resources */,
 				0C43CCB917F5E93D00D869F9 /* TMENavigationViewController.xib in Resources */,
 				0C59551517F743260076353E /* tabbar-activity-icon.png in Resources */,
+				B4E9664C180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib in Resources */,
 				0C43CCAD17F5D29A00D869F9 /* follow-button@2x.png in Resources */,
 				0C5954F417F6BDDD0076353E /* simple-view-icon@2x.png in Resources */,
 				0C43CCAA17F5D29A00D869F9 /* comment-button.png in Resources */,
@@ -1555,6 +1555,7 @@
 				0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */,
 				0C2F789317F2DBA600201783 /* SDWebImagePrefetcher.m in Sources */,
 				0C2F789817F2DBA600201783 /* UIImageView+WebCache.m in Sources */,
+				B4E9664B180AE4DA004A6530 /* TMEBrowserCollectionViewController.m in Sources */,
 				0C7EFBC617E8D5170054C4DE /* MKMapView+Additions.m in Sources */,
 				0C7053C917EF5E5E00E7615F /* TMEProductImages.m in Sources */,
 				0CD9CF5D17EA0FD400402E91 /* AFURLConnectionOperation.m in Sources */,
@@ -1637,7 +1638,6 @@
 				0C7EFB6617E768C70054C4DE /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				20C4D5E017F725D40035BCA5 /* TMETutorialViewController.m in Sources */,
 				0CFC100017ECBE06008FBD92 /* TMELoginViewController.m in Sources */,
-				B420222F180A83F900F62FF0 /* TMEBrowserCollectionViewController.m in Sources */,
 				0C5954FC17F711200076353E /* IISideController.m in Sources */,
 				0C7EFBC517E8D5170054C4DE /* ISO8601DateFormatter.m in Sources */,
 				20A10FCD17F80FA200471983 /* TMECategoryManager.m in Sources */,
@@ -1749,7 +1749,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1777,7 +1777,7 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
