@@ -139,6 +139,7 @@ UIScrollViewDelegate
 - (void)loadProductsTable{
     
     [SVProgressHUD showWithStatus:@"Loading content..." maskType:SVProgressHUDMaskTypeGradient];
+    
     [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
         
         self.arrProducts = [arrProducts mutableCopy];

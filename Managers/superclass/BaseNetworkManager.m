@@ -79,33 +79,15 @@ SINGLETON_MACRO
     NSString *access_token = [[TMEUserManager sharedInstance] getAccessToken];
     NSString *facebook_id = [[TMEUserManager sharedInstance] getFacebookID];
     
-    if ([facebook_token length] > 0 && [access_token length] > 0 && [facebook_id length] > 0)
-    {
+    if ([facebook_token length] > 0 && [access_token length] > 0)
         [dict setObject:facebook_token forKey:@"fb_token"];
+    
+    if ([access_token length] > 0) {
         [dict setObject:access_token forKey:@"access_token"];
+    }
+    if ([facebook_id length] > 0) {
         [dict setObject:facebook_id forKey:@"fb_id"];
     }
-    
-    // if dont loggin
-    else
-    {
-        //    //client_id
-        //    NSString *client_id = [[BaseStorageManager sharedInstance] getSettingStringValueWithKey:SETTINGS_CLIENT_ID
-        //                                                                               defaultValue:SETTINGS_CLIENT_ID_DEFAULT];
-        //    if ([client_id length] > 0)
-        //      [dict setObject:client_id forKey:@"client_id"];
-        //
-        //    //client_secret
-        //    NSString *client_secret = [[BaseStorageManager sharedInstance] getSettingStringValueWithKey:SETTINGS_CLIENT_SECRET
-        //                                                                                   defaultValue:SETTINGS_CLIENT_SECRET_DEFAULT];
-        //    if ([client_secret length] > 0)
-        //      [dict setObject:client_secret forKey:@"client_secret"];
-    }
-    
-    //app version
-//    NSString * version = APP_VERSION;
-//    if ([version length] > 0)
-//        [dict setObject:version forKey:@"ver"];
     
     return dict;
 }

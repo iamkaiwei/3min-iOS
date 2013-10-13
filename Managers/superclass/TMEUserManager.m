@@ -11,7 +11,7 @@
 static NSString * const LAST_LOGIN_TIMESTAMP_STORED_KEY     = @"LAST_LOGIN_TIMESTAMP_STORED_KEY";
 static NSString * const LAST_LOGIN_FACEBOOK_TOKEN           = @"LAST_LOGIN_FACEBOOK_TOKEN";
 static NSString * const LAST_LOGIN_ACCESS_TOKEN             = @"LAST_LOGIN_ACCESS_TOKEN";
-static double const AVAIABLE_TOKEN_TIME_TO_EXPIRED           = 7200000;
+static double const AVAIABLE_TOKEN_TIME_TO_EXPIRED           = 7200;
 
 @interface TMEUserManager()
 
@@ -82,6 +82,8 @@ SINGLETON_MACRO
         if (successBlock) {
             successBlock(user);
         }
+        
+        return;
     }
     
     [self sendNewLoginRequestWithSuccessBlock:successBlock
