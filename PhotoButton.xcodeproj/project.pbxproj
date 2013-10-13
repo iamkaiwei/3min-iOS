@@ -231,6 +231,10 @@
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
+		B420222F180A83F900F62FF0 /* TMEBrowserCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B420222D180A83F900F62FF0 /* TMEBrowserCollectionViewController.m */; };
+		B4202230180A83F900F62FF0 /* TMEBrowserCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B420222E180A83F900F62FF0 /* TMEBrowserCollectionViewController.xib */; };
+		B4202233180A842500F62FF0 /* TMEBrowserCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4202232180A842500F62FF0 /* TMEBrowserCollectionCell.m */; };
+		B4202235180A844F00F62FF0 /* TMEBrowserCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4202234180A844F00F62FF0 /* TMEBrowserCollectionCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -595,6 +599,12 @@
 		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B420222C180A83F900F62FF0 /* TMEBrowserCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserCollectionViewController.h; sourceTree = "<group>"; };
+		B420222D180A83F900F62FF0 /* TMEBrowserCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserCollectionViewController.m; sourceTree = "<group>"; };
+		B420222E180A83F900F62FF0 /* TMEBrowserCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserCollectionViewController.xib; sourceTree = "<group>"; };
+		B4202231180A842500F62FF0 /* TMEBrowserCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserCollectionCell.h; sourceTree = "<group>"; };
+		B4202232180A842500F62FF0 /* TMEBrowserCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserCollectionCell.m; sourceTree = "<group>"; };
+		B4202234180A844F00F62FF0 /* TMEBrowserCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserCollectionCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -734,6 +744,7 @@
 				0CFC0FFC17ECBAAE008FBD92 /* Login Page */,
 				0C6E068B17E0CBF60003F104 /* Main Controller */,
 				0CFC0FE317ECB690008FBD92 /* Browser Products */,
+				B420222B180A83BC00F62FF0 /* Browser Products Grid View */,
 				0CFC0FD717ECB66E008FBD92 /* Product Details */,
 				0C2CE1B817EAEAC20074C57F /* Publish Products */,
 				0C5954FF17F711A90076353E /* Left Menu  */,
@@ -1385,6 +1396,19 @@
 			path = PhotoButton;
 			sourceTree = "<group>";
 		};
+		B420222B180A83BC00F62FF0 /* Browser Products Grid View */ = {
+			isa = PBXGroup;
+			children = (
+				B420222C180A83F900F62FF0 /* TMEBrowserCollectionViewController.h */,
+				B420222D180A83F900F62FF0 /* TMEBrowserCollectionViewController.m */,
+				B420222E180A83F900F62FF0 /* TMEBrowserCollectionViewController.xib */,
+				B4202231180A842500F62FF0 /* TMEBrowserCollectionCell.h */,
+				B4202232180A842500F62FF0 /* TMEBrowserCollectionCell.m */,
+				B4202234180A844F00F62FF0 /* TMEBrowserCollectionCell.xib */,
+			);
+			path = "Browser Products Grid View";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1458,6 +1482,7 @@
 				0C43CCAC17F5D29A00D869F9 /* follow-button.png in Resources */,
 				0CFC100117ECBE06008FBD92 /* TMELoginViewController.xib in Resources */,
 				0C59551B17F743260076353E /* tabbar-me-icon.png in Resources */,
+				B4202235180A844F00F62FF0 /* TMEBrowserCollectionCell.xib in Resources */,
 				0C6E069217E0CBF60003F104 /* TMEHomeViewController.xib in Resources */,
 				0C43CC9C17F5CC4A00D869F9 /* arrow-down@2x.png in Resources */,
 				0C59551917F743260076353E /* tabbar-browser-icon.png in Resources */,
@@ -1474,6 +1499,7 @@
 				0C59551F17F743260076353E /* tabbar-sell-icon.png in Resources */,
 				0CAE978F17E76635003A22CA /* InfoPlist.strings in Resources */,
 				0C59551817F743260076353E /* tabbar-background@2x.png in Resources */,
+				B4202230180A83F900F62FF0 /* TMEBrowserCollectionViewController.xib in Resources */,
 				0CFC0FF917ECBA3F008FBD92 /* bt_fb_signin_normal@2x.png in Resources */,
 				0C5954EE17F6BDDD0076353E /* category-list-icon@2x.png in Resources */,
 				0C43CCB917F5E93D00D869F9 /* TMENavigationViewController.xib in Resources */,
@@ -1549,6 +1575,7 @@
 				0C7EFB5D17E768C70054C4DE /* NSString+MagicalDataImport.m in Sources */,
 				0C7EFB7F17E8D2ED0054C4DE /* SVProgressHUD.m in Sources */,
 				0C6E06A517E0CCD10003F104 /* TMEBaseTableViewController.m in Sources */,
+				B4202233180A842500F62FF0 /* TMEBrowserCollectionCell.m in Sources */,
 				0C7EFB5A17E768C70054C4DE /* NSNumber+MagicalDataImport.m in Sources */,
 				0C7EFBD417E8D5170054C4DE /* UIBezierPath-Points.m in Sources */,
 				0C2F788C17F2DBA600201783 /* NSData+GIF.m in Sources */,
@@ -1610,6 +1637,7 @@
 				0C7EFB6617E768C70054C4DE /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				20C4D5E017F725D40035BCA5 /* TMETutorialViewController.m in Sources */,
 				0CFC100017ECBE06008FBD92 /* TMELoginViewController.m in Sources */,
+				B420222F180A83F900F62FF0 /* TMEBrowserCollectionViewController.m in Sources */,
 				0C5954FC17F711200076353E /* IISideController.m in Sources */,
 				0C7EFBC517E8D5170054C4DE /* ISO8601DateFormatter.m in Sources */,
 				20A10FCD17F80FA200471983 /* TMECategoryManager.m in Sources */,
