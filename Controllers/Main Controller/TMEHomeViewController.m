@@ -81,8 +81,8 @@ UIImagePickerControllerDelegate
 
 - (void)addBrowserProductTab
 {
-//    TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
-    TMEBrowserCollectionViewController *browserVC = [[TMEBrowserCollectionViewController alloc] init];
+    TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
+//    TMEBrowserCollectionViewController *browserVC = [[TMEBrowserCollectionViewController alloc] init];
     TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserVC];
 
     [self addViewController:navigationViewController

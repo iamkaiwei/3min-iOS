@@ -7,6 +7,8 @@
 //
 
 #import "TMEBaseViewController.h"
+#import "TMEBrowserCollectionViewController.h"
+#import "TMEBrowserProductsViewController.h"
 
 #define DEFAULT_KEYBOARD_HEIGHT   216
 
@@ -445,6 +447,16 @@
     
 }
 
+- (UIBarButtonItem *)rightNavigationButton{
+    // Nav right button
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setImage:[UIImage imageNamed:@"grid-view-icon"] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(onBtnGridView:) forControlEvents:UIControlEventTouchUpInside];
+    rightButton.frame = CGRectMake(0, 0, 40, 30);
+    
+    return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+}
+
 #pragma marks - Some VC stuffs
 - (void)addNavigationItems
 {
@@ -463,13 +475,19 @@
     UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.leftBarButtonItem = leftButtonItem;
     
-    // Nav right button
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightButton setImage:[UIImage imageNamed:@"grid-view-icon"] forState:UIControlStateNormal];
-    [rightButton addTarget:self.viewDeckController action:@selector(toggleRightView) forControlEvents:UIControlEventTouchUpInside];
-    rightButton.frame = CGRectMake(0, 0, 40, 30);
-    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    UIBarButtonItem *rightButtonItem = [self rightNavigationButton];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
+}
+
+- (void)onBtnGridView:(id)sender
+{
+    if ([NSStringFromClass([self class]) isEqualToString:@"TMEBrowserCollectionViewController"]) {
+        [self.navigationController popToRootViewControllerAnimated:NO];
+    }
+    else{
+        TMEBrowserCollectionViewController *browser = [[TMEBrowserCollectionViewController alloc] init];
+        [self.navigationController pushViewController:browser animated:NO];
+    }
 }
 
 - (void)onBtnBack

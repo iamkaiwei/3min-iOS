@@ -10,8 +10,14 @@
 #import "TMEBrowserCollectionCell.h"
 
 @interface TMEBrowserCollectionViewController ()
-<UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+<
+UITextFieldDelegate,
+UICollectionViewDataSource,
+UICollectionViewDelegateFlowLayout
+>
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionProductsView;
+@property (strong, nonatomic) NSArray *arrayProducts;
 
 @end
 
@@ -22,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.collectionProductsView registerClass:[TMEBrowserCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([TMEBrowserCollectionCell class])];
+    [self.collectionProductsView registerNib:[TMEBrowserCollectionCell defaultNib] forCellWithReuseIdentifier:NSStringFromClass([TMEBrowserCollectionCell class])];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setItemSize:CGSizeMake(150, 190)];
@@ -30,6 +36,9 @@
     
     self.collectionProductsView.collectionViewLayout = flowLayout;
     self.collectionProductsView.backgroundColor = [UIColor grayColor];
+    
+    [self loadProductsTable];
+    
 }
 
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
@@ -38,13 +47,16 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return [self.arrayProducts count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TMEBrowserCollectionCell *cell = [self.collectionProductsView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TMEBrowserCollectionCell class]) forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
+    
+    TMEProduct *product = [self.arrayProducts objectAtIndex:indexPath.row];
+    [cell configCellWithProduct:product];
+    
     return cell;
 }
 
@@ -55,6 +67,21 @@
 - (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(5, 5, 5, 5);
+}
+
+- (void)loadProductsTable{
+    
+    [SVProgressHUD showWithStatus:@"Loading content..."maskType:SVProgressHUDMaskTypeGradient];
+    [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
+        
+        self.arrayProducts = arrProducts;
+        [self.collectionProductsView reloadData];
+        
+        [SVProgressHUD dismiss];
+        
+    } andFailureBlock:^(NSInteger statusCode, id obj) {
+        [SVProgressHUD dismiss];
+    }];
 }
 
 @end

@@ -31,11 +31,20 @@
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Bvv-95-uC0">
+                        <rect key="frame" x="10" y="9" width="135" height="130"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <size key="customSize" width="284" height="391"/>
+            <connections>
+                <outlet property="imgProduct" destination="Bvv-95-uC0" id="Hvj-su-9ZE"/>
+                <outlet property="lblProductName" destination="YrV-qC-Jfl" id="Bib-N8-g83"/>
+                <outlet property="lblProductPrice" destination="mCc-at-Ru3" id="T0u-lu-rvv"/>
+            </connections>
         </collectionViewCell>
     </objects>
 </document>

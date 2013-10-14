@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TMEBrowserCollectionViewController : UIViewController
+@interface TMEBrowserCollectionViewController : TMEBaseViewController
 
 @end
