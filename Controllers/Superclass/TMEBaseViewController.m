@@ -482,7 +482,8 @@
 - (void)onBtnGridView:(id)sender
 {
     if ([NSStringFromClass([self class]) isEqualToString:@"TMEBrowserCollectionViewController"]) {
-        [self.navigationController popToRootViewControllerAnimated:NO];
+        TMEBrowserProductsViewController *normalBrowser = [[TMEBrowserProductsViewController alloc] init];
+        [self.navigationController pushViewController:normalBrowser animated:NO];
     }
     else{
         TMEBrowserCollectionViewController *browser = [[TMEBrowserCollectionViewController alloc] init];

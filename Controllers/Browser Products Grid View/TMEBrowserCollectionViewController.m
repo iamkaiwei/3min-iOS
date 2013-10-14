@@ -35,7 +35,7 @@ UICollectionViewDelegateFlowLayout
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     
     self.collectionProductsView.collectionViewLayout = flowLayout;
-    self.collectionProductsView.backgroundColor = [UIColor grayColor];
+    self.collectionProductsView.backgroundColor = [UIColor colorWithHexString:@"#e4e2e1"];
     
     [self loadProductsTable];
     
