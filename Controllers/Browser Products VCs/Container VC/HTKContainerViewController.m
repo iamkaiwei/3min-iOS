@@ -7,27 +7,47 @@
 //
 
 #import "HTKContainerViewController.h"
-#import "HTKViewController.h"
-#import "HTKViewController2.h"
+#import "TMEBrowserCollectionViewController.h"
+#import "TMEBrowserProductsViewController.h"
 
 @interface HTKContainerViewController ()
 
 @property (strong, nonatomic) UIViewController *currentViewController;
 
+@property (strong, nonatomic) TMEBrowserProductsViewController *normalViewController;
+@property (strong, nonatomic) TMEBrowserCollectionViewController *gridViewController;
+
 @end
 
 @implementation HTKContainerViewController
+
+- (UIViewController *)normalViewController
+{
+    if (!_normalViewController) {
+        _normalViewController = [[TMEBrowserProductsViewController alloc] init];
+    }
+    
+    return _normalViewController;
+}
+
+- (UIViewController *)gridViewController
+{
+    if (!_gridViewController) {
+        _gridViewController = [[TMEBrowserCollectionViewController alloc] init];
+    }
+    
+    return _gridViewController;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor orangeColor];
     
     [self addRightButton];
     
-    [self switchContainerViewControllerToViewController:[[HTKViewController2 alloc] init]];
-    
-    
+    [self switchContainerViewControllerToViewController:self.normalViewController];
 }
 
 - (UIBarButtonItem *)rightButton
@@ -47,6 +67,7 @@
 {
     [self.currentViewController willMoveToParentViewController:nil];
     [self addChildViewController:viewController];
+    viewController.view.frame = self.view.frame;
     [self.view addSubview:viewController.view];
     [self.currentViewController.view removeFromSuperview];
     [self.currentViewController removeFromParentViewController];
@@ -59,12 +80,12 @@
 
 - (void)onBtnChangeType
 {
-    if ([self.currentViewController isKindOfClass:[HTKViewController2 class]]) {
-        [self switchContainerViewControllerToViewController:[[HTKViewController alloc] init]];
+    if ([self.currentViewController isEqual:self.normalViewController]) {
+        [self switchContainerViewControllerToViewController:self.gridViewController];
         return;
     }
     
-    [self switchContainerViewControllerToViewController:[[HTKViewController2 alloc] init]];
+    [self switchContainerViewControllerToViewController:self.normalViewController];
     return;
 }
 

@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger, TMETabbarButtonType){
 #import "TMEPublishProductViewController.h"
 #import "TMELoginViewController.h"
 #import "PBImageHelper.h"
+#import "HTKContainerViewController.h"
 
 @interface TMEHomeViewController ()
 <
@@ -81,9 +82,8 @@ UIImagePickerControllerDelegate
 
 - (void)addBrowserProductTab
 {
-    TMEBrowserProductsViewController *browserVC = [[TMEBrowserProductsViewController alloc] init];
-//    TMEBrowserCollectionViewController *browserVC = [[TMEBrowserCollectionViewController alloc] init];
-    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserVC];
+    HTKContainerViewController *browserContainerVC = [[HTKContainerViewController alloc] init];
+    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserContainerVC];
 
     [self addViewController:navigationViewController
                withIconName:@"tabbar-browser-icon"];
