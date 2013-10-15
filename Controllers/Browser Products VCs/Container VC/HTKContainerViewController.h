@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HTKContainerViewController : UIViewController
+@interface HTKContainerViewController : TMEBaseViewController
 
 @end

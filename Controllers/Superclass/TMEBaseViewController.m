@@ -418,7 +418,6 @@
 	[self sendNotification:notificationName body:nil type:nil];
 }
 
-
 - (void)sendNotification:(NSString *)notificationName body:(id)body
 {
 	[self sendNotification:notificationName body:body type:nil];
@@ -447,18 +446,8 @@
     
 }
 
-- (UIBarButtonItem *)rightNavigationButton{
-    // Nav right button
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightButton setImage:[UIImage imageNamed:@"grid-view-icon"] forState:UIControlStateNormal];
-    [rightButton addTarget:self action:@selector(onBtnGridView:) forControlEvents:UIControlEventTouchUpInside];
-    rightButton.frame = CGRectMake(0, 0, 40, 30);
-    
-    return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-}
-
 #pragma marks - Some VC stuffs
-- (void)addNavigationItems
+- (UIBarButtonItem *)leftNavigationButton
 {
     // Nav left button
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -473,22 +462,13 @@
     
     leftButton.frame = CGRectMake(0, 0, 40, 30);
     UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-    self.navigationItem.leftBarButtonItem = leftButtonItem;
-    
-    UIBarButtonItem *rightButtonItem = [self rightNavigationButton];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
+    return leftButtonItem;
 }
 
-- (void)onBtnGridView:(id)sender
+- (void)addNavigationItems
 {
-    if ([NSStringFromClass([self class]) isEqualToString:@"TMEBrowserCollectionViewController"]) {
-        TMEBrowserProductsViewController *normalBrowser = [[TMEBrowserProductsViewController alloc] init];
-        [self.navigationController pushViewController:normalBrowser animated:NO];
-    }
-    else{
-        TMEBrowserCollectionViewController *browser = [[TMEBrowserCollectionViewController alloc] init];
-        [self.navigationController pushViewController:browser animated:NO];
-    }
+    UIBarButtonItem *leftButtonItem = [self leftNavigationButton];
+    self.navigationItem.leftBarButtonItem = leftButtonItem;
 }
 
 - (void)onBtnBack

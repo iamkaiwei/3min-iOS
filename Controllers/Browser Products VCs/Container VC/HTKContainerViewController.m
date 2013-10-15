@@ -42,25 +42,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor orangeColor];
-    
-    [self addRightButton];
-    
+	// Do any additional setup after loading the view
+    [self addNavigationRightButton];
     [self switchContainerViewControllerToViewController:self.normalViewController];
-}
-
-- (UIBarButtonItem *)rightButton
-{
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                                 target:self
-                                                                                 action:@selector(onBtnChangeType)];
-    return rightButton;
-    
-}
-
-- (void)addRightButton{
-    self.navigationItem.rightBarButtonItem = [self rightButton];
 }
 
 - (void)switchContainerViewControllerToViewController:(UIViewController *)viewController
@@ -78,7 +62,23 @@
     self.currentViewController = viewController;
 }
 
-- (void)onBtnChangeType
+#pragma mark - Navigation button
+- (UIBarButtonItem *)rightNavigationButton{
+    // Nav right button
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setImage:[UIImage imageNamed:@"grid-view-icon"] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(onBtnGridView:) forControlEvents:UIControlEventTouchUpInside];
+    rightButton.frame = CGRectMake(0, 0, 40, 30);
+    
+    return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+}
+
+- (void)addNavigationRightButton
+{
+    UIBarButtonItem *rightButtonItem = [self rightNavigationButton];
+    self.navigationItem.rightBarButtonItem = rightButtonItem;
+}
+- (void)onBtnGridView:(id)sender
 {
     if ([self.currentViewController isEqual:self.normalViewController]) {
         [self switchContainerViewControllerToViewController:self.gridViewController];
