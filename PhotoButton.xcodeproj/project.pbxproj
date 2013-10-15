@@ -233,6 +233,8 @@
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
 		B4202233180A842500F62FF0 /* TMEBrowserCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4202232180A842500F62FF0 /* TMEBrowserCollectionCell.m */; };
 		B4202235180A844F00F62FF0 /* TMEBrowserCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4202234180A844F00F62FF0 /* TMEBrowserCollectionCell.xib */; };
+		B42ADE86180D561300B0E473 /* HTKContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B42ADE84180D561300B0E473 /* HTKContainerViewController.m */; };
+		B42ADE87180D561300B0E473 /* HTKContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B42ADE85180D561300B0E473 /* HTKContainerViewController.xib */; };
 		B4E9664B180AE4DA004A6530 /* TMEBrowserCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E96649180AE4DA004A6530 /* TMEBrowserCollectionViewController.m */; };
 		B4E9664C180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4E9664A180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib */; };
 /* End PBXBuildFile section */
@@ -602,6 +604,12 @@
 		B4202231180A842500F62FF0 /* TMEBrowserCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserCollectionCell.h; sourceTree = "<group>"; };
 		B4202232180A842500F62FF0 /* TMEBrowserCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserCollectionCell.m; sourceTree = "<group>"; };
 		B4202234180A844F00F62FF0 /* TMEBrowserCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserCollectionCell.xib; sourceTree = "<group>"; };
+		B42ADE83180D561300B0E473 /* HTKContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTKContainerViewController.h; sourceTree = "<group>"; };
+		B42ADE84180D561300B0E473 /* HTKContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTKContainerViewController.m; sourceTree = "<group>"; };
+		B42ADE85180D561300B0E473 /* HTKContainerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTKContainerViewController.xib; sourceTree = "<group>"; };
+		B48DDB39180D31F4000078F1 /* ICON-3mins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins.png"; sourceTree = "<group>"; };
+		B48DDB3A180D322B000078F1 /* ICON-3mins-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins-114x114.png"; sourceTree = "<group>"; };
+		B48DDB3B180D3234000078F1 /* ICON-3mins-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins-57x57.png"; sourceTree = "<group>"; };
 		B4E96648180AE4DA004A6530 /* TMEBrowserCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserCollectionViewController.h; sourceTree = "<group>"; };
 		B4E96649180AE4DA004A6530 /* TMEBrowserCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserCollectionViewController.m; sourceTree = "<group>"; };
 		B4E9664A180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserCollectionViewController.xib; sourceTree = "<group>"; };
@@ -738,13 +746,12 @@
 		0C28B28B17DC1B9200BD0EC2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B42ADE81180D560100B0E473 /* Browser Products VCs */,
 				0C6E069C17E0CC650003F104 /* Superclass */,
 				20C4D5DD17F722710035BCA5 /* Tutorial */,
 				0C43CCB417F5E6A000D869F9 /* Navigation Controller */,
 				0CFC0FFC17ECBAAE008FBD92 /* Login Page */,
 				0C6E068B17E0CBF60003F104 /* Main Controller */,
-				0CFC0FE317ECB690008FBD92 /* Browser Products */,
-				B420222B180A83BC00F62FF0 /* Browser Products Grid View */,
 				0CFC0FD717ECB66E008FBD92 /* Product Details */,
 				0C2CE1B817EAEAC20074C57F /* Publish Products */,
 				0C5954FF17F711A90076353E /* Left Menu  */,
@@ -1226,7 +1233,8 @@
 				0CFC0FE517ECB690008FBD92 /* TMEBrowserProductsTableCell.m */,
 				0CFC0FE617ECB690008FBD92 /* TMEBrowserProductsTableCell.xib */,
 			);
-			path = "Browser Products";
+			name = "Browser Products";
+			path = "../Browser Products";
 			sourceTree = "<group>";
 		};
 		0CFC0FF317ECBA2A008FBD92 /* Login Page */ = {
@@ -1331,6 +1339,9 @@
 		5976C03415925D2D007F6FC3 = {
 			isa = PBXGroup;
 			children = (
+				B48DDB3B180D3234000078F1 /* ICON-3mins-57x57.png */,
+				B48DDB3A180D322B000078F1 /* ICON-3mins-114x114.png */,
+				B48DDB39180D31F4000078F1 /* ICON-3mins.png */,
 				201EFE2017F6F7D000DA6BB4 /* Default-568h@2x.png */,
 				0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */,
 				0CAE977217E765FF003A22CA /* Models */,
@@ -1406,7 +1417,28 @@
 				B4202232180A842500F62FF0 /* TMEBrowserCollectionCell.m */,
 				B4202234180A844F00F62FF0 /* TMEBrowserCollectionCell.xib */,
 			);
-			path = "Browser Products Grid View";
+			name = "Browser Products Grid View";
+			path = "../Browser Products Grid View";
+			sourceTree = "<group>";
+		};
+		B42ADE75180D55DB00B0E473 /* Container VC */ = {
+			isa = PBXGroup;
+			children = (
+				B42ADE83180D561300B0E473 /* HTKContainerViewController.h */,
+				B42ADE84180D561300B0E473 /* HTKContainerViewController.m */,
+				B42ADE85180D561300B0E473 /* HTKContainerViewController.xib */,
+			);
+			path = "Container VC";
+			sourceTree = "<group>";
+		};
+		B42ADE81180D560100B0E473 /* Browser Products VCs */ = {
+			isa = PBXGroup;
+			children = (
+				B42ADE75180D55DB00B0E473 /* Container VC */,
+				0CFC0FE317ECB690008FBD92 /* Browser Products */,
+				B420222B180A83BC00F62FF0 /* Browser Products Grid View */,
+			);
+			path = "Browser Products VCs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1489,6 +1521,7 @@
 				0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */,
 				0C59551617F743260076353E /* tabbar-activity-icon@2x.png in Resources */,
 				0CFC0FF817ECBA3F008FBD92 /* bt_fb_signin_normal.png in Resources */,
+				B42ADE87180D561300B0E473 /* HTKContainerViewController.xib in Resources */,
 				205EACE917F6E7BD00EE9A76 /* dsym_upload.sh in Resources */,
 				0C59551E17F743260076353E /* tabbar-search-icon@2x.png in Resources */,
 				0CFC0FEB17ECB690008FBD92 /* TMEBrowserProductsTableCell.xib in Resources */,
@@ -1624,6 +1657,7 @@
 				0C7EFBC317E8D5170054C4DE /* ActiveSupportInflector.m in Sources */,
 				0C59550317F711CF0076353E /* TMELeftMenuViewController.m in Sources */,
 				0C6D86AE17EA0E9A00D959F8 /* BaseManager.m in Sources */,
+				B42ADE86180D561300B0E473 /* HTKContainerViewController.m in Sources */,
 				0C7EFBC917E8D5170054C4DE /* NSData+Base64.m in Sources */,
 				0C2F789717F2DBA600201783 /* UIImage+WebP.m in Sources */,
 				0CD9CF5717EA0FD400402E91 /* AFHTTPClient.m in Sources */,
