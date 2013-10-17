@@ -23,16 +23,11 @@ typedef enum ScrollDirection {
 } ScrollDirection;
 
 @interface HTKContainerViewController ()
-<
-UIScrollViewDelegate
->
 
 @property (strong, nonatomic) UIViewController *currentViewController;
 
 @property (strong, nonatomic) TMEBrowserProductsViewController *normalViewController;
 @property (strong, nonatomic) TMEBrowserCollectionViewController *gridViewController;
-
-@property (nonatomic, assign) CGPoint                     scrollViewLastContentOffset;
 
 @end
 
@@ -62,7 +57,6 @@ UIScrollViewDelegate
 	// Do any additional setup after loading the view
     [self addNavigationRightButton];
     [self switchContainerViewControllerToViewController:self.normalViewController];
-    self.scrollViewLastContentOffset = CGPointMake(0, 44);
 }
 
 - (void)switchContainerViewControllerToViewController:(UIViewController *)viewController
@@ -88,6 +82,7 @@ UIScrollViewDelegate
                                                                     scrollView:scrollView];
     self.fullScreenScroll.shouldShowUIBarsOnScrollUp = YES;
 }
+
 #pragma mark - Navigation button
 - (UIBarButtonItem *)rightNavigationButton{
     // Nav right button
@@ -115,58 +110,7 @@ UIScrollViewDelegate
     return;
 }
 
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if (/* scrollView.decelerating
-         && */ scrollView.contentOffset.y > 0
-        && self.scrollViewLastContentOffset.y < scrollView.contentOffset.y) {
-        [self hideNavbar];
-    }
-    else if (self.scrollViewLastContentOffset.y > scrollView.contentOffset.y
-             && scrollView.contentOffset.y + scrollView.height < scrollView.contentSize.height) {
-        [self showNavbar];
-    }
-    
-    self.scrollViewLastContentOffset = scrollView.contentOffset;
-}
-
-#pragma mark - Top & Bottom bar animation
-- (BOOL)hideNavbar
-{
-    CGFloat deltaHeight = self.navigationController.navigationBar.height;
-    if (self.navigationController.navigationBar.top == -deltaHeight)
-        return NO;
-    
-    UIScrollView *scrollview = [self getScrollView];
-    scrollview.height += 44;
-    
-    [UIView animateWithDuration:ANIMATION_DURATION delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        scrollview.top = -deltaHeight;
-        self.navigationController.navigationBar.top = -deltaHeight;
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:ANIMATION_DURATION delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        } completion:nil];
-    }];
-    return YES;
-}
-
-- (BOOL)showNavbar
-{
-    if (self.navigationController.navigationBar.top == 0)
-        return NO;
-    
-    UIScrollView *scrollview = [self getScrollView];
-    scrollview.height += 44;
-    
-    [UIView animateWithDuration:ANIMATION_DURATION delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.navigationController.navigationBar.top = 0;
-        scrollview.top =  0;
-    } completion:^(BOOL finish){
-    }];
-    return YES;
-}
-
+#pragma mark - Utilities
 - (UIScrollView *)getScrollViewOfViewController:(UIViewController *)viewController
 {
     for (UIView *view in [viewController.view subviews]) {
