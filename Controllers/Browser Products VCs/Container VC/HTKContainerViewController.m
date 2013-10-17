@@ -9,6 +9,7 @@
 #import "HTKContainerViewController.h"
 #import "TMEBrowserCollectionViewController.h"
 #import "TMEBrowserProductsViewController.h"
+#import "YIFullScreenScroll.h"
 
 #define ANIMATION_DURATION 0.3
 
@@ -76,11 +77,17 @@ UIScrollViewDelegate
     
     [viewController didMoveToParentViewController:self];
     self.currentViewController = viewController;
-    
-    UIScrollView *scrollView = [self getScrollView];
-    scrollView.delegate = self;
+ 
+    [self assignFullScreenScrollViewWithViewController:viewController];
 }
 
+- (void)assignFullScreenScrollViewWithViewController:(UIViewController *)viewController
+{
+    UIScrollView *scrollView = [self getScrollViewOfViewController:viewController];
+    self.fullScreenScroll = [[YIFullScreenScroll alloc] initWithViewController:self
+                                                                    scrollView:scrollView];
+    self.fullScreenScroll.shouldShowUIBarsOnScrollUp = YES;
+}
 #pragma mark - Navigation button
 - (UIBarButtonItem *)rightNavigationButton{
     // Nav right button
@@ -163,11 +170,11 @@ UIScrollViewDelegate
 - (UIScrollView *)getScrollViewOfViewController:(UIViewController *)viewController
 {
     for (UIView *view in [viewController.view subviews]) {
-//        if ([view isKindOfClass:[UITableView class]]) {
-//            return (UIScrollView *)view;
-//        }
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            return (UIScrollView *)view;
+        }
         
-        if ([view isKindOfClass:[UICollectionView class]]) {
+        if ([view isKindOfClass:[UIScrollView class]]) {
             return (UIScrollView *)view;
         }
     }

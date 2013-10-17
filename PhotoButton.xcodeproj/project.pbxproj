@@ -231,6 +231,10 @@
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
+		B4093B771810379700D51B69 /* UIViewController+YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = B4093B741810379700D51B69 /* UIViewController+YIFullScreenScroll.m */; };
+		B4093B781810379700D51B69 /* YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = B4093B761810379700D51B69 /* YIFullScreenScroll.m */; };
+		B4093B7B181038ED00D51B69 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = B4093B7A181038ED00D51B69 /* JRSwizzle.m */; };
+		B4093B7E181038F600D51B69 /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B4093B7D181038F600D51B69 /* ViewUtils.m */; };
 		B4202233180A842500F62FF0 /* TMEBrowserCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4202232180A842500F62FF0 /* TMEBrowserCollectionCell.m */; };
 		B4202235180A844F00F62FF0 /* TMEBrowserCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4202234180A844F00F62FF0 /* TMEBrowserCollectionCell.xib */; };
 		B42ADE86180D561300B0E473 /* HTKContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B42ADE84180D561300B0E473 /* HTKContainerViewController.m */; };
@@ -601,6 +605,14 @@
 		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B4093B731810379700D51B69 /* UIViewController+YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YIFullScreenScroll.h"; sourceTree = "<group>"; };
+		B4093B741810379700D51B69 /* UIViewController+YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YIFullScreenScroll.m"; sourceTree = "<group>"; };
+		B4093B751810379700D51B69 /* YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YIFullScreenScroll.h; sourceTree = "<group>"; };
+		B4093B761810379700D51B69 /* YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YIFullScreenScroll.m; sourceTree = "<group>"; };
+		B4093B79181038ED00D51B69 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		B4093B7A181038ED00D51B69 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		B4093B7C181038F600D51B69 /* ViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewUtils.h; sourceTree = "<group>"; };
+		B4093B7D181038F600D51B69 /* ViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtils.m; sourceTree = "<group>"; };
 		B4202231180A842500F62FF0 /* TMEBrowserCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserCollectionCell.h; sourceTree = "<group>"; };
 		B4202232180A842500F62FF0 /* TMEBrowserCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserCollectionCell.m; sourceTree = "<group>"; };
 		B4202234180A844F00F62FF0 /* TMEBrowserCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserCollectionCell.xib; sourceTree = "<group>"; };
@@ -762,6 +774,7 @@
 		0C28B28C17DC1B9200BD0EC2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				B4093B721810379700D51B69 /* Classes */,
 				0C41FEFC17F8826300C9CB50 /* UINavigationController+SGProgress */,
 				20C4D5E517F733F80035BCA5 /* iCarousel */,
 				0C5954F517F711200076353E /* ViewDeck */,
@@ -1407,6 +1420,21 @@
 			path = PhotoButton;
 			sourceTree = "<group>";
 		};
+		B4093B721810379700D51B69 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B4093B731810379700D51B69 /* UIViewController+YIFullScreenScroll.h */,
+				B4093B741810379700D51B69 /* UIViewController+YIFullScreenScroll.m */,
+				B4093B751810379700D51B69 /* YIFullScreenScroll.h */,
+				B4093B761810379700D51B69 /* YIFullScreenScroll.m */,
+				B4093B79181038ED00D51B69 /* JRSwizzle.h */,
+				B4093B7A181038ED00D51B69 /* JRSwizzle.m */,
+				B4093B7C181038F600D51B69 /* ViewUtils.h */,
+				B4093B7D181038F600D51B69 /* ViewUtils.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		B420222B180A83BC00F62FF0 /* Browser Products Grid View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1584,15 +1612,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C7EFB5C17E768C70054C4DE /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
+				B4093B771810379700D51B69 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				0C7EFB6717E768C70054C4DE /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */,
 				0C2F789317F2DBA600201783 /* SDWebImagePrefetcher.m in Sources */,
 				0C2F789817F2DBA600201783 /* UIImageView+WebCache.m in Sources */,
+				B4093B7E181038F600D51B69 /* ViewUtils.m in Sources */,
 				B4E9664B180AE4DA004A6530 /* TMEBrowserCollectionViewController.m in Sources */,
 				0C7EFBC617E8D5170054C4DE /* MKMapView+Additions.m in Sources */,
 				0C7053C917EF5E5E00E7615F /* TMEProductImages.m in Sources */,
 				0CD9CF5D17EA0FD400402E91 /* AFURLConnectionOperation.m in Sources */,
 				0CD9CF5B17EA0FD400402E91 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				B4093B781810379700D51B69 /* YIFullScreenScroll.m in Sources */,
 				0CFC0FEA17ECB690008FBD92 /* TMEBrowserProductsTableCell.m in Sources */,
 				0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */,
 				0C6E069017E0CBF60003F104 /* TMEHomeViewController.m in Sources */,
@@ -1646,6 +1677,7 @@
 				0C2F789017F2DBA600201783 /* SDWebImageDownloader.m in Sources */,
 				0C2F789217F2DBA600201783 /* SDWebImageManager.m in Sources */,
 				0C7EFBDF17E8D5170054C4DE /* UITextView+Additions.m in Sources */,
+				B4093B7B181038ED00D51B69 /* JRSwizzle.m in Sources */,
 				0C7EFBC817E8D5170054C4DE /* NSCalendar+Additions.m in Sources */,
 				0C2CE1C117EAEAC20074C57F /* TMEPublishProductViewController.m in Sources */,
 				0C7EFB6217E768C70054C4DE /* NSManagedObject+MagicalRequests.m in Sources */,
