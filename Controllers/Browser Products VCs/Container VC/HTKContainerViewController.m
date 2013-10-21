@@ -68,7 +68,6 @@ typedef enum ScrollDirection {
     [self.currentViewController.view removeFromSuperview];
     [self.currentViewController removeFromParentViewController];
     [self.currentViewController didMoveToParentViewController:nil];
-    
     [viewController didMoveToParentViewController:self];
     self.currentViewController = viewController;
  
@@ -78,9 +77,18 @@ typedef enum ScrollDirection {
 - (void)assignFullScreenScrollViewWithViewController:(UIViewController *)viewController
 {
     UIScrollView *scrollView = [self getScrollViewOfViewController:viewController];
+    scrollView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+    
+    if (self.fullScreenScroll)
+    {
+        [self.fullScreenScroll setScrollView:scrollView];
+        return;
+    }
+    
     self.fullScreenScroll = [[YIFullScreenScroll alloc] initWithViewController:self
                                                                     scrollView:scrollView];
     self.fullScreenScroll.shouldShowUIBarsOnScrollUp = YES;
+    return;
 }
 
 #pragma mark - Navigation button
