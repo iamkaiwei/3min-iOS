@@ -46,7 +46,7 @@
 
 + (CGSize)productCellSize
 {
-    return CGSizeMake(150, 190);
+    return CGSizeMake(153, 190);
 }
 
 @end

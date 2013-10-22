@@ -31,7 +31,7 @@ UICollectionViewDelegateFlowLayout
     [self.collectionProductsView registerNib:[TMEBrowserCollectionCell defaultNib] forCellWithReuseIdentifier:NSStringFromClass([TMEBrowserCollectionCell class])];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setItemSize:CGSizeMake(150, 190)];
+    [flowLayout setItemSize:CGSizeMake(153, 190)];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     
     self.collectionProductsView.collectionViewLayout = flowLayout;
@@ -61,12 +61,11 @@ UICollectionViewDelegateFlowLayout
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(150, 190);
+    return CGSizeMake(153, 190);
 }
 
-- (UIEdgeInsets)collectionView:
-(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(5, 5, 5, 5);
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 2, 0, 2);
 }
 
 - (void)loadProductsTable{

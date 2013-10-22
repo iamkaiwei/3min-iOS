@@ -107,6 +107,7 @@ typedef enum ScrollDirection {
     UIBarButtonItem *rightButtonItem = [self rightNavigationButton];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
+
 - (void)onBtnGridView:(id)sender
 {
     if ([self.currentViewController isEqual:self.normalViewController]) {
