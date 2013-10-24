@@ -11,17 +11,6 @@
 #import "TMEBrowserProductsViewController.h"
 #import "YIFullScreenScroll.h"
 
-#define ANIMATION_DURATION 0.3
-
-typedef enum ScrollDirection {
-    ScrollDirectionNone,
-    ScrollDirectionRight,
-    ScrollDirectionLeft,
-    ScrollDirectionUp,
-    ScrollDirectionDown,
-    ScrollDirectionCrazy,
-} ScrollDirection;
-
 @interface HTKContainerViewController ()
 
 @property (strong, nonatomic) UIViewController *currentViewController;
