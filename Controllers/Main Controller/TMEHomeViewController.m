@@ -75,9 +75,10 @@ UIImagePickerControllerDelegate
 {
     UITabBar *tabBar = self.tabBar;
     UITabBarItem *button = [tabBar.items objectAtIndex:index];
-    button.imageInsets = UIEdgeInsetsMake(3, 0, -2, 0);
+    button.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     UIImage *browserBtnBackground = [UIImage imageNamed:iconName];
-    [button setFinishedSelectedImage:browserBtnBackground withFinishedUnselectedImage:browserBtnBackground];
+    UIImage *browserSelectedBtnBackground = [UIImage imageNamed:[NSString stringWithFormat:@"%@-pressed", iconName]];
+    [button setFinishedSelectedImage:browserSelectedBtnBackground withFinishedUnselectedImage:browserBtnBackground];
 }
 
 - (void)addBrowserProductTab

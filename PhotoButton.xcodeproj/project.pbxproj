@@ -80,18 +80,6 @@
 		0C59550317F711CF0076353E /* TMELeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C59550117F711CF0076353E /* TMELeftMenuViewController.m */; };
 		0C59550417F711CF0076353E /* TMELeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C59550217F711CF0076353E /* TMELeftMenuViewController.xib */; };
 		0C59550717F73E380076353E /* TMEBaseTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C59550617F73E380076353E /* TMEBaseTabBarViewController.m */; };
-		0C59551517F743260076353E /* tabbar-activity-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C59550917F743260076353E /* tabbar-activity-icon.png */; };
-		0C59551617F743260076353E /* tabbar-activity-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C59550A17F743260076353E /* tabbar-activity-icon@2x.png */; };
-		0C59551717F743260076353E /* tabbar-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C59550B17F743260076353E /* tabbar-background.png */; };
-		0C59551817F743260076353E /* tabbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C59550C17F743260076353E /* tabbar-background@2x.png */; };
-		0C59551917F743260076353E /* tabbar-browser-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C59550D17F743260076353E /* tabbar-browser-icon.png */; };
-		0C59551A17F743260076353E /* tabbar-browser-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C59550E17F743260076353E /* tabbar-browser-icon@2x.png */; };
-		0C59551B17F743260076353E /* tabbar-me-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C59550F17F743260076353E /* tabbar-me-icon.png */; };
-		0C59551C17F743260076353E /* tabbar-me-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C59551017F743260076353E /* tabbar-me-icon@2x.png */; };
-		0C59551D17F743260076353E /* tabbar-search-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C59551117F743260076353E /* tabbar-search-icon.png */; };
-		0C59551E17F743260076353E /* tabbar-search-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C59551217F743260076353E /* tabbar-search-icon@2x.png */; };
-		0C59551F17F743260076353E /* tabbar-sell-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C59551317F743260076353E /* tabbar-sell-icon.png */; };
-		0C59552017F743260076353E /* tabbar-sell-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C59551417F743260076353E /* tabbar-sell-icon@2x.png */; };
 		0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
 		0C6D86AE17EA0E9A00D959F8 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D86AB17EA0E9A00D959F8 /* BaseManager.m */; };
@@ -239,6 +227,26 @@
 		B4202235180A844F00F62FF0 /* TMEBrowserCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4202234180A844F00F62FF0 /* TMEBrowserCollectionCell.xib */; };
 		B42ADE86180D561300B0E473 /* HTKContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B42ADE84180D561300B0E473 /* HTKContainerViewController.m */; };
 		B42ADE87180D561300B0E473 /* HTKContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B42ADE85180D561300B0E473 /* HTKContainerViewController.xib */; };
+		B42FE3D118190F1C004E39EF /* tabbar-activity-icon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3BD18190F1C004E39EF /* tabbar-activity-icon-pressed.png */; };
+		B42FE3D218190F1C004E39EF /* tabbar-activity-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3BE18190F1C004E39EF /* tabbar-activity-icon.png */; };
+		B42FE3D318190F1C004E39EF /* tabbar-browser-icon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3BF18190F1C004E39EF /* tabbar-browser-icon-pressed.png */; };
+		B42FE3D418190F1C004E39EF /* tabbar-browser-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3C018190F1C004E39EF /* tabbar-browser-icon.png */; };
+		B42FE3D518190F1C004E39EF /* tabbar-me-icon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3C118190F1C004E39EF /* tabbar-me-icon-pressed.png */; };
+		B42FE3D618190F1C004E39EF /* tabbar-me-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3C218190F1C004E39EF /* tabbar-me-icon.png */; };
+		B42FE3D718190F1C004E39EF /* tabbar-search-icon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3C318190F1C004E39EF /* tabbar-search-icon-pressed.png */; };
+		B42FE3D818190F1C004E39EF /* tabbar-search-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3C418190F1C004E39EF /* tabbar-search-icon.png */; };
+		B42FE3D918190F1C004E39EF /* tabbar-me-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3C518190F1C004E39EF /* tabbar-me-icon@2x.png */; };
+		B42FE3DA18190F1C004E39EF /* tabbar-me-icon-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3C618190F1C004E39EF /* tabbar-me-icon-pressed@2x.png */; };
+		B42FE3DB18190F1C004E39EF /* tabbar-activity-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3C718190F1C004E39EF /* tabbar-activity-icon@2x.png */; };
+		B42FE3DC18190F1C004E39EF /* tabbar-activity-icon-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3C818190F1C004E39EF /* tabbar-activity-icon-pressed@2x.png */; };
+		B42FE3DD18190F1C004E39EF /* tabbar-search-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3C918190F1C004E39EF /* tabbar-search-icon@2x.png */; };
+		B42FE3DE18190F1C004E39EF /* tabbar-search-icon-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3CA18190F1C004E39EF /* tabbar-search-icon-pressed@2x.png */; };
+		B42FE3DF18190F1C004E39EF /* tabbar-browser-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3CB18190F1C004E39EF /* tabbar-browser-icon@2x.png */; };
+		B42FE3E018190F1C004E39EF /* tabbar-browser-icon-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3CC18190F1C004E39EF /* tabbar-browser-icon-pressed@2x.png */; };
+		B42FE3E118190F1C004E39EF /* tabbar-background.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3CD18190F1C004E39EF /* tabbar-background.png */; };
+		B42FE3E218190F1C004E39EF /* tabbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3CE18190F1C004E39EF /* tabbar-background@2x.png */; };
+		B42FE3E318190F1C004E39EF /* tabbar-sell-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3CF18190F1C004E39EF /* tabbar-sell-icon.png */; };
+		B42FE3E418190F1C004E39EF /* tabbar-sell-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3D018190F1C004E39EF /* tabbar-sell-icon@2x.png */; };
 		B4E9664B180AE4DA004A6530 /* TMEBrowserCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E96649180AE4DA004A6530 /* TMEBrowserCollectionViewController.m */; };
 		B4E9664C180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4E9664A180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib */; };
 /* End PBXBuildFile section */
@@ -335,18 +343,6 @@
 		0C59550217F711CF0076353E /* TMELeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMELeftMenuViewController.xib; sourceTree = "<group>"; };
 		0C59550517F73E380076353E /* TMEBaseTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseTabBarViewController.h; sourceTree = "<group>"; };
 		0C59550617F73E380076353E /* TMEBaseTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseTabBarViewController.m; sourceTree = "<group>"; };
-		0C59550917F743260076353E /* tabbar-activity-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-activity-icon.png"; sourceTree = "<group>"; };
-		0C59550A17F743260076353E /* tabbar-activity-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-activity-icon@2x.png"; sourceTree = "<group>"; };
-		0C59550B17F743260076353E /* tabbar-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background.png"; sourceTree = "<group>"; };
-		0C59550C17F743260076353E /* tabbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background@2x.png"; sourceTree = "<group>"; };
-		0C59550D17F743260076353E /* tabbar-browser-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-browser-icon.png"; sourceTree = "<group>"; };
-		0C59550E17F743260076353E /* tabbar-browser-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-browser-icon@2x.png"; sourceTree = "<group>"; };
-		0C59550F17F743260076353E /* tabbar-me-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-me-icon.png"; sourceTree = "<group>"; };
-		0C59551017F743260076353E /* tabbar-me-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-me-icon@2x.png"; sourceTree = "<group>"; };
-		0C59551117F743260076353E /* tabbar-search-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-search-icon.png"; sourceTree = "<group>"; };
-		0C59551217F743260076353E /* tabbar-search-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-search-icon@2x.png"; sourceTree = "<group>"; };
-		0C59551317F743260076353E /* tabbar-sell-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon.png"; sourceTree = "<group>"; };
-		0C59551417F743260076353E /* tabbar-sell-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon@2x.png"; sourceTree = "<group>"; };
 		0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMEModels.xcdatamodel; sourceTree = "<group>"; };
 		0C5C936817EA162100ECF9B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0C6D86AA17EA0E9A00D959F8 /* BaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
@@ -619,6 +615,26 @@
 		B42ADE83180D561300B0E473 /* HTKContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTKContainerViewController.h; sourceTree = "<group>"; };
 		B42ADE84180D561300B0E473 /* HTKContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTKContainerViewController.m; sourceTree = "<group>"; };
 		B42ADE85180D561300B0E473 /* HTKContainerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTKContainerViewController.xib; sourceTree = "<group>"; };
+		B42FE3BD18190F1C004E39EF /* tabbar-activity-icon-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-activity-icon-pressed.png"; sourceTree = "<group>"; };
+		B42FE3BE18190F1C004E39EF /* tabbar-activity-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-activity-icon.png"; sourceTree = "<group>"; };
+		B42FE3BF18190F1C004E39EF /* tabbar-browser-icon-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-browser-icon-pressed.png"; sourceTree = "<group>"; };
+		B42FE3C018190F1C004E39EF /* tabbar-browser-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-browser-icon.png"; sourceTree = "<group>"; };
+		B42FE3C118190F1C004E39EF /* tabbar-me-icon-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-me-icon-pressed.png"; sourceTree = "<group>"; };
+		B42FE3C218190F1C004E39EF /* tabbar-me-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-me-icon.png"; sourceTree = "<group>"; };
+		B42FE3C318190F1C004E39EF /* tabbar-search-icon-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-search-icon-pressed.png"; sourceTree = "<group>"; };
+		B42FE3C418190F1C004E39EF /* tabbar-search-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-search-icon.png"; sourceTree = "<group>"; };
+		B42FE3C518190F1C004E39EF /* tabbar-me-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-me-icon@2x.png"; sourceTree = "<group>"; };
+		B42FE3C618190F1C004E39EF /* tabbar-me-icon-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-me-icon-pressed@2x.png"; sourceTree = "<group>"; };
+		B42FE3C718190F1C004E39EF /* tabbar-activity-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-activity-icon@2x.png"; sourceTree = "<group>"; };
+		B42FE3C818190F1C004E39EF /* tabbar-activity-icon-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-activity-icon-pressed@2x.png"; sourceTree = "<group>"; };
+		B42FE3C918190F1C004E39EF /* tabbar-search-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-search-icon@2x.png"; sourceTree = "<group>"; };
+		B42FE3CA18190F1C004E39EF /* tabbar-search-icon-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-search-icon-pressed@2x.png"; sourceTree = "<group>"; };
+		B42FE3CB18190F1C004E39EF /* tabbar-browser-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-browser-icon@2x.png"; sourceTree = "<group>"; };
+		B42FE3CC18190F1C004E39EF /* tabbar-browser-icon-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-browser-icon-pressed@2x.png"; sourceTree = "<group>"; };
+		B42FE3CD18190F1C004E39EF /* tabbar-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background.png"; sourceTree = "<group>"; };
+		B42FE3CE18190F1C004E39EF /* tabbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background@2x.png"; sourceTree = "<group>"; };
+		B42FE3CF18190F1C004E39EF /* tabbar-sell-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon.png"; sourceTree = "<group>"; };
+		B42FE3D018190F1C004E39EF /* tabbar-sell-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon@2x.png"; sourceTree = "<group>"; };
 		B48DDB39180D31F4000078F1 /* ICON-3mins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins.png"; sourceTree = "<group>"; };
 		B48DDB3A180D322B000078F1 /* ICON-3mins-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins-114x114.png"; sourceTree = "<group>"; };
 		B48DDB3B180D3234000078F1 /* ICON-3mins-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins-57x57.png"; sourceTree = "<group>"; };
@@ -948,18 +964,26 @@
 		0C59550817F743260076353E /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
-				0C59550917F743260076353E /* tabbar-activity-icon.png */,
-				0C59550A17F743260076353E /* tabbar-activity-icon@2x.png */,
-				0C59550B17F743260076353E /* tabbar-background.png */,
-				0C59550C17F743260076353E /* tabbar-background@2x.png */,
-				0C59550D17F743260076353E /* tabbar-browser-icon.png */,
-				0C59550E17F743260076353E /* tabbar-browser-icon@2x.png */,
-				0C59550F17F743260076353E /* tabbar-me-icon.png */,
-				0C59551017F743260076353E /* tabbar-me-icon@2x.png */,
-				0C59551117F743260076353E /* tabbar-search-icon.png */,
-				0C59551217F743260076353E /* tabbar-search-icon@2x.png */,
-				0C59551317F743260076353E /* tabbar-sell-icon.png */,
-				0C59551417F743260076353E /* tabbar-sell-icon@2x.png */,
+				B42FE3BD18190F1C004E39EF /* tabbar-activity-icon-pressed.png */,
+				B42FE3BE18190F1C004E39EF /* tabbar-activity-icon.png */,
+				B42FE3BF18190F1C004E39EF /* tabbar-browser-icon-pressed.png */,
+				B42FE3C018190F1C004E39EF /* tabbar-browser-icon.png */,
+				B42FE3C118190F1C004E39EF /* tabbar-me-icon-pressed.png */,
+				B42FE3C218190F1C004E39EF /* tabbar-me-icon.png */,
+				B42FE3C318190F1C004E39EF /* tabbar-search-icon-pressed.png */,
+				B42FE3C418190F1C004E39EF /* tabbar-search-icon.png */,
+				B42FE3C518190F1C004E39EF /* tabbar-me-icon@2x.png */,
+				B42FE3C618190F1C004E39EF /* tabbar-me-icon-pressed@2x.png */,
+				B42FE3C718190F1C004E39EF /* tabbar-activity-icon@2x.png */,
+				B42FE3C818190F1C004E39EF /* tabbar-activity-icon-pressed@2x.png */,
+				B42FE3C918190F1C004E39EF /* tabbar-search-icon@2x.png */,
+				B42FE3CA18190F1C004E39EF /* tabbar-search-icon-pressed@2x.png */,
+				B42FE3CB18190F1C004E39EF /* tabbar-browser-icon@2x.png */,
+				B42FE3CC18190F1C004E39EF /* tabbar-browser-icon-pressed@2x.png */,
+				B42FE3CD18190F1C004E39EF /* tabbar-background.png */,
+				B42FE3CE18190F1C004E39EF /* tabbar-background@2x.png */,
+				B42FE3CF18190F1C004E39EF /* tabbar-sell-icon.png */,
+				B42FE3D018190F1C004E39EF /* tabbar-sell-icon@2x.png */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -1526,62 +1550,70 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C5954F117F6BDDD0076353E /* navigation_background.png in Resources */,
+				B42FE3E118190F1C004E39EF /* tabbar-background.png in Resources */,
 				0C3CA94417F7F7130072117A /* add-photo-placeholder@2x.png in Resources */,
 				0C43CCA817F5D29A00D869F9 /* clock-icon.png in Resources */,
 				0CFC0FF217ECB8BB008FBD92 /* TMEProductDetailsViewController.xib in Resources */,
 				0C43CC9E17F5CC4A00D869F9 /* big-logo@2x.png in Resources */,
+				B42FE3D718190F1C004E39EF /* tabbar-search-icon-pressed.png in Resources */,
 				0C43CC9B17F5CC4A00D869F9 /* arrow-down.png in Resources */,
-				0C59551C17F743260076353E /* tabbar-me-icon@2x.png in Resources */,
+				B42FE3DD18190F1C004E39EF /* tabbar-search-icon@2x.png in Resources */,
 				0C59550417F711CF0076353E /* TMELeftMenuViewController.xib in Resources */,
+				B42FE3E318190F1C004E39EF /* tabbar-sell-icon.png in Resources */,
 				20C10DAB17F6E2960036D9FF /* FacebookSDKOverrides.bundle in Resources */,
 				0C5954ED17F6BDDD0076353E /* category-list-icon.png in Resources */,
 				0C43CCA917F5D29A00D869F9 /* clock-icon@2x.png in Resources */,
+				B42FE3D918190F1C004E39EF /* tabbar-me-icon@2x.png in Resources */,
 				0C7EFBC417E8D5170054C4DE /* ActiveSupportInflector.plist in Resources */,
-				0C59551A17F743260076353E /* tabbar-browser-icon@2x.png in Resources */,
 				0CFC0FFA17ECBA3F008FBD92 /* bt_fb_signin_pressed.png in Resources */,
 				0C43CCAC17F5D29A00D869F9 /* follow-button.png in Resources */,
 				0CFC100117ECBE06008FBD92 /* TMELoginViewController.xib in Resources */,
-				0C59551B17F743260076353E /* tabbar-me-icon.png in Resources */,
 				B4202235180A844F00F62FF0 /* TMEBrowserCollectionCell.xib in Resources */,
 				0C6E069217E0CBF60003F104 /* TMEHomeViewController.xib in Resources */,
+				B42FE3DB18190F1C004E39EF /* tabbar-activity-icon@2x.png in Resources */,
 				0C43CC9C17F5CC4A00D869F9 /* arrow-down@2x.png in Resources */,
-				0C59551917F743260076353E /* tabbar-browser-icon.png in Resources */,
+				B42FE3D518190F1C004E39EF /* tabbar-me-icon-pressed.png in Resources */,
 				0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */,
-				0C59551617F743260076353E /* tabbar-activity-icon@2x.png in Resources */,
 				0CFC0FF817ECBA3F008FBD92 /* bt_fb_signin_normal.png in Resources */,
 				B42ADE87180D561300B0E473 /* HTKContainerViewController.xib in Resources */,
+				B42FE3D418190F1C004E39EF /* tabbar-browser-icon.png in Resources */,
+				B42FE3D318190F1C004E39EF /* tabbar-browser-icon-pressed.png in Resources */,
 				205EACE917F6E7BD00EE9A76 /* dsym_upload.sh in Resources */,
-				0C59551E17F743260076353E /* tabbar-search-icon@2x.png in Resources */,
 				0CFC0FEB17ECB690008FBD92 /* TMEBrowserProductsTableCell.xib in Resources */,
+				B42FE3D218190F1C004E39EF /* tabbar-activity-icon.png in Resources */,
 				0C43CCAF17F5D29A00D869F9 /* share-button@2x.png in Resources */,
 				0C7EFB7E17E8D2ED0054C4DE /* SVProgressHUD.bundle in Resources */,
+				B42FE3DF18190F1C004E39EF /* tabbar-browser-icon@2x.png in Resources */,
 				0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */,
-				0C59551D17F743260076353E /* tabbar-search-icon.png in Resources */,
-				0C59551F17F743260076353E /* tabbar-sell-icon.png in Resources */,
 				0CAE978F17E76635003A22CA /* InfoPlist.strings in Resources */,
-				0C59551817F743260076353E /* tabbar-background@2x.png in Resources */,
 				0CFC0FF917ECBA3F008FBD92 /* bt_fb_signin_normal@2x.png in Resources */,
+				B42FE3E218190F1C004E39EF /* tabbar-background@2x.png in Resources */,
+				B42FE3DA18190F1C004E39EF /* tabbar-me-icon-pressed@2x.png in Resources */,
 				0C5954EE17F6BDDD0076353E /* category-list-icon@2x.png in Resources */,
+				B42FE3E418190F1C004E39EF /* tabbar-sell-icon@2x.png in Resources */,
 				0C43CCB917F5E93D00D869F9 /* TMENavigationViewController.xib in Resources */,
-				0C59551517F743260076353E /* tabbar-activity-icon.png in Resources */,
 				B4E9664C180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib in Resources */,
 				0C43CCAD17F5D29A00D869F9 /* follow-button@2x.png in Resources */,
 				0C5954F417F6BDDD0076353E /* simple-view-icon@2x.png in Resources */,
 				0C43CCAA17F5D29A00D869F9 /* comment-button.png in Resources */,
-				0C59552017F743260076353E /* tabbar-sell-icon@2x.png in Resources */,
 				0C3CA94317F7F7130072117A /* add-photo-placeholder.png in Resources */,
 				0C43CCAB17F5D29A00D869F9 /* comment-button@2x.png in Resources */,
 				0C5954F217F6BDDD0076353E /* navigation_background@2x.png in Resources */,
+				B42FE3D118190F1C004E39EF /* tabbar-activity-icon-pressed.png in Resources */,
 				0C5954F017F6BDDD0076353E /* grid-view-icon@2x.png in Resources */,
 				0C7EFBEB17E8D5790054C4DE /* FontAwesome.ttf in Resources */,
-				0C59551717F743260076353E /* tabbar-background.png in Resources */,
+				B42FE3DE18190F1C004E39EF /* tabbar-search-icon-pressed@2x.png in Resources */,
 				205EACFF17F6E83F00EE9A76 /* AviarySDKResources.bundle in Resources */,
 				0CFC0FED17ECB690008FBD92 /* TMEBrowserProductsViewController.xib in Resources */,
 				0C2CE1C217EAEAC20074C57F /* TMEPublishProductViewController.xib in Resources */,
+				B42FE3DC18190F1C004E39EF /* tabbar-activity-icon-pressed@2x.png in Resources */,
 				0CFC0FFB17ECBA3F008FBD92 /* bt_fb_signin_pressed@2x.png in Resources */,
+				B42FE3E018190F1C004E39EF /* tabbar-browser-icon-pressed@2x.png in Resources */,
 				0C5954EF17F6BDDD0076353E /* grid-view-icon.png in Resources */,
 				0C43CC9D17F5CC4A00D869F9 /* big-logo.png in Resources */,
 				0C43CCAE17F5D29A00D869F9 /* share-button.png in Resources */,
+				B42FE3D618190F1C004E39EF /* tabbar-me-icon.png in Resources */,
+				B42FE3D818190F1C004E39EF /* tabbar-search-icon.png in Resources */,
 				0C5954F317F6BDDD0076353E /* simple-view-icon.png in Resources */,
 				201EFE2117F6F7D000DA6BB4 /* Default-568h@2x.png in Resources */,
 			);

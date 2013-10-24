@@ -18,8 +18,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    [self configTabbar];
     [self addNavigationItems];
+}
+
+- (void)configTabbar
+{
+    CGRect frameTabbar = self.tabBar.frame;
+    CGRect newFrame = CGRectMake(frameTabbar.origin.x, frameTabbar.origin.y, frameTabbar.size.width, 50);    
+    self.tabBar.frame = newFrame;
 }
 
 #pragma marks - Some VC stuffs

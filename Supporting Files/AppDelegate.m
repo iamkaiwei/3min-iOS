@@ -245,13 +245,22 @@
 
 #pragma mark - Switch View Controllers
 
-- (void)showHomeViewController
+- (void)configTabbar
 {
-    IIViewDeckController *deckController = [self generateControllerStack];
-    
     // config tabbar appear
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar-background"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    
+    CGRect frameTabbar = [(UIView *)[UITabBar appearance] frame];
+    CGRect newFrame = CGRectMake(frameTabbar.origin.x, frameTabbar.origin.y, frameTabbar.size.width, frameTabbar.size.height - 7);
+    
+    [(UIView *)[UITabBar appearance] setFrame:newFrame];
+}
+
+- (void)showHomeViewController
+{
+    [self configTabbar];
+    IIViewDeckController *deckController = [self generateControllerStack];
     
     if (![[TMEUserManager sharedInstance] loggedUser]) {
         [self showLoginView];
