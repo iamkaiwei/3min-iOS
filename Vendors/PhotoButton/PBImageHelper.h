@@ -8,6 +8,7 @@
 
 @interface PBImageHelper : NSObject
 
++ (void)clearOldTempImageFilesInDocumentDirectory;
 + (BOOL)saveImageToDocuments: (UIImage *) image withName:(const NSString *) name;
 + (UIImage *)loadImageFromDocuments: (const NSString *) name;
 + (BOOL)deleteFileFromDocuments: (const NSString *) name;

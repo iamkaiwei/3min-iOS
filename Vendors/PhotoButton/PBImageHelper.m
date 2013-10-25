@@ -38,4 +38,20 @@
     return TRUE;
 }
 
++ (NSArray *)listFileAtPath:(NSString *)path
+{
+    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
+    return directoryContent;
+}
+
++ (void)clearOldTempImageFilesInDocumentDirectory{
+    NSFileManager *fileMgr = [NSFileManager defaultManager];
+    
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSArray *imagePaths = [self listFileAtPath:docDir];
+    for (NSString * path in imagePaths) {
+        [fileMgr removeItemAtPath:path error:nil];
+    }
+}
+
 @end

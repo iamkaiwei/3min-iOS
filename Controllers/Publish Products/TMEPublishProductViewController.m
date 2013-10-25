@@ -96,6 +96,7 @@ TMEPhotoButtonDelegate
     self.currentPhotoButton.photoName = editedImageTimeStampName;
     
     self.currentPhotoButton = nil;
+    [PBImageHelper clearOldTempImageFilesInDocumentDirectory];
 }
 
 #pragma marks - TMEPhotoButton delegate
