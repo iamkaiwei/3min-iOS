@@ -85,6 +85,7 @@ TMEPhotoButtonDelegate
 
 - (void)photoEditor:(TMEBasePhotoEditorViewController *)editor finishedWithImage:(UIImage *)image
 {
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     [self dismissModalViewControllerWithFadeDuration:0.2];
     self.navigationController.navigationBarHidden = NO;
     [self.currentPhotoButton setBackgroundImage:image forState:UIControlStateNormal];
