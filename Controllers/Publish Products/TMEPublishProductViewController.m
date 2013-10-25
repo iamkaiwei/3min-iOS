@@ -79,13 +79,13 @@ TMEPhotoButtonDelegate
 {
     TMEBasePhotoEditorViewController *editorController = [[TMEBasePhotoEditorViewController alloc] initWithImage:imageToEdit];
     [editorController setDelegate:self];
-    [self.navigationController pushViewController:editorController animated:YES];
+    [self presentModalViewController:editorController withPushDirection:@"left"];
     self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)photoEditor:(TMEBasePhotoEditorViewController *)editor finishedWithImage:(UIImage *)image
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissModalViewControllerWithFadeDuration:0.2];
     self.navigationController.navigationBarHidden = NO;
     [self.currentPhotoButton setBackgroundImage:image forState:UIControlStateNormal];
     self.currentPhotoButton = nil;

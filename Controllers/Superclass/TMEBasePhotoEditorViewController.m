@@ -31,4 +31,9 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+- (BOOL)hidesBottomBarWhenPushed
+{
+    return YES;
+}
+
 @end
