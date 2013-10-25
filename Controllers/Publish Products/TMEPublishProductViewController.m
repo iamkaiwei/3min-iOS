@@ -89,6 +89,12 @@ TMEPhotoButtonDelegate
     [self dismissModalViewControllerWithFadeDuration:0.2];
     self.navigationController.navigationBarHidden = NO;
     [self.currentPhotoButton setBackgroundImage:image forState:UIControlStateNormal];
+    
+    // need remove old one
+    NSString *editedImageTimeStampName = [@([[NSDate date] timeIntervalSince1970]) stringValue];
+    [PBImageHelper saveImageToDocuments:image withName:editedImageTimeStampName];
+    self.currentPhotoButton.photoName = editedImageTimeStampName;
+    
     self.currentPhotoButton = nil;
 }
 
