@@ -135,6 +135,7 @@
 #import "OpenUDID.h"
 #import "iCarousel.h"
 #import "UINavigationController+SGProgress.h"
+#import "SSPullToRefresh.h"
 
 // Common VCs
 #import "TMENavigationViewController.h"

@@ -13,11 +13,13 @@
 <
 UITextFieldDelegate,
 UICollectionViewDataSource,
-UICollectionViewDelegateFlowLayout
+UICollectionViewDelegateFlowLayout,
+SSPullToRefreshViewDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionProductsView;
 @property (strong, nonatomic) NSArray *arrayProducts;
+@property (strong, nonatomic) SSPullToRefreshView           *pullToRefreshView;
 
 @end
 
@@ -36,6 +38,8 @@ UICollectionViewDelegateFlowLayout
     
     self.collectionProductsView.collectionViewLayout = flowLayout;
     self.collectionProductsView.backgroundColor = [UIColor colorWithHexString:@"#e4e2e1"];
+    
+    self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionProductsView delegate:self];
     
     [self loadProductsTable];
     
@@ -70,17 +74,23 @@ UICollectionViewDelegateFlowLayout
 
 - (void)loadProductsTable{
     
-    [SVProgressHUD showWithStatus:@"Loading content..."maskType:SVProgressHUDMaskTypeGradient];
+    [self.pullToRefreshView startLoading];
     [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
         
         self.arrayProducts = arrProducts;
         [self.collectionProductsView reloadData];
         
-        [SVProgressHUD dismiss];
+        [self.pullToRefreshView finishLoading];
         
     } andFailureBlock:^(NSInteger statusCode, id obj) {
-        [SVProgressHUD dismiss];
+        [self.pullToRefreshView finishLoading];
     }];
+}
+
+#pragma mark - SSPullToRefreshView delegate
+- (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view
+{
+    [self loadProductsTable];
 }
 
 @end

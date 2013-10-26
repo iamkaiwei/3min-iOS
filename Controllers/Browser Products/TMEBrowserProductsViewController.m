@@ -11,12 +11,15 @@
 
 @interface TMEBrowserProductsViewController ()
 <
-UIScrollViewDelegate
+UIScrollViewDelegate,
+SSPullToRefreshViewDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UITableView        * tableProducts;
 @property (strong, nonatomic) NSMutableArray            * arrProducts;
 @property (strong, nonatomic) TMEUser                   * loginUser;
+
+@property (strong, nonatomic) SSPullToRefreshView       * pullToRefreshView;
 
 @end
 
@@ -40,6 +43,8 @@ UIScrollViewDelegate
     
     NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
     [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
+
+    self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.tableProducts delegate:self];
     
     [self loadProductsTable];
     
@@ -74,18 +79,24 @@ UIScrollViewDelegate
 
 - (void)loadProductsTable{
     
-    [SVProgressHUD showWithStatus:@"Loading content..." maskType:SVProgressHUDMaskTypeGradient];
+    [self.pullToRefreshView startLoading];
     
     [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
         
         self.arrProducts = [arrProducts mutableCopy];
         [self.tableProducts reloadData];
         
-        [SVProgressHUD dismiss];
+        [self.pullToRefreshView finishLoading];
         
     } andFailureBlock:^(NSInteger statusCode, id obj) {
-        [SVProgressHUD dismiss];
+        [self.pullToRefreshView finishLoading];
     }];
+}
+
+#pragma mark - SSPullToRefreshView delegate
+- (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view
+{
+    [self loadProductsTable];
 }
 
 @end
