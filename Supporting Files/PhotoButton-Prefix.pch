@@ -117,6 +117,7 @@
 #import "TMEProductsManager.h"
 #import "TMECategoryManager.h"
 #import "TMEUserManager.h"
+#import "TMEFacebookManager.h"
 #import "FacebookManager.h"
 #import "BaseNetworkManager.h"
 

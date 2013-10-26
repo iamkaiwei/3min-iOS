@@ -262,6 +262,7 @@
 		B459FDE4181BFC7900D6BC79 /* Login3.png in Resources */ = {isa = PBXBuildFile; fileRef = B459FDE1181BFC7900D6BC79 /* Login3.png */; };
 		B49C6F53181C091D00EB380A /* login-facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F51181C091D00EB380A /* login-facebook.png */; };
 		B49C6F54181C091D00EB380A /* login-facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F52181C091D00EB380A /* login-facebook@2x.png */; };
+		B49C6F57181C152900EB380A /* TMEFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B49C6F56181C152900EB380A /* TMEFacebookManager.m */; };
 		B4E1DEFE18191C7D002D0609 /* tabbar-sell-icon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E1DEFA18191C7D002D0609 /* tabbar-sell-icon-pressed.png */; };
 		B4E1DEFF18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E1DEFB18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png */; };
 		B4E9664B180AE4DA004A6530 /* TMEBrowserCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E96649180AE4DA004A6530 /* TMEBrowserCollectionViewController.m */; };
@@ -674,6 +675,8 @@
 		B48DDB3B180D3234000078F1 /* ICON-3mins-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins-57x57.png"; sourceTree = "<group>"; };
 		B49C6F51181C091D00EB380A /* login-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-facebook.png"; sourceTree = "<group>"; };
 		B49C6F52181C091D00EB380A /* login-facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-facebook@2x.png"; sourceTree = "<group>"; };
+		B49C6F55181C152900EB380A /* TMEFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFacebookManager.h; sourceTree = "<group>"; };
+		B49C6F56181C152900EB380A /* TMEFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFacebookManager.m; sourceTree = "<group>"; };
 		B4E1DEFA18191C7D002D0609 /* tabbar-sell-icon-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon-pressed.png"; sourceTree = "<group>"; };
 		B4E1DEFB18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon-pressed@2x.png"; sourceTree = "<group>"; };
 		B4E96648180AE4DA004A6530 /* TMEBrowserCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserCollectionViewController.h; sourceTree = "<group>"; };
@@ -1041,6 +1044,8 @@
 				0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */,
 				20A10FCB17F80FA200471983 /* TMECategoryManager.h */,
 				20A10FCC17F80FA200471983 /* TMECategoryManager.m */,
+				B49C6F55181C152900EB380A /* TMEFacebookManager.h */,
+				B49C6F56181C152900EB380A /* TMEFacebookManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1746,6 +1751,7 @@
 				0CD9CF5B17EA0FD400402E91 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				B4093B781810379700D51B69 /* YIFullScreenScroll.m in Sources */,
 				0CFC0FEA17ECB690008FBD92 /* TMEBrowserProductsTableCell.m in Sources */,
+				B49C6F57181C152900EB380A /* TMEFacebookManager.m in Sources */,
 				0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */,
 				0C6E069017E0CBF60003F104 /* TMEHomeViewController.m in Sources */,
 				0C7EFBCE17E8D5170054C4DE /* NSObject+Additions.m in Sources */,

@@ -45,7 +45,7 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
     if (!_loginView) {
         _loginView = [[FBLoginView alloc] init];
         _loginView.frame = CGRectMake((self.view.width - 240) / 2, self.view.height - 90, 240, 44);
-        _loginView.delegate = self;
+        _loginView.delegate = (id)[TMEFacebookManager sharedInstance];
         
         _loginView.readPermissions = @[@"user_about_me"];
         _loginView.defaultAudience = FBSessionDefaultAudienceFriends;
@@ -156,43 +156,6 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
 {
     [self.skipButton removeFromSuperview];
     self.tutorialPageControl.currentPage = carousel.currentItemIndex;
-}
-
-- (IBAction)performLogin:(id)sender
-{
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate openSession];
-}
-
-- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
-{
-    
-}
-
-- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
-{
-    
-}
-
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user
-{
-    DLog(@"logged User: %@", [user description]);
-    NSString *token = [[[FBSession activeSession] accessTokenData] accessToken];
-    DLog(@"Token = %@", token);
-    
-    [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
-    
-    [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
-        [SVProgressHUD showSuccessWithStatus:@"Login successfully"];
-        [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:user];
-        
-        [SVProgressHUD dismiss];
-        [[AppDelegate sharedDelegate] showHomeViewController];
-        
-    } andFailureBlock:^(NSInteger statusCode, id obj) {
-        [SVProgressHUD showErrorWithStatus:@"Login failure"];
-    }];
 }
 
 @end
