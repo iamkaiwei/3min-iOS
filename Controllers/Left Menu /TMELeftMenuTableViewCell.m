@@ -1,0 +1,34 @@
+//
+//  TMELeftMenuTableViewCell.m
+//  PhotoButton
+//
+//  Created by Triệu Khang on 27/10/13.
+//
+//
+
+#import "TMELeftMenuTableViewCell.h"
+
+@interface TMELeftMenuTableViewCell()
+
+@property (weak, nonatomic) IBOutlet UIImageView        * imageViewCategoryAvatar;
+@property (weak, nonatomic) IBOutlet UILabel            * lblCategoryName;
+
+@end
+
+@implementation TMELeftMenuTableViewCell
+
++ (CGFloat )getHeight
+{
+    return 64;
+}
+
+- (void)configCategoryCellWithCategory:(TMECategory *)category
+{
+    self.lblCategoryName.text = category.name;
+    
+    UIImage * categoryImage = [UIImage imageNamed:category.photo_url];
+    self.imageViewCategoryAvatar.image = categoryImage;
+//    [self.imageViewCategoryAvatar setImageWithURL:[NSURL URLWithString:category.photo_url] placeholderImage:nil];
+}
+
+@end

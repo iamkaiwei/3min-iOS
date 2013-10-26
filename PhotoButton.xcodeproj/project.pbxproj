@@ -265,6 +265,15 @@
 		B49C6F57181C152900EB380A /* TMEFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B49C6F56181C152900EB380A /* TMEFacebookManager.m */; };
 		B49C6F5A181C321800EB380A /* normal-view-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F58181C321800EB380A /* normal-view-icon.png */; };
 		B49C6F5B181C321800EB380A /* normal-view-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F59181C321800EB380A /* normal-view-icon@2x.png */; };
+		B49C6F5E181C34E200EB380A /* TMELeftMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B49C6F5D181C34E200EB380A /* TMELeftMenuTableViewCell.m */; };
+		B49C6F60181C34F400EB380A /* TMELeftMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F5F181C34F400EB380A /* TMELeftMenuTableViewCell.xib */; };
+		B49C6F69181C37D600EB380A /* Books.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F62181C37D600EB380A /* Books.png */; };
+		B49C6F6A181C37D600EB380A /* Design_art.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F63181C37D600EB380A /* Design_art.png */; };
+		B49C6F6B181C37D600EB380A /* Follwing.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F64181C37D600EB380A /* Follwing.png */; };
+		B49C6F6C181C37D600EB380A /* For-her.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F65181C37D600EB380A /* For-her.png */; };
+		B49C6F6D181C37D600EB380A /* For-him.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F66181C37D600EB380A /* For-him.png */; };
+		B49C6F6E181C37D600EB380A /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F67181C37D600EB380A /* house.png */; };
+		B49C6F6F181C37D600EB380A /* Popular.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F68181C37D600EB380A /* Popular.png */; };
 		B4E1DEFE18191C7D002D0609 /* tabbar-sell-icon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E1DEFA18191C7D002D0609 /* tabbar-sell-icon-pressed.png */; };
 		B4E1DEFF18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E1DEFB18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png */; };
 		B4E9664B180AE4DA004A6530 /* TMEBrowserCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E96649180AE4DA004A6530 /* TMEBrowserCollectionViewController.m */; };
@@ -681,6 +690,16 @@
 		B49C6F56181C152900EB380A /* TMEFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFacebookManager.m; sourceTree = "<group>"; };
 		B49C6F58181C321800EB380A /* normal-view-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "normal-view-icon.png"; sourceTree = "<group>"; };
 		B49C6F59181C321800EB380A /* normal-view-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "normal-view-icon@2x.png"; sourceTree = "<group>"; };
+		B49C6F5C181C34E200EB380A /* TMELeftMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELeftMenuTableViewCell.h; sourceTree = "<group>"; };
+		B49C6F5D181C34E200EB380A /* TMELeftMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELeftMenuTableViewCell.m; sourceTree = "<group>"; };
+		B49C6F5F181C34F400EB380A /* TMELeftMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMELeftMenuTableViewCell.xib; sourceTree = "<group>"; };
+		B49C6F62181C37D600EB380A /* Books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Books.png; sourceTree = "<group>"; };
+		B49C6F63181C37D600EB380A /* Design_art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Design_art.png; sourceTree = "<group>"; };
+		B49C6F64181C37D600EB380A /* Follwing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Follwing.png; sourceTree = "<group>"; };
+		B49C6F65181C37D600EB380A /* For-her.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "For-her.png"; sourceTree = "<group>"; };
+		B49C6F66181C37D600EB380A /* For-him.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "For-him.png"; sourceTree = "<group>"; };
+		B49C6F67181C37D600EB380A /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
+		B49C6F68181C37D600EB380A /* Popular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Popular.png; sourceTree = "<group>"; };
 		B4E1DEFA18191C7D002D0609 /* tabbar-sell-icon-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon-pressed.png"; sourceTree = "<group>"; };
 		B4E1DEFB18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon-pressed@2x.png"; sourceTree = "<group>"; };
 		B4E96648180AE4DA004A6530 /* TMEBrowserCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserCollectionViewController.h; sourceTree = "<group>"; };
@@ -725,6 +744,7 @@
 		0C28B28717DC1A1400BD0EC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B49C6F61181C37CF00EB380A /* Categories Icons */,
 				B459FDD2181BF94300D6BC79 /* Introdution Screen */,
 				B459FDBA181BD07500D6BC79 /* Images.xcassets */,
 				0C3CA94017F7F7130072117A /* Publish Product */,
@@ -1007,6 +1027,9 @@
 				0C59550017F711CF0076353E /* TMELeftMenuViewController.h */,
 				0C59550117F711CF0076353E /* TMELeftMenuViewController.m */,
 				0C59550217F711CF0076353E /* TMELeftMenuViewController.xib */,
+				B49C6F5C181C34E200EB380A /* TMELeftMenuTableViewCell.h */,
+				B49C6F5D181C34E200EB380A /* TMELeftMenuTableViewCell.m */,
+				B49C6F5F181C34F400EB380A /* TMELeftMenuTableViewCell.xib */,
 			);
 			path = "Left Menu ";
 			sourceTree = "<group>";
@@ -1579,6 +1602,20 @@
 			path = "Introdution Screen";
 			sourceTree = "<group>";
 		};
+		B49C6F61181C37CF00EB380A /* Categories Icons */ = {
+			isa = PBXGroup;
+			children = (
+				B49C6F62181C37D600EB380A /* Books.png */,
+				B49C6F63181C37D600EB380A /* Design_art.png */,
+				B49C6F64181C37D600EB380A /* Follwing.png */,
+				B49C6F65181C37D600EB380A /* For-her.png */,
+				B49C6F66181C37D600EB380A /* For-him.png */,
+				B49C6F67181C37D600EB380A /* house.png */,
+				B49C6F68181C37D600EB380A /* Popular.png */,
+			);
+			path = "Categories Icons";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1638,6 +1675,7 @@
 				0C5954F117F6BDDD0076353E /* navigation_background.png in Resources */,
 				B42FE3E118190F1C004E39EF /* tabbar-background.png in Resources */,
 				0C3CA94417F7F7130072117A /* add-photo-placeholder@2x.png in Resources */,
+				B49C6F6F181C37D600EB380A /* Popular.png in Resources */,
 				0C43CCA817F5D29A00D869F9 /* clock-icon.png in Resources */,
 				0CFC0FF217ECB8BB008FBD92 /* TMEProductDetailsViewController.xib in Resources */,
 				B49C6F53181C091D00EB380A /* login-facebook.png in Resources */,
@@ -1646,6 +1684,7 @@
 				B459FDDC181BF94E00D6BC79 /* Login2@2x.png in Resources */,
 				B459FDE3181BFC7900D6BC79 /* Login2.png in Resources */,
 				0C43CC9B17F5CC4A00D869F9 /* arrow-down.png in Resources */,
+				B49C6F6B181C37D600EB380A /* Follwing.png in Resources */,
 				B459FDE2181BFC7900D6BC79 /* Login1.png in Resources */,
 				B42FE3DD18190F1C004E39EF /* tabbar-search-icon@2x.png in Resources */,
 				0C59550417F711CF0076353E /* TMELeftMenuViewController.xib in Resources */,
@@ -1667,12 +1706,14 @@
 				B4202235180A844F00F62FF0 /* TMEBrowserCollectionCell.xib in Resources */,
 				0C6E069217E0CBF60003F104 /* TMEHomeViewController.xib in Resources */,
 				B42FE3DB18190F1C004E39EF /* tabbar-activity-icon@2x.png in Resources */,
+				B49C6F6C181C37D600EB380A /* For-her.png in Resources */,
 				0C43CC9C17F5CC4A00D869F9 /* arrow-down@2x.png in Resources */,
 				B42FE3D518190F1C004E39EF /* tabbar-me-icon-pressed.png in Resources */,
 				0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */,
 				0CFC0FF817ECBA3F008FBD92 /* bt_fb_signin_normal.png in Resources */,
 				B42ADE87180D561300B0E473 /* HTKContainerViewController.xib in Resources */,
 				B42FE3D418190F1C004E39EF /* tabbar-browser-icon.png in Resources */,
+				B49C6F60181C34F400EB380A /* TMELeftMenuTableViewCell.xib in Resources */,
 				B49C6F54181C091D00EB380A /* login-facebook@2x.png in Resources */,
 				B42FE3D318190F1C004E39EF /* tabbar-browser-icon-pressed.png in Resources */,
 				205EACE917F6E7BD00EE9A76 /* dsym_upload.sh in Resources */,
@@ -1686,6 +1727,7 @@
 				0CFC0FF917ECBA3F008FBD92 /* bt_fb_signin_normal@2x.png in Resources */,
 				B42FE3E218190F1C004E39EF /* tabbar-background@2x.png in Resources */,
 				B42FE3DA18190F1C004E39EF /* tabbar-me-icon-pressed@2x.png in Resources */,
+				B49C6F6D181C37D600EB380A /* For-him.png in Resources */,
 				0C5954EE17F6BDDD0076353E /* category-list-icon@2x.png in Resources */,
 				B42FE3E418190F1C004E39EF /* tabbar-sell-icon@2x.png in Resources */,
 				0C43CCB917F5E93D00D869F9 /* TMENavigationViewController.xib in Resources */,
@@ -1699,6 +1741,7 @@
 				0C5954F217F6BDDD0076353E /* navigation_background@2x.png in Resources */,
 				B42FE3D118190F1C004E39EF /* tabbar-activity-icon-pressed.png in Resources */,
 				B459FDBB181BD07500D6BC79 /* Images.xcassets in Resources */,
+				B49C6F69181C37D600EB380A /* Books.png in Resources */,
 				0C5954F017F6BDDD0076353E /* grid-view-icon@2x.png in Resources */,
 				0C7EFBEB17E8D5790054C4DE /* FontAwesome.ttf in Resources */,
 				B4E1DEFE18191C7D002D0609 /* tabbar-sell-icon-pressed.png in Resources */,
@@ -1706,11 +1749,13 @@
 				205EACFF17F6E83F00EE9A76 /* AviarySDKResources.bundle in Resources */,
 				0CFC0FED17ECB690008FBD92 /* TMEBrowserProductsViewController.xib in Resources */,
 				0C2CE1C217EAEAC20074C57F /* TMEPublishProductViewController.xib in Resources */,
+				B49C6F6A181C37D600EB380A /* Design_art.png in Resources */,
 				B459FDDA181BF94E00D6BC79 /* Login1@2x.png in Resources */,
 				B42FE3DC18190F1C004E39EF /* tabbar-activity-icon-pressed@2x.png in Resources */,
 				0CFC0FFB17ECBA3F008FBD92 /* bt_fb_signin_pressed@2x.png in Resources */,
 				B42FE3E018190F1C004E39EF /* tabbar-browser-icon-pressed@2x.png in Resources */,
 				0C5954EF17F6BDDD0076353E /* grid-view-icon.png in Resources */,
+				B49C6F6E181C37D600EB380A /* house.png in Resources */,
 				0C43CC9D17F5CC4A00D869F9 /* big-logo.png in Resources */,
 				0C43CCAE17F5D29A00D869F9 /* share-button.png in Resources */,
 				B42FE3D618190F1C004E39EF /* tabbar-me-icon.png in Resources */,
@@ -1793,6 +1838,7 @@
 				0C43CCB717F5E6BB00D869F9 /* TMENavigationViewController.m in Sources */,
 				0C7EFBE417E8D5170054C4DE /* UIWebView+Additions.m in Sources */,
 				0C7EFBCC17E8D5170054C4DE /* NSMutableArray+Additions.m in Sources */,
+				B49C6F5E181C34E200EB380A /* TMELeftMenuTableViewCell.m in Sources */,
 				0C34A8A117F0ADFE003ACEFF /* AFDownloadRequestOperation.m in Sources */,
 				0C7EFBE017E8D5170054C4DE /* UIView+Additions.m in Sources */,
 				0C7EFBD217E8D5170054C4DE /* UIAlertView+Additions.m in Sources */,
