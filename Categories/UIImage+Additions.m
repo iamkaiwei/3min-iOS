@@ -308,4 +308,29 @@ typedef enum {
 //    return adjustedImage;
 //}
 
++ (NSString *)correctImageNameByScrennResolutionImageName:(NSString *)imageName isIcon:(BOOL)isIcon
+{
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    
+    if (isIcon && [UIScreen mainScreen].scale == 2.f) {
+        return [NSString stringWithFormat:@"%@@2x", imageName];
+    }else if(isIcon && [UIScreen mainScreen].scale != 2.f){
+        return [NSString stringWithFormat:@"%@", imageName];
+    }
+    
+    if ([UIScreen mainScreen].scale == 2.f && screenHeight == 568.0f) {
+        return [NSString stringWithFormat:@"%@-568h", imageName];
+    } else if([UIScreen mainScreen].scale == 2.f) {
+        return [NSString stringWithFormat:@"%@@2x", imageName];
+    }
+    
+    return [NSString stringWithFormat:@"%@", imageName];
+}
+
++ (UIImage *)oneTimeImageWithImageName:(NSString *)imageName isIcon:(BOOL)isIcon{
+    NSString *correctedImageName = [UIImage correctImageNameByScrennResolutionImageName:imageName isIcon:isIcon];
+    NSString *thePath = [[NSBundle mainBundle] pathForResource:correctedImageName ofType:@"png"];
+    return [UIImage imageWithContentsOfFile:thePath];
+}
+
 @end

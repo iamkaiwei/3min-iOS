@@ -10,20 +10,20 @@
 
 @interface UIImage (Additions)
 
--(UIImage *)scaleToSize:(CGSize)size;
--(UIImage *)scaleToWidth:(CGFloat)width;
+- (UIImage *)scaleToSize:(CGSize)size;
+- (UIImage *)scaleToWidth:(CGFloat)width;
 
--(UIImage *)crop:(CGRect)rect;
--(UIImage *)squareCrop;
+- (UIImage *)crop:(CGRect)rect;
+- (UIImage *)squareCrop;
 
--(UIImage *)resizableImageWithStandardInsets;
+- (UIImage *)resizableImageWithStandardInsets;
 
--(UIImage *)convertToGrayscale;
+- (UIImage *)convertToGrayscale;
 
 /*
  * Generate an image from size & single color
  */
-+(UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 
 - (UIImage *)hueAdjust:(CGFloat)hueAdjust;
 
@@ -36,5 +36,7 @@
  * - 0-360: a number will be used to perform hue shift on the base image
  */
 //+ (UIImage *)imageNamed:(NSString *)imageNamed withThemeName:(NSString *)themeName;
+
++ (UIImage *)oneTimeImageWithImageName:(NSString *)imageName isIcon:(BOOL)isIcon;
 
 @end

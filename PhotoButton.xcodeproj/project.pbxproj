@@ -260,6 +260,8 @@
 		B459FDE2181BFC7900D6BC79 /* Login1.png in Resources */ = {isa = PBXBuildFile; fileRef = B459FDDF181BFC7900D6BC79 /* Login1.png */; };
 		B459FDE3181BFC7900D6BC79 /* Login2.png in Resources */ = {isa = PBXBuildFile; fileRef = B459FDE0181BFC7900D6BC79 /* Login2.png */; };
 		B459FDE4181BFC7900D6BC79 /* Login3.png in Resources */ = {isa = PBXBuildFile; fileRef = B459FDE1181BFC7900D6BC79 /* Login3.png */; };
+		B49C6F53181C091D00EB380A /* login-facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F51181C091D00EB380A /* login-facebook.png */; };
+		B49C6F54181C091D00EB380A /* login-facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F52181C091D00EB380A /* login-facebook@2x.png */; };
 		B4E1DEFE18191C7D002D0609 /* tabbar-sell-icon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E1DEFA18191C7D002D0609 /* tabbar-sell-icon-pressed.png */; };
 		B4E1DEFF18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E1DEFB18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png */; };
 		B4E9664B180AE4DA004A6530 /* TMEBrowserCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E96649180AE4DA004A6530 /* TMEBrowserCollectionViewController.m */; };
@@ -670,6 +672,8 @@
 		B48DDB39180D31F4000078F1 /* ICON-3mins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins.png"; sourceTree = "<group>"; };
 		B48DDB3A180D322B000078F1 /* ICON-3mins-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins-114x114.png"; sourceTree = "<group>"; };
 		B48DDB3B180D3234000078F1 /* ICON-3mins-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins-57x57.png"; sourceTree = "<group>"; };
+		B49C6F51181C091D00EB380A /* login-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-facebook.png"; sourceTree = "<group>"; };
+		B49C6F52181C091D00EB380A /* login-facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-facebook@2x.png"; sourceTree = "<group>"; };
 		B4E1DEFA18191C7D002D0609 /* tabbar-sell-icon-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon-pressed.png"; sourceTree = "<group>"; };
 		B4E1DEFB18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon-pressed@2x.png"; sourceTree = "<group>"; };
 		B4E96648180AE4DA004A6530 /* TMEBrowserCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserCollectionViewController.h; sourceTree = "<group>"; };
@@ -1549,6 +1553,8 @@
 		B459FDD2181BF94300D6BC79 /* Introdution Screen */ = {
 			isa = PBXGroup;
 			children = (
+				B49C6F51181C091D00EB380A /* login-facebook.png */,
+				B49C6F52181C091D00EB380A /* login-facebook@2x.png */,
 				B459FDD3181BF94E00D6BC79 /* Login1-568h.png */,
 				B459FDD4181BF94E00D6BC79 /* Login1@2x.png */,
 				B459FDD5181BF94E00D6BC79 /* Login2-568h.png */,
@@ -1623,6 +1629,7 @@
 				0C3CA94417F7F7130072117A /* add-photo-placeholder@2x.png in Resources */,
 				0C43CCA817F5D29A00D869F9 /* clock-icon.png in Resources */,
 				0CFC0FF217ECB8BB008FBD92 /* TMEProductDetailsViewController.xib in Resources */,
+				B49C6F53181C091D00EB380A /* login-facebook.png in Resources */,
 				0C43CC9E17F5CC4A00D869F9 /* big-logo@2x.png in Resources */,
 				B42FE3D718190F1C004E39EF /* tabbar-search-icon-pressed.png in Resources */,
 				B459FDDC181BF94E00D6BC79 /* Login2@2x.png in Resources */,
@@ -1653,6 +1660,7 @@
 				0CFC0FF817ECBA3F008FBD92 /* bt_fb_signin_normal.png in Resources */,
 				B42ADE87180D561300B0E473 /* HTKContainerViewController.xib in Resources */,
 				B42FE3D418190F1C004E39EF /* tabbar-browser-icon.png in Resources */,
+				B49C6F54181C091D00EB380A /* login-facebook@2x.png in Resources */,
 				B42FE3D318190F1C004E39EF /* tabbar-browser-icon-pressed.png in Resources */,
 				205EACE917F6E7BD00EE9A76 /* dsym_upload.sh in Resources */,
 				0CFC0FEB17ECB690008FBD92 /* TMEBrowserProductsTableCell.xib in Resources */,

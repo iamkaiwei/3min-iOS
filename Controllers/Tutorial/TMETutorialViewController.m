@@ -15,12 +15,13 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
 
 @interface TMETutorialViewController ()
 
-@property (strong, nonatomic) iCarousel *iCarousel;
-@property (strong, nonatomic) UIButton *doneButton;
-@property (strong, nonatomic) UIButton *skipButton;
-@property (strong, nonatomic) UIPageControl *tutorialPageControl;
+@property (strong, nonatomic) iCarousel     * iCarousel;
+@property (strong, nonatomic) UIButton      * doneButton;
+@property (strong, nonatomic) UIButton      * skipButton;
+@property (strong, nonatomic) UIPageControl * tutorialPageControl;
 
 @property (strong, nonatomic) NSArray       * arrayIntroductionImages;
+@property (strong, nonatomic) FBLoginView   * loginView;
 
 @end
 
@@ -39,13 +40,42 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
     return _arrayIntroductionImages;
 }
 
+- (FBLoginView *)loginView
+{
+    if (!_loginView) {
+        _loginView = [[FBLoginView alloc] init];
+        _loginView.frame = CGRectMake((self.view.width - 240) / 2, self.view.height - 90, 240, 44);
+        _loginView.delegate = self;
+        
+        _loginView.readPermissions = @[@"user_about_me"];
+        _loginView.defaultAudience = FBSessionDefaultAudienceFriends;
+        
+        for(UIView *view in _loginView.subviews)
+        {
+            if ([view isKindOfClass:[UIButton class]]) {
+                UIButton *loginBtn = (UIButton *)view;
+                [loginBtn setBackgroundImage:[UIImage oneTimeImageWithImageName:@"login-facebook" isIcon:YES] forState:UIControlStateNormal];
+                [loginBtn setBackgroundImage:[UIImage oneTimeImageWithImageName:@"login-facebook" isIcon:YES] forState:UIControlStateHighlighted];
+            }
+            if ([view isKindOfClass:[UILabel class]]) {
+                UILabel *lblName = (UILabel *)view;
+                lblName.text = @"";
+                lblName.textAlignment = NSTextAlignmentCenter;
+            }
+        }
+    }
+    
+    return _loginView;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.iCarousel];
+    [self.view addSubview:self.loginView];
     [self.view addSubview:self.tutorialPageControl];
-    [self.view addSubview:self.skipButton];
+//    [self.view addSubview:self.skipButton];
 }
 
 - (iCarousel *)iCarousel
@@ -114,9 +144,8 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
-    NSString *imageName = [self correctedImagesPathWithImageName:[self.arrayIntroductionImages objectAtIndex:index]];
-    NSString *thePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"png"];
-    UIImage *image = [UIImage imageWithContentsOfFile:thePath];
+    NSString *introductionImageName = [self.arrayIntroductionImages objectAtIndex:index];
+    UIImage *image = [UIImage oneTimeImageWithImageName:introductionImageName isIcon:NO];
     UIImageView *carouselView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     carouselView.image = image;
     
@@ -129,18 +158,41 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
     self.tutorialPageControl.currentPage = carousel.currentItemIndex;
 }
 
-#pragma mark - Helpers
-
-- (NSString *)correctedImagesPathWithImageName:(NSString *)imageName
+- (IBAction)performLogin:(id)sender
 {
-    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
-    if ([UIScreen mainScreen].scale == 2.f && screenHeight == 568.0f) {
-        return [NSString stringWithFormat:@"%@-568h", imageName];
-    } else if([UIScreen mainScreen].scale == 2.f) {
-        return [NSString stringWithFormat:@"%@@2x", imageName];
-    }
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate openSession];
+}
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
     
-    return [NSString stringWithFormat:@"%@", imageName];
+}
+
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
+{
+    
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user
+{
+    DLog(@"logged User: %@", [user description]);
+    NSString *token = [[[FBSession activeSession] accessTokenData] accessToken];
+    DLog(@"Token = %@", token);
+    
+    [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
+    
+    [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
+        [SVProgressHUD showSuccessWithStatus:@"Login successfully"];
+        [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:user];
+        
+        [SVProgressHUD dismiss];
+        [[AppDelegate sharedDelegate] showHomeViewController];
+        
+    } andFailureBlock:^(NSInteger statusCode, id obj) {
+        [SVProgressHUD showErrorWithStatus:@"Login failure"];
+    }];
 }
 
 @end

@@ -33,14 +33,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-//    self.navigationController.navigationBarHidden = YES;
-    
     for(UIView *view in self.loginView.subviews)
     {
         if ([view isKindOfClass:[UIButton class]]) {
             UIButton *loginBtn = (UIButton *)view;
-            [loginBtn setBackgroundImage:[UIImage imageNamed:@"bt_fb_signin_normal"] forState:UIControlStateNormal];
-            [loginBtn setBackgroundImage:[UIImage imageNamed:@"bt_fb_signin_pressed"] forState:UIControlStateHighlighted];
+            [loginBtn setBackgroundImage:[UIImage oneTimeImageWithImageName:@"bt_fb_signin_normal" isIcon:YES] forState:UIControlStateNormal];
+            [loginBtn setBackgroundImage:[UIImage oneTimeImageWithImageName:@"bt_fb_signin_pressed" isIcon:YES] forState:UIControlStateHighlighted];
         }
         if ([view isKindOfClass:[UILabel class]]) {
             UILabel *lblName = (UILabel *)view;
