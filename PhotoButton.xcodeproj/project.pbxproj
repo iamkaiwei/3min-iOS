@@ -248,6 +248,9 @@
 		B42FE3E318190F1C004E39EF /* tabbar-sell-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3CF18190F1C004E39EF /* tabbar-sell-icon.png */; };
 		B42FE3E418190F1C004E39EF /* tabbar-sell-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3D018190F1C004E39EF /* tabbar-sell-icon@2x.png */; };
 		B459FDBB181BD07500D6BC79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B459FDBA181BD07500D6BC79 /* Images.xcassets */; };
+		B459FDC4181BD23200D6BC79 /* SSPullToRefreshDefaultContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B459FDBF181BD23200D6BC79 /* SSPullToRefreshDefaultContentView.m */; };
+		B459FDC5181BD23200D6BC79 /* SSPullToRefreshSimpleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B459FDC1181BD23200D6BC79 /* SSPullToRefreshSimpleContentView.m */; };
+		B459FDC6181BD23200D6BC79 /* SSPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = B459FDC3181BD23200D6BC79 /* SSPullToRefreshView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B4E1DEFE18191C7D002D0609 /* tabbar-sell-icon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E1DEFA18191C7D002D0609 /* tabbar-sell-icon-pressed.png */; };
 		B4E1DEFF18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E1DEFB18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png */; };
 		B4E9664B180AE4DA004A6530 /* TMEBrowserCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E96649180AE4DA004A6530 /* TMEBrowserCollectionViewController.m */; };
@@ -639,6 +642,13 @@
 		B42FE3CF18190F1C004E39EF /* tabbar-sell-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon.png"; sourceTree = "<group>"; };
 		B42FE3D018190F1C004E39EF /* tabbar-sell-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon@2x.png"; sourceTree = "<group>"; };
 		B459FDBA181BD07500D6BC79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PhotoButton/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		B459FDBD181BD23200D6BC79 /* SSPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefresh.h; sourceTree = "<group>"; };
+		B459FDBE181BD23200D6BC79 /* SSPullToRefreshDefaultContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshDefaultContentView.h; sourceTree = "<group>"; };
+		B459FDBF181BD23200D6BC79 /* SSPullToRefreshDefaultContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshDefaultContentView.m; sourceTree = "<group>"; };
+		B459FDC0181BD23200D6BC79 /* SSPullToRefreshSimpleContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshSimpleContentView.h; sourceTree = "<group>"; };
+		B459FDC1181BD23200D6BC79 /* SSPullToRefreshSimpleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshSimpleContentView.m; sourceTree = "<group>"; };
+		B459FDC2181BD23200D6BC79 /* SSPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshView.h; sourceTree = "<group>"; };
+		B459FDC3181BD23200D6BC79 /* SSPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshView.m; sourceTree = "<group>"; };
 		B48DDB39180D31F4000078F1 /* ICON-3mins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins.png"; sourceTree = "<group>"; };
 		B48DDB3A180D322B000078F1 /* ICON-3mins-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins-114x114.png"; sourceTree = "<group>"; };
 		B48DDB3B180D3234000078F1 /* ICON-3mins-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins-57x57.png"; sourceTree = "<group>"; };
@@ -798,6 +808,7 @@
 			isa = PBXGroup;
 			children = (
 				B4093B721810379700D51B69 /* Classes */,
+				B459FDBC181BD23200D6BC79 /* SSPullToRefresh */,
 				0C41FEFC17F8826300C9CB50 /* UINavigationController+SGProgress */,
 				20C4D5E517F733F80035BCA5 /* iCarousel */,
 				0C5954F517F711200076353E /* ViewDeck */,
@@ -1502,6 +1513,21 @@
 			path = "Browser Products VCs";
 			sourceTree = "<group>";
 		};
+		B459FDBC181BD23200D6BC79 /* SSPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				B459FDBD181BD23200D6BC79 /* SSPullToRefresh.h */,
+				B459FDBE181BD23200D6BC79 /* SSPullToRefreshDefaultContentView.h */,
+				B459FDBF181BD23200D6BC79 /* SSPullToRefreshDefaultContentView.m */,
+				B459FDC0181BD23200D6BC79 /* SSPullToRefreshSimpleContentView.h */,
+				B459FDC1181BD23200D6BC79 /* SSPullToRefreshSimpleContentView.m */,
+				B459FDC2181BD23200D6BC79 /* SSPullToRefreshView.h */,
+				B459FDC3181BD23200D6BC79 /* SSPullToRefreshView.m */,
+			);
+			name = SSPullToRefresh;
+			path = ../../../../Downloads/SSPullToRefresh;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1673,6 +1699,7 @@
 				0C6E069017E0CBF60003F104 /* TMEHomeViewController.m in Sources */,
 				0C7EFBCE17E8D5170054C4DE /* NSObject+Additions.m in Sources */,
 				0C3DFC5617F4042C00DB4DAB /* OpenUDID.m in Sources */,
+				B459FDC5181BD23200D6BC79 /* SSPullToRefreshSimpleContentView.m in Sources */,
 				0C7EFB6E17E768C70054C4DE /* MagicalRecord+Setup.m in Sources */,
 				0C7053C717EF5E5E00E7615F /* TMECategory.m in Sources */,
 				0C7EFBD917E8D5170054C4DE /* UIImage+Additions.m in Sources */,
@@ -1774,8 +1801,10 @@
 				0CD9CF5A17EA0FD400402E91 /* AFJSONRequestOperation.m in Sources */,
 				0C2F788D17F2DBA600201783 /* SDImageCache.m in Sources */,
 				0C7EFBDE17E8D5170054C4DE /* UIScrollView+Additions.m in Sources */,
+				B459FDC4181BD23200D6BC79 /* SSPullToRefreshDefaultContentView.m in Sources */,
 				0C7EFB6317E768C70054C4DE /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				0C7EFB6F17E768C70054C4DE /* MagicalRecord+ShorthandSupport.m in Sources */,
+				B459FDC6181BD23200D6BC79 /* SSPullToRefreshView.m in Sources */,
 				0C41FEFF17F8826300C9CB50 /* UINavigationController+SGProgress.m in Sources */,
 				0C7EFB5717E768C70054C4DE /* MagicalImportFunctions.m in Sources */,
 				0C7EFBE317E8D5170054C4DE /* UIViewController+Additions.m in Sources */,
