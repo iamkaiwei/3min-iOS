@@ -247,6 +247,7 @@
 		B42FE3E218190F1C004E39EF /* tabbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3CE18190F1C004E39EF /* tabbar-background@2x.png */; };
 		B42FE3E318190F1C004E39EF /* tabbar-sell-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3CF18190F1C004E39EF /* tabbar-sell-icon.png */; };
 		B42FE3E418190F1C004E39EF /* tabbar-sell-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3D018190F1C004E39EF /* tabbar-sell-icon@2x.png */; };
+		B459FDBB181BD07500D6BC79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B459FDBA181BD07500D6BC79 /* Images.xcassets */; };
 		B4E1DEFE18191C7D002D0609 /* tabbar-sell-icon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E1DEFA18191C7D002D0609 /* tabbar-sell-icon-pressed.png */; };
 		B4E1DEFF18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E1DEFB18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png */; };
 		B4E9664B180AE4DA004A6530 /* TMEBrowserCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E96649180AE4DA004A6530 /* TMEBrowserCollectionViewController.m */; };
@@ -637,6 +638,7 @@
 		B42FE3CE18190F1C004E39EF /* tabbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background@2x.png"; sourceTree = "<group>"; };
 		B42FE3CF18190F1C004E39EF /* tabbar-sell-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon.png"; sourceTree = "<group>"; };
 		B42FE3D018190F1C004E39EF /* tabbar-sell-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon@2x.png"; sourceTree = "<group>"; };
+		B459FDBA181BD07500D6BC79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PhotoButton/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		B48DDB39180D31F4000078F1 /* ICON-3mins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins.png"; sourceTree = "<group>"; };
 		B48DDB3A180D322B000078F1 /* ICON-3mins-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins-114x114.png"; sourceTree = "<group>"; };
 		B48DDB3B180D3234000078F1 /* ICON-3mins-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins-57x57.png"; sourceTree = "<group>"; };
@@ -684,6 +686,7 @@
 		0C28B28717DC1A1400BD0EC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B459FDBA181BD07500D6BC79 /* Images.xcassets */,
 				0C3CA94017F7F7130072117A /* Publish Product */,
 				0C59550817F743260076353E /* Tabbar */,
 				0C5954E417F6BDDD0076353E /* Navigation */,
@@ -1606,6 +1609,7 @@
 				0C43CCAB17F5D29A00D869F9 /* comment-button@2x.png in Resources */,
 				0C5954F217F6BDDD0076353E /* navigation_background@2x.png in Resources */,
 				B42FE3D118190F1C004E39EF /* tabbar-activity-icon-pressed.png in Resources */,
+				B459FDBB181BD07500D6BC79 /* Images.xcassets in Resources */,
 				0C5954F017F6BDDD0076353E /* grid-view-icon@2x.png in Resources */,
 				0C7EFBEB17E8D5790054C4DE /* FontAwesome.ttf in Resources */,
 				B4E1DEFE18191C7D002D0609 /* tabbar-sell-icon-pressed.png in Resources */,
@@ -1893,6 +1897,8 @@
 		5976C06115925D2D007F6FC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1923,6 +1929,8 @@
 		5976C06215925D2D007F6FC3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
