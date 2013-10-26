@@ -44,7 +44,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view
-    [self addNavigationRightButton];
     [self switchContainerViewControllerToViewController:self.normalViewController];
 }
 
@@ -61,6 +60,8 @@
     self.currentViewController = viewController;
  
     [self assignFullScreenScrollViewWithViewController:viewController];
+    
+    [self configNavigationRightButton];
 }
 
 - (void)assignFullScreenScrollViewWithViewController:(UIViewController *)viewController
@@ -84,14 +85,15 @@
 - (UIBarButtonItem *)rightNavigationButton{
     // Nav right button
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightButton setImage:[UIImage imageNamed:@"grid-view-icon"] forState:UIControlStateNormal];
+    NSString *rightButtonImageName = ([self.currentViewController isEqual:self.normalViewController] ? @"grid-view-icon" : @"normal-view-icon");
+    [rightButton setImage:[UIImage imageNamed:rightButtonImageName] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(onBtnGridView:) forControlEvents:UIControlEventTouchUpInside];
     rightButton.frame = CGRectMake(0, 0, 40, 30);
     
     return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
 }
 
-- (void)addNavigationRightButton
+- (void)configNavigationRightButton
 {
     UIBarButtonItem *rightButtonItem = [self rightNavigationButton];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
