@@ -245,17 +245,19 @@
 
 #pragma mark - Switch View Controllers
 
-- (void)configTabbar
+- (void)configTabbarAndNavigationBar
 {
     // config tabbar appear
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar-background"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
     [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
+    
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
 }
 
 - (void)showHomeViewController
 {
-    [self configTabbar];
+    [self configTabbarAndNavigationBar];
     IIViewDeckController *deckController = [self generateControllerStack];
     
     if (![[TMEUserManager sharedInstance] loggedUser]) {

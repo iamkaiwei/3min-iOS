@@ -34,7 +34,7 @@ TMEPhotoButtonDelegate
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"";
-    self.navigationController.navigationBar.topItem.title = @"Publish Product";
+//    self.navigationController.navigationBar.topItem.title = @"Publish Product";
     
     self.isEditing = YES;
     for (TMEPhotoButton *button in self.view.subviews) {
@@ -49,6 +49,38 @@ TMEPhotoButtonDelegate
     UIView *detailsWrapperView = [self.txtCategoryName superview];
     [(UIScrollView *)self.view setContentSize:CGSizeMake(self.view.frame.size.width,
                                                          CGRectGetMaxY(detailsWrapperView.frame) + 20)];
+    
+    self.navigationItem.leftBarButtonItem = [self leftNavigationButton];
+    self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
+}
+
+- (BOOL)hidesBottomBarWhenPushed
+{
+    return YES;
+}
+
+- (UIBarButtonItem *)leftNavigationButton
+{
+    UIImage *leftButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"publish_cancel_btn" isIcon:YES];
+    UIImage *leftButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"publish_cancel_btn_pressed" isIcon:YES];
+    UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
+    [leftButton addTarget:self action:@selector(onCancelButton:) forControlEvents:UIControlEventTouchUpInside];
+    [leftButton setBackgroundImage:leftButtonBackgroundNormalImage forState:UIControlStateNormal];
+    [leftButton setBackgroundImage:leftButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
+    
+    return [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+}
+
+- (UIBarButtonItem *)rightNavigationButton
+{
+    UIImage *rightButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn" isIcon:YES];
+    UIImage *rightButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn_pressed" isIcon:YES];
+    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
+    [rightButton addTarget:self action:@selector(onPublishButton:) forControlEvents:UIControlEventTouchUpInside];
+    [rightButton setBackgroundImage:rightButtonBackgroundNormalImage forState:UIControlStateNormal];
+    [rightButton setBackgroundImage:rightButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
+    
+    return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
 }
 
 #pragma mark - Rotation
@@ -145,6 +177,10 @@ TMEPhotoButtonDelegate
     product.images = setImages;
     
     return product;
+}
+
+- (void)onCancelButton:(id)sender {
+    self.tabBarController.selectedIndex = 0;
 }
 
 - (IBAction)onPublishButton:(id)sender {

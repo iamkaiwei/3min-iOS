@@ -247,6 +247,15 @@
 		B42FE3E218190F1C004E39EF /* tabbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3CE18190F1C004E39EF /* tabbar-background@2x.png */; };
 		B42FE3E318190F1C004E39EF /* tabbar-sell-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3CF18190F1C004E39EF /* tabbar-sell-icon.png */; };
 		B42FE3E418190F1C004E39EF /* tabbar-sell-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42FE3D018190F1C004E39EF /* tabbar-sell-icon@2x.png */; };
+		B453FEF6181CF3A2007D5DF0 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEED181CF3A2007D5DF0 /* facebook@2x.png */; };
+		B453FEF7181CF3A2007D5DF0 /* icon_like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEEE181CF3A2007D5DF0 /* icon_like@2x.png */; };
+		B453FEF8181CF3A2007D5DF0 /* item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEEF181CF3A2007D5DF0 /* item@2x.png */; };
+		B453FEF9181CF3A2007D5DF0 /* price@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEF0181CF3A2007D5DF0 /* price@2x.png */; };
+		B453FEFA181CF3A2007D5DF0 /* publish_cancel_btn_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEF1181CF3A2007D5DF0 /* publish_cancel_btn_pressed@2x.png */; };
+		B453FEFB181CF3A2007D5DF0 /* publish_cancel_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEF2181CF3A2007D5DF0 /* publish_cancel_btn@2x.png */; };
+		B453FEFC181CF3A2007D5DF0 /* publish_done_btn_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEF3181CF3A2007D5DF0 /* publish_done_btn_pressed@2x.png */; };
+		B453FEFD181CF3A2007D5DF0 /* publish_done_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEF4181CF3A2007D5DF0 /* publish_done_btn@2x.png */; };
+		B453FEFE181CF3A2007D5DF0 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEF5181CF3A2007D5DF0 /* star@2x.png */; };
 		B459FDBB181BD07500D6BC79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B459FDBA181BD07500D6BC79 /* Images.xcassets */; };
 		B459FDCF181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B459FDCA181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.m */; };
 		B459FDD0181BD31200D6BC79 /* SSPullToRefreshSimpleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B459FDCC181BD31200D6BC79 /* SSPullToRefreshSimpleContentView.m */; };
@@ -664,6 +673,15 @@
 		B42FE3CE18190F1C004E39EF /* tabbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background@2x.png"; sourceTree = "<group>"; };
 		B42FE3CF18190F1C004E39EF /* tabbar-sell-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon.png"; sourceTree = "<group>"; };
 		B42FE3D018190F1C004E39EF /* tabbar-sell-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-sell-icon@2x.png"; sourceTree = "<group>"; };
+		B453FEED181CF3A2007D5DF0 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook@2x.png"; sourceTree = "<group>"; };
+		B453FEEE181CF3A2007D5DF0 /* icon_like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_like@2x.png"; sourceTree = "<group>"; };
+		B453FEEF181CF3A2007D5DF0 /* item@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item@2x.png"; sourceTree = "<group>"; };
+		B453FEF0181CF3A2007D5DF0 /* price@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price@2x.png"; sourceTree = "<group>"; };
+		B453FEF1181CF3A2007D5DF0 /* publish_cancel_btn_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "publish_cancel_btn_pressed@2x.png"; sourceTree = "<group>"; };
+		B453FEF2181CF3A2007D5DF0 /* publish_cancel_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "publish_cancel_btn@2x.png"; sourceTree = "<group>"; };
+		B453FEF3181CF3A2007D5DF0 /* publish_done_btn_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "publish_done_btn_pressed@2x.png"; sourceTree = "<group>"; };
+		B453FEF4181CF3A2007D5DF0 /* publish_done_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "publish_done_btn@2x.png"; sourceTree = "<group>"; };
+		B453FEF5181CF3A2007D5DF0 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		B459FDBA181BD07500D6BC79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PhotoButton/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		B459FDC8181BD31200D6BC79 /* SSPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefresh.h; sourceTree = "<group>"; };
 		B459FDC9181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshDefaultContentView.h; sourceTree = "<group>"; };
@@ -933,6 +951,15 @@
 		0C3CA94017F7F7130072117A /* Publish Product */ = {
 			isa = PBXGroup;
 			children = (
+				B453FEED181CF3A2007D5DF0 /* facebook@2x.png */,
+				B453FEEE181CF3A2007D5DF0 /* icon_like@2x.png */,
+				B453FEEF181CF3A2007D5DF0 /* item@2x.png */,
+				B453FEF0181CF3A2007D5DF0 /* price@2x.png */,
+				B453FEF1181CF3A2007D5DF0 /* publish_cancel_btn_pressed@2x.png */,
+				B453FEF2181CF3A2007D5DF0 /* publish_cancel_btn@2x.png */,
+				B453FEF3181CF3A2007D5DF0 /* publish_done_btn_pressed@2x.png */,
+				B453FEF4181CF3A2007D5DF0 /* publish_done_btn@2x.png */,
+				B453FEF5181CF3A2007D5DF0 /* star@2x.png */,
 				0C3CA94117F7F7130072117A /* add-photo-placeholder.png */,
 				0C3CA94217F7F7130072117A /* add-photo-placeholder@2x.png */,
 			);
@@ -1674,6 +1701,9 @@
 			files = (
 				0C5954F117F6BDDD0076353E /* navigation_background.png in Resources */,
 				B42FE3E118190F1C004E39EF /* tabbar-background.png in Resources */,
+				B453FEFC181CF3A2007D5DF0 /* publish_done_btn_pressed@2x.png in Resources */,
+				B453FEFD181CF3A2007D5DF0 /* publish_done_btn@2x.png in Resources */,
+				B453FEF6181CF3A2007D5DF0 /* facebook@2x.png in Resources */,
 				0C3CA94417F7F7130072117A /* add-photo-placeholder@2x.png in Resources */,
 				B49C6F6F181C37D600EB380A /* Popular.png in Resources */,
 				0C43CCA817F5D29A00D869F9 /* clock-icon.png in Resources */,
@@ -1681,6 +1711,7 @@
 				B49C6F53181C091D00EB380A /* login-facebook.png in Resources */,
 				0C43CC9E17F5CC4A00D869F9 /* big-logo@2x.png in Resources */,
 				B42FE3D718190F1C004E39EF /* tabbar-search-icon-pressed.png in Resources */,
+				B453FEFB181CF3A2007D5DF0 /* publish_cancel_btn@2x.png in Resources */,
 				B459FDDC181BF94E00D6BC79 /* Login2@2x.png in Resources */,
 				B459FDE3181BFC7900D6BC79 /* Login2.png in Resources */,
 				0C43CC9B17F5CC4A00D869F9 /* arrow-down.png in Resources */,
@@ -1693,6 +1724,7 @@
 				B459FDDB181BF94E00D6BC79 /* Login2-568h.png in Resources */,
 				B49C6F5B181C321800EB380A /* normal-view-icon@2x.png in Resources */,
 				20C10DAB17F6E2960036D9FF /* FacebookSDKOverrides.bundle in Resources */,
+				B453FEFA181CF3A2007D5DF0 /* publish_cancel_btn_pressed@2x.png in Resources */,
 				0C5954ED17F6BDDD0076353E /* category-list-icon.png in Resources */,
 				0C43CCA917F5D29A00D869F9 /* clock-icon@2x.png in Resources */,
 				B42FE3D918190F1C004E39EF /* tabbar-me-icon@2x.png in Resources */,
@@ -1703,6 +1735,7 @@
 				B459FDE4181BFC7900D6BC79 /* Login3.png in Resources */,
 				0CFC100117ECBE06008FBD92 /* TMELoginViewController.xib in Resources */,
 				B459FDDD181BF94E00D6BC79 /* Login3-568h.png in Resources */,
+				B453FEF9181CF3A2007D5DF0 /* price@2x.png in Resources */,
 				B4202235180A844F00F62FF0 /* TMEBrowserCollectionCell.xib in Resources */,
 				0C6E069217E0CBF60003F104 /* TMEHomeViewController.xib in Resources */,
 				B42FE3DB18190F1C004E39EF /* tabbar-activity-icon@2x.png in Resources */,
@@ -1724,6 +1757,7 @@
 				B42FE3DF18190F1C004E39EF /* tabbar-browser-icon@2x.png in Resources */,
 				0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */,
 				0CAE978F17E76635003A22CA /* InfoPlist.strings in Resources */,
+				B453FEF7181CF3A2007D5DF0 /* icon_like@2x.png in Resources */,
 				0CFC0FF917ECBA3F008FBD92 /* bt_fb_signin_normal@2x.png in Resources */,
 				B42FE3E218190F1C004E39EF /* tabbar-background@2x.png in Resources */,
 				B42FE3DA18190F1C004E39EF /* tabbar-me-icon-pressed@2x.png in Resources */,
@@ -1731,6 +1765,7 @@
 				0C5954EE17F6BDDD0076353E /* category-list-icon@2x.png in Resources */,
 				B42FE3E418190F1C004E39EF /* tabbar-sell-icon@2x.png in Resources */,
 				0C43CCB917F5E93D00D869F9 /* TMENavigationViewController.xib in Resources */,
+				B453FEFE181CF3A2007D5DF0 /* star@2x.png in Resources */,
 				B4E9664C180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib in Resources */,
 				0C43CCAD17F5D29A00D869F9 /* follow-button@2x.png in Resources */,
 				0C5954F417F6BDDD0076353E /* simple-view-icon@2x.png in Resources */,
@@ -1745,6 +1780,7 @@
 				0C5954F017F6BDDD0076353E /* grid-view-icon@2x.png in Resources */,
 				0C7EFBEB17E8D5790054C4DE /* FontAwesome.ttf in Resources */,
 				B4E1DEFE18191C7D002D0609 /* tabbar-sell-icon-pressed.png in Resources */,
+				B453FEF8181CF3A2007D5DF0 /* item@2x.png in Resources */,
 				B42FE3DE18190F1C004E39EF /* tabbar-search-icon-pressed@2x.png in Resources */,
 				205EACFF17F6E83F00EE9A76 /* AviarySDKResources.bundle in Resources */,
 				0CFC0FED17ECB690008FBD92 /* TMEBrowserProductsViewController.xib in Resources */,
