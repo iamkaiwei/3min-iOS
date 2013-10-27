@@ -250,8 +250,7 @@
     // config tabbar appear
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar-background"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-    [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
-    
+    [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];    
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
 }
 
