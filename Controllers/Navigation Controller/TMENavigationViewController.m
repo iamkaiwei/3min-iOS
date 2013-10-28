@@ -16,20 +16,22 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        [[UINavigationBar appearance] setTitleTextAttributes: @{
-                                                                UITextAttributeTextColor: [UIColor colorWithHexString:@"ff6600"],
-                                                                UITextAttributeTextShadowColor: [UIColor clearColor],
-                                                                UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
-                                                                UITextAttributeFont: [UIFont fontWithName:@"Helvetica" size:20.0f]
-                                                                }];
-     
-//      self.navigationBar.backgroundColor = [UIColor colorWithHexString:@"#e4e2e1"];
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {
+    // Custom initialization
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            UITextAttributeTextColor: [UIColor colorWithHexString:@"ff6600"],
+                                                            UITextAttributeTextShadowColor: [UIColor clearColor],
+                                                            UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
+                                                            UITextAttributeFont: [UIFont fontWithName:@"Helvetica" size:20.0f]
+                                                            }];
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
       self.navigationBar.barTintColor = [UIColor colorWithHexString:@"#e4e2e1"];
-    }
-    return self;
+    else
+      self.navigationBar.tintColor = [UIColor colorWithHexString:@"#e4e2e1"];
+  }
+  return self;
 }
 
 @end
