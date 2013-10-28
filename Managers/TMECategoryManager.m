@@ -12,7 +12,7 @@
 
 SINGLETON_MACRO
 
--(void)getAllCategoriesOnSuccessBlock:(TMEJSONRequestSuccessBlock)successBlock
+-(void)getAllCategoriesOnSuccessBlock:(void (^) (NSArray *arrayCategories))successBlock
                       andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
   NSMutableDictionary *params = [@{} mutableCopy];
@@ -22,8 +22,9 @@ SINGLETON_MACRO
                                                          parentId:nil
                                                   withParentClass:nil
                                                           success:^(NSMutableArray *objectsArray) {
+                                                            NSArray *arrayCategories = [TMECategory arrayCategoriesFromArray:objectsArray];
                                                             if (successBlock)
-                                                              successBlock(200 ,objectsArray);
+                                                              successBlock(arrayCategories);
                                                           } failure:^(NSError *error) {
                                                             if (failureBlock)
                                                               failureBlock(error.code ,error);

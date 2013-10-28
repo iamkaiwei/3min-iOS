@@ -5,6 +5,7 @@
 
 
 extern const struct TMECategoryAttributes {
+	__unsafe_unretained NSString *details;
 	__unsafe_unretained NSString *id;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *photo_url;
@@ -23,6 +24,7 @@ extern const struct TMECategoryFetchedProperties {
 
 
 
+
 @interface TMECategoryID : NSManagedObjectID {}
 @end
 
@@ -31,6 +33,16 @@ extern const struct TMECategoryFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (TMECategoryID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSString* details;
+
+
+
+//- (BOOL)validateDetails:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -90,6 +102,12 @@ extern const struct TMECategoryFetchedProperties {
 @end
 
 @interface _TMECategory (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSString*)primitiveDetails;
+- (void)setPrimitiveDetails:(NSString*)value;
+
+
 
 
 - (NSNumber*)primitiveId;

@@ -25,10 +25,7 @@
 - (void)configCategoryCellWithCategory:(TMECategory *)category
 {
     self.lblCategoryName.text = category.name;
-    
-    UIImage * categoryImage = [UIImage imageNamed:category.photo_url];
-    self.imageViewCategoryAvatar.image = categoryImage;
-//    [self.imageViewCategoryAvatar setImageWithURL:[NSURL URLWithString:category.photo_url] placeholderImage:nil];
+    [self.imageViewCategoryAvatar setImageWithURL:[NSURL URLWithString:category.photo_url] placeholderImage:nil];
 }
 
 @end

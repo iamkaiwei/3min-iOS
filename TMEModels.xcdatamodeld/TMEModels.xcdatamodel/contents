@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="TMECategory" representedClassName="TMECategory" syncable="YES">
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photo_url" optional="YES" attributeType="String" syncable="YES"/>
@@ -51,10 +52,10 @@
         <relationship name="sellTransactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMETransaction" inverseName="seller" inverseEntity="TMETransaction" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TMECategory" positionX="214" positionY="72" width="128" height="103"/>
-        <element name="TMEProduct" positionX="432" positionY="98" width="128" height="253"/>
-        <element name="TMEProductImages" positionX="439" positionY="423" width="128" height="88"/>
-        <element name="TMETransaction" positionX="252" positionY="441" width="128" height="133"/>
-        <element name="TMEUser" positionX="-11" positionY="152" width="128" height="238"/>
+        <element name="TMECategory" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="TMEProduct" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="TMEProductImages" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="TMETransaction" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="TMEUser" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

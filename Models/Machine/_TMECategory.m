@@ -4,6 +4,7 @@
 #import "_TMECategory.h"
 
 const struct TMECategoryAttributes TMECategoryAttributes = {
+	.details = @"details",
 	.id = @"id",
 	.name = @"name",
 	.photo_url = @"photo_url",
@@ -50,6 +51,13 @@ const struct TMECategoryFetchedProperties TMECategoryFetchedProperties = {
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic details;
+
+
 
 
 

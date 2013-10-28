@@ -19,38 +19,40 @@
 
 - (NSArray *)arrayCategories
 {
-    if (!_arrayCategories) {
-        
-        NSMutableArray *categories = [NSMutableArray array];
-        
-        NSArray *categoriesName = @[@"Books", @"Design_art", @"Follwing", @"For-her", @"For-him", @"house", @"Popular"];
-        for (NSString *categoryName in categoriesName) {
-            TMECategory *category = [TMECategory MR_createEntity];
-            category.name = categoryName;
-            category.photo_url = categoryName;
-            [categories addObject:category];
-        }
-        
-        _arrayCategories = categories;
-    }
-    
+//    if (!_arrayCategories) {
+//        
+//        NSMutableArray *categories = [NSMutableArray array];
+//        
+//        NSArray *categoriesName = @[@"Books", @"Design_art", @"Follwing", @"For-her", @"For-him", @"house", @"Popular"];
+//        for (NSString *categoryName in categoriesName) {
+//            TMECategory *category = [TMECategory MR_createEntity];
+//            category.name = categoryName;
+//            category.photo_url = categoryName;
+//            [categories addObject:category];
+//        }
+//        
+//        _arrayCategories = categories;
+//    }
+  
     return _arrayCategories;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    [self.tableView registerNib:[TMELeftMenuTableViewCell defaultNib] forCellReuseIdentifier:NSStringFromClass([TMELeftMenuTableViewCell class])]; //iOS 6+
+  [super viewDidLoad];
+  [self.tableView registerNib:[TMELeftMenuTableViewCell defaultNib] forCellReuseIdentifier:NSStringFromClass([TMELeftMenuTableViewCell class])]; //iOS 6+
+  
+  [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories) {
+    _arrayCategories = arrayCategories;
+    [self.tableView reloadData];
+  } andFailureBlock:^(NSInteger statusCode, id obj) {
+    
+  }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSInteger statusCode, id obj) {
-//        
-//    } andFailureBlock:^(NSInteger statusCode, id obj) {
-//        
-//    }];
 }
 
 #pragma mark - UITableView Datasource And Delegate

@@ -10,7 +10,7 @@
 
 @interface TMECategoryManager : BaseManager
 
-- (void)getAllCategoriesOnSuccessBlock:(TMEJSONRequestSuccessBlock)successBlock
+- (void)getAllCategoriesOnSuccessBlock:(void (^) (NSArray *arrayCategories))successBlock
                        andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 @end
