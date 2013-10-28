@@ -122,21 +122,6 @@ UIImagePickerControllerDelegate
                withIconName:@"tabbar-sell-icon"];
 }
 
-#pragma marks - UITabbarViewController delegate
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
-{
-    NSUInteger idx = [tabBar.items indexOfObject:item];
-    switch (idx) {
-        case TMETabbarButtonTypeSell:{
-            [self onBtnSellProduction];
-            break;
-        }
-            
-        default:
-            break;
-    }
-}
-
 #pragma marks - UIImagePicker Delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -148,30 +133,6 @@ UIImagePickerControllerDelegate
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     
-}
-
-#pragma marks - Action when click on sell product
-- (void)onBtnSellProduction
-{
-    TMENavigationViewController *navVC =[self.viewControllers objectAtIndex:TMETabbarButtonTypeSell];
-    TMEPublishProductViewController *publishVC = (TMEPublishProductViewController *) [navVC.viewControllers objectAtIndex:0];
-    
-    // if user still editing a product.
-    if([publishVC getStatusEditing])
-        return;
-    
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = [publishVC getFirstPhotoButton];
-    picker.allowsEditing=YES;
-    
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Oh Snap" delegate:nil cancelButtonTitle:@"Failed to load the camera." otherButtonTitles:nil];
-        [alert show];
-    }
-    
-    [navVC presentViewController:picker animated:NO completion:nil];
 }
 
 @end
