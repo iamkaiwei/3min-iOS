@@ -19,10 +19,10 @@ TMEPhotoButtonDelegate
 
 @property (strong, nonatomic) TMEPhotoButton        * currentPhotoButton;
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductName;
-@property (strong, nonatomic) IBOutlet UITextField  * txtCategoryName;
+@property (weak, nonatomic) IBOutlet UITextField  * txtCategoryName;
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductDetails;
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductPrice;
-
+@property (weak, nonatomic) IBOutlet TMEPhotoButton    * onePhotoButton;
 
 @end
 
@@ -50,6 +50,9 @@ TMEPhotoButtonDelegate
     
     self.navigationItem.leftBarButtonItem = [self leftNavigationButton];
     self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
+  
+  //Ask user to take picture
+  [self.onePhotoButton takeOrChoosePhoto:YES];
 }
 
 - (BOOL)hidesBottomBarWhenPushed
