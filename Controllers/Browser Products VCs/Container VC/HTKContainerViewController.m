@@ -60,14 +60,12 @@
     self.currentViewController = viewController;
  
     [self assignFullScreenScrollViewWithViewController:viewController];
-    
     [self configNavigationRightButton];
 }
 
 - (void)assignFullScreenScrollViewWithViewController:(UIViewController *)viewController
 {
     UIScrollView *scrollView = [self getScrollViewOfViewController:viewController];
-    scrollView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
     
     if (self.fullScreenScroll)
     {

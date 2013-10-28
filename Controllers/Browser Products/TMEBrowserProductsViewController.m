@@ -40,6 +40,7 @@ SSPullToRefreshViewDelegate
     
     self.title = @"";
     self.navigationController.navigationBar.topItem.title = @"Broswer Products";
+    [self paddingScrollWithTop];
     
     NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
     [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
@@ -47,8 +48,6 @@ SSPullToRefreshViewDelegate
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.tableProducts delegate:self];
     
     [self loadProductsTable];
-    
-
 }
 
 #pragma marks - UITableView delegate
@@ -97,6 +96,17 @@ SSPullToRefreshViewDelegate
 - (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view
 {
     [self loadProductsTable];
+}
+
+#pragma mark - Utilities
+- (void)paddingScrollWithTop
+{
+    CGFloat scrollViewTopInset = 44;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        scrollViewTopInset += 22;
+    }
+    self.tableProducts.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 0, 0);
+    self.tableProducts.contentOffset = CGPointMake(0, scrollViewTopInset);
 }
 
 @end

@@ -30,6 +30,7 @@ SSPullToRefreshViewDelegate
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [self paddingScrollWithTop];
     [self.collectionProductsView registerNib:[TMEBrowserCollectionCell defaultNib] forCellWithReuseIdentifier:NSStringFromClass([TMEBrowserCollectionCell class])];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -91,6 +92,18 @@ SSPullToRefreshViewDelegate
 - (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view
 {
     [self loadProductsTable];
+}
+
+
+#pragma mark - Utilities
+- (void)paddingScrollWithTop
+{
+    CGFloat scrollViewTopInset = 44;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        scrollViewTopInset += 22;
+    }
+    self.collectionProductsView.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 0, 0);
+    self.collectionProductsView.contentOffset = CGPointMake(0, scrollViewTopInset);
 }
 
 @end
