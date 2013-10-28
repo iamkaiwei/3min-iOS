@@ -25,7 +25,9 @@
                                                                 UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
                                                                 UITextAttributeFont: [UIFont fontWithName:@"Helvetica" size:20.0f]
                                                                 }];
-        [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_background"] forBarMetrics:UIBarMetricsDefault];
+     
+//      self.navigationBar.backgroundColor = [UIColor colorWithHexString:@"#e4e2e1"];
+      self.navigationBar.barTintColor = [UIColor colorWithHexString:@"#e4e2e1"];
     }
     return self;
 }

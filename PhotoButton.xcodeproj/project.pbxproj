@@ -65,7 +65,6 @@
 		0C43CCAF17F5D29A00D869F9 /* share-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C43CCA717F5D29A00D869F9 /* share-button@2x.png */; };
 		0C43CCB317F5E62A00D869F9 /* TMEBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C43CCB217F5E62A00D869F9 /* TMEBaseTableViewCell.m */; };
 		0C43CCB717F5E6BB00D869F9 /* TMENavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C43CCB617F5E6BB00D869F9 /* TMENavigationViewController.m */; };
-		0C43CCB917F5E93D00D869F9 /* TMENavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C43CCB817F5E93D00D869F9 /* TMENavigationViewController.xib */; };
 		0C5954ED17F6BDDD0076353E /* category-list-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5954E517F6BDDD0076353E /* category-list-icon.png */; };
 		0C5954EE17F6BDDD0076353E /* category-list-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5954E617F6BDDD0076353E /* category-list-icon@2x.png */; };
 		0C5954EF17F6BDDD0076353E /* grid-view-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5954E717F6BDDD0076353E /* grid-view-icon.png */; };
@@ -361,7 +360,6 @@
 		0C43CCB217F5E62A00D869F9 /* TMEBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseTableViewCell.m; sourceTree = "<group>"; };
 		0C43CCB517F5E6BB00D869F9 /* TMENavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMENavigationViewController.h; sourceTree = "<group>"; };
 		0C43CCB617F5E6BB00D869F9 /* TMENavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMENavigationViewController.m; sourceTree = "<group>"; };
-		0C43CCB817F5E93D00D869F9 /* TMENavigationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMENavigationViewController.xib; sourceTree = "<group>"; };
 		0C5954E517F6BDDD0076353E /* category-list-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "category-list-icon.png"; sourceTree = "<group>"; };
 		0C5954E617F6BDDD0076353E /* category-list-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "category-list-icon@2x.png"; sourceTree = "<group>"; };
 		0C5954E717F6BDDD0076353E /* grid-view-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grid-view-icon.png"; sourceTree = "<group>"; };
@@ -1015,7 +1013,6 @@
 			children = (
 				0C43CCB517F5E6BB00D869F9 /* TMENavigationViewController.h */,
 				0C43CCB617F5E6BB00D869F9 /* TMENavigationViewController.m */,
-				0C43CCB817F5E93D00D869F9 /* TMENavigationViewController.xib */,
 			);
 			path = "Navigation Controller";
 			sourceTree = "<group>";
@@ -1764,7 +1761,6 @@
 				B49C6F6D181C37D600EB380A /* For-him.png in Resources */,
 				0C5954EE17F6BDDD0076353E /* category-list-icon@2x.png in Resources */,
 				B42FE3E418190F1C004E39EF /* tabbar-sell-icon@2x.png in Resources */,
-				0C43CCB917F5E93D00D869F9 /* TMENavigationViewController.xib in Resources */,
 				B453FEFE181CF3A2007D5DF0 /* star@2x.png in Resources */,
 				B4E9664C180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib in Resources */,
 				0C43CCAD17F5D29A00D869F9 /* follow-button@2x.png in Resources */,
