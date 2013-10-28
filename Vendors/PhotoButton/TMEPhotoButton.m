@@ -8,6 +8,10 @@
 #import "PBImageHelper.h"
 #import "AFPhotoEditorController.h"
 
+#define DELETE_PHOTO  @"Delete Photo"
+#define CHOOSE_PHOTO  @"Choose Photo"
+#define TAKE_PHOTO    @"Take Photo"
+
 @implementation TMEPhotoButton
 
 @synthesize viewController;
@@ -47,16 +51,19 @@
 - (void)button_clicked: (id)sender
 {
 	self.selected = !self.selected;
-    
+  
+  //Checks if button has image, if yes, add destructive button.
+  id destructiveButton = self.photoName ? DELETE_PHOTO : nil;
+  
     // cancel button will not show up on iPad
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                  initWithTitle:@"Choose"
-                                  delegate:self
-                                  cancelButtonTitle:@"Cancel"
-                                  destructiveButtonTitle:@"Delete Photo"
-                                  otherButtonTitles:@"Take Photo", @"Choose Photo", nil];
-    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
-    [actionSheet showInView: self.viewController.view];
+  UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                initWithTitle:@"Choose"
+                                delegate:self
+                                cancelButtonTitle:@"Cancel"
+                                destructiveButtonTitle:destructiveButton
+                                otherButtonTitles:TAKE_PHOTO, CHOOSE_PHOTO, nil];
+  actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+  [actionSheet showInView: self.viewController.view];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -116,14 +123,13 @@
 
 #pragma mark - UIActionSheetDelegate protocol
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)index
 {
-    
-    if (buttonIndex == 0) {        // delete photo
+    if ([[actionSheet buttonTitleAtIndex:index] isEqualToString:DELETE_PHOTO]) {        // delete photo
         [self deletePhoto];
-    } else if (buttonIndex == 1) { // take photo
+    } else if ([[actionSheet buttonTitleAtIndex:index] isEqualToString:TAKE_PHOTO]) { // take photo
         [self takeOrChoosePhoto:TRUE];
-    } else if (buttonIndex == 2) { // choose photo
+    } else if ([[actionSheet buttonTitleAtIndex:index] isEqualToString:CHOOSE_PHOTO]) { // choose photo
         [self takeOrChoosePhoto:FALSE];
     } else {                       // cancel
       return;
