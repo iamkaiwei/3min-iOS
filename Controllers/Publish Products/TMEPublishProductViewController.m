@@ -17,7 +17,6 @@ UITextFieldDelegate,
 TMEPhotoButtonDelegate
 >
 
-@property (assign, nonatomic) BOOL                    isEditing;
 @property (strong, nonatomic) TMEPhotoButton        * currentPhotoButton;
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductName;
 @property (strong, nonatomic) IBOutlet UITextField  * txtCategoryName;
@@ -35,8 +34,7 @@ TMEPhotoButtonDelegate
     // Do any additional setup after loading the view from its nib.
     self.title = @"";
 //    self.navigationController.navigationBar.topItem.title = @"Publish Product";
-    
-    self.isEditing = YES;
+  
     for (TMEPhotoButton *button in self.view.subviews) {
         if ([button isKindOfClass:[TMEPhotoButton class]]) {
             [button addTarget:self action:@selector(photoSaved:) forControlEvents:UIControlEventValueChanged];            
@@ -83,66 +81,27 @@ TMEPhotoButtonDelegate
     return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
 }
 
-#pragma mark - Rotation
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationIsPortrait(interfaceOrientation);
-    }else{
-        return YES;
-    }
-}
-
-- (BOOL) shouldAutorotate
-{
-    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
-}
-
-# pragma mark - selectors
-- (IBAction)photoSaved:(id)sender {
-    TMEPhotoButton *btnPhoto = (TMEPhotoButton *)sender;
-    self.currentPhotoButton = btnPhoto;
-    UIImage *image = [PBImageHelper loadImageFromDocuments:btnPhoto.photoName];
-    [self displayEditorForImage:image];
-}
-
 # pragma mark - AFPhotoController delegate
-- (void)displayEditorForImage:(UIImage *)imageToEdit
-{
-    TMEBasePhotoEditorViewController *editorController = [[TMEBasePhotoEditorViewController alloc] initWithImage:imageToEdit];
-    [editorController setDelegate:self];
-    [self presentModalViewController:editorController withPushDirection:@"left"];
-    self.navigationController.navigationBarHidden = YES;
-}
 
 - (void)photoEditor:(TMEBasePhotoEditorViewController *)editor finishedWithImage:(UIImage *)image
 {
-    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-    [self dismissModalViewControllerWithFadeDuration:0.2];
-    self.navigationController.navigationBarHidden = NO;
-    [self.currentPhotoButton setBackgroundImage:image forState:UIControlStateNormal];
-    
-    // need remove old one
-    NSString *editedImageTimeStampName = [@([[NSDate date] timeIntervalSince1970]) stringValue];
-    [PBImageHelper saveImageToDocuments:image withName:editedImageTimeStampName];
-    self.currentPhotoButton.photoName = editedImageTimeStampName;
-    
-    self.currentPhotoButton = nil;
-    [PBImageHelper clearOldTempImageFilesInDocumentDirectory];
-}
-
-#pragma marks - TMEPhotoButton delegate
-- (void)beforeGetImageWithPhotoButton:(TMEPhotoButton *)photoButton
-{
-    photoButton.photoName = [@([[NSDate date] timeIntervalSince1970]) stringValue];
-}
-
-- (void)didFinishGetImageWithImageUrl:(NSString *)localURL
-{
-    
+  UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+  [self dismissModalViewControllerWithFadeDuration:0.2];
+  [self.currentPhotoButton setBackgroundImage:image forState:UIControlStateNormal];
 }
 
 # pragma marks - Actions
+
+- (void)photoSaved:(TMEPhotoButton *)button
+{
+  self.currentPhotoButton = button;
+  UIImage *image = [button backgroundImageForState:UIControlStateNormal];
+  TMEBasePhotoEditorViewController *editorController = [[TMEBasePhotoEditorViewController alloc] initWithImage:image];
+  editorController.delegate = self;
+  [self presentModalViewController:editorController withPushDirection:@"left"];
+
+}
+
 - (TMEProduct *)getTheInputProductFromForm
 {
     // create dummy user
@@ -238,40 +197,20 @@ TMEPhotoButtonDelegate
 
 #pragma marks - Helper methods
 
-- (TMEPhotoButton *)getFirstPhotoButton
-{
-    for (TMEPhotoButton *button in self.view.subviews) {
-        if ([button isKindOfClass:[TMEPhotoButton class]]) {
-            return button;
-        }
-    }
-    
-    return nil;
-}
-
-- (BOOL)getStatusEditing
-{
-    return self.isEditing;
-}
-
 - (void)resetAllForms
 {
-    self.isEditing = NO;
-    
-    for (TMEPhotoButton *button in self.view.subviews) {
-        if ([button isKindOfClass:[TMEPhotoButton class]]) {
-            [button addTarget:self action:@selector(photoSaved:) forControlEvents:UIControlEventValueChanged];
-            button.viewController = self;
-            button.photoSize = CGSizeMake(1000, 1000);
-            button.photoName = nil;
-            button.imageView.image = nil;
-        }
+  for (TMEPhotoButton *button in self.view.subviews) {
+    if ([button isKindOfClass:[TMEPhotoButton class]]) {
+      [button addTarget:self action:@selector(photoSaved:) forControlEvents:UIControlEventValueChanged];
+      button.photoName = nil;
+      button.imageView.image = nil;
     }
-    
-    self.txtProductName.text = @"";
-    self.txtCategoryName.text = @"";
-    self.txtProductDetails.text = @"";
-    self.txtProductPrice.text = @"";
+  }
+  
+  self.txtProductName.text = @"";
+  self.txtCategoryName.text = @"";
+  self.txtProductDetails.text = @"";
+  self.txtProductPrice.text = @"";
 }
 
 @end

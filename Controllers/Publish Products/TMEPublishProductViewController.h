@@ -12,7 +12,4 @@
 
 @interface TMEPublishProductViewController : TMEBaseViewController
 
-- (BOOL)getStatusEditing;
-- (TMEPhotoButton *)getFirstPhotoButton;
-
 @end

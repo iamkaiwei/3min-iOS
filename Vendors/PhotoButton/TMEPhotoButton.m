@@ -78,23 +78,14 @@
     if (!image) {
         image = [info objectForKey:UIImagePickerControllerOriginalImage];
     }
-    
-    if (image) {
-        UIGraphicsBeginImageContext(photoSize);
-        [image drawInRect:CGRectMake(0, 0, photoSize.width, photoSize.height)];
-        image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        [PBImageHelper saveImageToDocuments:image withName:photoName];
-    }
-    
+
     [self didFinishGetImageWithImageUrl:photoName];
-    
+  
     [self setBackgroundImage:image forState:UIControlStateNormal];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
-- (void) takeOrChoosePhoto:(BOOL) take
+- (void)takeOrChoosePhoto:(BOOL)take
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
