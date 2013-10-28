@@ -57,7 +57,7 @@
   
     // cancel button will not show up on iPad
   UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                initWithTitle:@"Choose"
+                                initWithTitle:nil
                                 delegate:self
                                 cancelButtonTitle:@"Cancel"
                                 destructiveButtonTitle:destructiveButton
