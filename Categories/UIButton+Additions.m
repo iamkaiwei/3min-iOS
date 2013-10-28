@@ -41,4 +41,17 @@
     else              self.layer.shadowOpacity = 1;
 }
 
+- (void)adjustNavigationBarButtonDependSystem
+{
+    CGRect frame = self.frame;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        frame.origin.x += 10;
+        frame.size.width -= 10;
+        self.frame = frame;
+        return;
+    }
+    
+    return;
+}
+
 @end

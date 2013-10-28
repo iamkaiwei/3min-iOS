@@ -11,7 +11,7 @@
 @interface UIButton (Additions)
 
 - (void)autofitTextKeepRight:(BOOL)keepRight;
-
 - (void)setSelectedWithEffect:(BOOL)selected animated:(BOOL)animated;
+- (void)adjustNavigationBarButtonDependSystem;
 
 @end

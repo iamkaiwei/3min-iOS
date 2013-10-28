@@ -459,8 +459,8 @@
         [leftButton setImage:[UIImage imageNamed:@"category-list-icon"] forState:UIControlStateNormal];
         [leftButton addTarget:self action:@selector(onBtnBack) forControlEvents:UIControlEventTouchUpInside];
     }
-    
     leftButton.frame = CGRectMake(0, 0, 40, 30);
+    [leftButton adjustNavigationBarButtonDependSystem];
     UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     return leftButtonItem;
 }

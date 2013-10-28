@@ -37,18 +37,10 @@
     
     [leftButton setImage:[UIImage imageNamed:@"category-list-icon"] forState:UIControlStateNormal];
     [leftButton addTarget:self.viewDeckController action:@selector(toggleLeftView) forControlEvents:UIControlEventTouchUpInside];
-    
-    leftButton.frame = CGRectMake(0, 0, 40, 30);
     UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    leftButton.frame = CGRectMake(0, 0, 40, 30);
+    [leftButton adjustNavigationBarButtonDependSystem];
     self.navigationItem.leftBarButtonItem = leftButtonItem;
-    
-    // Nav right button
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightButton setImage:[UIImage imageNamed:@"grid-view-icon"] forState:UIControlStateNormal];
-    [rightButton addTarget:self.viewDeckController action:@selector(toggleRightView) forControlEvents:UIControlEventTouchUpInside];
-    rightButton.frame = CGRectMake(0, 0, 40, 30);
-    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 
 - (void)onBtnBack
