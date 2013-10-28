@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSString            *photoName;
 @property (nonatomic)         CGSize              photoSize;
 
+- (void)resetAttributes;
 - (void)takeOrChoosePhoto:(BOOL)take;
 
 @end

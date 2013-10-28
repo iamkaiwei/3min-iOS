@@ -93,6 +93,12 @@ TMEPhotoButtonDelegate
   [self.currentPhotoButton setBackgroundImage:image forState:UIControlStateNormal];
 }
 
+- (void)photoEditorCanceled:(AFPhotoEditorController *)editor
+{
+  [self.currentPhotoButton resetAttributes];
+  [editor dismissViewControllerAnimated:YES completion:nil];
+}
+
 # pragma marks - Actions
 
 - (void)photoSaved:(TMEPhotoButton *)button
@@ -102,7 +108,6 @@ TMEPhotoButtonDelegate
   TMEBasePhotoEditorViewController *editorController = [[TMEBasePhotoEditorViewController alloc] initWithImage:image];
   editorController.delegate = self;
   [self presentModalViewController:editorController withPushDirection:@"left"];
-
 }
 
 - (TMEProduct *)getTheInputProductFromForm
@@ -202,13 +207,9 @@ TMEPhotoButtonDelegate
 
 - (void)resetAllForms
 {
-  for (TMEPhotoButton *button in self.view.subviews) {
-    if ([button isKindOfClass:[TMEPhotoButton class]]) {
-      [button addTarget:self action:@selector(photoSaved:) forControlEvents:UIControlEventValueChanged];
-      button.photoName = nil;
-      button.imageView.image = nil;
-    }
-  }
+  for (id button in self.view.subviews)
+    if ([button isKindOfClass:[TMEPhotoButton class]])
+      [button resetAttributes];
   
   self.txtProductName.text = @"";
   self.txtCategoryName.text = @"";

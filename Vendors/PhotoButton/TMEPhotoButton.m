@@ -19,31 +19,31 @@
 @synthesize photoSize;
 @synthesize photoName;
 
-- (void)initCommon
+- (void)resetAttributes
 {
-    // Create a default image for button
-    [self addTarget: self action: @selector(button_clicked:) forControlEvents: UIControlEventTouchUpInside];
-    
-    UIImage *image = [PBImageHelper loadImageFromDocuments: photoName];
-    if (!image) {
-        image = [UIImage imageNamed:@"add-photo-placeholder"];
-    }
-    [self setBackgroundImage:image forState:UIControlStateNormal];
+  self.photoName = nil;
+  [self addTarget: self action: @selector(button_clicked:) forControlEvents: UIControlEventTouchUpInside];
+  
+  UIImage *image = [PBImageHelper loadImageFromDocuments: photoName];
+  if (!image) {
+    image = [UIImage imageNamed:@"add-photo-placeholder"];
+  }
+  [self setBackgroundImage:image forState:UIControlStateNormal];
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self initCommon];
-    }
-    return self;
+  self = [super initWithFrame:frame];
+  if (self) {
+    [self resetAttributes];
+  }
+  return self;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
 	if((self = [super initWithCoder:aDecoder])){
-        [self initCommon];
+    [self resetAttributes];
 	}
 	return self;
 }
