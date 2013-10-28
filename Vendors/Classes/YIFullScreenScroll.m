@@ -11,7 +11,6 @@
 #import "ViewUtils.h"
 #import "JRSwizzle.h"
 
-#define IS_PORTRAIT             UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)
 #define IS_IOS_AT_LEAST(ver)    ([[[UIDevice currentDevice] systemVersion] compare:ver] != NSOrderedAscending)
 #define IS_FLAT_DESIGN          (__IPHONE_OS_VERSION_MAX_ALLOWED >= 70000 && IS_IOS_AT_LEAST(@"7.0"))
 
