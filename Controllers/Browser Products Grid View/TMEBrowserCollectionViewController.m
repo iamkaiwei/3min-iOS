@@ -103,7 +103,6 @@ SSPullToRefreshViewDelegate
         scrollViewTopInset += 22;
     }
     self.collectionProductsView.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 0, 0);
-    self.collectionProductsView.contentOffset = CGPointMake(0, scrollViewTopInset);
 }
 
 @end
