@@ -103,7 +103,7 @@ SSPullToRefreshViewDelegate
 {
     CGFloat scrollViewTopInset = 44;
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        scrollViewTopInset += 22;
+        scrollViewTopInset += 20;
     }
     self.tableProducts.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 0, 0);
 }
