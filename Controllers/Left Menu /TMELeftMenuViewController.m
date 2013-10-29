@@ -17,26 +17,6 @@
 
 @implementation TMELeftMenuViewController
 
-- (NSArray *)arrayCategories
-{
-//    if (!_arrayCategories) {
-//        
-//        NSMutableArray *categories = [NSMutableArray array];
-//        
-//        NSArray *categoriesName = @[@"Books", @"Design_art", @"Follwing", @"For-her", @"For-him", @"house", @"Popular"];
-//        for (NSString *categoryName in categoriesName) {
-//            TMECategory *category = [TMECategory MR_createEntity];
-//            category.name = categoryName;
-//            category.photo_url = categoryName;
-//            [categories addObject:category];
-//        }
-//        
-//        _arrayCategories = categories;
-//    }
-  
-    return _arrayCategories;
-}
-
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -73,6 +53,11 @@
     TMECategory *category = [self.arrayCategories objectAtIndex:indexPath.row];
     [cell configCategoryCellWithCategory:category];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  TMECategory *category = [self.arrayCategories objectAtIndex:indexPath.row];
+  [self.viewDeckController closeLeftView];
 }
 
 @end

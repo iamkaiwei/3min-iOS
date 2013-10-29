@@ -286,6 +286,8 @@
 		B4E1DEFF18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E1DEFB18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png */; };
 		B4E9664B180AE4DA004A6530 /* TMEBrowserCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E96649180AE4DA004A6530 /* TMEBrowserCollectionViewController.m */; };
 		B4E9664C180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4E9664A180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib */; };
+		C28205241820269400B20531 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C28205221820269400B20531 /* right_arrow.png */; };
+		C28205251820269400B20531 /* right_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28205231820269400B20531 /* right_arrow@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -721,6 +723,8 @@
 		B4E96648180AE4DA004A6530 /* TMEBrowserCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserCollectionViewController.h; sourceTree = "<group>"; };
 		B4E96649180AE4DA004A6530 /* TMEBrowserCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserCollectionViewController.m; sourceTree = "<group>"; };
 		B4E9664A180AE4DA004A6530 /* TMEBrowserCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserCollectionViewController.xib; sourceTree = "<group>"; };
+		C28205221820269400B20531 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
+		C28205231820269400B20531 /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_arrow@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1629,6 +1633,8 @@
 		B49C6F61181C37CF00EB380A /* Categories Icons */ = {
 			isa = PBXGroup;
 			children = (
+				C28205221820269400B20531 /* right_arrow.png */,
+				C28205231820269400B20531 /* right_arrow@2x.png */,
 				B49C6F62181C37D600EB380A /* Books.png */,
 				B49C6F63181C37D600EB380A /* Design_art.png */,
 				B49C6F64181C37D600EB380A /* Follwing.png */,
@@ -1778,6 +1784,7 @@
 				B4E1DEFE18191C7D002D0609 /* tabbar-sell-icon-pressed.png in Resources */,
 				B453FEF8181CF3A2007D5DF0 /* item@2x.png in Resources */,
 				B42FE3DE18190F1C004E39EF /* tabbar-search-icon-pressed@2x.png in Resources */,
+				C28205241820269400B20531 /* right_arrow.png in Resources */,
 				205EACFF17F6E83F00EE9A76 /* AviarySDKResources.bundle in Resources */,
 				0CFC0FED17ECB690008FBD92 /* TMEBrowserProductsViewController.xib in Resources */,
 				0C2CE1C217EAEAC20074C57F /* TMEPublishProductViewController.xib in Resources */,
@@ -1795,6 +1802,7 @@
 				B42FE3D818190F1C004E39EF /* tabbar-search-icon.png in Resources */,
 				0C5954F317F6BDDD0076353E /* simple-view-icon.png in Resources */,
 				201EFE2117F6F7D000DA6BB4 /* Default-568h@2x.png in Resources */,
+				C28205251820269400B20531 /* right_arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
