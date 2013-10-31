@@ -14,4 +14,7 @@
 - (void)getAllProductsOnSuccessBlock:(void (^)(NSArray *arrayProducts))successBlock
                      andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
+-(void)getProductsOfCategory:(TMECategory *)category
+              onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+             andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 @end

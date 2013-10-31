@@ -57,6 +57,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   TMECategory *category = [self.arrayCategories objectAtIndex:indexPath.row];
+  NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+  [userInfo setObject:category forKey:@"category"];
+  [[NSNotificationCenter defaultCenter] postNotificationName:CATEGORY_CHANGE_NOTIFICATION object:nil userInfo:userInfo];
   [self.viewDeckController closeLeftView];
 }
 

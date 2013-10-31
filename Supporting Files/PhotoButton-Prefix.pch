@@ -64,6 +64,9 @@
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
+//Notifications
+#define CATEGORY_CHANGE_NOTIFICATION                @"CategoryChangeNotification"
+
 #import <Availability.h>
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>

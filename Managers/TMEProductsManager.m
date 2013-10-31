@@ -33,6 +33,30 @@ SINGLETON_MACRO
     }];
 }
 
+-(void)getProductsOfCategory:(TMECategory *)category
+              onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+             andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
+{
+  NSMutableDictionary *params = [@{} mutableCopy];
+  [params setObject:category.id forKey:@"category_id"];
+  [[BaseNetworkManager sharedInstance] getServerListForModelClass:[TMEProduct class]
+                                                       withParams:params
+                                                        methodAPI:GET_METHOD
+                                                         parentId:nil
+                                                  withParentClass:nil
+                                                          success:^(NSMutableArray *objectsArray)
+   {
+     
+     NSArray *arrProducts = [TMEProduct arrayProductsFromArray:objectsArray];
+     
+     if (successBlock)
+       successBlock(arrProducts);
+   } failure:^(NSError *error) {
+     if (failureBlock)
+       failureBlock(error.code ,error);
+   }];
+}
+
 #pragma marks - Fake functions to handle products.
 - (NSArray *)fakeGetAllStoredProducts
 {
