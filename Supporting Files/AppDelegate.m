@@ -59,7 +59,7 @@
         [self.window makeKeyAndVisible];
         return YES;
     }
-    
+  
     [self checkFacebookSessionAtTheAppLaunch];
     [self.window makeKeyAndVisible];
     return YES;
@@ -258,21 +258,27 @@
 {
     [self configTabbarAndNavigationBar];
     IIViewDeckController *deckController = [self generateControllerStack];
-    
-    if (![[TMEUserManager sharedInstance] loggedUser]) {
+  
+  
+    if ([FBSession.activeSession isOpen] == NO) {
         [self showLoginView];
         return;
-    }
-    
-    [self switchRootViewController:deckController animated:YES completion:^{
+    } else if (![[TMEUserManager sharedInstance] loggedUser]) {
+      [self switchRootViewController:deckController animated:YES completion:^{
+        [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
+        [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
+          [SVProgressHUD showSuccessWithStatus:@"Login successfully"];
+          [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:nil];
+          
+          [SVProgressHUD dismiss];
+          [[AppDelegate sharedDelegate] showHomeViewController];
+          
+        } andFailureBlock:^(NSInteger statusCode, id obj) {
+          [SVProgressHUD showErrorWithStatus:@"Login failure"];
+        }];
         
-        // if signup FB already
-        if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-            //Some settings may be added later.
-            [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
-        }
-    }];
-    
+      }];
+    }
 }
 
 - (void)showTutorialController
