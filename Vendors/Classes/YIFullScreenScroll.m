@@ -465,10 +465,18 @@ static char __isFullScreenScrollViewKey;
         }
     }
     
+    if(self.scrollView.contentSize.height <= 0)
+        return;
+    
     if (self.enabled && self.isViewVisible) {
+        
+        CGRect currentFrame = self.scrollView.frame;
+        currentFrame.size.height = 568;
+        self.scrollView.frame = currentFrame;
         
         // scrollIndicatorInsets
         UIEdgeInsets insets = scrollView.scrollIndicatorInsets;
+        
         if (isNavigationBarExisting && _shouldHideNavigationBarOnScroll) {
             insets.top = navBar.bottom-_defaultNavBarTop+_additionalNavBarShiftForIOS7StatusBar;
         }
@@ -479,7 +487,7 @@ static char __isFullScreenScrollViewKey;
         if (isTabBarExisting && _shouldHideTabBarOnScroll) {
             insets.bottom += tabBarSuperviewHeight-tabBar.top;
         }
-        scrollView.scrollIndicatorInsets = insets;
+        scrollView.contentInset = insets;
         
         // delegation
         if (canLayoutUIBars) {

@@ -81,8 +81,10 @@ SSPullToRefreshViewDelegate
                                                   self.arrayProducts = [arrProducts mutableCopy];
                                                   [self.collectionProductsView reloadData];
                                                   [self.pullToRefreshView finishLoading];
+                                                    [SVProgressHUD dismiss];
                                                 } andFailureBlock:^(NSInteger statusCode, id obj) {
                                                   [self.pullToRefreshView finishLoading];
+                                                    [SVProgressHUD dismiss];
                                                 }];
   } else {
     [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
@@ -90,8 +92,10 @@ SSPullToRefreshViewDelegate
       [self.collectionProductsView reloadData];
       
       [self.pullToRefreshView finishLoading];
+      [SVProgressHUD dismiss];
     } andFailureBlock:^(NSInteger statusCode, id obj) {
       [self.pullToRefreshView finishLoading];
+      [SVProgressHUD dismiss];
     }];
   }
 }
@@ -99,6 +103,7 @@ SSPullToRefreshViewDelegate
 #pragma mark - SSPullToRefreshView delegate
 - (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view
 {
+  [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
   [self loadProducts];
 }
 
@@ -116,6 +121,7 @@ SSPullToRefreshViewDelegate
 #pragma mark - Notifications
 - (void)onCategoryChangeNotification:(NSNotification *)notification
 {
+  [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
   NSDictionary *userInfo = [notification userInfo];
   self.currentCategory= [userInfo objectForKey:@"category"];
   [self loadProducts];

@@ -75,7 +75,6 @@
     
     self.fullScreenScroll = [[YIFullScreenScroll alloc] initWithViewController:self
                                                                     scrollView:scrollView];
-    self.fullScreenScroll.shouldShowUIBarsOnScrollUp = YES;
     return;
 }
 

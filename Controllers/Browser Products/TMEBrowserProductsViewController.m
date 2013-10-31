@@ -86,17 +86,21 @@ SSPullToRefreshViewDelegate
                                                   self.arrProducts = [arrProducts mutableCopy];
                                                   [self.tableProducts reloadData];
                                                   [self.pullToRefreshView finishLoading];
+                                                  [SVProgressHUD dismiss];
                                                 } andFailureBlock:^(NSInteger statusCode, id obj) {
                                                   [self.pullToRefreshView finishLoading];
+                                                  [SVProgressHUD dismiss];
                                                 }];
   } else {
     [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
       self.arrProducts = [arrProducts mutableCopy];
       [self.tableProducts reloadData];
+      [SVProgressHUD dismiss];
       
       [self.pullToRefreshView finishLoading];
     } andFailureBlock:^(NSInteger statusCode, id obj) {
       [self.pullToRefreshView finishLoading];
+      [SVProgressHUD dismiss];
     }];
   }
 }
@@ -104,7 +108,8 @@ SSPullToRefreshViewDelegate
 #pragma mark - SSPullToRefreshView delegate
 - (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view
 {
-  [self loadProducts];
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
+    [self loadProducts];
 }
 
 #pragma mark - Utilities
