@@ -21,8 +21,8 @@
 
 @property (nonatomic, strong) UIViewController    *viewController;
 @property (nonatomic, strong) UIPopoverController *popoverController;
-@property (nonatomic, strong) NSString            *photoName;
 @property (nonatomic)         CGSize              photoSize;
+@property (nonatomic)         BOOL                hasPhoto;
 
 - (void)resetAttributes;
 - (void)takeOrChoosePhoto:(BOOL)take;

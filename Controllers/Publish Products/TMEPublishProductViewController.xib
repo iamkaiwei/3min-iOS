@@ -7,12 +7,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEPublishProductViewController">
             <connections>
-                <outlet property="onePhotoButton" destination="WRZ-xB-Nmh" id="Va3-IP-XWF"/>
                 <outlet property="txtCategoryName" destination="aUN-lM-Pr8" id="JqX-dJ-GlT"/>
                 <outlet property="txtProductDetails" destination="bG3-FP-7dH" id="1QA-yf-W3x"/>
                 <outlet property="txtProductName" destination="ULR-4G-RGT" id="Fjx-1u-2BR"/>
                 <outlet property="txtProductPrice" destination="4u8-Ws-ozJ" id="XH0-pf-KXS"/>
                 <outlet property="view" destination="1" id="3"/>
+                <outletCollection property="photoButtons" destination="WRZ-xB-Nmh" id="SQy-UV-NQX"/>
+                <outletCollection property="photoButtons" destination="2SD-ao-sdB" id="A7L-s8-vbS"/>
+                <outletCollection property="photoButtons" destination="W7u-am-dgP" id="470-a0-OZd"/>
+                <outletCollection property="photoButtons" destination="vyp-r9-xUD" id="HdG-ah-w1S"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

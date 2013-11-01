@@ -22,7 +22,7 @@ TMEPhotoButtonDelegate
 @property (weak, nonatomic) IBOutlet UITextField  * txtCategoryName;
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductDetails;
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductPrice;
-@property (weak, nonatomic) IBOutlet TMEPhotoButton    * onePhotoButton;
+@property (strong, nonatomic) IBOutletCollection(TMEPhotoButton) NSArray *photoButtons;
 
 @end
 
@@ -52,7 +52,7 @@ TMEPhotoButtonDelegate
     self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
   
   //Ask user to take picture
-  [self.onePhotoButton takeOrChoosePhoto:YES];
+  [self.photoButtons[0] takeOrChoosePhoto:YES];
 }
 
 - (BOOL)hidesBottomBarWhenPushed
@@ -88,7 +88,6 @@ TMEPhotoButtonDelegate
 
 - (void)photoEditor:(TMEBasePhotoEditorViewController *)editor finishedWithImage:(UIImage *)image
 {
-  UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
   [self dismissModalViewControllerWithFadeDuration:0.2];
   [self.currentPhotoButton setBackgroundImage:image forState:UIControlStateNormal];
 }
@@ -131,18 +130,6 @@ TMEPhotoButtonDelegate
     product.category = category;
     product.user = user;
     
-    // create product images
-    NSMutableArray *arrImages = [@[] mutableCopy];
-    for (TMEPhotoButton *view in self.view.subviews) {
-        if ([view isKindOfClass:[TMEPhotoButton class]] && view.photoName) {
-            TMEProductImages *image = [TMEProductImages MR_createEntity];
-            image.url = view.photoName;
-            [arrImages addObject:image];
-        }
-    }
-    NSSet *setImages = [NSSet setWithArray:arrImages];
-    product.images = setImages;
-    
     return product;
 }
 
@@ -154,7 +141,7 @@ TMEPhotoButtonDelegate
     
     [self dismissKeyboard];
     
-    TMEProduct *product = [self getTheInputProductFromForm];
+    //TMEProduct *product = [self getTheInputProductFromForm];
     
     NSDictionary *params = @{@"user_id": @1,
                              @"name": @"Product 1",
@@ -169,10 +156,12 @@ TMEPhotoButtonDelegate
                                                                   method:POST_METHOD
                                                constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
     {
-        for (TMEProductImages *image in [product.images allObjects]) {
-            UIImage *img = [PBImageHelper loadImageFromDocuments:image.url];
-            NSData *imageData = UIImageJPEGRepresentation(img, 0.5);
-            [formData appendPartWithFileData:imageData name:@"images[]" fileName:image.url mimeType:@"image/jpeg"];
+        for (TMEPhotoButton *photoButton in self.photoButtons) {
+          if ([photoButton hasPhoto]) {
+            NSData *imageData = UIImageJPEGRepresentation([photoButton backgroundImageForState:UIControlStateNormal], 0.5);
+            NSString *imageName = [@([[NSDate date] timeIntervalSince1970]) stringValue];
+            [formData appendPartWithFileData:imageData name:@"images[]" fileName:imageName mimeType:@"image/jpeg"];
+          }
         }
         
     } success:^(NSHTTPURLResponse *response, id responseObject) {

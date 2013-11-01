@@ -17,18 +17,13 @@
 @synthesize viewController;
 @synthesize popoverController;
 @synthesize photoSize;
-@synthesize photoName;
+@synthesize hasPhoto;
 
 - (void)resetAttributes
 {
-  self.photoName = nil;
+  self.hasPhoto = NO;
   [self addTarget: self action: @selector(button_clicked:) forControlEvents: UIControlEventTouchUpInside];
-  
-  UIImage *image = [PBImageHelper loadImageFromDocuments: photoName];
-  if (!image) {
-    image = [UIImage imageNamed:@"add-photo-placeholder"];
-  }
-  [self setBackgroundImage:image forState:UIControlStateNormal];
+  [self setBackgroundImage:[UIImage imageNamed:@"add-photo-placeholder"] forState:UIControlStateNormal];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -50,10 +45,8 @@
 
 - (void)button_clicked: (id)sender
 {
-	self.selected = !self.selected;
-  
   //Checks if button has image, if yes, add destructive button.
-  id destructiveButton = self.photoName ? DELETE_PHOTO : nil;
+  id destructiveButton = self.hasPhoto ? DELETE_PHOTO : nil;
   
     // cancel button will not show up on iPad
   UIActionSheet *actionSheet = [[UIActionSheet alloc]
@@ -78,10 +71,9 @@
     if (!image) {
         image = [info objectForKey:UIImagePickerControllerOriginalImage];
     }
-
-    [self didFinishGetImageWithImageUrl:photoName];
   
     [self setBackgroundImage:image forState:UIControlStateNormal];
+  self.hasPhoto = YES;
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
@@ -105,19 +97,12 @@
     [self.viewController presentViewController:picker animated:YES completion:nil];
 }
 
-- (void)deletePhoto
-{
-    [PBImageHelper deleteFileFromDocuments: photoName];
-    UIImage *image = [UIImage imageNamed:@"add-photo-placeholder"];
-    [self setBackgroundImage:image forState:UIControlStateNormal]; 
-}
-
 #pragma mark - UIActionSheetDelegate protocol
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)index
 {
     if ([[actionSheet buttonTitleAtIndex:index] isEqualToString:DELETE_PHOTO]) {        // delete photo
-        [self deletePhoto];
+        [self resetAttributes];
     } else if ([[actionSheet buttonTitleAtIndex:index] isEqualToString:TAKE_PHOTO]) { // take photo
         [self takeOrChoosePhoto:TRUE];
     } else if ([[actionSheet buttonTitleAtIndex:index] isEqualToString:CHOOSE_PHOTO]) { // choose photo
