@@ -24,6 +24,7 @@
         // Custom initialization
         self.loginView.readPermissions = @[@"user_about_me"];
         self.loginView.defaultAudience = FBSessionDefaultAudienceFriends;
+        self.loginView.delegate = self;
     }
     return self;
 }
@@ -47,4 +48,5 @@
         }
     }
 }
+
 @end

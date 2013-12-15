@@ -13,6 +13,9 @@
 #import "GAI.h"
 
 @interface AppDelegate()
+<
+FacebookManagerDelegate
+>
 
 @property (strong, nonatomic) TMENavigationViewController               * navController;
 @property (retain, nonatomic) UIViewController                          * centerController;
