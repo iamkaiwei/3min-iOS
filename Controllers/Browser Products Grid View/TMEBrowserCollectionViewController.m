@@ -13,14 +13,13 @@
 <
 UITextFieldDelegate,
 UICollectionViewDataSource,
-UICollectionViewDelegateFlowLayout,
 SSPullToRefreshViewDelegate
 >
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionProductsView;
-@property (strong, nonatomic) NSArray *arrayProducts;
-@property (strong, nonatomic) TMECategory * currentCategory;
-@property (strong, nonatomic) SSPullToRefreshView           *pullToRefreshView;
+@property (weak, nonatomic) IBOutlet UICollectionView       * collectionProductsView;
+@property (strong, nonatomic) NSArray                       * arrayProducts;
+@property (strong, nonatomic) TMECategory                   * currentCategory;
+@property (strong, nonatomic) SSPullToRefreshView           * pullToRefreshView;
 
 @end
 
@@ -33,13 +32,6 @@ SSPullToRefreshViewDelegate
   
   [self paddingScrollWithTop];
   [self.collectionProductsView registerNib:[TMEBrowserCollectionCell defaultNib] forCellWithReuseIdentifier:NSStringFromClass([TMEBrowserCollectionCell class])];
-  
-  UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-  [flowLayout setItemSize:CGSizeMake(153, 190)];
-  [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-  
-  self.collectionProductsView.collectionViewLayout = flowLayout;
-  self.collectionProductsView.backgroundColor = [UIColor colorWithHexString:@"#e4e2e1"];
   
   self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionProductsView delegate:self];
   
@@ -64,14 +56,6 @@ SSPullToRefreshViewDelegate
   [cell configCellWithProduct:product];
   
   return cell;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-  return CGSizeMake(153, 190);
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-  return UIEdgeInsetsMake(0, 2, 0, 2);
 }
 
 - (void)loadProducts {

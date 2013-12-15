@@ -43,7 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view
+    self.view.backgroundColor = [UIColor colorWithHexString:@"#e4e2e1"];
     [self switchContainerViewControllerToViewController:self.normalViewController];
 }
 
