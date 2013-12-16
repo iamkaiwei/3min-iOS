@@ -5,15 +5,15 @@
 
 
 extern const struct TMETransactionAttributes {
-	__unsafe_unretained NSString *chat;
-	__unsafe_unretained NSString *id;
-	__unsafe_unretained NSString *meetup_place;
+	 __unsafe_unretained NSString *chat;
+	 __unsafe_unretained NSString *id;
+	 __unsafe_unretained NSString *meetup_place;
 } TMETransactionAttributes;
 
 extern const struct TMETransactionRelationships {
-	__unsafe_unretained NSString *buyer;
-	__unsafe_unretained NSString *product;
-	__unsafe_unretained NSString *seller;
+	 __unsafe_unretained NSString *buyer;
+	 __unsafe_unretained NSString *product;
+	 __unsafe_unretained NSString *seller;
 } TMETransactionRelationships;
 
 extern const struct TMETransactionFetchedProperties {
@@ -40,7 +40,7 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* chat;
+@property (nonatomic, retain) NSString* chat;
 
 
 
@@ -50,7 +50,7 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber* id;
+@property (nonatomic, retain) NSNumber* id;
 
 
 
@@ -64,7 +64,7 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* meetup_place;
+@property (nonatomic, retain) NSString* meetup_place;
 
 
 
@@ -74,21 +74,21 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
-@property (nonatomic, strong) TMEUser *buyer;
+@property (nonatomic, retain) TMEUser *buyer;
 
 //- (BOOL)validateBuyer:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, strong) TMEProduct *product;
+@property (nonatomic, retain) TMEProduct *product;
 
 //- (BOOL)validateProduct:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, strong) TMEUser *seller;
+@property (nonatomic, retain) TMEUser *seller;
 
 //- (BOOL)validateSeller:(id*)value_ error:(NSError**)error_;
 

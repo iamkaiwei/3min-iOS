@@ -5,14 +5,14 @@
 
 
 extern const struct TMECategoryAttributes {
-	__unsafe_unretained NSString *details;
-	__unsafe_unretained NSString *id;
-	__unsafe_unretained NSString *name;
-	__unsafe_unretained NSString *photo_url;
+	 __unsafe_unretained NSString *details;
+	 __unsafe_unretained NSString *id;
+	 __unsafe_unretained NSString *name;
+	 __unsafe_unretained NSString *photo_url;
 } TMECategoryAttributes;
 
 extern const struct TMECategoryRelationships {
-	__unsafe_unretained NSString *products;
+	 __unsafe_unretained NSString *products;
 } TMECategoryRelationships;
 
 extern const struct TMECategoryFetchedProperties {
@@ -38,7 +38,7 @@ extern const struct TMECategoryFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* details;
+@property (nonatomic, retain) NSString* details;
 
 
 
@@ -48,7 +48,7 @@ extern const struct TMECategoryFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber* id;
+@property (nonatomic, retain) NSNumber* id;
 
 
 
@@ -62,7 +62,7 @@ extern const struct TMECategoryFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* name;
+@property (nonatomic, retain) NSString* name;
 
 
 
@@ -72,7 +72,7 @@ extern const struct TMECategoryFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* photo_url;
+@property (nonatomic, retain) NSString* photo_url;
 
 
 
@@ -82,7 +82,7 @@ extern const struct TMECategoryFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet *products;
+@property (nonatomic, retain) NSSet *products;
 
 - (NSMutableSet*)productsSet;
 

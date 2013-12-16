@@ -5,7 +5,11 @@
 
 const struct TMEProductImagesAttributes TMEProductImagesAttributes = {
 	.imageID = @"imageID",
-	.url = @"url",
+	.medium = @"medium",
+	.origin = @"origin",
+	.small = @"small",
+	.thumb = @"thumb",
+	.update_at = @"update_at",
 };
 
 const struct TMEProductImagesRelationships TMEProductImagesRelationships = {
@@ -79,7 +83,35 @@ const struct TMEProductImagesFetchedProperties TMEProductImagesFetchedProperties
 
 
 
-@dynamic url;
+@dynamic medium;
+
+
+
+
+
+
+@dynamic origin;
+
+
+
+
+
+
+@dynamic small;
+
+
+
+
+
+
+@dynamic thumb;
+
+
+
+
+
+
+@dynamic update_at;
 
 
 

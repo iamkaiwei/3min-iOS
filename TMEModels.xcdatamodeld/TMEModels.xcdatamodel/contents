@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="TMECategory" representedClassName="TMECategory" syncable="YES">
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -25,7 +25,11 @@
     </entity>
     <entity name="TMEProductImages" representedClassName="TMEProductImages" syncable="YES">
         <attribute name="imageID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="medium" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="origin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="small" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="update_at" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="images" inverseEntity="TMEProduct" syncable="YES"/>
     </entity>
     <entity name="TMETransaction" representedClassName="TMETransaction" syncable="YES">
@@ -52,10 +56,10 @@
         <relationship name="sellTransactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMETransaction" inverseName="seller" inverseEntity="TMETransaction" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TMECategory" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TMEProduct" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TMEProductImages" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TMETransaction" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TMEUser" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="TMECategory" positionX="108" positionY="-45" width="128" height="120"/>
+        <element name="TMEProduct" positionX="-135" positionY="105" width="128" height="255"/>
+        <element name="TMEProductImages" positionX="108" positionY="212" width="128" height="148"/>
+        <element name="TMETransaction" positionX="-207" positionY="-108" width="128" height="135"/>
+        <element name="TMEUser" positionX="-396" positionY="57" width="128" height="240"/>
     </elements>
 </model>

@@ -13,8 +13,12 @@
 + (TMEProductImages *)productImageFromDictionary:(NSDictionary *)data
 {
     TMEProductImages *image = [TMEProductImages MR_createEntity];
-    image.url = data[@"url"];
-    
+    image.imageID = data[@"id"];
+    image.small = data[@"small"];
+    image.thumb = data[@"thumb"];
+    image.medium = data[@"medium"];
+    image.origin = data[@"origin"];
+    image.update_at = data[@"update_at"];
     return image;
 }
 

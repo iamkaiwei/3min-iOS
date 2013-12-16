@@ -5,18 +5,26 @@
 
 
 extern const struct TMEProductImagesAttributes {
-	__unsafe_unretained NSString *imageID;
-	__unsafe_unretained NSString *url;
+	 __unsafe_unretained NSString *imageID;
+	 __unsafe_unretained NSString *medium;
+	 __unsafe_unretained NSString *origin;
+	 __unsafe_unretained NSString *small;
+	 __unsafe_unretained NSString *thumb;
+	 __unsafe_unretained NSString *update_at;
 } TMEProductImagesAttributes;
 
 extern const struct TMEProductImagesRelationships {
-	__unsafe_unretained NSString *product;
+	 __unsafe_unretained NSString *product;
 } TMEProductImagesRelationships;
 
 extern const struct TMEProductImagesFetchedProperties {
 } TMEProductImagesFetchedProperties;
 
 @class TMEProduct;
+
+
+
+
 
 
 
@@ -34,7 +42,7 @@ extern const struct TMEProductImagesFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber* imageID;
+@property (nonatomic, retain) NSNumber* imageID;
 
 
 
@@ -48,17 +56,57 @@ extern const struct TMEProductImagesFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* url;
+@property (nonatomic, retain) NSString* medium;
 
 
 
-//- (BOOL)validateUrl:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateMedium:(id*)value_ error:(NSError**)error_;
 
 
 
 
 
-@property (nonatomic, strong) TMEProduct *product;
+@property (nonatomic, retain) NSString* origin;
+
+
+
+//- (BOOL)validateOrigin:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, retain) NSString* small;
+
+
+
+//- (BOOL)validateSmall:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, retain) NSString* thumb;
+
+
+
+//- (BOOL)validateThumb:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, retain) NSDate* update_at;
+
+
+
+//- (BOOL)validateUpdate_at:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, retain) TMEProduct *product;
 
 //- (BOOL)validateProduct:(id*)value_ error:(NSError**)error_;
 
@@ -84,8 +132,32 @@ extern const struct TMEProductImagesFetchedProperties {
 
 
 
-- (NSString*)primitiveUrl;
-- (void)setPrimitiveUrl:(NSString*)value;
+- (NSString*)primitiveMedium;
+- (void)setPrimitiveMedium:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveOrigin;
+- (void)setPrimitiveOrigin:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveSmall;
+- (void)setPrimitiveSmall:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveThumb;
+- (void)setPrimitiveThumb:(NSString*)value;
+
+
+
+
+- (NSDate*)primitiveUpdate_at;
+- (void)setPrimitiveUpdate_at:(NSDate*)value;
 
 
 

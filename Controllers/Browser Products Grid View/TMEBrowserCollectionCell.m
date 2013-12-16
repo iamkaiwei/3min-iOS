@@ -36,7 +36,8 @@
     NSArray *images = [product.images allObjects];
     
     if (images.count > 0) {
-        NSURL *imageUrl = [NSURL URLWithString:(NSString *)[[images objectAtIndex:0] url]];
+        TMEProductImages *image = [images objectAtIndex:0];
+        NSURL *imageUrl = [NSURL URLWithString:(NSString *)image.thumb];
         [self.imgProduct setImageWithURL:imageUrl placeholderImage:nil];
     }
     

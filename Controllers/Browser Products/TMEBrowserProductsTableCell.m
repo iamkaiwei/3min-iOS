@@ -60,7 +60,7 @@
     
     [self.imgProductImage setImage:nil];
     TMEProductImages *img = [product.images anyObject];
-    [self.imgProductImage setImageWithURL:[NSURL URLWithString:img.url]];
+    [self.imgProductImage setImageWithURL:[NSURL URLWithString:img.medium]];
     [self.imgProductImage clipsToBounds];
     
     self.lblProductName.text = product.name;
