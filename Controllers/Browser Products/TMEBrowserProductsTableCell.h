@@ -10,6 +10,8 @@
 
 @protocol TMEBrowserProductsTableCellDelegate <NSObject>
 
+- (void)onClickCategoryButton:(NSInteger)categoryID;
+
 @required
 - (void)onBtnLike;
 - (void)onBtnComment;

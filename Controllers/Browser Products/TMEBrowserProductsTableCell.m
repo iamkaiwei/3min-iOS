@@ -13,7 +13,7 @@
 
 // product
 @property (weak, nonatomic) IBOutlet UIImageView    * imgProductImage;
-@property (weak, nonatomic) IBOutlet UIImageView *imgProductCategoryAvatar;
+@property (weak, nonatomic) IBOutlet UIButton       * btnProductCategory;
 @property (weak, nonatomic) IBOutlet UILabel        * lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel        * lblProductPrice;
 
@@ -56,18 +56,27 @@
     self.lblUserName.text = product.user.username;
     self.lblTimestamp.text = [product.created_at relativeDate];
     
-    [self.imgProductCategoryAvatar setImageWithURL:[NSURL URLWithString:product.category.photo_url] placeholderImage:nil];
+    NSURL *imageURL = [NSURL URLWithString:product.category.photo_url];
     
-    [self.imgProductImage setImage:nil];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Update the UI
+            self.imageView.image = [UIImage imageWithData:imageData];
+            [self.btnProductCategory setImage:[UIImage imageWithData:imageData] forState:UIControlStateNormal];
+        });
+    });
+    
     TMEProductImages *img = [product.images anyObject];
-    [self.imgProductImage setImageWithURL:[NSURL URLWithString:img.medium]];
+    [self.imgProductImage setImageWithURL:[NSURL URLWithString:img.medium] placeholderImage:nil];
     [self.imgProductImage clipsToBounds];
     
     self.lblProductName.text = product.name;
     self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
+    
+    
 }
-
-
 
 + (CGFloat)getHeight{
     return 440;

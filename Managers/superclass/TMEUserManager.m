@@ -116,6 +116,13 @@ SINGLETON_MACRO
         
         [self setLoggedUser:user andFacebookUser:nil];
         
+        // Push notification
+        if ([URBAN_AIRSHIP_APP_KEY length] > 0) {
+            UIApplication *application = [UIApplication sharedApplication];
+            [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert |
+             UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+        }
+        
         // broadcast
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_FINISH_LOGIN object:user];
         

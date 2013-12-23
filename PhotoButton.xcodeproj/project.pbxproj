@@ -207,8 +207,6 @@
 		201EFE2117F6F7D000DA6BB4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 201EFE2017F6F7D000DA6BB4 /* Default-568h@2x.png */; };
 		205EACE217F6E5FA00EE9A76 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACE117F6E5FA00EE9A76 /* FacebookSDK.framework */; };
 		205EACE917F6E7BD00EE9A76 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 205EACE717F6E7BD00EE9A76 /* dsym_upload.sh */; };
-		205EACEA17F6E7BD00EE9A76 /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACE817F6E7BD00EE9A76 /* libCrittercism_v4_0_7.a */; };
-		205EACF217F6E83100EE9A76 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACF117F6E83100EE9A76 /* libGoogleAnalytics.a */; };
 		205EACFE17F6E83F00EE9A76 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACFB17F6E83F00EE9A76 /* libAviarySDK.a */; };
 		205EACFF17F6E83F00EE9A76 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 205EACFD17F6E83F00EE9A76 /* AviarySDKResources.bundle */; };
 		20A10FCD17F80FA200471983 /* TMECategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A10FCC17F80FA200471983 /* TMECategoryManager.m */; };
@@ -255,6 +253,9 @@
 		B453FEFC181CF3A2007D5DF0 /* publish_done_btn_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEF3181CF3A2007D5DF0 /* publish_done_btn_pressed@2x.png */; };
 		B453FEFD181CF3A2007D5DF0 /* publish_done_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEF4181CF3A2007D5DF0 /* publish_done_btn@2x.png */; };
 		B453FEFE181CF3A2007D5DF0 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEF5181CF3A2007D5DF0 /* star@2x.png */; };
+		B45411FB1867DD8C001A75EE /* AFUrbanAirshipClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B45411FA1867DD8C001A75EE /* AFUrbanAirshipClient.m */; };
+		B45411FC1867DF86001A75EE /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACE817F6E7BD00EE9A76 /* libCrittercism_v4_0_7.a */; };
+		B45411FD1867DFB8001A75EE /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACF117F6E83100EE9A76 /* libGoogleAnalytics.a */; };
 		B459FDBB181BD07500D6BC79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B459FDBA181BD07500D6BC79 /* Images.xcassets */; };
 		B459FDCF181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B459FDCA181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.m */; };
 		B459FDD0181BD31200D6BC79 /* SSPullToRefreshSimpleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B459FDCC181BD31200D6BC79 /* SSPullToRefreshSimpleContentView.m */; };
@@ -682,6 +683,8 @@
 		B453FEF3181CF3A2007D5DF0 /* publish_done_btn_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "publish_done_btn_pressed@2x.png"; sourceTree = "<group>"; };
 		B453FEF4181CF3A2007D5DF0 /* publish_done_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "publish_done_btn@2x.png"; sourceTree = "<group>"; };
 		B453FEF5181CF3A2007D5DF0 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
+		B45411F91867DD8C001A75EE /* AFUrbanAirshipClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFUrbanAirshipClient.h; sourceTree = "<group>"; };
+		B45411FA1867DD8C001A75EE /* AFUrbanAirshipClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUrbanAirshipClient.m; sourceTree = "<group>"; };
 		B459FDBA181BD07500D6BC79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PhotoButton/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		B459FDC8181BD31200D6BC79 /* SSPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefresh.h; sourceTree = "<group>"; };
 		B459FDC9181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshDefaultContentView.h; sourceTree = "<group>"; };
@@ -732,6 +735,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205EACFE17F6E83F00EE9A76 /* libAviarySDK.a in Frameworks */,
+				B45411FD1867DFB8001A75EE /* libGoogleAnalytics.a in Frameworks */,
+				B45411FC1867DF86001A75EE /* libCrittercism_v4_0_7.a in Frameworks */,
 				201EFE1F17F6F6BC00DA6BB4 /* SystemConfiguration.framework in Frameworks */,
 				0C7EFBEF17E8D86E0054C4DE /* CoreImage.framework in Frameworks */,
 				0C2F789A17F2DD1F00201783 /* ImageIO.framework in Frameworks */,
@@ -739,15 +745,12 @@
 				5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */,
 				0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */,
 				0CD9CF6117EA10DF00402E91 /* MobileCoreServices.framework in Frameworks */,
-				205EACEA17F6E7BD00EE9A76 /* libCrittercism_v4_0_7.a in Frameworks */,
 				0C7EFBF117E8DBE50054C4DE /* MapKit.framework in Frameworks */,
-				205EACF217F6E83100EE9A76 /* libGoogleAnalytics.a in Frameworks */,
 				0CBE48AE17D1C02E00DC7482 /* Accelerate.framework in Frameworks */,
 				5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */,
 				205EACE217F6E5FA00EE9A76 /* FacebookSDK.framework in Frameworks */,
 				0CBE48BE17D1C0A400DC7482 /* QuartzCore.framework in Frameworks */,
 				0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */,
-				205EACFE17F6E83F00EE9A76 /* libAviarySDK.a in Frameworks */,
 				0CBE48C017D1C0AB00DC7482 /* StoreKit.framework in Frameworks */,
 				0CBE48BC17D1C0A100DC7482 /* OpenGLES.framework in Frameworks */,
 				0CBE48BA17D1C09B00DC7482 /* MessageUI.framework in Frameworks */,
@@ -877,6 +880,7 @@
 		0C28B28C17DC1B9200BD0EC2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				B45411F81867DD8C001A75EE /* AFUrbanAirshipClient */,
 				B4093B721810379700D51B69 /* Classes */,
 				B459FDC7181BD31200D6BC79 /* SSPullToRefresh */,
 				0C41FEFC17F8826300C9CB50 /* UINavigationController+SGProgress */,
@@ -1598,6 +1602,15 @@
 			path = "Browser Products VCs";
 			sourceTree = "<group>";
 		};
+		B45411F81867DD8C001A75EE /* AFUrbanAirshipClient */ = {
+			isa = PBXGroup;
+			children = (
+				B45411F91867DD8C001A75EE /* AFUrbanAirshipClient.h */,
+				B45411FA1867DD8C001A75EE /* AFUrbanAirshipClient.m */,
+			);
+			path = AFUrbanAirshipClient;
+			sourceTree = "<group>";
+		};
 		B459FDC7181BD31200D6BC79 /* SSPullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1877,6 +1890,7 @@
 				0C7EFBCF17E8D5170054C4DE /* NSString+ActiveSupportInflector.m in Sources */,
 				0C43CCB717F5E6BB00D869F9 /* TMENavigationViewController.m in Sources */,
 				0C7EFBE417E8D5170054C4DE /* UIWebView+Additions.m in Sources */,
+				B45411FB1867DD8C001A75EE /* AFUrbanAirshipClient.m in Sources */,
 				0C7EFBCC17E8D5170054C4DE /* NSMutableArray+Additions.m in Sources */,
 				B49C6F5E181C34E200EB380A /* TMELeftMenuTableViewCell.m in Sources */,
 				0C34A8A117F0ADFE003ACEFF /* AFDownloadRequestOperation.m in Sources */,
@@ -2019,8 +2033,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: 2359 Media Pte Ltd";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: 2359 Media Pte Ltd";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Khang Hoàng Triệu (DZFE2DLGY9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Khang Hoàng Triệu (DZFE2DLGY9)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2038,8 +2052,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "E75E1A66-846E-4E5D-A54F-77B9C8121F54";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E75E1A66-846E-4E5D-A54F-77B9C8121F54";
+				PROVISIONING_PROFILE = "A082DD38-30DE-4C8F-AF51-A3010CA18B0B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A082DD38-30DE-4C8F-AF51-A3010CA18B0B";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2068,7 +2082,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "E75E1A66-846E-4E5D-A54F-77B9C8121F54";
+				PROVISIONING_PROFILE = "A082DD38-30DE-4C8F-AF51-A3010CA18B0B";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E75E1A66-846E-4E5D-A54F-77B9C8121F54";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2081,8 +2095,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Khang Hoang Trieu (WJKLGVFWZ5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Khang Hoang Trieu (WJKLGVFWZ5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Vendors\"",
@@ -2093,16 +2107,17 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Vendors/CrittercismSDK\"",
-					"\"$(SRCROOT)/Vendors/Google\\ Analytics\"",
-					"\"$(SRCROOT)/Vendors/AviarySDK\"",
+					"\\\\\\\"$(SRCROOT)/Vendors/\\\"",
+					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/Vendors/CrittercismSDK",
+					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/Vendors/Google\\ Analytics",
+					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/Vendors/AviarySDK",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "A082DD38-30DE-4C8F-AF51-A3010CA18B0B";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2113,8 +2128,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Khang Hoang Trieu (WJKLGVFWZ5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Khang Hoang Trieu (WJKLGVFWZ5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Vendors\"",
@@ -2125,16 +2140,17 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Vendors/CrittercismSDK\"",
-					"\"$(SRCROOT)/Vendors/Google\\ Analytics\"",
-					"\"$(SRCROOT)/Vendors/AviarySDK\"",
+					"\\\\\\\"$(SRCROOT)/Vendors/\\\"",
+					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/Vendors/CrittercismSDK",
+					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/Vendors/Google\\ Analytics",
+					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/Vendors/AviarySDK",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "A082DD38-30DE-4C8F-AF51-A3010CA18B0B";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};

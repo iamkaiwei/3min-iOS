@@ -14,14 +14,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="439"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" id="8on-a4-mKx">
-                        <rect key="frame" x="142" y="181" width="37" height="37"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </activityIndicatorView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="BhY-iu-Fe8">
-                        <rect key="frame" x="0.0" y="40" width="320" height="320"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                     <view contentMode="scaleToFill" id="9yy-3J-gf7">
                         <rect key="frame" x="0.0" y="359" width="320" height="80"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -80,10 +72,6 @@
                         <color key="textColor" red="0.51764708757400513" green="0.51372551918029785" blue="0.50980395078659058" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ca5-iu-G3Y">
-                        <rect key="frame" x="0.0" y="295" width="65" height="65"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock-icon.png" id="wA0-zE-QQJ">
                         <rect key="frame" x="294" y="13" width="17" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -95,13 +83,29 @@
                         <color key="textColor" red="0.5176470876" green="0.51372551919999998" blue="0.50980395079999996" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" id="8on-a4-mKx">
+                        <rect key="frame" x="143" y="180" width="37" height="37"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="color" red="0.79607850309999995" green="0.79607850309999995" blue="0.79607850309999995" alpha="1" colorSpace="deviceRGB"/>
+                    </activityIndicatorView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="BhY-iu-Fe8">
+                        <rect key="frame" x="0.0" y="40" width="320" height="320"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GAh-os-gSG">
+                        <rect key="frame" x="0.0" y="295" width="65" height="65"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Button">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnComment" destination="ABa-Eq-EFj" id="BR9-6F-26j"/>
                 <outlet property="btnFollow" destination="50y-39-UUT" id="HJw-sD-d3d"/>
+                <outlet property="btnProductCategory" destination="GAh-os-gSG" id="7PI-fz-w3j"/>
                 <outlet property="btnShare" destination="71R-rg-z1g" id="apb-kg-lcp"/>
-                <outlet property="imgProductCategoryAvatar" destination="Ca5-iu-G3Y" id="KTN-OS-3fA"/>
                 <outlet property="imgProductImage" destination="BhY-iu-Fe8" id="CdA-Vi-AOl"/>
                 <outlet property="imgUserAvatar" destination="e7W-uL-Ygh" id="Pnv-VJ-Wb4"/>
                 <outlet property="lblProductName" destination="0ub-uh-Y9C" id="s2O-u0-y46"/>
