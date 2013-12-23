@@ -8,10 +8,12 @@
 
 #import "TMEBrowserProductsViewController.h"
 #import "TMEBrowserProductsTableCell.h"
+#import "TMESubmitViewController.h"
 
 @interface TMEBrowserProductsViewController ()
 <
 UIScrollViewDelegate,
+TMEBrowserProductsTableCellDelegate,
 SSPullToRefreshViewDelegate
 >
 
@@ -71,6 +73,7 @@ SSPullToRefreshViewDelegate
   
   TMEProduct *product = [self.arrProducts objectAtIndex:indexPath.row];
   [cell configCellWithProduct:product];
+    cell.delegate = self;
   
   return cell;
 }
@@ -103,6 +106,12 @@ SSPullToRefreshViewDelegate
       [SVProgressHUD dismiss];
     }];
   }
+}
+
+#pragma mark - Table cell delegate
+
+- (void)onBtnComment{
+    [self.navigationController pushViewController:[[TMESubmitViewController alloc] init] animated:YES];
 }
 
 #pragma mark - SSPullToRefreshView delegate

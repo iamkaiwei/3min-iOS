@@ -13,8 +13,8 @@
 - (void)onClickCategoryButton:(NSInteger)categoryID;
 
 @required
-- (void)onBtnLike;
 - (void)onBtnComment;
+- (void)onBtnLike;
 - (void)onBtnShare;
 
 @end

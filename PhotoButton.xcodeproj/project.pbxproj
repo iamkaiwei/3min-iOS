@@ -21,6 +21,13 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0B327B4D18681ED200468DF9 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACFB17F6E83F00EE9A76 /* libAviarySDK.a */; };
+		0B327B4E18681EF400468DF9 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACF117F6E83100EE9A76 /* libGoogleAnalytics.a */; };
+		0B327B4F18681F0000468DF9 /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACE817F6E7BD00EE9A76 /* libCrittercism_v4_0_7.a */; };
+		0B327B531868211300468DF9 /* TMESubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B327B521868211300468DF9 /* TMESubmitViewController.m */; };
+		0B327B551868213D00468DF9 /* TMESubmitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B327B541868213D00468DF9 /* TMESubmitViewController.xib */; };
+		0B327B581868436500468DF9 /* TMESubmitTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B327B571868436500468DF9 /* TMESubmitTableCell.m */; };
+		0B327B5A1868437B00468DF9 /* TMESubmitTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B327B591868437B00468DF9 /* TMESubmitTableCell.xib */; };
 		0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */; };
 		0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */; };
 		0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */; };
@@ -207,7 +214,6 @@
 		201EFE2117F6F7D000DA6BB4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 201EFE2017F6F7D000DA6BB4 /* Default-568h@2x.png */; };
 		205EACE217F6E5FA00EE9A76 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACE117F6E5FA00EE9A76 /* FacebookSDK.framework */; };
 		205EACE917F6E7BD00EE9A76 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 205EACE717F6E7BD00EE9A76 /* dsym_upload.sh */; };
-		205EACFE17F6E83F00EE9A76 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACFB17F6E83F00EE9A76 /* libAviarySDK.a */; };
 		205EACFF17F6E83F00EE9A76 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 205EACFD17F6E83F00EE9A76 /* AviarySDKResources.bundle */; };
 		20A10FCD17F80FA200471983 /* TMECategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A10FCC17F80FA200471983 /* TMECategoryManager.m */; };
 		20C10DAB17F6E2960036D9FF /* FacebookSDKOverrides.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20C10DAA17F6E2960036D9FF /* FacebookSDKOverrides.bundle */; };
@@ -254,8 +260,6 @@
 		B453FEFD181CF3A2007D5DF0 /* publish_done_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEF4181CF3A2007D5DF0 /* publish_done_btn@2x.png */; };
 		B453FEFE181CF3A2007D5DF0 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEF5181CF3A2007D5DF0 /* star@2x.png */; };
 		B45411FB1867DD8C001A75EE /* AFUrbanAirshipClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B45411FA1867DD8C001A75EE /* AFUrbanAirshipClient.m */; };
-		B45411FC1867DF86001A75EE /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACE817F6E7BD00EE9A76 /* libCrittercism_v4_0_7.a */; };
-		B45411FD1867DFB8001A75EE /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACF117F6E83100EE9A76 /* libGoogleAnalytics.a */; };
 		B459FDBB181BD07500D6BC79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B459FDBA181BD07500D6BC79 /* Images.xcassets */; };
 		B459FDCF181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B459FDCA181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.m */; };
 		B459FDD0181BD31200D6BC79 /* SSPullToRefreshSimpleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B459FDCC181BD31200D6BC79 /* SSPullToRefreshSimpleContentView.m */; };
@@ -292,6 +296,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B327B511868211300468DF9 /* TMESubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitViewController.h; path = "Submit VCs/TMESubmitViewController.h"; sourceTree = "<group>"; };
+		0B327B521868211300468DF9 /* TMESubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESubmitViewController.m; path = "Submit VCs/TMESubmitViewController.m"; sourceTree = "<group>"; };
+		0B327B541868213D00468DF9 /* TMESubmitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMESubmitViewController.xib; path = "Submit VCs/TMESubmitViewController.xib"; sourceTree = "<group>"; };
+		0B327B561868436500468DF9 /* TMESubmitTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitTableCell.h; path = "Submit VCs/TMESubmitTableCell.h"; sourceTree = "<group>"; };
+		0B327B571868436500468DF9 /* TMESubmitTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESubmitTableCell.m; path = "Submit VCs/TMESubmitTableCell.m"; sourceTree = "<group>"; };
+		0B327B591868437B00468DF9 /* TMESubmitTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMESubmitTableCell.xib; path = "Submit VCs/TMESubmitTableCell.xib"; sourceTree = "<group>"; };
 		0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_57x57.png; sourceTree = "<group>"; };
 		0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_114x114.png; sourceTree = "<group>"; };
 		0C2CE1B017EAE30F0074C57F /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEUserManager.h; path = superclass/TMEUserManager.h; sourceTree = "<group>"; };
@@ -735,9 +745,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				205EACFE17F6E83F00EE9A76 /* libAviarySDK.a in Frameworks */,
-				B45411FD1867DFB8001A75EE /* libGoogleAnalytics.a in Frameworks */,
-				B45411FC1867DF86001A75EE /* libCrittercism_v4_0_7.a in Frameworks */,
+				0B327B4F18681F0000468DF9 /* libCrittercism_v4_0_7.a in Frameworks */,
+				0B327B4E18681EF400468DF9 /* libGoogleAnalytics.a in Frameworks */,
+				0B327B4D18681ED200468DF9 /* libAviarySDK.a in Frameworks */,
 				201EFE1F17F6F6BC00DA6BB4 /* SystemConfiguration.framework in Frameworks */,
 				0C7EFBEF17E8D86E0054C4DE /* CoreImage.framework in Frameworks */,
 				0C2F789A17F2DD1F00201783 /* ImageIO.framework in Frameworks */,
@@ -764,6 +774,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B327B50186820B400468DF9 /* Submit VCs */ = {
+			isa = PBXGroup;
+			children = (
+				0B327B511868211300468DF9 /* TMESubmitViewController.h */,
+				0B327B521868211300468DF9 /* TMESubmitViewController.m */,
+				0B327B541868213D00468DF9 /* TMESubmitViewController.xib */,
+				0B327B561868436500468DF9 /* TMESubmitTableCell.h */,
+				0B327B571868436500468DF9 /* TMESubmitTableCell.m */,
+				0B327B591868437B00468DF9 /* TMESubmitTableCell.xib */,
+			);
+			name = "Submit VCs";
+			sourceTree = "<group>";
+		};
 		0C28B28717DC1A1400BD0EC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -864,6 +887,7 @@
 		0C28B28B17DC1B9200BD0EC2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0B327B50186820B400468DF9 /* Submit VCs */,
 				B42ADE81180D560100B0E473 /* Browser Products VCs */,
 				0C6E069C17E0CC650003F104 /* Superclass */,
 				20C4D5DD17F722710035BCA5 /* Tutorial */,
@@ -1791,9 +1815,11 @@
 				0C5954F217F6BDDD0076353E /* navigation_background@2x.png in Resources */,
 				B42FE3D118190F1C004E39EF /* tabbar-activity-icon-pressed.png in Resources */,
 				B459FDBB181BD07500D6BC79 /* Images.xcassets in Resources */,
+				0B327B5A1868437B00468DF9 /* TMESubmitTableCell.xib in Resources */,
 				B49C6F69181C37D600EB380A /* Books.png in Resources */,
 				0C5954F017F6BDDD0076353E /* grid-view-icon@2x.png in Resources */,
 				0C7EFBEB17E8D5790054C4DE /* FontAwesome.ttf in Resources */,
+				0B327B551868213D00468DF9 /* TMESubmitViewController.xib in Resources */,
 				B4E1DEFE18191C7D002D0609 /* tabbar-sell-icon-pressed.png in Resources */,
 				B453FEF8181CF3A2007D5DF0 /* item@2x.png in Resources */,
 				B42FE3DE18190F1C004E39EF /* tabbar-search-icon-pressed@2x.png in Resources */,
@@ -1950,10 +1976,12 @@
 				0C7EFB6B17E768C70054C4DE /* MagicalRecord+ErrorHandling.m in Sources */,
 				0C7053C417EF5E5E00E7615F /* _TMEProductImages.m in Sources */,
 				0C7EFBD717E8D5170054C4DE /* UIColor+Custom.m in Sources */,
+				0B327B581868436500468DF9 /* TMESubmitTableCell.m in Sources */,
 				0C7EFBD317E8D5170054C4DE /* UIBarButtonItem+Custom.m in Sources */,
 				0C7053C517EF5E5E00E7615F /* _TMETransaction.m in Sources */,
 				0C7EFB6117E768C70054C4DE /* NSManagedObject+MagicalRecord.m in Sources */,
 				0C7EFB5817E768C70054C4DE /* NSAttributeDescription+MagicalDataImport.m in Sources */,
+				0B327B531868211300468DF9 /* TMESubmitViewController.m in Sources */,
 				0C2F788F17F2DBA600201783 /* SDWebImageDecoder.m in Sources */,
 				0C7053C217EF5E5E00E7615F /* _TMECategory.m in Sources */,
 				0C7EFBCD17E8D5170054C4DE /* NSNumber+Additions.m in Sources */,
@@ -2107,10 +2135,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\"$(SRCROOT)/Vendors/\\\"",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/Vendors/CrittercismSDK",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/Vendors/Google\\ Analytics",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/Vendors/AviarySDK",
+					"\\\"$(SRCROOT)/Vendors\\\"",
+					"/Users/toanslan/Documents/Work/3-ph-t/Vendors/AviarySDK",
+					"/Users/toanslan/Documents/Work/3-ph-t/Vendors/Google\\ Analytics",
+					"/Users/toanslan/Documents/Work/3-ph-t/Vendors/CrittercismSDK",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -2140,10 +2168,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\"$(SRCROOT)/Vendors/\\\"",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/Vendors/CrittercismSDK",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/Vendors/Google\\ Analytics",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/Vendors/AviarySDK",
+					"\\\"$(SRCROOT)/Vendors\\\"",
+					"/Users/toanslan/Documents/Work/3-ph-t/Vendors/AviarySDK",
+					"/Users/toanslan/Documents/Work/3-ph-t/Vendors/Google\\ Analytics",
+					"/Users/toanslan/Documents/Work/3-ph-t/Vendors/CrittercismSDK",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",

@@ -75,7 +75,11 @@
     self.lblProductName.text = product.name;
     self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
     
-    
+}
+- (IBAction)onBtnComment:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(onBtnComment)]) {
+        [self.delegate performSelector:@selector(onBtnComment)];
+    }
 }
 
 + (CGFloat)getHeight{
