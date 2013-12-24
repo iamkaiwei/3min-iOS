@@ -2141,10 +2141,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/Vendors\\\"",
-					"/Users/toanslan/Documents/Work/3-ph-t/Vendors/AviarySDK",
-					"/Users/toanslan/Documents/Work/3-ph-t/Vendors/Google\\ Analytics",
-					"/Users/toanslan/Documents/Work/3-ph-t/Vendors/CrittercismSDK",
+					"\"$(SRCROOT)/Vendors/\"",
+					"\"$(SRCROOT)/Vendors/CrittercismSDK/\"",
+					"\"$(SRCROOT)/Vendors/AviarySDK/\"",
+					"\"$(SRCROOT)/Vendors/Google Analytics/\"",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -2174,10 +2174,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/Vendors\\\"",
-					"/Users/toanslan/Documents/Work/3-ph-t/Vendors/AviarySDK",
-					"/Users/toanslan/Documents/Work/3-ph-t/Vendors/Google\\ Analytics",
-					"/Users/toanslan/Documents/Work/3-ph-t/Vendors/CrittercismSDK",
+					"\"$(SRCROOT)/Vendors/\"",
+					"\"$(SRCROOT)/Vendors/CrittercismSDK/\"",
+					"\"$(SRCROOT)/Vendors/AviarySDK/\"",
+					"\"$(SRCROOT)/Vendors/Google Analytics/\"",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",

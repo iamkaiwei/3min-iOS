@@ -9,7 +9,7 @@
 #import "TMESubmitViewController.h"
 #import "TMESubmitTableCell.h"
 
-#define kOFFSET_FOR_KEYBOARD 80.0
+static CGFloat const LABEL_CONTENT_DEFAULT_HEIGHT = 26;
 
 @interface TMESubmitViewController()
 <UITableViewDataSource,
@@ -87,7 +87,7 @@ UITextFieldDelegate
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -120,7 +120,7 @@ UITextFieldDelegate
     }
                                           andFailureBlock:^(NSInteger statusCode, id obj)
     {
-    
+        DLog(@"Error: %d", statusCode);
     }];
 }
 

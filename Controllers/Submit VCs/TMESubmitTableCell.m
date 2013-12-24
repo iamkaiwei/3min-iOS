@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *lblUsername;
 @property (weak, nonatomic) IBOutlet UILabel *lblTime;
-@property (weak, nonatomic) IBOutlet UITextView *textViewContent;
+@property (weak, nonatomic) IBOutlet UILabel *lblContent;
 
 @end
 
@@ -29,7 +29,8 @@
         [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:transaction.from.photo_url]];
     }
     
-    self.textViewContent.text = transaction.chat;
+    self.lblContent.text = transaction.chat;
+    [self.lblContent sizeToFitKeepWidth];
     self.lblTime.text = [transaction.time_stamp relativeDate];
     self.lblUsername.text = transaction.from.name;
 }

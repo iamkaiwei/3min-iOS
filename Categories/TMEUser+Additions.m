@@ -25,15 +25,16 @@
     if (data[@"user"]) {
         NSDictionary *userData = data[@"user"];
         
-        user.name = userData[@"username"];
+        user.name = userData[@"full_name"];
         user.facebook_id = userData[@"facebook_id"];
         user.id = userData[@"id"];
         user.username = userData[@"username"];
         user.email = userData[@"email"];
         user.access_token = data[@"access_token"];
         user.udid = data[@"udid"];
+        user.fullname = data[@"full_name"];
         
-        if (userData[@"image"]) {
+        if (userData[@"facebook_avatar"]) {
             NSDictionary *imageData = userData[@"image"];
             user.photo_url = imageData[@"url"];
         }

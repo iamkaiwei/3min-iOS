@@ -66,6 +66,8 @@
         }
         
         user.username = userData[@"username"];
+        user.fullname = userData[@"full_name"];
+        user.id = userData[@"id"];
         product.user = user;
     }
     
