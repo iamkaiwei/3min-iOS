@@ -50,11 +50,6 @@ const struct TMETransactionFetchedProperties TMETransactionFetchedProperties = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
-	if ([key isEqualToString:@"time_stampValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"time_stamp"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
 
 	return keyPaths;
 }
@@ -104,25 +99,6 @@ const struct TMETransactionFetchedProperties TMETransactionFetchedProperties = {
 
 @dynamic time_stamp;
 
-
-
-- (int64_t)time_stampValue {
-	NSNumber *result = [self time_stamp];
-	return [result longLongValue];
-}
-
-- (void)setTime_stampValue:(int64_t)value_ {
-	[self setTime_stamp:[NSNumber numberWithLongLong:value_]];
-}
-
-- (int64_t)primitiveTime_stampValue {
-	NSNumber *result = [self primitiveTime_stamp];
-	return [result longLongValue];
-}
-
-- (void)setPrimitiveTime_stampValue:(int64_t)value_ {
-	[self setPrimitiveTime_stamp:[NSNumber numberWithLongLong:value_]];
-}
 
 
 

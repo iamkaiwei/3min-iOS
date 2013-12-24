@@ -11,6 +11,7 @@
 static NSString * const LAST_LOGIN_TIMESTAMP_STORED_KEY     = @"LAST_LOGIN_TIMESTAMP_STORED_KEY";
 static NSString * const LAST_LOGIN_FACEBOOK_TOKEN           = @"LAST_LOGIN_FACEBOOK_TOKEN";
 static NSString * const LAST_LOGIN_ACCESS_TOKEN             = @"LAST_LOGIN_ACCESS_TOKEN";
+static NSString * const LAST_LOGIN_USER_ID                  = @"LAST_LOGIN_USER_ID";
 static double const AVAIABLE_TOKEN_TIME_TO_EXPIRED           = 7200;
 
 @interface TMEUserManager()
@@ -77,11 +78,23 @@ SINGLETON_MACRO
     
     if (![self isAccessTokenExpired]) {
         TMEUser *user = [TMEUser MR_createEntity];
-        user.access_token = [self getAccessTokenFromStore];
+        user.id = [self getUserIDFromStore];
         
-        if (successBlock) {
-            successBlock(user);
-        }
+        
+        [self getUserWithID:user.id
+                  onSuccess:^(TMEUser *userRes)
+         {
+             userRes.access_token = [self getAccessTokenFromStore];
+             if (successBlock) {
+                 successBlock(userRes);
+             }
+         }
+                 andFailure:^(NSInteger statusCode, NSError *error)
+        {
+            return;
+        }];
+        
+        
         
         return;
     }
@@ -89,6 +102,31 @@ SINGLETON_MACRO
     [self sendNewLoginRequestWithSuccessBlock:successBlock
                               andFailureBlock:failureBlock];
     
+}
+
+- (void)getUserWithID:(NSNumber *)userID onSuccess:(void (^)(TMEUser *user))successBlock andFailure:(TMEJSONRequestFailureBlock)failureBlock
+{
+    NSDictionary *params = @{@"access_token": [self getAccessTokenFromStore]};
+    
+    NSString *path = [NSString stringWithFormat:@"%@%@%@/%@",API_SERVER_HOST,API_PREFIX,API_USER,userID];
+    
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:params
+                                                     method:GET_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
+    {
+        TMEUser *user = [TMEUser MR_createEntity];
+        user = [TMEUser userWithData:responseObject];
+        
+        if (successBlock) {
+            successBlock(user);
+        }
+    }
+                                                    failure:^(NSError *error)
+    {
+        if (failureBlock)
+            failureBlock(error.code, error);
+    }];
 }
 
 - (void)sendNewLoginRequestWithSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock
@@ -111,7 +149,8 @@ SINGLETON_MACRO
         if (responseObject){
             user = [TMEUser userByFacebookDictionary:responseObject];
             [self storeLastLoginWithFacebookToken:[self getFacebookToken]
-                                      accessToken:user.access_token];
+                                      accessToken:user.access_token
+                                           userID:user.id];
         }
         
         [self setLoggedUser:user andFacebookUser:nil];
@@ -163,10 +202,12 @@ SINGLETON_MACRO
 #pragma mark - Improve login flow
 - (BOOL)storeLastLoginWithFacebookToken:(NSString *)facebookToken
                             accessToken:(NSString *)accessToken
+                                 userID:(NSNumber *)userID
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:facebookToken forKey:LAST_LOGIN_FACEBOOK_TOKEN];
     [defaults setObject:accessToken forKey:LAST_LOGIN_ACCESS_TOKEN];
+    [defaults setObject:userID forKey:LAST_LOGIN_USER_ID];
     [self storeTheLastLoginTimeStampWithtTimeIntervalSinceNow];
     return YES;
 }
@@ -219,6 +260,14 @@ SINGLETON_MACRO
     
     NSString *accessToken = [defaults objectForKey:LAST_LOGIN_ACCESS_TOKEN];
     return accessToken;
+}
+
+- (NSNumber *)getUserIDFromStore
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *userID = [defaults objectForKey:LAST_LOGIN_USER_ID];
+    return userID;
 }
 
 @end

@@ -58,6 +58,7 @@
 #define CLASS_PREFIX_LENGTH                         3
 #define API_PREFIX                                  @"/api/v1"
 #define API_PRODUCTS                                @"/products"
+#define API_USER                                    @"/users"
 #define API_CHATS                                   @"/chats"
 #define API_USER_LOGIN                              @"/oauth/token"
 

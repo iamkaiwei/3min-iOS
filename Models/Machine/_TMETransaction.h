@@ -76,13 +76,9 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber* time_stamp;
+@property (nonatomic, strong) NSDate* time_stamp;
 
 
-
-@property int64_t time_stampValue;
-- (int64_t)time_stampValue;
-- (void)setTime_stampValue:(int64_t)value_;
 
 //- (BOOL)validateTime_stamp:(id*)value_ error:(NSError**)error_;
 
@@ -142,11 +138,8 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
-- (NSNumber*)primitiveTime_stamp;
-- (void)setPrimitiveTime_stamp:(NSNumber*)value;
-
-- (int64_t)primitiveTime_stampValue;
-- (void)setPrimitiveTime_stampValue:(int64_t)value_;
+- (NSDate*)primitiveTime_stamp;
+- (void)setPrimitiveTime_stamp:(NSDate*)value;
 
 
 

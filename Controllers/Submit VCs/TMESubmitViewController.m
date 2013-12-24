@@ -93,7 +93,7 @@ UITextFieldDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCell class]) forIndexPath:indexPath];
-    [cell configCellWithConversation:self.arrayConversation[indexPath.row]];
+    [cell configCellWithConversation:self.arrayConversation[indexPath.row] andSeller:self.product.user];
     return cell;
 }
 

@@ -27,18 +27,20 @@
 + (TMETransaction *)transactionWithDictionary:(NSDictionary *)data
 {
     TMETransaction *transaction = [TMETransaction MR_createEntity];
-    
     transaction.id = data[@"chat_id"];
     
     if ([data[@"message"] isEqual:[NSNull null]])
         transaction.chat = @"";
     else transaction.chat = data[@"message"];
+
+    NSNumber *logid = [[TMEUserManager sharedInstance] loggedUser].id;
+    if ([data[@"from"] isEqualToNumber:logid]) {
+        transaction.from = [[TMEUserManager sharedInstance] loggedUser];
+    }
     
-    transaction.from = [[TMEUser MR_findByAttribute:@"id" withValue:data[@"from"]] lastObject];
-    transaction.to = [[TMEUser MR_findByAttribute:@"id" withValue:data[@"to"]] lastObject];
     transaction.product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"product_id"]] lastObject];
-    
-    transaction.time_stamp = data[@"sent_at"];
+    transaction.time_stamp = [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)[data[@"sent_at"] doubleValue]];
     return transaction;
 }
+
 @end

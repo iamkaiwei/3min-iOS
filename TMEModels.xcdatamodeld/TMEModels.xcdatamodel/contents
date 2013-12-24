@@ -36,7 +36,7 @@
         <attribute name="chat" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="meetup_place" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="time_stamp" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="time_stamp" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="from" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEUser" inverseName="fromTransactions" inverseEntity="TMEUser" syncable="YES"/>
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="transaction" inverseEntity="TMEProduct" syncable="YES"/>
         <relationship name="to" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEUser" inverseName="toTransactions" inverseEntity="TMEUser" syncable="YES"/>

@@ -12,4 +12,17 @@
 
 // Custom logic goes here.
 
++ (TMEUser *)userWithData:(id)data{
+    TMEUser *user = [TMEUser MR_createEntity];
+    user.id = data[@"id"];
+    user.email = data[@"email"];
+    user.facebook_id = data[@"facebook_id"];
+    user.fullname = data[@"full_name"];
+    user.name = data[@"full_name"];
+    user.username = data[@"username"];
+    user.udid = data[@"udid"];
+    user.photo_url = data[@"facebook_avatar"];
+    return user;
+}
+
 @end

@@ -54,7 +54,7 @@ SINGLETON_MACRO
         TMETransaction *transaction = [TMETransaction MR_createEntity];
         if (responseObject) {
             transaction.chat = message;
-            transaction.time_stamp = responseObject[@"timestamp"];
+            transaction.time_stamp = [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)[responseObject[@"timestamp"] doubleValue]];
             transaction.product = product;
             transaction.from = [[TMEUserManager sharedInstance] loggedUser];
             transaction.to = product.user;
