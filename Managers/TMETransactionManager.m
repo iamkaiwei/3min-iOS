@@ -17,7 +17,7 @@ SINGLETON_MACRO
                  onSuccessBlock:(void (^)(NSArray *))successBlock
                 andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
     NSDictionary *params = @{
-                             @"to"     : product.user.id,
+                             @"to"     : user.id,
                              @"access_token" : [[TMEUserManager sharedInstance] getAccessToken]
                              };
     

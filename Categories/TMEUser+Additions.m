@@ -34,9 +34,8 @@
         user.udid = data[@"udid"];
         user.fullname = data[@"full_name"];
         
-        if (userData[@"facebook_avatar"]) {
-            NSDictionary *imageData = userData[@"image"];
-            user.photo_url = imageData[@"url"];
+        if (userData[@"facebook_avatar"] && ![userData[@"facebook_avatar"] isEqual:[NSNull null]]) {
+            user.photo_url = userData[@"facebook_avatar"];
         }
     }
 

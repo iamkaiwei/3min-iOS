@@ -8,6 +8,7 @@
 
 #import "TMESubmitViewController.h"
 #import "TMESubmitTableCell.h"
+#import "TMESubmitTableCellRight.h"
 
 static CGFloat const LABEL_CONTENT_DEFAULT_HEIGHT = 26;
 
@@ -49,7 +50,16 @@ UITextFieldDelegate
     self.title = @"You Offer";
     [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCell class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCell class])];
     
+    [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCellRight class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCellRight class])];
+    
     self.txtInputMessage.delegate = self;
+    
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 14, 20)];
+    self.txtInputMessage.leftView = paddingView;
+    self.txtInputMessage.leftViewMode = UITextFieldViewModeAlways;
+    
+    self.wantsFullScreenLayout = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self loadTransaction];
     [self loadProductDetail];
@@ -65,10 +75,10 @@ UITextFieldDelegate
 }
 
 - (void)reloadTableViewConversation{
-    [self.tableViewConversation setHeight:(self.arrayConversation.count * [TMESubmitTableCell getHeight])];
-    [self.scrollView setContentSize:CGSizeMake([[UIScreen mainScreen]bounds].size.width, CGRectGetMaxY(self.tableViewConversation.frame) + 280)];
-    [self.txtInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
     [self.tableViewConversation reloadData];
+    [self.tableViewConversation setHeight:self.tableViewConversation.contentSize.height];
+    [self.txtInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
+    [self autoAdjustScrollViewContentSize];
 }
 
 - (void)loadTransaction
@@ -91,7 +101,10 @@ UITextFieldDelegate
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [TMESubmitTableCell getHeight];
+    TMESubmitTableCell *cell = [[TMESubmitTableCell alloc] init];
+    TMETransaction *transaction = self.arrayConversation[indexPath.row];
+    DLog(@"%f", [cell getHeightWithContent:transaction.chat]);
+    return [cell getHeightWithContent:transaction.chat];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -99,8 +112,16 @@ UITextFieldDelegate
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCell class]) forIndexPath:indexPath];
-    [cell configCellWithConversation:self.arrayConversation[indexPath.row] andSeller:self.product.user];
+    TMETransaction *transaction = self.arrayConversation[indexPath.row];
+    if (transaction.from == [[TMEUserManager sharedInstance] loggedUser]) {
+        TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCell class]) forIndexPath:indexPath];
+        [cell configCellWithConversation:transaction andSeller:self.product.user];
+        return cell;
+    }
+    
+    TMESubmitTableCellRight *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCellRight class]) forIndexPath:indexPath];
+    [cell configCellWithConversation:transaction andSeller:self.product.user];
+    
     return cell;
 }
 
@@ -122,6 +143,13 @@ UITextFieldDelegate
     {
         DLog(@"Error: %d", statusCode);
     }];
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    [self addNavigationItems];
+    self.navigationItem.rightBarButtonItem = nil;
+    self.title = @"Your Offer";
+    return YES;
 }
 
 @end

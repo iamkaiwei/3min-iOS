@@ -32,7 +32,7 @@
     if (maxY <= self.height)
         maxY = self.height;
     
-    self.contentSize = CGSizeMake(CGRectGetWidth(self.bounds), maxY);
+    self.contentSize = CGSizeMake(CGRectGetWidth(self.bounds), maxY + 10);
 }
 
 - (void)scrollSubviewToCenter:(UIView*)subview animated:(BOOL)animated
@@ -48,11 +48,11 @@
     offset.y = CGRectGetMidY(subviewFrame) - height/2;
 
 #warning THIS PART NEED TO BE IMPROVED
-//    if (offset.y + height > self.contentSize.height)
-//        offset.y = self.contentSize.height - height;
-//    if (offset.y < 0)
-//        offset.y = 0;
-    
+    if (offset.y + height > self.contentSize.height)
+        offset.y = self.contentSize.height - height;
+    if (offset.y < 0)
+        offset.y = 0;
+
     [self setContentOffset:offset animated:animated];
 }
 

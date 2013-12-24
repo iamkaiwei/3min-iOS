@@ -1,14 +1,14 @@
 //
-//  TMESubmitTableCell.m
+//  TMESubmitTableCellRight.m
 //  PhotoButton
 //
-//  Created by Toan Slan on 12/23/13.
+//  Created by admin on 12/25/13.
 //
 //
 
-#import "TMESubmitTableCell.h"
+#import "TMESubmitTableCellRight.h"
 
-@interface TMESubmitTableCell()
+@interface TMESubmitTableCellRight()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *lblUsername;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation TMESubmitTableCell
+@implementation TMESubmitTableCellRight
 
 - (void)configCellWithConversation:(TMETransaction *)transaction andSeller:(TMEUser *)seller
 {
@@ -27,14 +27,13 @@
     }
     else
     {
-        self.lblUsername.text = seller.username;
+        self.lblUsername.text = seller.fullname;
         [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:seller.photo_url]];
     }
     
     self.lblContent.text = transaction.chat;
     [self.lblContent sizeToFitKeepWidth];
     self.lblTime.text = [transaction.time_stamp relativeDate];
-    self.lblUsername.text = transaction.from.name;
 }
 
 + (CGFloat)getHeight{
@@ -45,7 +44,6 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 297, 26)];
     label.text = content;
     [label sizeToFitKeepWidth];
-    return [TMESubmitTableCell getHeight] + [label expectedHeight] - 26;
+    return [TMESubmitTableCellRight getHeight] + [label expectedHeight] - 26;
 }
-
 @end

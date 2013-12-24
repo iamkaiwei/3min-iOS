@@ -282,6 +282,9 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+    self.navigationItem.leftBarButtonItem = [self leftNavigationButtonCancel];
+    self.navigationItem.rightBarButtonItem = [self rightNavigationButtonDone];
+    self.title = @"";
     self.activeTextField = textField;
     
     UIScrollView *scrollView = (UIScrollView *)[self getScrollableView];
@@ -446,6 +449,8 @@
     
 }
 
+
+
 #pragma marks - Some VC stuffs
 - (UIBarButtonItem *)leftNavigationButton
 {
@@ -456,13 +461,37 @@
         [leftButton setImage:[UIImage imageNamed:@"category-list-icon"] forState:UIControlStateNormal];
         [leftButton addTarget:self.viewDeckController action:@selector(toggleLeftView) forControlEvents:UIControlEventTouchUpInside];
     }else{
-        [leftButton setImage:[UIImage imageNamed:@"category-list-icon"] forState:UIControlStateNormal];
+        [leftButton setImage:[UIImage imageNamed:@"nav-back-btn-bg"] forState:UIControlStateNormal];
         [leftButton addTarget:self action:@selector(onBtnBack) forControlEvents:UIControlEventTouchUpInside];
     }
     leftButton.frame = CGRectMake(0, 0, 40, 30);
     [leftButton adjustNavigationBarButtonDependSystem];
     UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     return leftButtonItem;
+}
+
+- (UIBarButtonItem *)leftNavigationButtonCancel
+{
+    UIImage *leftButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"publish_cancel_btn" isIcon:YES];
+    UIImage *leftButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"publish_cancel_btn_pressed" isIcon:YES];
+    UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
+    [leftButton addTarget:self action:@selector(onCancelButton:) forControlEvents:UIControlEventTouchUpInside];
+    [leftButton setBackgroundImage:leftButtonBackgroundNormalImage forState:UIControlStateNormal];
+    [leftButton setBackgroundImage:leftButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
+    
+    return [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+}
+
+- (UIBarButtonItem *)rightNavigationButtonDone
+{
+    UIImage *rightButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn" isIcon:YES];
+    UIImage *rightButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn_pressed" isIcon:YES];
+    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
+    [rightButton addTarget:self action:@selector(onPublishButton:) forControlEvents:UIControlEventTouchUpInside];
+    [rightButton setBackgroundImage:rightButtonBackgroundNormalImage forState:UIControlStateNormal];
+    [rightButton setBackgroundImage:rightButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
+    
+    return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
 }
 
 - (void)addNavigationItems

@@ -40,6 +40,7 @@
 - (void)setCustomNavbarLeftButtonTitle:(NSString*)title selector:(SEL)selector;
 - (void)setCustomNavbarRightButtonTitle:(NSString*)title selector:(SEL)selector;
 
+- (void)addNavigationItems;
 /*
  * Auto adjust content size for UIScrollView according to its subviews
  */

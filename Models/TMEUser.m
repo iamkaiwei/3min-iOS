@@ -21,7 +21,8 @@
     user.name = data[@"full_name"];
     user.username = data[@"username"];
     user.udid = data[@"udid"];
-    user.photo_url = data[@"facebook_avatar"];
+    if (data[@"facebook_avatar"] && ![data[@"facebook_avatar"] isEqual:[NSNull null]])
+        user.photo_url = data[@"facebook_avatar"];
     return user;
 }
 

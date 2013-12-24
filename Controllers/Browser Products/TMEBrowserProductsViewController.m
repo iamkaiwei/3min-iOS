@@ -111,7 +111,7 @@ SSPullToRefreshViewDelegate
 #pragma mark - Table cell delegate
 
 - (void)onBtnComment:(UIButton *)sender{
-    NSIndexPath *indexPath = [self.tableProducts indexPathForCell:(UITableViewCell *)sender.superview.superview.superview];
+    NSIndexPath *indexPath = [self.tableProducts indexPathForCell:(UITableViewCell *)sender.superview.superview.superview.superview];
     TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
     submitController.product = self.arrProducts[indexPath.row];
     [self.navigationController pushViewController:submitController animated:YES];

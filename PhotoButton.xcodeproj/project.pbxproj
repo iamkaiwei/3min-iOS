@@ -223,6 +223,10 @@
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
+		84FCC0CA186A0888002892B2 /* nav-back-btn-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */; };
+		84FCC0CB186A0888002892B2 /* nav-back-btn-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */; };
+		84FCC0CE186A1163002892B2 /* TMESubmitTableCellRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FCC0CD186A1163002892B2 /* TMESubmitTableCellRight.m */; };
+		84FCC0D0186A117B002892B2 /* TMESubmitTableCellRight.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0CF186A117B002892B2 /* TMESubmitTableCellRight.xib */; };
 		B4093B771810379700D51B69 /* UIViewController+YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = B4093B741810379700D51B69 /* UIViewController+YIFullScreenScroll.m */; };
 		B4093B781810379700D51B69 /* YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = B4093B761810379700D51B69 /* YIFullScreenScroll.m */; };
 		B4093B7B181038ED00D51B69 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = B4093B7A181038ED00D51B69 /* JRSwizzle.m */; };
@@ -653,6 +657,11 @@
 		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg.png"; sourceTree = "<group>"; };
+		84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg@2x.png"; sourceTree = "<group>"; };
+		84FCC0CC186A1163002892B2 /* TMESubmitTableCellRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitTableCellRight.h; path = "Submit VCs/TMESubmitTableCellRight.h"; sourceTree = "<group>"; };
+		84FCC0CD186A1163002892B2 /* TMESubmitTableCellRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESubmitTableCellRight.m; path = "Submit VCs/TMESubmitTableCellRight.m"; sourceTree = "<group>"; };
+		84FCC0CF186A117B002892B2 /* TMESubmitTableCellRight.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMESubmitTableCellRight.xib; path = "Submit VCs/TMESubmitTableCellRight.xib"; sourceTree = "<group>"; };
 		B4093B731810379700D51B69 /* UIViewController+YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YIFullScreenScroll.h"; sourceTree = "<group>"; };
 		B4093B741810379700D51B69 /* UIViewController+YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YIFullScreenScroll.m"; sourceTree = "<group>"; };
 		B4093B751810379700D51B69 /* YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YIFullScreenScroll.h; sourceTree = "<group>"; };
@@ -786,6 +795,9 @@
 				0B327B561868436500468DF9 /* TMESubmitTableCell.h */,
 				0B327B571868436500468DF9 /* TMESubmitTableCell.m */,
 				0B327B591868437B00468DF9 /* TMESubmitTableCell.xib */,
+				84FCC0CC186A1163002892B2 /* TMESubmitTableCellRight.h */,
+				84FCC0CD186A1163002892B2 /* TMESubmitTableCellRight.m */,
+				84FCC0CF186A117B002892B2 /* TMESubmitTableCellRight.xib */,
 			);
 			name = "Submit VCs";
 			sourceTree = "<group>";
@@ -1055,6 +1067,8 @@
 		0C5954E417F6BDDD0076353E /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */,
+				84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */,
 				0C5954E517F6BDDD0076353E /* category-list-icon.png */,
 				0C5954E617F6BDDD0076353E /* category-list-icon@2x.png */,
 				0C5954E717F6BDDD0076353E /* grid-view-icon.png */,
@@ -1750,6 +1764,7 @@
 				B453FEFD181CF3A2007D5DF0 /* publish_done_btn@2x.png in Resources */,
 				B453FEF6181CF3A2007D5DF0 /* facebook@2x.png in Resources */,
 				0C3CA94417F7F7130072117A /* add-photo-placeholder@2x.png in Resources */,
+				84FCC0D0186A117B002892B2 /* TMESubmitTableCellRight.xib in Resources */,
 				B49C6F6F181C37D600EB380A /* Popular.png in Resources */,
 				0C43CCA817F5D29A00D869F9 /* clock-icon.png in Resources */,
 				0CFC0FF217ECB8BB008FBD92 /* TMEProductDetailsViewController.xib in Resources */,
@@ -1792,6 +1807,7 @@
 				B42ADE87180D561300B0E473 /* HTKContainerViewController.xib in Resources */,
 				B42FE3D418190F1C004E39EF /* tabbar-browser-icon.png in Resources */,
 				B49C6F60181C34F400EB380A /* TMELeftMenuTableViewCell.xib in Resources */,
+				84FCC0CA186A0888002892B2 /* nav-back-btn-bg.png in Resources */,
 				B49C6F54181C091D00EB380A /* login-facebook@2x.png in Resources */,
 				B42FE3D318190F1C004E39EF /* tabbar-browser-icon-pressed.png in Resources */,
 				205EACE917F6E7BD00EE9A76 /* dsym_upload.sh in Resources */,
@@ -1839,6 +1855,7 @@
 				B42FE3E018190F1C004E39EF /* tabbar-browser-icon-pressed@2x.png in Resources */,
 				0C5954EF17F6BDDD0076353E /* grid-view-icon.png in Resources */,
 				B49C6F6E181C37D600EB380A /* house.png in Resources */,
+				84FCC0CB186A0888002892B2 /* nav-back-btn-bg@2x.png in Resources */,
 				0C43CC9D17F5CC4A00D869F9 /* big-logo.png in Resources */,
 				0C43CCAE17F5D29A00D869F9 /* share-button.png in Resources */,
 				B42FE3D618190F1C004E39EF /* tabbar-me-icon.png in Resources */,
@@ -1946,6 +1963,7 @@
 				0C2F789217F2DBA600201783 /* SDWebImageManager.m in Sources */,
 				0C7EFBDF17E8D5170054C4DE /* UITextView+Additions.m in Sources */,
 				B4093B7B181038ED00D51B69 /* JRSwizzle.m in Sources */,
+				84FCC0CE186A1163002892B2 /* TMESubmitTableCellRight.m in Sources */,
 				0C7EFBC817E8D5170054C4DE /* NSCalendar+Additions.m in Sources */,
 				0C2CE1C117EAEAC20074C57F /* TMEPublishProductViewController.m in Sources */,
 				0C7EFB6217E768C70054C4DE /* NSManagedObject+MagicalRequests.m in Sources */,
@@ -2086,8 +2104,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "A082DD38-30DE-4C8F-AF51-A3010CA18B0B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A082DD38-30DE-4C8F-AF51-A3010CA18B0B";
+				PROVISIONING_PROFILE = "B9092812-A496-4F6F-86F2-7F9C2D5FEF4F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9092812-A496-4F6F-86F2-7F9C2D5FEF4F";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2116,8 +2134,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "A082DD38-30DE-4C8F-AF51-A3010CA18B0B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E75E1A66-846E-4E5D-A54F-77B9C8121F54";
+				PROVISIONING_PROFILE = "B9092812-A496-4F6F-86F2-7F9C2D5FEF4F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9092812-A496-4F6F-86F2-7F9C2D5FEF4F";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -2129,8 +2147,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Khang Hoang Trieu (WJKLGVFWZ5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Khang Hoang Trieu (WJKLGVFWZ5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Vendors\"",
@@ -2151,7 +2169,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A082DD38-30DE-4C8F-AF51-A3010CA18B0B";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2162,8 +2180,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Khang Hoang Trieu (WJKLGVFWZ5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Khang Hoang Trieu (WJKLGVFWZ5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Vendors\"",
@@ -2184,7 +2202,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A082DD38-30DE-4C8F-AF51-A3010CA18B0B";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
