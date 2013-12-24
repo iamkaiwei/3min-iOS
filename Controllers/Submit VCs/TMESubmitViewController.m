@@ -28,6 +28,7 @@ UITextFieldDelegate
 @property (weak, nonatomic) IBOutlet UILabel *lblDealLocation;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewConversation;
 @property (weak, nonatomic) IBOutlet UITextField *txtInputMessage;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -51,7 +52,7 @@ UITextFieldDelegate
     [self loadTransaction];
     [self loadProductDetail];
     
-//    [self autoAdjustScrollViewContentSize];
+    self.scrollView.contentSize = CGSizeMake(320, 800);
 }
 
 - (void)loadProductDetail
@@ -98,6 +99,7 @@ UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self postTransaction];
+    self.txtInputMessage.text = @"";
     return YES;
 }
 

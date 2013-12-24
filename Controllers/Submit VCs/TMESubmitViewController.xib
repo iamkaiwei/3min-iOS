@@ -12,19 +12,20 @@
                 <outlet property="lblPriceOffered" destination="9n4-OA-NsG" id="Wzw-sr-O7L"/>
                 <outlet property="lblProductName" destination="wRi-g4-OKM" id="yWN-b2-Nk6"/>
                 <outlet property="lblProductPrice" destination="23l-74-UIC" id="B1C-lF-E3l"/>
+                <outlet property="scrollView" destination="Uam-YN-rMv" id="njk-Zx-zg7"/>
                 <outlet property="tableViewConversation" destination="ysv-iK-kiL" id="60H-AX-jaf"/>
                 <outlet property="txtInputMessage" destination="A3O-hK-aNB" id="4eV-vf-BZj"/>
                 <outlet property="view" destination="1" id="ApV-mn-oXS"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Uam-YN-rMv">
+        <view contentMode="scaleToFill" id="1">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-            <autoresizingMask key="autoresizingMask"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="1">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Uam-YN-rMv">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <autoresizingMask key="autoresizingMask"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="GN9-IR-TyZ">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
@@ -125,13 +126,13 @@
                             <textInputTraits key="textInputTraits" returnKeyType="go"/>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" red="0.89411771297454834" green="0.88627457618713379" blue="0.88235300779342651" alpha="1" colorSpace="deviceRGB"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <color key="backgroundColor" red="0.86666673421859741" green="0.85882359743118286" blue="0.85490202903747559" alpha="1" colorSpace="deviceRGB"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </view>
+                </scrollView>
             </subviews>
-            <color key="backgroundColor" red="0.86666673421859741" green="0.85882359743118286" blue="0.85490202903747559" alpha="1" colorSpace="deviceRGB"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-        </scrollView>
+            <color key="backgroundColor" red="0.89411771297454834" green="0.88627457618713379" blue="0.88235300779342651" alpha="1" colorSpace="deviceRGB"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
     </objects>
 </document>
