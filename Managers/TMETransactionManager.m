@@ -17,18 +17,17 @@ SINGLETON_MACRO
                  onSuccessBlock:(void (^)(NSArray *))successBlock
                 andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
     NSDictionary *params = @{
-                             @"to"     : product.id,
+                             @"to"     : @4,
                              @"access_token" : [[TMEUserManager sharedInstance] getAccessToken]
                              };
     
-    [[TMEHTTPClient sharedClient] getPath:[NSString stringWithFormat:@"%@%@%@%@",API_PREFIX,API_PRODUCTS,product.id,API_CHATS]
+    NSString *path = [NSString stringWithFormat:@"%@%@%@/%@%@",API_SERVER_HOST,API_PREFIX,API_PRODUCTS,product.id,API_CHATS];
+    
+    [[TMEHTTPClient sharedClient] getPath:path
                                parameters:params
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      NSMutableArray *arrayDic = [@[] mutableCopy];
-                                      for (int i = 0; i < [responseObject count]; i++) {
-                                          [arrayDic addObject:responseObject[i]];
-                                      }
-                                      successBlock(arrayDic);
+                                      NSArray *arrTransaction = [TMETransaction arrayTransactionFromArray:responseObject];
+                                      successBlock(arrTransaction);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         return;
@@ -43,7 +42,7 @@ SINGLETON_MACRO
       andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
     
     NSDictionary *params = @{
-                             @"to"     : product.user.id,
+                             @"to"     : @4,
                              @"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
                              @"message" : message
                              };
@@ -57,7 +56,8 @@ SINGLETON_MACRO
             transaction.chat = message;
             transaction.time_stamp = responseObject[@"timestamp"];
             transaction.product = product;
-            transaction.buyer = [[TMEUserManager sharedInstance] loggedUser];
+            transaction.from = [[TMEUserManager sharedInstance] loggedUser];
+            transaction.to = product.user;
         }
         if (successBlock) {
              successBlock(transaction);

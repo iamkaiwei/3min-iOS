@@ -34,6 +34,11 @@
         transaction.chat = @"";
     else transaction.chat = data[@"message"];
     
+    transaction.from = [[TMEUser MR_findByAttribute:@"id" withValue:data[@"from"]] lastObject];
+    transaction.to = [[TMEUser MR_findByAttribute:@"id" withValue:data[@"to"]] lastObject];
+    transaction.product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"product_id"]] lastObject];
+    
+    transaction.time_stamp = data[@"sent_at"];
     return transaction;
 }
 @end

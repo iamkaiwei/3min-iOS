@@ -11,8 +11,9 @@ const struct TMETransactionAttributes TMETransactionAttributes = {
 };
 
 const struct TMETransactionRelationships TMETransactionRelationships = {
-	.buyer = @"buyer",
+	.from = @"from",
 	.product = @"product",
+	.to = @"to",
 };
 
 const struct TMETransactionFetchedProperties TMETransactionFetchedProperties = {
@@ -127,11 +128,15 @@ const struct TMETransactionFetchedProperties TMETransactionFetchedProperties = {
 
 
 
-@dynamic buyer;
+@dynamic from;
 
 	
 
 @dynamic product;
+
+	
+
+@dynamic to;
 
 	
 

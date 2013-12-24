@@ -21,10 +21,10 @@
 
 - (void)configCellWithConversation:(TMETransaction *)transaction
 {
-    self.imageViewAvatar.image = nil;
+    [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:transaction.from.photo_url]];
     self.textViewContent.text = transaction.chat;
     self.lblTime.text = [transaction.time_stamp stringValue];
-//    self.lblUsername.text 
+    self.lblUsername.text = transaction.from.name;
 }
 
 @end

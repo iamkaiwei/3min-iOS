@@ -37,8 +37,9 @@
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="meetup_place" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time_stamp" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <relationship name="buyer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEUser" inverseName="buyTransactions" inverseEntity="TMEUser" syncable="YES"/>
+        <relationship name="from" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEUser" inverseName="fromTransactions" inverseEntity="TMEUser" syncable="YES"/>
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="transaction" inverseEntity="TMEProduct" syncable="YES"/>
+        <relationship name="to" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEUser" inverseName="toTransactions" inverseEntity="TMEUser" syncable="YES"/>
     </entity>
     <entity name="TMEUser" representedClassName="TMEUser" syncable="YES">
         <attribute name="access_token" optional="YES" attributeType="String" syncable="YES"/>
@@ -51,9 +52,9 @@
         <attribute name="photo_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="udid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="buyTransactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMETransaction" inverseName="buyer" inverseEntity="TMETransaction" syncable="YES"/>
+        <relationship name="fromTransactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMETransaction" inverseName="from" inverseEntity="TMETransaction" syncable="YES"/>
         <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="user" inverseEntity="TMEProduct" syncable="YES"/>
-        <relationship name="sellTransactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMETransaction" syncable="YES"/>
+        <relationship name="toTransactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMETransaction" inverseName="to" inverseEntity="TMETransaction" syncable="YES"/>
     </entity>
     <elements>
         <element name="TMECategory" positionX="0" positionY="0" width="0" height="0"/>

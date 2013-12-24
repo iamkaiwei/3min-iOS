@@ -18,9 +18,9 @@ extern const struct TMEUserAttributes {
 } TMEUserAttributes;
 
 extern const struct TMEUserRelationships {
-	__unsafe_unretained NSString *buyTransactions;
+	__unsafe_unretained NSString *fromTransactions;
 	__unsafe_unretained NSString *products;
-	__unsafe_unretained NSString *sellTransactions;
+	__unsafe_unretained NSString *toTransactions;
 } TMEUserRelationships;
 
 extern const struct TMEUserFetchedProperties {
@@ -158,9 +158,9 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet *buyTransactions;
+@property (nonatomic, strong) NSSet *fromTransactions;
 
-- (NSMutableSet*)buyTransactionsSet;
+- (NSMutableSet*)fromTransactionsSet;
 
 
 
@@ -172,9 +172,9 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet *sellTransactions;
+@property (nonatomic, strong) NSSet *toTransactions;
 
-- (NSMutableSet*)sellTransactionsSet;
+- (NSMutableSet*)toTransactionsSet;
 
 
 
@@ -184,20 +184,20 @@ extern const struct TMEUserFetchedProperties {
 
 @interface _TMEUser (CoreDataGeneratedAccessors)
 
-- (void)addBuyTransactions:(NSSet*)value_;
-- (void)removeBuyTransactions:(NSSet*)value_;
-- (void)addBuyTransactionsObject:(TMETransaction*)value_;
-- (void)removeBuyTransactionsObject:(TMETransaction*)value_;
+- (void)addFromTransactions:(NSSet*)value_;
+- (void)removeFromTransactions:(NSSet*)value_;
+- (void)addFromTransactionsObject:(TMETransaction*)value_;
+- (void)removeFromTransactionsObject:(TMETransaction*)value_;
 
 - (void)addProducts:(NSSet*)value_;
 - (void)removeProducts:(NSSet*)value_;
 - (void)addProductsObject:(TMEProduct*)value_;
 - (void)removeProductsObject:(TMEProduct*)value_;
 
-- (void)addSellTransactions:(NSSet*)value_;
-- (void)removeSellTransactions:(NSSet*)value_;
-- (void)addSellTransactionsObject:(TMETransaction*)value_;
-- (void)removeSellTransactionsObject:(TMETransaction*)value_;
+- (void)addToTransactions:(NSSet*)value_;
+- (void)removeToTransactions:(NSSet*)value_;
+- (void)addToTransactionsObject:(TMETransaction*)value_;
+- (void)removeToTransactionsObject:(TMETransaction*)value_;
 
 @end
 
@@ -268,8 +268,8 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-- (NSMutableSet*)primitiveBuyTransactions;
-- (void)setPrimitiveBuyTransactions:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveFromTransactions;
+- (void)setPrimitiveFromTransactions:(NSMutableSet*)value;
 
 
 
@@ -278,8 +278,8 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-- (NSMutableSet*)primitiveSellTransactions;
-- (void)setPrimitiveSellTransactions:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveToTransactions;
+- (void)setPrimitiveToTransactions:(NSMutableSet*)value;
 
 
 @end

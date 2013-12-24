@@ -12,8 +12,9 @@ extern const struct TMETransactionAttributes {
 } TMETransactionAttributes;
 
 extern const struct TMETransactionRelationships {
-	__unsafe_unretained NSString *buyer;
+	__unsafe_unretained NSString *from;
 	__unsafe_unretained NSString *product;
+	__unsafe_unretained NSString *to;
 } TMETransactionRelationships;
 
 extern const struct TMETransactionFetchedProperties {
@@ -21,6 +22,7 @@ extern const struct TMETransactionFetchedProperties {
 
 @class TMEUser;
 @class TMEProduct;
+@class TMEUser;
 
 
 
@@ -88,9 +90,9 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
-@property (nonatomic, strong) TMEUser *buyer;
+@property (nonatomic, strong) TMEUser *from;
 
-//- (BOOL)validateBuyer:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateFrom:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -98,6 +100,13 @@ extern const struct TMETransactionFetchedProperties {
 @property (nonatomic, strong) TMEProduct *product;
 
 //- (BOOL)validateProduct:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) TMEUser *to;
+
+//- (BOOL)validateTo:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -143,13 +152,18 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
-- (TMEUser*)primitiveBuyer;
-- (void)setPrimitiveBuyer:(TMEUser*)value;
+- (TMEUser*)primitiveFrom;
+- (void)setPrimitiveFrom:(TMEUser*)value;
 
 
 
 - (TMEProduct*)primitiveProduct;
 - (void)setPrimitiveProduct:(TMEProduct*)value;
+
+
+
+- (TMEUser*)primitiveTo;
+- (void)setPrimitiveTo:(TMEUser*)value;
 
 
 @end

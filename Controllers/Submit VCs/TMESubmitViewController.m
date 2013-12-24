@@ -68,9 +68,9 @@ UITextFieldDelegate
 {
     [[TMETransactionManager sharedInstance] getListMessageOfProduct:self.product
                                                              toUser:self.product.user
-                                                     onSuccessBlock:^(NSArray *arrayDictionary)
+                                                     onSuccessBlock:^(NSArray *arrayTransaction)
     {
-        self.arrayConversation = [arrayDictionary mutableCopy];
+        self.arrayConversation = [arrayTransaction mutableCopy];
         [self.tableViewConversation reloadData];
     }
                                                     andFailureBlock:^(NSInteger statusCode,id obj)

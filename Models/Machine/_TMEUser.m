@@ -17,9 +17,9 @@ const struct TMEUserAttributes TMEUserAttributes = {
 };
 
 const struct TMEUserRelationships TMEUserRelationships = {
-	.buyTransactions = @"buyTransactions",
+	.fromTransactions = @"fromTransactions",
 	.products = @"products",
-	.sellTransactions = @"sellTransactions",
+	.toTransactions = @"toTransactions",
 };
 
 const struct TMEUserFetchedProperties TMEUserFetchedProperties = {
@@ -152,15 +152,15 @@ const struct TMEUserFetchedProperties TMEUserFetchedProperties = {
 
 
 
-@dynamic buyTransactions;
+@dynamic fromTransactions;
 
 	
-- (NSMutableSet*)buyTransactionsSet {
-	[self willAccessValueForKey:@"buyTransactions"];
+- (NSMutableSet*)fromTransactionsSet {
+	[self willAccessValueForKey:@"fromTransactions"];
   
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"buyTransactions"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"fromTransactions"];
   
-	[self didAccessValueForKey:@"buyTransactions"];
+	[self didAccessValueForKey:@"fromTransactions"];
 	return result;
 }
 	
@@ -178,15 +178,15 @@ const struct TMEUserFetchedProperties TMEUserFetchedProperties = {
 }
 	
 
-@dynamic sellTransactions;
+@dynamic toTransactions;
 
 	
-- (NSMutableSet*)sellTransactionsSet {
-	[self willAccessValueForKey:@"sellTransactions"];
+- (NSMutableSet*)toTransactionsSet {
+	[self willAccessValueForKey:@"toTransactions"];
   
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"sellTransactions"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"toTransactions"];
   
-	[self didAccessValueForKey:@"sellTransactions"];
+	[self didAccessValueForKey:@"toTransactions"];
 	return result;
 }
 	
