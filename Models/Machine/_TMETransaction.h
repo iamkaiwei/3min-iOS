@@ -5,15 +5,15 @@
 
 
 extern const struct TMETransactionAttributes {
-	 __unsafe_unretained NSString *chat;
-	 __unsafe_unretained NSString *id;
-	 __unsafe_unretained NSString *meetup_place;
+	__unsafe_unretained NSString *chat;
+	__unsafe_unretained NSString *id;
+	__unsafe_unretained NSString *meetup_place;
+	__unsafe_unretained NSString *time_stamp;
 } TMETransactionAttributes;
 
 extern const struct TMETransactionRelationships {
-	 __unsafe_unretained NSString *buyer;
-	 __unsafe_unretained NSString *product;
-	 __unsafe_unretained NSString *seller;
+	__unsafe_unretained NSString *buyer;
+	__unsafe_unretained NSString *product;
 } TMETransactionRelationships;
 
 extern const struct TMETransactionFetchedProperties {
@@ -21,7 +21,7 @@ extern const struct TMETransactionFetchedProperties {
 
 @class TMEUser;
 @class TMEProduct;
-@class TMEUser;
+
 
 
 
@@ -40,7 +40,7 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* chat;
+@property (nonatomic, strong) NSString* chat;
 
 
 
@@ -50,7 +50,7 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSNumber* id;
+@property (nonatomic, strong) NSNumber* id;
 
 
 
@@ -64,7 +64,7 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* meetup_place;
+@property (nonatomic, strong) NSString* meetup_place;
 
 
 
@@ -74,23 +74,30 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
-@property (nonatomic, retain) TMEUser *buyer;
+@property (nonatomic, strong) NSNumber* time_stamp;
+
+
+
+@property int64_t time_stampValue;
+- (int64_t)time_stampValue;
+- (void)setTime_stampValue:(int64_t)value_;
+
+//- (BOOL)validateTime_stamp:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) TMEUser *buyer;
 
 //- (BOOL)validateBuyer:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, retain) TMEProduct *product;
+@property (nonatomic, strong) TMEProduct *product;
 
 //- (BOOL)validateProduct:(id*)value_ error:(NSError**)error_;
-
-
-
-
-@property (nonatomic, retain) TMEUser *seller;
-
-//- (BOOL)validateSeller:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -126,6 +133,15 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
+- (NSNumber*)primitiveTime_stamp;
+- (void)setPrimitiveTime_stamp:(NSNumber*)value;
+
+- (int64_t)primitiveTime_stampValue;
+- (void)setPrimitiveTime_stampValue:(int64_t)value_;
+
+
+
+
 
 - (TMEUser*)primitiveBuyer;
 - (void)setPrimitiveBuyer:(TMEUser*)value;
@@ -134,11 +150,6 @@ extern const struct TMETransactionFetchedProperties {
 
 - (TMEProduct*)primitiveProduct;
 - (void)setPrimitiveProduct:(TMEProduct*)value;
-
-
-
-- (TMEUser*)primitiveSeller;
-- (void)setPrimitiveSeller:(TMEUser*)value;
 
 
 @end

@@ -24,7 +24,7 @@
 #ifdef DEBUG
 
 #define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
-#define API_SERVER_HOST                             @"http://threemins-server-staging.herokuapp.com/"
+#define API_SERVER_HOST                             @"http://threemins-server-staging.herokuapp.com"
 #define API_CLIENT_ID                               @"36d9b0cae1fb797b3095ebd8c50ef4b58df47f16d5aa18f96704f4c484136869"
 #define API_GRANT_TYPE                              @"password"
 #define URBAN_AIRSHIP_APP_KEY                       @"yq6GxkLBSUCxjQ2cGJw5DA"
@@ -57,8 +57,9 @@
 
 #define CLASS_PREFIX_LENGTH                         3
 #define API_PREFIX                                  @"/api/v1"
-#define API_PRODUCTS                                @"products"
-#define API_USER_LOGIN                              @"oauth/token"
+#define API_PRODUCTS                                @"/products"
+#define API_CHATS                                   @"/chats"
+#define API_USER_LOGIN                              @"/oauth/token"
 
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
@@ -122,6 +123,7 @@
 #import "TMEFacebookManager.h"
 #import "FacebookManager.h"
 #import "BaseNetworkManager.h"
+#import "TMETransactionManager.h"
 
 // Models
 #import "TMEProduct.h"

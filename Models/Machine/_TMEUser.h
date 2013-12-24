@@ -5,22 +5,22 @@
 
 
 extern const struct TMEUserAttributes {
-	 __unsafe_unretained NSString *access_token;
-	 __unsafe_unretained NSString *email;
-	 __unsafe_unretained NSString *facebook_id;
-	 __unsafe_unretained NSString *fullname;
-	 __unsafe_unretained NSString *id;
-	 __unsafe_unretained NSString *name;
-	 __unsafe_unretained NSString *password;
-	 __unsafe_unretained NSString *photo_url;
-	 __unsafe_unretained NSString *udid;
-	 __unsafe_unretained NSString *username;
+	__unsafe_unretained NSString *access_token;
+	__unsafe_unretained NSString *email;
+	__unsafe_unretained NSString *facebook_id;
+	__unsafe_unretained NSString *fullname;
+	__unsafe_unretained NSString *id;
+	__unsafe_unretained NSString *name;
+	__unsafe_unretained NSString *password;
+	__unsafe_unretained NSString *photo_url;
+	__unsafe_unretained NSString *udid;
+	__unsafe_unretained NSString *username;
 } TMEUserAttributes;
 
 extern const struct TMEUserRelationships {
-	 __unsafe_unretained NSString *buyTransactions;
-	 __unsafe_unretained NSString *products;
-	 __unsafe_unretained NSString *sellTransactions;
+	__unsafe_unretained NSString *buyTransactions;
+	__unsafe_unretained NSString *products;
+	__unsafe_unretained NSString *sellTransactions;
 } TMEUserRelationships;
 
 extern const struct TMEUserFetchedProperties {
@@ -54,7 +54,7 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* access_token;
+@property (nonatomic, strong) NSString* access_token;
 
 
 
@@ -64,7 +64,7 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* email;
+@property (nonatomic, strong) NSString* email;
 
 
 
@@ -74,7 +74,7 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* facebook_id;
+@property (nonatomic, strong) NSString* facebook_id;
 
 
 
@@ -84,7 +84,7 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* fullname;
+@property (nonatomic, strong) NSString* fullname;
 
 
 
@@ -94,7 +94,7 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSNumber* id;
+@property (nonatomic, strong) NSNumber* id;
 
 
 
@@ -108,7 +108,7 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* name;
+@property (nonatomic, strong) NSString* name;
 
 
 
@@ -118,7 +118,7 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* password;
+@property (nonatomic, strong) NSString* password;
 
 
 
@@ -128,7 +128,7 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* photo_url;
+@property (nonatomic, strong) NSString* photo_url;
 
 
 
@@ -138,7 +138,7 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* udid;
+@property (nonatomic, strong) NSString* udid;
 
 
 
@@ -148,7 +148,7 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* username;
+@property (nonatomic, strong) NSString* username;
 
 
 
@@ -158,21 +158,21 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSSet *buyTransactions;
+@property (nonatomic, strong) NSSet *buyTransactions;
 
 - (NSMutableSet*)buyTransactionsSet;
 
 
 
 
-@property (nonatomic, retain) NSSet *products;
+@property (nonatomic, strong) NSSet *products;
 
 - (NSMutableSet*)productsSet;
 
 
 
 
-@property (nonatomic, retain) NSSet *sellTransactions;
+@property (nonatomic, strong) NSSet *sellTransactions;
 
 - (NSMutableSet*)sellTransactionsSet;
 

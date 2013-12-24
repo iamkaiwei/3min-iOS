@@ -5,16 +5,16 @@
 
 
 extern const struct TMEProductImagesAttributes {
-	 __unsafe_unretained NSString *imageID;
-	 __unsafe_unretained NSString *medium;
-	 __unsafe_unretained NSString *origin;
-	 __unsafe_unretained NSString *small;
-	 __unsafe_unretained NSString *thumb;
-	 __unsafe_unretained NSString *update_at;
+	__unsafe_unretained NSString *imageID;
+	__unsafe_unretained NSString *medium;
+	__unsafe_unretained NSString *origin;
+	__unsafe_unretained NSString *small;
+	__unsafe_unretained NSString *thumb;
+	__unsafe_unretained NSString *update_at;
 } TMEProductImagesAttributes;
 
 extern const struct TMEProductImagesRelationships {
-	 __unsafe_unretained NSString *product;
+	__unsafe_unretained NSString *product;
 } TMEProductImagesRelationships;
 
 extern const struct TMEProductImagesFetchedProperties {
@@ -42,7 +42,7 @@ extern const struct TMEProductImagesFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSNumber* imageID;
+@property (nonatomic, strong) NSNumber* imageID;
 
 
 
@@ -56,7 +56,7 @@ extern const struct TMEProductImagesFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* medium;
+@property (nonatomic, strong) NSString* medium;
 
 
 
@@ -66,7 +66,7 @@ extern const struct TMEProductImagesFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* origin;
+@property (nonatomic, strong) NSString* origin;
 
 
 
@@ -76,7 +76,7 @@ extern const struct TMEProductImagesFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* small;
+@property (nonatomic, strong) NSString* small;
 
 
 
@@ -86,7 +86,7 @@ extern const struct TMEProductImagesFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* thumb;
+@property (nonatomic, strong) NSString* thumb;
 
 
 
@@ -96,7 +96,7 @@ extern const struct TMEProductImagesFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSDate* update_at;
+@property (nonatomic, strong) NSDate* update_at;
 
 
 
@@ -106,7 +106,7 @@ extern const struct TMEProductImagesFetchedProperties {
 
 
 
-@property (nonatomic, retain) TMEProduct *product;
+@property (nonatomic, strong) TMEProduct *product;
 
 //- (BOOL)validateProduct:(id*)value_ error:(NSError**)error_;
 

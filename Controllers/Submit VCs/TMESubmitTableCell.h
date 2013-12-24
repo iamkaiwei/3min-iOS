@@ -10,4 +10,6 @@
 
 @interface TMESubmitTableCell : TMEBaseTableViewCell
 
+- (void)configCellWithConversation:(TMETransaction *)transaction;
+
 @end

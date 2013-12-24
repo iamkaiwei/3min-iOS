@@ -19,15 +19,12 @@
 
 @implementation TMESubmitTableCell
 
-- (id)initWithFrame:(CGRect)frame
+- (void)configCellWithConversation:(TMETransaction *)transaction
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    self.imageViewAvatar.image = nil;
+    self.textViewContent.text = transaction.chat;
+    self.lblTime.text = [transaction.time_stamp stringValue];
+//    self.lblUsername.text 
 }
-
-
 
 @end

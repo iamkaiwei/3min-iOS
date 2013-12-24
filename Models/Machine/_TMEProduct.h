@@ -5,23 +5,23 @@
 
 
 extern const struct TMEProductAttributes {
-	 __unsafe_unretained NSString *comments;
-	 __unsafe_unretained NSString *created_at;
-	 __unsafe_unretained NSString *details;
-	 __unsafe_unretained NSString *dislikes;
-	 __unsafe_unretained NSString *id;
-	 __unsafe_unretained NSString *likes;
-	 __unsafe_unretained NSString *name;
-	 __unsafe_unretained NSString *price;
-	 __unsafe_unretained NSString *sold_out;
-	 __unsafe_unretained NSString *updated_at;
+	__unsafe_unretained NSString *comments;
+	__unsafe_unretained NSString *created_at;
+	__unsafe_unretained NSString *details;
+	__unsafe_unretained NSString *dislikes;
+	__unsafe_unretained NSString *id;
+	__unsafe_unretained NSString *likes;
+	__unsafe_unretained NSString *name;
+	__unsafe_unretained NSString *price;
+	__unsafe_unretained NSString *sold_out;
+	__unsafe_unretained NSString *updated_at;
 } TMEProductAttributes;
 
 extern const struct TMEProductRelationships {
-	 __unsafe_unretained NSString *category;
-	 __unsafe_unretained NSString *images;
-	 __unsafe_unretained NSString *transaction;
-	 __unsafe_unretained NSString *user;
+	__unsafe_unretained NSString *category;
+	__unsafe_unretained NSString *images;
+	__unsafe_unretained NSString *transaction;
+	__unsafe_unretained NSString *user;
 } TMEProductRelationships;
 
 extern const struct TMEProductFetchedProperties {
@@ -56,7 +56,7 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* comments;
+@property (nonatomic, strong) NSString* comments;
 
 
 
@@ -66,7 +66,7 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSDate* created_at;
+@property (nonatomic, strong) NSDate* created_at;
 
 
 
@@ -76,7 +76,7 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* details;
+@property (nonatomic, strong) NSString* details;
 
 
 
@@ -86,7 +86,7 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSNumber* dislikes;
+@property (nonatomic, strong) NSNumber* dislikes;
 
 
 
@@ -100,7 +100,7 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSNumber* id;
+@property (nonatomic, strong) NSNumber* id;
 
 
 
@@ -114,7 +114,7 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSNumber* likes;
+@property (nonatomic, strong) NSNumber* likes;
 
 
 
@@ -128,7 +128,7 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* name;
+@property (nonatomic, strong) NSString* name;
 
 
 
@@ -138,7 +138,7 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSNumber* price;
+@property (nonatomic, strong) NSNumber* price;
 
 
 
@@ -152,7 +152,7 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSNumber* sold_out;
+@property (nonatomic, strong) NSNumber* sold_out;
 
 
 
@@ -166,7 +166,7 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSDate* updated_at;
+@property (nonatomic, strong) NSDate* updated_at;
 
 
 
@@ -176,28 +176,28 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, retain) TMECategory *category;
+@property (nonatomic, strong) TMECategory *category;
 
 //- (BOOL)validateCategory:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, retain) NSSet *images;
+@property (nonatomic, strong) NSSet *images;
 
 - (NSMutableSet*)imagesSet;
 
 
 
 
-@property (nonatomic, retain) TMETransaction *transaction;
+@property (nonatomic, strong) TMETransaction *transaction;
 
 //- (BOOL)validateTransaction:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, retain) TMEUser *user;
+@property (nonatomic, strong) TMEUser *user;
 
 //- (BOOL)validateUser:(id*)value_ error:(NSError**)error_;
 

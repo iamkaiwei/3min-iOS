@@ -77,8 +77,8 @@
     
 }
 - (IBAction)onBtnComment:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(onBtnComment)]) {
-        [self.delegate performSelector:@selector(onBtnComment)];
+    if ([self.delegate respondsToSelector:@selector(onBtnComment:)]) {
+        [self.delegate performSelector:@selector(onBtnComment:) withObject:sender];
     }
 }
 

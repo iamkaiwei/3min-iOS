@@ -280,22 +280,6 @@
 
 #pragma mark - UITextFieldDelegate
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    self.activeTextField = textField;
-    
-    //Find the scrollView
-    UIScrollView *scrollView = (UIScrollView *)[self getScrollableView];
-    if (scrollView == nil)
-        return YES;
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [scrollView scrollSubviewToCenter:textField animated:YES];
-    });
-    
-    return YES;
-}
-
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
     return YES;
