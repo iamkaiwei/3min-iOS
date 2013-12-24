@@ -9,6 +9,8 @@
 #import "TMESubmitViewController.h"
 #import "TMESubmitTableCell.h"
 
+#define kOFFSET_FOR_KEYBOARD 80.0
+
 @interface TMESubmitViewController()
 <UITableViewDataSource,
 UITableViewDelegate,
@@ -51,8 +53,6 @@ UITextFieldDelegate
     
     [self loadTransaction];
     [self loadProductDetail];
-    
-    self.scrollView.contentSize = CGSizeMake(320, 800);
 }
 
 - (void)loadProductDetail
@@ -64,6 +64,13 @@ UITextFieldDelegate
     self.lblPriceOffered.text = [NSString stringWithFormat:@"$%@",self.product.price];
 }
 
+- (void)reloadTableViewConversation{
+    [self.tableViewConversation setHeight:(self.arrayConversation.count * [TMESubmitTableCell getHeight])];
+    [self.scrollView setContentSize:CGSizeMake([[UIScreen mainScreen]bounds].size.width, CGRectGetMaxY(self.tableViewConversation.frame) + 280)];
+    [self.txtInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
+    [self.tableViewConversation reloadData];
+}
+
 - (void)loadTransaction
 {
     [[TMETransactionManager sharedInstance] getListMessageOfProduct:self.product
@@ -71,7 +78,7 @@ UITextFieldDelegate
                                                      onSuccessBlock:^(NSArray *arrayTransaction)
     {
         self.arrayConversation = [arrayTransaction mutableCopy];
-        [self.tableViewConversation reloadData];
+        [self reloadTableViewConversation];
     }
                                                     andFailureBlock:^(NSInteger statusCode,id obj)
     {
@@ -84,7 +91,7 @@ UITextFieldDelegate
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 101;
+    return [TMESubmitTableCell getHeight];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -109,7 +116,7 @@ UITextFieldDelegate
                                            onSuccessBlock:^(TMETransaction *transaction)
     {
         [self.arrayConversation addObject:transaction];
-        [self.tableViewConversation reloadData];
+        [self reloadTableViewConversation];
     }
                                           andFailureBlock:^(NSInteger statusCode, id obj)
     {

@@ -10,6 +10,7 @@
 
 @interface TMESubmitTableCell : TMEBaseTableViewCell
 
++ (CGFloat)getHeight;
 - (void)configCellWithConversation:(TMETransaction *)transaction andSeller:(TMEUser *)seller;
 
 @end

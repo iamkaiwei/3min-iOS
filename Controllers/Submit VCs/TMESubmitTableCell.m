@@ -34,4 +34,8 @@
     self.lblUsername.text = transaction.from.name;
 }
 
++ (CGFloat)getHeight{
+    return 107;
+}
+
 @end
