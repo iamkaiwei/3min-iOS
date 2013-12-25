@@ -61,6 +61,7 @@ UITextFieldDelegate
     self.wantsFullScreenLayout = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
     [self loadTransaction];
     [self loadProductDetail];
 }
@@ -79,10 +80,27 @@ UITextFieldDelegate
     [self.tableViewConversation setHeight:self.tableViewConversation.contentSize.height];
     [self.txtInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
     [self autoAdjustScrollViewContentSize];
+    
+    [SVProgressHUD dismiss];
 }
 
 - (void)loadTransaction
 {
+    if ([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
+        [[TMETransactionManager sharedInstance] getListMessageOfProduct:self.product
+                                                                 toUser:nil
+                                                         onSuccessBlock:^(NSArray *arrayTransaction)
+         {
+             self.arrayConversation = [arrayTransaction mutableCopy];
+             [self reloadTableViewConversation];
+         }
+                                                        andFailureBlock:^(NSInteger statusCode,id obj)
+         {
+             
+         }];
+        return;
+    }
+    
     [[TMETransactionManager sharedInstance] getListMessageOfProduct:self.product
                                                              toUser:self.product.user
                                                      onSuccessBlock:^(NSArray *arrayTransaction)

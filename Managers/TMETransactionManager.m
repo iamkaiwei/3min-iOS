@@ -16,17 +16,26 @@ SINGLETON_MACRO
                          toUser:(TMEUser *)user
                  onSuccessBlock:(void (^)(NSArray *))successBlock
                 andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
-    NSDictionary *params = @{
-                             @"to"     : user.id,
-                             @"access_token" : [[TMEUserManager sharedInstance] getAccessToken]
-                             };
+
+    NSDictionary *params = [[NSDictionary alloc] init];
+    if (user) {
+        params = @{
+                   @"to" : user.id,
+                   @"access_token" : [[TMEUserManager sharedInstance] getAccessToken]
+                   };
+    }
+    else{
+       params = @{
+                  @"access_token" : [[TMEUserManager sharedInstance] getAccessToken]
+                  };
+    }
     
     NSString *path = [NSString stringWithFormat:@"%@%@%@/%@%@",API_SERVER_HOST,API_PREFIX,API_PRODUCTS,product.id,API_CHATS];
     
     [[TMEHTTPClient sharedClient] getPath:path
                                parameters:params
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      NSArray *arrTransaction = [TMETransaction arrayTransactionFromArray:responseObject];
+                                      NSArray *arrTransaction = [TMETransaction arrayTransactionFromArray:responseObject andProduct:product];
                                       successBlock(arrTransaction);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -51,13 +60,9 @@ SINGLETON_MACRO
                                 parameters:params
                                    success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-        TMETransaction *transaction = [TMETransaction MR_createEntity];
+        TMETransaction *transaction = [[TMETransaction alloc] init];
         if (responseObject) {
-            transaction.chat = message;
-            transaction.time_stamp = [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)[responseObject[@"timestamp"] doubleValue]];
-            transaction.product = product;
-            transaction.from = [[TMEUserManager sharedInstance] loggedUser];
-            transaction.to = product.user;
+            transaction = [TMETransaction transactionWithDictionary:responseObject andProduct:product];
         }
         if (successBlock) {
              successBlock(transaction);

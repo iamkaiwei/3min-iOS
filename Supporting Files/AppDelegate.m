@@ -107,6 +107,10 @@ FacebookManagerDelegate
     [self saveContext];
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    DLog(@"I got it!!!");
+}
+
 - (void)saveContext
 {
     NSError *error = nil;

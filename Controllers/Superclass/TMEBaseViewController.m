@@ -487,7 +487,7 @@
     UIImage *rightButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn" isIcon:YES];
     UIImage *rightButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn_pressed" isIcon:YES];
     UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
-    [rightButton addTarget:self action:@selector(onPublishButton:) forControlEvents:UIControlEventTouchUpInside];
+    [rightButton addTarget:self action:@selector(onDoneButton:) forControlEvents:UIControlEventTouchUpInside];
     [rightButton setBackgroundImage:rightButtonBackgroundNormalImage forState:UIControlStateNormal];
     [rightButton setBackgroundImage:rightButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
     
@@ -498,6 +498,14 @@
 {
     UIBarButtonItem *leftButtonItem = [self leftNavigationButton];
     self.navigationItem.leftBarButtonItem = leftButtonItem;
+}
+
+- (void)onCancelButton:(id)sender {
+    [self dismissKeyboard];
+}
+
+- (void)onDoneButton:(id)sender {
+    [self dismissKeyboard];
 }
 
 - (void)onBtnBack

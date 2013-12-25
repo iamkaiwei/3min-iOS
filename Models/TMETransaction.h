@@ -4,5 +4,7 @@
 // Custom logic goes here.
 
 
-+ (NSArray *)arrayTransactionFromArray:(NSArray *)arrData;
++ (NSArray *)arrayTransactionFromArray:(NSArray *)arrData andProduct:(TMEProduct *)product;
++ (TMETransaction *)transactionWithDictionary:(NSDictionary *)data andProduct:(TMEProduct *)product;
+
 @end
