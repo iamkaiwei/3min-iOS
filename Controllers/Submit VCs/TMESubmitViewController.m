@@ -58,6 +58,10 @@ UITextFieldDelegate
     self.txtInputMessage.leftView = paddingView;
     self.txtInputMessage.leftViewMode = UITextFieldViewModeAlways;
     
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
     [self loadTransaction];
     [self loadProductDetail];
