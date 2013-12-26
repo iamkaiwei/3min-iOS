@@ -43,8 +43,28 @@
         transaction.from = buyer;
         transaction.to = product.user;
     }
-    transaction.product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"product_id"]] lastObject];
+    transaction.product = product;
     transaction.time_stamp = [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)[data[@"sent_at"] doubleValue]];
+    return transaction;
+}
+
++ (TMETransaction *)transactionWithMessage:(NSString *)message andProduct:(TMEProduct *)product atTimestamp:(CGFloat)timestamp
+{
+    TMETransaction *transaction = [TMETransaction MR_createEntity];
+    transaction.chat = message;
+    
+    if ([[[TMEUserManager sharedInstance] loggedUser].id isEqualToNumber:product.user.id]) {
+        transaction.from = product.user;
+        transaction.to = product.user;
+    }
+    
+    else
+    {
+        transaction.from = [[TMEUserManager sharedInstance] loggedUser];
+        transaction.to = product.user;
+    }
+    transaction.product = product;
+    transaction.time_stamp = [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)timestamp];
     return transaction;
 }
 

@@ -266,7 +266,7 @@ SINGLETON_MACRO
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *userID = [defaults objectForKey:LAST_LOGIN_USER_ID];
+    NSNumber *userID = [defaults objectForKey:LAST_LOGIN_USER_ID];
     return userID;
 }
 

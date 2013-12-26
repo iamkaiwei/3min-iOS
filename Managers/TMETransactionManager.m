@@ -66,9 +66,9 @@ SINGLETON_MACRO
                                 parameters:params
                                    success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-        TMETransaction *transaction = [[TMETransaction alloc] init];
+        TMETransaction *transaction = [TMETransaction alloc];
         if (responseObject) {
-//            transaction = [TMETransaction transactionWithDictionary:responseObject andProduct:product withBuyer:];
+            transaction = [TMETransaction transactionWithMessage:message andProduct:product atTimestamp:[responseObject[@"timestamp"] doubleValue]];
         }
         if (successBlock) {
              successBlock(transaction);
