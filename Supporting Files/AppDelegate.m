@@ -101,6 +101,7 @@ FacebookManagerDelegate
     [FBSession.activeSession handleDidBecomeActive];
     [FBAppEvents activateApp];
     [FBAppCall handleDidBecomeActive];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -115,14 +116,17 @@ FacebookManagerDelegate
     UIApplicationState state = [[UIApplication sharedApplication] applicationState];
     if (state == UIApplicationStateBackground || state == UIApplicationStateInactive)
     {
-        UINavigationController *navController = (UINavigationController *)self.navController;
+        [self showHomeViewController];
+        IIViewDeckController *deckController = (IIViewDeckController *)self.window.rootViewController;
+        UITabBarController *homeController = (UITabBarController *)deckController.centerController;
+        UINavigationController *navController = (UINavigationController *) [[homeController viewControllers] objectAtIndex:0];
         TMESubmitViewController *notificationViewController = [[TMESubmitViewController alloc] init];
         notificationViewController.product = [[TMEProduct MR_findByAttribute:@"id" withValue:userInfo[@"aps"][@"other"][@"product_id"]]lastObject];
-        [navController presentModalViewController:notificationViewController withPushDirection:@"left"];
+        [navController pushViewController:notificationViewController animated:YES];
     }
 
     if (state == UIApplicationStateActive) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateConversationTableView" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
         NSString *message = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
         [TSMessage showNotificationWithTitle:message type:TSMessageNotificationTypeMessage];
     }

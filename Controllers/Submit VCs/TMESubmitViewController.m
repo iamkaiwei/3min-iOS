@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 
 static CGFloat const LABEL_CONTENT_DEFAULT_HEIGHT = 26;
+static NSInteger const kUserID = 36;
 
 @interface TMESubmitViewController()
 <UITableViewDataSource,
@@ -61,12 +62,12 @@ UITextFieldDelegate
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(loadTransactionWithUserID:)
-                                                 name:@"updateConversationTableView"
+                                             selector:@selector(loadTransaction)
+                                                 name:NOTIFICATION_RELOAD_CONVERSATION
                                                object:nil];
     
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
-    [self loadTransactionWithUserID:@36];
+    [self loadTransaction];
     [self loadProductDetail];
 }
 
@@ -168,8 +169,9 @@ UITextFieldDelegate
      }];
 }
 
-- (void)loadTransactionWithUserID:(NSNumber *)userID
+- (void)loadTransaction
 {
+    NSNumber *userID = @(kUserID);
     if ([self isSeller]) {
         TMEUser* buyerCache = [[TMEUser MR_findByAttribute:@"id" withValue:userID] lastObject];
         self.buyer = buyerCache;

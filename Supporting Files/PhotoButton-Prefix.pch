@@ -52,6 +52,7 @@
 #endif
 #endif
 
+#define NOTIFICATION_RELOAD_CONVERSATION            @"updateConversationTableView"
 #define NOTIFICATION_FINISH_LOGIN                   @"NotificationFinishLogin"
 #define API_CLIENT_SERCET                           @"8eb597435160bcef09084a9bbd32c9d2a309b97b33f2e7284d2ac8c3840a0834"
 
