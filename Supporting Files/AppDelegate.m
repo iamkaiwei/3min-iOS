@@ -123,7 +123,7 @@ FacebookManagerDelegate
 
     if (state == UIApplicationStateActive) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateConversationTablView" object:nil];
-        NSString *message = [[userInfo valueForKey:@"aps"] valueForKey:@"message"];
+        NSString *message = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
         [TSMessage showNotificationWithTitle:message type:TSMessageNotificationTypeMessage];
     }
 }
