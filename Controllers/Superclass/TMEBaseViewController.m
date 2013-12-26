@@ -354,7 +354,7 @@
     if ([scrollView respondsToSelector:@selector(setContentInset:)])
     {
         [UIView animateWithDuration:duration delay:0 options:animationCurve animations:^{
-            UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, kbSize.height, 0);
+            UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, kbSize.height - 50, 0);
             [scrollView setContentInset:edgeInsets];
             [scrollView setScrollIndicatorInsets:edgeInsets];
         } completion:nil];

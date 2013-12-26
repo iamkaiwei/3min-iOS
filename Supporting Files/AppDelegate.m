@@ -115,15 +115,15 @@ FacebookManagerDelegate
     UIApplicationState state = [[UIApplication sharedApplication] applicationState];
     if (state == UIApplicationStateBackground || state == UIApplicationStateInactive)
     {
-        UINavigationController *navController = (UINavigationController *)self.window.rootViewController.navigationController;
+        UINavigationController *navController = (UINavigationController *)self.navController;
         TMESubmitViewController *notificationViewController = [[TMESubmitViewController alloc] init];
-//        notificationViewController.product = ;
-        [navController pushViewController:notificationViewController animated:YES];
+        notificationViewController.product = [[TMEProduct MR_findByAttribute:@"id" withValue:userInfo[@"aps"][@"other"][@"product_id"]]lastObject];
+        [navController presentModalViewController:notificationViewController withPushDirection:@"left"];
     }
 
     if (state == UIApplicationStateActive) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateConversationTablView" object:nil];
-        NSString *message = [[[userInfo valueForKey:@"aps"] valueForKey:@"other"] valueForKey:@"product_id"];
+        NSString *message = [[userInfo valueForKey:@"aps"] valueForKey:@"message"];
         [TSMessage showNotificationWithTitle:message type:TSMessageNotificationTypeMessage];
     }
 }
