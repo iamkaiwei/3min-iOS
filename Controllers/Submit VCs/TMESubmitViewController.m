@@ -60,7 +60,10 @@ UITextFieldDelegate
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadTransactionWithUserID:) name:@"updateConversationTableView" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loadTransactionWithUserID:)
+                                                 name:@"updateConversationTableView"
+                                               object:nil];
     
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
     [self loadTransactionWithUserID:@36];
@@ -169,7 +172,7 @@ UITextFieldDelegate
 {
     if ([self isSeller]) {
         TMEUser* buyerCache = [[TMEUser MR_findByAttribute:@"id" withValue:userID] lastObject];
-        
+        self.buyer = buyerCache;
         if (buyerCache) {
             [self loadTransactionOfBuyer:buyerCache toUser:buyerCache];
             return;
