@@ -58,9 +58,6 @@ UITextFieldDelegate
     self.txtInputMessage.leftView = paddingView;
     self.txtInputMessage.leftViewMode = UITextFieldViewModeAlways;
     
-    self.wantsFullScreenLayout = NO;
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
     [self loadTransaction];
     [self loadProductDetail];
@@ -131,7 +128,7 @@ UITextFieldDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TMETransaction *transaction = self.arrayConversation[indexPath.row];
-    if (transaction.from == [[TMEUserManager sharedInstance] loggedUser]) {
+    if ([transaction.from.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
         TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCell class]) forIndexPath:indexPath];
         [cell configCellWithConversation:transaction andSeller:self.product.user];
         return cell;

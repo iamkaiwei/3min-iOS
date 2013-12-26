@@ -35,9 +35,15 @@ SINGLETON_MACRO
     [[TMEHTTPClient sharedClient] getPath:path
                                parameters:params
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      NSArray *arrTransaction = [TMETransaction arrayTransactionFromArray:responseObject andProduct:product];
-                                      successBlock(arrTransaction);
-        
+                                      [[TMEUserManager sharedInstance] getUserWithID:@36 onSuccess:^(TMEUser *buyer)
+                                      {
+                                          NSArray *arrTransaction = [TMETransaction arrayTransactionFromArray:responseObject andProduct:product withBuyer:buyer];
+                                          successBlock(arrTransaction);
+                                          
+                                      } andFailure:^(NSInteger statusCode, NSError *error)
+                                      {
+                                          return;
+                                      }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         return;
     }];
@@ -62,7 +68,7 @@ SINGLETON_MACRO
     {
         TMETransaction *transaction = [[TMETransaction alloc] init];
         if (responseObject) {
-            transaction = [TMETransaction transactionWithDictionary:responseObject andProduct:product];
+//            transaction = [TMETransaction transactionWithDictionary:responseObject andProduct:product withBuyer:];
         }
         if (successBlock) {
              successBlock(transaction);

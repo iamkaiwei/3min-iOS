@@ -21,14 +21,14 @@
 
 - (void)configCellWithConversation:(TMETransaction *)transaction andSeller:(TMEUser *)seller
 {
-    if (transaction.from) {
-        self.lblUsername.text = transaction.from.fullname;
-        [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:transaction.from.photo_url]];
+    if (transaction.from == seller) {
+        self.lblUsername.text = seller.fullname;
+        [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:seller.photo_url]];
     }
     else
     {
-        self.lblUsername.text = seller.fullname;
-        [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:seller.photo_url]];
+        self.lblUsername.text = transaction.from.fullname;
+        [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:transaction.from.photo_url]];
     }
     
     self.lblContent.text = transaction.chat;
