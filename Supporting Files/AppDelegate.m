@@ -13,6 +13,7 @@
 #import "TMEReachabilityManager.h"
 #import "GAI.h"
 #import "AFUrbanAirshipClient.h"
+#import "TMESubmitViewController.h"
 
 @interface AppDelegate()
 <
@@ -111,10 +112,20 @@ FacebookManagerDelegate
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
-    DLog(@"I got it!!!");
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateConversationTablView" object:nil];
-    NSString *message = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
-    [TSMessage showNotificationWithTitle:message type:TSMessageNotificationTypeMessage];
+    UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+    if (state == UIApplicationStateBackground || state == UIApplicationStateInactive)
+    {
+        UINavigationController *navController = (UINavigationController *)self.window.rootViewController.navigationController;
+        TMESubmitViewController *notificationViewController = [[TMESubmitViewController alloc] init];
+        notificationViewController.product = [[TMEProduct MR_findByAttribute:@"id" withValue:userInfo] lastObject];
+        [navController pushViewController:notificationViewController animated:YES];
+    }
+
+    if (state == UIApplicationStateActive) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateConversationTablView" object:nil];
+        NSString *message = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
+        [TSMessage showNotificationWithTitle:message type:TSMessageNotificationTypeMessage];
+    }
 }
 
 - (void)saveContext
