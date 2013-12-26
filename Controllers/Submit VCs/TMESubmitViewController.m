@@ -18,12 +18,8 @@ UITableViewDelegate,
 UITextFieldDelegate
 >
 
+@property (strong, nonatomic) TMEUser *buyer;
 @property (strong, nonatomic) NSMutableArray *arrayConversation;
-
-@end
-
-@interface TMESubmitViewController()
-
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewProduct;
 @property (weak, nonatomic) IBOutlet UILabel *lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel *lblProductPrice;
@@ -63,7 +59,7 @@ UITextFieldDelegate
     }
     
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
-    [self loadTransaction];
+    [self loadTransactionWithUserID:@36];
     [self loadProductDetail];
 }
 
@@ -83,36 +79,6 @@ UITextFieldDelegate
     [self autoAdjustScrollViewContentSize];
     
     [SVProgressHUD dismiss];
-}
-
-- (void)loadTransaction
-{
-    if ([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
-        [[TMETransactionManager sharedInstance] getListMessageOfProduct:self.product
-                                                                 toUser:nil
-                                                         onSuccessBlock:^(NSArray *arrayTransaction)
-         {
-             self.arrayConversation = [arrayTransaction mutableCopy];
-             [self reloadTableViewConversation];
-         }
-                                                        andFailureBlock:^(NSInteger statusCode,id obj)
-         {
-             
-         }];
-        return;
-    }
-    
-    [[TMETransactionManager sharedInstance] getListMessageOfProduct:self.product
-                                                             toUser:self.product.user
-                                                     onSuccessBlock:^(NSArray *arrayTransaction)
-    {
-        self.arrayConversation = [arrayTransaction mutableCopy];
-        [self reloadTableViewConversation];
-    }
-                                                    andFailureBlock:^(NSInteger statusCode,id obj)
-    {
-        
-    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -151,17 +117,80 @@ UITextFieldDelegate
 }
 
 - (void)postTransaction{
-    [[TMETransactionManager sharedInstance] postMessageTo:self.product
+    if ([self isSeller]) {
+        [[TMETransactionManager sharedInstance] postMessageTo:self.buyer
+                                                   forProduct:self.product
+                                                  withMessage:self.txtInputMessage.text
+                                               onSuccessBlock:^(TMETransaction *transaction)
+         {
+             [self.arrayConversation addObject:transaction];
+             [self reloadTableViewConversation];
+         }
+                                              andFailureBlock:^(NSInteger statusCode, id obj)
+         {
+             DLog(@"Error: %d", statusCode);
+         }];
+        return;
+    }
+    [[TMETransactionManager sharedInstance] postMessageTo:self.product.user
+                                               forProduct:self.product
                                               withMessage:self.txtInputMessage.text
                                            onSuccessBlock:^(TMETransaction *transaction)
-    {
-        [self.arrayConversation addObject:transaction];
-        [self reloadTableViewConversation];
-    }
+     {
+         [self.arrayConversation addObject:transaction];
+         [self reloadTableViewConversation];
+     }
                                           andFailureBlock:^(NSInteger statusCode, id obj)
-    {
-        DLog(@"Error: %d", statusCode);
-    }];
+     {
+         DLog(@"Error: %d", statusCode);
+     }];
+}
+
+- (void)loadTransactionWithUserID:(NSNumber *)userID
+{
+    if ([self isSeller]) {
+        [[TMEUserManager sharedInstance] getUserWithID:userID onSuccess:^(TMEUser *buyer)
+         {
+             self.buyer = buyer;
+             [[TMETransactionManager sharedInstance] getListMessageOfProduct:self.product
+                                                                   fromBuyer:self.buyer
+                                                                      toUser:self.buyer
+                                                              onSuccessBlock:^(NSArray *arrayTransaction)
+              {
+                  self.arrayConversation = [arrayTransaction mutableCopy];
+                  [self reloadTableViewConversation];
+              }
+                                                             andFailureBlock:^(NSInteger statusCode,id obj)
+              {
+                  
+              }];
+         } andFailure:^(NSInteger statusCode, NSError *error)
+         {
+             return;
+         }];
+        return;
+    }
+    self.buyer = [[TMEUserManager sharedInstance] loggedUser];
+    [[TMETransactionManager sharedInstance] getListMessageOfProduct:self.product
+                                                          fromBuyer:self.buyer
+                                                             toUser:self.product.user
+                                                     onSuccessBlock:^(NSArray *arrayTransaction)
+     {
+         self.arrayConversation = [arrayTransaction mutableCopy];
+         [self reloadTableViewConversation];
+     }
+                                                    andFailureBlock:^(NSInteger statusCode,id obj)
+     {
+         
+     }];
+}
+
+- (BOOL)isSeller
+{
+    if ([[[TMEUserManager sharedInstance] loggedUser].id isEqual:self.product.user.id]) {
+        return YES;
+    }
+    return NO;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{

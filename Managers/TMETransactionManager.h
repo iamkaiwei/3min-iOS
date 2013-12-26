@@ -12,11 +12,13 @@
 @interface TMETransactionManager : BaseManager
 
 - (void)getListMessageOfProduct:(TMEProduct *)product
-                         toUser:(TMEUser *)user
+                      fromBuyer:(TMEUser *)fromBuyer
+                         toUser:(TMEUser *)toUser
                  onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
                 andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)postMessageTo:(TMEProduct*)product
+- (void)postMessageTo:(TMEUser *)user
+           forProduct:(TMEProduct *)product
           withMessage:(NSString *)message
        onSuccessBlock:(void (^) (TMETransaction *transaction))successBlock
       andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;

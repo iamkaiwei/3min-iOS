@@ -13,14 +13,15 @@
 SINGLETON_MACRO
 
 - (void)getListMessageOfProduct:(TMEProduct *)product
-                         toUser:(TMEUser *)user
+                      fromBuyer:(TMEUser *)fromBuyer
+                         toUser:(TMEUser *)toUser
                  onSuccessBlock:(void (^)(NSArray *))successBlock
                 andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
 
     NSDictionary *params = [[NSDictionary alloc] init];
-    if (user) {
+    if (toUser) {
         params = @{
-                   @"to" : user.id,
+                   @"to" : toUser.id,
                    @"access_token" : [[TMEUserManager sharedInstance] getAccessToken]
                    };
     }
@@ -35,15 +36,8 @@ SINGLETON_MACRO
     [[TMEHTTPClient sharedClient] getPath:path
                                parameters:params
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      [[TMEUserManager sharedInstance] getUserWithID:@36 onSuccess:^(TMEUser *buyer)
-                                      {
-                                          NSArray *arrTransaction = [TMETransaction arrayTransactionFromArray:responseObject andProduct:product withBuyer:buyer];
+                                          NSArray *arrTransaction = [TMETransaction arrayTransactionFromArray:responseObject andProduct:product withBuyer:fromBuyer];
                                           successBlock(arrTransaction);
-                                          
-                                      } andFailure:^(NSInteger statusCode, NSError *error)
-                                      {
-                                          return;
-                                      }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         return;
     }];
@@ -51,13 +45,14 @@ SINGLETON_MACRO
     
 }
 
-- (void)postMessageTo:(TMEProduct *)product
+- (void)postMessageTo:(TMEUser *)user
+           forProduct:(TMEProduct *)product
           withMessage:(NSString *)message
        onSuccessBlock:(void (^)(TMETransaction*))successBlock
       andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
     
     NSDictionary *params = @{
-                             @"to"     : product.user.id,
+                             @"to"     : user.id,
                              @"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
                              @"message" : message
                              };
@@ -68,7 +63,7 @@ SINGLETON_MACRO
     {
         TMETransaction *transaction = [TMETransaction alloc];
         if (responseObject) {
-            transaction = [TMETransaction transactionWithMessage:message andProduct:product atTimestamp:[responseObject[@"timestamp"] doubleValue]];
+            transaction = [TMETransaction transactionWithMessage:message andProduct:product atTimestamp:[responseObject[@"timestamp"] doubleValue] toUser:user];
         }
         if (successBlock) {
              successBlock(transaction);

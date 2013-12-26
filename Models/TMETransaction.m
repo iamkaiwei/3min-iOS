@@ -48,21 +48,14 @@
     return transaction;
 }
 
-+ (TMETransaction *)transactionWithMessage:(NSString *)message andProduct:(TMEProduct *)product atTimestamp:(CGFloat)timestamp
++ (TMETransaction *)transactionWithMessage:(NSString *)message andProduct:(TMEProduct *)product atTimestamp:(CGFloat)timestamp toUser:(TMEUser *)user
 {
     TMETransaction *transaction = [TMETransaction MR_createEntity];
     transaction.chat = message;
     
-    if ([[[TMEUserManager sharedInstance] loggedUser].id isEqualToNumber:product.user.id]) {
-        transaction.from = product.user;
-        transaction.to = product.user;
-    }
+    transaction.from = [[TMEUserManager sharedInstance] loggedUser];
+    transaction.to = user;
     
-    else
-    {
-        transaction.from = [[TMEUserManager sharedInstance] loggedUser];
-        transaction.to = product.user;
-    }
     transaction.product = product;
     transaction.time_stamp = [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)timestamp];
     return transaction;

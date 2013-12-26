@@ -21,7 +21,7 @@
 
 - (void)configCellWithConversation:(TMETransaction *)transaction andSeller:(TMEUser *)seller
 {
-    if (transaction.from == seller) {
+    if ([transaction.from.id isEqual:seller.id]) {
         self.lblUsername.text = seller.fullname;
         [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:seller.photo_url]];
     }
