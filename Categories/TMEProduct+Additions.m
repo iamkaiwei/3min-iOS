@@ -90,7 +90,11 @@
         product = [TMEProduct productWithDictionary:data];
         [arrProducts addObject:product];
     }
-    
+    NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
+    [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        DLog(@"Finish save to magical record");
+    }];
+
     return arrProducts;
 }
 

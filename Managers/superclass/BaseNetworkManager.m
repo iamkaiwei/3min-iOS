@@ -478,38 +478,38 @@ SINGLETON_MACRO
                             success:(void (^)(id dataModelObject))success
                             failure:(void (^)(NSError *error))failure
 {
-    //  //Parameters
-    //  NSMutableDictionary *parameters = [self getAuthParams];
-    //  if ([params count] > 0)
-    //    [parameters addEntriesFromDictionary:params];
-    //  if ([parameters count] <= 0)
-    //    parameters = nil;
-    //
-    //  //Path
-    //  NSString *path = nil;
-    //  if ([methodAPI length] > 0)   path = [NSString stringWithFormat:@"%@/%@", [self getServerModelAPIStringForClass:classObject withId:keyId], methodAPI];
-    //  else                          path = [self getServerModelAPIStringForClass:classObject withParentId:parentId withParentClass:parentClassObject withId:keyId];
-    //
-    //  NSMutableURLRequest *request = [self.httpClient requestWithMethod:GET_METHOD path:path parameters:parameters];
-    //
-    //  [self sendRequest:request success:^(NSHTTPURLResponse *response, id responseObject) {
-    //
-    //    NSDictionary *rawDictionary = (NSDictionary*)responseObject;
-    //
-    //    //Format for EagleChild
-    //    if ([rawDictionary dictionaryForKey:@"data"] && [[rawDictionary dictionaryForKey:@"data"] count] > 0)
-    //      rawDictionary = [rawDictionary dictionaryForKey:@"data"];
-    //
-    //    //Crazy generic code to convert raw dictionary to proper model
-    //    id model = [[BaseStorageManager sharedInstance] addOrUpdateClassModel:classObject
-    //                                                          withDictionary:rawDictionary];
-    //
-    //    DLog(@"Data model object %@ updated", path);
-    //
-    //    if (success)
-    //      success(model);
-    //
-    //  } failure:failure];
+//      //Parameters
+//      NSMutableDictionary *parameters = [self getAuthParams];
+//      if ([params count] > 0)
+//        [parameters addEntriesFromDictionary:params];
+//      if ([parameters count] <= 0)
+//        parameters = nil;
+//    
+//      //Path
+//      NSString *path = nil;
+//      if ([methodAPI length] > 0)   path = [NSString stringWithFormat:@"%@/%@", [self getServerModelAPIStringForClass:classObject withId:keyId], methodAPI];
+//      else                          path = [self getServerModelAPIStringForClass:classObject withParentId:parentId withParentClass:parentClassObject withId:keyId];
+//    
+//      NSMutableURLRequest *request = [self.httpClient requestWithMethod:GET_METHOD path:path parameters:parameters];
+//    
+//      [self sendRequest:request success:^(NSHTTPURLResponse *response, id responseObject) {
+//    
+//        NSDictionary *rawDictionary = (NSDictionary*)responseObject;
+//    
+//        //Format for EagleChild
+//        if ([rawDictionary dictionaryForKey:@"data"] && [[rawDictionary dictionaryForKey:@"data"] count] > 0)
+//          rawDictionary = [rawDictionary dictionaryForKey:@"data"];
+//    
+//        //Crazy generic code to convert raw dictionary to proper model
+//        id model = [[BaseStorageManager sharedInstance] addOrUpdateClassModel:classObject
+//                                                              withDictionary:rawDictionary];
+//    
+//        DLog(@"Data model object %@ updated", path);
+//    
+//        if (success)
+//          success(model);
+//    
+//      } failure:failure];
 }
 
 - (void)addOrUpdateServerModelForModel:(id)modelObject

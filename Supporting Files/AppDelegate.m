@@ -117,7 +117,7 @@ FacebookManagerDelegate
     {
         UINavigationController *navController = (UINavigationController *)self.window.rootViewController.navigationController;
         TMESubmitViewController *notificationViewController = [[TMESubmitViewController alloc] init];
-        notificationViewController.product = [[TMEProduct MR_findByAttribute:@"id" withValue:userInfo] lastObject];
+//        notificationViewController.product = ;
         [navController pushViewController:notificationViewController animated:YES];
     }
 
