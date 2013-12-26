@@ -60,6 +60,12 @@
     self.tapToDismissKeyboardGestureRecognizer.numberOfTouchesRequired = 1;
     [[self getScrollableView] addGestureRecognizer:self.tapToDismissKeyboardGestureRecognizer];
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityDidChange:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    
     [self addNavigationItems];
 }
 
@@ -517,6 +523,21 @@
 {
     NSString *breadcrumb = [NSString stringWithFormat:@"%@:%d", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], lineNumber];
     [Crittercism leaveBreadcrumb:breadcrumb];
+}
+
+- (void)reachabilityDidChange:(NSNotification *)notification {
+    
+    if ([TMEReachabilityManager isReachable]) {
+        if (![TMEReachabilityManager sharedInstance].lastState) {
+            [TSMessage showNotificationWithTitle:@"Connected" type:TSMessageNotificationTypeSuccess];
+        }
+        [TMEReachabilityManager sharedInstance].lastState = 1;
+        return;
+    }
+    if ([TMEReachabilityManager sharedInstance].lastState) {
+        [TSMessage showNotificationWithTitle:@"No connection" type:TSMessageNotificationTypeError];
+        [TMEReachabilityManager sharedInstance].lastState = 0;
+    }
 }
 
 - (void)onFinishLogin:(TMEUser *)user

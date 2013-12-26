@@ -10,6 +10,7 @@
 #import "TMETutorialViewController.h"
 #import "TMEHomeViewController.h"
 #import "TMEUserManager.h"
+#import "TMEReachabilityManager.h"
 #import "GAI.h"
 #import "AFUrbanAirshipClient.h"
 
@@ -61,6 +62,8 @@ FacebookManagerDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [TMEReachabilityManager sharedInstance];
+    
     self.deckController = [self generateControllerStack];
     
     // Crittercism
@@ -109,6 +112,9 @@ FacebookManagerDelegate
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     DLog(@"I got it!!!");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateConversationTablView" object:nil];
+    NSString *message = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
+    [TSMessage showNotificationWithTitle:message type:TSMessageNotificationTypeMessage];
 }
 
 - (void)saveContext

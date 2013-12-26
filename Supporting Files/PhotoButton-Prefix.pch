@@ -125,6 +125,7 @@
 #import "FacebookManager.h"
 #import "BaseNetworkManager.h"
 #import "TMETransactionManager.h"
+#import "TMEReachabilityManager.h"
 
 // Models
 #import "TMEProduct.h"
@@ -142,6 +143,8 @@
 #import "iCarousel.h"
 #import "UINavigationController+SGProgress.h"
 #import "SSPullToRefresh.h"
+#import "Reachability.h"
+#import "TSMessage.h"
 
 // Common VCs
 #import "TMENavigationViewController.h"

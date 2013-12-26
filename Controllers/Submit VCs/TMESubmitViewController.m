@@ -9,12 +9,14 @@
 #import "TMESubmitViewController.h"
 #import "TMESubmitTableCell.h"
 #import "TMESubmitTableCellRight.h"
+#import "AppDelegate.h"
 
 static CGFloat const LABEL_CONTENT_DEFAULT_HEIGHT = 26;
 
 @interface TMESubmitViewController()
 <UITableViewDataSource,
 UITableViewDelegate,
+UIApplicationDelegate,
 UITextFieldDelegate
 >
 
@@ -58,6 +60,8 @@ UITextFieldDelegate
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadTransactionWithUserID:) name:@"updateConversationTableView" object:nil];
+    
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
     [self loadTransactionWithUserID:@36];
     [self loadProductDetail];
@@ -68,7 +72,6 @@ UITextFieldDelegate
     self.lblProductName.text = self.product.name;
     self.lblProductPrice.text = [NSString stringWithFormat:@"$%@",self.product.price];
     [self.imageViewProduct setImageWithURL:[NSURL URLWithString:[[self.product.images anyObject] thumb]]];
-    
     self.lblPriceOffered.text = [NSString stringWithFormat:@"$%@",self.product.price];
 }
 
@@ -146,34 +149,11 @@ UITextFieldDelegate
      }];
 }
 
-- (void)loadTransactionWithUserID:(NSNumber *)userID
+- (void)loadTransactionOfBuyer:(TMEUser *)buyer toUser:(TMEUser *)user
 {
-    if ([self isSeller]) {
-        [[TMEUserManager sharedInstance] getUserWithID:userID onSuccess:^(TMEUser *buyer)
-         {
-             self.buyer = buyer;
-             [[TMETransactionManager sharedInstance] getListMessageOfProduct:self.product
-                                                                   fromBuyer:self.buyer
-                                                                      toUser:self.buyer
-                                                              onSuccessBlock:^(NSArray *arrayTransaction)
-              {
-                  self.arrayConversation = [arrayTransaction mutableCopy];
-                  [self reloadTableViewConversation];
-              }
-                                                             andFailureBlock:^(NSInteger statusCode,id obj)
-              {
-                  
-              }];
-         } andFailure:^(NSInteger statusCode, NSError *error)
-         {
-             return;
-         }];
-        return;
-    }
-    self.buyer = [[TMEUserManager sharedInstance] loggedUser];
     [[TMETransactionManager sharedInstance] getListMessageOfProduct:self.product
-                                                          fromBuyer:self.buyer
-                                                             toUser:self.product.user
+                                                          fromBuyer:buyer
+                                                             toUser:user
                                                      onSuccessBlock:^(NSArray *arrayTransaction)
      {
          self.arrayConversation = [arrayTransaction mutableCopy];
@@ -181,8 +161,35 @@ UITextFieldDelegate
      }
                                                     andFailureBlock:^(NSInteger statusCode,id obj)
      {
-         
+         return;
      }];
+}
+
+- (void)loadTransactionWithUserID:(NSNumber *)userID
+{
+    if ([self isSeller]) {
+        TMEUser* buyerCache = [[TMEUser MR_findByAttribute:@"id" withValue:userID] lastObject];
+        
+        if (buyerCache) {
+            [self loadTransactionOfBuyer:buyerCache toUser:buyerCache];
+            return;
+        }
+        
+        [[TMEUserManager sharedInstance] getUserWithID:userID onSuccess:^(TMEUser *buyer)
+         {
+             self.buyer = buyer;
+             [self loadTransactionOfBuyer:self.buyer
+                                   toUser:self.buyer];
+             
+         } andFailure:^(NSInteger statusCode, NSError *error)
+         {
+             return;
+         }];
+        return;
+    }
+    
+    self.buyer = [[TMEUserManager sharedInstance] loggedUser];
+    [self loadTransactionOfBuyer:self.buyer toUser:self.product.user];
 }
 
 - (BOOL)isSeller
