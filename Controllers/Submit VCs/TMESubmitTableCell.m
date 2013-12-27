@@ -41,7 +41,7 @@
 }
 
 - (CGFloat)getHeightWithContent:(NSString *)content{
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 297, 26)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 309, 26)];
     label.text = content;
     [label sizeToFitKeepWidth];
     return [TMESubmitTableCell getHeight] + [label expectedHeight] - 26;

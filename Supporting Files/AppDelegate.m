@@ -114,6 +114,9 @@ FacebookManagerDelegate
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+    NSString *alert = userInfo[@"aps"][@"alert"];
+    TMEProduct *notificationProduct = [[TMEProduct MR_findByAttribute:@"id" withValue:userInfo[@"aps"][@"other"][@"product_id"]]lastObject];
+    
     if (state == UIApplicationStateBackground || state == UIApplicationStateInactive)
     {
         [self showHomeViewController];
@@ -121,13 +124,13 @@ FacebookManagerDelegate
         UITabBarController *homeController = (UITabBarController *)deckController.centerController;
         UINavigationController *navController = (UINavigationController *) [[homeController viewControllers] objectAtIndex:0];
         TMESubmitViewController *notificationViewController = [[TMESubmitViewController alloc] init];
-        notificationViewController.product = [[TMEProduct MR_findByAttribute:@"id" withValue:userInfo[@"aps"][@"other"][@"product_id"]]lastObject];
+        notificationViewController.product = notificationProduct;
         [navController pushViewController:notificationViewController animated:YES];
     }
 
     if (state == UIApplicationStateActive) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
-        NSString *message = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
+        NSString *message = [NSString stringWithFormat:@"%@ in product: %@", alert, notificationProduct.name];
         [TSMessage showNotificationWithTitle:message type:TSMessageNotificationTypeMessage];
     }
 }
