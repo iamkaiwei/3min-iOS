@@ -7,9 +7,9 @@
 //
 
 #import "BaseManager.h"
-#import "TMETransaction.h"
+#import "TMEMessage.h"
 
-@interface TMETransactionManager : BaseManager
+@interface TMEMessageManager : BaseManager
 
 - (void)getListMessageOfProduct:(TMEProduct *)product
                       fromBuyer:(TMEUser *)fromBuyer
@@ -20,7 +20,7 @@
 - (void)postMessageTo:(TMEUser *)user
            forProduct:(TMEProduct *)product
           withMessage:(NSString *)message
-       onSuccessBlock:(void (^) (TMETransaction *transaction))successBlock
+       onSuccessBlock:(void (^) (TMEMessage *message))successBlock
       andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 @end

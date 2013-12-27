@@ -19,21 +19,21 @@
 
 @implementation TMESubmitTableCell
 
-- (void)configCellWithConversation:(TMETransaction *)transaction andSeller:(TMEUser *)seller
+- (void)configCellWithMessage:(TMEMessage *)message andSeller:(TMEUser *)seller
 {
-    if ([transaction.from.id isEqual:seller.id]) {
+    if ([message.from.id isEqual:seller.id]) {
         self.lblUsername.text = seller.fullname;
         [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:seller.photo_url]];
     }
     else
     {
-        self.lblUsername.text = transaction.from.fullname;
-        [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:transaction.from.photo_url]];
+        self.lblUsername.text = message.from.fullname;
+        [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:message.from.photo_url]];
     }
     
-    self.lblContent.text = transaction.chat;
+    self.lblContent.text = message.chat;
     [self.lblContent sizeToFitKeepWidth];
-    self.lblTime.text = [transaction.time_stamp relativeDate];
+    self.lblTime.text = [message.time_stamp relativeDate];
 }
 
 + (CGFloat)getHeight{

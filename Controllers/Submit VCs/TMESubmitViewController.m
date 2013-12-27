@@ -22,7 +22,7 @@ UITextFieldDelegate
 >
 
 @property (strong, nonatomic) TMEUser *buyer;
-@property (strong, nonatomic) NSMutableArray *arrayConversation;
+@property (strong, nonatomic) NSMutableArray *arrayMessage;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewProduct;
 @property (weak, nonatomic) IBOutlet UILabel *lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel *lblProductPrice;
@@ -36,11 +36,11 @@ UITextFieldDelegate
 
 @implementation TMESubmitViewController
 
-- (NSMutableArray *)arrayConversation{
-    if (!_arrayConversation) {
-        _arrayConversation = [@[] mutableCopy];
+- (NSMutableArray *)arrayMessage{
+    if (!_arrayMessage) {
+        _arrayMessage = [@[] mutableCopy];
     }
-    return _arrayConversation;
+    return _arrayMessage;
 }
 
 - (void)viewDidLoad{
@@ -52,6 +52,7 @@ UITextFieldDelegate
     [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCellRight class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCellRight class])];
     
     self.txtInputMessage.delegate = self;
+    self.arrayMessage = [TMEMessage MR_findByAttribute:<#(NSString *)#> withValue:<#(id)#>]
     
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 14, 20)];
     self.txtInputMessage.leftView = paddingView;
@@ -67,7 +68,7 @@ UITextFieldDelegate
                                                object:nil];
     
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
-    [self loadTransaction];
+    [self loadMessage];
     [self loadProductDetail];
 }
 
@@ -94,25 +95,25 @@ UITextFieldDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     TMESubmitTableCell *cell = [[TMESubmitTableCell alloc] init];
-    TMETransaction *transaction = self.arrayConversation[indexPath.row];
+    TMEMessage *transaction = self.arrayMessage[indexPath.row];
     DLog(@"%f", [cell getHeightWithContent:transaction.chat]);
     return [cell getHeightWithContent:transaction.chat];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.arrayConversation.count;
+    return self.arrayMessage.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TMETransaction *transaction = self.arrayConversation[indexPath.row];
+    TMEMessage *transaction = self.arrayMessage[indexPath.row];
     if ([transaction.from.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
         TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCell class]) forIndexPath:indexPath];
-        [cell configCellWithConversation:transaction andSeller:self.product.user];
+        [cell configCellWithMessage:transaction andSeller:self.product.user];
         return cell;
     }
     
     TMESubmitTableCellRight *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCellRight class]) forIndexPath:indexPath];
-    [cell configCellWithConversation:transaction andSeller:self.product.user];
+    [cell configCellWithMessage:transaction andSeller:self.product.user];
     
     return cell;
 }
@@ -120,47 +121,52 @@ UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self postTransaction];
     self.txtInputMessage.text = @"";
+    [self.scrollView autoPushUpAllElements];
     return YES;
 }
 
 - (void)postTransaction{
-    if ([self isSeller]) {
-        [[TMETransactionManager sharedInstance] postMessageTo:self.buyer
+    if (self.txtInputMessage.text) {
+        if ([self isSeller]) {
+            [[TMEMessageManager sharedInstance] postMessageTo:self.buyer
+                                                       forProduct:self.product
+                                                      withMessage:self.txtInputMessage.text
+                                                   onSuccessBlock:^(TMEMessage *transaction)
+             {
+                 if (transaction) {
+                     [self.arrayMessage addObject:transaction];
+                     [self loadMessage];
+                 }
+             }
+                                                  andFailureBlock:^(NSInteger statusCode, id obj)
+             {
+                 return;
+             }];
+            return;
+        }
+        [[TMEMessageManager sharedInstance] postMessageTo:self.product.user
                                                    forProduct:self.product
                                                   withMessage:self.txtInputMessage.text
-                                               onSuccessBlock:^(TMETransaction *transaction)
+                                               onSuccessBlock:^(TMEMessage *transaction)
          {
-             [self.arrayConversation addObject:transaction];
-             [self reloadTableViewConversation];
+             [self.arrayMessage addObject:transaction];
+             [self loadMessage];
          }
                                               andFailureBlock:^(NSInteger statusCode, id obj)
          {
              DLog(@"Error: %d", statusCode);
          }];
-        return;
     }
-    [[TMETransactionManager sharedInstance] postMessageTo:self.product.user
-                                               forProduct:self.product
-                                              withMessage:self.txtInputMessage.text
-                                           onSuccessBlock:^(TMETransaction *transaction)
-     {
-         [self.arrayConversation addObject:transaction];
-         [self reloadTableViewConversation];
-     }
-                                          andFailureBlock:^(NSInteger statusCode, id obj)
-     {
-         DLog(@"Error: %d", statusCode);
-     }];
 }
 
-- (void)loadTransactionOfBuyer:(TMEUser *)buyer toUser:(TMEUser *)user
+- (void)loadMessageWithBuyer:(TMEUser *)buyer toUser:(TMEUser *)user
 {
-    [[TMETransactionManager sharedInstance] getListMessageOfProduct:self.product
+    [[TMEMessageManager sharedInstance] getListMessageOfProduct:self.product
                                                           fromBuyer:buyer
                                                              toUser:user
                                                      onSuccessBlock:^(NSArray *arrayTransaction)
      {
-         self.arrayConversation = [arrayTransaction mutableCopy];
+         self.arrayMessage = [arrayTransaction mutableCopy];
          [self reloadTableViewConversation];
      }
                                                     andFailureBlock:^(NSInteger statusCode,id obj)
@@ -169,21 +175,22 @@ UITextFieldDelegate
      }];
 }
 
-- (void)loadTransaction
+- (void)loadMessage
 {
-    NSNumber *userID = @(kUserID);
     if ([self isSeller]) {
+        NSNumber *userID = @(kUserID);
         TMEUser* buyerCache = [[TMEUser MR_findByAttribute:@"id" withValue:userID] lastObject];
         self.buyer = buyerCache;
+        
         if (buyerCache) {
-            [self loadTransactionOfBuyer:buyerCache toUser:buyerCache];
+            [self loadMessageWithBuyer:buyerCache toUser:buyerCache];
             return;
         }
         
         [[TMEUserManager sharedInstance] getUserWithID:userID onSuccess:^(TMEUser *buyer)
          {
              self.buyer = buyer;
-             [self loadTransactionOfBuyer:self.buyer
+             [self loadMessageWithBuyer:self.buyer
                                    toUser:self.buyer];
              
          } andFailure:^(NSInteger statusCode, NSError *error)
@@ -194,7 +201,7 @@ UITextFieldDelegate
     }
     
     self.buyer = [[TMEUserManager sharedInstance] loggedUser];
-    [self loadTransactionOfBuyer:self.buyer toUser:self.product.user];
+    [self loadMessageWithBuyer:self.buyer toUser:self.product.user];
 }
 
 - (BOOL)isSeller
@@ -210,6 +217,22 @@ UITextFieldDelegate
     self.navigationItem.rightBarButtonItem = nil;
     self.title = @"Your Offer";
     return YES;
+}
+
+- (void)reachabilityDidChange:(NSNotification *)notification {
+    
+    if ([TMEReachabilityManager isReachable]) {
+        if (![TMEReachabilityManager sharedInstance].lastState) {
+            [TSMessage showNotificationWithTitle:@"Connected" type:TSMessageNotificationTypeSuccess];
+        }
+        [self loadMessage];
+        [TMEReachabilityManager sharedInstance].lastState = 1;
+        return;
+    }
+    if ([TMEReachabilityManager sharedInstance].lastState) {
+        [TSMessage showNotificationWithTitle:@"No connection" type:TSMessageNotificationTypeError];
+        [TMEReachabilityManager sharedInstance].lastState = 0;
+    }
 }
 
 @end

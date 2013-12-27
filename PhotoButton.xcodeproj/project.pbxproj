@@ -28,7 +28,7 @@
 		0B327B551868213D00468DF9 /* TMESubmitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B327B541868213D00468DF9 /* TMESubmitViewController.xib */; };
 		0B327B581868436500468DF9 /* TMESubmitTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B327B571868436500468DF9 /* TMESubmitTableCell.m */; };
 		0B327B5A1868437B00468DF9 /* TMESubmitTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B327B591868437B00468DF9 /* TMESubmitTableCell.xib */; };
-		0B327B5D18684D5300468DF9 /* TMETransactionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B327B5C18684D5300468DF9 /* TMETransactionManager.m */; };
+		0B327B5D18684D5300468DF9 /* TMEMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B327B5C18684D5300468DF9 /* TMEMessageManager.m */; };
 		0B9366DF186C109400491FA4 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9366C4186C109400491FA4 /* HexColor.m */; };
 		0B9366E0186C109400491FA4 /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9366C6186C109400491FA4 /* TSMessage.m */; };
 		0B9366E1186C109400491FA4 /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B9366C9186C109400491FA4 /* NotificationBackgroundError.png */; };
@@ -127,7 +127,7 @@
 		0C7053C717EF5E5E00E7615F /* TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053B917EF5E5E00E7615F /* TMECategory.m */; };
 		0C7053C817EF5E5E00E7615F /* TMEProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053BB17EF5E5E00E7615F /* TMEProduct.m */; };
 		0C7053C917EF5E5E00E7615F /* TMEProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053BD17EF5E5E00E7615F /* TMEProductImages.m */; };
-		0C7053CA17EF5E5E00E7615F /* TMETransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053BF17EF5E5E00E7615F /* TMETransaction.m */; };
+		0C7053CA17EF5E5E00E7615F /* TMEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053BF17EF5E5E00E7615F /* TMEMessage.m */; };
 		0C7053CB17EF5E5E00E7615F /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053C117EF5E5E00E7615F /* TMEUser.m */; };
 		0C74C12F17DC276900D8AF83 /* PBImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C74C12C17DC276900D8AF83 /* PBImageHelper.m */; };
 		0C74C13017DC276900D8AF83 /* TMEPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C74C12E17DC276900D8AF83 /* TMEPhotoButton.m */; };
@@ -330,8 +330,8 @@
 		0B327B561868436500468DF9 /* TMESubmitTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitTableCell.h; path = "Submit VCs/TMESubmitTableCell.h"; sourceTree = "<group>"; };
 		0B327B571868436500468DF9 /* TMESubmitTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESubmitTableCell.m; path = "Submit VCs/TMESubmitTableCell.m"; sourceTree = "<group>"; };
 		0B327B591868437B00468DF9 /* TMESubmitTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMESubmitTableCell.xib; path = "Submit VCs/TMESubmitTableCell.xib"; sourceTree = "<group>"; };
-		0B327B5B18684D5300468DF9 /* TMETransactionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETransactionManager.h; sourceTree = "<group>"; };
-		0B327B5C18684D5300468DF9 /* TMETransactionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETransactionManager.m; sourceTree = "<group>"; };
+		0B327B5B18684D5300468DF9 /* TMEMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEMessageManager.h; sourceTree = "<group>"; };
+		0B327B5C18684D5300468DF9 /* TMEMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMessageManager.m; sourceTree = "<group>"; };
 		0B9366C3186C109400491FA4 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
 		0B9366C4186C109400491FA4 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
 		0B9366C5186C109400491FA4 /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
@@ -480,8 +480,8 @@
 		0C7053BB17EF5E5E00E7615F /* TMEProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProduct.m; sourceTree = "<group>"; };
 		0C7053BC17EF5E5E00E7615F /* TMEProductImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductImages.h; sourceTree = "<group>"; };
 		0C7053BD17EF5E5E00E7615F /* TMEProductImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductImages.m; sourceTree = "<group>"; };
-		0C7053BE17EF5E5E00E7615F /* TMETransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETransaction.h; sourceTree = "<group>"; };
-		0C7053BF17EF5E5E00E7615F /* TMETransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETransaction.m; sourceTree = "<group>"; };
+		0C7053BE17EF5E5E00E7615F /* TMEMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEMessage.h; sourceTree = "<group>"; };
+		0C7053BF17EF5E5E00E7615F /* TMEMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMessage.m; sourceTree = "<group>"; };
 		0C7053C017EF5E5E00E7615F /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
 		0C7053C117EF5E5E00E7615F /* TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUser.m; sourceTree = "<group>"; };
 		0C74C12B17DC276900D8AF83 /* PBImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBImageHelper.h; sourceTree = "<group>"; };
@@ -1276,8 +1276,8 @@
 				20A10FCC17F80FA200471983 /* TMECategoryManager.m */,
 				B49C6F55181C152900EB380A /* TMEFacebookManager.h */,
 				B49C6F56181C152900EB380A /* TMEFacebookManager.m */,
-				0B327B5B18684D5300468DF9 /* TMETransactionManager.h */,
-				0B327B5C18684D5300468DF9 /* TMETransactionManager.m */,
+				0B327B5B18684D5300468DF9 /* TMEMessageManager.h */,
+				0B327B5C18684D5300468DF9 /* TMEMessageManager.m */,
 				0B9366F8186C139400491FA4 /* TMEReachabilityManager.h */,
 				0B9366F9186C139400491FA4 /* TMEReachabilityManager.m */,
 			);
@@ -1487,8 +1487,8 @@
 				0C7053BB17EF5E5E00E7615F /* TMEProduct.m */,
 				0C7053BC17EF5E5E00E7615F /* TMEProductImages.h */,
 				0C7053BD17EF5E5E00E7615F /* TMEProductImages.m */,
-				0C7053BE17EF5E5E00E7615F /* TMETransaction.h */,
-				0C7053BF17EF5E5E00E7615F /* TMETransaction.m */,
+				0C7053BE17EF5E5E00E7615F /* TMEMessage.h */,
+				0C7053BF17EF5E5E00E7615F /* TMEMessage.m */,
 				0C7053C017EF5E5E00E7615F /* TMEUser.h */,
 				0C7053C117EF5E5E00E7615F /* TMEUser.m */,
 			);
@@ -2077,7 +2077,7 @@
 				0C2F788C17F2DBA600201783 /* NSData+GIF.m in Sources */,
 				0C2F788B17F2DBA600201783 /* MKAnnotationView+WebCache.m in Sources */,
 				0C6E069F17E0CC850003F104 /* TMEBaseViewController.m in Sources */,
-				0B327B5D18684D5300468DF9 /* TMETransactionManager.m in Sources */,
+				0B327B5D18684D5300468DF9 /* TMEMessageManager.m in Sources */,
 				0C7053C817EF5E5E00E7615F /* TMEProduct.m in Sources */,
 				0C7EFB6817E768C70054C4DE /* NSPersistentStore+MagicalRecord.m in Sources */,
 				0C59550717F73E380076353E /* TMEBaseTabBarViewController.m in Sources */,
@@ -2144,7 +2144,7 @@
 				0C5954FC17F711200076353E /* IISideController.m in Sources */,
 				0C7EFBC517E8D5170054C4DE /* ISO8601DateFormatter.m in Sources */,
 				20A10FCD17F80FA200471983 /* TMECategoryManager.m in Sources */,
-				0C7053CA17EF5E5E00E7615F /* TMETransaction.m in Sources */,
+				0C7053CA17EF5E5E00E7615F /* TMEMessage.m in Sources */,
 				0C34A89B17F0A665003ACEFF /* TMEHTTPClient.m in Sources */,
 				0C7EFBDD17E8D5170054C4DE /* UINavigationController+Additions.m in Sources */,
 				0C34A89817F0A5CF003ACEFF /* TMEProductsManager.m in Sources */,

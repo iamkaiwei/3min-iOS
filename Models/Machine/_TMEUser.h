@@ -26,9 +26,9 @@ extern const struct TMEUserRelationships {
 extern const struct TMEUserFetchedProperties {
 } TMEUserFetchedProperties;
 
-@class TMETransaction;
+@class TMEMessage;
 @class TMEProduct;
-@class TMETransaction;
+@class TMEMessage;
 
 
 
@@ -186,8 +186,8 @@ extern const struct TMEUserFetchedProperties {
 
 - (void)addFromTransactions:(NSSet*)value_;
 - (void)removeFromTransactions:(NSSet*)value_;
-- (void)addFromTransactionsObject:(TMETransaction*)value_;
-- (void)removeFromTransactionsObject:(TMETransaction*)value_;
+- (void)addFromTransactionsObject:(TMEMessage*)value_;
+- (void)removeFromTransactionsObject:(TMEMessage*)value_;
 
 - (void)addProducts:(NSSet*)value_;
 - (void)removeProducts:(NSSet*)value_;
@@ -196,8 +196,8 @@ extern const struct TMEUserFetchedProperties {
 
 - (void)addToTransactions:(NSSet*)value_;
 - (void)removeToTransactions:(NSSet*)value_;
-- (void)addToTransactionsObject:(TMETransaction*)value_;
-- (void)removeToTransactionsObject:(TMETransaction*)value_;
+- (void)addToTransactionsObject:(TMEMessage*)value_;
+- (void)removeToTransactionsObject:(TMEMessage*)value_;
 
 @end
 

@@ -1,18 +1,18 @@
 #import "_TMETransaction.h"
 
-@interface TMETransaction : _TMETransaction {}
+@interface TMEMessage : _TMETransaction {}
 // Custom logic goes here.
 
 
-+ (NSArray *)arrayTransactionFromArray:(NSArray *)arrData
++ (NSArray *)arrayMessageFromArray:(NSArray *)arrData
                             andProduct:(TMEProduct *)product
                              withBuyer:(TMEUser *)buyer;
 
-+ (TMETransaction *)transactionWithDictionary:(NSDictionary *)data
++ (TMEMessage *)messageWithDictionary:(NSDictionary *)data
                                    andProduct:(TMEProduct *)product
                                     withBuyer:(TMEUser *)buyer;
 
-+ (TMETransaction *)transactionWithMessage:(NSString *)message
++ (TMEMessage *)messageWithContent:(NSString *)content
                                 andProduct:(TMEProduct *)product
                                atTimestamp:(CGFloat)timestamp
                                  toUser:(TMEUser *)user;

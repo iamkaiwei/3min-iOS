@@ -137,6 +137,7 @@ FacebookManagerDelegate
         }
     }
     
+    
     [self showHomeViewController];
     deckController = (IIViewDeckController *)self.window.rootViewController;
     homeController = (UITabBarController *)deckController.centerController;

@@ -29,7 +29,7 @@ extern const struct TMEProductFetchedProperties {
 
 @class TMECategory;
 @class TMEProductImages;
-@class TMETransaction;
+@class TMEMessage;
 @class TMEUser;
 
 
@@ -190,7 +190,7 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, strong) TMETransaction *transaction;
+@property (nonatomic, strong) TMEMessage *transaction;
 
 //- (BOOL)validateTransaction:(id*)value_ error:(NSError**)error_;
 
@@ -305,8 +305,8 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-- (TMETransaction*)primitiveTransaction;
-- (void)setPrimitiveTransaction:(TMETransaction*)value;
+- (TMEMessage*)primitiveTransaction;
+- (void)setPrimitiveTransaction:(TMEMessage*)value;
 
 
 

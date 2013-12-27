@@ -1,14 +1,14 @@
 //
-//  TMETransactionManager.m
+//  TMEMessageManager.m
 //  PhotoButton
 //
 //  Created by Toan Slan on 12/23/13.
 //
 //
 
-#import "TMETransactionManager.h"
+#import "TMEMessageManager.h"
 
-@implementation TMETransactionManager
+@implementation TMEMessageManager
 
 SINGLETON_MACRO
 
@@ -36,19 +36,22 @@ SINGLETON_MACRO
     [[TMEHTTPClient sharedClient] getPath:path
                                parameters:params
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                          NSArray *arrTransaction = [TMETransaction arrayTransactionFromArray:responseObject andProduct:product withBuyer:fromBuyer];
-                                          successBlock(arrTransaction);
+                                      NSArray *arrMessage = [TMEMessage arrayMessageFromArray:responseObject andProduct:product withBuyer:fromBuyer];
+                                      NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
+                                      [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+                                          DLog(@"Finish save to magical record");
+                                          successBlock(arrMessage);
+                                      }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         return;
     }];
-    
     
 }
 
 - (void)postMessageTo:(TMEUser *)user
            forProduct:(TMEProduct *)product
           withMessage:(NSString *)message
-       onSuccessBlock:(void (^)(TMETransaction*))successBlock
+       onSuccessBlock:(void (^)(TMEMessage*))successBlock
       andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
     
     NSDictionary *params = @{
@@ -61,12 +64,16 @@ SINGLETON_MACRO
                                 parameters:params
                                    success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-        TMETransaction *transaction = [TMETransaction alloc];
-        if (responseObject) {
-            transaction = [TMETransaction transactionWithMessage:message andProduct:product atTimestamp:[responseObject[@"timestamp"] doubleValue] toUser:user];
-        }
-        if (successBlock) {
-             successBlock(transaction);
+        TMEMessage *message = [TMEMessage alloc];
+        if (responseObject && [responseObject[@"status"] isEqual: @"success"]) {
+            message = [TMEMessage messageWithContent:message andProduct:product atTimestamp:[responseObject[@"timestamp"] doubleValue] toUser:user];
+            
+            NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
+            [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+                DLog(@"Finish save to magical record");
+                successBlock(message);
+            }];
+        
         }
     }
                                    failure:^(AFHTTPRequestOperation *operation, NSError *error)

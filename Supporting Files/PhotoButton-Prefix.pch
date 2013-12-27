@@ -125,7 +125,7 @@
 #import "TMEFacebookManager.h"
 #import "FacebookManager.h"
 #import "BaseNetworkManager.h"
-#import "TMETransactionManager.h"
+#import "TMEMessageManager.h"
 #import "TMEReachabilityManager.h"
 
 // Models
@@ -133,7 +133,7 @@
 #import "TMEProductImages.h"
 #import "TMECategory.h"
 #import "TMEUser.h"
-#import "TMETransaction.h"
+#import "TMEMessage.h"
 
 // Vendors
 #import "CoreData+MagicalRecord.h"
