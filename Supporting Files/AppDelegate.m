@@ -114,25 +114,36 @@ FacebookManagerDelegate
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+    
     NSString *alert = userInfo[@"aps"][@"alert"];
     TMEProduct *notificationProduct = [[TMEProduct MR_findByAttribute:@"id" withValue:userInfo[@"aps"][@"other"][@"product_id"]]lastObject];
+    IIViewDeckController *deckController = (IIViewDeckController *)self.window.rootViewController;
+    UITabBarController *homeController = (UITabBarController *)deckController.centerController;
+    UINavigationController *navController = (UINavigationController *) [[homeController viewControllers] objectAtIndex:0];
     
-    if (state == UIApplicationStateBackground || state == UIApplicationStateInactive)
-    {
-        [self showHomeViewController];
-        IIViewDeckController *deckController = (IIViewDeckController *)self.window.rootViewController;
-        UITabBarController *homeController = (UITabBarController *)deckController.centerController;
-        UINavigationController *navController = (UINavigationController *) [[homeController viewControllers] objectAtIndex:0];
-        TMESubmitViewController *notificationViewController = [[TMESubmitViewController alloc] init];
-        notificationViewController.product = notificationProduct;
-        [navController pushViewController:notificationViewController animated:YES];
-    }
-
     if (state == UIApplicationStateActive) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
         NSString *message = [NSString stringWithFormat:@"%@ in product: %@", alert, notificationProduct.name];
         [TSMessage showNotificationWithTitle:message type:TSMessageNotificationTypeMessage];
+        return;
     }
+    
+    if ([navController.topViewController isMemberOfClass:[TMESubmitViewController class]])
+    {
+        TMESubmitViewController *submitVC = (TMESubmitViewController *)navController.topViewController;
+        if ([submitVC.product.id isEqual:notificationProduct.id]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
+            return;
+        }
+    }
+    
+    [self showHomeViewController];
+    deckController = (IIViewDeckController *)self.window.rootViewController;
+    homeController = (UITabBarController *)deckController.centerController;
+    navController = (UINavigationController *) [[homeController viewControllers] objectAtIndex:0];
+    TMESubmitViewController *notificationViewController = [[TMESubmitViewController alloc] init];
+    notificationViewController.product = notificationProduct;
+    [navController pushViewController:notificationViewController animated:YES];
 }
 
 - (void)saveContext
