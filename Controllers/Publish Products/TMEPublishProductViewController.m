@@ -19,8 +19,6 @@ TMEPhotoButtonDelegate
 
 @property (strong, nonatomic) TMEPhotoButton        * currentPhotoButton;
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductName;
-@property (weak, nonatomic) IBOutlet UITextField  * txtCategoryName;
-@property (weak, nonatomic) IBOutlet UITextField    * txtProductDetails;
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductPrice;
 @property (strong, nonatomic) IBOutletCollection(TMEPhotoButton) NSArray *photoButtons;
 
@@ -43,16 +41,13 @@ TMEPhotoButtonDelegate
         }
     }
     
-    // Expand self.view
-    UIView *detailsWrapperView = [self.txtCategoryName superview];
-    [(UIScrollView *)self.view setContentSize:CGSizeMake(self.view.frame.size.width,
-                                                         CGRectGetMaxY(detailsWrapperView.frame) + 20)];
-    
     self.navigationItem.leftBarButtonItem = [self leftNavigationButton];
     self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
   
-  //Ask user to take picture
-  [self.photoButtons[0] takeOrChoosePhoto:YES];
+    //Ask user to take picture
+    [self.photoButtons[0] takeOrChoosePhoto:YES];
+    
+    [self autoAdjustScrollViewContentSize];
 }
 
 - (BOOL)hidesBottomBarWhenPushed
@@ -118,14 +113,12 @@ TMEPhotoButtonDelegate
     
     // create dummy category
     TMECategory *category = [TMECategory MR_createEntity];
-    category.name = self.txtCategoryName.text;
     category.id = @1;
     
     // create product
     TMEProduct *product = [TMEProduct MR_createEntity];
     product.name = self.txtProductName.text;
     product.id = @1;
-    product.details = self.txtProductDetails.text;
     product.price = @([self.txtProductPrice.text doubleValue]);
     product.category = category;
     product.user = user;
@@ -201,8 +194,6 @@ TMEPhotoButtonDelegate
       [button resetAttributes];
   
   self.txtProductName.text = @"";
-  self.txtCategoryName.text = @"";
-  self.txtProductDetails.text = @"";
   self.txtProductPrice.text = @"";
 }
 
