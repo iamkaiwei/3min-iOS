@@ -1,24 +1,24 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to TMETransaction.h instead.
+// Make changes to TMEMessage.h instead.
 
 #import <CoreData/CoreData.h>
 
 
-extern const struct TMETransactionAttributes {
+extern const struct TMEMessageAttributes {
 	__unsafe_unretained NSString *chat;
 	__unsafe_unretained NSString *id;
 	__unsafe_unretained NSString *meetup_place;
 	__unsafe_unretained NSString *time_stamp;
-} TMETransactionAttributes;
+} TMEMessageAttributes;
 
-extern const struct TMETransactionRelationships {
+extern const struct TMEMessageRelationships {
 	__unsafe_unretained NSString *from;
 	__unsafe_unretained NSString *product;
 	__unsafe_unretained NSString *to;
-} TMETransactionRelationships;
+} TMEMessageRelationships;
 
-extern const struct TMETransactionFetchedProperties {
-} TMETransactionFetchedProperties;
+extern const struct TMEMessageFetchedProperties {
+} TMEMessageFetchedProperties;
 
 @class TMEUser;
 @class TMEProduct;
@@ -29,14 +29,14 @@ extern const struct TMETransactionFetchedProperties {
 
 
 
-@interface TMETransactionID : NSManagedObjectID {}
+@interface TMEMessageID : NSManagedObjectID {}
 @end
 
-@interface _TMETransaction : NSManagedObject {}
+@interface _TMEMessage : NSManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (TMETransactionID*)objectID;
+- (TMEMessageID*)objectID;
 
 
 
@@ -110,11 +110,11 @@ extern const struct TMETransactionFetchedProperties {
 
 @end
 
-@interface _TMETransaction (CoreDataGeneratedAccessors)
+@interface _TMEMessage (CoreDataGeneratedAccessors)
 
 @end
 
-@interface _TMETransaction (CoreDataGeneratedPrimitiveAccessors)
+@interface _TMEMessage (CoreDataGeneratedPrimitiveAccessors)
 
 
 - (NSString*)primitiveChat;

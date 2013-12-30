@@ -20,7 +20,7 @@ extern const struct TMEProductAttributes {
 extern const struct TMEProductRelationships {
 	__unsafe_unretained NSString *category;
 	__unsafe_unretained NSString *images;
-	__unsafe_unretained NSString *transaction;
+	__unsafe_unretained NSString *message;
 	__unsafe_unretained NSString *user;
 } TMEProductRelationships;
 
@@ -190,9 +190,9 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, strong) TMEMessage *transaction;
+@property (nonatomic, strong) TMEMessage *message;
 
-//- (BOOL)validateTransaction:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateMessage:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -305,8 +305,8 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-- (TMEMessage*)primitiveTransaction;
-- (void)setPrimitiveTransaction:(TMEMessage*)value;
+- (TMEMessage*)primitiveMessage;
+- (void)setPrimitiveMessage:(TMEMessage*)value;
 
 
 

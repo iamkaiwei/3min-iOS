@@ -1,5 +1,5 @@
 //
-//  TMETransactionManager.h
+//  TMEMessageManager.h
 //  PhotoButton
 //
 //  Created by Toan Slan on 12/23/13.

@@ -12,7 +12,6 @@
 
 // Custom logic goes here.
 
-
 + (NSArray *)arrayMessageFromArray:(NSArray *)arrData andProduct:(TMEProduct *)product withBuyer:(TMEUser *)buyer
 {
     NSMutableArray *arrTrans = [@[] mutableCopy];

@@ -19,7 +19,7 @@ const struct TMEProductAttributes TMEProductAttributes = {
 const struct TMEProductRelationships TMEProductRelationships = {
 	.category = @"category",
 	.images = @"images",
-	.transaction = @"transaction",
+	.message = @"message",
 	.user = @"user",
 };
 
@@ -266,7 +266,7 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 }
 	
 
-@dynamic transaction;
+@dynamic message;
 
 	
 

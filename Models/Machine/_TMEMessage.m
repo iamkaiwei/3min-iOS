@@ -1,45 +1,45 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to TMETransaction.m instead.
+// Make changes to TMEMessage.m instead.
 
-#import "_TMETransaction.h"
+#import "_TMEMessage.h"
 
-const struct TMETransactionAttributes TMETransactionAttributes = {
+const struct TMEMessageAttributes TMEMessageAttributes = {
 	.chat = @"chat",
 	.id = @"id",
 	.meetup_place = @"meetup_place",
 	.time_stamp = @"time_stamp",
 };
 
-const struct TMETransactionRelationships TMETransactionRelationships = {
+const struct TMEMessageRelationships TMEMessageRelationships = {
 	.from = @"from",
 	.product = @"product",
 	.to = @"to",
 };
 
-const struct TMETransactionFetchedProperties TMETransactionFetchedProperties = {
+const struct TMEMessageFetchedProperties TMEMessageFetchedProperties = {
 };
 
-@implementation TMETransactionID
+@implementation TMEMessageID
 @end
 
-@implementation _TMETransaction
+@implementation _TMEMessage
 
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"TMETransaction" inManagedObjectContext:moc_];
+	return [NSEntityDescription insertNewObjectForEntityForName:@"TMEMessage" inManagedObjectContext:moc_];
 }
 
 + (NSString*)entityName {
-	return @"TMETransaction";
+	return @"TMEMessage";
 }
 
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"TMETransaction" inManagedObjectContext:moc_];
+	return [NSEntityDescription entityForName:@"TMEMessage" inManagedObjectContext:moc_];
 }
 
-- (TMETransactionID*)objectID {
-	return (TMETransactionID*)[super objectID];
+- (TMEMessageID*)objectID {
+	return (TMEMessageID*)[super objectID];
 }
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {

@@ -122,12 +122,10 @@
 		0C7053C217EF5E5E00E7615F /* _TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053AF17EF5E5E00E7615F /* _TMECategory.m */; };
 		0C7053C317EF5E5E00E7615F /* _TMEProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053B117EF5E5E00E7615F /* _TMEProduct.m */; };
 		0C7053C417EF5E5E00E7615F /* _TMEProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053B317EF5E5E00E7615F /* _TMEProductImages.m */; };
-		0C7053C517EF5E5E00E7615F /* _TMETransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053B517EF5E5E00E7615F /* _TMETransaction.m */; };
 		0C7053C617EF5E5E00E7615F /* _TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053B717EF5E5E00E7615F /* _TMEUser.m */; };
 		0C7053C717EF5E5E00E7615F /* TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053B917EF5E5E00E7615F /* TMECategory.m */; };
 		0C7053C817EF5E5E00E7615F /* TMEProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053BB17EF5E5E00E7615F /* TMEProduct.m */; };
 		0C7053C917EF5E5E00E7615F /* TMEProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053BD17EF5E5E00E7615F /* TMEProductImages.m */; };
-		0C7053CA17EF5E5E00E7615F /* TMEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053BF17EF5E5E00E7615F /* TMEMessage.m */; };
 		0C7053CB17EF5E5E00E7615F /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7053C117EF5E5E00E7615F /* TMEUser.m */; };
 		0C74C12F17DC276900D8AF83 /* PBImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C74C12C17DC276900D8AF83 /* PBImageHelper.m */; };
 		0C74C13017DC276900D8AF83 /* TMEPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C74C12E17DC276900D8AF83 /* TMEPhotoButton.m */; };
@@ -246,6 +244,8 @@
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
+		84143A7A186E8BCF00E42457 /* _TMEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 84143A79186E8BCF00E42457 /* _TMEMessage.m */; };
+		84143A7D186E8BEC00E42457 /* TMEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 84143A7C186E8BEC00E42457 /* TMEMessage.m */; };
 		84FCC0CA186A0888002892B2 /* nav-back-btn-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */; };
 		84FCC0CB186A0888002892B2 /* nav-back-btn-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */; };
 		84FCC0CE186A1163002892B2 /* TMESubmitTableCellRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FCC0CD186A1163002892B2 /* TMESubmitTableCellRight.m */; };
@@ -470,8 +470,6 @@
 		0C7053B117EF5E5E00E7615F /* _TMEProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEProduct.m; sourceTree = "<group>"; };
 		0C7053B217EF5E5E00E7615F /* _TMEProductImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEProductImages.h; sourceTree = "<group>"; };
 		0C7053B317EF5E5E00E7615F /* _TMEProductImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEProductImages.m; sourceTree = "<group>"; };
-		0C7053B417EF5E5E00E7615F /* _TMETransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMETransaction.h; sourceTree = "<group>"; };
-		0C7053B517EF5E5E00E7615F /* _TMETransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMETransaction.m; sourceTree = "<group>"; };
 		0C7053B617EF5E5E00E7615F /* _TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEUser.h; sourceTree = "<group>"; };
 		0C7053B717EF5E5E00E7615F /* _TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEUser.m; sourceTree = "<group>"; };
 		0C7053B817EF5E5E00E7615F /* TMECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECategory.h; sourceTree = "<group>"; };
@@ -480,8 +478,6 @@
 		0C7053BB17EF5E5E00E7615F /* TMEProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProduct.m; sourceTree = "<group>"; };
 		0C7053BC17EF5E5E00E7615F /* TMEProductImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductImages.h; sourceTree = "<group>"; };
 		0C7053BD17EF5E5E00E7615F /* TMEProductImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductImages.m; sourceTree = "<group>"; };
-		0C7053BE17EF5E5E00E7615F /* TMEMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEMessage.h; sourceTree = "<group>"; };
-		0C7053BF17EF5E5E00E7615F /* TMEMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMessage.m; sourceTree = "<group>"; };
 		0C7053C017EF5E5E00E7615F /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
 		0C7053C117EF5E5E00E7615F /* TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUser.m; sourceTree = "<group>"; };
 		0C74C12B17DC276900D8AF83 /* PBImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBImageHelper.h; sourceTree = "<group>"; };
@@ -709,6 +705,10 @@
 		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		84143A78186E8BCF00E42457 /* _TMEMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEMessage.h; sourceTree = "<group>"; };
+		84143A79186E8BCF00E42457 /* _TMEMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEMessage.m; sourceTree = "<group>"; };
+		84143A7B186E8BEC00E42457 /* TMEMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEMessage.h; sourceTree = "<group>"; };
+		84143A7C186E8BEC00E42457 /* TMEMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMessage.m; sourceTree = "<group>"; };
 		84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg.png"; sourceTree = "<group>"; };
 		84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg@2x.png"; sourceTree = "<group>"; };
 		84FCC0CC186A1163002892B2 /* TMESubmitTableCellRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitTableCellRight.h; path = "Submit VCs/TMESubmitTableCellRight.h"; sourceTree = "<group>"; };
@@ -1334,8 +1334,8 @@
 				0C7053B117EF5E5E00E7615F /* _TMEProduct.m */,
 				0C7053B217EF5E5E00E7615F /* _TMEProductImages.h */,
 				0C7053B317EF5E5E00E7615F /* _TMEProductImages.m */,
-				0C7053B417EF5E5E00E7615F /* _TMETransaction.h */,
-				0C7053B517EF5E5E00E7615F /* _TMETransaction.m */,
+				84143A78186E8BCF00E42457 /* _TMEMessage.h */,
+				84143A79186E8BCF00E42457 /* _TMEMessage.m */,
 				0C7053B617EF5E5E00E7615F /* _TMEUser.h */,
 				0C7053B717EF5E5E00E7615F /* _TMEUser.m */,
 			);
@@ -1485,10 +1485,10 @@
 				0C7053B917EF5E5E00E7615F /* TMECategory.m */,
 				0C7053BA17EF5E5E00E7615F /* TMEProduct.h */,
 				0C7053BB17EF5E5E00E7615F /* TMEProduct.m */,
+				84143A7B186E8BEC00E42457 /* TMEMessage.h */,
+				84143A7C186E8BEC00E42457 /* TMEMessage.m */,
 				0C7053BC17EF5E5E00E7615F /* TMEProductImages.h */,
 				0C7053BD17EF5E5E00E7615F /* TMEProductImages.m */,
-				0C7053BE17EF5E5E00E7615F /* TMEMessage.h */,
-				0C7053BF17EF5E5E00E7615F /* TMEMessage.m */,
 				0C7053C017EF5E5E00E7615F /* TMEUser.h */,
 				0C7053C117EF5E5E00E7615F /* TMEUser.m */,
 			);
@@ -2042,6 +2042,7 @@
 				B4093B771810379700D51B69 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				0C7EFB6717E768C70054C4DE /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */,
+				84143A7D186E8BEC00E42457 /* TMEMessage.m in Sources */,
 				0C2F789317F2DBA600201783 /* SDWebImagePrefetcher.m in Sources */,
 				0C2F789817F2DBA600201783 /* UIImageView+WebCache.m in Sources */,
 				B4093B7E181038F600D51B69 /* ViewUtils.m in Sources */,
@@ -2103,6 +2104,7 @@
 				0C7053CB17EF5E5E00E7615F /* TMEUser.m in Sources */,
 				0C7EFBD117E8D5170054C4DE /* NSString+Validation.m in Sources */,
 				0C7EFBCB17E8D5170054C4DE /* NSDictionary+Additions.m in Sources */,
+				84143A7A186E8BCF00E42457 /* _TMEMessage.m in Sources */,
 				0CD9CF5817EA0FD400402E91 /* AFHTTPRequestOperation.m in Sources */,
 				0C5954FE17F711200076353E /* IIWrapController.m in Sources */,
 				0C7EFBEC17E8D5790054C4DE /* NSString+FontAwesome.m in Sources */,
@@ -2144,7 +2146,6 @@
 				0C5954FC17F711200076353E /* IISideController.m in Sources */,
 				0C7EFBC517E8D5170054C4DE /* ISO8601DateFormatter.m in Sources */,
 				20A10FCD17F80FA200471983 /* TMECategoryManager.m in Sources */,
-				0C7053CA17EF5E5E00E7615F /* TMEMessage.m in Sources */,
 				0C34A89B17F0A665003ACEFF /* TMEHTTPClient.m in Sources */,
 				0C7EFBDD17E8D5170054C4DE /* UINavigationController+Additions.m in Sources */,
 				0C34A89817F0A5CF003ACEFF /* TMEProductsManager.m in Sources */,
@@ -2153,7 +2154,6 @@
 				0C7EFBD717E8D5170054C4DE /* UIColor+Custom.m in Sources */,
 				0B327B581868436500468DF9 /* TMESubmitTableCell.m in Sources */,
 				0C7EFBD317E8D5170054C4DE /* UIBarButtonItem+Custom.m in Sources */,
-				0C7053C517EF5E5E00E7615F /* _TMETransaction.m in Sources */,
 				0C7EFB6117E768C70054C4DE /* NSManagedObject+MagicalRecord.m in Sources */,
 				0C7EFB5817E768C70054C4DE /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				0B327B531868211300468DF9 /* TMESubmitViewController.m in Sources */,

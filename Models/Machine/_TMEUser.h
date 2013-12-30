@@ -18,9 +18,9 @@ extern const struct TMEUserAttributes {
 } TMEUserAttributes;
 
 extern const struct TMEUserRelationships {
-	__unsafe_unretained NSString *fromTransactions;
+	__unsafe_unretained NSString *fromMessages;
 	__unsafe_unretained NSString *products;
-	__unsafe_unretained NSString *toTransactions;
+	__unsafe_unretained NSString *toMessages;
 } TMEUserRelationships;
 
 extern const struct TMEUserFetchedProperties {
@@ -158,9 +158,9 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet *fromTransactions;
+@property (nonatomic, strong) NSSet *fromMessages;
 
-- (NSMutableSet*)fromTransactionsSet;
+- (NSMutableSet*)fromMessagesSet;
 
 
 
@@ -172,9 +172,9 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet *toTransactions;
+@property (nonatomic, strong) NSSet *toMessages;
 
-- (NSMutableSet*)toTransactionsSet;
+- (NSMutableSet*)toMessagesSet;
 
 
 
@@ -184,20 +184,20 @@ extern const struct TMEUserFetchedProperties {
 
 @interface _TMEUser (CoreDataGeneratedAccessors)
 
-- (void)addFromTransactions:(NSSet*)value_;
-- (void)removeFromTransactions:(NSSet*)value_;
-- (void)addFromTransactionsObject:(TMEMessage*)value_;
-- (void)removeFromTransactionsObject:(TMEMessage*)value_;
+- (void)addFromMessages:(NSSet*)value_;
+- (void)removeFromMessages:(NSSet*)value_;
+- (void)addFromMessagesObject:(TMEMessage*)value_;
+- (void)removeFromMessagesObject:(TMEMessage*)value_;
 
 - (void)addProducts:(NSSet*)value_;
 - (void)removeProducts:(NSSet*)value_;
 - (void)addProductsObject:(TMEProduct*)value_;
 - (void)removeProductsObject:(TMEProduct*)value_;
 
-- (void)addToTransactions:(NSSet*)value_;
-- (void)removeToTransactions:(NSSet*)value_;
-- (void)addToTransactionsObject:(TMEMessage*)value_;
-- (void)removeToTransactionsObject:(TMEMessage*)value_;
+- (void)addToMessages:(NSSet*)value_;
+- (void)removeToMessages:(NSSet*)value_;
+- (void)addToMessagesObject:(TMEMessage*)value_;
+- (void)removeToMessagesObject:(TMEMessage*)value_;
 
 @end
 
@@ -268,8 +268,8 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-- (NSMutableSet*)primitiveFromTransactions;
-- (void)setPrimitiveFromTransactions:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveFromMessages;
+- (void)setPrimitiveFromMessages:(NSMutableSet*)value;
 
 
 
@@ -278,8 +278,8 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-- (NSMutableSet*)primitiveToTransactions;
-- (void)setPrimitiveToTransactions:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveToMessages;
+- (void)setPrimitiveToMessages:(NSMutableSet*)value;
 
 
 @end

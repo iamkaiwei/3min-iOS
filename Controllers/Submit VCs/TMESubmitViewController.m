@@ -52,7 +52,6 @@ UITextFieldDelegate
     [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCellRight class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCellRight class])];
     
     self.txtInputMessage.delegate = self;
-    self.arrayMessage = [TMEMessage MR_findByAttribute:<#(NSString *)#> withValue:<#(id)#>]
     
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 14, 20)];
     self.txtInputMessage.leftView = paddingView;
@@ -63,7 +62,7 @@ UITextFieldDelegate
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(loadTransaction)
+                                             selector:@selector(loadMessage)
                                                  name:NOTIFICATION_RELOAD_CONVERSATION
                                                object:nil];
     
@@ -95,9 +94,9 @@ UITextFieldDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     TMESubmitTableCell *cell = [[TMESubmitTableCell alloc] init];
-    TMEMessage *transaction = self.arrayMessage[indexPath.row];
-    DLog(@"%f", [cell getHeightWithContent:transaction.chat]);
-    return [cell getHeightWithContent:transaction.chat];
+    TMEMessage *message = self.arrayMessage[indexPath.row];
+    DLog(@"%f", [cell getHeightWithContent:message.chat]);
+    return [cell getHeightWithContent:message.chat];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -105,36 +104,36 @@ UITextFieldDelegate
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TMEMessage *transaction = self.arrayMessage[indexPath.row];
-    if ([transaction.from.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
+    TMEMessage *message = self.arrayMessage[indexPath.row];
+    if ([message.from.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
         TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCell class]) forIndexPath:indexPath];
-        [cell configCellWithMessage:transaction andSeller:self.product.user];
+        [cell configCellWithMessage:message andSeller:self.product.user];
         return cell;
     }
     
     TMESubmitTableCellRight *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCellRight class]) forIndexPath:indexPath];
-    [cell configCellWithMessage:transaction andSeller:self.product.user];
+    [cell configCellWithMessage:message andSeller:self.product.user];
     
     return cell;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [self postTransaction];
+    [self postMessage];
     self.txtInputMessage.text = @"";
     [self.scrollView autoPushUpAllElements];
     return YES;
 }
 
-- (void)postTransaction{
+- (void)postMessage{
     if (self.txtInputMessage.text) {
         if ([self isSeller]) {
             [[TMEMessageManager sharedInstance] postMessageTo:self.buyer
                                                        forProduct:self.product
                                                       withMessage:self.txtInputMessage.text
-                                                   onSuccessBlock:^(TMEMessage *transaction)
+                                                   onSuccessBlock:^(TMEMessage *message)
              {
-                 if (transaction) {
-                     [self.arrayMessage addObject:transaction];
+                 if (message) {
+                     [self.arrayMessage addObject:message];
                      [self loadMessage];
                  }
              }
@@ -147,9 +146,9 @@ UITextFieldDelegate
         [[TMEMessageManager sharedInstance] postMessageTo:self.product.user
                                                    forProduct:self.product
                                                   withMessage:self.txtInputMessage.text
-                                               onSuccessBlock:^(TMEMessage *transaction)
+                                               onSuccessBlock:^(TMEMessage *message)
          {
-             [self.arrayMessage addObject:transaction];
+             [self.arrayMessage addObject:message];
              [self loadMessage];
          }
                                               andFailureBlock:^(NSInteger statusCode, id obj)
@@ -164,9 +163,9 @@ UITextFieldDelegate
     [[TMEMessageManager sharedInstance] getListMessageOfProduct:self.product
                                                           fromBuyer:buyer
                                                              toUser:user
-                                                     onSuccessBlock:^(NSArray *arrayTransaction)
+                                                     onSuccessBlock:^(NSArray *arrayMessage)
      {
-         self.arrayMessage = [arrayTransaction mutableCopy];
+         self.arrayMessage = [arrayMessage mutableCopy];
          [self reloadTableViewConversation];
      }
                                                     andFailureBlock:^(NSInteger statusCode,id obj)
