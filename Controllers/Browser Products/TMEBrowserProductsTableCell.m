@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UIButton       * btnComment;
 @property (weak, nonatomic) IBOutlet UIButton       * btnShare;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgCategoryCover;
+
 @end
 
 @implementation TMEBrowserProductsTableCell
@@ -57,16 +59,8 @@
     self.lblTimestamp.text = [product.created_at relativeDate];
     
     NSURL *imageURL = [NSURL URLWithString:product.category.photo_url];
+    [self.imgCategoryCover setImageWithURL:imageURL placeholderImage:nil];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Update the UI
-            self.imageView.image = [UIImage imageWithData:imageData];
-            [self.btnProductCategory setImage:[UIImage imageWithData:imageData] forState:UIControlStateNormal];
-        });
-    });
     
     TMEProductImages *img = [product.images anyObject];
     [self.imgProductImage setImageWithURL:[NSURL URLWithString:img.medium] placeholderImage:nil];

@@ -673,7 +673,7 @@
 		0CFC0FFE17ECBE06008FBD92 /* TMELoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoginViewController.m; sourceTree = "<group>"; };
 		0CFC0FFF17ECBE06008FBD92 /* TMELoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMELoginViewController.xib; sourceTree = "<group>"; };
 		201EFE1E17F6F6BC00DA6BB4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		201EFE2017F6F7D000DA6BB4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		201EFE2017F6F7D000DA6BB4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		205EACE117F6E5FA00EE9A76 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Vendors/FacebookSDK.framework; sourceTree = "<group>"; };
 		205EACE417F6E7BD00EE9A76 /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
 		205EACE517F6E7BD00EE9A76 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
@@ -776,9 +776,9 @@
 		B459FDDF181BFC7900D6BC79 /* Login1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login1.png; sourceTree = "<group>"; };
 		B459FDE0181BFC7900D6BC79 /* Login2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login2.png; sourceTree = "<group>"; };
 		B459FDE1181BFC7900D6BC79 /* Login3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login3.png; sourceTree = "<group>"; };
-		B48DDB39180D31F4000078F1 /* ICON-3mins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins.png"; sourceTree = "<group>"; };
-		B48DDB3A180D322B000078F1 /* ICON-3mins-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins-114x114.png"; sourceTree = "<group>"; };
-		B48DDB3B180D3234000078F1 /* ICON-3mins-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-3mins-57x57.png"; sourceTree = "<group>"; };
+		B48DDB39180D31F4000078F1 /* ICON-3mins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ICON-3mins.png"; path = "../ICON-3mins.png"; sourceTree = "<group>"; };
+		B48DDB3A180D322B000078F1 /* ICON-3mins-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ICON-3mins-114x114.png"; path = "../ICON-3mins-114x114.png"; sourceTree = "<group>"; };
+		B48DDB3B180D3234000078F1 /* ICON-3mins-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ICON-3mins-57x57.png"; path = "../ICON-3mins-57x57.png"; sourceTree = "<group>"; };
 		B49C6F51181C091D00EB380A /* login-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-facebook.png"; sourceTree = "<group>"; };
 		B49C6F52181C091D00EB380A /* login-facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-facebook@2x.png"; sourceTree = "<group>"; };
 		B49C6F55181C152900EB380A /* TMEFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFacebookManager.h; sourceTree = "<group>"; };
@@ -1658,11 +1658,6 @@
 		5976C03415925D2D007F6FC3 = {
 			isa = PBXGroup;
 			children = (
-				B48DDB3B180D3234000078F1 /* ICON-3mins-57x57.png */,
-				B48DDB3A180D322B000078F1 /* ICON-3mins-114x114.png */,
-				B48DDB39180D31F4000078F1 /* ICON-3mins.png */,
-				201EFE2017F6F7D000DA6BB4 /* Default-568h@2x.png */,
-				0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */,
 				0CAE977217E765FF003A22CA /* Models */,
 				0C6D86A817EA0E9A00D959F8 /* Managers */,
 				0C28B28A17DC1B9200BD0EC2 /* Categories */,
@@ -1715,6 +1710,11 @@
 		5976C04A15925D2D007F6FC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0C5C14EF17E6B6FA004F30D9 /* TMEModels.xcdatamodeld */,
+				B48DDB3B180D3234000078F1 /* ICON-3mins-57x57.png */,
+				B48DDB3A180D322B000078F1 /* ICON-3mins-114x114.png */,
+				B48DDB39180D31F4000078F1 /* ICON-3mins.png */,
+				201EFE2017F6F7D000DA6BB4 /* Default-568h@2x.png */,
 				0CAE978617E76635003A22CA /* AppDelegate.h */,
 				0CAE978717E76635003A22CA /* AppDelegate.m */,
 				0CAE978817E76635003A22CA /* en.lproj */,
@@ -2400,7 +2400,8 @@
 				0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */,
 			);
 			currentVersion = 0C5C14F017E6B6FA004F30D9 /* TMEModels.xcdatamodel */;
-			path = TMEModels.xcdatamodeld;
+			name = TMEModels.xcdatamodeld;
+			path = ../TMEModels.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
