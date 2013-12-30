@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblUsername;
 @property (weak, nonatomic) IBOutlet UILabel *lblTime;
 @property (weak, nonatomic) IBOutlet UILabel *lblContent;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
 @end
 
@@ -33,7 +34,14 @@
     
     self.lblContent.text = message.chat;
     [self.lblContent sizeToFitKeepWidth];
-    self.lblTime.text = [message.time_stamp relativeDate];
+    if (message.time_stamp) {
+        [self.indicator stopAnimating];
+        self.lblTime.text = [message.time_stamp relativeDate];
+        return;
+    }
+    
+    self.indicator.hidden = NO;
+    self.lblTime.text = @"Pending...";
 }
 
 + (CGFloat)getHeight{

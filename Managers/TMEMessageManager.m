@@ -13,7 +13,7 @@
 SINGLETON_MACRO
 
 - (void)getListMessageOfProduct:(TMEProduct *)product
-                      fromBuyer:(TMEUser *)fromBuyer
+                      withBuyer:(TMEUser *)fromBuyer
                          toUser:(TMEUser *)toUser
                  onSuccessBlock:(void (^)(NSArray *))successBlock
                 andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
@@ -43,42 +43,32 @@ SINGLETON_MACRO
                                           successBlock(arrMessage);
                                       }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        return;
+        failureBlock(error.code, error);
     }];
     
 }
 
 - (void)postMessageTo:(TMEUser *)user
            forProduct:(TMEProduct *)product
-          withMessage:(NSString *)message
-       onSuccessBlock:(void (^)(TMEMessage*))successBlock
+          withMessage:(NSString *)messageContent
+       onSuccessBlock:(void (^)(NSString *))successBlock
       andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
     
     NSDictionary *params = @{
                              @"to"     : user.id,
                              @"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
-                             @"message" : message
+                             @"message" : messageContent
                              };
     NSString *path = [NSString stringWithFormat:@"%@%@%@/%@%@", API_SERVER_HOST,API_PREFIX, API_PRODUCTS, product.id, API_CHATS];
     [[TMEHTTPClient sharedClient] postPath:path
                                 parameters:params
                                    success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-        TMEMessage *message = [TMEMessage alloc];
-        if (responseObject && [responseObject[@"status"] isEqual: @"success"]) {
-            message = [TMEMessage messageWithContent:message andProduct:product atTimestamp:[responseObject[@"timestamp"] doubleValue] toUser:user];
-            
-            NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
-            [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
-                DLog(@"Finish save to magical record");
-                successBlock(message);
-            }];
-        
-        }
+        successBlock(responseObject[@"status"]);
     }
                                    failure:^(AFHTTPRequestOperation *operation, NSError *error)
     {
-        return;
+        failureBlock(error.code, error);
     }];
     
 }

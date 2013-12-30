@@ -81,10 +81,9 @@ UITextFieldDelegate
 
 - (void)reloadTableViewConversation{
     [self.tableViewConversation reloadData];
-    [self.tableViewConversation setHeight:self.tableViewConversation.contentSize.height];
+    self.tableViewConversation.height = self.tableViewConversation.contentSize.height;
     [self.txtInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
     [self autoAdjustScrollViewContentSize];
-    
     [SVProgressHUD dismiss];
 }
 
@@ -95,7 +94,6 @@ UITextFieldDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     TMESubmitTableCell *cell = [[TMESubmitTableCell alloc] init];
     TMEMessage *message = self.arrayMessage[indexPath.row];
-    DLog(@"%f", [cell getHeightWithContent:message.chat]);
     return [cell getHeightWithContent:message.chat];
 }
 
@@ -120,48 +118,52 @@ UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self postMessage];
     self.txtInputMessage.text = @"";
-    [self.scrollView autoPushUpAllElements];
+    [self.scrollView scrollSubviewToCenter:self.txtInputMessage animated:YES];
     return YES;
 }
 
 - (void)postMessage{
-    if (self.txtInputMessage.text) {
-        if ([self isSeller]) {
-            [[TMEMessageManager sharedInstance] postMessageTo:self.buyer
-                                                       forProduct:self.product
-                                                      withMessage:self.txtInputMessage.text
-                                                   onSuccessBlock:^(TMEMessage *message)
-             {
-                 if (message) {
-                     [self.arrayMessage addObject:message];
-                     [self loadMessage];
-                 }
-             }
-                                                  andFailureBlock:^(NSInteger statusCode, id obj)
-             {
-                 return;
-             }];
-            return;
-        }
-        [[TMEMessageManager sharedInstance] postMessageTo:self.product.user
-                                                   forProduct:self.product
-                                                  withMessage:self.txtInputMessage.text
-                                               onSuccessBlock:^(TMEMessage *message)
+    if ([self.txtInputMessage.text isEqual: @""]) {
+        return;
+    }
+    
+    TMEMessage *message = [TMEMessage messagePendingWithContent:self.txtInputMessage.text];
+    [self.arrayMessage addObject:message];
+    [self reloadTableViewConversation];
+    
+    if ([self isSeller]) {
+        [[TMEMessageManager sharedInstance] postMessageTo:self.buyer
+                                               forProduct:self.product
+                                              withMessage:self.txtInputMessage.text
+                                           onSuccessBlock:^(NSString *status)
          {
-             [self.arrayMessage addObject:message];
              [self loadMessage];
          }
-                                              andFailureBlock:^(NSInteger statusCode, id obj)
+                                          andFailureBlock:^(NSInteger statusCode, id obj)
          {
              DLog(@"Error: %d", statusCode);
          }];
+        return;
     }
+    
+    [[TMEMessageManager sharedInstance] postMessageTo:self.product.user
+                                           forProduct:self.product
+                                          withMessage:self.txtInputMessage.text
+                                       onSuccessBlock:^(NSString *status)
+     {
+         [self loadMessage];
+     }
+                                      andFailureBlock:^(NSInteger statusCode, id obj)
+     {
+         DLog(@"Error: %d", statusCode);
+         [self showAlertForLongMessageContent];
+     }];
 }
 
 - (void)loadMessageWithBuyer:(TMEUser *)buyer toUser:(TMEUser *)user
 {
     [[TMEMessageManager sharedInstance] getListMessageOfProduct:self.product
-                                                          fromBuyer:buyer
+                                                          withBuyer:buyer
                                                              toUser:user
                                                      onSuccessBlock:^(NSArray *arrayMessage)
      {
@@ -170,37 +172,38 @@ UITextFieldDelegate
      }
                                                     andFailureBlock:^(NSInteger statusCode,id obj)
      {
-         return;
+         return DLog(@"%d", statusCode);
+         [self showAlertForLongMessageContent];
      }];
 }
 
 - (void)loadMessage
 {
-    if ([self isSeller]) {
-        NSNumber *userID = @(kUserID);
-        TMEUser* buyerCache = [[TMEUser MR_findByAttribute:@"id" withValue:userID] lastObject];
-        self.buyer = buyerCache;
-        
-        if (buyerCache) {
-            [self loadMessageWithBuyer:buyerCache toUser:buyerCache];
-            return;
-        }
-        
-        [[TMEUserManager sharedInstance] getUserWithID:userID onSuccess:^(TMEUser *buyer)
-         {
-             self.buyer = buyer;
-             [self loadMessageWithBuyer:self.buyer
-                                   toUser:self.buyer];
-             
-         } andFailure:^(NSInteger statusCode, NSError *error)
-         {
-             return;
-         }];
+    if (![self isSeller]) {
+        self.buyer = [[TMEUserManager sharedInstance] loggedUser];
+        [self loadMessageWithBuyer:self.buyer toUser:self.product.user];
         return;
     }
     
-    self.buyer = [[TMEUserManager sharedInstance] loggedUser];
-    [self loadMessageWithBuyer:self.buyer toUser:self.product.user];
+    NSNumber *userID = @(kUserID);
+    TMEUser* buyerCache = [[TMEUser MR_findByAttribute:@"id" withValue:userID] lastObject];
+    self.buyer = buyerCache;
+    
+    if (buyerCache) {
+        [self loadMessageWithBuyer:buyerCache toUser:buyerCache];
+        return;
+    }
+    
+    [[TMEUserManager sharedInstance] getUserWithID:userID onSuccess:^(TMEUser *buyer)
+     {
+         self.buyer = buyer;
+         [self loadMessageWithBuyer:self.buyer
+                             toUser:self.buyer];
+         
+     } andFailure:^(NSInteger statusCode, NSError *error)
+     {
+         return DLog(@"%d", statusCode);
+     }];
 }
 
 - (BOOL)isSeller
@@ -216,6 +219,12 @@ UITextFieldDelegate
     self.navigationItem.rightBarButtonItem = nil;
     self.title = @"Your Offer";
     return YES;
+}
+
+- (void)showAlertForLongMessageContent{
+    [self.arrayMessage removeObject:[self.arrayMessage lastObject]];
+    [self reloadTableViewConversation];
+    [UIAlertView showAlertWithTitle:@"Error" message:@"The text is too long!"];
 }
 
 - (void)reachabilityDidChange:(NSNotification *)notification {

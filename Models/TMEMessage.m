@@ -48,16 +48,12 @@
     return message;
 }
 
-+ (TMEMessage *)messageWithContent:(NSString *)content andProduct:(TMEProduct *)product atTimestamp:(CGFloat)timestamp toUser:(TMEUser *)user
++ (TMEMessage *)messagePendingWithContent:(NSString *)content
 {
     TMEMessage *message = [TMEMessage MR_createEntity];
+    
     message.chat = content;
-    
     message.from = [[TMEUserManager sharedInstance] loggedUser];
-    message.to = user;
-    
-    message.product = product;
-    message.time_stamp = [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)timestamp];
     
     return message;
 }

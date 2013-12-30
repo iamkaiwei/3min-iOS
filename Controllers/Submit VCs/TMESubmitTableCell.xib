@@ -42,10 +42,15 @@
                         <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="09F-Cj-PLa">
+                        <rect key="frame" x="200" y="10" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </activityIndicatorView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="imageViewAvatar" destination="oXj-hm-0YL" id="2SJ-Sb-d36"/>
+                <outlet property="indicator" destination="09F-Cj-PLa" id="DnM-A1-bSL"/>
                 <outlet property="lblContent" destination="1K0-7H-xPa" id="tCp-Fj-PLE"/>
                 <outlet property="lblTime" destination="1CW-fn-fqJ" id="hlS-mT-2QT"/>
                 <outlet property="lblUsername" destination="sxJ-m2-pDa" id="MNt-fo-E13"/>

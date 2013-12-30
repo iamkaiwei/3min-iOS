@@ -11,9 +11,6 @@
                            andProduct:(TMEProduct *)product
                             withBuyer:(TMEUser *)buyer;
 
-+ (TMEMessage *)messageWithContent:(NSString *)content
-                        andProduct:(TMEProduct *)product
-                       atTimestamp:(CGFloat)timestamp
-                            toUser:(TMEUser *)user;
++ (TMEMessage *)messagePendingWithContent:(NSString *)content;
 
 @end

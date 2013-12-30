@@ -356,7 +356,7 @@
         [UIView animateWithDuration:duration delay:0 options:animationCurve animations:^{
             UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, kbSize.height - 50, 0);
             [scrollView setContentInset:edgeInsets];
-            [scrollView setScrollIndicatorInsets:edgeInsets];
+//            [scrollView setScrollIndicatorInsets:edgeInsets];
         } completion:nil];
         return;
     }

@@ -12,7 +12,7 @@
 @interface TMEMessageManager : BaseManager
 
 - (void)getListMessageOfProduct:(TMEProduct *)product
-                      fromBuyer:(TMEUser *)fromBuyer
+                      withBuyer:(TMEUser *)fromBuyer
                          toUser:(TMEUser *)toUser
                  onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
                 andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
@@ -20,7 +20,7 @@
 - (void)postMessageTo:(TMEUser *)user
            forProduct:(TMEProduct *)product
           withMessage:(NSString *)message
-       onSuccessBlock:(void (^) (TMEMessage *message))successBlock
+       onSuccessBlock:(void (^) (NSString *status))successBlock
       andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 @end
