@@ -7,6 +7,7 @@
 //
 
 #import "TMEProductDetailsViewController.h"
+#import "TMESubmitViewController.h"
 
 @interface TMEProductDetailsViewController ()
 
@@ -19,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView  * imgProductImage;
 @property (weak, nonatomic) IBOutlet UILabel      * lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel      * lblProductPrice;
-@property (weak, nonatomic) IBOutlet UIScrollView * contentScrollView;
 
 @end
 
@@ -70,6 +70,12 @@
     }
   
   [self loadProductDetail:self.product];
+}
+
+- (IBAction)chatButtonAction:(id)sender {
+  TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
+  submitController.product = self.product;
+  [self.navigationController pushViewController:submitController animated:YES];
 }
 
 @end
