@@ -45,14 +45,12 @@ UITextFieldDelegate
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
     self.title = @"You Offer";
-    [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCell class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCell class])];
     
+    [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCell class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCell class])];
     [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCellRight class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCellRight class])];
     
     self.txtInputMessage.delegate = self;
-    
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 14, 20)];
     self.txtInputMessage.leftView = paddingView;
     self.txtInputMessage.leftViewMode = UITextFieldViewModeAlways;
@@ -86,10 +84,8 @@ UITextFieldDelegate
     [self autoAdjustScrollViewContentSize];
     
     CGPoint bottomOffset = CGPointMake(0, self.scrollView.contentSize.height - CGRectGetHeight(self.scrollView.bounds));
-    [UIView animateWithDuration:0.5 animations:^{
-        [self.scrollView setContentOffset:bottomOffset animated:NO];
-    }];
-    
+    [self.scrollView setContentOffset:bottomOffset animated:YES];
+
     [SVProgressHUD dismiss];
 }
 

@@ -9,10 +9,12 @@
 #import "TMEBrowserProductsViewController.h"
 #import "TMEBrowserProductsTableCell.h"
 #import "TMESubmitViewController.h"
+#import "TMEProductDetailsViewController.h"
 
 @interface TMEBrowserProductsViewController ()
 <
 UIScrollViewDelegate,
+UITableViewDelegate,
 TMEBrowserProductsTableCellDelegate,
 SSPullToRefreshViewDelegate
 >
@@ -57,6 +59,14 @@ SSPullToRefreshViewDelegate
 
 #pragma marks - UITableView delegate
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  
+  TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
+  productDetailsController.product = self.arrProducts[indexPath.row];
+  [self.navigationController pushViewController:productDetailsController animated:YES];
+}
+
 #pragma marks - UITableView datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
   return 1;
@@ -73,7 +83,7 @@ SSPullToRefreshViewDelegate
   
   TMEProduct *product = [self.arrProducts objectAtIndex:indexPath.row];
   [cell configCellWithProduct:product];
-    cell.delegate = self;
+  cell.delegate = self;
   
   return cell;
 }
@@ -111,29 +121,29 @@ SSPullToRefreshViewDelegate
 #pragma mark - Table cell delegate
 
 - (void)onBtnComment:(UIButton *)sender{
-    UIView *superView = sender.superview;
-    
-    
-    while (nil != sender.superview) {
-        if ([superView isKindOfClass:[UITableViewCell class]]) {
-            break;
-        } else {
-            superView = superView.superview;
-        }
+  UIView *superView = sender.superview;
+  
+  
+  while (nil != sender.superview) {
+    if ([superView isKindOfClass:[UITableViewCell class]]) {
+      break;
+    } else {
+      superView = superView.superview;
     }
-    
-    NSIndexPath *indexPath = [self.tableProducts indexPathForCell:(UITableViewCell *)superView];
-    
-    TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
-    submitController.product = self.arrProducts[indexPath.row];
-    [self.navigationController pushViewController:submitController animated:YES];
+  }
+  
+  NSIndexPath *indexPath = [self.tableProducts indexPathForCell:(UITableViewCell *)superView];
+  
+  TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
+  submitController.product = self.arrProducts[indexPath.row];
+  [self.navigationController pushViewController:submitController animated:YES];
 }
 
 #pragma mark - SSPullToRefreshView delegate
 - (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view
 {
-    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
-    [self loadProducts];
+  [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
+  [self loadProducts];
 }
 
 #pragma mark - Utilities
@@ -153,4 +163,5 @@ SSPullToRefreshViewDelegate
   self.currentCategory = [userInfo objectForKey:@"category"];
   [self loadProducts];
 }
+
 @end

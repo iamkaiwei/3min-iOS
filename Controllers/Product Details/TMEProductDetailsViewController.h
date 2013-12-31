@@ -8,4 +8,6 @@
 
 @interface TMEProductDetailsViewController : TMEBaseViewController
 
+@property (strong, nonatomic) TMEProduct *product;
+
 @end

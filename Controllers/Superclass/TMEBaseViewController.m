@@ -461,19 +461,24 @@
 - (UIBarButtonItem *)leftNavigationButton
 {
     // Nav left button
-    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    if (self == [[self.navigationController viewControllers] objectAtIndex:0]) {
-        [leftButton setImage:[UIImage imageNamed:@"category-list-icon"] forState:UIControlStateNormal];
-        [leftButton addTarget:self.viewDeckController action:@selector(toggleLeftView) forControlEvents:UIControlEventTouchUpInside];
-    }else{
-        [leftButton setImage:[UIImage imageNamed:@"nav-back-btn-bg"] forState:UIControlStateNormal];
-        [leftButton addTarget:self action:@selector(onBtnBack) forControlEvents:UIControlEventTouchUpInside];
-    }
-    leftButton.frame = CGRectMake(0, 0, 40, 30);
-    [leftButton adjustNavigationBarButtonDependSystem];
-    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-    return leftButtonItem;
+  UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  
+  if (self == [[self.navigationController viewControllers] objectAtIndex:0]) {
+    [leftButton setImage:[UIImage imageNamed:@"category-list-icon"] forState:UIControlStateNormal];
+    [leftButton addTarget:self.viewDeckController action:@selector(toggleLeftView) forControlEvents:UIControlEventTouchUpInside];
+  }else{
+    [leftButton setImage:[UIImage imageNamed:@"nav-back-btn-bg"] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(onBtnBack) forControlEvents:UIControlEventTouchUpInside];
+  }
+  
+  leftButton.frame = CGRectMake(0, 0, 40, 40);
+  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+    leftButton.frame = CGRectMake(0, 0, 50, 40);
+  }
+  
+  [leftButton adjustNavigationBarButtonDependSystem];
+  UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+  return leftButtonItem;
 }
 
 - (UIBarButtonItem *)leftNavigationButtonCancel

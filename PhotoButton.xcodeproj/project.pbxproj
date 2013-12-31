@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0B22066C187278A800B93BD1 /* chat_to_buy_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B22066A187278A800B93BD1 /* chat_to_buy_btn@2x.png */; };
+		0B22066D187278A800B93BD1 /* chat_to_buy_pressed_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B22066B187278A800B93BD1 /* chat_to_buy_pressed_btn@2x.png */; };
 		0B327B4D18681ED200468DF9 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACFB17F6E83F00EE9A76 /* libAviarySDK.a */; };
 		0B327B4E18681EF400468DF9 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACF117F6E83100EE9A76 /* libGoogleAnalytics.a */; };
 		0B327B4F18681F0000468DF9 /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACE817F6E7BD00EE9A76 /* libCrittercism_v4_0_7.a */; };
@@ -329,6 +331,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B22066A187278A800B93BD1 /* chat_to_buy_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_to_buy_btn@2x.png"; sourceTree = "<group>"; };
+		0B22066B187278A800B93BD1 /* chat_to_buy_pressed_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_to_buy_pressed_btn@2x.png"; sourceTree = "<group>"; };
 		0B327B511868211300468DF9 /* TMESubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitViewController.h; path = "Submit VCs/TMESubmitViewController.h"; sourceTree = "<group>"; };
 		0B327B521868211300468DF9 /* TMESubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESubmitViewController.m; path = "Submit VCs/TMESubmitViewController.m"; sourceTree = "<group>"; };
 		0B327B541868213D00468DF9 /* TMESubmitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMESubmitViewController.xib; path = "Submit VCs/TMESubmitViewController.xib"; sourceTree = "<group>"; };
@@ -848,6 +852,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B220669187278A800B93BD1 /* Chat To Buy */ = {
+			isa = PBXGroup;
+			children = (
+				0B22066A187278A800B93BD1 /* chat_to_buy_btn@2x.png */,
+				0B22066B187278A800B93BD1 /* chat_to_buy_pressed_btn@2x.png */,
+			);
+			path = "Chat To Buy";
+			sourceTree = "<group>";
+		};
 		0B327B50186820B400468DF9 /* Submit VCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -941,6 +954,7 @@
 		0C28B28717DC1A1400BD0EC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0B220669187278A800B93BD1 /* Chat To Buy */,
 				B49C6F61181C37CF00EB380A /* Categories Icons */,
 				B459FDD2181BF94300D6BC79 /* Introdution Screen */,
 				B459FDBA181BD07500D6BC79 /* Images.xcassets */,
@@ -1991,8 +2005,10 @@
 				0C5954F417F6BDDD0076353E /* simple-view-icon@2x.png in Resources */,
 				B459FDDE181BF94E00D6BC79 /* Login3@2x.png in Resources */,
 				B4AB2E5218712930000A9E68 /* price@2x.png in Resources */,
+				0B22066D187278A800B93BD1 /* chat_to_buy_pressed_btn@2x.png in Resources */,
 				0C43CCAA17F5D29A00D869F9 /* comment-button.png in Resources */,
 				B4AB2E4F18712930000A9E68 /* item.png in Resources */,
+				0B22066C187278A800B93BD1 /* chat_to_buy_btn@2x.png in Resources */,
 				0C3CA94317F7F7130072117A /* add-photo-placeholder.png in Resources */,
 				0C43CCAB17F5D29A00D869F9 /* comment-button@2x.png in Resources */,
 				0B9366E2186C109400491FA4 /* NotificationBackgroundError@2x.png in Resources */,
