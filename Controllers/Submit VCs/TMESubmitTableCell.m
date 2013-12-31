@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblTime;
 @property (weak, nonatomic) IBOutlet UILabel *lblContent;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+@property (weak, nonatomic) IBOutlet UIView *separatorView;
 
 @end
 
@@ -39,7 +40,7 @@
         self.lblTime.text = [message.time_stamp relativeDate];
         return;
     }
-    
+    [self.separatorView alignBelowView:self.lblContent offsetY:7 sameWidth:NO];
     self.indicator.hidden = NO;
     self.lblTime.text = @"Pending...";
 }

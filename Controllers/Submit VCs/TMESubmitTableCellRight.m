@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblUsername;
 @property (weak, nonatomic) IBOutlet UILabel *lblTime;
 @property (weak, nonatomic) IBOutlet UILabel *lblContent;
+@property (weak, nonatomic) IBOutlet UIView *separatorView;
 
 @end
 
@@ -33,6 +34,8 @@
     
     self.lblContent.text = message.chat;
     [self.lblContent sizeToFitKeepWidth];
+    
+    [self.separatorView alignBelowView:self.lblContent offsetY:7 sameWidth:NO];
     self.lblTime.text = [message.time_stamp relativeDate];
 }
 

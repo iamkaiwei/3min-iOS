@@ -44,7 +44,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" id="yAD-Ia-ivz">
-                        <rect key="frame" x="0.0" y="104" width="305" height="6"/>
+                        <rect key="frame" x="0.0" y="104" width="306" height="6"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.8784313725490196" green="0.8666666666666667" blue="0.87058823529411766" alpha="1" colorSpace="deviceRGB"/>
                     </view>
@@ -55,6 +55,7 @@
                 <outlet property="lblContent" destination="8uC-5R-oCF" id="XcC-pb-1jV"/>
                 <outlet property="lblTime" destination="zAn-3t-IM4" id="NMp-ob-WED"/>
                 <outlet property="lblUsername" destination="NM5-T8-kZ3" id="CTR-xN-WfR"/>
+                <outlet property="separatorView" destination="yAD-Ia-ivz" id="PNQ-Vm-dyb"/>
             </connections>
         </tableViewCell>
     </objects>

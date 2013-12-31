@@ -84,6 +84,12 @@ UITextFieldDelegate
     self.tableViewConversation.height = self.tableViewConversation.contentSize.height;
     [self.txtInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
     [self autoAdjustScrollViewContentSize];
+    
+    CGPoint bottomOffset = CGPointMake(0, self.scrollView.contentSize.height - CGRectGetHeight(self.scrollView.bounds));
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.scrollView setContentOffset:bottomOffset animated:NO];
+    }];
+    
     [SVProgressHUD dismiss];
 }
 
@@ -142,6 +148,9 @@ UITextFieldDelegate
                                           andFailureBlock:^(NSInteger statusCode, id obj)
          {
              DLog(@"Error: %d", statusCode);
+             if (statusCode == -1011) {
+                 [self showAlertForLongMessageContent];
+             }
          }];
         return;
     }
@@ -156,7 +165,9 @@ UITextFieldDelegate
                                       andFailureBlock:^(NSInteger statusCode, id obj)
      {
          DLog(@"Error: %d", statusCode);
-         [self showAlertForLongMessageContent];
+         if (statusCode == -1011) {
+             [self showAlertForLongMessageContent];
+         }
      }];
 }
 
@@ -173,7 +184,6 @@ UITextFieldDelegate
                                                     andFailureBlock:^(NSInteger statusCode,id obj)
      {
          return DLog(@"%d", statusCode);
-         [self showAlertForLongMessageContent];
      }];
 }
 
