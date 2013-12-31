@@ -14,13 +14,19 @@
 <
 AFPhotoEditorControllerDelegate,
 UITextFieldDelegate,
-TMEPhotoButtonDelegate
+TMEPhotoButtonDelegate,
+UIPickerViewDataSource,
+UIPickerViewDelegate
 >
 
 @property (strong, nonatomic) TMEPhotoButton        * currentPhotoButton;
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductName;
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductPrice;
+@property (strong, nonatomic) NSArray               * arrayCategories;
 @property (strong, nonatomic) IBOutletCollection(TMEPhotoButton) NSArray *photoButtons;
+@property (weak, nonatomic) IBOutlet UIPickerView   * pickerCategories;
+@property (weak, nonatomic) IBOutlet UIView         * viewPickerWrapper;
+@property (weak, nonatomic) IBOutlet UIButton       * pickerCategoryButton;
 
 @end
 
@@ -40,7 +46,6 @@ TMEPhotoButtonDelegate
             button.photoSize = CGSizeMake(1000, 1000);
         }
     }
-    
     self.navigationItem.leftBarButtonItem = [self leftNavigationButton];
     self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
   
@@ -50,6 +55,14 @@ TMEPhotoButtonDelegate
     
     UIScrollView *view = (UIScrollView *)self.view;
     view.showsVerticalScrollIndicator = NO;
+    
+    [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories) {
+        self.arrayCategories = arrayCategories;
+        [self.pickerCategories reloadAllComponents];
+    } andFailureBlock:^(NSInteger statusCode, id obj) {
+        [SVProgressHUD showErrorWithStatus:@"Failure to load categories"];
+    }];
+    
     [self autoAdjustScrollViewContentSize];
 }
 
@@ -186,6 +199,44 @@ TMEPhotoButtonDelegate
         percentage *= 100;
         [self.navigationController setSGProgressPercentage:percentage];
     }];
+}
+
+#pragma mark - UIPickerView
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return self.arrayCategories.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    TMECategory *cat = [self.arrayCategories objectAtIndex:row];
+    return cat.name;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+
+}
+
+- (IBAction)onButtonPicker:(id)sender {
+    self.viewPickerWrapper.hidden = NO;
+}
+
+- (IBAction)onButtonPickerDone:(id)sender {
+    NSInteger row = [self.pickerCategories selectedRowInComponent:0];
+    TMECategory *cat = [self.arrayCategories objectAtIndex:row];
+    [self.pickerCategoryButton setTitle:cat.name forState:UIControlStateNormal];
+    self.viewPickerWrapper.hidden = YES;
+}
+
+- (IBAction)onButtonPickerCancel:(id)sender {
+    self.viewPickerWrapper.hidden = YES;
 }
 
 #pragma marks - Helper methods

@@ -7,9 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEPublishProductViewController">
             <connections>
+                <outlet property="pickerCategories" destination="eA3-fI-RTA" id="RQr-wg-BPN"/>
+                <outlet property="pickerCategoryButton" destination="ZTD-zX-sep" id="wZu-N5-6Cf"/>
                 <outlet property="txtProductName" destination="Ush-64-dcO" id="Zpw-2f-kwu"/>
                 <outlet property="txtProductPrice" destination="ZVR-0Y-oVp" id="geX-SY-fwF"/>
                 <outlet property="view" destination="1" id="3"/>
+                <outlet property="viewPickerWrapper" destination="SGe-uq-UW7" id="Gqj-e1-cRe"/>
                 <outletCollection property="photoButtons" destination="WRZ-xB-Nmh" id="SQy-UV-NQX"/>
                 <outletCollection property="photoButtons" destination="2SD-ao-sdB" id="A7L-s8-vbS"/>
                 <outletCollection property="photoButtons" destination="W7u-am-dgP" id="470-a0-OZd"/>
@@ -80,13 +83,17 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZTD-zX-sep">
-                                    <rect key="frame" x="177" y="7" width="92" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZTD-zX-sep">
+                                    <rect key="frame" x="177" y="7" width="90" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="Choose one">
                                         <color key="titleColor" red="0.67843139171600342" green="0.67450982332229614" blue="0.68627452850341797" alpha="1" colorSpace="deviceRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="onButtonPicker:" destination="-1" eventType="touchUpInside" id="vbM-rh-bka"/>
+                                    </connections>
                                 </button>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What are you selling?" textAlignment="right" minimumFontSize="17" id="Ush-64-dcO">
                                     <rect key="frame" x="119" y="46" width="150" height="30"/>
@@ -151,6 +158,37 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" id="SGe-uq-UW7" userLabel="Picker wrapper">
+                    <rect key="frame" x="0.0" y="250" width="320" height="260"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                    <subviews>
+                        <pickerView contentMode="scaleToFill" id="eA3-fI-RTA">
+                            <rect key="frame" x="-5" y="44" width="325" height="216"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="1gX-hr-cyD"/>
+                                <outlet property="delegate" destination="-1" id="7h0-BC-UFg"/>
+                            </connections>
+                        </pickerView>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="nYo-Dk-dTh">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <barButtonItem style="done" systemItem="done" id="kor-7V-OWO">
+                                    <connections>
+                                        <action selector="onButtonPickerDone:" destination="-1" id="NFT-xq-dvk"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem style="done" systemItem="cancel" id="ovh-pb-qIV">
+                                    <connections>
+                                        <action selector="onButtonPickerCancel:" destination="-1" id="vXZ-88-JE1"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -158,6 +196,8 @@
         </view>
     </objects>
     <resources>
+        <image name="arrow.png" width="9" height="16"/>
+        <image name="arrow.png" width="9" height="16"/>
         <image name="arrow.png" width="9" height="16"/>
         <image name="facebook.png" width="12" height="25"/>
         <image name="item.png" width="20" height="20"/>
