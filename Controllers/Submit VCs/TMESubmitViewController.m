@@ -60,12 +60,12 @@ UITextFieldDelegate
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(loadMessage)
+                                             selector:@selector(loadMessageShowBottom:)
                                                  name:NOTIFICATION_RELOAD_CONVERSATION
                                                object:nil];
     
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
-    [self loadMessage];
+    [self loadMessageShowBottom:NO];
     [self loadProductDetail];
 }
 
@@ -77,14 +77,17 @@ UITextFieldDelegate
     self.lblPriceOffered.text = [NSString stringWithFormat:@"$%@",self.product.price];
 }
 
-- (void)reloadTableViewConversation{
+- (void)reloadTableViewConversationShowBottom:(BOOL)showBottom{
     [self.tableViewConversation reloadData];
     self.tableViewConversation.height = self.tableViewConversation.contentSize.height;
     [self.txtInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
     [self autoAdjustScrollViewContentSize];
     
-    CGPoint bottomOffset = CGPointMake(0, self.scrollView.contentSize.height - CGRectGetHeight(self.scrollView.bounds));
-    [self.scrollView setContentOffset:bottomOffset animated:YES];
+    
+    if (showBottom) {
+        CGPoint bottomOffset = CGPointMake(0, self.scrollView.contentSize.height - CGRectGetHeight(self.scrollView.bounds));
+        [self.scrollView setContentOffset:bottomOffset animated:YES];
+    }
 
     [SVProgressHUD dismiss];
 }
@@ -131,7 +134,7 @@ UITextFieldDelegate
     
     TMEMessage *message = [TMEMessage messagePendingWithContent:self.txtInputMessage.text];
     [self.arrayMessage addObject:message];
-    [self reloadTableViewConversation];
+    [self reloadTableViewConversationShowBottom:YES];
     
     if ([self isSeller]) {
         [[TMEMessageManager sharedInstance] postMessageTo:self.buyer
@@ -139,7 +142,7 @@ UITextFieldDelegate
                                               withMessage:self.txtInputMessage.text
                                            onSuccessBlock:^(NSString *status)
          {
-             [self loadMessage];
+             [self loadMessageShowBottom:NO];
          }
                                           andFailureBlock:^(NSInteger statusCode, id obj)
          {
@@ -156,7 +159,7 @@ UITextFieldDelegate
                                           withMessage:self.txtInputMessage.text
                                        onSuccessBlock:^(NSString *status)
      {
-         [self loadMessage];
+         [self loadMessageShowBottom:NO];
      }
                                       andFailureBlock:^(NSInteger statusCode, id obj)
      {
@@ -167,7 +170,7 @@ UITextFieldDelegate
      }];
 }
 
-- (void)loadMessageWithBuyer:(TMEUser *)buyer toUser:(TMEUser *)user
+- (void)loadMessageWithBuyer:(TMEUser *)buyer toUser:(TMEUser *)user showBottom:(BOOL)showBottom
 {
     [[TMEMessageManager sharedInstance] getListMessageOfProduct:self.product
                                                           withBuyer:buyer
@@ -175,7 +178,7 @@ UITextFieldDelegate
                                                      onSuccessBlock:^(NSArray *arrayMessage)
      {
          self.arrayMessage = [arrayMessage mutableCopy];
-         [self reloadTableViewConversation];
+         [self reloadTableViewConversationShowBottom:showBottom];
      }
                                                     andFailureBlock:^(NSInteger statusCode,id obj)
      {
@@ -183,11 +186,13 @@ UITextFieldDelegate
      }];
 }
 
-- (void)loadMessage
+- (void)loadMessageShowBottom:(BOOL)showBottom
 {
     if (![self isSeller]) {
         self.buyer = [[TMEUserManager sharedInstance] loggedUser];
-        [self loadMessageWithBuyer:self.buyer toUser:self.product.user];
+        [self loadMessageWithBuyer:self.buyer
+                            toUser:self.product.user
+                        showBottom:showBottom];
         return;
     }
     
@@ -196,15 +201,19 @@ UITextFieldDelegate
     self.buyer = buyerCache;
     
     if (buyerCache) {
-        [self loadMessageWithBuyer:buyerCache toUser:buyerCache];
+        [self loadMessageWithBuyer:buyerCache
+                            toUser:buyerCache
+                        showBottom:showBottom];
         return;
     }
     
-    [[TMEUserManager sharedInstance] getUserWithID:userID onSuccess:^(TMEUser *buyer)
+    [[TMEUserManager sharedInstance] getUserWithID:userID
+                                         onSuccess:^(TMEUser *buyer)
      {
          self.buyer = buyer;
          [self loadMessageWithBuyer:self.buyer
-                             toUser:self.buyer];
+                             toUser:self.buyer
+                         showBottom:showBottom];
          
      } andFailure:^(NSInteger statusCode, NSError *error)
      {
@@ -229,7 +238,7 @@ UITextFieldDelegate
 
 - (void)showAlertForLongMessageContent{
     [self.arrayMessage removeObject:[self.arrayMessage lastObject]];
-    [self reloadTableViewConversation];
+    [self reloadTableViewConversationShowBottom:YES];
     [UIAlertView showAlertWithTitle:@"Error" message:@"The text is too long!"];
 }
 
@@ -239,7 +248,7 @@ UITextFieldDelegate
         if (![TMEReachabilityManager sharedInstance].lastState) {
             [TSMessage showNotificationWithTitle:@"Connected" type:TSMessageNotificationTypeSuccess];
         }
-        [self loadMessage];
+        [self loadMessageShowBottom:NO];
         [TMEReachabilityManager sharedInstance].lastState = 1;
         return;
     }

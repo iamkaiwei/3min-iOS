@@ -35,12 +35,14 @@
     
     self.lblContent.text = message.chat;
     [self.lblContent sizeToFitKeepWidth];
+    [self.separatorView alignBelowView:self.lblContent offsetY:7 sameWidth:NO];
+    
     if (message.time_stamp) {
         [self.indicator stopAnimating];
         self.lblTime.text = [message.time_stamp relativeDate];
         return;
     }
-    [self.separatorView alignBelowView:self.lblContent offsetY:7 sameWidth:NO];
+    
     self.indicator.hidden = NO;
     self.lblTime.text = @"Pending...";
 }
