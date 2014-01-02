@@ -23,10 +23,11 @@ UIPickerViewDelegate
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductName;
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductPrice;
 @property (strong, nonatomic) NSArray               * arrayCategories;
-@property (strong, nonatomic) IBOutletCollection(TMEPhotoButton) NSArray *photoButtons;
 @property (weak, nonatomic) IBOutlet UIPickerView   * pickerCategories;
 @property (weak, nonatomic) IBOutlet UIView         * viewPickerWrapper;
 @property (weak, nonatomic) IBOutlet UIButton       * pickerCategoryButton;
+
+@property (strong, nonatomic) IBOutletCollection(TMEPhotoButton) NSArray * photoButtons;
 
 @end
 

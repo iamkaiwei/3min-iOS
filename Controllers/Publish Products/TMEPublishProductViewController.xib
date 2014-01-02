@@ -197,8 +197,6 @@
     </objects>
     <resources>
         <image name="arrow.png" width="9" height="16"/>
-        <image name="arrow.png" width="9" height="16"/>
-        <image name="arrow.png" width="9" height="16"/>
         <image name="facebook.png" width="12" height="25"/>
         <image name="item.png" width="20" height="20"/>
         <image name="price.png" width="20" height="21"/>
