@@ -37,12 +37,6 @@ UISearchDisplayDelegate
   [self loadNavigationItem];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-  [super viewWillAppear:animated];
-  
-  [self unregisterForKeyboardNotifications];
-}
-
 - (UIBarButtonItem *)leftNavigationButtonProducts
 {
   UIImage *leftButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"btn_products" isIcon:YES];
@@ -111,6 +105,10 @@ UISearchDisplayDelegate
 
 - (void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller{
   [self.navigationController setNavigationBarHidden:NO];
+}
+
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
+  [[NSNotificationCenter defaultCenter] removeObserver:[self superclass] name:UIKeyboardWillShowNotification object:nil];
 }
 
 @end

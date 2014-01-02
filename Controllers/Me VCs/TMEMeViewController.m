@@ -45,17 +45,8 @@ UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   TMEMeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMEMeTableViewCell class]) forIndexPath:indexPath];
-  CGRect frame = cell.backgroundView.frame;
-  cell.backgroundView = [[TMEMeTableViewCellBackgroundView alloc] initWithFrame:frame];
   
-  CGFloat corner = 0;
-  UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:cell.backgroundView.bounds
-                                             byRoundingCorners:UIRectCornerAllCorners
-                                                   cornerRadii:CGSizeMake(corner, corner)];
-  
-  CAShapeLayer  *shapeLayer = (CAShapeLayer *)cell.backgroundView.layer;
-  shapeLayer.path = path.CGPath;
-  shapeLayer.fillColor = cell.textLabel.backgroundColor.CGColor;
+  [self customBackgroundLayerOfCell:cell];
   
   switch (indexPath.section) {
     case 0:
@@ -73,7 +64,7 @@ UITableViewDataSource
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -93,6 +84,26 @@ UITableViewDataSource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
   return [TMEMeTableViewCell getHeight];
+}
+
+- (void)customBackgroundLayerOfCell:(UITableViewCell *)cell{
+  CGRect frame = cell.backgroundView.frame;
+  cell.backgroundView = [[TMEMeTableViewCellBackgroundView alloc] initWithFrame:frame];
+  cell.selectedBackgroundView = [[TMEMeTableViewCellBackgroundView alloc] initWithFrame:frame];
+  
+  CGFloat corner = 0;
+  UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:cell.backgroundView.bounds
+                                             byRoundingCorners:UIRectCornerAllCorners
+                                                   cornerRadii:CGSizeMake(corner, corner)];
+  
+  CAShapeLayer  *shapeLayer = (CAShapeLayer *)cell.backgroundView.layer;
+  shapeLayer.path = path.CGPath;
+  shapeLayer.fillColor = cell.textLabel.backgroundColor.CGColor;
+  
+  UIColor *grayLightColor = [UIColor colorWithHexString:@"bbbbbb"];
+  CAShapeLayer  *shapeSelectedLayer = (CAShapeLayer *)cell.selectedBackgroundView.layer;
+  shapeSelectedLayer.path = path.CGPath;
+  shapeSelectedLayer.fillColor = [grayLightColor CGColor];
 }
 
 @end
