@@ -274,6 +274,10 @@
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
 		84143A7A186E8BCF00E42457 /* _TMEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 84143A79186E8BCF00E42457 /* _TMEMessage.m */; };
 		84143A7D186E8BEC00E42457 /* TMEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 84143A7C186E8BEC00E42457 /* TMEMessage.m */; };
+		84325C2B1875B33D00D14B70 /* TMEActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84325C291875B33D00D14B70 /* TMEActivityViewController.m */; };
+		84325C2C1875B33D00D14B70 /* TMEActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84325C2A1875B33D00D14B70 /* TMEActivityViewController.xib */; };
+		84325C301875B4AD00D14B70 /* TMEActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84325C2F1875B4AD00D14B70 /* TMEActivityTableViewCell.m */; };
+		84325C321875B4C200D14B70 /* TMEActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84325C311875B4C200D14B70 /* TMEActivityTableViewCell.xib */; };
 		84FCC0CA186A0888002892B2 /* nav-back-btn-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */; };
 		84FCC0CB186A0888002892B2 /* nav-back-btn-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */; };
 		84FCC0CE186A1163002892B2 /* TMESubmitTableCellRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FCC0CD186A1163002892B2 /* TMESubmitTableCellRight.m */; };
@@ -775,6 +779,12 @@
 		84143A79186E8BCF00E42457 /* _TMEMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEMessage.m; sourceTree = "<group>"; };
 		84143A7B186E8BEC00E42457 /* TMEMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEMessage.h; sourceTree = "<group>"; };
 		84143A7C186E8BEC00E42457 /* TMEMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMessage.m; sourceTree = "<group>"; };
+		84325C281875B33D00D14B70 /* TMEActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEActivityViewController.h; path = "Activity VCs/TMEActivityViewController.h"; sourceTree = "<group>"; };
+		84325C291875B33D00D14B70 /* TMEActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEActivityViewController.m; path = "Activity VCs/TMEActivityViewController.m"; sourceTree = "<group>"; };
+		84325C2A1875B33D00D14B70 /* TMEActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEActivityViewController.xib; path = "Activity VCs/TMEActivityViewController.xib"; sourceTree = "<group>"; };
+		84325C2E1875B4AD00D14B70 /* TMEActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEActivityTableViewCell.h; path = "Activity VCs/TMEActivityTableViewCell.h"; sourceTree = "<group>"; };
+		84325C2F1875B4AD00D14B70 /* TMEActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEActivityTableViewCell.m; path = "Activity VCs/TMEActivityTableViewCell.m"; sourceTree = "<group>"; };
+		84325C311875B4C200D14B70 /* TMEActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEActivityTableViewCell.xib; path = "Activity VCs/TMEActivityTableViewCell.xib"; sourceTree = "<group>"; };
 		84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg.png"; sourceTree = "<group>"; };
 		84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg@2x.png"; sourceTree = "<group>"; };
 		84FCC0CC186A1163002892B2 /* TMESubmitTableCellRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitTableCellRight.h; path = "Submit VCs/TMESubmitTableCellRight.h"; sourceTree = "<group>"; };
@@ -1177,6 +1187,7 @@
 		0C28B28B17DC1B9200BD0EC2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84325C261875B30500D14B70 /* Activity VCs */,
 				0B3D0D9A1875379300B740ED /* Search VCs */,
 				0B3D0D811875094300B740ED /* Me VCs */,
 				0B327B50186820B400468DF9 /* Submit VCs */,
@@ -1883,6 +1894,19 @@
 			path = PhotoButton;
 			sourceTree = "<group>";
 		};
+		84325C261875B30500D14B70 /* Activity VCs */ = {
+			isa = PBXGroup;
+			children = (
+				84325C281875B33D00D14B70 /* TMEActivityViewController.h */,
+				84325C291875B33D00D14B70 /* TMEActivityViewController.m */,
+				84325C2A1875B33D00D14B70 /* TMEActivityViewController.xib */,
+				84325C2E1875B4AD00D14B70 /* TMEActivityTableViewCell.h */,
+				84325C2F1875B4AD00D14B70 /* TMEActivityTableViewCell.m */,
+				84325C311875B4C200D14B70 /* TMEActivityTableViewCell.xib */,
+			);
+			name = "Activity VCs";
+			sourceTree = "<group>";
+		};
 		B4093B721810379700D51B69 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -2045,6 +2069,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84325C2C1875B33D00D14B70 /* TMEActivityViewController.xib in Resources */,
 				0C5954F117F6BDDD0076353E /* navigation_background.png in Resources */,
 				B42FE3E118190F1C004E39EF /* tabbar-background.png in Resources */,
 				B4AB2E5118712930000A9E68 /* price.png in Resources */,
@@ -2178,6 +2203,7 @@
 				0CFC0FFB17ECBA3F008FBD92 /* bt_fb_signin_pressed@2x.png in Resources */,
 				B42FE3E018190F1C004E39EF /* tabbar-browser-icon-pressed@2x.png in Resources */,
 				0C5954EF17F6BDDD0076353E /* grid-view-icon.png in Resources */,
+				84325C321875B4C200D14B70 /* TMEActivityTableViewCell.xib in Resources */,
 				B4AB2E5418712930000A9E68 /* star@2x.png in Resources */,
 				B49C6F6E181C37D600EB380A /* house.png in Resources */,
 				84FCC0CB186A0888002892B2 /* nav-back-btn-bg@2x.png in Resources */,
@@ -2231,6 +2257,7 @@
 				0C2F789317F2DBA600201783 /* SDWebImagePrefetcher.m in Sources */,
 				0B3D0D8918750FCB00B740ED /* TMEMeTableViewCell.m in Sources */,
 				0C2F789817F2DBA600201783 /* UIImageView+WebCache.m in Sources */,
+				84325C2B1875B33D00D14B70 /* TMEActivityViewController.m in Sources */,
 				B4093B7E181038F600D51B69 /* ViewUtils.m in Sources */,
 				B4E9664B180AE4DA004A6530 /* TMEBrowserCollectionViewController.m in Sources */,
 				0C7EFBC617E8D5170054C4DE /* MKMapView+Additions.m in Sources */,
@@ -2326,6 +2353,7 @@
 				20C4D5E817F733F80035BCA5 /* iCarousel.m in Sources */,
 				0C34A89E17F0ACEF003ACEFF /* BaseNetworkManager.m in Sources */,
 				0C7EFB6917E768C70054C4DE /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
+				84325C301875B4AD00D14B70 /* TMEActivityTableViewCell.m in Sources */,
 				0C7EFBE217E8D5170054C4DE /* UIView+Nib.m in Sources */,
 				0CD9CF5E17EA0FD400402E91 /* AFXMLRequestOperation.m in Sources */,
 				0C7EFB6617E768C70054C4DE /* NSManagedObjectContext+MagicalThreading.m in Sources */,
