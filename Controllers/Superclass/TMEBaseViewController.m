@@ -393,10 +393,10 @@
   }
   
   //Shift the entire view
-  CGRect selfViewFrame = self.view.bounds;
-  [UIView animateWithDuration:duration delay:0 options:animationCurve animations:^{
-    self.view.frame = selfViewFrame;
-  } completion:nil];
+//  CGRect selfViewFrame = self.view.bounds;
+//  [UIView animateWithDuration:duration delay:0 options:animationCurve animations:^{
+//    self.view.frame = selfViewFrame;
+//  } completion:nil];
 }
 
 - (void)onTapGesture:(UITapGestureRecognizer *)recognizer

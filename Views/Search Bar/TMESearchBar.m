@@ -34,18 +34,15 @@
   
   [self setShowsCancelButton:NO animated:NO];
   
+
+  
   [self clearSearchBarBackground];
   [super layoutSubviews];
 }
 
 - (void)clearSearchBarBackground{
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    for (UIView *subview in [[self.subviews objectAtIndex:0]subviews]) {
-      if ([subview isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
-        [subview removeFromSuperview];
-        return;
-      }
-    }
+    self.barTintColor = [UIColor whiteColor];
   }
   
   for (UIView *subview in self.subviews) {

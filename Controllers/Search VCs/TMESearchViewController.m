@@ -104,7 +104,7 @@ UISearchDisplayDelegate
 }
 
 - (void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller{
+  
 }
-
 
 @end
