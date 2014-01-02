@@ -75,6 +75,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <QuartzCore/QuartzCore.h>
 
 // Categories
 #import "ISO8601DateFormatter.h"

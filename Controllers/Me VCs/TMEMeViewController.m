@@ -26,6 +26,13 @@ UITableViewDataSource
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    CGRect frame = CGRectMake(9, 0, 302, 568);
+    self.tableViewMenu.frame = frame;
+  }
+  
   self.title = @"";
   self.navigationController.navigationBar.topItem.title = [[TMEUserManager sharedInstance] loggedUser].fullname;
   // Do any additional setup after loading the view from its nib.
@@ -61,6 +68,7 @@ UITableViewDataSource
       [cell configCellWithTitle:self.arrayCellTitleSectionThree[indexPath.row]];
       break;
   }
+  
   return cell;
 }
 

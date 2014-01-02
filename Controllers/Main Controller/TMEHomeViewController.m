@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, TMETabbarButtonType){
 #import "PBImageHelper.h"
 #import "HTKContainerViewController.h"
 #import "TMEMeViewController.h"
+#import "TMESearchViewController.h"
 
 @interface TMEHomeViewController ()
 <
@@ -48,7 +49,7 @@ UIImagePickerControllerDelegate
     self.viewControllers = @[];
     
     [self addBrowserProductTab];
-    [self addDummy1Button];
+    [self addSearchButton];
     [self addPublishButton];
     [self addDummy2Button];
     [self addMeButton];
@@ -91,11 +92,12 @@ UIImagePickerControllerDelegate
                withIconName:@"tabbar-browser-icon"];
 }
 
-- (void)addDummy1Button
+- (void)addSearchButton
 {
-    UIViewController *browserVC = [[UIViewController alloc] init];
-    
-    [self addViewController:browserVC
+    TMESearchViewController *searchVC = [[TMESearchViewController alloc] init];
+    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:searchVC];
+  
+    [self addViewController:navigationViewController
                withIconName:@"tabbar-search-icon"];
 }
 

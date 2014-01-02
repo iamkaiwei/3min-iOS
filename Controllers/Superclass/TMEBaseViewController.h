@@ -76,5 +76,8 @@
 - (void)sendNotification:(NSString *)notificationName body:(id)body;
 - (void)sendNotification:(NSString *)notificationName body:(id)body type:(id)type;
 
+- (void)unregisterForKeyboardNotifications;
+- (void)registerForKeyboardNotifications;
+
 @end
 
