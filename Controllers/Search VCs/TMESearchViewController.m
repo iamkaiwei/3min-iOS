@@ -104,11 +104,7 @@ UISearchDisplayDelegate
 }
 
 - (void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller{
-  [self.navigationController setNavigationBarHidden:NO];
 }
 
-- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
-  [[NSNotificationCenter defaultCenter] removeObserver:[self superclass] name:UIKeyboardWillShowNotification object:nil];
-}
 
 @end

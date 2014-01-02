@@ -278,6 +278,7 @@
 		84325C2C1875B33D00D14B70 /* TMEActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84325C2A1875B33D00D14B70 /* TMEActivityViewController.xib */; };
 		84325C301875B4AD00D14B70 /* TMEActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84325C2F1875B4AD00D14B70 /* TMEActivityTableViewCell.m */; };
 		84325C321875B4C200D14B70 /* TMEActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84325C311875B4C200D14B70 /* TMEActivityTableViewCell.xib */; };
+		845FC1041875C5ED008E85FA /* TMESearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845FC1031875C5ED008E85FA /* TMESearchDisplayController.m */; };
 		84FCC0CA186A0888002892B2 /* nav-back-btn-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */; };
 		84FCC0CB186A0888002892B2 /* nav-back-btn-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */; };
 		84FCC0CE186A1163002892B2 /* TMESubmitTableCellRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FCC0CD186A1163002892B2 /* TMESubmitTableCellRight.m */; };
@@ -785,6 +786,8 @@
 		84325C2E1875B4AD00D14B70 /* TMEActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEActivityTableViewCell.h; path = "Activity VCs/TMEActivityTableViewCell.h"; sourceTree = "<group>"; };
 		84325C2F1875B4AD00D14B70 /* TMEActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEActivityTableViewCell.m; path = "Activity VCs/TMEActivityTableViewCell.m"; sourceTree = "<group>"; };
 		84325C311875B4C200D14B70 /* TMEActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEActivityTableViewCell.xib; path = "Activity VCs/TMEActivityTableViewCell.xib"; sourceTree = "<group>"; };
+		845FC1021875C5ED008E85FA /* TMESearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESearchDisplayController.h; path = "Search VCs/TMESearchDisplayController.h"; sourceTree = "<group>"; };
+		845FC1031875C5ED008E85FA /* TMESearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESearchDisplayController.m; path = "Search VCs/TMESearchDisplayController.m"; sourceTree = "<group>"; };
 		84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg.png"; sourceTree = "<group>"; };
 		84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg@2x.png"; sourceTree = "<group>"; };
 		84FCC0CC186A1163002892B2 /* TMESubmitTableCellRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitTableCellRight.h; path = "Submit VCs/TMESubmitTableCellRight.h"; sourceTree = "<group>"; };
@@ -976,6 +979,8 @@
 				0B3D0D9B1875382300B740ED /* TMESearchViewController.h */,
 				0B3D0D9C1875382300B740ED /* TMESearchViewController.m */,
 				0B3D0D9D1875382300B740ED /* TMESearchViewController.xib */,
+				845FC1021875C5ED008E85FA /* TMESearchDisplayController.h */,
+				845FC1031875C5ED008E85FA /* TMESearchDisplayController.m */,
 			);
 			name = "Search VCs";
 			sourceTree = "<group>";
@@ -2410,6 +2415,7 @@
 				0C2F789417F2DBA600201783 /* UIButton+WebCache.m in Sources */,
 				0CD9CF5C17EA0FD400402E91 /* AFPropertyListRequestOperation.m in Sources */,
 				0C7EFBD017E8D5170054C4DE /* NSString+Additions.m in Sources */,
+				845FC1041875C5ED008E85FA /* TMESearchDisplayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
