@@ -20,12 +20,15 @@
 @property (weak, nonatomic) IBOutlet UIImageView  * imgProductImage;
 @property (weak, nonatomic) IBOutlet UILabel      * lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel      * lblProductPrice;
+@property (weak, nonatomic) IBOutlet UIView       * viewChatToBuyWrapper;
 
 @end
 
 @implementation TMEProductDetailsViewController
 
 - (void)loadProductDetail:(TMEProduct *)product{
+  
+  self.product = product;
   
   // Follow button
   self.btnFollow.layer.borderWidth = 1;
@@ -57,8 +60,12 @@
   self.lblProductName.text = product.name;
   self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
   
-  [self autoAdjustScrollViewContentSize];
+  TMEUser *currentLoginUser = [[TMEUserManager sharedInstance] loggedUser];
   
+  if([product.user.id isEqual:currentLoginUser.id])
+    self.viewChatToBuyWrapper.hidden = YES;
+  
+  [self autoAdjustScrollViewContentSize];
 }
 
 - (void)viewDidLoad
@@ -68,8 +75,18 @@
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
-  
+
   [self loadProductDetail:self.product];
+  [self setUpView];
+}
+
+- (void)setUpView
+{
+  UIScrollView *scrollView = (UIScrollView *)self.view;
+  scrollView.bounces = NO;
+  scrollView.showsVerticalScrollIndicator = NO;
+  
+  self.navigationController.navigationBar.topItem.title = self.product.name;
 }
 
 - (IBAction)chatButtonAction:(id)sender {
