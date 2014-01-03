@@ -161,7 +161,9 @@ UIPickerViewDelegate
                            @"sold_out": @NO};
   
   __block NSNumber *percent = @(0.0f);
-  [[BaseNetworkManager sharedInstance] sendMultipartFormRequestForPath:API_PRODUCTS
+  
+  NSString *path = [API_PREFIX stringByAppendingString:API_PRODUCTS];
+  [[BaseNetworkManager sharedInstance] sendMultipartFormRequestForPath:path
                                                             parameters:params
                                                                 method:POST_METHOD
                                              constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
