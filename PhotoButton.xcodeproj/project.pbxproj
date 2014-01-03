@@ -80,6 +80,8 @@
 		0B9366F3186C109400491FA4 /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9366DE186C109400491FA4 /* TSMessageView.m */; };
 		0B9366F7186C10A900491FA4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9366F6186C10A900491FA4 /* Reachability.m */; };
 		0B9366FA186C139400491FA4 /* TMEReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9366F9186C139400491FA4 /* TMEReachabilityManager.m */; };
+		0B95F77E187667C700F2B2E8 /* icon_chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B95F77C187667C700F2B2E8 /* icon_chat.png */; };
+		0B95F77F187667C700F2B2E8 /* icon_chat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B95F77D187667C700F2B2E8 /* icon_chat@2x.png */; };
 		0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */; };
 		0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */; };
 		0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */; };
@@ -432,6 +434,8 @@
 		0B9366F6186C10A900491FA4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		0B9366F8186C139400491FA4 /* TMEReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEReachabilityManager.h; sourceTree = "<group>"; };
 		0B9366F9186C139400491FA4 /* TMEReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEReachabilityManager.m; sourceTree = "<group>"; };
+		0B95F77C187667C700F2B2E8 /* icon_chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_chat.png; sourceTree = "<group>"; };
+		0B95F77D187667C700F2B2E8 /* icon_chat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_chat@2x.png"; sourceTree = "<group>"; };
 		0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_57x57.png; sourceTree = "<group>"; };
 		0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_114x114.png; sourceTree = "<group>"; };
 		0C2CE1B017EAE30F0074C57F /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEUserManager.h; path = superclass/TMEUserManager.h; sourceTree = "<group>"; };
@@ -1089,9 +1093,19 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		0B95F77B187667C700F2B2E8 /* Activity View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0B95F77C187667C700F2B2E8 /* icon_chat.png */,
+				0B95F77D187667C700F2B2E8 /* icon_chat@2x.png */,
+			);
+			path = "Activity View Controller";
+			sourceTree = "<group>";
+		};
 		0C28B28717DC1A1400BD0EC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0B95F77B187667C700F2B2E8 /* Activity View Controller */,
 				0B3D0DA01875428F00B740ED /* Search View Controller */,
 				0B3D0D8C187511FA00B740ED /* Me */,
 				0B220669187278A800B93BD1 /* Chat To Buy */,
@@ -2080,6 +2094,7 @@
 				B4AB2E5118712930000A9E68 /* price.png in Resources */,
 				B453FEFC181CF3A2007D5DF0 /* publish_done_btn_pressed@2x.png in Resources */,
 				0B3D0DB71875573400B740ED /* search_icon.png in Resources */,
+				0B95F77E187667C700F2B2E8 /* icon_chat.png in Resources */,
 				B453FEFD181CF3A2007D5DF0 /* publish_done_btn@2x.png in Resources */,
 				0C3CA94417F7F7130072117A /* add-photo-placeholder@2x.png in Resources */,
 				0B3D0DAF1875428F00B740ED /* btn_users_selected.png in Resources */,
@@ -2201,6 +2216,7 @@
 				0B9366E6186C109400491FA4 /* NotificationBackgroundMessage@2x.png in Resources */,
 				0CFC0FED17ECB690008FBD92 /* TMEBrowserProductsViewController.xib in Resources */,
 				0C2CE1C217EAEAC20074C57F /* TMEPublishProductViewController.xib in Resources */,
+				0B95F77F187667C700F2B2E8 /* icon_chat@2x.png in Resources */,
 				B49C6F6A181C37D600EB380A /* Design_art.png in Resources */,
 				B459FDDA181BF94E00D6BC79 /* Login1@2x.png in Resources */,
 				B42FE3DC18190F1C004E39EF /* tabbar-activity-icon-pressed@2x.png in Resources */,

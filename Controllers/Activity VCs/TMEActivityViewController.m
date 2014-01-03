@@ -38,11 +38,11 @@ UITableViewDelegate
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  return 60;
+  return 97;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-  TMEActivityTableViewCell *cell = [[TMEActivityTableViewCell alloc] init];
+  TMEActivityTableViewCell *cell = [[TMEActivityTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([TMEActivityTableViewCell class])];
   return cell;
 }
 

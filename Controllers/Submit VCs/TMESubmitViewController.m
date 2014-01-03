@@ -67,7 +67,7 @@ UITextFieldDelegate
                                              object:nil];
   
   [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
-  [self loadMessageShowBottom:NO];
+  [self loadMessageShowBottom:YES];
   [self loadProductDetail];
 }
 

@@ -89,7 +89,6 @@ UITableViewDataSource
 - (void)customBackgroundLayerOfCell:(UITableViewCell *)cell{
   CGRect frame = cell.backgroundView.frame;
   cell.backgroundView = [[TMEMeTableViewCellBackgroundView alloc] initWithFrame:frame];
-  cell.selectedBackgroundView = [[TMEMeTableViewCellBackgroundView alloc] initWithFrame:frame];
   
   CGFloat corner = 0;
   UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:cell.backgroundView.bounds
@@ -100,10 +99,14 @@ UITableViewDataSource
   shapeLayer.path = path.CGPath;
   shapeLayer.fillColor = cell.textLabel.backgroundColor.CGColor;
   
-  UIColor *grayLightColor = [UIColor colorWithHexString:@"bbbbbb"];
-  CAShapeLayer  *shapeSelectedLayer = (CAShapeLayer *)cell.selectedBackgroundView.layer;
-  shapeSelectedLayer.path = path.CGPath;
-  shapeSelectedLayer.fillColor = [grayLightColor CGColor];
+  if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+    UIColor *selectedGray = [UIColor colorWithHexString:@"bbbbbb"];
+    cell.selectedBackgroundView = [[TMEMeTableViewCellBackgroundView alloc] initWithFrame:frame];
+    CAShapeLayer  *shapeSelectedLayer = (CAShapeLayer *)cell.selectedBackgroundView.layer;
+    shapeSelectedLayer.path = path.CGPath;
+    shapeSelectedLayer.fillColor = [selectedGray CGColor];
+  }
+  
 }
 
 @end

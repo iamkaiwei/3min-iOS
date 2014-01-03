@@ -12,19 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *labelCellTitle;
 
-
 @end
 
 @implementation TMEMeTableViewCell
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
 
 - (void)configCellWithTitle:(NSString *)title{
   self.labelCellTitle.text = title;
