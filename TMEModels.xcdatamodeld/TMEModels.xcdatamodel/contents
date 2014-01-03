@@ -29,7 +29,7 @@
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMECategory" inverseName="products" inverseEntity="TMECategory" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProductImages" inverseName="product" inverseEntity="TMEProductImages" syncable="YES"/>
-        <relationship name="message" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEMessage" inverseName="product" inverseEntity="TMEMessage" syncable="YES"/>
+        <relationship name="message" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEMessage" inverseName="product" inverseEntity="TMEMessage" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEUser" inverseName="products" inverseEntity="TMEUser" syncable="YES"/>
     </entity>
     <entity name="TMEProductImages" representedClassName="TMEProductImages" syncable="YES">
@@ -57,10 +57,10 @@
         <relationship name="toMessages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEMessage" inverseName="to" inverseEntity="TMEMessage" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TMECategory" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TMEMessage" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TMEProduct" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TMEProductImages" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TMEUser" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="TMECategory" positionX="-83" positionY="231" width="128" height="120"/>
+        <element name="TMEMessage" positionX="169" positionY="63" width="128" height="148"/>
+        <element name="TMEProduct" positionX="-324" positionY="-144" width="128" height="253"/>
+        <element name="TMEProductImages" positionX="178" positionY="-162" width="128" height="150"/>
+        <element name="TMEUser" positionX="-630" positionY="3" width="128" height="240"/>
     </elements>
 </model>

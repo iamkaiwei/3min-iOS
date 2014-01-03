@@ -269,6 +269,15 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 @dynamic message;
 
 	
+- (NSMutableSet*)messageSet {
+	[self willAccessValueForKey:@"message"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"message"];
+  
+	[self didAccessValueForKey:@"message"];
+	return result;
+}
+	
 
 @dynamic user;
 

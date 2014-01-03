@@ -190,9 +190,9 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, strong) TMEMessage *message;
+@property (nonatomic, strong) NSSet *message;
 
-//- (BOOL)validateMessage:(id*)value_ error:(NSError**)error_;
+- (NSMutableSet*)messageSet;
 
 
 
@@ -213,6 +213,11 @@ extern const struct TMEProductFetchedProperties {
 - (void)removeImages:(NSSet*)value_;
 - (void)addImagesObject:(TMEProductImages*)value_;
 - (void)removeImagesObject:(TMEProductImages*)value_;
+
+- (void)addMessage:(NSSet*)value_;
+- (void)removeMessage:(NSSet*)value_;
+- (void)addMessageObject:(TMEMessage*)value_;
+- (void)removeMessageObject:(TMEMessage*)value_;
 
 @end
 
@@ -305,8 +310,8 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-- (TMEMessage*)primitiveMessage;
-- (void)setPrimitiveMessage:(TMEMessage*)value;
+- (NSMutableSet*)primitiveMessage;
+- (void)setPrimitiveMessage:(NSMutableSet*)value;
 
 
 

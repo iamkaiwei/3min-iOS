@@ -44,6 +44,8 @@ UITextFieldDelegate
   return _arrayMessage;
 }
 
+#pragma mark View controller life cycle
+
 - (void)viewDidLoad{
   [super viewDidLoad];
   self.title = @"You Offer";
@@ -66,38 +68,23 @@ UITextFieldDelegate
                                            selector:@selector(loadMessageShowBottom:)
                                                name:NOTIFICATION_RELOAD_CONVERSATION
                                              object:nil];
+  [self getCacheMessage];
   
-  [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
+  if (!self.arrayMessage.count) {
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
+  }
+  
   [self loadMessageShowBottom:YES];
   [self loadProductDetail];
 }
 
-- (void)loadProductDetail
-{
-  self.lblProductName.text = self.product.name;
-  self.lblProductPrice.text = [NSString stringWithFormat:@"$%@",self.product.price];
-  [self.imageViewProduct setImageWithURL:[NSURL URLWithString:[[self.product.images anyObject] thumb]]];
-  self.lblPriceOffered.text = [NSString stringWithFormat:@"$%@",self.product.price];
-}
-
-- (void)reloadTableViewConversationShowBottom:(BOOL)showBottom{
-  [self.tableViewConversation reloadData];
-  self.tableViewConversation.height = self.tableViewConversation.contentSize.height;
-  [self.txtInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
-  [self autoAdjustScrollViewContentSize];
-  
-  
-  if (showBottom) {
-    CGPoint bottomOffset = CGPointMake(0, self.scrollView.contentSize.height - CGRectGetHeight(self.scrollView.bounds));
-    [self.scrollView setContentOffset:bottomOffset animated:YES];
-  }
-  
-  [SVProgressHUD dismiss];
-}
+#pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+#pragma mark Table view datasource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
   TMESubmitTableCell *cell = [[TMESubmitTableCell alloc] init];
@@ -123,12 +110,7 @@ UITextFieldDelegate
   return cell;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-  [self postMessage];
-  self.txtInputMessage.text = @"";
-  [self.scrollView scrollSubviewToCenter:self.txtInputMessage animated:YES];
-  return YES;
-}
+#pragma mark Post message
 
 - (void)postMessage{
   if ([self.txtInputMessage.text isEqual: @""]) {
@@ -139,25 +121,13 @@ UITextFieldDelegate
   [self.arrayMessage addObject:message];
   [self reloadTableViewConversationShowBottom:YES];
   
+  TMEUser *destinationUser = self.product.user;
+  
   if ([self isSeller]) {
-    [[TMEMessageManager sharedInstance] postMessageTo:self.buyer
-                                           forProduct:self.product
-                                          withMessage:self.txtInputMessage.text
-                                       onSuccessBlock:^(NSString *status)
-     {
-       [self loadMessageShowBottom:NO];
-     }
-                                      andFailureBlock:^(NSInteger statusCode, id obj)
-     {
-       DLog(@"Error: %d", statusCode);
-       if (statusCode == -1011) {
-         [self showAlertForLongMessageContent];
-       }
-     }];
-    return;
+    destinationUser = self.buyer;
   }
   
-  [[TMEMessageManager sharedInstance] postMessageTo:self.product.user
+  [[TMEMessageManager sharedInstance] postMessageTo:destinationUser
                                          forProduct:self.product
                                         withMessage:self.txtInputMessage.text
                                      onSuccessBlock:^(NSString *status)
@@ -173,8 +143,11 @@ UITextFieldDelegate
    }];
 }
 
+#pragma mark Load message
+
 - (void)loadMessageWithBuyer:(TMEUser *)buyer toUser:(TMEUser *)user showBottom:(BOOL)showBottom
 {
+  
   [[TMEMessageManager sharedInstance] getListMessageOfProduct:self.product
                                                     withBuyer:buyer
                                                        toUser:user
@@ -224,12 +197,59 @@ UITextFieldDelegate
    }];
 }
 
+#pragma mark Helper method
+
 - (BOOL)isSeller
 {
   if ([[[TMEUserManager sharedInstance] loggedUser].id isEqual:self.product.user.id]) {
     return YES;
   }
   return NO;
+}
+
+- (void)loadProductDetail
+{
+  self.lblProductName.text = self.product.name;
+  self.lblProductPrice.text = [NSString stringWithFormat:@"$%@",self.product.price];
+  [self.imageViewProduct setImageWithURL:[NSURL URLWithString:[[self.product.images anyObject] thumb]]];
+  self.lblPriceOffered.text = [NSString stringWithFormat:@"$%@",self.product.price];
+}
+
+- (void)reloadTableViewConversationShowBottom:(BOOL)showBottom{
+  [self.tableViewConversation reloadData];
+  self.tableViewConversation.height = self.tableViewConversation.contentSize.height;
+  [self.txtInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
+  [self autoAdjustScrollViewContentSize];
+  
+  
+  if (showBottom) {
+    CGPoint bottomOffset = CGPointMake(0, self.scrollView.contentSize.height - CGRectGetHeight(self.scrollView.bounds));
+    [self.scrollView setContentOffset:bottomOffset animated:YES];
+  }
+  
+  [SVProgressHUD dismiss];
+}
+
+- (void)showAlertForLongMessageContent{
+  [self.arrayMessage removeObject:[self.arrayMessage lastObject]];
+  [self reloadTableViewConversationShowBottom:YES];
+  [UIAlertView showAlertWithTitle:@"Error" message:@"The text is too long!"];
+}
+
+- (void)getCacheMessage{
+  self.arrayMessage = [[TMEMessage MR_findByAttribute:@"product" withValue:self.product andOrderBy:@"time_stamp" ascending:YES] mutableCopy];
+  if (self.arrayMessage.count) {
+    [self reloadTableViewConversationShowBottom:YES];
+  }
+}
+
+#pragma mark Text field delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+  [self postMessage];
+  self.txtInputMessage.text = @"";
+  [self.scrollView scrollSubviewToCenter:self.txtInputMessage animated:YES];
+  return YES;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
@@ -239,11 +259,7 @@ UITextFieldDelegate
   return YES;
 }
 
-- (void)showAlertForLongMessageContent{
-  [self.arrayMessage removeObject:[self.arrayMessage lastObject]];
-  [self reloadTableViewConversationShowBottom:YES];
-  [UIAlertView showAlertWithTitle:@"Error" message:@"The text is too long!"];
-}
+#pragma mark Override KeyboardShowNotification
 
 - (void)onKeyboardWillShowNotification:(NSNotification *)sender{
   self.isKeyboardShowing = YES;
@@ -259,6 +275,8 @@ UITextFieldDelegate
     [self.scrollView setScrollIndicatorInsets:edgeInsets];
   } completion:nil];
 }
+
+#pragma mark Handle changing reachability
 
 - (void)reachabilityDidChange:(NSNotification *)notification {
   
