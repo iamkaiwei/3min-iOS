@@ -36,66 +36,66 @@ UIPickerViewDelegate
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.title = @"";
-//    self.navigationController.navigationBar.topItem.title = @"Publish Product";
+  [super viewDidLoad];
+  // Do any additional setup after loading the view from its nib.
+  self.title = @"";
+  //    self.navigationController.navigationBar.topItem.title = @"Publish Product";
   
-    for (TMEPhotoButton *button in self.view.subviews) {
-        if ([button isKindOfClass:[TMEPhotoButton class]]) {
-            [button addTarget:self action:@selector(photoSaved:) forControlEvents:UIControlEventValueChanged];            
-            button.viewController = self;
-            button.photoSize = CGSizeMake(1000, 1000);
-        }
+  for (TMEPhotoButton *button in self.view.subviews) {
+    if ([button isKindOfClass:[TMEPhotoButton class]]) {
+      [button addTarget:self action:@selector(photoSaved:) forControlEvents:UIControlEventValueChanged];
+      button.viewController = self;
+      button.photoSize = CGSizeMake(1000, 1000);
     }
-    self.navigationItem.leftBarButtonItem = [self leftNavigationButton];
-    self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
+  }
+  self.navigationItem.leftBarButtonItem = [self leftNavigationButton];
+  self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
   
-    //Ask user to take picture
-    [self.photoButtons[0] takeOrChoosePhoto:YES];
-    
-    [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories) {
-        self.arrayCategories = arrayCategories;
-        [self.pickerCategories reloadAllComponents];
-    } andFailureBlock:^(NSInteger statusCode, id obj) {
-        [SVProgressHUD showErrorWithStatus:@"Failure to load categories"];
-    }];
-    
-    [self.scrollViewContainner autoAdjustScrollViewContentSize];
+  //Ask user to take picture
+  [self.photoButtons[0] takeOrChoosePhoto:YES];
+  
+  [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories) {
+    self.arrayCategories = arrayCategories;
+    [self.pickerCategories reloadAllComponents];
+  } andFailureBlock:^(NSInteger statusCode, id obj) {
+    [SVProgressHUD showErrorWithStatus:@"Failure to load categories"];
+  }];
+  
+  [self autoAdjustScrollViewContentSize];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self hideTheKeyboard];
+  [self hideTheKeyboard];
 }
 
 - (BOOL)hidesBottomBarWhenPushed
 {
-    return YES;
+  return YES;
 }
 
 - (UIBarButtonItem *)leftNavigationButton
 {
-    UIImage *leftButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"publish_cancel_btn" isIcon:YES];
-    UIImage *leftButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"publish_cancel_btn_pressed" isIcon:YES];
-    UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
-    [leftButton addTarget:self action:@selector(onCancelButton:) forControlEvents:UIControlEventTouchUpInside];
-    [leftButton setBackgroundImage:leftButtonBackgroundNormalImage forState:UIControlStateNormal];
-    [leftButton setBackgroundImage:leftButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
-    
-    return [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+  UIImage *leftButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"publish_cancel_btn" isIcon:YES];
+  UIImage *leftButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"publish_cancel_btn_pressed" isIcon:YES];
+  UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
+  [leftButton addTarget:self action:@selector(onCancelButton:) forControlEvents:UIControlEventTouchUpInside];
+  [leftButton setBackgroundImage:leftButtonBackgroundNormalImage forState:UIControlStateNormal];
+  [leftButton setBackgroundImage:leftButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
+  
+  return [[UIBarButtonItem alloc] initWithCustomView:leftButton];
 }
 
 - (UIBarButtonItem *)rightNavigationButton
 {
-    UIImage *rightButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn" isIcon:YES];
-    UIImage *rightButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn_pressed" isIcon:YES];
-    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
-    [rightButton addTarget:self action:@selector(onPublishButton:) forControlEvents:UIControlEventTouchUpInside];
-    [rightButton setBackgroundImage:rightButtonBackgroundNormalImage forState:UIControlStateNormal];
-    [rightButton setBackgroundImage:rightButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
-    
-    return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+  UIImage *rightButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn" isIcon:YES];
+  UIImage *rightButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn_pressed" isIcon:YES];
+  UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
+  [rightButton addTarget:self action:@selector(onPublishButton:) forControlEvents:UIControlEventTouchUpInside];
+  [rightButton setBackgroundImage:rightButtonBackgroundNormalImage forState:UIControlStateNormal];
+  [rightButton setBackgroundImage:rightButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
+  
+  return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
 }
 
 # pragma mark - AFPhotoController delegate
@@ -125,122 +125,138 @@ UIPickerViewDelegate
 
 - (TMEProduct *)getTheInputProductFromForm
 {
-    // create dummy user
-    TMEUser *user = [[TMEUserManager sharedInstance] loggedUser];
-    
-    // category
-    NSInteger pickerIndex = [self.pickerCategories selectedRowInComponent:0];
-    TMECategory *cat = [self.arrayCategories objectAtIndex:pickerIndex];
-    TMECategory *category = cat;
-    
-    // create product
-    TMEProduct *product = [TMEProduct MR_createEntity];
-    product.name = self.txtProductName.text;
-    product.id = @1;
-    product.price = @([self.txtProductPrice.text doubleValue]);
-    product.category = category;
-    product.user = user;
-    
-    return product;
+  // create dummy user
+  TMEUser *user = [[TMEUserManager sharedInstance] loggedUser];
+  
+  // category
+  NSInteger pickerIndex = [self.pickerCategories selectedRowInComponent:0];
+  TMECategory *cat = [self.arrayCategories objectAtIndex:pickerIndex];
+  TMECategory *category = cat;
+  
+  // create product
+  TMEProduct *product = [TMEProduct MR_createEntity];
+  product.name = self.txtProductName.text;
+  product.id = @1;
+  product.price = @([self.txtProductPrice.text doubleValue]);
+  product.category = category;
+  product.user = user;
+  
+  return product;
 }
 
 - (void)onCancelButton:(id)sender {
-    self.tabBarController.selectedIndex = 0;
+  self.tabBarController.selectedIndex = 0;
 }
 
 - (IBAction)onPublishButton:(id)sender {
-    
-    [self dismissKeyboard];
-    
-   TMEProduct *product = [self getTheInputProductFromForm];
-    
-    NSDictionary *params = @{@"user_id": product.user.id,
-                             @"name": product.name,
-                             @"category_id": product.category.id,
-                             @"price": product.price,
-                             @"sold_out": @NO};
-    
-    __block NSNumber *percent = @(0.0f);
-    [[BaseNetworkManager sharedInstance] sendMultipartFormRequestForPath:API_PRODUCTS
-                                                              parameters:params
-                                                                  method:POST_METHOD
-                                               constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
-    {
-        for (TMEPhotoButton *photoButton in self.photoButtons) {
-          if ([photoButton hasPhoto]) {
-            NSData *imageData = UIImageJPEGRepresentation([photoButton backgroundImageForState:UIControlStateNormal], 0.5);
-            NSString *imageName = [@([[NSDate date] timeIntervalSince1970]) stringValue];
-            [formData appendPartWithFileData:imageData name:@"images[]" fileName:imageName mimeType:@"image/jpeg"];
-          }
-        }
-        
-    } success:^(NSHTTPURLResponse *response, id responseObject) {
-        [SVProgressHUD dismiss];
-        
-        // reset the forms
-        [self resetAllForms];
-        
-        [SVProgressHUD showSuccessWithStatus:@"Upload successfully."];
-        [self.navigationController finishSGProgress];
-        
-        // move to browser tab if they are another tab
-        if(![self.tabBarController.selectedViewController isKindOfClass:[TMEBrowserProductsViewController class]])
-            [self.tabBarController setSelectedIndex:0];
-        
-    } failure:^(NSError *error) {
-        
-        [SVProgressHUD showErrorWithStatus:@"Fail to upload, try again later"];
-        [self.navigationController finishSGProgress];
-        
-    } progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-        
-        // save last 30% for response
-        percent = @(((float)totalBytesWritten)/totalBytesExpectedToWrite * 0.7);
-        float percentage = [percent floatValue];
-        percentage *= 100;
-        [self.navigationController setSGProgressPercentage:percentage];
-    }];
+  
+  [self dismissKeyboard];
+  
+  TMEProduct *product = [self getTheInputProductFromForm];
+  
+  NSDictionary *params = @{@"user_id": product.user.id,
+                           @"name": product.name,
+                           @"category_id": product.category.id,
+                           @"price": product.price,
+                           @"sold_out": @NO};
+  
+  __block NSNumber *percent = @(0.0f);
+  [[BaseNetworkManager sharedInstance] sendMultipartFormRequestForPath:API_PRODUCTS
+                                                            parameters:params
+                                                                method:POST_METHOD
+                                             constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+   {
+     for (TMEPhotoButton *photoButton in self.photoButtons) {
+       if ([photoButton hasPhoto]) {
+         NSData *imageData = UIImageJPEGRepresentation([photoButton backgroundImageForState:UIControlStateNormal], 0.5);
+         NSString *imageName = [@([[NSDate date] timeIntervalSince1970]) stringValue];
+         [formData appendPartWithFileData:imageData name:@"images[]" fileName:imageName mimeType:@"image/jpeg"];
+       }
+     }
+     
+   } success:^(NSHTTPURLResponse *response, id responseObject) {
+     [SVProgressHUD dismiss];
+     
+     // reset the forms
+     [self resetAllForms];
+     
+     [SVProgressHUD showSuccessWithStatus:@"Upload successfully."];
+     [self.navigationController finishSGProgress];
+     
+     // move to browser tab if they are another tab
+     if(![self.tabBarController.selectedViewController isKindOfClass:[TMEBrowserProductsViewController class]])
+       [self.tabBarController setSelectedIndex:0];
+     
+   } failure:^(NSError *error) {
+     
+     [SVProgressHUD showErrorWithStatus:@"Fail to upload, try again later"];
+     [self.navigationController finishSGProgress];
+     
+   } progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+     
+     // save last 30% for response
+     percent = @(((float)totalBytesWritten)/totalBytesExpectedToWrite * 0.7);
+     float percentage = [percent floatValue];
+     percentage *= 100;
+     [self.navigationController setSGProgressPercentage:percentage];
+   }];
 }
 
 #pragma mark - UIPickerView
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 1;
+  return 1;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return self.arrayCategories.count;
+  return self.arrayCategories.count;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    TMECategory *cat = [self.arrayCategories objectAtIndex:row];
-    return cat.name;
+  TMECategory *cat = [self.arrayCategories objectAtIndex:row];
+  return cat.name;
 }
 
 - (IBAction)onButtonPicker:(id)sender {
-    self.viewPickerWrapper.hidden = NO;
-    [self hideTheKeyboard];
+  [self hideTheKeyboard];
+  
+  UIScrollView *scrollView = (UIScrollView *)self.view;
+  scrollView.scrollEnabled = NO;
+  
+  CGFloat originY = scrollView.contentOffset.y + self.view.height - self.viewPickerWrapper.height;
+  
+  CGRect pickerFrame = self.viewPickerWrapper.frame;
+  pickerFrame.origin.y = originY;
+  self.viewPickerWrapper.frame = pickerFrame;
+  
+  self.viewPickerWrapper.hidden = NO;
 }
 
 - (IBAction)onButtonPickerDone:(id)sender {
-    NSInteger row = [self.pickerCategories selectedRowInComponent:0];
-    TMECategory *cat = [self.arrayCategories objectAtIndex:row];
-    [self.pickerCategoryButton setTitle:cat.name forState:UIControlStateNormal];
-    self.viewPickerWrapper.hidden = YES;
+  NSInteger row = [self.pickerCategories selectedRowInComponent:0];
+  TMECategory *cat = [self.arrayCategories objectAtIndex:row];
+  [self.pickerCategoryButton setTitle:cat.name forState:UIControlStateNormal];
+  self.viewPickerWrapper.hidden = YES;
+  
+  UIScrollView *scrollView = (UIScrollView *)self.view;
+  scrollView.scrollEnabled = YES;
 }
 
 - (IBAction)onButtonPickerCancel:(id)sender {
-    self.viewPickerWrapper.hidden = YES;
+  self.viewPickerWrapper.hidden = YES;
+  
+  UIScrollView *scrollView = (UIScrollView *)self.view;
+  scrollView.scrollEnabled = YES;
 }
 
 #pragma marks - Helper methods
 
 - (void)hideTheKeyboard{
-    [self.txtProductName endEditing:YES];
-    [self.txtProductPrice endEditing:YES];
+  [self.txtProductName endEditing:YES];
+  [self.txtProductPrice endEditing:YES];
 }
 
 - (void)resetAllForms

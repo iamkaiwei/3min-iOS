@@ -14,11 +14,6 @@
 
 @implementation TMEPhotoButton
 
-@synthesize viewController;
-@synthesize popoverController;
-@synthesize photoSize;
-@synthesize hasPhoto;
-
 - (void)resetAttributes
 {
   self.hasPhoto = NO;
@@ -48,7 +43,8 @@
   //Checks if button has image, if yes, add destructive button.
   id destructiveButton = self.hasPhoto ? DELETE_PHOTO : nil;
   
-    // cancel button will not show up on iPad
+  TMEPhotoButton *photoButton = (TMEPhotoButton *)sender;
+  // cancel button will not show up on iPad
   UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                 initWithTitle:nil
                                 delegate:self
@@ -56,7 +52,7 @@
                                 destructiveButtonTitle:destructiveButton
                                 otherButtonTitles:TAKE_PHOTO, CHOOSE_PHOTO, nil];
   actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
-  [actionSheet showInView: self.viewController.view];
+  [actionSheet showInView:photoButton.viewController.view];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
