@@ -53,10 +53,6 @@ UIPickerViewDelegate
     //Ask user to take picture
     [self.photoButtons[0] takeOrChoosePhoto:YES];
     
-    
-    UIScrollView *view = (UIScrollView *)self.view;
-    view.showsVerticalScrollIndicator = NO;
-    
     [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories) {
         self.arrayCategories = arrayCategories;
         [self.pickerCategories reloadAllComponents];
