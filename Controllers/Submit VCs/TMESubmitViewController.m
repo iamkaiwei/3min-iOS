@@ -21,16 +21,17 @@ UIApplicationDelegate,
 UITextFieldDelegate
 >
 
-@property (strong, nonatomic) TMEUser *buyer;
-@property (strong, nonatomic) NSMutableArray *arrayMessage;
-@property (weak, nonatomic) IBOutlet UIImageView *imageViewProduct;
-@property (weak, nonatomic) IBOutlet UILabel *lblProductName;
-@property (weak, nonatomic) IBOutlet UILabel *lblProductPrice;
-@property (weak, nonatomic) IBOutlet UILabel *lblPriceOffered;
-@property (weak, nonatomic) IBOutlet UILabel *lblDealLocation;
-@property (weak, nonatomic) IBOutlet UITableView *tableViewConversation;
-@property (weak, nonatomic) IBOutlet UITextField *txtInputMessage;
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic)            TMEUser                                * buyer;
+@property (strong, nonatomic)            NSMutableArray                         * arrayMessage;
+@property (strong, nonatomic) IBOutlet   UIScrollView                           * scrollView;
+@property (weak, nonatomic)   IBOutlet   UIImageView                            * imageViewProduct;
+@property (weak, nonatomic)   IBOutlet   UILabel                                * lblProductName;
+@property (weak, nonatomic)   IBOutlet   UILabel                                * lblProductPrice;
+@property (weak, nonatomic)   IBOutlet   UILabel                                * lblPriceOffered;
+@property (weak, nonatomic)   IBOutlet   UILabel                                * lblDealLocation;
+@property (weak, nonatomic)   IBOutlet   UITableView                            * tableViewConversation;
+@property (weak, nonatomic)   IBOutlet   UITextField                            * txtInputMessage;
+
 
 @end
 
@@ -242,6 +243,21 @@ UITextFieldDelegate
   [self.arrayMessage removeObject:[self.arrayMessage lastObject]];
   [self reloadTableViewConversationShowBottom:YES];
   [UIAlertView showAlertWithTitle:@"Error" message:@"The text is too long!"];
+}
+
+- (void)onKeyboardWillShowNotification:(NSNotification *)sender{
+  self.isKeyboardShowing = YES;
+  
+  NSValue *keyboardFrame = [[sender userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey];
+  CGSize kbSize = [keyboardFrame CGRectValue].size;
+  NSTimeInterval duration = [[[sender userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+  UIViewAnimationOptions animationCurve = [[[sender userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
+  
+  [UIView animateWithDuration:duration delay:0 options:animationCurve animations:^{
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, kbSize.height - 50, 0);
+    [self.scrollView setContentInset:edgeInsets];
+    [self.scrollView setScrollIndicatorInsets:edgeInsets];
+  } completion:nil];
 }
 
 - (void)reachabilityDidChange:(NSNotification *)notification {

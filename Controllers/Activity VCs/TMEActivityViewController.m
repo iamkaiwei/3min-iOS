@@ -14,7 +14,7 @@
 UITableViewDelegate
 >
 
-@property (weak, nonatomic) IBOutlet UITableView *tableViewActivity;
+@property (weak, nonatomic) IBOutlet UITableView                    * tableViewActivity;
 
 @end
 

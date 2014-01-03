@@ -50,21 +50,22 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
         _loginView.readPermissions = @[@"user_about_me"];
         _loginView.defaultAudience = FBSessionDefaultAudienceFriends;
         
-        for(UIView *view in _loginView.subviews)
-        {
-            if ([view isKindOfClass:[UIButton class]]) {
-                UIButton *loginBtn = (UIButton *)view;
-                [loginBtn setBackgroundImage:[UIImage oneTimeImageWithImageName:@"login-facebook" isIcon:YES] forState:UIControlStateNormal];
-                [loginBtn setBackgroundImage:[UIImage oneTimeImageWithImageName:@"login-facebook" isIcon:YES] forState:UIControlStateHighlighted];
-            }
-            if ([view isKindOfClass:[UILabel class]]) {
-                UILabel *lblName = (UILabel *)view;
-                lblName.text = @"";
-                lblName.textAlignment = NSTextAlignmentCenter;
-            }
+      for(UIView *view in _loginView.subviews)
+      {
+        if ([view isKindOfClass:[UIButton class]]) {
+          UIButton *loginBtn = (UIButton *)view;
+          [loginBtn setBackgroundImage:[UIImage oneTimeImageWithImageName:@"login-facebook" isIcon:YES] forState:UIControlStateNormal];
+          [loginBtn setBackgroundImage:[UIImage oneTimeImageWithImageName:@"login-facebook-pressed" isIcon:YES] forState:UIControlStateHighlighted];
         }
+        if ([view isKindOfClass:[UILabel class]]) {
+          UILabel *lblName = (UILabel *)view;
+          lblName.text = @"";
+          lblName.frame = CGRectMake(0, 0, 0, 0);
+          lblName.textAlignment = NSTextAlignmentCenter;
+        }
+      }
     }
-    
+  
     return _loginView;
 }
 

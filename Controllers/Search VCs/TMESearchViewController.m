@@ -34,6 +34,7 @@ UISearchDisplayDelegate
   }
   
   self.state = productSelected;
+  self.shouldHandleKeyboardNotification = NO;
   [self loadNavigationItem];
 }
 

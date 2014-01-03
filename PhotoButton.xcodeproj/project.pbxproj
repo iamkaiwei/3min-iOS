@@ -82,6 +82,8 @@
 		0B9366FA186C139400491FA4 /* TMEReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9366F9186C139400491FA4 /* TMEReachabilityManager.m */; };
 		0B95F77E187667C700F2B2E8 /* icon_chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B95F77C187667C700F2B2E8 /* icon_chat.png */; };
 		0B95F77F187667C700F2B2E8 /* icon_chat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B95F77D187667C700F2B2E8 /* icon_chat@2x.png */; };
+		0B95F78218767A7500F2B2E8 /* login-facebook-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B95F78018767A7500F2B2E8 /* login-facebook-pressed.png */; };
+		0B95F78318767A7500F2B2E8 /* login-facebook-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B95F78118767A7500F2B2E8 /* login-facebook-pressed@2x.png */; };
 		0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */; };
 		0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */; };
 		0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */; };
@@ -436,6 +438,8 @@
 		0B9366F9186C139400491FA4 /* TMEReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEReachabilityManager.m; sourceTree = "<group>"; };
 		0B95F77C187667C700F2B2E8 /* icon_chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_chat.png; sourceTree = "<group>"; };
 		0B95F77D187667C700F2B2E8 /* icon_chat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_chat@2x.png"; sourceTree = "<group>"; };
+		0B95F78018767A7500F2B2E8 /* login-facebook-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-facebook-pressed.png"; sourceTree = "<group>"; };
+		0B95F78118767A7500F2B2E8 /* login-facebook-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-facebook-pressed@2x.png"; sourceTree = "<group>"; };
 		0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_57x57.png; sourceTree = "<group>"; };
 		0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_114x114.png; sourceTree = "<group>"; };
 		0C2CE1B017EAE30F0074C57F /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEUserManager.h; path = superclass/TMEUserManager.h; sourceTree = "<group>"; };
@@ -2001,6 +2005,8 @@
 		B459FDD2181BF94300D6BC79 /* Introdution Screen */ = {
 			isa = PBXGroup;
 			children = (
+				0B95F78018767A7500F2B2E8 /* login-facebook-pressed.png */,
+				0B95F78118767A7500F2B2E8 /* login-facebook-pressed@2x.png */,
 				B49C6F51181C091D00EB380A /* login-facebook.png */,
 				B49C6F52181C091D00EB380A /* login-facebook@2x.png */,
 				B459FDD3181BF94E00D6BC79 /* Login1-568h.png */,
@@ -2228,6 +2234,7 @@
 				B4AB2E5418712930000A9E68 /* star@2x.png in Resources */,
 				B49C6F6E181C37D600EB380A /* house.png in Resources */,
 				84FCC0CB186A0888002892B2 /* nav-back-btn-bg@2x.png in Resources */,
+				0B95F78218767A7500F2B2E8 /* login-facebook-pressed.png in Resources */,
 				0C43CC9D17F5CC4A00D869F9 /* big-logo.png in Resources */,
 				0C43CCAE17F5D29A00D869F9 /* share-button.png in Resources */,
 				B42FE3D618190F1C004E39EF /* tabbar-me-icon.png in Resources */,
@@ -2239,6 +2246,7 @@
 				0C5954F317F6BDDD0076353E /* simple-view-icon.png in Resources */,
 				0B3D0DAB1875428F00B740ED /* btn_products_selected.png in Resources */,
 				0B3D0DAD1875428F00B740ED /* btn_users.png in Resources */,
+				0B95F78318767A7500F2B2E8 /* login-facebook-pressed@2x.png in Resources */,
 				201EFE2117F6F7D000DA6BB4 /* Default-568h@2x.png in Resources */,
 				C28205251820269400B20531 /* right_arrow@2x.png in Resources */,
 				0B9366F0186C109400491FA4 /* NotificationButtonBackground@2x.png in Resources */,

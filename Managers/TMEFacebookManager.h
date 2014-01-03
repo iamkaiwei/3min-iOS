@@ -7,10 +7,12 @@
 //
 
 #import "BaseManager.h"
+#import "FacebookManager.h"
 
-@interface TMEFacebookManager : BaseManager
+@interface TMEFacebookManager : FacebookManager
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user;
+- (void)showLoginView;
 
 @end

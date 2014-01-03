@@ -43,6 +43,7 @@ SINGLETON_MACRO
 {
     self.loggedUser = nil;
     self.loggedFacebookUser = nil;
+  [[TMEFacebookManager sharedInstance] logout];
 }
 
 - (NSString *)getFacebookToken

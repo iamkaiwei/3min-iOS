@@ -65,6 +65,18 @@ UITableViewDataSource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  switch (indexPath.section) {
+    case 0:
+      break;
+    case 1:
+      break;
+    default:
+      if (indexPath.row == 3) {
+        [[TMEUserManager sharedInstance] logOut];
+        [[TMEFacebookManager sharedInstance] showLoginView];
+      }
+      break;
+  }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

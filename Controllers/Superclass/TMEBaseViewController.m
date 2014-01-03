@@ -17,7 +17,6 @@
 @interface TMEBaseViewController ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSValue *keyboardFrame;
-@property (nonatomic, assign) BOOL isKeyboardShowing;
 @property (nonatomic, strong) UITapGestureRecognizer *tapToDismissKeyboardGestureRecognizer;
 @property (nonatomic, strong) UISwipeGestureRecognizer *swipeToDimissKeyboardGestureRecognizer;
 
@@ -53,6 +52,7 @@
   }
   
   //Tap to dismiss keyboard
+  self.shouldHandleKeyboardNotification = YES;
   self.isKeyboardShowing = NO;
   self.tapToDismissKeyboardGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGesture:)];
   self.tapToDismissKeyboardGestureRecognizer.delegate = self;
@@ -82,7 +82,7 @@
   // Google Analytics
   self.trackedViewName = self.title;
   
-  if (self.shouldAvoidKeyboard) {
+  if (self.shouldAvoidKeyboard && self.shouldHandleKeyboardNotification) {
     [self registerForKeyboardNotifications];
   }
 }
@@ -356,7 +356,7 @@
     [UIView animateWithDuration:duration delay:0 options:animationCurve animations:^{
       UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, kbSize.height, 0);
       [scrollView setContentInset:edgeInsets];
-      //            [scrollView setScrollIndicatorInsets:edgeInsets];
+      [scrollView setScrollIndicatorInsets:edgeInsets];
     } completion:nil];
     return;
   }
@@ -393,10 +393,10 @@
   }
   
   //Shift the entire view
-//  CGRect selfViewFrame = self.view.bounds;
-//  [UIView animateWithDuration:duration delay:0 options:animationCurve animations:^{
-//    self.view.frame = selfViewFrame;
-//  } completion:nil];
+  CGRect selfViewFrame = self.view.bounds;
+  [UIView animateWithDuration:duration delay:0 options:animationCurve animations:^{
+    self.view.frame = selfViewFrame;
+  } completion:nil];
 }
 
 - (void)onTapGesture:(UITapGestureRecognizer *)recognizer
