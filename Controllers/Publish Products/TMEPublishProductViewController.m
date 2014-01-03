@@ -26,6 +26,7 @@ UIPickerViewDelegate
 @property (weak, nonatomic) IBOutlet UIPickerView   * pickerCategories;
 @property (weak, nonatomic) IBOutlet UIView         * viewPickerWrapper;
 @property (weak, nonatomic) IBOutlet UIButton       * pickerCategoryButton;
+@property (weak, nonatomic) IBOutlet UIScrollView   * scrollViewContainner;
 
 @property (strong, nonatomic) IBOutletCollection(TMEPhotoButton) NSArray * photoButtons;
 
@@ -60,7 +61,12 @@ UIPickerViewDelegate
         [SVProgressHUD showErrorWithStatus:@"Failure to load categories"];
     }];
     
-    [self autoAdjustScrollViewContentSize];
+    [self.scrollViewContainner autoAdjustScrollViewContentSize];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self hideTheKeyboard];
 }
 
 - (BOOL)hidesBottomBarWhenPushed
@@ -120,13 +126,12 @@ UIPickerViewDelegate
 - (TMEProduct *)getTheInputProductFromForm
 {
     // create dummy user
-    TMEUser *user = [TMEUser MR_createEntity];
-    user.name = @"Trieu Khang";
-    user.id = @1;
+    TMEUser *user = [[TMEUserManager sharedInstance] loggedUser];
     
-    // create dummy category
-    TMECategory *category = [TMECategory MR_createEntity];
-    category.id = @1;
+    // category
+    NSInteger pickerIndex = [self.pickerCategories selectedRowInComponent:0];
+    TMECategory *cat = [self.arrayCategories objectAtIndex:pickerIndex];
+    TMECategory *category = cat;
     
     // create product
     TMEProduct *product = [TMEProduct MR_createEntity];
@@ -147,14 +152,13 @@ UIPickerViewDelegate
     
     [self dismissKeyboard];
     
-    //TMEProduct *product = [self getTheInputProductFromForm];
+   TMEProduct *product = [self getTheInputProductFromForm];
     
-    NSDictionary *params = @{@"user_id": @1,
-                             @"name": @"Product 1",
-                             @"category_id": @1,
-                             @"description": @"Product 1 description",
-                             @"price": @1,
-                             @"sold_out": @YES};
+    NSDictionary *params = @{@"user_id": product.user.id,
+                             @"name": product.name,
+                             @"category_id": product.category.id,
+                             @"price": product.price,
+                             @"sold_out": @NO};
     
     __block NSNumber *percent = @(0.0f);
     [[BaseNetworkManager sharedInstance] sendMultipartFormRequestForPath:API_PRODUCTS
@@ -216,13 +220,9 @@ UIPickerViewDelegate
     return cat.name;
 }
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-
-}
-
 - (IBAction)onButtonPicker:(id)sender {
     self.viewPickerWrapper.hidden = NO;
+    [self hideTheKeyboard];
 }
 
 - (IBAction)onButtonPickerDone:(id)sender {
@@ -237,6 +237,11 @@ UIPickerViewDelegate
 }
 
 #pragma marks - Helper methods
+
+- (void)hideTheKeyboard{
+    [self.txtProductName endEditing:YES];
+    [self.txtProductPrice endEditing:YES];
+}
 
 - (void)resetAllForms
 {
