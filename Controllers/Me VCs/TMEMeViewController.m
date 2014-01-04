@@ -12,6 +12,7 @@
 
 @interface TMEMeViewController ()
 < UITableViewDelegate,
+UIActionSheetDelegate,
 UITableViewDataSource
 >
 
@@ -72,8 +73,7 @@ UITableViewDataSource
       break;
     default:
       if (indexPath.row == 3) {
-        [[TMEUserManager sharedInstance] logOut];
-        [[TMEFacebookManager sharedInstance] showLoginView];
+        [self showActionSheetLogOut];
       }
       break;
   }
@@ -96,6 +96,27 @@ UITableViewDataSource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
   return [TMEMeTableViewCell getHeight];
+}
+
+- (void)showActionSheetLogOut{
+  UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Are you sure you want to log out?"
+                                                     delegate:self
+                                            cancelButtonTitle:nil
+                                       destructiveButtonTitle:@"Log out"
+                                            otherButtonTitles:@"Cancel", nil];
+  [sheet showFromTabBar:self.tabBarController.tabBar];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+  switch (buttonIndex) {
+    case 0:
+      [[TMEUserManager sharedInstance] logOut];
+      [[TMEFacebookManager sharedInstance] showLoginView];
+      break;
+      
+    default:
+      break;
+  }
 }
 
 - (void)customBackgroundLayerOfCell:(UITableViewCell *)cell{
