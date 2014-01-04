@@ -42,7 +42,7 @@
     }
     
     self.lblProductName.text = product.name;
-    self.lblProductPrice.text = [product.price stringValue];
+    self.lblProductPrice.text = [@"$" stringByAppendingString:[product.price stringValue]];
 }
 
 + (CGSize)productCellSize

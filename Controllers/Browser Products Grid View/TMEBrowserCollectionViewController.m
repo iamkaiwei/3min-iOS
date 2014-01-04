@@ -8,11 +8,13 @@
 
 #import "TMEBrowserCollectionViewController.h"
 #import "TMEBrowserCollectionCell.h"
+#import "TMEProductDetailsViewController.h"
 
 @interface TMEBrowserCollectionViewController ()
 <
 UITextFieldDelegate,
 UICollectionViewDataSource,
+UICollectionViewDelegate,
 SSPullToRefreshViewDelegate
 >
 
@@ -39,6 +41,12 @@ SSPullToRefreshViewDelegate
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onCategoryChangeNotification:) name:CATEGORY_CHANGE_NOTIFICATION object:nil];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+  TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
+  productDetailsController.product = self.arrayProducts[indexPath.row];
+  [self.navigationController pushViewController:productDetailsController animated:YES];
+}
+
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
   return 1;
 }
@@ -47,6 +55,7 @@ SSPullToRefreshViewDelegate
 {
   return [self.arrayProducts count];
 }
+
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
