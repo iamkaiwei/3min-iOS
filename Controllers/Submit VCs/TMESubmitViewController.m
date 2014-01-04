@@ -44,7 +44,7 @@ UITextFieldDelegate
   return _arrayMessage;
 }
 
-#pragma mark View controller life cycle
+#pragma mark - View controller life cycle
 
 - (void)viewDidLoad{
   [super viewDidLoad];
@@ -78,13 +78,13 @@ UITextFieldDelegate
   [self loadProductDetail];
 }
 
-#pragma mark Table view delegate
+#pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark Table view datasource
+#pragma mark - Table view datasource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
   TMESubmitTableCell *cell = [[TMESubmitTableCell alloc] init];
@@ -110,7 +110,7 @@ UITextFieldDelegate
   return cell;
 }
 
-#pragma mark Post message
+#pragma mark - Post message
 
 - (void)postMessage{
   if ([self.txtInputMessage.text isEqual: @""]) {
@@ -143,7 +143,7 @@ UITextFieldDelegate
    }];
 }
 
-#pragma mark Load message
+#pragma mark - Load message
 
 - (void)loadMessageWithBuyer:(TMEUser *)buyer toUser:(TMEUser *)user showBottom:(BOOL)showBottom
 {
@@ -197,7 +197,7 @@ UITextFieldDelegate
    }];
 }
 
-#pragma mark Helper method
+#pragma mark - Helper method
 
 - (BOOL)isSeller
 {
@@ -243,7 +243,7 @@ UITextFieldDelegate
   }
 }
 
-#pragma mark Text field delegate
+#pragma mark - Text field delegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
   [self postMessage];
@@ -259,7 +259,7 @@ UITextFieldDelegate
   return YES;
 }
 
-#pragma mark Override KeyboardShowNotification
+#pragma mark - Override KeyboardShowNotification
 
 - (void)onKeyboardWillShowNotification:(NSNotification *)sender{
   self.isKeyboardShowing = YES;
@@ -276,7 +276,7 @@ UITextFieldDelegate
   } completion:nil];
 }
 
-#pragma mark Handle changing reachability
+#pragma mark - Handle changing reachability
 
 - (void)reachabilityDidChange:(NSNotification *)notification {
   

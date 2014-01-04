@@ -42,8 +42,8 @@ SSPullToRefreshViewDelegate
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   
-  self.title = @"";
-  self.navigationController.navigationBar.topItem.title = @"Broswer Products";
+//  self.title = @"";
+  self.navigationController.navigationBar.topItem.title = @"Browse Products";
   [self paddingScrollWithTop];
   
   NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
@@ -57,7 +57,7 @@ SSPullToRefreshViewDelegate
   
 }
 
-#pragma marks - UITableView delegate
+#pragma mark - UITableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -67,7 +67,7 @@ SSPullToRefreshViewDelegate
   [self.navigationController pushViewController:productDetailsController animated:YES];
 }
 
-#pragma marks - UITableView datasource
+#pragma mark - UITableView datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
   return 1;
 }

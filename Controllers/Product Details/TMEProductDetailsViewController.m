@@ -26,6 +26,20 @@
 
 @implementation TMEProductDetailsViewController
 
+- (void)viewDidLoad
+{
+  [super viewDidLoad];
+  // Do any additional setup after loading the view from its nib.
+  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+  }
+  
+  self.title = self.product.name;
+  
+  [self loadProductDetail:self.product];
+  [self setUpView];
+}
+
 - (void)loadProductDetail:(TMEProduct *)product{
   
   self.product = product;
@@ -68,25 +82,11 @@
   [self autoAdjustScrollViewContentSize];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
-
-  [self loadProductDetail:self.product];
-  [self setUpView];
-}
-
 - (void)setUpView
 {
   UIScrollView *scrollView = (UIScrollView *)self.view;
   scrollView.bounces = NO;
   scrollView.showsVerticalScrollIndicator = NO;
-  
-  self.navigationController.navigationBar.topItem.title = self.product.name;
 }
 
 - (IBAction)chatButtonAction:(id)sender {
