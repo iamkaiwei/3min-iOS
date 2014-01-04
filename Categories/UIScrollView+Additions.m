@@ -28,10 +28,10 @@
     
     //Extra space at bottom
     maxY += bottomInset;
-    
-    if (maxY <= self.height)
-        maxY = self.height;
-    
+  
+//    if (maxY <= self.height)
+//        maxY = self.height;
+  
     self.contentSize = CGSizeMake(CGRectGetWidth(self.bounds), maxY + 10);
 }
 
