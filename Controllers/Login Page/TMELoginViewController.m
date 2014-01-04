@@ -13,8 +13,6 @@
 <FacebookManagerDelegate
 >
 
-
-
 @end
 
 @implementation TMELoginViewController

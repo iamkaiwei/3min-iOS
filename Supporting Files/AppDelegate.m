@@ -335,11 +335,13 @@ FacebookManagerDelegate
             
             [SVProgressHUD dismiss];
             [self switchRootViewController:self.deckController animated:YES completion:nil];
+            UITabBarController *tabBarController = (UITabBarController *)self.deckController.centerController;
+            tabBarController.selectedIndex = 0;
         } andFailureBlock:^(NSInteger statusCode, id obj) {
             [SVProgressHUD showErrorWithStatus:@"Login failure"];
         }];
     } else {
-        [self switchRootViewController:self.deckController animated:YES completion:nil];
+      [self switchRootViewController:self.deckController animated:YES completion:nil];
     }
 }
 
