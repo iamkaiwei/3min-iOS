@@ -30,7 +30,6 @@
 		0B327B551868213D00468DF9 /* TMESubmitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B327B541868213D00468DF9 /* TMESubmitViewController.xib */; };
 		0B327B581868436500468DF9 /* TMESubmitTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B327B571868436500468DF9 /* TMESubmitTableCell.m */; };
 		0B327B5A1868437B00468DF9 /* TMESubmitTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B327B591868437B00468DF9 /* TMESubmitTableCell.xib */; };
-		0B327B5D18684D5300468DF9 /* TMEMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B327B5C18684D5300468DF9 /* TMEMessageManager.m */; };
 		0B3D0D85187509AB00B740ED /* TMEMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3D0D83187509AB00B740ED /* TMEMeViewController.m */; };
 		0B3D0D86187509AB00B740ED /* TMEMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B3D0D84187509AB00B740ED /* TMEMeViewController.xib */; };
 		0B3D0D8918750FCB00B740ED /* TMEMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3D0D8818750FCB00B740ED /* TMEMeTableViewCell.m */; };
@@ -276,13 +275,16 @@
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
-		84143A7A186E8BCF00E42457 /* _TMEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 84143A79186E8BCF00E42457 /* _TMEMessage.m */; };
-		84143A7D186E8BEC00E42457 /* TMEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 84143A7C186E8BEC00E42457 /* TMEMessage.m */; };
 		84325C2B1875B33D00D14B70 /* TMEActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84325C291875B33D00D14B70 /* TMEActivityViewController.m */; };
 		84325C2C1875B33D00D14B70 /* TMEActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84325C2A1875B33D00D14B70 /* TMEActivityViewController.xib */; };
 		84325C301875B4AD00D14B70 /* TMEActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84325C2F1875B4AD00D14B70 /* TMEActivityTableViewCell.m */; };
 		84325C321875B4C200D14B70 /* TMEActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84325C311875B4C200D14B70 /* TMEActivityTableViewCell.xib */; };
 		845FC1041875C5ED008E85FA /* TMESearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845FC1031875C5ED008E85FA /* TMESearchDisplayController.m */; };
+		84CFA51F1879BE4900368A0D /* _TMEConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA51E1879BE4900368A0D /* _TMEConversation.m */; };
+		84CFA5221879BE5100368A0D /* TMEConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA5211879BE5100368A0D /* TMEConversation.m */; };
+		84CFA5251879BF9100368A0D /* _TMEReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA5241879BF9100368A0D /* _TMEReply.m */; };
+		84CFA5281879BF9A00368A0D /* TMEReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA5271879BF9A00368A0D /* TMEReply.m */; };
+		84CFA52B1879C09800368A0D /* TMEConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA52A1879C09800368A0D /* TMEConversationManager.m */; };
 		84FCC0CA186A0888002892B2 /* nav-back-btn-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */; };
 		84FCC0CB186A0888002892B2 /* nav-back-btn-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */; };
 		84FCC0CE186A1163002892B2 /* TMESubmitTableCellRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FCC0CD186A1163002892B2 /* TMESubmitTableCellRight.m */; };
@@ -374,8 +376,6 @@
 		0B327B561868436500468DF9 /* TMESubmitTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitTableCell.h; path = "Submit VCs/TMESubmitTableCell.h"; sourceTree = "<group>"; };
 		0B327B571868436500468DF9 /* TMESubmitTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESubmitTableCell.m; path = "Submit VCs/TMESubmitTableCell.m"; sourceTree = "<group>"; };
 		0B327B591868437B00468DF9 /* TMESubmitTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMESubmitTableCell.xib; path = "Submit VCs/TMESubmitTableCell.xib"; sourceTree = "<group>"; };
-		0B327B5B18684D5300468DF9 /* TMEMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEMessageManager.h; sourceTree = "<group>"; };
-		0B327B5C18684D5300468DF9 /* TMEMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMessageManager.m; sourceTree = "<group>"; };
 		0B3D0D82187509AB00B740ED /* TMEMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEMeViewController.h; path = "Me VCs/TMEMeViewController.h"; sourceTree = "<group>"; };
 		0B3D0D83187509AB00B740ED /* TMEMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEMeViewController.m; path = "Me VCs/TMEMeViewController.m"; sourceTree = "<group>"; };
 		0B3D0D84187509AB00B740ED /* TMEMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEMeViewController.xib; path = "Me VCs/TMEMeViewController.xib"; sourceTree = "<group>"; };
@@ -784,10 +784,6 @@
 		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		84143A78186E8BCF00E42457 /* _TMEMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEMessage.h; sourceTree = "<group>"; };
-		84143A79186E8BCF00E42457 /* _TMEMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEMessage.m; sourceTree = "<group>"; };
-		84143A7B186E8BEC00E42457 /* TMEMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEMessage.h; sourceTree = "<group>"; };
-		84143A7C186E8BEC00E42457 /* TMEMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMessage.m; sourceTree = "<group>"; };
 		84325C281875B33D00D14B70 /* TMEActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEActivityViewController.h; path = "Activity VCs/TMEActivityViewController.h"; sourceTree = "<group>"; };
 		84325C291875B33D00D14B70 /* TMEActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEActivityViewController.m; path = "Activity VCs/TMEActivityViewController.m"; sourceTree = "<group>"; };
 		84325C2A1875B33D00D14B70 /* TMEActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEActivityViewController.xib; path = "Activity VCs/TMEActivityViewController.xib"; sourceTree = "<group>"; };
@@ -796,6 +792,16 @@
 		84325C311875B4C200D14B70 /* TMEActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEActivityTableViewCell.xib; path = "Activity VCs/TMEActivityTableViewCell.xib"; sourceTree = "<group>"; };
 		845FC1021875C5ED008E85FA /* TMESearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESearchDisplayController.h; path = "Search VCs/TMESearchDisplayController.h"; sourceTree = "<group>"; };
 		845FC1031875C5ED008E85FA /* TMESearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESearchDisplayController.m; path = "Search VCs/TMESearchDisplayController.m"; sourceTree = "<group>"; };
+		84CFA51D1879BE4900368A0D /* _TMEConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEConversation.h; sourceTree = "<group>"; };
+		84CFA51E1879BE4900368A0D /* _TMEConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEConversation.m; sourceTree = "<group>"; };
+		84CFA5201879BE5100368A0D /* TMEConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEConversation.h; sourceTree = "<group>"; };
+		84CFA5211879BE5100368A0D /* TMEConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEConversation.m; sourceTree = "<group>"; };
+		84CFA5231879BF9100368A0D /* _TMEReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEReply.h; sourceTree = "<group>"; };
+		84CFA5241879BF9100368A0D /* _TMEReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEReply.m; sourceTree = "<group>"; };
+		84CFA5261879BF9A00368A0D /* TMEReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEReply.h; sourceTree = "<group>"; };
+		84CFA5271879BF9A00368A0D /* TMEReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEReply.m; sourceTree = "<group>"; };
+		84CFA5291879C09800368A0D /* TMEConversationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEConversationManager.h; sourceTree = "<group>"; };
+		84CFA52A1879C09800368A0D /* TMEConversationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEConversationManager.m; sourceTree = "<group>"; };
 		84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg.png"; sourceTree = "<group>"; };
 		84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg@2x.png"; sourceTree = "<group>"; };
 		84FCC0CC186A1163002892B2 /* TMESubmitTableCellRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitTableCellRight.h; path = "Submit VCs/TMESubmitTableCellRight.h"; sourceTree = "<group>"; };
@@ -1467,10 +1473,10 @@
 				20A10FCC17F80FA200471983 /* TMECategoryManager.m */,
 				B49C6F55181C152900EB380A /* TMEFacebookManager.h */,
 				B49C6F56181C152900EB380A /* TMEFacebookManager.m */,
-				0B327B5B18684D5300468DF9 /* TMEMessageManager.h */,
-				0B327B5C18684D5300468DF9 /* TMEMessageManager.m */,
 				0B9366F8186C139400491FA4 /* TMEReachabilityManager.h */,
 				0B9366F9186C139400491FA4 /* TMEReachabilityManager.m */,
+				84CFA5291879C09800368A0D /* TMEConversationManager.h */,
+				84CFA52A1879C09800368A0D /* TMEConversationManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1519,14 +1525,16 @@
 		0C7053AD17EF5E5E00E7615F /* Machine */ = {
 			isa = PBXGroup;
 			children = (
+				84CFA51D1879BE4900368A0D /* _TMEConversation.h */,
+				84CFA51E1879BE4900368A0D /* _TMEConversation.m */,
 				0C7053AE17EF5E5E00E7615F /* _TMECategory.h */,
 				0C7053AF17EF5E5E00E7615F /* _TMECategory.m */,
 				0C7053B017EF5E5E00E7615F /* _TMEProduct.h */,
 				0C7053B117EF5E5E00E7615F /* _TMEProduct.m */,
+				84CFA5231879BF9100368A0D /* _TMEReply.h */,
+				84CFA5241879BF9100368A0D /* _TMEReply.m */,
 				0C7053B217EF5E5E00E7615F /* _TMEProductImages.h */,
 				0C7053B317EF5E5E00E7615F /* _TMEProductImages.m */,
-				84143A78186E8BCF00E42457 /* _TMEMessage.h */,
-				84143A79186E8BCF00E42457 /* _TMEMessage.m */,
 				0C7053B617EF5E5E00E7615F /* _TMEUser.h */,
 				0C7053B717EF5E5E00E7615F /* _TMEUser.m */,
 			);
@@ -1674,10 +1682,12 @@
 				0C7053AD17EF5E5E00E7615F /* Machine */,
 				0C7053B817EF5E5E00E7615F /* TMECategory.h */,
 				0C7053B917EF5E5E00E7615F /* TMECategory.m */,
+				84CFA5201879BE5100368A0D /* TMEConversation.h */,
+				84CFA5211879BE5100368A0D /* TMEConversation.m */,
 				0C7053BA17EF5E5E00E7615F /* TMEProduct.h */,
 				0C7053BB17EF5E5E00E7615F /* TMEProduct.m */,
-				84143A7B186E8BEC00E42457 /* TMEMessage.h */,
-				84143A7C186E8BEC00E42457 /* TMEMessage.m */,
+				84CFA5261879BF9A00368A0D /* TMEReply.h */,
+				84CFA5271879BF9A00368A0D /* TMEReply.m */,
 				0C7053BC17EF5E5E00E7615F /* TMEProductImages.h */,
 				0C7053BD17EF5E5E00E7615F /* TMEProductImages.m */,
 				0C7053C017EF5E5E00E7615F /* TMEUser.h */,
@@ -2282,7 +2292,6 @@
 				B4093B771810379700D51B69 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				0C7EFB6717E768C70054C4DE /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */,
-				84143A7D186E8BEC00E42457 /* TMEMessage.m in Sources */,
 				0C2F789317F2DBA600201783 /* SDWebImagePrefetcher.m in Sources */,
 				0B3D0D8918750FCB00B740ED /* TMEMeTableViewCell.m in Sources */,
 				0C2F789817F2DBA600201783 /* UIImageView+WebCache.m in Sources */,
@@ -2316,15 +2325,16 @@
 				0C6E06A517E0CCD10003F104 /* TMEBaseTableViewController.m in Sources */,
 				B4202233180A842500F62FF0 /* TMEBrowserCollectionCell.m in Sources */,
 				0C7EFB5A17E768C70054C4DE /* NSNumber+MagicalDataImport.m in Sources */,
+				84CFA5251879BF9100368A0D /* _TMEReply.m in Sources */,
 				0C7EFBD417E8D5170054C4DE /* UIBezierPath-Points.m in Sources */,
 				0C2F788C17F2DBA600201783 /* NSData+GIF.m in Sources */,
 				0C2F788B17F2DBA600201783 /* MKAnnotationView+WebCache.m in Sources */,
 				0C6E069F17E0CC850003F104 /* TMEBaseViewController.m in Sources */,
-				0B327B5D18684D5300468DF9 /* TMEMessageManager.m in Sources */,
 				0C7053C817EF5E5E00E7615F /* TMEProduct.m in Sources */,
 				0C7EFB6817E768C70054C4DE /* NSPersistentStore+MagicalRecord.m in Sources */,
 				0C59550717F73E380076353E /* TMEBaseTabBarViewController.m in Sources */,
 				0C43914B17F2D27500640D82 /* TMEProduct+Additions.m in Sources */,
+				84CFA51F1879BE4900368A0D /* _TMEConversation.m in Sources */,
 				0C43CCB317F5E62A00D869F9 /* TMEBaseTableViewCell.m in Sources */,
 				0C7EFB5E17E768C70054C4DE /* NSManagedObject+MagicalAggregation.m in Sources */,
 				0C7EFBD517E8D5170054C4DE /* UIButton+Additions.m in Sources */,
@@ -2348,7 +2358,6 @@
 				0C7053CB17EF5E5E00E7615F /* TMEUser.m in Sources */,
 				0C7EFBD117E8D5170054C4DE /* NSString+Validation.m in Sources */,
 				0C7EFBCB17E8D5170054C4DE /* NSDictionary+Additions.m in Sources */,
-				84143A7A186E8BCF00E42457 /* _TMEMessage.m in Sources */,
 				0CD9CF5817EA0FD400402E91 /* AFHTTPRequestOperation.m in Sources */,
 				0C5954FE17F711200076353E /* IIWrapController.m in Sources */,
 				0C7EFBEC17E8D5790054C4DE /* NSString+FontAwesome.m in Sources */,
@@ -2357,9 +2366,11 @@
 				0C7EFB5B17E768C70054C4DE /* NSObject+MagicalDataImport.m in Sources */,
 				0C2F789617F2DBA600201783 /* UIImage+MultiFormat.m in Sources */,
 				0C2F789017F2DBA600201783 /* SDWebImageDownloader.m in Sources */,
+				84CFA5281879BF9A00368A0D /* TMEReply.m in Sources */,
 				0C2F789217F2DBA600201783 /* SDWebImageManager.m in Sources */,
 				0C7EFBDF17E8D5170054C4DE /* UITextView+Additions.m in Sources */,
 				B4093B7B181038ED00D51B69 /* JRSwizzle.m in Sources */,
+				84CFA52B1879C09800368A0D /* TMEConversationManager.m in Sources */,
 				84FCC0CE186A1163002892B2 /* TMESubmitTableCellRight.m in Sources */,
 				0C7EFBC817E8D5170054C4DE /* NSCalendar+Additions.m in Sources */,
 				0C2CE1C117EAEAC20074C57F /* TMEPublishProductViewController.m in Sources */,
@@ -2426,6 +2437,7 @@
 				0C7EFBE317E8D5170054C4DE /* UIViewController+Additions.m in Sources */,
 				0B9366F2186C109400491FA4 /* TSBlurView.m in Sources */,
 				0C2F788E17F2DBA600201783 /* SDWebImageCompat.m in Sources */,
+				84CFA5221879BE5100368A0D /* TMEConversation.m in Sources */,
 				0C7EFB6017E768C70054C4DE /* NSManagedObject+MagicalFinders.m in Sources */,
 				0CFC0FEC17ECB690008FBD92 /* TMEBrowserProductsViewController.m in Sources */,
 				0C2F789D17F3117F00201783 /* TMEUser+Additions.m in Sources */,

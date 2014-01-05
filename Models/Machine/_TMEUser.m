@@ -17,9 +17,8 @@ const struct TMEUserAttributes TMEUserAttributes = {
 };
 
 const struct TMEUserRelationships TMEUserRelationships = {
-	.fromMessages = @"fromMessages",
+	.conversation = @"conversation",
 	.products = @"products",
-	.toMessages = @"toMessages",
 };
 
 const struct TMEUserFetchedProperties TMEUserFetchedProperties = {
@@ -152,15 +151,15 @@ const struct TMEUserFetchedProperties TMEUserFetchedProperties = {
 
 
 
-@dynamic fromMessages;
+@dynamic conversation;
 
 	
-- (NSMutableSet*)fromMessagesSet {
-	[self willAccessValueForKey:@"fromMessages"];
+- (NSMutableSet*)conversationSet {
+	[self willAccessValueForKey:@"conversation"];
   
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"fromMessages"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"conversation"];
   
-	[self didAccessValueForKey:@"fromMessages"];
+	[self didAccessValueForKey:@"conversation"];
 	return result;
 }
 	
@@ -174,19 +173,6 @@ const struct TMEUserFetchedProperties TMEUserFetchedProperties = {
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"products"];
   
 	[self didAccessValueForKey:@"products"];
-	return result;
-}
-	
-
-@dynamic toMessages;
-
-	
-- (NSMutableSet*)toMessagesSet {
-	[self willAccessValueForKey:@"toMessages"];
-  
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"toMessages"];
-  
-	[self didAccessValueForKey:@"toMessages"];
 	return result;
 }
 	

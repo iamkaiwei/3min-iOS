@@ -19,8 +19,8 @@ extern const struct TMEProductAttributes {
 
 extern const struct TMEProductRelationships {
 	__unsafe_unretained NSString *category;
+	__unsafe_unretained NSString *conversation;
 	__unsafe_unretained NSString *images;
-	__unsafe_unretained NSString *message;
 	__unsafe_unretained NSString *user;
 } TMEProductRelationships;
 
@@ -28,8 +28,8 @@ extern const struct TMEProductFetchedProperties {
 } TMEProductFetchedProperties;
 
 @class TMECategory;
+@class TMEConversation;
 @class TMEProductImages;
-@class TMEMessage;
 @class TMEUser;
 
 
@@ -183,16 +183,16 @@ extern const struct TMEProductFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSSet *conversation;
+
+- (NSMutableSet*)conversationSet;
+
+
+
+
 @property (nonatomic, strong) NSSet *images;
 
 - (NSMutableSet*)imagesSet;
-
-
-
-
-@property (nonatomic, strong) NSSet *message;
-
-- (NSMutableSet*)messageSet;
 
 
 
@@ -209,15 +209,15 @@ extern const struct TMEProductFetchedProperties {
 
 @interface _TMEProduct (CoreDataGeneratedAccessors)
 
+- (void)addConversation:(NSSet*)value_;
+- (void)removeConversation:(NSSet*)value_;
+- (void)addConversationObject:(TMEConversation*)value_;
+- (void)removeConversationObject:(TMEConversation*)value_;
+
 - (void)addImages:(NSSet*)value_;
 - (void)removeImages:(NSSet*)value_;
 - (void)addImagesObject:(TMEProductImages*)value_;
 - (void)removeImagesObject:(TMEProductImages*)value_;
-
-- (void)addMessage:(NSSet*)value_;
-- (void)removeMessage:(NSSet*)value_;
-- (void)addMessageObject:(TMEMessage*)value_;
-- (void)removeMessageObject:(TMEMessage*)value_;
 
 @end
 
@@ -305,13 +305,13 @@ extern const struct TMEProductFetchedProperties {
 
 
 
+- (NSMutableSet*)primitiveConversation;
+- (void)setPrimitiveConversation:(NSMutableSet*)value;
+
+
+
 - (NSMutableSet*)primitiveImages;
 - (void)setPrimitiveImages:(NSMutableSet*)value;
-
-
-
-- (NSMutableSet*)primitiveMessage;
-- (void)setPrimitiveMessage:(NSMutableSet*)value;
 
 
 

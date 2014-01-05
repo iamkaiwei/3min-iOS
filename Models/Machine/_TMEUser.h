@@ -18,17 +18,15 @@ extern const struct TMEUserAttributes {
 } TMEUserAttributes;
 
 extern const struct TMEUserRelationships {
-	__unsafe_unretained NSString *fromMessages;
+	__unsafe_unretained NSString *conversation;
 	__unsafe_unretained NSString *products;
-	__unsafe_unretained NSString *toMessages;
 } TMEUserRelationships;
 
 extern const struct TMEUserFetchedProperties {
 } TMEUserFetchedProperties;
 
-@class TMEMessage;
+@class TMEConversation;
 @class TMEProduct;
-@class TMEMessage;
 
 
 
@@ -158,9 +156,9 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet *fromMessages;
+@property (nonatomic, strong) NSSet *conversation;
 
-- (NSMutableSet*)fromMessagesSet;
+- (NSMutableSet*)conversationSet;
 
 
 
@@ -172,32 +170,20 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet *toMessages;
-
-- (NSMutableSet*)toMessagesSet;
-
-
-
-
 
 @end
 
 @interface _TMEUser (CoreDataGeneratedAccessors)
 
-- (void)addFromMessages:(NSSet*)value_;
-- (void)removeFromMessages:(NSSet*)value_;
-- (void)addFromMessagesObject:(TMEMessage*)value_;
-- (void)removeFromMessagesObject:(TMEMessage*)value_;
+- (void)addConversation:(NSSet*)value_;
+- (void)removeConversation:(NSSet*)value_;
+- (void)addConversationObject:(TMEConversation*)value_;
+- (void)removeConversationObject:(TMEConversation*)value_;
 
 - (void)addProducts:(NSSet*)value_;
 - (void)removeProducts:(NSSet*)value_;
 - (void)addProductsObject:(TMEProduct*)value_;
 - (void)removeProductsObject:(TMEProduct*)value_;
-
-- (void)addToMessages:(NSSet*)value_;
-- (void)removeToMessages:(NSSet*)value_;
-- (void)addToMessagesObject:(TMEMessage*)value_;
-- (void)removeToMessagesObject:(TMEMessage*)value_;
 
 @end
 
@@ -268,18 +254,13 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-- (NSMutableSet*)primitiveFromMessages;
-- (void)setPrimitiveFromMessages:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveConversation;
+- (void)setPrimitiveConversation:(NSMutableSet*)value;
 
 
 
 - (NSMutableSet*)primitiveProducts;
 - (void)setPrimitiveProducts:(NSMutableSet*)value;
-
-
-
-- (NSMutableSet*)primitiveToMessages;
-- (void)setPrimitiveToMessages:(NSMutableSet*)value;
 
 
 @end

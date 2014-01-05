@@ -1,45 +1,43 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to TMEMessage.m instead.
+// Make changes to TMEConversation.m instead.
 
-#import "_TMEMessage.h"
+#import "_TMEConversation.h"
 
-const struct TMEMessageAttributes TMEMessageAttributes = {
-	.chat = @"chat",
+const struct TMEConversationAttributes TMEConversationAttributes = {
 	.id = @"id",
-	.meetup_place = @"meetup_place",
-	.time_stamp = @"time_stamp",
+	.lastest_message = @"lastest_message",
 };
 
-const struct TMEMessageRelationships TMEMessageRelationships = {
-	.from = @"from",
+const struct TMEConversationRelationships TMEConversationRelationships = {
 	.product = @"product",
-	.to = @"to",
+	.replies = @"replies",
+	.user = @"user",
 };
 
-const struct TMEMessageFetchedProperties TMEMessageFetchedProperties = {
+const struct TMEConversationFetchedProperties TMEConversationFetchedProperties = {
 };
 
-@implementation TMEMessageID
+@implementation TMEConversationID
 @end
 
-@implementation _TMEMessage
+@implementation _TMEConversation
 
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"TMEMessage" inManagedObjectContext:moc_];
+	return [NSEntityDescription insertNewObjectForEntityForName:@"TMEConversation" inManagedObjectContext:moc_];
 }
 
 + (NSString*)entityName {
-	return @"TMEMessage";
+	return @"TMEConversation";
 }
 
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"TMEMessage" inManagedObjectContext:moc_];
+	return [NSEntityDescription entityForName:@"TMEConversation" inManagedObjectContext:moc_];
 }
 
-- (TMEMessageID*)objectID {
-	return (TMEMessageID*)[super objectID];
+- (TMEConversationID*)objectID {
+	return (TMEConversationID*)[super objectID];
 }
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
@@ -53,13 +51,6 @@ const struct TMEMessageFetchedProperties TMEMessageFetchedProperties = {
 
 	return keyPaths;
 }
-
-
-
-
-@dynamic chat;
-
-
 
 
 
@@ -90,29 +81,31 @@ const struct TMEMessageFetchedProperties TMEMessageFetchedProperties = {
 
 
 
-@dynamic meetup_place;
+@dynamic lastest_message;
 
 
 
 
 
-
-@dynamic time_stamp;
-
-
-
-
-
-
-@dynamic from;
-
-	
 
 @dynamic product;
 
 	
 
-@dynamic to;
+@dynamic replies;
+
+	
+- (NSMutableSet*)repliesSet {
+	[self willAccessValueForKey:@"replies"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"replies"];
+  
+	[self didAccessValueForKey:@"replies"];
+	return result;
+}
+	
+
+@dynamic user;
 
 	
 

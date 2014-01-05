@@ -1,15 +1,14 @@
 //
-//  TMEMessageManager.h
+//  TMEConversationManager.h
 //  PhotoButton
 //
-//  Created by Toan Slan on 12/23/13.
+//  Created by admin on 1/5/14.
 //
 //
 
 #import "BaseManager.h"
-#import "TMEMessage.h"
 
-@interface TMEMessageManager : BaseManager
+@interface TMEConversationManager : BaseManager
 
 - (void)getListMessageOfProduct:(TMEProduct *)product
                       withBuyer:(TMEUser *)fromBuyer

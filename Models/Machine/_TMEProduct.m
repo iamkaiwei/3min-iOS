@@ -18,8 +18,8 @@ const struct TMEProductAttributes TMEProductAttributes = {
 
 const struct TMEProductRelationships TMEProductRelationships = {
 	.category = @"category",
+	.conversation = @"conversation",
 	.images = @"images",
-	.message = @"message",
 	.user = @"user",
 };
 
@@ -253,6 +253,19 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 
 	
 
+@dynamic conversation;
+
+	
+- (NSMutableSet*)conversationSet {
+	[self willAccessValueForKey:@"conversation"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"conversation"];
+  
+	[self didAccessValueForKey:@"conversation"];
+	return result;
+}
+	
+
 @dynamic images;
 
 	
@@ -262,19 +275,6 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"images"];
   
 	[self didAccessValueForKey:@"images"];
-	return result;
-}
-	
-
-@dynamic message;
-
-	
-- (NSMutableSet*)messageSet {
-	[self willAccessValueForKey:@"message"];
-  
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"message"];
-  
-	[self didAccessValueForKey:@"message"];
 	return result;
 }
 	
