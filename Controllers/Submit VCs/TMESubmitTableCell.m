@@ -21,41 +21,34 @@
 
 @implementation TMESubmitTableCell
 
-- (void)configCellWithMessage:(TMEMessage *)message andSeller:(TMEUser *)seller
+- (void)configCellWithMessage:(TMEReply *)reply
 {
-    if ([message.from.id isEqual:seller.id]) {
-        self.lblUsername.text = seller.fullname;
-        [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:seller.photo_url]];
-    }
-    else
-    {
-        self.lblUsername.text = message.from.fullname;
-        [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:message.from.photo_url]];
-    }
-    
-    self.lblContent.text = message.chat;
-    [self.lblContent sizeToFitKeepWidth];
-    [self.separatorView alignBelowView:self.lblContent offsetY:7 sameWidth:NO];
-    
-    if (message.time_stamp) {
-        [self.indicator stopAnimating];
-        self.lblTime.text = [message.time_stamp relativeDate];
-        return;
-    }
-    
-    self.indicator.hidden = NO;
-    self.lblTime.text = @"Pending...";
+  self.lblUsername.text = reply.user_full_name;
+  [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:reply.user_avatar]];
+  
+  self.lblContent.text = reply.reply;
+  [self.lblContent sizeToFitKeepWidth];
+  [self.separatorView alignBelowView:self.lblContent offsetY:7 sameWidth:NO];
+  
+  if (reply.time_stamp) {
+    [self.indicator stopAnimating];
+    self.lblTime.text = [reply.time_stamp relativeDate];
+    return;
+  }
+  
+  self.indicator.hidden = YES;
+//  self.lblTime.text = @"Pending...";
 }
 
 + (CGFloat)getHeight{
-    return 111;
+  return 111;
 }
 
 - (CGFloat)getHeightWithContent:(NSString *)content{
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 295, 26)];
-    label.text = content;
-    [label sizeToFitKeepWidth];
-    return [TMESubmitTableCell getHeight] + [label expectedHeight] - 26;
+  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 295, 26)];
+  label.text = content;
+  [label sizeToFitKeepWidth];
+  return [TMESubmitTableCell getHeight] + [label expectedHeight] - 26;
 }
 
 @end

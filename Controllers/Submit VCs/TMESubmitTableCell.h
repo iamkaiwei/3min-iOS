@@ -11,6 +11,6 @@
 @interface TMESubmitTableCell : TMEBaseTableViewCell
 
 - (CGFloat)getHeightWithContent:(NSString *)content;
-- (void)configCellWithMessage:(TMEMessage *)message andSeller:(TMEUser *)seller;
+- (void)configCellWithMessage:(TMEReply *)reply;
 
 @end

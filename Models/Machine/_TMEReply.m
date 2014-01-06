@@ -7,6 +7,8 @@ const struct TMEReplyAttributes TMEReplyAttributes = {
 	.id = @"id",
 	.reply = @"reply",
 	.time_stamp = @"time_stamp",
+	.user_avatar = @"user_avatar",
+	.user_full_name = @"user_full_name",
 	.user_id = @"user_id",
 };
 
@@ -94,6 +96,20 @@ const struct TMEReplyFetchedProperties TMEReplyFetchedProperties = {
 
 
 @dynamic time_stamp;
+
+
+
+
+
+
+@dynamic user_avatar;
+
+
+
+
+
+
+@dynamic user_full_name;
 
 
 

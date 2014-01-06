@@ -12,37 +12,42 @@
 
 // Custom logic goes here.
 
-+ (NSArray *)arrayMessageFromArray:(NSArray *)arrData andProduct:(TMEProduct *)product withBuyer:(TMEUser *)buyer
-{
-  NSMutableArray *arrTrans = [@[] mutableCopy];
++ (NSArray *)arrayRepliesFromArrayData:(NSArray *)arrData ofConversation:(TMEConversation *)conversation{
+  NSMutableArray *arrReplies = [@[] mutableCopy];
   for (NSDictionary *data in arrData) {
-    TMEReply *reply = [TMEReply replyWithData:data];
-    [arrTrans addObject:reply];
+    TMEReply *reply = [TMEReply replyWithData:data ofConversation:conversation];
+    [arrReplies addObject:reply];
   }
 
-  return arrTrans;
+  return arrReplies;
 }
 
-+ (TMEReply *)replyWithData:(NSDictionary *)data{
++ (TMEReply *)replyWithData:(NSDictionary *)data ofConversation:(TMEConversation *)conversation{
   TMEReply *reply = [TMEReply MR_createEntity];
   
   reply.id = data[@"id"];
-  reply.user_id = data[@"user_id"];
+  
+  reply.user_id = conversation.user_id;
+  reply.user_full_name = conversation.user_full_name;
+  reply.user_avatar = conversation.user_avatar;
+  
   reply.reply = data[@"reply"];
 //  reply.time_stamp = nil;
-//  reply.conversation = nil;
+  reply.conversation = conversation;
   
   return reply;
 }
 
-//+ (TMEMessage *)messagePendingWithContent:(NSString *)content
-//{
-//  TMEMessage *message = [TMEMessage MR_createEntity];
-//
-//  message.chat = content;
-//  message.from = [[TMEUserManager sharedInstance] loggedUser];
-//
-//  return message;
-//}
++ (TMEReply *)replyPendingWithContent:(NSString *)content
+{
+  TMEReply *reply = [TMEReply MR_createEntity];
+
+  reply.reply = content;
+  reply.user_avatar = [[[TMEUserManager sharedInstance] loggedUser] photo_url];
+  reply.user_full_name = [[[TMEUserManager sharedInstance] loggedUser] fullname];
+  reply.user_id = [[[TMEUserManager sharedInstance] loggedUser] id];
+
+  return reply;
+}
 
 @end

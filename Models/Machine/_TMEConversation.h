@@ -7,12 +7,14 @@
 extern const struct TMEConversationAttributes {
 	__unsafe_unretained NSString *id;
 	__unsafe_unretained NSString *lastest_message;
+	__unsafe_unretained NSString *user_avatar;
+	__unsafe_unretained NSString *user_full_name;
+	__unsafe_unretained NSString *user_id;
 } TMEConversationAttributes;
 
 extern const struct TMEConversationRelationships {
 	__unsafe_unretained NSString *product;
 	__unsafe_unretained NSString *replies;
-	__unsafe_unretained NSString *user;
 } TMEConversationRelationships;
 
 extern const struct TMEConversationFetchedProperties {
@@ -20,7 +22,9 @@ extern const struct TMEConversationFetchedProperties {
 
 @class TMEProduct;
 @class TMEReply;
-@class TMEUser;
+
+
+
 
 
 
@@ -62,6 +66,40 @@ extern const struct TMEConversationFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* user_avatar;
+
+
+
+//- (BOOL)validateUser_avatar:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* user_full_name;
+
+
+
+//- (BOOL)validateUser_full_name:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* user_id;
+
+
+
+@property int64_t user_idValue;
+- (int64_t)user_idValue;
+- (void)setUser_idValue:(int64_t)value_;
+
+//- (BOOL)validateUser_id:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) TMEProduct *product;
 
 //- (BOOL)validateProduct:(id*)value_ error:(NSError**)error_;
@@ -72,13 +110,6 @@ extern const struct TMEConversationFetchedProperties {
 @property (nonatomic, strong) NSSet *replies;
 
 - (NSMutableSet*)repliesSet;
-
-
-
-
-@property (nonatomic, strong) TMEUser *user;
-
-//- (BOOL)validateUser:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -113,6 +144,27 @@ extern const struct TMEConversationFetchedProperties {
 
 
 
+- (NSString*)primitiveUser_avatar;
+- (void)setPrimitiveUser_avatar:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveUser_full_name;
+- (void)setPrimitiveUser_full_name:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveUser_id;
+- (void)setPrimitiveUser_id:(NSNumber*)value;
+
+- (int64_t)primitiveUser_idValue;
+- (void)setPrimitiveUser_idValue:(int64_t)value_;
+
+
+
+
 
 - (TMEProduct*)primitiveProduct;
 - (void)setPrimitiveProduct:(TMEProduct*)value;
@@ -121,11 +173,6 @@ extern const struct TMEConversationFetchedProperties {
 
 - (NSMutableSet*)primitiveReplies;
 - (void)setPrimitiveReplies:(NSMutableSet*)value;
-
-
-
-- (TMEUser*)primitiveUser;
-- (void)setPrimitiveUser:(TMEUser*)value;
 
 
 @end

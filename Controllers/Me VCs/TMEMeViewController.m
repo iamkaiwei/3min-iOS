@@ -34,14 +34,18 @@ UITableViewDataSource
     self.tableViewMenu.frame = frame;
   }
   
-  self.title = @"";
-  self.navigationController.navigationBar.topItem.title = [[TMEUserManager sharedInstance] loggedUser].fullname;
   // Do any additional setup after loading the view from its nib.
   self.arrayCellTitleSectionOne = @[@"Find & Invite Friends", @"Recommended Users"];
   self.arrayCellTitleSectionTwo = @[@"My Listings", @"Offer I Made", @"Stuff I Liked"];
   self.arrayCellTitleSectionThree = @[@"Edit Profile", @"Share Settings", @"Notification Settings", @"Logout"];
   
   [self.tableViewMenu registerNib:[UINib nibWithNibName:NSStringFromClass([TMEMeTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([TMEMeTableViewCell class])];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+  [super viewWillAppear:animated];
+  
+  self.navigationController.navigationBar.topItem.title = [[TMEUserManager sharedInstance] loggedUser].fullname;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -112,6 +116,7 @@ UITableViewDataSource
     case 0:
       [[TMEUserManager sharedInstance] logOut];
       [[TMEFacebookManager sharedInstance] showLoginView];
+      [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"LAST_LOGIN_TIMESTAMP_STORED_KEY"];
       break;
       
     default:

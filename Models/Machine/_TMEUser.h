@@ -18,14 +18,12 @@ extern const struct TMEUserAttributes {
 } TMEUserAttributes;
 
 extern const struct TMEUserRelationships {
-	__unsafe_unretained NSString *conversation;
 	__unsafe_unretained NSString *products;
 } TMEUserRelationships;
 
 extern const struct TMEUserFetchedProperties {
 } TMEUserFetchedProperties;
 
-@class TMEConversation;
 @class TMEProduct;
 
 
@@ -156,13 +154,6 @@ extern const struct TMEUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet *conversation;
-
-- (NSMutableSet*)conversationSet;
-
-
-
-
 @property (nonatomic, strong) NSSet *products;
 
 - (NSMutableSet*)productsSet;
@@ -174,11 +165,6 @@ extern const struct TMEUserFetchedProperties {
 @end
 
 @interface _TMEUser (CoreDataGeneratedAccessors)
-
-- (void)addConversation:(NSSet*)value_;
-- (void)removeConversation:(NSSet*)value_;
-- (void)addConversationObject:(TMEConversation*)value_;
-- (void)removeConversationObject:(TMEConversation*)value_;
 
 - (void)addProducts:(NSSet*)value_;
 - (void)removeProducts:(NSSet*)value_;
@@ -251,11 +237,6 @@ extern const struct TMEUserFetchedProperties {
 - (void)setPrimitiveUsername:(NSString*)value;
 
 
-
-
-
-- (NSMutableSet*)primitiveConversation;
-- (void)setPrimitiveConversation:(NSMutableSet*)value;
 
 
 

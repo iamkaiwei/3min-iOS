@@ -31,8 +31,8 @@
         user.username = userData[@"username"];
         user.email = userData[@"email"];
         user.access_token = data[@"access_token"];
-        user.udid = data[@"udid"];
-        user.fullname = data[@"full_name"];
+        user.udid = userData[@"udid"];
+        user.fullname = userData[@"full_name"];
         
         if (userData[@"facebook_avatar"] && ![userData[@"facebook_avatar"] isEqual:[NSNull null]]) {
             user.photo_url = userData[@"facebook_avatar"];

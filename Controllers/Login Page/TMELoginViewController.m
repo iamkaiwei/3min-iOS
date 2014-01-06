@@ -27,14 +27,15 @@
 
 - (IBAction)buttonLoginAction:(id)sender {
   [FacebookManager sharedInstance].delegate = self;
-  [[FacebookManager sharedInstance] openSessionForPublishing];
+  [[FacebookManager sharedInstance] openSession];
 }
 
 - (void)facebookLoginSucceeded:(FacebookManager *)facebookManager{
   [[FBRequest requestForMe] startWithCompletionHandler:
    ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
      if (!error) {
-       [[AppDelegate sharedDelegate] showHomeViewController];
+//         [[TMEUserManager sharedInstance] setLoggedFacebookUser:user];
+         [[AppDelegate sharedDelegate] showHomeViewController];
      }
    }];
 }

@@ -275,9 +275,7 @@ FacebookManagerDelegate
 - (void)showLoginView
 {
     TMELoginViewController* loginViewController = [[TMELoginViewController alloc]init];
-    [self switchRootViewController:loginViewController animated:YES completion:^{
-        
-    }];
+    [self switchRootViewController:loginViewController animated:YES completion:nil];
     [self.window makeKeyAndVisible];
 }
 

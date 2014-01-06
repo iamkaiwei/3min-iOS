@@ -8,6 +8,8 @@ extern const struct TMEReplyAttributes {
 	__unsafe_unretained NSString *id;
 	__unsafe_unretained NSString *reply;
 	__unsafe_unretained NSString *time_stamp;
+	__unsafe_unretained NSString *user_avatar;
+	__unsafe_unretained NSString *user_full_name;
 	__unsafe_unretained NSString *user_id;
 } TMEReplyAttributes;
 
@@ -19,6 +21,8 @@ extern const struct TMEReplyFetchedProperties {
 } TMEReplyFetchedProperties;
 
 @class TMEConversation;
+
+
 
 
 
@@ -72,6 +76,26 @@ extern const struct TMEReplyFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* user_avatar;
+
+
+
+//- (BOOL)validateUser_avatar:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* user_full_name;
+
+
+
+//- (BOOL)validateUser_full_name:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSNumber* user_id;
 
 
@@ -120,6 +144,18 @@ extern const struct TMEReplyFetchedProperties {
 
 - (NSDate*)primitiveTime_stamp;
 - (void)setPrimitiveTime_stamp:(NSDate*)value;
+
+
+
+
+- (NSString*)primitiveUser_avatar;
+- (void)setPrimitiveUser_avatar:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveUser_full_name;
+- (void)setPrimitiveUser_full_name:(NSString*)value;
 
 
 

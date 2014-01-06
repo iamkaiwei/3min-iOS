@@ -6,12 +6,14 @@
 const struct TMEConversationAttributes TMEConversationAttributes = {
 	.id = @"id",
 	.lastest_message = @"lastest_message",
+	.user_avatar = @"user_avatar",
+	.user_full_name = @"user_full_name",
+	.user_id = @"user_id",
 };
 
 const struct TMEConversationRelationships TMEConversationRelationships = {
 	.product = @"product",
 	.replies = @"replies",
-	.user = @"user",
 };
 
 const struct TMEConversationFetchedProperties TMEConversationFetchedProperties = {
@@ -45,6 +47,11 @@ const struct TMEConversationFetchedProperties TMEConversationFetchedProperties =
 	
 	if ([key isEqualToString:@"idValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"id"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"user_idValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"user_id"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -88,6 +95,46 @@ const struct TMEConversationFetchedProperties TMEConversationFetchedProperties =
 
 
 
+@dynamic user_avatar;
+
+
+
+
+
+
+@dynamic user_full_name;
+
+
+
+
+
+
+@dynamic user_id;
+
+
+
+- (int64_t)user_idValue {
+	NSNumber *result = [self user_id];
+	return [result longLongValue];
+}
+
+- (void)setUser_idValue:(int64_t)value_ {
+	[self setUser_id:[NSNumber numberWithLongLong:value_]];
+}
+
+- (int64_t)primitiveUser_idValue {
+	NSNumber *result = [self primitiveUser_id];
+	return [result longLongValue];
+}
+
+- (void)setPrimitiveUser_idValue:(int64_t)value_ {
+	[self setPrimitiveUser_id:[NSNumber numberWithLongLong:value_]];
+}
+
+
+
+
+
 @dynamic product;
 
 	
@@ -103,10 +150,6 @@ const struct TMEConversationFetchedProperties TMEConversationFetchedProperties =
 	[self didAccessValueForKey:@"replies"];
 	return result;
 }
-	
-
-@dynamic user;
-
 	
 
 

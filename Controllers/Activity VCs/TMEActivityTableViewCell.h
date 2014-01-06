@@ -10,4 +10,6 @@
 
 @interface TMEActivityTableViewCell : TMEBaseTableViewCell
 
+- (void)configCellWithConversation:(TMEConversation *)conversation;
++ (CGFloat)getHeight;
 @end

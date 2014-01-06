@@ -10,6 +10,6 @@
 
 @interface TMESubmitTableCellRight : TMEBaseTableViewCell
 
-- (void)configCellWithMessage:(TMEMessage *)message andSeller:(TMEUser *)seller;
+- (void)configCellWithMessage:(TMEReply *)message;
 
 @end
