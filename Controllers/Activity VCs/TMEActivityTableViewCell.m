@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelContent;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewAvatar;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewProduct;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewClock;
 
 @end
 
@@ -22,9 +23,16 @@
 
 - (void)configCellWithConversation:(TMEConversation *)conversation{
   self.labelUserName.text = conversation.user_full_name;
-  //  self.labelTimestamp.text = conversation;
+  self.labelTimestamp.text = [conversation.lastest_update relativeDate];
+  [self.labelTimestamp sizeToFit];
+  
+  CGRect frame = self.imageViewClock.frame;
+  frame.origin.x = CGRectGetMaxX(self.labelTimestamp.frame) + 3;
+  self.imageViewClock.frame = frame;
+  
   self.labelContent.text = conversation.lastest_message;
   [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:conversation.user_avatar]];
+  
   NSString *imageURL = [(TMEProductImages *)[conversation.product.imagesSet anyObject] medium];
   [self.imageViewProduct setImageWithURL:[NSURL URLWithString:imageURL]];
 

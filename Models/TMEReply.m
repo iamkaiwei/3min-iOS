@@ -27,12 +27,13 @@
   
   reply.id = data[@"id"];
   
-  reply.user_id = conversation.user_id;
-  reply.user_full_name = conversation.user_full_name;
-  reply.user_avatar = conversation.user_avatar;
-  
+  reply.user_id = data[@"user_id"];
   reply.reply = data[@"reply"];
-//  reply.time_stamp = nil;
+  
+  if (![data[@"timestamp"] isKindOfClass:[NSNull class]]) {
+    reply.time_stamp = [NSDate dateWithTimeIntervalSince1970:[data[@"timestamp"] doubleValue]];
+  }
+  
   reply.conversation = conversation;
   
   return reply;

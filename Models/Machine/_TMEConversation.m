@@ -6,6 +6,7 @@
 const struct TMEConversationAttributes TMEConversationAttributes = {
 	.id = @"id",
 	.lastest_message = @"lastest_message",
+	.lastest_update = @"lastest_update",
 	.user_avatar = @"user_avatar",
 	.user_full_name = @"user_full_name",
 	.user_id = @"user_id",
@@ -89,6 +90,13 @@ const struct TMEConversationFetchedProperties TMEConversationFetchedProperties =
 
 
 @dynamic lastest_message;
+
+
+
+
+
+
+@dynamic lastest_update;
 
 
 

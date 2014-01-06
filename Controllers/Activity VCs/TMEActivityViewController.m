@@ -58,6 +58,7 @@ UITableViewDelegate
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
   TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
   submitController.product = [self.arrayConversation[indexPath.row] product];
+  submitController.conversationID = [[self.arrayConversation[indexPath.row] id] integerValue];
   [self.navigationController pushViewController:submitController animated:YES];
 }
 

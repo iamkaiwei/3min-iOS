@@ -98,12 +98,16 @@ UITextFieldDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   TMEReply *reply = self.arrayReply[indexPath.row];
-  if ([reply.user_id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
+  if ([reply.user_id isEqual:[[[TMEUserManager sharedInstance] loggedUser] id]]) {
+    reply.user_full_name = [[[TMEUserManager sharedInstance] loggedUser] fullname];
+    reply.user_avatar = [[[TMEUserManager sharedInstance] loggedUser] photo_url];
     TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCell class]) forIndexPath:indexPath];
     [cell configCellWithMessage:reply];
     return cell;
   }
   
+  reply.user_full_name = self.product.user.fullname;
+  reply.user_avatar = self.product.user.photo_url;
   TMESubmitTableCellRight *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCellRight class]) forIndexPath:indexPath];
   [cell configCellWithMessage:reply];
   
@@ -154,7 +158,7 @@ UITextFieldDelegate
                               withPage:(NSInteger)page
                             ShowBottom:(BOOL)showBottom
 {
-  [[TMEConversationManager sharedInstance] getRepliesOfConversationWithConversationID:1
+  [[TMEConversationManager sharedInstance] getRepliesOfConversationWithConversationID:self.conversationID
                                                                    andReplyIDLargerID:largerReplyID
                                                                           orSmallerID:smallerReplyID
                                                                              withPage:page
@@ -188,7 +192,7 @@ UITextFieldDelegate
 }
 
 - (NSInteger)getLastestReplyID{
-  TMEReply *reply = (TMEReply *)[self.arrayReply firstObject];
+  TMEReply *reply = (TMEReply *)[self.arrayReply lastObject];
   return [reply.id integerValue];
 }
 

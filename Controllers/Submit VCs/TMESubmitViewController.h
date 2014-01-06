@@ -11,5 +11,6 @@
 @interface TMESubmitViewController : TMEBaseViewController
 
 @property (strong, nonatomic) TMEProduct *product;
+@property (assign, nonatomic) NSInteger conversationID;
 
 @end

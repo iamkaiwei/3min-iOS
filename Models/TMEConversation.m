@@ -50,6 +50,10 @@
     conversation.lastest_message = data[@"lastest_message"];
   }
   
+  if (![data[@"lastest_update"] isKindOfClass:[NSNull class]]) {
+    conversation.lastest_update = [NSDate dateWithTimeIntervalSince1970:[data[@"lastest_update"] doubleValue]];
+  }
+  
   return conversation;
 }
 
@@ -62,6 +66,10 @@
   
   if (![data[@"lastest_message"] isKindOfClass:[NSNull class]]) {
     self.lastest_message = data[@"lastest_message"];
+  }
+  
+  if (![data[@"lastest_update"] isKindOfClass:[NSNull class]]) {
+    self.lastest_update = [NSDate dateWithTimeIntervalSince1970:[data[@"lastest_update"] doubleValue]];
   }
 }
 

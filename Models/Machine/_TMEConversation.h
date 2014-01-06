@@ -7,6 +7,7 @@
 extern const struct TMEConversationAttributes {
 	__unsafe_unretained NSString *id;
 	__unsafe_unretained NSString *lastest_message;
+	__unsafe_unretained NSString *lastest_update;
 	__unsafe_unretained NSString *user_avatar;
 	__unsafe_unretained NSString *user_full_name;
 	__unsafe_unretained NSString *user_id;
@@ -22,6 +23,7 @@ extern const struct TMEConversationFetchedProperties {
 
 @class TMEProduct;
 @class TMEReply;
+
 
 
 
@@ -61,6 +63,16 @@ extern const struct TMEConversationFetchedProperties {
 
 
 //- (BOOL)validateLastest_message:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSDate* lastest_update;
+
+
+
+//- (BOOL)validateLastest_update:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -140,6 +152,12 @@ extern const struct TMEConversationFetchedProperties {
 
 - (NSString*)primitiveLastest_message;
 - (void)setPrimitiveLastest_message:(NSString*)value;
+
+
+
+
+- (NSDate*)primitiveLastest_update;
+- (void)setPrimitiveLastest_update:(NSDate*)value;
 
 
 
