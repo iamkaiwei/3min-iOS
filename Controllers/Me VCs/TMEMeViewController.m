@@ -11,15 +11,17 @@
 #import "TMEMeTableViewCellBackgroundView.h"
 
 @interface TMEMeViewController ()
-< UITableViewDelegate,
+<
+UITableViewDelegate,
 UIActionSheetDelegate,
 UITableViewDataSource
 >
 
-@property (strong, nonatomic) NSArray *arrayCellTitleSectionOne;
-@property (strong, nonatomic) NSArray *arrayCellTitleSectionTwo;
-@property (strong, nonatomic) NSArray *arrayCellTitleSectionThree;
-@property (weak, nonatomic) IBOutlet UITableView *tableViewMenu;
+@property (strong, nonatomic) NSArray             * arrayCellTitleSectionOne;
+@property (strong, nonatomic) NSArray             * arrayCellTitleSectionTwo;
+@property (strong, nonatomic) NSArray             * arrayCellTitleSectionThree;
+
+@property (weak, nonatomic) IBOutlet UITableView  * tableViewMenu;
 @end
 
 @implementation TMEMeViewController
@@ -27,12 +29,6 @@ UITableViewDataSource
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
-  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    CGRect frame = CGRectMake(9, 0, 302, 568);
-    self.tableViewMenu.frame = frame;
-  }
   
   // Do any additional setup after loading the view from its nib.
   self.arrayCellTitleSectionOne = @[@"Find & Invite Friends", @"Recommended Users"];
@@ -43,15 +39,15 @@ UITableViewDataSource
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-  [super viewWillAppear:animated];
   
+  [super viewWillAppear:animated];
   self.navigationController.navigationBar.topItem.title = [[TMEUserManager sharedInstance] loggedUser].fullname;
+  
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-  TMEMeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMEMeTableViewCell class]) forIndexPath:indexPath];
   
-  [self customBackgroundLayerOfCell:cell];
+  TMEMeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMEMeTableViewCell class]) forIndexPath:indexPath];
   
   switch (indexPath.section) {
     case 0:
@@ -116,35 +112,12 @@ UITableViewDataSource
     case 0:
       [[TMEUserManager sharedInstance] logOut];
       [[TMEFacebookManager sharedInstance] showLoginView];
-      [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"LAST_LOGIN_TIMESTAMP_STORED_KEY"];
+      [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:LAST_LOGIN_TIMESTAMP_STORED_KEY];
       break;
       
     default:
       break;
   }
-}
-
-- (void)customBackgroundLayerOfCell:(UITableViewCell *)cell{
-  CGRect frame = cell.backgroundView.frame;
-  cell.backgroundView = [[TMEMeTableViewCellBackgroundView alloc] initWithFrame:frame];
-  
-  CGFloat corner = 0;
-  UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:cell.backgroundView.bounds
-                                             byRoundingCorners:UIRectCornerAllCorners
-                                                   cornerRadii:CGSizeMake(corner, corner)];
-  
-  CAShapeLayer  *shapeLayer = (CAShapeLayer *)cell.backgroundView.layer;
-  shapeLayer.path = path.CGPath;
-  shapeLayer.fillColor = cell.textLabel.backgroundColor.CGColor;
-  
-  if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
-    UIColor *selectedGray = [UIColor colorWithHexString:@"bbbbbb"];
-    cell.selectedBackgroundView = [[TMEMeTableViewCellBackgroundView alloc] initWithFrame:frame];
-    CAShapeLayer  *shapeSelectedLayer = (CAShapeLayer *)cell.selectedBackgroundView.layer;
-    shapeSelectedLayer.path = path.CGPath;
-    shapeSelectedLayer.fillColor = [selectedGray CGColor];
-  }
-  
 }
 
 @end
