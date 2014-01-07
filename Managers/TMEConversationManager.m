@@ -45,12 +45,16 @@ SINGLETON_MACRO
                                   [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
                                     DLog(@"Finish save to magical record");
                                     
-                                    successBlock(conversation);
+                                    
+                                    if (successBlock) {
+                                      successBlock(conversation);
+                                    }
                                   }];
                                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                  failureBlock(error.code, error);
+                                  if (failureBlock) {
+                                    failureBlock(error.code, error);
+                                  }
                                 }];
-  
 }
 
 - (void)postReplyToConversation:(NSInteger)conversationID
@@ -67,13 +71,16 @@ SINGLETON_MACRO
                               parameters:params
                                  success:^(AFHTTPRequestOperation *operation, id responseObject)
    {
-     successBlock(responseObject[@"status"]);
+     if (successBlock) {
+       successBlock(responseObject[@"status"]);
+     }
    }
                                  failure:^(AFHTTPRequestOperation *operation, NSError *error)
    {
-     failureBlock(error.code, error);
+     if (failureBlock) {
+       failureBlock(error.code, error);
+     }
    }];
-  
 }
 
 - (void)getListConversationWithPage:(NSInteger)page
@@ -118,10 +125,14 @@ SINGLETON_MACRO
                               parameters:params
                                  success:^(AFHTTPRequestOperation *operation, id responseObject){
                                    TMEConversation *conversation = [TMEConversation conversationFromData:responseObject];
-                                   successBlock(conversation);
+                                   if (successBlock) {
+                                     successBlock(conversation);
+                                   }
                                  }
                                  failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                                   failureBlock(error.code, error);
+                                   if (failureBlock) {
+                                     failureBlock(error.code, error);
+                                   }
                                  }];
 }
 
