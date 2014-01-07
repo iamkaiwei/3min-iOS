@@ -8,17 +8,20 @@
 
 #import "TMESearchViewController.h"
 
-static NSString * const productSelected = @"productSelected";
-static NSString * const userSelected = @"userSelected";
+typedef enum {
+  SEARCH_BY_PRODUCT,
+  SEARCH_BY_USER
+}SEARCH_BY;
 
 @interface TMESearchViewController ()
-<UITableViewDataSource,
+<
+UITableViewDataSource,
 UITableViewDelegate,
 UISearchBarDelegate,
 UISearchDisplayDelegate
 >
 
-@property (strong, nonatomic) NSString *state;
+@property (assign, nonatomic) SEARCH_BY state;
 
 @end
 
@@ -29,14 +32,12 @@ UISearchDisplayDelegate
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   
-  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-  }
-  
-  self.state = productSelected;
+  self.state = SEARCH_BY_PRODUCT;
   self.shouldHandleKeyboardNotification = NO;
   [self loadNavigationItem];
 }
+
+#pragma mark - Navigation Bar Buttons
 
 - (UIBarButtonItem *)leftNavigationButtonProducts
 {
@@ -48,7 +49,7 @@ UISearchDisplayDelegate
   [leftButton setBackgroundImage:leftButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
   [leftButton setBackgroundImage:leftButtonBackgroundSelectedImage forState:UIControlStateSelected];
   
-  if (self.state == productSelected) {
+  if (self.state == SEARCH_BY_PRODUCT) {
     leftButton.selected = YES;
   }
   
@@ -65,27 +66,31 @@ UISearchDisplayDelegate
   [rightButton setBackgroundImage:rightButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
   [rightButton setBackgroundImage:rightButtonBackgroundSelectedImage forState:UIControlStateSelected];
   
-  if (self.state == userSelected) {
+  if (self.state == SEARCH_BY_USER) {
     rightButton.selected = YES;
   }
   
   return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
 }
 
-- (void)onProductsButton:(id)sender{
-  self.state = productSelected;
-  [self loadNavigationItem];
-}
-
-- (void)onUsersButton:(id)sender{
-  self.state = userSelected;
-  [self loadNavigationItem];
-}
-
 - (void)loadNavigationItem{
   self.navigationItem.leftBarButtonItem = [self leftNavigationButtonProducts];
   self.navigationItem.rightBarButtonItem = [self rightNavigationButtonUsers];
 }
+
+#pragma mark - Actions
+
+- (void)onProductsButton:(id)sender{
+  self.state = SEARCH_BY_PRODUCT;
+  [self loadNavigationItem];
+}
+
+- (void)onUsersButton:(id)sender{
+  self.state = SEARCH_BY_USER;
+  [self loadNavigationItem];
+}
+
+#pragma mark - UITableView delegate and datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
   return 20;
@@ -100,12 +105,16 @@ UISearchDisplayDelegate
   return cell;
 }
 
-- (void)onKeyboardWillShowNotification:(NSNotification *)sender{
-  DLog(@"OK");
-}
+#pragma mark - Search View Controller
 
 - (void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller{
   
+}
+
+#pragma mark - Keyboard notifications
+
+- (void)onKeyboardWillShowNotification:(NSNotification *)sender{
+  DLog(@"OK");
 }
 
 @end

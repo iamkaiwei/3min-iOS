@@ -89,10 +89,18 @@ SINGLETON_MACRO
                              parameters:params
                                 success:^(AFHTTPRequestOperation *operation, id responseObject){
                                   NSArray *arrayConversation = [TMEConversation arrayConversationFromArrayData:responseObject];
-                                  successBlock(arrayConversation);
+                                  
+                                  if (successBlock) {
+                                    successBlock(arrayConversation);
+                                  }
+
                                 }
                                 failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                                  failureBlock(error.code, error);
+                                  
+                                  if (failureBlock) {
+                                    failureBlock(error.code, error);
+                                  }
+
                                 }];
 }
 
