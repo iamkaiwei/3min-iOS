@@ -78,7 +78,10 @@
   TMEUser *currentLoginUser = [[TMEUserManager sharedInstance] loggedUser];
   
   if([product.user.id isEqual:currentLoginUser.id])
+  {
     self.viewChatToBuyWrapper.hidden = YES;
+    self.scrollViewProductDetail.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+  }
   
   [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
 }

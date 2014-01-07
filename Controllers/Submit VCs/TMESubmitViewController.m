@@ -74,7 +74,7 @@ UITextFieldDelegate
   if (!self.arrayReply.count) {
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
   }
-  if (self.conversationID) {
+  if (self.conversation) {
     [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:1 ShowBottom:NO];
     return;
   }
@@ -109,8 +109,8 @@ UITextFieldDelegate
     return cell;
   }
   
-  reply.user_full_name = self.product.user.fullname;
-  reply.user_avatar = self.product.user.photo_url;
+  reply.user_full_name = self.conversation.user_full_name;
+  reply.user_avatar = self.conversation.user_avatar;
   TMESubmitTableCellRight *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCellRight class]) forIndexPath:indexPath];
   [cell configCellWithMessage:reply];
   
@@ -129,7 +129,7 @@ UITextFieldDelegate
   [self reloadTableViewConversationShowBottom:YES];
 
   NSInteger lastestReplyID = [self getLastestReplyID];
-  [[TMEConversationManager sharedInstance] postReplyToConversation:self.conversationID
+  [[TMEConversationManager sharedInstance] postReplyToConversation:[self.conversation.id intValue]
                                                        withMessage:self.txtInputMessage.text
                                                     onSuccessBlock:^(NSString *status){
                                                       if ([status isEqualToString:@"success"]) {
@@ -154,12 +154,13 @@ UITextFieldDelegate
                               withPage:(NSInteger)page
                             ShowBottom:(BOOL)showBottom
 {
-  [[TMEConversationManager sharedInstance] getRepliesOfConversationWithConversationID:self.conversationID
+  [[TMEConversationManager sharedInstance] getRepliesOfConversationWithConversationID:[self.conversation.id intValue]
                                                                    andReplyIDLargerID:largerReplyID
                                                                           orSmallerID:smallerReplyID
                                                                              withPage:page
                                                                        onSuccessBlock:^(TMEConversation *conversation)
    {
+     self.conversation = conversation;
      self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
      
      self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
@@ -177,7 +178,7 @@ UITextFieldDelegate
   [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id
                                                                toUserID:self.product.user.id
                                                          onSuccessBlock:^(TMEConversation *conversation){
-                                                           self.conversationID = [conversation.id integerValue];
+                                                           self.conversation = conversation;
                                                            if (conversation.replies.count) {
                                                              self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
                                                              self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];

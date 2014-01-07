@@ -21,7 +21,7 @@
     else product.name = data[@"name"];
 
     NSInteger timeStamp = [data[@"create_at"] integerValue];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:timeStamp];
     NSLog(@"%@", date);
     product.created_at = date;
     
