@@ -52,6 +52,8 @@ UITextFieldDelegate
   
   [self registerForKeyboardNotifications];
   
+  self.tabBarController.tabBar.hidden = NO;
+  
   [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCell class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCell class])];
   [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCellRight class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCellRight class])];
   
@@ -279,6 +281,10 @@ UITextFieldDelegate
   self.navigationItem.rightBarButtonItem = nil;
   self.title = @"Your Offer";
   return YES;
+}
+
+- (void)onBtnBack{
+  [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - Override KeyboardShowNotification
