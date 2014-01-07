@@ -53,19 +53,16 @@ SINGLETON_MACRO
   
 }
 
-- (void)postMessageTo:(TMEUser *)user
-           forProduct:(TMEProduct *)product
-          withMessage:(NSString *)messageContent
-       onSuccessBlock:(void (^)(NSString *))successBlock
-      andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+- (void)postReplyToConversation:(NSInteger)conversationID
+                    withMessage:(NSString *)messageContent
+                 onSuccessBlock:(void (^)(NSString *))successBlock
+                andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
   
   NSDictionary *params = @{
-                           @"to"     : user.id,
                            @"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
                            @"message" : messageContent,
-                           @"product_id" : product.id
                            };
-  NSString *path = [NSString stringWithFormat:@"%@%@%@", API_SERVER_HOST, API_PREFIX, API_CONVERSATIONS];
+  NSString *path = [NSString stringWithFormat:@"%@%@%@/%d%@", API_SERVER_HOST, API_PREFIX, API_CONVERSATIONS, conversationID, API_CONVERSATION_REPLIES];
   [[TMEHTTPClient sharedClient] postPath:path
                               parameters:params
                                  success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -98,5 +95,27 @@ SINGLETON_MACRO
                                   failureBlock(error.code, error);
                                 }];
 }
+
+- (void)getConversationWithProductID:(NSNumber *)productID
+                            toUserID:(NSNumber *)userID
+                     onSuccessBlock:(void (^)(TMEConversation *))successBlock
+                    andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+  NSMutableDictionary *params = [@{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
+                                   @"product_id" : productID,
+                                   @"to" : userID
+                                   } mutableCopy];
+  
+  NSString *path = [NSString stringWithFormat:@"%@%@%@", API_SERVER_HOST, API_PREFIX, API_CONVERSATIONS];
+  [[TMEHTTPClient sharedClient] postPath:path
+                              parameters:params
+                                 success:^(AFHTTPRequestOperation *operation, id responseObject){
+                                   TMEConversation *conversation = [TMEConversation conversationFromData:responseObject];
+                                   successBlock(conversation);
+                                 }
+                                 failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                                   failureBlock(error.code, error);
+                                 }];
+}
+
 
 @end

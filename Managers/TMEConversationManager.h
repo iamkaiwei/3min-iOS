@@ -17,14 +17,18 @@
                                     onSuccessBlock:(void (^)(TMEConversation *))successBlock
                                    andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)postMessageTo:(TMEUser *)user
-           forProduct:(TMEProduct *)product
-          withMessage:(NSString *)messageContent
-       onSuccessBlock:(void (^)(NSString *))successBlock
-      andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+- (void)postReplyToConversation:(NSInteger)conversationID
+                    withMessage:(NSString *)messageContent
+                 onSuccessBlock:(void (^)(NSString *))successBlock
+                andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 - (void)getListConversationWithPage:(NSInteger)page
                      onSuccessBlock:(void (^)(NSArray *))successBlock
                     andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+
+- (void)getConversationWithProductID:(NSNumber *)productID
+                            toUserID:(NSNumber *)userID
+                      onSuccessBlock:(void (^)(TMEConversation *))successBlock
+                     andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 @end

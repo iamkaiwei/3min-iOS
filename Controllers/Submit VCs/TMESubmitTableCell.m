@@ -36,8 +36,8 @@
     return;
   }
   
-  self.indicator.hidden = YES;
-//  self.lblTime.text = @"Pending...";
+  self.indicator.hidden = NO;
+  self.lblTime.text = @"Pending...";
 }
 
 + (CGFloat)getHeight{

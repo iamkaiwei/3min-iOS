@@ -69,13 +69,16 @@ UITextFieldDelegate
                                                name:NOTIFICATION_RELOAD_CONVERSATION
                                              object:nil];
   [self getCacheMessage];
+  [self loadProductDetail];
   
   if (!self.arrayReply.count) {
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
   }
-  
-  [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:1 ShowBottom:NO];
-  [self loadProductDetail];
+  if (self.conversationID) {
+    [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:1 ShowBottom:NO];
+    return;
+  }
+  [self loadConversationShowBottom:NO];
 }
 
 #pragma mark - Table view delegate
@@ -124,31 +127,24 @@ UITextFieldDelegate
   TMEReply *reply = [TMEReply replyPendingWithContent:self.txtInputMessage.text];
   [self.arrayReply addObject:reply];
   [self reloadTableViewConversationShowBottom:YES];
-  
-  TMEUser *destinationUser = self.product.user;
+
   NSInteger lastestReplyID = [self getLastestReplyID];
-  
-  if ([self isSeller]) {
-    destinationUser = self.buyer;
-  }
-  
-  [[TMEConversationManager sharedInstance] postMessageTo:destinationUser
-                                         forProduct:self.product
-                                        withMessage:self.txtInputMessage.text
-                                     onSuccessBlock:^(NSString *status)
-   {
-     [self loadMessageWithReplyIDLargerID:lastestReplyID
-                              orSmallerID:0
-                                 withPage:1
-                               ShowBottom:NO];
-   }
-                                    andFailureBlock:^(NSInteger statusCode, id obj)
-   {
-     DLog(@"Error: %d", statusCode);
-     if (statusCode == -1011) {
-       [self showAlertForLongMessageContent];
-     }
-   }];
+  [[TMEConversationManager sharedInstance] postReplyToConversation:self.conversationID
+                                                       withMessage:self.txtInputMessage.text
+                                                    onSuccessBlock:^(NSString *status){
+                                                      if ([status isEqualToString:@"success"]) {
+                                                        [self loadMessageWithReplyIDLargerID:lastestReplyID
+                                                                                 orSmallerID:0
+                                                                                    withPage:1
+                                                                                  ShowBottom:NO];
+                                                      }
+                                                    }
+                                                   andFailureBlock:^(NSInteger statusCode, id obj){
+                                                      DLog(@"Error: %d", statusCode);
+                                                      if (statusCode == -1011) {
+                                                        [self showAlertForLongMessageContent];
+                                                      }
+                                                    }];
 }
 
 #pragma mark - Load message
@@ -164,21 +160,34 @@ UITextFieldDelegate
                                                                              withPage:page
                                                                        onSuccessBlock:^(TMEConversation *conversation)
    {
-     NSSortDescriptor *sortDescriptor;
-     sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"id"
-                                                  ascending:YES];
-     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-     
      self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
-     NSArray *sortedArray = [self.arrayReply sortedArrayUsingDescriptors:sortDescriptors];
      
-     self.arrayReply = [sortedArray mutableCopy];
+     self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
      [self reloadTableViewConversationShowBottom:showBottom];
    }
                                                                       andFailureBlock:^(NSInteger statusCode,id obj)
    {
      return DLog(@"%d", statusCode);
    }];
+}
+
+#pragma mark - Load conversation
+
+- (void)loadConversationShowBottom:(BOOL)showBottom{
+  [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id
+                                                               toUserID:self.product.user.id
+                                                         onSuccessBlock:^(TMEConversation *conversation){
+                                                           self.conversationID = [conversation.id integerValue];
+                                                           if (conversation.replies.count) {
+                                                             self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
+                                                             self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
+                                                           }
+                                                           [self reloadTableViewConversationShowBottom:showBottom];
+                                                         }
+                                                        andFailureBlock:^(NSInteger statusCode, id obj){
+                                                          DLog(@"%d",statusCode);
+                                                        
+                                                        }];
 }
 
 #pragma mark - Helper method
@@ -189,6 +198,15 @@ UITextFieldDelegate
     return YES;
   }
   return NO;
+}
+
+- (NSArray *)sortArrayReplies:(NSArray *)array{
+  NSSortDescriptor *sortDescriptor;
+  sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"id"
+                                               ascending:YES];
+  NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+  NSArray *sortedArray = [array sortedArrayUsingDescriptors:sortDescriptors];
+  return sortedArray;
 }
 
 - (NSInteger)getLastestReplyID{

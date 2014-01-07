@@ -62,17 +62,11 @@ UITableViewDelegate
   [self.navigationController pushViewController:submitController animated:YES];
 }
 
-- (void)reloadTableViewActivity{
-  [self.tableViewActivity reloadData];
-  self.tableViewActivity.height = self.tableViewActivity.contentSize.height;
-  [self autoAdjustScrollViewContentSize];
-}
-
 - (void)loadListActivityWithPage:(NSInteger)page{
   [[TMEConversationManager sharedInstance] getListConversationWithPage:page
                                                         onSuccessBlock:^(NSArray *arrayConversation){
                                                           self.arrayConversation = [arrayConversation mutableCopy];
-                                                          [self reloadTableViewActivity];
+                                                          [self.tableViewActivity reloadData];
                                                         } andFailureBlock:^(NSInteger statusCode, NSError *error){
                                                           return DLog(@"%d", statusCode);
                                                         }];

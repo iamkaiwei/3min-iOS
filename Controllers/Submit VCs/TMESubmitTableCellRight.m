@@ -28,7 +28,7 @@
   [self.lblContent sizeToFitKeepWidth];
   
   [self.separatorView alignBelowView:self.lblContent offsetY:7 sameWidth:NO];
-//  self.lblTime.text = [reply.time_stamp relativeDate];
+  self.lblTime.text = [reply.time_stamp relativeDate];
 }
 
 + (CGFloat)getHeight{
