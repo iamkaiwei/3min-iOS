@@ -251,16 +251,12 @@ UITextFieldDelegate
 }
 
 - (void)getCacheMessage{
-//  TMEConversation *conversation = [TMEConversation alloc];
-//  if (self.conversationID) {
-//    conversation = [[TMEConversation MR_findByAttribute:@"id" withValue:@(self.conversationID)]lastObject];
-//  }
-//  
-//  self.arrayReply = [[conversation.replies allObjects] mutableCopy];
-//  if (self.arrayReply.count) {
-//    self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
-//    [self reloadTableViewConversationShowBottom:YES];
-//  }
+  self.conversation = [[TMEConversation MR_findByAttribute:@"id" withValue:self.conversation.id] lastObject];
+  self.arrayReply = [self.conversation.repliesSet mutableCopy];
+  if (self.arrayReply.count) {
+    self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
+    [self reloadTableViewConversationShowBottom:NO];
+  }
 }
 
 #pragma mark - Remote Notification
