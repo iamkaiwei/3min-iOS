@@ -237,7 +237,7 @@ UITextFieldDelegate
   
   
   if (showBottom) {
-    CGPoint bottomOffset = CGPointMake(0, self.scrollView.contentSize.height - CGRectGetHeight(self.scrollView.bounds));
+    CGPoint bottomOffset = CGPointMake(0, self.scrollView.contentSize.height);
     [self.scrollView setContentOffset:bottomOffset animated:YES];
   }
   
@@ -255,7 +255,7 @@ UITextFieldDelegate
   self.arrayReply = [self.conversation.repliesSet mutableCopy];
   if (self.arrayReply.count) {
     self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
-    [self reloadTableViewConversationShowBottom:NO];
+    [self reloadTableViewConversationShowBottom:YES];
   }
 }
 
