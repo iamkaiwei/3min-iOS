@@ -65,7 +65,7 @@ UITextFieldDelegate
   }
   
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(loadMessageWithReplyIDLargerID:orSmallerID:withPage:ShowBottom:)
+                                           selector:@selector(reloadMessageNotification:)
                                                name:NOTIFICATION_RELOAD_CONVERSATION
                                              object:nil];
   [self getCacheMessage];
@@ -140,9 +140,10 @@ UITextFieldDelegate
                                                       }
                                                     }
                                                    andFailureBlock:^(NSInteger statusCode, id obj){
-                                                      DLog(@"Error: %d", statusCode);
-                                                      if (statusCode == -1011) {
-                                                        [self showAlertForLongMessageContent];
+                                                       [self.arrayReply removeLastObject];
+                                                       DLog(@"Error: %d", statusCode);
+                                                       if (statusCode == -1011) {
+                                                           [self showAlertForLongMessageContent];
                                                       }
                                                     }];
 }
@@ -161,8 +162,13 @@ UITextFieldDelegate
                                                                        onSuccessBlock:^(TMEConversation *conversation)
    {
      self.conversation = conversation;
-     self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
-     
+       if (!largerReplyID) {
+           self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
+       }
+       else
+       {
+           [self.arrayReply addObjectsFromArray:[[conversation.repliesSet allObjects] mutableCopy]];
+       }
      self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
      [self reloadTableViewConversationShowBottom:showBottom];
    }
@@ -255,6 +261,12 @@ UITextFieldDelegate
 //    self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
 //    [self reloadTableViewConversationShowBottom:YES];
 //  }
+}
+
+#pragma mark - Remote Notification
+
+- (void)reloadMessageNotification:(NSNotification *)sender{
+    [self loadMessageWithReplyIDLargerID:[self getLastestReplyID] orSmallerID:0 withPage:1 ShowBottom:YES];
 }
 
 #pragma mark - Text field delegate

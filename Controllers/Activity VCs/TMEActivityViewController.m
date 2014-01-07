@@ -29,13 +29,24 @@ UITableViewDelegate
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     self.edgesForExtendedLayout = UIRectEdgeNone;
   }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadActivity:)
+                                                 name:NOTIFICATION_RELOAD_CONVERSATION
+                                               object:nil];
   
   [self.tableViewActivity registerNib:[UINib nibWithNibName:NSStringFromClass([TMEActivityTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([TMEActivityTableViewCell class])];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
   [super viewWillAppear:animated];
+  
+  [self getCachedActivity];
+    if (!self.arrayConversation.count) {
+        [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
+    }
   [self loadListActivityWithPage:1];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -67,8 +78,26 @@ UITableViewDelegate
                                                         onSuccessBlock:^(NSArray *arrayConversation){
                                                           self.arrayConversation = [arrayConversation mutableCopy];
                                                           [self.tableViewActivity reloadData];
+                                                          [SVProgressHUD dismiss];
                                                         } andFailureBlock:^(NSInteger statusCode, NSError *error){
                                                           return DLog(@"%d", statusCode);
                                                         }];
 }
+
+- (void)reloadActivity:(NSNotification *)notification{
+    [self loadListActivityWithPage:1];
+}
+
+- (void)getCachedActivity{
+    NSArray *tmpArray = [TMEConversation MR_findAllSortedBy:@"lastest_update" ascending:NO];
+    for (TMEConversation *conversation in tmpArray) {
+        if (conversation.lastest_message) {
+            [self.arrayConversation addObject:conversation];
+        }
+    }
+    if (self.arrayConversation.count) {
+        [self.tableViewActivity reloadData];
+    }
+}
+
 @end
