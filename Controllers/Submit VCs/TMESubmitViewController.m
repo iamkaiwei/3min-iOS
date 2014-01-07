@@ -39,7 +39,7 @@ UITextFieldDelegate
 
 - (NSMutableArray *)arrayReply{
   if (!_arrayReply) {
-    _arrayReply = [@[] mutableCopy];
+    _arrayReply = [NSMutableArray array];
   }
   return _arrayReply;
 }

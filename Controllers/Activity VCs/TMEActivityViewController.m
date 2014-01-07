@@ -11,7 +11,8 @@
 #import "TMESubmitViewController.h"
 
 @interface TMEActivityViewController ()
-<UITableViewDataSource,
+<
+UITableViewDataSource,
 UITableViewDelegate
 >
 
@@ -21,6 +22,8 @@ UITableViewDelegate
 
 @implementation TMEActivityViewController
 
+#pragma mark - VC cycle life
+
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -29,11 +32,11 @@ UITableViewDelegate
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     self.edgesForExtendedLayout = UIRectEdgeNone;
   }
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadActivity:)
-                                                 name:NOTIFICATION_RELOAD_CONVERSATION
-                                               object:nil];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(reloadActivity:)
+                                               name:NOTIFICATION_RELOAD_CONVERSATION
+                                             object:nil];
   
   [self.tableViewActivity registerNib:[UINib nibWithNibName:NSStringFromClass([TMEActivityTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([TMEActivityTableViewCell class])];
 }
@@ -49,6 +52,8 @@ UITableViewDelegate
     
 }
 
+#pragma mark - UITableView datasource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
   return self.arrayConversation.count;
 }
@@ -60,33 +65,27 @@ UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   TMEConversation *conversation = self.arrayConversation[indexPath.row];
   TMEActivityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMEActivityTableViewCell class]) forIndexPath:indexPath];
-  
   [cell configCellWithConversation:conversation];
   return cell;
 }
 
+#pragma mark - UITableView delegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+  
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  
   TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
-  submitController.product = [self.arrayConversation[indexPath.row] product];
-  submitController.conversation = self.arrayConversation[indexPath.row];
+    
+  TMEConversation *conversation = self.arrayConversation[indexPath.row];
+    
+  submitController.product = conversation.product;
+  submitController.conversation = conversation;
+  
   [self.navigationController pushViewController:submitController animated:YES];
 }
 
-- (void)loadListActivityWithPage:(NSInteger)page{
-  [[TMEConversationManager sharedInstance] getListConversationWithPage:page
-                                                        onSuccessBlock:^(NSArray *arrayConversation){
-                                                          self.arrayConversation = [arrayConversation mutableCopy];
-                                                          [self.tableViewActivity reloadData];
-                                                          [SVProgressHUD dismiss];
-                                                        } andFailureBlock:^(NSInteger statusCode, NSError *error){
-                                                          return DLog(@"%d", statusCode);
-                                                        }];
-}
-
-- (void)reloadActivity:(NSNotification *)notification{
-    [self loadListActivityWithPage:1];
-}
+#pragma mark - Caching stuffs
 
 - (void)getCachedActivity{
     NSArray *tmpArray = [TMEConversation MR_findAllSortedBy:@"lastest_update" ascending:NO];
@@ -98,6 +97,27 @@ UITableViewDelegate
     if (self.arrayConversation.count) {
         [self.tableViewActivity reloadData];
     }
+}
+
+#pragma mark - Handle notification
+
+- (void)loadListActivityWithPage:(NSInteger)page{
+  [[TMEConversationManager sharedInstance] getListConversationWithPage:page
+                                                        onSuccessBlock:^(NSArray *arrayConversation)
+  {
+    self.arrayConversation = [arrayConversation mutableCopy];
+    [self.tableViewActivity reloadData];
+    [SVProgressHUD dismiss];
+  }
+                                                       andFailureBlock:^(NSInteger statusCode, NSError *error)
+  {
+    return DLog(@"%d", statusCode);
+  }];
+
+}
+
+- (void)reloadActivity:(NSNotification *)notification{
+    [self loadListActivityWithPage:1];
 }
 
 @end

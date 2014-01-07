@@ -22,6 +22,7 @@
 @implementation TMEActivityTableViewCell
 
 - (void)configCellWithConversation:(TMEConversation *)conversation{
+  
   self.labelUserName.text = conversation.user_full_name;
   self.labelTimestamp.text = [conversation.lastest_update relativeDate];
   [self.labelTimestamp sizeToFit];

@@ -1216,12 +1216,12 @@
 		0C28B28B17DC1B9200BD0EC2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0C6E069C17E0CC650003F104 /* Superclass */,
 				84325C261875B30500D14B70 /* Activity VCs */,
 				0B3D0D9A1875379300B740ED /* Search VCs */,
 				0B3D0D811875094300B740ED /* Me VCs */,
 				0B327B50186820B400468DF9 /* Submit VCs */,
 				B42ADE81180D560100B0E473 /* Browser Products VCs */,
-				0C6E069C17E0CC650003F104 /* Superclass */,
 				20C4D5DD17F722710035BCA5 /* Tutorial */,
 				0C43CCB417F5E6A000D869F9 /* Navigation Controller */,
 				0CFC0FFC17ECBAAE008FBD92 /* Login Page */,
