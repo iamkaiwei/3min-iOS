@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel      * lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel      * lblProductPrice;
 @property (weak, nonatomic) IBOutlet UIView       * viewChatToBuyWrapper;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewProductDetail;
 
 @end
 
@@ -79,12 +80,12 @@
   if([product.user.id isEqual:currentLoginUser.id])
     self.viewChatToBuyWrapper.hidden = YES;
   
-  [self autoAdjustScrollViewContentSize];
+  [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
 }
 
 - (void)setUpView
 {
-  UIScrollView *scrollView = (UIScrollView *)self.view;
+  UIScrollView *scrollView = (UIScrollView *)self.view.subviews[0];
   scrollView.bounces = NO;
   scrollView.showsVerticalScrollIndicator = NO;
 }

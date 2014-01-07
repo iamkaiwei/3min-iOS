@@ -244,8 +244,14 @@ UITextFieldDelegate
 }
 
 - (void)getCacheMessage{
-//  self.arrayReply = [[TMEReply MR_findByAttribute:@"product" withValue:self.product andOrderBy:@"time_stamp" ascending:YES] mutableCopy];
+//  TMEConversation *conversation = [TMEConversation alloc];
+//  if (self.conversationID) {
+//    conversation = [[TMEConversation MR_findByAttribute:@"id" withValue:@(self.conversationID)]lastObject];
+//  }
+//  
+//  self.arrayReply = [[conversation.replies allObjects] mutableCopy];
 //  if (self.arrayReply.count) {
+//    self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
 //    [self reloadTableViewConversationShowBottom:YES];
 //  }
 }
