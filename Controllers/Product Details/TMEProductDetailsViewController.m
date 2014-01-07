@@ -32,13 +32,19 @@
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.edgesForExtendedLayout = UIRectEdgeBottom;
   }
   
   self.title = self.product.name;
   
   [self loadProductDetail:self.product];
   [self setUpView];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+  [super viewWillDisappear:animated];
+  
+  self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)loadProductDetail:(TMEProduct *)product{
@@ -80,9 +86,17 @@
   if([product.user.id isEqual:currentLoginUser.id])
   {
     self.viewChatToBuyWrapper.hidden = YES;
-    self.scrollViewProductDetail.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")){
+      self.scrollViewProductDetail.contentInset = UIEdgeInsetsMake(0, 0, -50, 0);
+    }
+    [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
+    return;
   }
   
+  if (SYSTEM_VERSION_LESS_THAN(@"7.0")){
+    self.scrollViewProductDetail.contentInset = UIEdgeInsetsMake(0, 0, 55, 0);
+  }
   [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
 }
 
@@ -91,6 +105,8 @@
   UIScrollView *scrollView = (UIScrollView *)self.view.subviews[0];
   scrollView.bounces = NO;
   scrollView.showsVerticalScrollIndicator = NO;
+  
+  self.tabBarController.tabBar.hidden = YES;
 }
 
 - (IBAction)chatButtonAction:(id)sender {
