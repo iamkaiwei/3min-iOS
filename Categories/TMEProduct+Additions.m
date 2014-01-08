@@ -20,7 +20,7 @@
         product.name = @"";
     else product.name = data[@"name"];
 
-    NSInteger timeStamp = [data[@"create_at"] integerValue];
+    NSInteger timeStamp = [data[@"create_time"] integerValue];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
     NSLog(@"%@", date);
     product.created_at = date;
@@ -61,8 +61,7 @@
         
         // dig for user image
         if (userData[@"image"]) {
-            NSDictionary *image = userData[@"image"];
-            user.photo_url = image[@"url"];
+            user.photo_url = userData[@"facebook_avatar"];
         }
         
         user.username = userData[@"username"];
