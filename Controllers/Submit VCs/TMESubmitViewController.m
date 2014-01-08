@@ -21,6 +21,7 @@ UIApplicationDelegate,
 UITextFieldDelegate
 >
 
+@property (strong, nonatomic)              UIActivityIndicatorView                * activityIndicator;
 @property (strong, nonatomic)            TMEUser                                * buyer;
 @property (strong, nonatomic)            NSMutableArray                         * arrayReply;
 @property (strong, nonatomic) IBOutlet   UIScrollView                           * scrollView;
@@ -35,6 +36,13 @@ UITextFieldDelegate
 @end
 
 @implementation TMESubmitViewController
+
+- (UIActivityIndicatorView *)activityIndicator{
+  if (!_activityIndicator) {
+    _activityIndicator = [[UIActivityIndicatorView alloc] init];
+  }
+  return _activityIndicator;
+}
 
 - (NSMutableArray *)arrayReply{
   if (!_arrayReply) {
@@ -119,10 +127,18 @@ UITextFieldDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   TMEReply *reply;
   if ([self havePreviousReply] && indexPath.row == 0) {
+    
     UITableViewCell *refreshCell = [[UITableViewCell alloc] init];
+    
     UIButton *loadPreviousReplyButton = [self createLoadPreviousReplyButton];
     loadPreviousReplyButton.frame = refreshCell.frame;
     [refreshCell addSubview:loadPreviousReplyButton];
+    
+    [self.activityIndicator stopAnimating];
+    self.activityIndicator.center = CGPointMake(40, 22);
+    [refreshCell addSubview:self.activityIndicator];
+    self.activityIndicator.hidesWhenStopped = YES;
+    
     return refreshCell;
   }
   
@@ -310,6 +326,8 @@ UITextFieldDelegate
 }
 
 - (void)loadReplyButtonAction:(id)sender{
+  [self.activityIndicator startAnimating];
+  self.activityIndicator.hidden = NO;
   NSInteger previousPage = self.arrayReply.count/10 + 1;
   [self loadMessageWithReplyIDLargerID:0
                            orSmallerID:0
