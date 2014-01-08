@@ -44,7 +44,10 @@
 - (void)viewWillDisappear:(BOOL)animated{
   [super viewWillDisappear:animated];
   
-  self.tabBarController.tabBar.hidden = NO;
+  [UIView animateWithDuration:0.2 animations:^{
+    self.tabBarController.tabBar.alpha = 1;
+    self.tabBarController.tabBar.hidden = NO;
+  }];
 }
 
 - (void)loadProductDetail:(TMEProduct *)product{
@@ -82,22 +85,18 @@
   self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
   
   TMEUser *currentLoginUser = [[TMEUserManager sharedInstance] loggedUser];
+  [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
   
   if([product.user.id isEqual:currentLoginUser.id])
   {
     self.viewChatToBuyWrapper.hidden = YES;
-    
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")){
-      self.scrollViewProductDetail.contentInset = UIEdgeInsetsMake(0, 0, -50, 0);
-    }
+    self.scrollViewProductDetail.height += 55;
     [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
-    return;
   }
   
-  if (SYSTEM_VERSION_LESS_THAN(@"7.0")){
-    self.scrollViewProductDetail.contentInset = UIEdgeInsetsMake(0, 0, 55, 0);
+  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")){
+    self.scrollViewProductDetail.contentInset = UIEdgeInsetsMake(0, 0, -50, 0);
   }
-  [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
 }
 
 - (void)setUpView
@@ -106,7 +105,12 @@
   scrollView.bounces = NO;
   scrollView.showsVerticalScrollIndicator = NO;
   
-  self.tabBarController.tabBar.hidden = YES;
+  [UIView animateWithDuration:0.2 animations:^{
+    self.tabBarController.tabBar.alpha = 0;
+  }
+                   completion:^(BOOL finished){
+                     self.tabBarController.tabBar.hidden = YES;
+  }];
 }
 
 - (IBAction)chatButtonAction:(id)sender {
