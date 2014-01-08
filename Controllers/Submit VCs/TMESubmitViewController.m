@@ -32,7 +32,6 @@ UITextFieldDelegate
 @property (weak, nonatomic)   IBOutlet   UITableView                            * tableViewConversation;
 @property (weak, nonatomic)   IBOutlet   UITextField                            * txtInputMessage;
 
-
 @end
 
 @implementation TMESubmitViewController
@@ -92,17 +91,48 @@ UITextFieldDelegate
 #pragma mark - Table view datasource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+  if ([self havePreviousReply] && indexPath.row == 0) {
+        return 44;
+  }
+  
   TMESubmitTableCell *cell = [[TMESubmitTableCell alloc] init];
-  TMEReply *reply = self.arrayReply[indexPath.row];
+  TMEReply *reply;
+  
+  if ([self havePreviousReply]) {
+     reply = self.arrayReply[indexPath.row - 1];
+  }
+  else{
+    reply = self.arrayReply[indexPath.row];
+  }
+  
   return [cell getHeightWithContent:reply.reply];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+  if ([self havePreviousReply]) {
+    return self.arrayReply.count + 1;
+  }
+  
   return self.arrayReply.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-  TMEReply *reply = self.arrayReply[indexPath.row];
+  TMEReply *reply;
+  if ([self havePreviousReply] && indexPath.row == 0) {
+    UITableViewCell *refreshCell = [[UITableViewCell alloc] init];
+    UIButton *loadPreviousReplyButton = [self createLoadPreviousReplyButton];
+    loadPreviousReplyButton.frame = refreshCell.frame;
+    [refreshCell addSubview:loadPreviousReplyButton];
+    return refreshCell;
+  }
+  
+  if ([self havePreviousReply]) {
+    reply = self.arrayReply[indexPath.row - 1];
+  }
+  else{
+    reply = self.arrayReply[indexPath.row];
+  }
+  
   if ([reply.user_id isEqual:[[[TMEUserManager sharedInstance] loggedUser] id]]) {
     reply.user_full_name = [[[TMEUserManager sharedInstance] loggedUser] fullname];
     reply.user_avatar = [[[TMEUserManager sharedInstance] loggedUser] photo_url];
@@ -164,9 +194,10 @@ UITextFieldDelegate
                                                                        onSuccessBlock:^(TMEConversation *conversation)
    {
      self.conversation = conversation;
-       if (!largerReplyID) {
+       if (!largerReplyID && !smallerReplyID) {
            self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
        }
+     
        else
        {
            [self.arrayReply addObjectsFromArray:[[conversation.repliesSet allObjects] mutableCopy]];
@@ -209,6 +240,24 @@ UITextFieldDelegate
   return NO;
 }
 
+- (BOOL)havePreviousReply{
+  if (self.arrayReply.count % 10 == 0) {
+    return YES;
+  }
+  return NO;
+}
+
+- (UIButton *)createLoadPreviousReplyButton{
+  UIButton *loadReplyButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  [loadReplyButton addTarget:self
+                      action:@selector(loadReplyButtonAction:)
+            forControlEvents:UIControlEventTouchUpInside];
+  [loadReplyButton setTitle:@"View previous message..." forState:UIControlStateNormal];
+  [loadReplyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  [loadReplyButton setBackgroundColor:[UIColor lightGrayColor]];
+  return loadReplyButton;
+}
+
 - (NSArray *)sortArrayReplies:(NSArray *)array{
   NSSortDescriptor *sortDescriptor;
   sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"id"
@@ -237,7 +286,6 @@ UITextFieldDelegate
   [self.txtInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
   [self autoAdjustScrollViewContentSize];
   
-  
   if (showBottom) {
     CGPoint bottomOffset = CGPointMake(0, self.scrollView.contentSize.height);
     [self.scrollView setContentOffset:bottomOffset animated:YES];
@@ -259,6 +307,14 @@ UITextFieldDelegate
     self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
     [self reloadTableViewConversationShowBottom:YES];
   }
+}
+
+- (void)loadReplyButtonAction:(id)sender{
+  NSInteger previousPage = self.arrayReply.count/10 + 1;
+  [self loadMessageWithReplyIDLargerID:0
+                           orSmallerID:0
+                              withPage:previousPage
+                            ShowBottom:NO];
 }
 
 #pragma mark - Remote Notification
