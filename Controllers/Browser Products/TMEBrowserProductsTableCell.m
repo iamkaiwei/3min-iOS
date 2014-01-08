@@ -55,12 +55,11 @@
     // user
     self.imgUserAvatar.image = nil;
     [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:product.user.photo_url] placeholderImage:nil];
-    self.lblUserName.text = product.user.username;
+    self.lblUserName.text = product.user.fullname;
     self.lblTimestamp.text = [product.created_at relativeDate];
     
     NSURL *imageURL = [NSURL URLWithString:product.category.photo_url];
     [self.imgCategoryCover setImageWithURL:imageURL placeholderImage:nil];
-    
     
     TMEProductImages *img = [product.images anyObject];
     [self.imgProductImage setImageWithURL:[NSURL URLWithString:img.medium] placeholderImage:nil];

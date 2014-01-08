@@ -55,18 +55,10 @@
     }
     
     // user
-    TMEUser *user = [TMEUser MR_createEntity];
+  
     if (data[@"owner"]) {
         NSDictionary *userData = data[@"owner"];
-        
-        // dig for user image
-        if (userData[@"image"]) {
-            user.photo_url = userData[@"facebook_avatar"];
-        }
-        
-        user.username = userData[@"username"];
-        user.fullname = userData[@"full_name"];
-        user.id = userData[@"id"];
+         TMEUser *user = [TMEUser userWithData:userData];
         product.user = user;
     }
     
