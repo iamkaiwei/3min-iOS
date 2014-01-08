@@ -39,12 +39,13 @@ UITableViewDelegate
                                              object:nil];
   
   [self.tableViewActivity registerNib:[UINib nibWithNibName:NSStringFromClass([TMEActivityTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([TMEActivityTableViewCell class])];
+  
+  [self getCachedActivity];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
   [super viewWillAppear:animated];
   
-  [self getCachedActivity];
     if (!self.arrayConversation.count) {
         [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
     }
