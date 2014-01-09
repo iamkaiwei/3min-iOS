@@ -9,6 +9,7 @@
 #import "TMESubmitViewController.h"
 #import "TMESubmitTableCell.h"
 #import "TMESubmitTableCellRight.h"
+#import "TMELoadMoreTableViewCell.h"
 #import "AppDelegate.h"
 
 static CGFloat const LABEL_CONTENT_DEFAULT_HEIGHT = 26;
@@ -18,13 +19,12 @@ static NSInteger const kUserID = 36;
 <UITableViewDataSource,
 UITableViewDelegate,
 UIApplicationDelegate,
-UITextFieldDelegate
+UITextFieldDelegate,
+TMELoadMoreTableViewCellDelegate
 >
 
-@property (strong, nonatomic)              UIActivityIndicatorView                * activityIndicator;
-@property (strong, nonatomic)            TMEUser                                * buyer;
 @property (strong, nonatomic)            NSMutableArray                         * arrayReply;
-@property (strong, nonatomic) IBOutlet   UIScrollView                           * scrollView;
+@property (strong, nonatomic) IBOutlet   UIScrollView                           * scrollViewContent;
 @property (weak, nonatomic)   IBOutlet   UIImageView                            * imageViewProduct;
 @property (weak, nonatomic)   IBOutlet   UILabel                                * lblProductName;
 @property (weak, nonatomic)   IBOutlet   UILabel                                * lblProductPrice;
@@ -36,13 +36,6 @@ UITextFieldDelegate
 @end
 
 @implementation TMESubmitViewController
-
-- (UIActivityIndicatorView *)activityIndicator{
-  if (!_activityIndicator) {
-    _activityIndicator = [[UIActivityIndicatorView alloc] init];
-  }
-  return _activityIndicator;
-}
 
 - (NSMutableArray *)arrayReply{
   if (!_arrayReply) {
@@ -84,10 +77,10 @@ UITextFieldDelegate
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
   }
   if (self.conversation) {
-    [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:1 ShowBottom:NO];
+    [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:1 showBottom:NO];
     return;
   }
-  [self loadConversationShowBottom:NO];
+  [self loadConversationShowBottom:YES];
 }
 
 #pragma mark - Table view delegate
@@ -128,18 +121,16 @@ UITextFieldDelegate
   TMEReply *reply;
   if ([self havePreviousReply] && indexPath.row == 0) {
     
-    UITableViewCell *refreshCell = [[UITableViewCell alloc] init];
+    TMELoadMoreTableViewCell *cellLoadMore = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMELoadMoreTableViewCell class])];
+    if (cellLoadMore == nil) {
+      // Load the top-level objects from the custom cell XIB.
+      NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([TMELoadMoreTableViewCell class]) owner:self options:nil];
+      // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
+      cellLoadMore = [topLevelObjects objectAtIndex:0];
+    }
+    cellLoadMore.delegate = self;
     
-    UIButton *loadPreviousReplyButton = [self createLoadPreviousReplyButton];
-    loadPreviousReplyButton.frame = refreshCell.frame;
-    [refreshCell addSubview:loadPreviousReplyButton];
-    
-    [self.activityIndicator stopAnimating];
-    self.activityIndicator.center = CGPointMake(40, 22);
-    [refreshCell addSubview:self.activityIndicator];
-    self.activityIndicator.hidesWhenStopped = YES;
-    
-    return refreshCell;
+    return cellLoadMore;
   }
   
   if ([self havePreviousReply]) {
@@ -184,7 +175,7 @@ UITextFieldDelegate
                                                         [self loadMessageWithReplyIDLargerID:lastestReplyID
                                                                                  orSmallerID:0
                                                                                     withPage:1
-                                                                                  ShowBottom:NO];
+                                                                                  showBottom:NO];
                                                       }
                                                     }
                                                    andFailureBlock:^(NSInteger statusCode, id obj){
@@ -201,7 +192,7 @@ UITextFieldDelegate
 - (void)loadMessageWithReplyIDLargerID:(NSInteger)largerReplyID
                            orSmallerID:(NSInteger)smallerReplyID
                               withPage:(NSInteger)page
-                            ShowBottom:(BOOL)showBottom
+                            showBottom:(BOOL)showBottom
 {
   [[TMEConversationManager sharedInstance] getRepliesOfConversationWithConversationID:[self.conversation.id intValue]
                                                                    andReplyIDLargerID:largerReplyID
@@ -248,8 +239,7 @@ UITextFieldDelegate
 
 #pragma mark - Helper method
 
-- (BOOL)isSeller
-{
+- (BOOL)isSeller{
   if ([[[TMEUserManager sharedInstance] loggedUser].id isEqual:self.product.user.id]) {
     return YES;
   }
@@ -261,17 +251,6 @@ UITextFieldDelegate
     return YES;
   }
   return NO;
-}
-
-- (UIButton *)createLoadPreviousReplyButton{
-  UIButton *loadReplyButton = [UIButton buttonWithType:UIButtonTypeCustom];
-  [loadReplyButton addTarget:self
-                      action:@selector(loadReplyButtonAction:)
-            forControlEvents:UIControlEventTouchUpInside];
-  [loadReplyButton setTitle:@"View previous message..." forState:UIControlStateNormal];
-  [loadReplyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-  [loadReplyButton setBackgroundColor:[UIColor lightGrayColor]];
-  return loadReplyButton;
 }
 
 - (NSArray *)sortArrayReplies:(NSArray *)array{
@@ -288,8 +267,7 @@ UITextFieldDelegate
   return [reply.id integerValue];
 }
 
-- (void)loadProductDetail
-{
+- (void)loadProductDetail{
   self.lblProductName.text = self.product.name;
   self.lblProductPrice.text = [NSString stringWithFormat:@"$%@",self.product.price];
   [self.imageViewProduct setImageWithURL:[NSURL URLWithString:[[self.product.images anyObject] thumb]]];
@@ -300,11 +278,11 @@ UITextFieldDelegate
   [self.tableViewConversation reloadData];
   self.tableViewConversation.height = self.tableViewConversation.contentSize.height;
   [self.txtInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
-  [self autoAdjustScrollViewContentSize];
+  [self.scrollViewContent autoAdjustScrollViewContentSize];
   
   if (showBottom) {
-    CGPoint bottomOffset = CGPointMake(0, self.scrollView.contentSize.height);
-    [self.scrollView setContentOffset:bottomOffset animated:YES];
+    CGPoint bottomOffset = CGPointMake(0, self.scrollViewContent.contentSize.height);
+    [self.scrollViewContent setContentOffset:bottomOffset animated:YES];
   }
   
   [SVProgressHUD dismiss];
@@ -325,20 +303,18 @@ UITextFieldDelegate
   }
 }
 
-- (void)loadReplyButtonAction:(id)sender{
-  [self.activityIndicator startAnimating];
-  self.activityIndicator.hidden = NO;
+- (void)onBtnLoadMore:(UIButton *)sender{
   NSInteger previousPage = self.arrayReply.count/10 + 1;
   [self loadMessageWithReplyIDLargerID:0
                            orSmallerID:0
                               withPage:previousPage
-                            ShowBottom:NO];
+                            showBottom:NO];
 }
 
 #pragma mark - Remote Notification
 
 - (void)reloadMessageNotification:(NSNotification *)sender{
-    [self loadMessageWithReplyIDLargerID:[self getLastestReplyID] orSmallerID:0 withPage:1 ShowBottom:YES];
+    [self loadMessageWithReplyIDLargerID:[self getLastestReplyID] orSmallerID:0 withPage:1 showBottom:YES];
 }
 
 #pragma mark - Text field delegate
@@ -346,7 +322,7 @@ UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
   [self postMessage];
   self.txtInputMessage.text = @"";
-  [self.scrollView scrollSubviewToCenter:self.txtInputMessage animated:YES];
+  [self.scrollViewContent scrollSubviewToCenter:self.txtInputMessage animated:YES];
   return YES;
 }
 
@@ -373,8 +349,8 @@ UITextFieldDelegate
   
   [UIView animateWithDuration:duration delay:0 options:animationCurve animations:^{
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, kbSize.height - 50, 0);
-    [self.scrollView setContentInset:edgeInsets];
-    [self.scrollView setScrollIndicatorInsets:edgeInsets];
+    [self.scrollViewContent setContentInset:edgeInsets];
+    [self.scrollViewContent setScrollIndicatorInsets:edgeInsets];
   } completion:nil];
 }
 
@@ -386,7 +362,7 @@ UITextFieldDelegate
     if (![TMEReachabilityManager sharedInstance].lastState) {
       [TSMessage showNotificationWithTitle:@"Connected" type:TSMessageNotificationTypeSuccess];
     }
-    [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:1 ShowBottom:YES];
+    [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:1 showBottom:YES];
     [TMEReachabilityManager sharedInstance].lastState = 1;
     return;
   }

@@ -12,7 +12,7 @@
                 <outlet property="lblPriceOffered" destination="9n4-OA-NsG" id="Wzw-sr-O7L"/>
                 <outlet property="lblProductName" destination="wRi-g4-OKM" id="yWN-b2-Nk6"/>
                 <outlet property="lblProductPrice" destination="23l-74-UIC" id="B1C-lF-E3l"/>
-                <outlet property="scrollView" destination="Uam-YN-rMv" id="njk-Zx-zg7"/>
+                <outlet property="scrollViewContent" destination="Uam-YN-rMv" id="uqa-rp-qSq"/>
                 <outlet property="tableViewConversation" destination="ysv-iK-kiL" id="60H-AX-jaf"/>
                 <outlet property="txtInputMessage" destination="A3O-hK-aNB" id="4eV-vf-BZj"/>
                 <outlet property="view" destination="1" id="ApV-mn-oXS"/>

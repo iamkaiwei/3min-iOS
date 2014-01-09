@@ -83,6 +83,8 @@
 		0B95F77F187667C700F2B2E8 /* icon_chat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B95F77D187667C700F2B2E8 /* icon_chat@2x.png */; };
 		0B95F78218767A7500F2B2E8 /* login-facebook-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B95F78018767A7500F2B2E8 /* login-facebook-pressed.png */; };
 		0B95F78318767A7500F2B2E8 /* login-facebook-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B95F78118767A7500F2B2E8 /* login-facebook-pressed@2x.png */; };
+		0B985177187E5180005AAF8E /* TMELoadMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B985176187E5180005AAF8E /* TMELoadMoreTableViewCell.m */; };
+		0B985179187E5193005AAF8E /* TMELoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B985178187E5193005AAF8E /* TMELoadMoreTableViewCell.xib */; };
 		0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */; };
 		0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */; };
 		0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */; };
@@ -440,6 +442,9 @@
 		0B95F77D187667C700F2B2E8 /* icon_chat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_chat@2x.png"; sourceTree = "<group>"; };
 		0B95F78018767A7500F2B2E8 /* login-facebook-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-facebook-pressed.png"; sourceTree = "<group>"; };
 		0B95F78118767A7500F2B2E8 /* login-facebook-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-facebook-pressed@2x.png"; sourceTree = "<group>"; };
+		0B985175187E5180005AAF8E /* TMELoadMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMELoadMoreTableViewCell.h; path = "Load More Table View Cell/TMELoadMoreTableViewCell.h"; sourceTree = "<group>"; };
+		0B985176187E5180005AAF8E /* TMELoadMoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMELoadMoreTableViewCell.m; path = "Load More Table View Cell/TMELoadMoreTableViewCell.m"; sourceTree = "<group>"; };
+		0B985178187E5193005AAF8E /* TMELoadMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMELoadMoreTableViewCell.xib; path = "Load More Table View Cell/TMELoadMoreTableViewCell.xib"; sourceTree = "<group>"; };
 		0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_57x57.png; sourceTree = "<group>"; };
 		0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_114x114.png; sourceTree = "<group>"; };
 		0C2CE1B017EAE30F0074C57F /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEUserManager.h; path = superclass/TMEUserManager.h; sourceTree = "<group>"; };
@@ -1112,6 +1117,16 @@
 			path = "Activity View Controller";
 			sourceTree = "<group>";
 		};
+		0B985174187E50FF005AAF8E /* Load More Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0B985175187E5180005AAF8E /* TMELoadMoreTableViewCell.h */,
+				0B985176187E5180005AAF8E /* TMELoadMoreTableViewCell.m */,
+				0B985178187E5193005AAF8E /* TMELoadMoreTableViewCell.xib */,
+			);
+			name = "Load More Table View Cell";
+			sourceTree = "<group>";
+		};
 		0C28B28717DC1A1400BD0EC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1261,6 +1276,7 @@
 		0C28B28D17DC1B9200BD0EC2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B985174187E50FF005AAF8E /* Load More Table View Cell */,
 				0B3D0DB118754D5B00B740ED /* Search Bar */,
 				0C43CCB017F5E60C00D869F9 /* superclass */,
 			);
@@ -2251,6 +2267,7 @@
 				B4E1DEFF18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png in Resources */,
 				0B3D0D8B18750FE400B740ED /* TMEMeTableViewCell.xib in Resources */,
 				0B3D0D911875122A00B740ED /* disclosure.png in Resources */,
+				0B985179187E5193005AAF8E /* TMELoadMoreTableViewCell.xib in Resources */,
 				B42FE3D818190F1C004E39EF /* tabbar-search-icon.png in Resources */,
 				0B3D0D951875128300B740ED /* chat_to_buy_btn.png in Resources */,
 				0C5954F317F6BDDD0076353E /* simple-view-icon.png in Resources */,
@@ -2445,6 +2462,7 @@
 				0C7EFBD817E8D5170054C4DE /* UIFont+Additions.m in Sources */,
 				0C7053C317EF5E5E00E7615F /* _TMEProduct.m in Sources */,
 				0C7053C617EF5E5E00E7615F /* _TMEUser.m in Sources */,
+				0B985177187E5180005AAF8E /* TMELoadMoreTableViewCell.m in Sources */,
 				0C7EFBE117E8D5170054C4DE /* UIView+Glow.m in Sources */,
 				0CD9CF5917EA0FD400402E91 /* AFImageRequestOperation.m in Sources */,
 				0C7EFB5F17E768C70054C4DE /* NSManagedObject+MagicalDataImport.m in Sources */,

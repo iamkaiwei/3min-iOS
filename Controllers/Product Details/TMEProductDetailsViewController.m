@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel      * lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel      * lblProductPrice;
 @property (weak, nonatomic) IBOutlet UIView       * viewChatToBuyWrapper;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewProductDetail;
+@property (weak, nonatomic) IBOutlet UIScrollView * scrollViewProductDetail;
 
 @end
 
@@ -87,6 +87,7 @@
   TMEUser *currentLoginUser = [[TMEUserManager sharedInstance] loggedUser];
   [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
   
+  //If view chat to buy wrapper is hidden
   if([product.user.id isEqual:currentLoginUser.id])
   {
     self.viewChatToBuyWrapper.hidden = YES;
@@ -94,6 +95,7 @@
     [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
   }
   
+  //If view chat to buy wrapper is not hidden and System version is 7.0 or later
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")){
     self.scrollViewProductDetail.contentInset = UIEdgeInsetsMake(0, 0, -50, 0);
   }
