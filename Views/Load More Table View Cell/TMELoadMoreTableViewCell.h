@@ -16,6 +16,8 @@
 
 @interface TMELoadMoreTableViewCell : TMEBaseTableViewCell
 
++ (CGFloat)getHeight;
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorLoadMoreButton;
 @property (assign, nonatomic) id <TMELoadMoreTableViewCellDelegate> delegate;
 

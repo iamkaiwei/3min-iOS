@@ -25,6 +25,10 @@
     return self;
 }
 
++ (CGFloat)getHeight{
+  return 44;
+}
+
 - (IBAction)buttonLoadMoreAction:(id)sender {
   [self.buttonLoadMore setTitle:@"Loading..." forState:UIControlStateNormal];
   [self.activityIndicatorLoadMoreButton startAnimating];

@@ -93,7 +93,7 @@ TMELoadMoreTableViewCellDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
   if ([self havePreviousReply] && indexPath.row == 0) {
-        return 44;
+        return [TMELoadMoreTableViewCell getHeight];
   }
   
   TMESubmitTableCell *cell = [[TMESubmitTableCell alloc] init];

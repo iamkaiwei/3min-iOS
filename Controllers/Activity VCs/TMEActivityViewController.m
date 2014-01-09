@@ -9,11 +9,13 @@
 #import "TMEActivityViewController.h"
 #import "TMEActivityTableViewCell.h"
 #import "TMESubmitViewController.h"
+#import "TMELoadMoreTableViewCell.h"
 
 @interface TMEActivityViewController ()
 <
 UITableViewDataSource,
-UITableViewDelegate
+UITableViewDelegate,
+TMELoadMoreTableViewCellDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UITableView                    * tableViewActivity;
@@ -56,14 +58,33 @@ UITableViewDelegate
 #pragma mark - UITableView datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+  if ([self havePreviousActivity]) {
+    return self.arrayConversation.count + 1;
+  }
   return self.arrayConversation.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+  if ([self havePreviousActivity] && indexPath.row == self.arrayConversation.count) {
+    return [TMELoadMoreTableViewCell getHeight];
+  }
   return [TMEActivityTableViewCell getHeight];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+  if ([self havePreviousActivity] && indexPath.row == self.arrayConversation.count) {
+    TMELoadMoreTableViewCell *cellLoadMore = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMELoadMoreTableViewCell class])];
+    if (cellLoadMore == nil) {
+      // Load the top-level objects from the custom cell XIB.
+      NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([TMELoadMoreTableViewCell class]) owner:self options:nil];
+      // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
+      cellLoadMore = [topLevelObjects objectAtIndex:0];
+    }
+    cellLoadMore.delegate = self;
+    
+    return cellLoadMore;
+  }
+  
   TMEConversation *conversation = self.arrayConversation[indexPath.row];
   TMEActivityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMEActivityTableViewCell class]) forIndexPath:indexPath];
   [cell configCellWithConversation:conversation];
@@ -73,17 +94,17 @@ UITableViewDelegate
 #pragma mark - UITableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
-  
-  TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
+  if (indexPath.row < self.arrayConversation.count) {
+    TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
     
-  TMEConversation *conversation = self.arrayConversation[indexPath.row];
+    TMEConversation *conversation = self.arrayConversation[indexPath.row];
     
-  submitController.product = conversation.product;
-  submitController.conversation = conversation;
-  
-  [self.navigationController pushViewController:submitController animated:YES];
+    submitController.product = conversation.product;
+    submitController.conversation = conversation;
+    
+    [self.navigationController pushViewController:submitController animated:YES];
+  }
 }
 
 #pragma mark - Caching stuffs
@@ -98,6 +119,15 @@ UITableViewDelegate
     if (self.arrayConversation.count) {
         [self.tableViewActivity reloadData];
     }
+}
+
+#pragma mark - Helpers
+
+- (BOOL)havePreviousActivity{
+  if (self.arrayConversation.count % 10 == 0) {
+    return YES;
+  }
+  return NO;
 }
 
 #pragma mark - Handle notification
