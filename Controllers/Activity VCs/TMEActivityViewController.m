@@ -138,6 +138,7 @@ TMELoadMoreTableViewCellDelegate
   {
     self.arrayConversation = [arrayConversation mutableCopy];
     [self.tableViewActivity reloadData];
+    self.tableViewActivity.hidden = NO;
     [SVProgressHUD dismiss];
   }
                                                        andFailureBlock:^(NSInteger statusCode, NSError *error)

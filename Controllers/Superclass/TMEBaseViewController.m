@@ -286,6 +286,27 @@
   [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - UITextViewDelegate
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+  self.navigationItem.leftBarButtonItem = [self leftNavigationButtonCancel];
+  self.navigationItem.rightBarButtonItem = [self rightNavigationButtonDone];
+  self.title = @"";
+  
+  textView.text = @"";
+  textView.textColor = [UIColor blackColor];
+  
+  UIScrollView *scrollView = (UIScrollView *)[self getScrollableView];
+  if (scrollView == nil) {
+    return YES;
+  }
+  
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [scrollView scrollSubviewToCenter:textView animated:YES];
+  });
+  
+  return YES;
+}
 
 #pragma mark - UITextFieldDelegate
 

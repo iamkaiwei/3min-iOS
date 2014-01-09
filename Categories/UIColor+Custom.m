@@ -35,6 +35,11 @@
     return [UIColor colorWithRed:153/255.0 green:136/255.0 blue:120/255.0 alpha:1.0];
 }
 
++ (UIColor *)lightGrayTextColor
+{
+  return [UIColor colorWithRed:193/255.0 green:191/255.0 blue:191/255.0 alpha:1.0];
+}
+
 + (UIColor *)lightBrownTextColor
 {
     return [UIColor colorWithRed:182/255.0 green:173/255.0 blue:151/255.0 alpha:1.0];

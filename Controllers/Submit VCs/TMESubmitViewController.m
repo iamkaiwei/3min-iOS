@@ -19,7 +19,7 @@ static NSInteger const kUserID = 36;
 <UITableViewDataSource,
 UITableViewDelegate,
 UIApplicationDelegate,
-UITextFieldDelegate,
+UITextViewDelegate,
 TMELoadMoreTableViewCellDelegate
 >
 
@@ -31,7 +31,7 @@ TMELoadMoreTableViewCellDelegate
 @property (weak, nonatomic)   IBOutlet   UILabel                                * lblPriceOffered;
 @property (weak, nonatomic)   IBOutlet   UILabel                                * lblDealLocation;
 @property (weak, nonatomic)   IBOutlet   UITableView                            * tableViewConversation;
-@property (weak, nonatomic)   IBOutlet   UITextField                            * txtInputMessage;
+@property (weak, nonatomic)   IBOutlet   UITextView                             * textViewInputMessage;
 
 @end
 
@@ -57,10 +57,7 @@ TMELoadMoreTableViewCellDelegate
   [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCell class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCell class])];
   [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCellRight class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCellRight class])];
   
-  self.txtInputMessage.delegate = self;
-  UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 14, 20)];
-  self.txtInputMessage.leftView = paddingView;
-  self.txtInputMessage.leftViewMode = UITextFieldViewModeAlways;
+  self.textViewInputMessage.delegate = self;
   
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -80,7 +77,7 @@ TMELoadMoreTableViewCellDelegate
     [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:1 showBottom:NO];
     return;
   }
-  [self loadConversationShowBottom:YES];
+  [self loadConversationShowBottom:NO];
 }
 
 #pragma mark - Table view delegate
@@ -159,17 +156,17 @@ TMELoadMoreTableViewCellDelegate
 #pragma mark - Post message
 
 - (void)postMessage{
-  if ([self.txtInputMessage.text isEqual: @""]) {
+  if ([self.textViewInputMessage.text isEqual: @""]) {
     return;
   }
   
-  TMEReply *reply = [TMEReply replyPendingWithContent:self.txtInputMessage.text];
+  TMEReply *reply = [TMEReply replyPendingWithContent:self.textViewInputMessage.text];
   [self.arrayReply addObject:reply];
   [self reloadTableViewConversationShowBottom:YES];
 
   NSInteger lastestReplyID = [self getLastestReplyID];
   [[TMEConversationManager sharedInstance] postReplyToConversation:[self.conversation.id intValue]
-                                                       withMessage:self.txtInputMessage.text
+                                                       withMessage:self.textViewInputMessage.text
                                                     onSuccessBlock:^(NSString *status){
                                                       if ([status isEqualToString:@"success"]) {
                                                         [self loadMessageWithReplyIDLargerID:lastestReplyID
@@ -181,7 +178,7 @@ TMELoadMoreTableViewCellDelegate
                                                    andFailureBlock:^(NSInteger statusCode, id obj){
                                                        [self.arrayReply removeLastObject];
                                                        DLog(@"Error: %d", statusCode);
-                                                       if (statusCode == -1011) {
+                                                       if (self.textViewInputMessage.text.length > 200) {
                                                            [self showAlertForLongMessageContent];
                                                       }
                                                     }];
@@ -277,7 +274,8 @@ TMELoadMoreTableViewCellDelegate
 - (void)reloadTableViewConversationShowBottom:(BOOL)showBottom{
   [self.tableViewConversation reloadData];
   self.tableViewConversation.height = self.tableViewConversation.contentSize.height;
-  [self.txtInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
+  [self.textViewInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
+  [self.textViewInputMessage setHeight:35.5];
   [self.scrollViewContent autoAdjustScrollViewContentSize];
   
   if (showBottom) {
@@ -314,24 +312,51 @@ TMELoadMoreTableViewCellDelegate
 #pragma mark - Remote Notification
 
 - (void)reloadMessageNotification:(NSNotification *)sender{
-    [self loadMessageWithReplyIDLargerID:[self getLastestReplyID] orSmallerID:0 withPage:1 showBottom:YES];
+    [self loadMessageWithReplyIDLargerID:[self getLastestReplyID]
+                             orSmallerID:0
+                                withPage:1
+                              showBottom:YES];
 }
 
-#pragma mark - Text field delegate
+#pragma mark - Text view delegate
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-  [self postMessage];
-  self.txtInputMessage.text = @"";
-  [self.scrollViewContent scrollSubviewToCenter:self.txtInputMessage animated:YES];
+- (void)textViewDidChange:(UITextView *)textView{
+  if (textView.frame.size.height == 111.5) {
+    return;
+  }
+  
+  CGFloat fixedWidth = textView.frame.size.width;
+  CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+  CGRect newFrame = textView.frame;
+  newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
+  textView.frame = newFrame;
+  
+  [self.scrollViewContent autoAdjustScrollViewContentSize];
+  [self.scrollViewContent scrollSubviewToCenter:textView animated:NO];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+  if([text isEqualToString:@"\n"]) {
+    [self postMessage];
+    [textView setText:@""];
+    [self.scrollViewContent scrollSubviewToCenter:textView animated:NO];
+    return NO;
+  }
   return YES;
 }
 
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
   [self addNavigationItems];
   self.navigationItem.rightBarButtonItem = nil;
   self.title = @"Your Offer";
+  
+  textView.textColor = [UIColor lightGrayColor];
+  textView.text = @"Type message here to chat...";
+  
   return YES;
 }
+
+#pragma mark - Navigation back button override
 
 - (void)onBtnBack{
   [self.navigationController popToRootViewControllerAnimated:YES];

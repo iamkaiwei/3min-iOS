@@ -22,6 +22,8 @@
 
 + (UIColor *)lightBrownTextColor;
 
++ (UIColor *)lightGrayTextColor;
+
 + (UIColor *)greyTextColor;
 
 + (UIColor *)darkTextColor;

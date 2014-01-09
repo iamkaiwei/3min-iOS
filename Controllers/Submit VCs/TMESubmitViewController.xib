@@ -14,7 +14,7 @@
                 <outlet property="lblProductPrice" destination="23l-74-UIC" id="B1C-lF-E3l"/>
                 <outlet property="scrollViewContent" destination="Uam-YN-rMv" id="uqa-rp-qSq"/>
                 <outlet property="tableViewConversation" destination="ysv-iK-kiL" id="60H-AX-jaf"/>
-                <outlet property="txtInputMessage" destination="A3O-hK-aNB" id="4eV-vf-BZj"/>
+                <outlet property="textViewInputMessage" destination="oqS-JD-XZR" id="b9d-B3-bx0"/>
                 <outlet property="view" destination="Uam-YN-rMv" id="8Bl-rc-JS6"/>
             </connections>
         </placeholder>
@@ -114,13 +114,14 @@
                         <outlet property="delegate" destination="-1" id="k85-BZ-KUi"/>
                     </connections>
                 </tableView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type message here to chat..." minimumFontSize="19" id="A3O-hK-aNB">
-                    <rect key="frame" x="8" y="514" width="305" height="46"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Type message here to chat..." id="oqS-JD-XZR">
+                    <rect key="frame" x="8" y="514" width="305" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="go"/>
-                </textField>
+                    <color key="textColor" red="0.75686281919999998" green="0.74901962280000001" blue="0.74901962280000001" alpha="1" colorSpace="deviceRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="go"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="0.86666673421859741" green="0.85882359743118286" blue="0.85490202903747559" alpha="1" colorSpace="deviceRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
