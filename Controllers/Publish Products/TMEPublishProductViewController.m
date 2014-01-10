@@ -148,10 +148,53 @@ UIPickerViewDelegate
   self.tabBarController.selectedIndex = 0;
 }
 
+- (BOOL)hasNoImages
+{
+    for (TMEPhotoButton *photoButton in self.photoButtons) {
+        if ([photoButton hasPhoto]) {
+            return NO;
+        }
+    }
+
+    return YES;
+}
+
+- (BOOL)validateInputs
+{
+  if (![self hasChoseCategory]){
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You haven't chose any category yet" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
+    [alertView show];
+    return NO;
+  }
+
+  if (![self hasProductName]){
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You haven't chose any name yet" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
+    [alertView show];
+    return NO;
+  }
+
+  if (![self hasProductPrice]){
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You haven't chose any price yet" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
+    [alertView show];
+    return NO;
+  }
+
+  if ([self hasNoImages]) {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There is no images in your product, try to add one" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
+    [alertView show];
+    return NO;
+  }
+
+  return YES;
+}
+
 - (IBAction)onPublishButton:(id)sender {
-  
+
   [self dismissKeyboard];
-  
+
+  if (![self validateInputs])
+    return;
+
   TMEProduct *product = [self getTheInputProductFromForm];
   
   NSDictionary *params = @{@"user_id": product.user.id,
@@ -238,6 +281,7 @@ UIPickerViewDelegate
 }
 
 - (IBAction)onButtonPickerDone:(id)sender {
+
   NSInteger row = [self.pickerCategories selectedRowInComponent:0];
   TMECategory *cat = [self.arrayCategories objectAtIndex:row];
   [self.pickerCategoryButton setTitle:cat.name forState:UIControlStateNormal];
@@ -269,6 +313,39 @@ UIPickerViewDelegate
   
   self.txtProductName.text = @"";
   self.txtProductPrice.text = @"";
+}
+
+- (void)checkProductName
+{
+  if ([self hasProductName])
+    return;
+
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You haven't choice any name yet" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
+  [alertView show];
+}
+
+- (BOOL)hasChoseCategory
+{
+  if ([self.pickerCategoryButton.titleLabel.text isEqualToString:@"Choose one"]) {
+    return NO;
+  }
+  return YES;
+}
+
+- (BOOL)hasProductName
+{
+  if (self.txtProductName.text.length) {
+    return YES;
+  }
+  return NO;
+}
+
+- (BOOL)hasProductPrice
+{
+  if (self.txtProductPrice.text.length) {
+    return YES;
+  }
+  return NO;
 }
 
 @end

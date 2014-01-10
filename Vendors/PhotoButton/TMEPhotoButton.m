@@ -59,18 +59,18 @@
 {
 	[picker dismissViewControllerAnimated:NO completion:nil];
     
-    [self beforeGetImageWithPhotoButton:self];
-    
-    UIImage *image = nil;
-    
-    image = [info objectForKey:UIImagePickerControllerEditedImage];
-    if (!image) {
-        image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    }
-  
-    [self setBackgroundImage:image forState:UIControlStateNormal];
+  [self beforeGetImageWithPhotoButton:self];
+
+  UIImage *image = nil;
+
+  image = [info objectForKey:UIImagePickerControllerEditedImage];
+  if (!image) {
+    image = [info objectForKey:UIImagePickerControllerOriginalImage];
+  }
+
+  [self setBackgroundImage:image forState:UIControlStateNormal];
   self.hasPhoto = YES;
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
+  [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
 - (void)takeOrChoosePhoto:(BOOL)take
