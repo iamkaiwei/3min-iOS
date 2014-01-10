@@ -149,6 +149,7 @@
 #import "SSPullToRefresh.h"
 #import "Reachability.h"
 #import "TSMessage.h"
+#import "SDWebImageDownloader.h"
 
 // Common VCs
 #import "TMENavigationViewController.h"

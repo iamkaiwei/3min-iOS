@@ -8,14 +8,17 @@
 
 #import "TMEBrowserProductsTableCell.h"
 #import "PBImageHelper.h"
+#import "TMEProgressView.h"
+#import "SDWebImageOperation.h"
 
 @interface TMEBrowserProductsTableCell()
 
 // product
-@property (weak, nonatomic) IBOutlet UIImageView    * imgProductImage;
-@property (weak, nonatomic) IBOutlet UIButton       * btnProductCategory;
-@property (weak, nonatomic) IBOutlet UILabel        * lblProductName;
-@property (weak, nonatomic) IBOutlet UILabel        * lblProductPrice;
+@property (weak, nonatomic) IBOutlet UIImageView     * imgProductImage;
+@property (weak, nonatomic) IBOutlet UIButton        * btnProductCategory;
+@property (weak, nonatomic) IBOutlet UILabel         * lblProductName;
+@property (weak, nonatomic) IBOutlet UILabel         * lblProductPrice;
+@property (strong, nonatomic) IBOutlet TMEProgressView        * progressViewImage;
 
 // user
 @property (weak, nonatomic) IBOutlet UIImageView    * imgUserAvatar;
@@ -51,7 +54,7 @@
     self.btnShare.layer.cornerRadius = 3;
     
     // for now when we get product, we get all imformantion about this product like user, category, etc.
-    
+  
     // user
     self.imgUserAvatar.image = nil;
     [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:product.user.photo_url] placeholderImage:nil];
@@ -62,7 +65,17 @@
     [self.imgCategoryCover setImageWithURL:imageURL placeholderImage:nil];
     
     TMEProductImages *img = [product.images anyObject];
-    [self.imgProductImage setImageWithURL:[NSURL URLWithString:img.medium] placeholderImage:nil];
+  
+    self.imgProductImage set
+//    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:img.medium]
+//                                                          options:0
+//                                                         progress:^(NSUInteger receivedSize, long long expectedSize){
+//                                                           [self.progressViewImage setProgress:@(receivedSize/expectedSize - 0.0000001)];
+//                                                       }
+//                                                        completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished){
+//                                                          self.imgProductImage.image = image;
+//                                                      }];
+  
     [self.imgProductImage clipsToBounds];
     
     self.lblProductName.text = product.name;
