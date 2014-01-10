@@ -87,12 +87,10 @@ TMELoadMoreTableViewCellDelegate
   
   TMEConversation *conversation = self.arrayConversation[indexPath.row];
   TMEActivityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMEActivityTableViewCell class]) forIndexPath:indexPath];
-  [cell configCellWithConversation:conversation];
-  return cell;
+  [cell configCellWithConversation:conversation]; return cell;
 }
 
 #pragma mark - UITableView delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
   if (indexPath.row < self.arrayConversation.count) {

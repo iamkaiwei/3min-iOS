@@ -36,4 +36,6 @@
 
 + (UIColor *)yellowBoxColor;
 
++ (UIColor *)orangeMainColor;
+
 @end

@@ -8,14 +8,16 @@
 
 #import "TMEBrowserProductsTableCell.h"
 #import "PBImageHelper.h"
+#import "SDWebImageOperation.h"
 
 @interface TMEBrowserProductsTableCell()
 
 // product
-@property (weak, nonatomic) IBOutlet UIImageView    * imgProductImage;
-@property (weak, nonatomic) IBOutlet UIButton       * btnProductCategory;
-@property (weak, nonatomic) IBOutlet UILabel        * lblProductName;
-@property (weak, nonatomic) IBOutlet UILabel        * lblProductPrice;
+
+@property (weak, nonatomic) IBOutlet UIButton        * btnProductCategory;
+@property (weak, nonatomic) IBOutlet UILabel         * lblProductName;
+@property (weak, nonatomic) IBOutlet UILabel         * lblProductPrice;
+@property (weak, nonatomic) IBOutlet UIImageView     * imageViewProduct;
 
 // user
 @property (weak, nonatomic) IBOutlet UIImageView    * imgUserAvatar;
@@ -51,7 +53,7 @@
     self.btnShare.layer.cornerRadius = 3;
     
     // for now when we get product, we get all imformantion about this product like user, category, etc.
-    
+  
     // user
     self.imgUserAvatar.image = nil;
     [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:product.user.photo_url] placeholderImage:nil];
@@ -62,9 +64,14 @@
     [self.imgCategoryCover setImageWithURL:imageURL placeholderImage:nil];
     
     TMEProductImages *img = [product.images anyObject];
-    [self.imgProductImage setImageWithURL:[NSURL URLWithString:img.medium] placeholderImage:nil];
-    [self.imgProductImage clipsToBounds];
-    
+
+    [[XLCircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
+    [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
+    [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
+  
+    [self.imageViewProduct setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.origin]
+                                            placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
+  
     self.lblProductName.text = product.name;
     self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
     

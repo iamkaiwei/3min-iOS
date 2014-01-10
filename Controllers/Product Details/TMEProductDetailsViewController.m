@@ -88,9 +88,14 @@
   self.lblUserName.text = product.user.fullname;
   self.lblTimestamp.text = [product.created_at relativeDate];
   
-  TMEProductImages *img = [product.images anyObject];
-  [self.imgProductImage setImageWithURL:[NSURL URLWithString:img.medium] placeholderImage:nil];
-  [self.imgProductImage clipsToBounds];
+  TMEProductImages *img = [[product.images allObjects] lastObject];
+  
+  [[XLCircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
+  [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
+  [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
+  
+  [self.imgProductImage setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.origin]
+                                            placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
   
   self.lblProductName.text = product.name;
   self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
