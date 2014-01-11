@@ -150,6 +150,7 @@
 #import "Reachability.h"
 #import "TSMessage.h"
 #import "SDWebImageDownloader.h"
+#import "UIImageView+WebCache.h"
 
 // Common VCs
 #import "TMENavigationViewController.h"

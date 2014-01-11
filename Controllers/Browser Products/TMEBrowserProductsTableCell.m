@@ -65,16 +65,15 @@
     [self.imgCategoryCover setImageWithURL:imageURL placeholderImage:nil];
     
     TMEProductImages *img = [product.images anyObject];
-  
-    self.imgProductImage set
-//    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:img.medium]
-//                                                          options:0
-//                                                         progress:^(NSUInteger receivedSize, long long expectedSize){
-//                                                           [self.progressViewImage setProgress:@(receivedSize/expectedSize - 0.0000001)];
-//                                                       }
-//                                                        completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished){
-//                                                          self.imgProductImage.image = image;
-//                                                      }];
+
+    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:img.medium]
+                                                          options:0
+                                                         progress:^(NSUInteger receivedSize, long long expectedSize){
+                                                           [self.progressViewImage setProgress:@(receivedSize/expectedSize - 0.0000001)];
+                                                       }
+                                                        completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished){
+                                                          self.imgProductImage.image = image;
+                                                      }];
   
     [self.imgProductImage clipsToBounds];
     
