@@ -244,7 +244,7 @@ TMELoadMoreTableViewCellDelegate
 }
 
 - (BOOL)havePreviousReply{
-  if (self.arrayReply.count % 10 == 0) {
+  if (self.arrayReply.count % 10 == 0 && self.arrayReply.count) {
     return YES;
   }
   return NO;

@@ -7,7 +7,7 @@
 //
 
 #import "TMEProductDetailsViewController.h"
-#import "TMESubmitViewController.h"
+#import "TMEOfferViewController.h"
 
 @interface TMEProductDetailsViewController ()
 
@@ -38,6 +38,12 @@
   self.title = self.product.name;
   
   [self loadProductDetail:self.product];
+  [self setUpView];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+  [super viewWillAppear:animated];
+
   [self setUpView];
 }
 
@@ -116,9 +122,9 @@
 }
 
 - (IBAction)chatButtonAction:(id)sender {
-  TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
-  submitController.product = self.product;
-  [self.navigationController pushViewController:submitController animated:YES];
+  TMEOfferViewController *offerController = [[TMEOfferViewController alloc] init];
+  offerController.product = self.product;
+  [self.navigationController pushViewController:offerController animated:YES];
 }
 
 @end

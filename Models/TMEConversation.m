@@ -42,7 +42,7 @@
   TMEProduct *product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"product_id"]] lastObject];
   conversation.product = product;
   
-  if (data[@"replies"]) {
+  if (data[@"replies"] && ![data[@"replies"] isKindOfClass:[NSNull class]]) {
     NSArray *arrayReplies = [TMEReply arrayRepliesFromArrayData:data[@"replies"] ofConversation:conversation];
     [conversation.repliesSet addObjectsFromArray:arrayReplies];
   }
