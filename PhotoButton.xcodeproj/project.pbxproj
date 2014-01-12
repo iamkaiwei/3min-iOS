@@ -287,6 +287,8 @@
 		84CFA5251879BF9100368A0D /* _TMEReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA5241879BF9100368A0D /* _TMEReply.m */; };
 		84CFA5281879BF9A00368A0D /* TMEReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA5271879BF9A00368A0D /* TMEReply.m */; };
 		84CFA52B1879C09800368A0D /* TMEConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA52A1879C09800368A0D /* TMEConversationManager.m */; };
+		84D2B1DE18826A2100CE77CD /* TMEImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2B1DD18826A2100CE77CD /* TMEImageView.m */; };
+		84D2B1E018826BAB00CE77CD /* TMEImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D2B1DF18826BAB00CE77CD /* TMEImageView.xib */; };
 		84FCC0CA186A0888002892B2 /* nav-back-btn-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */; };
 		84FCC0CB186A0888002892B2 /* nav-back-btn-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */; };
 		84FCC0CE186A1163002892B2 /* TMESubmitTableCellRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FCC0CD186A1163002892B2 /* TMESubmitTableCellRight.m */; };
@@ -807,6 +809,9 @@
 		84CFA5271879BF9A00368A0D /* TMEReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEReply.m; sourceTree = "<group>"; };
 		84CFA5291879C09800368A0D /* TMEConversationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEConversationManager.h; sourceTree = "<group>"; };
 		84CFA52A1879C09800368A0D /* TMEConversationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEConversationManager.m; sourceTree = "<group>"; };
+		84D2B1DC18826A2100CE77CD /* TMEImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEImageView.h; path = "Image View With Progress/TMEImageView.h"; sourceTree = "<group>"; };
+		84D2B1DD18826A2100CE77CD /* TMEImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEImageView.m; path = "Image View With Progress/TMEImageView.m"; sourceTree = "<group>"; };
+		84D2B1DF18826BAB00CE77CD /* TMEImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEImageView.xib; path = "Image View With Progress/TMEImageView.xib"; sourceTree = "<group>"; };
 		84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg.png"; sourceTree = "<group>"; };
 		84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg@2x.png"; sourceTree = "<group>"; };
 		84FCC0CC186A1163002892B2 /* TMESubmitTableCellRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitTableCellRight.h; path = "Submit VCs/TMESubmitTableCellRight.h"; sourceTree = "<group>"; };
@@ -1285,6 +1290,7 @@
 		0C28B28D17DC1B9200BD0EC2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84D2B1DB188269F300CE77CD /* Image View With Progress */,
 				0BD4C29D187FA9F000A12EFF /* Progress View */,
 				0B985174187E50FF005AAF8E /* Load More Table View Cell */,
 				0B3D0DB118754D5B00B740ED /* Search Bar */,
@@ -1964,6 +1970,16 @@
 			name = "Activity VCs";
 			sourceTree = "<group>";
 		};
+		84D2B1DB188269F300CE77CD /* Image View With Progress */ = {
+			isa = PBXGroup;
+			children = (
+				84D2B1DC18826A2100CE77CD /* TMEImageView.h */,
+				84D2B1DD18826A2100CE77CD /* TMEImageView.m */,
+				84D2B1DF18826BAB00CE77CD /* TMEImageView.xib */,
+			);
+			name = "Image View With Progress";
+			sourceTree = "<group>";
+		};
 		B4093B721810379700D51B69 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -2128,6 +2144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D2B1E018826BAB00CE77CD /* TMEImageView.xib in Resources */,
 				84325C2C1875B33D00D14B70 /* TMEActivityViewController.xib in Resources */,
 				0C5954F117F6BDDD0076353E /* navigation_background.png in Resources */,
 				B42FE3E118190F1C004E39EF /* tabbar-background.png in Resources */,
@@ -2342,6 +2359,7 @@
 				0CA51A6A17EEC8E600AD55E6 /* FacebookManager.m in Sources */,
 				0C7EFBCA17E8D5170054C4DE /* NSDate+Additions.m in Sources */,
 				0C7EFB5917E768C70054C4DE /* NSEntityDescription+MagicalDataImport.m in Sources */,
+				84D2B1DE18826A2100CE77CD /* TMEImageView.m in Sources */,
 				0C7EFB6517E768C70054C4DE /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				0C2F789117F2DBA600201783 /* SDWebImageDownloaderOperation.m in Sources */,
 				0C7EFB5D17E768C70054C4DE /* NSString+MagicalDataImport.m in Sources */,

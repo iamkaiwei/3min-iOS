@@ -59,13 +59,15 @@
   
   [self performSelector:@selector(setAnimationDone) withObject:nil afterDelay:animationTime];
   
-  if (toValue == 1.0)
-    self.hidden = YES;
+  if (toValue == 1.0 && [self.delelgate respondsToSelector:@selector(didFinishAnimation:)])
+  {
+    [self.delelgate performSelector:@selector(didFinishAnimation:) withObject:self afterDelay:animationTime];
+  }
   
   CGFloat startAngle = 2 * M_PI * self.currentValue - M_PI_2;
   CGFloat endAngle = 2 * M_PI * toValue - M_PI_2;
   
-  CGFloat radius = 50.0;
+  CGFloat radius = self.frame.size.height/2;
   
   CAShapeLayer *circle = [CAShapeLayer layer];
   

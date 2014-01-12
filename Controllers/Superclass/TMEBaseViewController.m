@@ -479,8 +479,6 @@
   
 }
 
-
-
 #pragma marks - Some VC stuffs
 - (UIBarButtonItem *)leftNavigationButton
 {

@@ -69,7 +69,7 @@
     [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:img.medium]
                                                           options:0
                                                          progress:^(NSUInteger receivedSize, long long expectedSize){
-                                                           [self.progressViewImage setProgress:@(receivedSize/expectedSize - 0.0000001)];
+                                                           [self.progressViewImage setProgress:@(receivedSize/expectedSize)];
                                                        }
                                                         completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished){
                                                           self.imgProductImage.image = image;
