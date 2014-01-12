@@ -10,10 +10,14 @@
 #import "TMESubmitViewController.h"
 
 @interface TMEOfferViewController ()
+<
+UITextFieldDelegate
+>
 
 @property (strong, nonatomic) TMEConversation *conversation;
 @property (weak, nonatomic) IBOutlet UILabel *labelDetail;
 @property (weak, nonatomic) IBOutlet UILabel *labelPriceOffer;
+@property (weak, nonatomic) IBOutlet UITextField *txtPrice;
 
 @end
 
@@ -33,7 +37,14 @@
   
   [SVProgressHUD showWithStatus:@"Loading.." maskType:SVProgressHUDMaskTypeGradient];
   [self loadConversationShowBottom];
+
+  self.txtPrice.text = self.product.price.stringValue;
 }
+
+- (IBAction)onBtnChangePrice:(id)sender {
+  [self.txtPrice becomeFirstResponder];
+}
+
 
 - (void)loadConversationShowBottom{
   [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id
@@ -70,5 +81,47 @@
   submitController.conversation = self.conversation;
   [self.navigationController pushViewController:submitController animated:YES];
 }
+
+#pragma mark - UITextField delegate
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+  self.isKeyboardShowing = YES;
+  return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+  self.isKeyboardShowing = NO;
+  return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+  NSString * price = [NSString stringWithFormat:@"%@%@", self.txtPrice.text, string];
+  if (1 == range.length) {
+    price = [price stringByReplacingCharactersInRange:range withString:@""];
+  }
+
+  price = [NSString stringWithFormat:@"$%@", price];
+
+  self.labelPriceOffer.text = price;
+  [self.labelPriceOffer sizeToFitKeepHeight];
+  [self.labelPriceOffer alignHorizontalCenterToView:self.view];
+
+  return YES;
+}
+
+#pragma UIKeyboardNotification
+- (void)onKeyboardWillShowNotification:(NSNotification *)sender
+{
+
+}
+
+- (void)onKeyboardWillHideNotification:(NSNotification *)sender
+{
+  [self dismissKeyboard];
+}
+
 
 @end

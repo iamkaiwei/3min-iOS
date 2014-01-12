@@ -318,7 +318,7 @@
   self.activeTextField = textField;
   
   UIScrollView *scrollView = (UIScrollView *)[self getScrollableView];
-  if (scrollView == nil) {
+  if (scrollView == nil || [scrollView isKindOfClass:[UIView class]]) {
     return YES;
   }
   

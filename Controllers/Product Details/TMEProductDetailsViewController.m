@@ -8,6 +8,7 @@
 
 #import "TMEProductDetailsViewController.h"
 #import "TMEOfferViewController.h"
+#import "TMESubmitViewController.h"
 
 @interface TMEProductDetailsViewController ()
 
@@ -22,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel      * lblProductPrice;
 @property (weak, nonatomic) IBOutlet UIView       * viewChatToBuyWrapper;
 @property (weak, nonatomic) IBOutlet UIScrollView * scrollViewProductDetail;
+
+@property (assign, nonatomic) BOOL                  firstTimeOffer;
 
 @end
 
@@ -39,6 +42,8 @@
   
   [self loadProductDetail:self.product];
   [self setUpView];
+
+  [self checkFirstTimeOffer];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -114,17 +119,50 @@
   scrollView.showsVerticalScrollIndicator = NO;
   
   [UIView animateWithDuration:0.2 animations:^{
-    self.tabBarController.tabBar.alpha = 0;
+      self.tabBarController.tabBar.alpha = 0;
   }
-                   completion:^(BOOL finished){
-                     self.tabBarController.tabBar.hidden = YES;
-  }];
+                   completion:^(BOOL finished)
+   {
+       self.tabBarController.tabBar.hidden = YES;
+   }];
+}
+
+- (UIViewController *)controllerForNextStep
+{
+
+#warning THIS IS FOR TESTING
+  self.firstTimeOffer = YES;
+
+  if (self.firstTimeOffer) {
+    TMEOfferViewController *offerController = [[TMEOfferViewController alloc] init];
+    offerController.product = self.product;
+    return offerController;
+  }else{
+    TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
+    submitController.product = self.product;
+    return submitController;
+  }
 }
 
 - (IBAction)chatButtonAction:(id)sender {
-  TMEOfferViewController *offerController = [[TMEOfferViewController alloc] init];
-  offerController.product = self.product;
-  [self.navigationController pushViewController:offerController animated:YES];
+  UIViewController *viewController = [self controllerForNextStep];
+  [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)checkFirstTimeOffer
+{
+  [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
+  [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id toUserID:self.product.user.id onSuccessBlock:^(TMEConversation *conversation) {
+    [SVProgressHUD dismiss];
+
+    if(!conversation.lastest_message)
+      self.firstTimeOffer = YES;
+
+  } andFailureBlock:^(NSInteger statusCode, id obj) {
+
+    [SVProgressHUD dismiss];
+    self.firstTimeOffer = NO;
+  }];
 }
 
 @end

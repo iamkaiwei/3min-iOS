@@ -273,7 +273,7 @@ TMELoadMoreTableViewCellDelegate
 
 - (void)reloadTableViewConversationShowBottom:(BOOL)showBottom{
   [self.tableViewConversation reloadData];
-  self.tableViewConversation.height = self.tableViewConversation.contentSize.height;
+self.tableViewConversation.height = self.tableViewConversation.contentSize.height;
   [self.textViewInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
   [self.textViewInputMessage setHeight:35.5];
   [self.scrollViewContent autoAdjustScrollViewContentSize];
