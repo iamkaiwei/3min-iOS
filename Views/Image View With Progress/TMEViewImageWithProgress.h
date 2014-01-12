@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TMEImageView : UIImageView
+@interface TMEViewImageWithProgress : UIView
+
+- (void)setImageHaveProgressWithURL:(NSURL *)URL;
 
 @end

@@ -19,6 +19,8 @@
 @interface TMEProgressView : UIView
 
 @property (strong, nonatomic) NSObject <TMEProgressViewDelegate> *delelgate;
+
++ (CGRect)getCenterFrameWithFrame:(CGRect)frame;
 - (void)setProgress:(NSNumber*)value;
 
 @end

@@ -26,7 +26,25 @@
       self.newToValue = 0.0;
       self.isAnimationInProgress = NO;
       self.alpha = 0.95;
-      self.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.6];
+      self.backgroundColor = [UIColor clearColor];
+      
+      CGFloat startAngle = - M_PI_2;
+      CGFloat endAngle = 2 * M_PI - M_PI_2;
+      
+      CGFloat radius = self.frame.size.height > self.frame.size.width ? self.frame.size.width/2 : self.frame.size.height/2;
+      
+      CAShapeLayer *circleBorder = [self makeCirclePathWithStartAngle:startAngle
+                                                             endAngle:endAngle
+                                                               radius:radius + 4
+                                                          strokeColor:[UIColor whiteColor].CGColor
+                                                            lineWidth:4];
+      CAShapeLayer *circleInner = [self makeCirclePathWithStartAngle:startAngle
+                                                            endAngle:endAngle
+                                                              radius:radius - 3
+                                                         strokeColor:[UIColor whiteColor].CGColor
+                                                           lineWidth:3];
+      [self.layer addSublayer:circleBorder];
+      [self.layer addSublayer:circleInner];
     }
     return self;
 }
@@ -67,22 +85,17 @@
   CGFloat startAngle = 2 * M_PI * self.currentValue - M_PI_2;
   CGFloat endAngle = 2 * M_PI * toValue - M_PI_2;
   
-  CGFloat radius = self.frame.size.height/2;
+  CGFloat radius = self.frame.size.height > self.frame.size.width ? self.frame.size.width/2 : self.frame.size.height/2;
   
-  CAShapeLayer *circle = [CAShapeLayer layer];
-  
-  // Make a circular shape
-  
-  circle.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.frame.size.width/2,self.frame.size.height/2)
-                                               radius:radius startAngle:startAngle endAngle:endAngle clockwise:YES].CGPath;
-  
-  // Configure the apperence of the circle
-  circle.fillColor = [UIColor whiteColor].CGColor;
-  circle.strokeColor = [UIColor orangeMainColor].CGColor;
-  circle.lineWidth = 3;
-  
+  CAShapeLayer *circle = [self makeCirclePathWithStartAngle:startAngle
+                                                   endAngle:endAngle
+                                                     radius:radius
+                                                strokeColor:[UIColor orangeColor].CGColor
+                                                  lineWidth:3];  
   // Add to parent layer
   [self.layer addSublayer:circle];
+//  [self.layer addSublayer:circleBorder];
+//  [self.layer addSublayer:circleInner];
   
   // Configure animation
   CABasicAnimation *drawAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
@@ -102,5 +115,32 @@
   [circle addAnimation:drawAnimation forKey:@"drawCircleAnimation"];
   self.currentValue = toValue;
 }
+
++ (CGRect)getCenterFrameWithFrame:(CGRect)frame{
+  CGFloat width = CGRectGetWidth(frame) / 3.5;
+  CGFloat height = CGRectGetHeight(frame) / 3.5;
+  CGPoint origin = CGPointMake(CGRectGetMidX(frame) - (width/2), CGRectGetMidY(frame) - (height/2));
+  CGRect returnFrame = CGRectMake(origin.x, origin.y, width, height);
+  return returnFrame;
+}
+
+- (CAShapeLayer *)makeCirclePathWithStartAngle:(CGFloat)startAngle
+                                      endAngle:(CGFloat)endAngle
+                                        radius:(CGFloat)radius
+                                   strokeColor:(CGColorRef)color
+                                     lineWidth:(CGFloat)lineWidth
+{
+  CAShapeLayer *circleShape = [CAShapeLayer layer];
+  circleShape.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.frame.size.width/2,self.frame.size.height/2)
+                                                    radius:radius
+                                                startAngle:startAngle
+                                                  endAngle:endAngle
+                                                 clockwise:YES].CGPath;
+  
+  circleShape.fillColor = [UIColor clearColor].CGColor;
+  circleShape.strokeColor = color;
+  circleShape.lineWidth = lineWidth;
+  return circleShape;
+};
 
 @end

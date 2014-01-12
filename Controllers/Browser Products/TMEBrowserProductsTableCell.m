@@ -10,15 +10,16 @@
 #import "PBImageHelper.h"
 #import "TMEProgressView.h"
 #import "SDWebImageOperation.h"
+#import "TMEViewImageWithProgress.h"
 
 @interface TMEBrowserProductsTableCell()
 
 // product
-@property (weak, nonatomic) IBOutlet UIImageView     * imgProductImage;
+
 @property (weak, nonatomic) IBOutlet UIButton        * btnProductCategory;
 @property (weak, nonatomic) IBOutlet UILabel         * lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel         * lblProductPrice;
-@property (strong, nonatomic) IBOutlet TMEProgressView        * progressViewImage;
+@property (weak, nonatomic) IBOutlet TMEViewImageWithProgress * viewImageProduct;
 
 // user
 @property (weak, nonatomic) IBOutlet UIImageView    * imgUserAvatar;
@@ -66,17 +67,18 @@
     
     TMEProductImages *img = [product.images anyObject];
 
-    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:img.medium]
-                                                          options:0
-                                                         progress:^(NSUInteger receivedSize, long long expectedSize){
-                                                           [self.progressViewImage setProgress:@(receivedSize/expectedSize)];
-                                                       }
-                                                        completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished){
-                                                          self.imgProductImage.image = image;
-                                                      }];
+//    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:img.medium]
+//                                                          options:0
+//                                                         progress:^(NSUInteger receivedSize, long long expectedSize){
+//                                                           [self.progressViewImage setProgress:@(receivedSize/expectedSize)];
+//                                                       }
+//                                                        completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished){
+//                                                          self.imgProductImage.image = image;
+//                                                      }];
   
-    [self.imgProductImage clipsToBounds];
-    
+  [self.viewImageProduct setImageHaveProgressWithURL:[NSURL URLWithString:img.medium]];
+    [self.viewImageProduct clipsToBounds];
+  
     self.lblProductName.text = product.name;
     self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
     

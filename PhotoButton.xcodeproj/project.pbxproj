@@ -282,13 +282,14 @@
 		84325C301875B4AD00D14B70 /* TMEActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84325C2F1875B4AD00D14B70 /* TMEActivityTableViewCell.m */; };
 		84325C321875B4C200D14B70 /* TMEActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84325C311875B4C200D14B70 /* TMEActivityTableViewCell.xib */; };
 		845FC1041875C5ED008E85FA /* TMESearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845FC1031875C5ED008E85FA /* TMESearchDisplayController.m */; };
+		84919C021883091600A26B94 /* photo-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 84919C001883091600A26B94 /* photo-placeholder.png */; };
+		84919C031883091600A26B94 /* photo-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84919C011883091600A26B94 /* photo-placeholder@2x.png */; };
 		84CFA51F1879BE4900368A0D /* _TMEConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA51E1879BE4900368A0D /* _TMEConversation.m */; };
 		84CFA5221879BE5100368A0D /* TMEConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA5211879BE5100368A0D /* TMEConversation.m */; };
 		84CFA5251879BF9100368A0D /* _TMEReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA5241879BF9100368A0D /* _TMEReply.m */; };
 		84CFA5281879BF9A00368A0D /* TMEReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA5271879BF9A00368A0D /* TMEReply.m */; };
 		84CFA52B1879C09800368A0D /* TMEConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA52A1879C09800368A0D /* TMEConversationManager.m */; };
-		84D2B1DE18826A2100CE77CD /* TMEImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2B1DD18826A2100CE77CD /* TMEImageView.m */; };
-		84D2B1E018826BAB00CE77CD /* TMEImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D2B1DF18826BAB00CE77CD /* TMEImageView.xib */; };
+		84D2B1DE18826A2100CE77CD /* TMEViewImageWithProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2B1DD18826A2100CE77CD /* TMEViewImageWithProgress.m */; };
 		84FCC0CA186A0888002892B2 /* nav-back-btn-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */; };
 		84FCC0CB186A0888002892B2 /* nav-back-btn-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */; };
 		84FCC0CE186A1163002892B2 /* TMESubmitTableCellRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FCC0CD186A1163002892B2 /* TMESubmitTableCellRight.m */; };
@@ -799,6 +800,8 @@
 		84325C311875B4C200D14B70 /* TMEActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEActivityTableViewCell.xib; path = "Activity VCs/TMEActivityTableViewCell.xib"; sourceTree = "<group>"; };
 		845FC1021875C5ED008E85FA /* TMESearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESearchDisplayController.h; path = "Search VCs/TMESearchDisplayController.h"; sourceTree = "<group>"; };
 		845FC1031875C5ED008E85FA /* TMESearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESearchDisplayController.m; path = "Search VCs/TMESearchDisplayController.m"; sourceTree = "<group>"; };
+		84919C001883091600A26B94 /* photo-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-placeholder.png"; sourceTree = "<group>"; };
+		84919C011883091600A26B94 /* photo-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-placeholder@2x.png"; sourceTree = "<group>"; };
 		84CFA51D1879BE4900368A0D /* _TMEConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEConversation.h; sourceTree = "<group>"; };
 		84CFA51E1879BE4900368A0D /* _TMEConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEConversation.m; sourceTree = "<group>"; };
 		84CFA5201879BE5100368A0D /* TMEConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEConversation.h; sourceTree = "<group>"; };
@@ -809,9 +812,8 @@
 		84CFA5271879BF9A00368A0D /* TMEReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEReply.m; sourceTree = "<group>"; };
 		84CFA5291879C09800368A0D /* TMEConversationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEConversationManager.h; sourceTree = "<group>"; };
 		84CFA52A1879C09800368A0D /* TMEConversationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEConversationManager.m; sourceTree = "<group>"; };
-		84D2B1DC18826A2100CE77CD /* TMEImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEImageView.h; path = "Image View With Progress/TMEImageView.h"; sourceTree = "<group>"; };
-		84D2B1DD18826A2100CE77CD /* TMEImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEImageView.m; path = "Image View With Progress/TMEImageView.m"; sourceTree = "<group>"; };
-		84D2B1DF18826BAB00CE77CD /* TMEImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEImageView.xib; path = "Image View With Progress/TMEImageView.xib"; sourceTree = "<group>"; };
+		84D2B1DC18826A2100CE77CD /* TMEViewImageWithProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEViewImageWithProgress.h; path = "Image View With Progress/TMEViewImageWithProgress.h"; sourceTree = "<group>"; };
+		84D2B1DD18826A2100CE77CD /* TMEViewImageWithProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEViewImageWithProgress.m; path = "Image View With Progress/TMEViewImageWithProgress.m"; sourceTree = "<group>"; };
 		84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg.png"; sourceTree = "<group>"; };
 		84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg@2x.png"; sourceTree = "<group>"; };
 		84FCC0CC186A1163002892B2 /* TMESubmitTableCellRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitTableCellRight.h; path = "Submit VCs/TMESubmitTableCellRight.h"; sourceTree = "<group>"; };
@@ -1389,6 +1391,8 @@
 		0C43CC9F17F5D29A00D869F9 /* Product Browser */ = {
 			isa = PBXGroup;
 			children = (
+				84919C001883091600A26B94 /* photo-placeholder.png */,
+				84919C011883091600A26B94 /* photo-placeholder@2x.png */,
 				B49C6F58181C321800EB380A /* normal-view-icon.png */,
 				B49C6F59181C321800EB380A /* normal-view-icon@2x.png */,
 				0C43CCA017F5D29A00D869F9 /* clock-icon.png */,
@@ -1973,9 +1977,8 @@
 		84D2B1DB188269F300CE77CD /* Image View With Progress */ = {
 			isa = PBXGroup;
 			children = (
-				84D2B1DC18826A2100CE77CD /* TMEImageView.h */,
-				84D2B1DD18826A2100CE77CD /* TMEImageView.m */,
-				84D2B1DF18826BAB00CE77CD /* TMEImageView.xib */,
+				84D2B1DC18826A2100CE77CD /* TMEViewImageWithProgress.h */,
+				84D2B1DD18826A2100CE77CD /* TMEViewImageWithProgress.m */,
 			);
 			name = "Image View With Progress";
 			sourceTree = "<group>";
@@ -2144,7 +2147,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D2B1E018826BAB00CE77CD /* TMEImageView.xib in Resources */,
 				84325C2C1875B33D00D14B70 /* TMEActivityViewController.xib in Resources */,
 				0C5954F117F6BDDD0076353E /* navigation_background.png in Resources */,
 				B42FE3E118190F1C004E39EF /* tabbar-background.png in Resources */,
@@ -2211,6 +2213,7 @@
 				B49C6F6C181C37D600EB380A /* For-her.png in Resources */,
 				0C43CC9C17F5CC4A00D869F9 /* arrow-down@2x.png in Resources */,
 				B42FE3D518190F1C004E39EF /* tabbar-me-icon-pressed.png in Resources */,
+				84919C021883091600A26B94 /* photo-placeholder.png in Resources */,
 				0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */,
 				0CFC0FF817ECBA3F008FBD92 /* bt_fb_signin_normal.png in Resources */,
 				B42ADE87180D561300B0E473 /* HTKContainerViewController.xib in Resources */,
@@ -2273,6 +2276,7 @@
 				0B9366E6186C109400491FA4 /* NotificationBackgroundMessage@2x.png in Resources */,
 				0CFC0FED17ECB690008FBD92 /* TMEBrowserProductsViewController.xib in Resources */,
 				0C2CE1C217EAEAC20074C57F /* TMEPublishProductViewController.xib in Resources */,
+				84919C031883091600A26B94 /* photo-placeholder@2x.png in Resources */,
 				0B95F77F187667C700F2B2E8 /* icon_chat@2x.png in Resources */,
 				B49C6F6A181C37D600EB380A /* Design_art.png in Resources */,
 				B459FDDA181BF94E00D6BC79 /* Login1@2x.png in Resources */,
@@ -2359,7 +2363,7 @@
 				0CA51A6A17EEC8E600AD55E6 /* FacebookManager.m in Sources */,
 				0C7EFBCA17E8D5170054C4DE /* NSDate+Additions.m in Sources */,
 				0C7EFB5917E768C70054C4DE /* NSEntityDescription+MagicalDataImport.m in Sources */,
-				84D2B1DE18826A2100CE77CD /* TMEImageView.m in Sources */,
+				84D2B1DE18826A2100CE77CD /* TMEViewImageWithProgress.m in Sources */,
 				0C7EFB6517E768C70054C4DE /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				0C2F789117F2DBA600201783 /* SDWebImageDownloaderOperation.m in Sources */,
 				0C7EFB5D17E768C70054C4DE /* NSString+MagicalDataImport.m in Sources */,
