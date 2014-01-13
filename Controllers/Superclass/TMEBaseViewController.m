@@ -55,6 +55,7 @@
   self.shouldHandleKeyboardNotification = YES;
   self.isKeyboardShowing = NO;
   self.tapToDismissKeyboardGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGesture:)];
+  self.tapToDismissKeyboardGestureRecognizer.cancelsTouchesInView = NO;
   self.tapToDismissKeyboardGestureRecognizer.delegate = self;
   self.tapToDismissKeyboardGestureRecognizer.numberOfTapsRequired = 1;
   self.tapToDismissKeyboardGestureRecognizer.numberOfTouchesRequired = 1;

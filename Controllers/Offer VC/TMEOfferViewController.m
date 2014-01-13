@@ -37,9 +37,9 @@ UITextFieldDelegate
   [self.labelPriceOffer alignHorizontalCenterToView:self.view];
   
   [SVProgressHUD showWithStatus:@"Loading.." maskType:SVProgressHUDMaskTypeGradient];
-  [self loadConversationShowBottom];
+  [self loadConversation];
 
-  self.txtPrice.text = self.product.price.stringValue;
+  self.txtPrice.text = @"";
 }
 
 - (IBAction)onBtnChangePrice:(id)sender {
@@ -54,7 +54,7 @@ UITextFieldDelegate
 }
 
 
-- (void)loadConversationShowBottom{
+- (void)loadConversation{
   [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id
                                                                toUserID:self.product.user.id
                                                          onSuccessBlock:^(TMEConversation *conversation){
@@ -87,6 +87,7 @@ UITextFieldDelegate
   [self dismissKeyboard];
   
   self.labelPriceOffer.text = [NSString stringWithFormat:@"$%@", self.product.price];
+  self.txtPrice.text = @"";
   [self.labelPriceOffer sizeToFitKeepHeight];
   [self.labelPriceOffer alignHorizontalCenterToView:self.view];
 }
@@ -124,14 +125,12 @@ UITextFieldDelegate
   self.labelPriceOffer.text = price;
   [self.labelPriceOffer sizeToFitKeepHeight];
   [self.labelPriceOffer alignHorizontalCenterToView:self.view];
-
   return YES;
 }
 
 #pragma UIKeyboardNotification
 - (void)onKeyboardWillShowNotification:(NSNotification *)sender
 {
-
 }
 
 - (void)onKeyboardWillHideNotification:(NSNotification *)sender
@@ -142,5 +141,8 @@ UITextFieldDelegate
   self.buttonTapToChange.userInteractionEnabled = YES;
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+  [self.view endEditing:YES];
+}
 
 @end
