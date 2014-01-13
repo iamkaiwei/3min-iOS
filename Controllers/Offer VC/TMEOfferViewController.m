@@ -43,10 +43,15 @@ UITextFieldDelegate
 }
 
 - (IBAction)onBtnChangePrice:(id)sender {
-  [UIView beginAnimations:nil context:nil];
-  [UIView setAnimationDuration:0.5];
-  self.buttonTapToChange.transform = CGAffineTransformMakeRotation(M_PI);
-  [UIView commitAnimations];
+  [UIView mt_animateViews:@[self.buttonTapToChange]
+                 duration:0.5
+           timingFunction:kMTEaseInOutBack
+               animations:^{
+                 self.buttonTapToChange.transform = CGAffineTransformMakeRotation(-M_PI);
+               }
+               completion:^{
+               }];
+  
   [self.txtPrice becomeFirstResponder];
 }
 
@@ -136,6 +141,14 @@ UITextFieldDelegate
   [self addNavigationItems];
   self.navigationItem.rightBarButtonItem = [self rightNavigationButtonSubmit];
   [self dismissKeyboard];
+  
+  [UIView mt_animateViews:@[self.buttonTapToChange]
+                 duration:0.5
+           timingFunction:kMTEaseInBack
+               animations:^{
+                 self.buttonTapToChange.transform = CGAffineTransformMakeRotation(0);
+               }
+               completion:nil];
 }
 
 

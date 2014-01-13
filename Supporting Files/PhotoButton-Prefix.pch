@@ -149,6 +149,10 @@
 #import "SSPullToRefresh.h"
 #import "Reachability.h"
 #import "TSMessage.h"
+#import "UIView+MTAnimation.h"
+#import "MTMatrixInterpolation.h"
+#import "MTAnimationTypes.h"
+#import "MTTimingFunctions.h"
 
 // Common VCs
 #import "TMENavigationViewController.h"
