@@ -21,6 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0B15BD341883B42600C098C6 /* UIImageView+XLProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD301883B42600C098C6 /* UIImageView+XLProgressIndicator.m */; };
+		0B15BD351883B42600C098C6 /* XLCircleProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD321883B42600C098C6 /* XLCircleProgressIndicator.m */; };
+		0B15BD581883C37800C098C6 /* UIImageView+XLNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD571883C37800C098C6 /* UIImageView+XLNetworking.m */; };
+		0B15BD5B1883C39A00C098C6 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD5A1883C39A00C098C6 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0B22066C187278A800B93BD1 /* chat_to_buy_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B22066A187278A800B93BD1 /* chat_to_buy_btn@2x.png */; };
 		0B22066D187278A800B93BD1 /* chat_to_buy_pressed_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B22066B187278A800B93BD1 /* chat_to_buy_pressed_btn@2x.png */; };
 		0B327B4D18681ED200468DF9 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACFB17F6E83F00EE9A76 /* libAviarySDK.a */; };
@@ -85,7 +89,6 @@
 		0B95F78318767A7500F2B2E8 /* login-facebook-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B95F78118767A7500F2B2E8 /* login-facebook-pressed@2x.png */; };
 		0B985177187E5180005AAF8E /* TMELoadMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B985176187E5180005AAF8E /* TMELoadMoreTableViewCell.m */; };
 		0B985179187E5193005AAF8E /* TMELoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B985178187E5193005AAF8E /* TMELoadMoreTableViewCell.xib */; };
-		0BD4C2A0187FAA2F00A12EFF /* TMEProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD4C29F187FAA2F00A12EFF /* TMEProgressView.m */; };
 		0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */; };
 		0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */; };
 		0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */; };
@@ -289,7 +292,6 @@
 		84CFA5251879BF9100368A0D /* _TMEReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA5241879BF9100368A0D /* _TMEReply.m */; };
 		84CFA5281879BF9A00368A0D /* TMEReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA5271879BF9A00368A0D /* TMEReply.m */; };
 		84CFA52B1879C09800368A0D /* TMEConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFA52A1879C09800368A0D /* TMEConversationManager.m */; };
-		84D2B1DE18826A2100CE77CD /* TMEViewImageWithProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2B1DD18826A2100CE77CD /* TMEViewImageWithProgress.m */; };
 		84FCC0CA186A0888002892B2 /* nav-back-btn-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */; };
 		84FCC0CB186A0888002892B2 /* nav-back-btn-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */; };
 		84FCC0CE186A1163002892B2 /* TMESubmitTableCellRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FCC0CD186A1163002892B2 /* TMESubmitTableCellRight.m */; };
@@ -373,6 +375,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B15BD2F1883B42600C098C6 /* UIImageView+XLProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XLProgressIndicator.h"; sourceTree = "<group>"; };
+		0B15BD301883B42600C098C6 /* UIImageView+XLProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XLProgressIndicator.m"; sourceTree = "<group>"; };
+		0B15BD311883B42600C098C6 /* XLCircleProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLCircleProgressIndicator.h; sourceTree = "<group>"; };
+		0B15BD321883B42600C098C6 /* XLCircleProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLCircleProgressIndicator.m; sourceTree = "<group>"; };
+		0B15BD561883C37800C098C6 /* UIImageView+XLNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XLNetworking.h"; sourceTree = "<group>"; };
+		0B15BD571883C37800C098C6 /* UIImageView+XLNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XLNetworking.m"; sourceTree = "<group>"; };
+		0B15BD591883C39A00C098C6 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		0B15BD5A1883C39A00C098C6 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		0B22066A187278A800B93BD1 /* chat_to_buy_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_to_buy_btn@2x.png"; sourceTree = "<group>"; };
 		0B22066B187278A800B93BD1 /* chat_to_buy_pressed_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_to_buy_pressed_btn@2x.png"; sourceTree = "<group>"; };
 		0B327B511868211300468DF9 /* TMESubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitViewController.h; path = "Submit VCs/TMESubmitViewController.h"; sourceTree = "<group>"; };
@@ -448,8 +458,6 @@
 		0B985175187E5180005AAF8E /* TMELoadMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMELoadMoreTableViewCell.h; path = "Load More Table View Cell/TMELoadMoreTableViewCell.h"; sourceTree = "<group>"; };
 		0B985176187E5180005AAF8E /* TMELoadMoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMELoadMoreTableViewCell.m; path = "Load More Table View Cell/TMELoadMoreTableViewCell.m"; sourceTree = "<group>"; };
 		0B985178187E5193005AAF8E /* TMELoadMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMELoadMoreTableViewCell.xib; path = "Load More Table View Cell/TMELoadMoreTableViewCell.xib"; sourceTree = "<group>"; };
-		0BD4C29E187FAA2F00A12EFF /* TMEProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEProgressView.h; path = "Progress View/TMEProgressView.h"; sourceTree = "<group>"; };
-		0BD4C29F187FAA2F00A12EFF /* TMEProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEProgressView.m; path = "Progress View/TMEProgressView.m"; sourceTree = "<group>"; };
 		0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_57x57.png; sourceTree = "<group>"; };
 		0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_114x114.png; sourceTree = "<group>"; };
 		0C2CE1B017EAE30F0074C57F /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEUserManager.h; path = superclass/TMEUserManager.h; sourceTree = "<group>"; };
@@ -812,8 +820,6 @@
 		84CFA5271879BF9A00368A0D /* TMEReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEReply.m; sourceTree = "<group>"; };
 		84CFA5291879C09800368A0D /* TMEConversationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEConversationManager.h; sourceTree = "<group>"; };
 		84CFA52A1879C09800368A0D /* TMEConversationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEConversationManager.m; sourceTree = "<group>"; };
-		84D2B1DC18826A2100CE77CD /* TMEViewImageWithProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEViewImageWithProgress.h; path = "Image View With Progress/TMEViewImageWithProgress.h"; sourceTree = "<group>"; };
-		84D2B1DD18826A2100CE77CD /* TMEViewImageWithProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEViewImageWithProgress.m; path = "Image View With Progress/TMEViewImageWithProgress.m"; sourceTree = "<group>"; };
 		84FCC0C8186A0888002892B2 /* nav-back-btn-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg.png"; sourceTree = "<group>"; };
 		84FCC0C9186A0888002892B2 /* nav-back-btn-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-back-btn-bg@2x.png"; sourceTree = "<group>"; };
 		84FCC0CC186A1163002892B2 /* TMESubmitTableCellRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitTableCellRight.h; path = "Submit VCs/TMESubmitTableCellRight.h"; sourceTree = "<group>"; };
@@ -948,6 +954,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B15BD2C1883B41A00C098C6 /* XLRemoteImageView */ = {
+			isa = PBXGroup;
+			children = (
+				0B15BD561883C37800C098C6 /* UIImageView+XLNetworking.h */,
+				0B15BD571883C37800C098C6 /* UIImageView+XLNetworking.m */,
+				0B15BD2F1883B42600C098C6 /* UIImageView+XLProgressIndicator.h */,
+				0B15BD301883B42600C098C6 /* UIImageView+XLProgressIndicator.m */,
+				0B15BD311883B42600C098C6 /* XLCircleProgressIndicator.h */,
+				0B15BD321883B42600C098C6 /* XLCircleProgressIndicator.m */,
+			);
+			name = XLRemoteImageView;
+			sourceTree = "<group>";
+		};
 		0B220669187278A800B93BD1 /* Chat To Buy */ = {
 			isa = PBXGroup;
 			children = (
@@ -1134,15 +1153,6 @@
 			name = "Load More Table View Cell";
 			sourceTree = "<group>";
 		};
-		0BD4C29D187FA9F000A12EFF /* Progress View */ = {
-			isa = PBXGroup;
-			children = (
-				0BD4C29E187FAA2F00A12EFF /* TMEProgressView.h */,
-				0BD4C29F187FAA2F00A12EFF /* TMEProgressView.m */,
-			);
-			name = "Progress View";
-			sourceTree = "<group>";
-		};
 		0C28B28717DC1A1400BD0EC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1267,6 +1277,7 @@
 		0C28B28C17DC1B9200BD0EC2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				0B15BD2C1883B41A00C098C6 /* XLRemoteImageView */,
 				B45411F81867DD8C001A75EE /* AFUrbanAirshipClient */,
 				B4093B721810379700D51B69 /* Classes */,
 				B459FDC7181BD31200D6BC79 /* SSPullToRefresh */,
@@ -1292,8 +1303,6 @@
 		0C28B28D17DC1B9200BD0EC2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				84D2B1DB188269F300CE77CD /* Image View With Progress */,
-				0BD4C29D187FA9F000A12EFF /* Progress View */,
 				0B985174187E50FF005AAF8E /* Load More Table View Cell */,
 				0B3D0DB118754D5B00B740ED /* Search Bar */,
 				0C43CCB017F5E60C00D869F9 /* superclass */,
@@ -1763,6 +1772,8 @@
 				0CD9CF5417EA0FD400402E91 /* AFXMLRequestOperation.m */,
 				0C34A89F17F0ADFE003ACEFF /* AFDownloadRequestOperation.h */,
 				0C34A8A017F0ADFE003ACEFF /* AFDownloadRequestOperation.m */,
+				0B15BD591883C39A00C098C6 /* UIImageView+AFNetworking.h */,
+				0B15BD5A1883C39A00C098C6 /* UIImageView+AFNetworking.m */,
 			);
 			path = AFNetworking;
 			sourceTree = "<group>";
@@ -1972,15 +1983,6 @@
 				84325C311875B4C200D14B70 /* TMEActivityTableViewCell.xib */,
 			);
 			name = "Activity VCs";
-			sourceTree = "<group>";
-		};
-		84D2B1DB188269F300CE77CD /* Image View With Progress */ = {
-			isa = PBXGroup;
-			children = (
-				84D2B1DC18826A2100CE77CD /* TMEViewImageWithProgress.h */,
-				84D2B1DD18826A2100CE77CD /* TMEViewImageWithProgress.m */,
-			);
-			name = "Image View With Progress";
 			sourceTree = "<group>";
 		};
 		B4093B721810379700D51B69 /* Classes */ = {
@@ -2335,6 +2337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C7EFB5C17E768C70054C4DE /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
+				0B15BD5B1883C39A00C098C6 /* UIImageView+AFNetworking.m in Sources */,
 				B4093B771810379700D51B69 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				0C7EFB6717E768C70054C4DE /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */,
@@ -2363,7 +2366,6 @@
 				0CA51A6A17EEC8E600AD55E6 /* FacebookManager.m in Sources */,
 				0C7EFBCA17E8D5170054C4DE /* NSDate+Additions.m in Sources */,
 				0C7EFB5917E768C70054C4DE /* NSEntityDescription+MagicalDataImport.m in Sources */,
-				84D2B1DE18826A2100CE77CD /* TMEViewImageWithProgress.m in Sources */,
 				0C7EFB6517E768C70054C4DE /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				0C2F789117F2DBA600201783 /* SDWebImageDownloaderOperation.m in Sources */,
 				0C7EFB5D17E768C70054C4DE /* NSString+MagicalDataImport.m in Sources */,
@@ -2380,6 +2382,7 @@
 				0C7053C817EF5E5E00E7615F /* TMEProduct.m in Sources */,
 				0C7EFB6817E768C70054C4DE /* NSPersistentStore+MagicalRecord.m in Sources */,
 				0C59550717F73E380076353E /* TMEBaseTabBarViewController.m in Sources */,
+				0B15BD351883B42600C098C6 /* XLCircleProgressIndicator.m in Sources */,
 				0C43914B17F2D27500640D82 /* TMEProduct+Additions.m in Sources */,
 				84CFA51F1879BE4900368A0D /* _TMEConversation.m in Sources */,
 				0C43CCB317F5E62A00D869F9 /* TMEBaseTableViewCell.m in Sources */,
@@ -2409,7 +2412,6 @@
 				0C5954FE17F711200076353E /* IIWrapController.m in Sources */,
 				0C7EFBEC17E8D5790054C4DE /* NSString+FontAwesome.m in Sources */,
 				0C7EFB6417E768C70054C4DE /* NSManagedObjectContext+MagicalRecord.m in Sources */,
-				0BD4C2A0187FAA2F00A12EFF /* TMEProgressView.m in Sources */,
 				0C7EFBD617E8D5170054C4DE /* UIColor+Additions.m in Sources */,
 				0C7EFB5B17E768C70054C4DE /* NSObject+MagicalDataImport.m in Sources */,
 				0C2F789617F2DBA600201783 /* UIImage+MultiFormat.m in Sources */,
@@ -2435,6 +2437,7 @@
 				0C7EFBC917E8D5170054C4DE /* NSData+Base64.m in Sources */,
 				0C2F789717F2DBA600201783 /* UIImage+WebP.m in Sources */,
 				0CD9CF5717EA0FD400402E91 /* AFHTTPClient.m in Sources */,
+				0B15BD581883C37800C098C6 /* UIImageView+XLNetworking.m in Sources */,
 				0C5954FD17F711200076353E /* IIViewDeckController.m in Sources */,
 				0C7EFB6D17E768C70054C4DE /* MagicalRecord+Options.m in Sources */,
 				20C4D5E817F733F80035BCA5 /* iCarousel.m in Sources */,
@@ -2496,6 +2499,7 @@
 				0C7EFBE117E8D5170054C4DE /* UIView+Glow.m in Sources */,
 				0CD9CF5917EA0FD400402E91 /* AFImageRequestOperation.m in Sources */,
 				0C7EFB5F17E768C70054C4DE /* NSManagedObject+MagicalDataImport.m in Sources */,
+				0B15BD341883B42600C098C6 /* UIImageView+XLProgressIndicator.m in Sources */,
 				0C2F789417F2DBA600201783 /* UIButton+WebCache.m in Sources */,
 				0CD9CF5C17EA0FD400402E91 /* AFPropertyListRequestOperation.m in Sources */,
 				0C7EFBD017E8D5170054C4DE /* NSString+Additions.m in Sources */,
