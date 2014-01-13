@@ -43,14 +43,12 @@ UITextFieldDelegate
 }
 
 - (IBAction)onBtnChangePrice:(id)sender {
-  [UIView mt_animateViews:@[self.buttonTapToChange]
-                 duration:0.5
-           timingFunction:kMTEaseInOutBack
-               animations:^{
-                 self.buttonTapToChange.transform = CGAffineTransformMakeRotation(-M_PI);
-               }
-               completion:^{
-               }];
+  [CAAnimation addAnimationToLayer:self.buttonTapToChange.layer
+                       withKeyPath:@"transform.rotation.z"
+                          duration:1
+                                to:-2*M_PI
+                    easingFunction:CAAnimationEasingFunctionEaseOutBack];
+  self.buttonTapToChange.userInteractionEnabled = NO;
   
   [self.txtPrice becomeFirstResponder];
 }
@@ -141,14 +139,7 @@ UITextFieldDelegate
   [self addNavigationItems];
   self.navigationItem.rightBarButtonItem = [self rightNavigationButtonSubmit];
   [self dismissKeyboard];
-  
-  [UIView mt_animateViews:@[self.buttonTapToChange]
-                 duration:0.5
-           timingFunction:kMTEaseInBack
-               animations:^{
-                 self.buttonTapToChange.transform = CGAffineTransformMakeRotation(0);
-               }
-               completion:nil];
+  self.buttonTapToChange.userInteractionEnabled = YES;
 }
 
 

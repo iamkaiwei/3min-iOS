@@ -21,9 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		0B15BD241883A04000C098C6 /* UIView+MTAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD231883A04000C098C6 /* UIView+MTAnimation.m */; };
-		0B15BD2A1883A23A00C098C6 /* MTMatrixInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD271883A23A00C098C6 /* MTMatrixInterpolation.m */; };
-		0B15BD2B1883A23A00C098C6 /* MTTimingFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD291883A23A00C098C6 /* MTTimingFunctions.m */; };
+		0B15BD5E1883F12A00C098C6 /* CAAnimation+EasingEquations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD5D1883F12A00C098C6 /* CAAnimation+EasingEquations.m */; };
 		0B22066C187278A800B93BD1 /* chat_to_buy_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B22066A187278A800B93BD1 /* chat_to_buy_btn@2x.png */; };
 		0B22066D187278A800B93BD1 /* chat_to_buy_pressed_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B22066B187278A800B93BD1 /* chat_to_buy_pressed_btn@2x.png */; };
 		0B327B4D18681ED200468DF9 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 205EACFB17F6E83F00EE9A76 /* libAviarySDK.a */; };
@@ -383,13 +381,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B15BD221883A04000C098C6 /* UIView+MTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MTAnimation.h"; sourceTree = "<group>"; };
-		0B15BD231883A04000C098C6 /* UIView+MTAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MTAnimation.m"; sourceTree = "<group>"; };
-		0B15BD251883A23A00C098C6 /* MTAnimationTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAnimationTypes.h; sourceTree = "<group>"; };
-		0B15BD261883A23A00C098C6 /* MTMatrixInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMatrixInterpolation.h; sourceTree = "<group>"; };
-		0B15BD271883A23A00C098C6 /* MTMatrixInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMatrixInterpolation.m; sourceTree = "<group>"; };
-		0B15BD281883A23A00C098C6 /* MTTimingFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTimingFunctions.h; sourceTree = "<group>"; };
-		0B15BD291883A23A00C098C6 /* MTTimingFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTimingFunctions.m; sourceTree = "<group>"; };
+		0B15BD5C1883F12A00C098C6 /* CAAnimation+EasingEquations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+EasingEquations.h"; sourceTree = "<group>"; };
+		0B15BD5D1883F12A00C098C6 /* CAAnimation+EasingEquations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+EasingEquations.m"; sourceTree = "<group>"; };
 		0B22066A187278A800B93BD1 /* chat_to_buy_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_to_buy_btn@2x.png"; sourceTree = "<group>"; };
 		0B22066B187278A800B93BD1 /* chat_to_buy_pressed_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_to_buy_pressed_btn@2x.png"; sourceTree = "<group>"; };
 		0B327B511868211300468DF9 /* TMESubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitViewController.h; path = "Submit VCs/TMESubmitViewController.h"; sourceTree = "<group>"; };
@@ -972,20 +965,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B15BD211883A02D00C098C6 /* MTAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				0B15BD251883A23A00C098C6 /* MTAnimationTypes.h */,
-				0B15BD261883A23A00C098C6 /* MTMatrixInterpolation.h */,
-				0B15BD271883A23A00C098C6 /* MTMatrixInterpolation.m */,
-				0B15BD281883A23A00C098C6 /* MTTimingFunctions.h */,
-				0B15BD291883A23A00C098C6 /* MTTimingFunctions.m */,
-				0B15BD221883A04000C098C6 /* UIView+MTAnimation.h */,
-				0B15BD231883A04000C098C6 /* UIView+MTAnimation.m */,
-			);
-			name = MTAnimation;
-			sourceTree = "<group>";
-		};
 		0B220669187278A800B93BD1 /* Chat To Buy */ = {
 			isa = PBXGroup;
 			children = (
@@ -1197,6 +1176,8 @@
 		0C28B28A17DC1B9200BD0EC2 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				0B15BD5C1883F12A00C098C6 /* CAAnimation+EasingEquations.h */,
+				0B15BD5D1883F12A00C098C6 /* CAAnimation+EasingEquations.m */,
 				0C7EFB8017E8D5170054C4DE /* ActiveSupportInflector.h */,
 				0C7EFB8117E8D5170054C4DE /* ActiveSupportInflector.m */,
 				0C7EFB8217E8D5170054C4DE /* ActiveSupportInflector.plist */,
@@ -1298,7 +1279,6 @@
 		0C28B28C17DC1B9200BD0EC2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				0B15BD211883A02D00C098C6 /* MTAnimation */,
 				B45411F81867DD8C001A75EE /* AFUrbanAirshipClient */,
 				B4093B721810379700D51B69 /* Classes */,
 				B459FDC7181BD31200D6BC79 /* SSPullToRefresh */,
@@ -2392,6 +2372,7 @@
 				0C7EFB6717E768C70054C4DE /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				0C5C14F117E6B6FA004F30D9 /* TMEModels.xcdatamodeld in Sources */,
 				0C2F789317F2DBA600201783 /* SDWebImagePrefetcher.m in Sources */,
+				0B15BD5E1883F12A00C098C6 /* CAAnimation+EasingEquations.m in Sources */,
 				0B3D0D8918750FCB00B740ED /* TMEMeTableViewCell.m in Sources */,
 				0C2F789817F2DBA600201783 /* UIImageView+WebCache.m in Sources */,
 				84325C2B1875B33D00D14B70 /* TMEActivityViewController.m in Sources */,
@@ -2404,7 +2385,6 @@
 				B4093B781810379700D51B69 /* YIFullScreenScroll.m in Sources */,
 				0CFC0FEA17ECB690008FBD92 /* TMEBrowserProductsTableCell.m in Sources */,
 				B49C6F57181C152900EB380A /* TMEFacebookManager.m in Sources */,
-				0B15BD2B1883A23A00C098C6 /* MTTimingFunctions.m in Sources */,
 				0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */,
 				0B9366F7186C10A900491FA4 /* Reachability.m in Sources */,
 				0C6E069017E0CBF60003F104 /* TMEHomeViewController.m in Sources */,
@@ -2460,7 +2440,6 @@
 				0C7EFBCB17E8D5170054C4DE /* NSDictionary+Additions.m in Sources */,
 				0CD9CF5817EA0FD400402E91 /* AFHTTPRequestOperation.m in Sources */,
 				0C5954FE17F711200076353E /* IIWrapController.m in Sources */,
-				0B15BD2A1883A23A00C098C6 /* MTMatrixInterpolation.m in Sources */,
 				0C7EFBEC17E8D5790054C4DE /* NSString+FontAwesome.m in Sources */,
 				0C7EFB6417E768C70054C4DE /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				0C7EFBD617E8D5170054C4DE /* UIColor+Additions.m in Sources */,
@@ -2522,7 +2501,6 @@
 				0C7EFB6A17E768C70054C4DE /* MagicalRecord+Actions.m in Sources */,
 				0B3D0D85187509AB00B740ED /* TMEMeViewController.m in Sources */,
 				0C7EFBC717E8D5170054C4DE /* NSArray+Additions.m in Sources */,
-				0B15BD241883A04000C098C6 /* UIView+MTAnimation.m in Sources */,
 				0B9366FA186C139400491FA4 /* TMEReachabilityManager.m in Sources */,
 				0CAE978E17E76635003A22CA /* AppDelegate.m in Sources */,
 				0CAE979017E76635003A22CA /* main.m in Sources */,
