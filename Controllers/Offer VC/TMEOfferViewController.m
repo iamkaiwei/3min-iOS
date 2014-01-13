@@ -18,6 +18,7 @@ UITextFieldDelegate
 @property (weak, nonatomic) IBOutlet UILabel *labelDetail;
 @property (weak, nonatomic) IBOutlet UILabel *labelPriceOffer;
 @property (weak, nonatomic) IBOutlet UITextField *txtPrice;
+@property (weak, nonatomic) IBOutlet UIButton *buttonTapToChange;
 
 @end
 
@@ -42,6 +43,10 @@ UITextFieldDelegate
 }
 
 - (IBAction)onBtnChangePrice:(id)sender {
+  [UIView beginAnimations:nil context:nil];
+  [UIView setAnimationDuration:0.5];
+  self.buttonTapToChange.transform = CGAffineTransformMakeRotation(M_PI);
+  [UIView commitAnimations];
   [self.txtPrice becomeFirstResponder];
 }
 
@@ -61,8 +66,8 @@ UITextFieldDelegate
 
 - (UIBarButtonItem *)rightNavigationButtonSubmit
 {
-  UIImage *rightButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn" isIcon:YES];
-  UIImage *rightButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn_pressed" isIcon:YES];
+  UIImage *rightButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"button-submit" isIcon:YES];
+  UIImage *rightButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"button-submit-pressed" isIcon:YES];
   UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
   [rightButton addTarget:self action:@selector(onSubmitButton:) forControlEvents:UIControlEventTouchUpInside];
   [rightButton setBackgroundImage:rightButtonBackgroundNormalImage forState:UIControlStateNormal];
@@ -73,6 +78,14 @@ UITextFieldDelegate
 
 - (void)onBtnBack{
   [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)onCancelButton:(id)sender {
+  [self dismissKeyboard];
+  
+  self.labelPriceOffer.text = [NSString stringWithFormat:@"$%@", self.product.price];
+  [self.labelPriceOffer sizeToFitKeepHeight];
+  [self.labelPriceOffer alignHorizontalCenterToView:self.view];
 }
 
 - (void)onSubmitButton:(UIButton *)sender{
@@ -120,6 +133,8 @@ UITextFieldDelegate
 
 - (void)onKeyboardWillHideNotification:(NSNotification *)sender
 {
+  [self addNavigationItems];
+  self.navigationItem.rightBarButtonItem = [self rightNavigationButtonSubmit];
   [self dismissKeyboard];
 }
 
