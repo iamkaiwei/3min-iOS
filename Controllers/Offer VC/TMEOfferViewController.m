@@ -34,9 +34,6 @@ UITextFieldDelegate
   self.labelPriceOffer.text = [NSString stringWithFormat:@"$%@",self.product.price];
   [self.labelPriceOffer sizeToFitKeepHeight];
   [self.labelPriceOffer alignHorizontalCenterToView:self.view];
-  
-//  [SVProgressHUD showWithStatus:@"Loading.." maskType:SVProgressHUDMaskTypeGradient];
-//  [self loadConversation];
 
   self.txtPrice.text = @"";
 }
@@ -53,12 +50,16 @@ UITextFieldDelegate
 }
 
 
-- (void)loadConversation{
+- (void)setOfferPriceToConversation{
   [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id
                                                                toUserID:self.product.user.id
+                                                          setOfferPrice:[NSNumber numberWithInteger:[self.txtPrice.text integerValue]]
                                                          onSuccessBlock:^(TMEConversation *conversation){
                                                            self.conversation = conversation;
-                                                           [SVProgressHUD dismiss];
+                                                           TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
+                                                           submitController.product = self.product;
+                                                           submitController.conversation = self.conversation;
+                                                           [self.navigationController pushViewController:submitController animated:YES];
                                                          }
                                                         andFailureBlock:^(NSInteger statusCode, id obj){
                                                           DLog(@"%d",statusCode);
@@ -92,10 +93,7 @@ UITextFieldDelegate
 }
 
 - (void)onSubmitButton:(UIButton *)sender{
-  TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
-  submitController.product = self.product;
-  submitController.conversation = self.conversation;
-  [self.navigationController pushViewController:submitController animated:YES];
+  [self setOfferPriceToConversation];
 }
 
 #pragma mark - UITextField delegate

@@ -160,10 +160,13 @@
 - (void)checkFirstTimeOffer
 {
   [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
-  [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id toUserID:self.product.user.id onSuccessBlock:^(TMEConversation *conversation) {
+  [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id
+                                                               toUserID:self.product.user.id
+                                                          setOfferPrice:nil
+                                                         onSuccessBlock:^(TMEConversation *conversation) {
     [SVProgressHUD dismiss];
     self.conversation = conversation;
-    if(!conversation.lastest_message)
+    if(!conversation.offer)
       self.firstTimeOffer = YES;
 
   } andFailureBlock:^(NSInteger statusCode, id obj) {

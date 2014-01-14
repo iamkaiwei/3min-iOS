@@ -112,12 +112,17 @@ SINGLETON_MACRO
 
 - (void)getConversationWithProductID:(NSNumber *)productID
                             toUserID:(NSNumber *)userID
+                       setOfferPrice:(NSNumber *)offerPrice
                      onSuccessBlock:(void (^)(TMEConversation *))successBlock
                     andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
   NSMutableDictionary *params = [@{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
                                    @"product_id" : productID,
                                    @"to" : userID
                                    } mutableCopy];
+  
+  if (offerPrice) {
+    [params setObject:offerPrice forKey:@"offer"];
+  }
   
   NSString *path = [NSString stringWithFormat:@"%@%@%@", API_SERVER_HOST, API_PREFIX, API_CONVERSATIONS];
   [[TMEHTTPClient sharedClient] postPath:path

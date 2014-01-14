@@ -221,6 +221,7 @@ TMELoadMoreTableViewCellDelegate
 - (void)loadConversationShowBottom:(BOOL)showBottom{
   [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id
                                                                toUserID:self.product.user.id
+                                                          setOfferPrice:nil
                                                          onSuccessBlock:^(TMEConversation *conversation){
                                                            self.conversation = conversation;
                                                            if (conversation.replies.count) {

@@ -11,6 +11,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="lastest_message" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastest_update" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="offer" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="user_avatar" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="user_full_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="user_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>

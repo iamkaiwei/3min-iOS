@@ -7,6 +7,7 @@ const struct TMEConversationAttributes TMEConversationAttributes = {
 	.id = @"id",
 	.lastest_message = @"lastest_message",
 	.lastest_update = @"lastest_update",
+	.offer = @"offer",
 	.user_avatar = @"user_avatar",
 	.user_full_name = @"user_full_name",
 	.user_id = @"user_id",
@@ -48,6 +49,11 @@ const struct TMEConversationFetchedProperties TMEConversationFetchedProperties =
 	
 	if ([key isEqualToString:@"idValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"id"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"offerValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"offer"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -98,6 +104,32 @@ const struct TMEConversationFetchedProperties TMEConversationFetchedProperties =
 
 @dynamic lastest_update;
 
+
+
+
+
+
+@dynamic offer;
+
+
+
+- (double)offerValue {
+	NSNumber *result = [self offer];
+	return [result doubleValue];
+}
+
+- (void)setOfferValue:(double)value_ {
+	[self setOffer:[NSNumber numberWithDouble:value_]];
+}
+
+- (double)primitiveOfferValue {
+	NSNumber *result = [self primitiveOffer];
+	return [result doubleValue];
+}
+
+- (void)setPrimitiveOfferValue:(double)value_ {
+	[self setPrimitiveOffer:[NSNumber numberWithDouble:value_]];
+}
 
 
 

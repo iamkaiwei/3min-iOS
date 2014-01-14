@@ -53,6 +53,11 @@
     conversation.lastest_update = [NSDate dateWithTimeIntervalSince1970:[data[@"lastest_update"] doubleValue]];
   }
   
+  conversation.offer = @0;
+  if (data[@"offer"] && ![data[@"offer"] isKindOfClass:[NSNull class]]) {
+    conversation.offer = data[@"offer"];
+  }
+  
   return conversation;
 }
 
