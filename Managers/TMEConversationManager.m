@@ -45,7 +45,6 @@ SINGLETON_MACRO
                                   [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
                                     DLog(@"Finish save to magical record");
                                     
-                                    
                                     if (successBlock) {
                                       successBlock(conversation);
                                     }

@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel      * lblProductPrice;
 @property (weak, nonatomic) IBOutlet UIView       * viewChatToBuyWrapper;
 @property (weak, nonatomic) IBOutlet UIScrollView * scrollViewProductDetail;
+@property (strong, nonatomic) TMEConversation     * conversation;
 
 @property (assign, nonatomic) BOOL                  firstTimeOffer;
 
@@ -141,10 +142,12 @@
   if (self.firstTimeOffer) {
     TMEOfferViewController *offerController = [[TMEOfferViewController alloc] init];
     offerController.product = self.product;
+    offerController.conversation = self.conversation;
     return offerController;
   }else{
     TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
     submitController.product = self.product;
+    submitController.conversation = self.conversation;
     return submitController;
   }
 }
@@ -159,7 +162,7 @@
   [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
   [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id toUserID:self.product.user.id onSuccessBlock:^(TMEConversation *conversation) {
     [SVProgressHUD dismiss];
-
+    self.conversation = conversation;
     if(!conversation.lastest_message)
       self.firstTimeOffer = YES;
 

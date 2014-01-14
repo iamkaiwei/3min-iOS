@@ -126,6 +126,7 @@ TMELoadMoreTableViewCellDelegate
       cellLoadMore = [topLevelObjects objectAtIndex:0];
     }
     cellLoadMore.delegate = self;
+    [cellLoadMore.buttonLoadMore setTitle:@"View previous messages..." forState:UIControlStateNormal];
     
     return cellLoadMore;
   }

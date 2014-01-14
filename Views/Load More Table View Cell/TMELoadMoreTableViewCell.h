@@ -18,7 +18,7 @@
 
 + (CGFloat)getHeight;
 
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorLoadMoreButton;
+@property (weak, nonatomic) IBOutlet UIButton *buttonLoadMore;
 @property (assign, nonatomic) id <TMELoadMoreTableViewCellDelegate> delegate;
 
 @end

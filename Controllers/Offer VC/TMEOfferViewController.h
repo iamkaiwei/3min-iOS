@@ -11,5 +11,6 @@
 @interface TMEOfferViewController : TMEBaseViewController
 
 @property (strong, nonatomic) TMEProduct *product;
+@property (strong, nonatomic) TMEConversation *conversation;
 
 @end

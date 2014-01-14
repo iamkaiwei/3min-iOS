@@ -16,9 +16,7 @@
   NSMutableArray *arrayConversation = [@[] mutableCopy];
   for (NSDictionary *data in arrayData) {
     TMEConversation *conversation = [TMEConversation conversationFromData:data];
-    if (conversation.lastest_message) {
-      [arrayConversation addObject:conversation];
-    }
+    [arrayConversation addObject:conversation];
   }
   
   return arrayConversation;
@@ -47,14 +45,14 @@
     [conversation.repliesSet addObjectsFromArray:arrayReplies];
   }
   
-  if (![data[@"lastest_message"] isKindOfClass:[NSNull class]]) {
+  if (data[@"lastest_message"] && ![data[@"lastest_message"] isKindOfClass:[NSNull class]]) {
     conversation.lastest_message = data[@"lastest_message"];
   }
   
-  if (![data[@"lastest_update"] isKindOfClass:[NSNull class]]) {
+  if (data[@"lastest_update"] && ![data[@"lastest_update"] isKindOfClass:[NSNull class]]) {
     conversation.lastest_update = [NSDate dateWithTimeIntervalSince1970:[data[@"lastest_update"] doubleValue]];
   }
-
+  
   return conversation;
 }
 

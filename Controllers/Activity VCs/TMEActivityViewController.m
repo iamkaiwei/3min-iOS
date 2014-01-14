@@ -20,6 +20,8 @@ TMELoadMoreTableViewCellDelegate
 
 @property (weak, nonatomic) IBOutlet UITableView                    * tableViewActivity;
 @property (strong, nonatomic) NSMutableArray                        * arrayConversation;
+@property (assign, nonatomic) NSInteger                               currentPage;
+
 @end
 
 @implementation TMEActivityViewController
@@ -41,8 +43,14 @@ TMELoadMoreTableViewCellDelegate
                                              object:nil];
   
   [self.tableViewActivity registerNib:[UINib nibWithNibName:NSStringFromClass([TMEActivityTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([TMEActivityTableViewCell class])];
+  self.arrayConversation = [[NSMutableArray alloc] init];
   
   [self getCachedActivity];
+  
+  if (!self.arrayConversation.count) {
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
+  }
+  [self loadListActivityWithPage:1];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -51,8 +59,6 @@ TMELoadMoreTableViewCellDelegate
     if (!self.arrayConversation.count) {
         [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
     }
-  [self loadListActivityWithPage:1];
-    
 }
 
 #pragma mark - UITableView datasource
@@ -81,6 +87,7 @@ TMELoadMoreTableViewCellDelegate
       cellLoadMore = [topLevelObjects objectAtIndex:0];
     }
     cellLoadMore.delegate = self;
+    [cellLoadMore.buttonLoadMore setTitle:@"Load more activities..." forState:UIControlStateNormal];
     
     return cellLoadMore;
   }
@@ -108,14 +115,22 @@ TMELoadMoreTableViewCellDelegate
 #pragma mark - Caching stuffs
 
 - (void)getCachedActivity{
-    NSArray *tmpArray = [TMEConversation MR_findAllSortedBy:@"lastest_update" ascending:NO];
-    for (TMEConversation *conversation in tmpArray) {
-        if (conversation.lastest_message) {
-            [self.arrayConversation addObject:conversation];
-        }
+    NSArray *largeArray = [TMEConversation MR_findAllSortedBy:@"lastest_update" ascending:NO];
+  
+  if (largeArray.count > 10) {
+    NSArray *smallArray = [largeArray subarrayWithRange:NSMakeRange(0, 9)];
+    for (TMEConversation *conversation in smallArray) {
+      [self.arrayConversation addObject:conversation];
     }
+  }
+  
+  for (TMEConversation *conversation in largeArray) {
+    [self.arrayConversation addObject:conversation];
+  }
     if (self.arrayConversation.count) {
-        [self.tableViewActivity reloadData];
+      [self.tableViewActivity reloadData];
+      self.tableViewActivity.hidden = NO;
+      [SVProgressHUD dismiss];
     }
 }
 
@@ -128,16 +143,24 @@ TMELoadMoreTableViewCellDelegate
   return NO;
 }
 
+- (void)onBtnLoadMore:(UIButton *)sender{
+  [self loadListActivityWithPage:self.currentPage + 1];
+}
 #pragma mark - Handle notification
 
 - (void)loadListActivityWithPage:(NSInteger)page{
   [[TMEConversationManager sharedInstance] getListConversationWithPage:page
                                                         onSuccessBlock:^(NSArray *arrayConversation)
   {
-    self.arrayConversation = [arrayConversation mutableCopy];
+    self.currentPage = page;
+    
+    if (page == 1) {
+      self.arrayConversation = [arrayConversation mutableCopy];
+    }
+    else{
+      [self.arrayConversation addObjectsFromArray:arrayConversation];
+    }
     [self.tableViewActivity reloadData];
-    self.tableViewActivity.hidden = NO;
-    [SVProgressHUD dismiss];
   }
                                                        andFailureBlock:^(NSInteger statusCode, NSError *error)
   {

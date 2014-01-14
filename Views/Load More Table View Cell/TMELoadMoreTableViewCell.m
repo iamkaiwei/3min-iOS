@@ -10,20 +10,11 @@
 
 @interface TMELoadMoreTableViewCell()
 
-@property (weak, nonatomic) IBOutlet UIButton *buttonLoadMore;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorLoadMoreButton;
 
 @end
 
 @implementation TMELoadMoreTableViewCell
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
 
 + (CGFloat)getHeight{
   return 44;

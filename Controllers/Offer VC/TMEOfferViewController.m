@@ -14,7 +14,6 @@
 UITextFieldDelegate
 >
 
-@property (strong, nonatomic) TMEConversation *conversation;
 @property (weak, nonatomic) IBOutlet UILabel *labelDetail;
 @property (weak, nonatomic) IBOutlet UILabel *labelPriceOffer;
 @property (weak, nonatomic) IBOutlet UITextField *txtPrice;
@@ -36,8 +35,8 @@ UITextFieldDelegate
   [self.labelPriceOffer sizeToFitKeepHeight];
   [self.labelPriceOffer alignHorizontalCenterToView:self.view];
   
-  [SVProgressHUD showWithStatus:@"Loading.." maskType:SVProgressHUDMaskTypeGradient];
-  [self loadConversation];
+//  [SVProgressHUD showWithStatus:@"Loading.." maskType:SVProgressHUDMaskTypeGradient];
+//  [self loadConversation];
 
   self.txtPrice.text = @"";
 }
