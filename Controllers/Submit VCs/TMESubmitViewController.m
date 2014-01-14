@@ -77,7 +77,7 @@ TMELoadMoreTableViewCellDelegate
     [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:1 showBottom:NO];
     return;
   }
-  [self loadConversationShowBottom:NO];
+//  [self loadConversationShowBottom:NO];
 }
 
 #pragma mark - Table view delegate
@@ -218,23 +218,22 @@ TMELoadMoreTableViewCellDelegate
 
 #pragma mark - Load conversation
 
-- (void)loadConversationShowBottom:(BOOL)showBottom{
-  [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id
-                                                               toUserID:self.product.user.id
-                                                          setOfferPrice:nil
-                                                         onSuccessBlock:^(TMEConversation *conversation){
-                                                           self.conversation = conversation;
-                                                           if (conversation.replies.count) {
-                                                             self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
-                                                             self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
-                                                           }
-                                                           [self reloadTableViewConversationShowBottom:showBottom];
-                                                         }
-                                                        andFailureBlock:^(NSInteger statusCode, id obj){
-                                                          DLog(@"%d",statusCode);
-                                                        
-                                                        }];
-}
+//- (void)loadConversationShowBottom:(BOOL)showBottom{
+//  [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id
+//                                                               toUserID:self.product.user.id
+//                                                         onSuccessBlock:^(TMEConversation *conversation){
+//                                                           self.conversation = conversation;
+//                                                           if (conversation.replies.count) {
+//                                                             self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
+//                                                             self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
+//                                                           }
+//                                                           [self reloadTableViewConversationShowBottom:showBottom];
+//                                                         }
+//                                                        andFailureBlock:^(NSInteger statusCode, id obj){
+//                                                          DLog(@"%d",statusCode);
+//                                                        
+//                                                        }];
+//}
 
 #pragma mark - Helper method
 
@@ -270,7 +269,7 @@ TMELoadMoreTableViewCellDelegate
   self.lblProductName.text = self.product.name;
   self.lblProductPrice.text = [NSString stringWithFormat:@"$%@",self.product.price];
   [self.imageViewProduct setImageWithURL:[NSURL URLWithString:[[self.product.images anyObject] thumb]]];
-  self.lblPriceOffered.text = [NSString stringWithFormat:@"$%@",self.product.price];
+  self.lblPriceOffered.text = [NSString stringWithFormat:@"$%@",self.conversation.offer];
 }
 
 - (void)reloadTableViewConversationShowBottom:(BOOL)showBottom{

@@ -110,19 +110,14 @@ SINGLETON_MACRO
                                 }];
 }
 
-- (void)getConversationWithProductID:(NSNumber *)productID
+- (void)createConversationWithProductID:(NSNumber *)productID
                             toUserID:(NSNumber *)userID
-                       setOfferPrice:(NSNumber *)offerPrice
                      onSuccessBlock:(void (^)(TMEConversation *))successBlock
                     andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
   NSMutableDictionary *params = [@{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
                                    @"product_id" : productID,
                                    @"to" : userID
                                    } mutableCopy];
-  
-  if (offerPrice) {
-    [params setObject:offerPrice forKey:@"offer"];
-  }
   
   NSString *path = [NSString stringWithFormat:@"%@%@%@", API_SERVER_HOST, API_PREFIX, API_CONVERSATIONS];
   [[TMEHTTPClient sharedClient] postPath:path
@@ -140,5 +135,29 @@ SINGLETON_MACRO
                                  }];
 }
 
+- (void)putOfferPriceToConversationWithConversationID:(NSNumber *)conversationID
+                                        andOfferPrice:(NSNumber *)offerPrice
+                                       onSuccessBlock:(void (^)(NSNumber *))successBlock
+                                      andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
+{
+  NSMutableDictionary *param = [@{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
+                                  @"offer" : offerPrice
+                                  } mutableCopy];
+  NSString *path = [NSString stringWithFormat:@"%@%@%@/%@%@", API_SERVER_HOST, API_PREFIX, API_CONVERSATIONS, conversationID, API_OFFER];
+  [[TMEHTTPClient sharedClient] putPath:path
+                             parameters:param
+                                success:^(AFHTTPRequestOperation *operation, id responseObject){
+                                  if ([responseObject[@"status"] isEqualToString:@"success"]){
+                                    if (successBlock) {
+                                      successBlock(offerPrice);
+                                    }
+                                  }
+                                }
+                                failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                                  if (failureBlock) {
+                                    failureBlock(error.code, error);
+                                  }
+                                }];
+}
 
 @end

@@ -43,8 +43,6 @@
   
   [self loadProductDetail:self.product];
   [self setUpView];
-
-  [self checkFirstTimeOffer];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -135,10 +133,6 @@
 
 - (UIViewController *)controllerForNextStep
 {
-
-#warning THIS IS FOR TESTING
-  self.firstTimeOffer = YES;
-
   if (self.firstTimeOffer) {
     TMEOfferViewController *offerController = [[TMEOfferViewController alloc] init];
     offerController.product = self.product;
@@ -153,27 +147,30 @@
 }
 
 - (IBAction)chatButtonAction:(id)sender {
-  UIViewController *viewController = [self controllerForNextStep];
-  [self.navigationController pushViewController:viewController animated:YES];
+  [self checkFirstTimeOffer];
 }
 
 - (void)checkFirstTimeOffer
 {
   [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
-  [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id
+  
+  [[TMEConversationManager sharedInstance] createConversationWithProductID:self.product.id
                                                                toUserID:self.product.user.id
-                                                          setOfferPrice:nil
                                                          onSuccessBlock:^(TMEConversation *conversation) {
-    [SVProgressHUD dismiss];
-    self.conversation = conversation;
-    if(!conversation.offer)
-      self.firstTimeOffer = YES;
-
-  } andFailureBlock:^(NSInteger statusCode, id obj) {
-
-    [SVProgressHUD dismiss];
-    self.firstTimeOffer = NO;
-  }];
+                                                           [SVProgressHUD dismiss];
+                                                           
+                                                           self.conversation = conversation;
+                                                           self.firstTimeOffer = NO;
+                                                           
+                                                           if([conversation.offer isEqualToNumber:@0])
+                                                             self.firstTimeOffer = YES;
+                                                           
+                                                           UIViewController *viewController = [self controllerForNextStep];
+                                                           [self.navigationController pushViewController:viewController animated:YES];
+                                                         } andFailureBlock:^(NSInteger statusCode, id obj) {
+                                                           [SVProgressHUD dismiss];
+                                                           self.firstTimeOffer = NO;
+                                                         }];
 }
 
 @end

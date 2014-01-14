@@ -26,10 +26,14 @@
                      onSuccessBlock:(void (^)(NSArray *))successBlock
                     andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)getConversationWithProductID:(NSNumber *)productID
+- (void)createConversationWithProductID:(NSNumber *)productID
                             toUserID:(NSNumber *)userID
-                       setOfferPrice:(NSNumber *)offerPrice
                       onSuccessBlock:(void (^)(TMEConversation *))successBlock
                      andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+
+- (void)putOfferPriceToConversationWithConversationID:(NSNumber *)conversationID
+                                        andOfferPrice:(NSNumber *)offerPrice
+                                       onSuccessBlock:(void (^)(NSNumber *))successBlock
+                                      andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 @end

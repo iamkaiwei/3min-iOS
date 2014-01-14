@@ -62,6 +62,7 @@
 #define API_USER                                    @"/users"
 #define API_CONVERSATIONS                           @"/conversations"
 #define API_CONVERSATION_REPLIES                    @"/conversation_replies"
+#define API_OFFER                                   @"/offer"
 #define API_USER_LOGIN                              @"/oauth/token"
 
 //------------------------------------------------------------------------------------------------------

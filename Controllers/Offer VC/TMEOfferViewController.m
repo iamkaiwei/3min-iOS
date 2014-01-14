@@ -51,20 +51,18 @@ UITextFieldDelegate
 
 
 - (void)setOfferPriceToConversation{
-  [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id
-                                                               toUserID:self.product.user.id
-                                                          setOfferPrice:[NSNumber numberWithInteger:[self.txtPrice.text integerValue]]
-                                                         onSuccessBlock:^(TMEConversation *conversation){
-                                                           self.conversation = conversation;
-                                                           TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
-                                                           submitController.product = self.product;
-                                                           submitController.conversation = self.conversation;
-                                                           [self.navigationController pushViewController:submitController animated:YES];
-                                                         }
-                                                        andFailureBlock:^(NSInteger statusCode, id obj){
-                                                          DLog(@"%d",statusCode);
-                                                          
-                                                        }];
+  [[TMEConversationManager sharedInstance] putOfferPriceToConversationWithConversationID:self.conversation.id
+                                                                           andOfferPrice:@([self.txtPrice.text integerValue])
+                                                                          onSuccessBlock:^(NSNumber *priceOffer){
+                                                                            self.conversation.offer = priceOffer;
+                                                                            TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
+                                                                            submitController.product = self.product;
+                                                                            submitController.conversation = self.conversation;
+                                                                            [self.navigationController pushViewController:submitController animated:YES];
+                                                                          }
+                                                                         andFailureBlock:^(NSInteger statusCode, id obj){
+                                                                           DLog(@"%d", statusCode);
+                                                                         }];
 }
 
 - (UIBarButtonItem *)rightNavigationButtonSubmit
