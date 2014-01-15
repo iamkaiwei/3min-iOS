@@ -121,6 +121,7 @@
   UIScrollView *scrollView = (UIScrollView *)self.view.subviews[0];
   scrollView.bounces = NO;
   scrollView.showsVerticalScrollIndicator = NO;
+  [self setExtendedLayoutIncludesOpaqueBars:YES];
   
   [UIView animateWithDuration:0.2 animations:^{
       self.tabBarController.tabBar.alpha = 0;
@@ -128,6 +129,7 @@
                    completion:^(BOOL finished)
    {
        self.tabBarController.tabBar.hidden = YES;
+     [self.tabBarController.tabBar setTranslucent:NO];
    }];
 }
 

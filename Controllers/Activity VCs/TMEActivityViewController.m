@@ -130,7 +130,6 @@ TMELoadMoreTableViewCellDelegate
     if (self.arrayConversation.count) {
       [self.tableViewActivity reloadData];
       self.tableViewActivity.hidden = NO;
-      [SVProgressHUD dismiss];
     }
 }
 
@@ -161,6 +160,8 @@ TMELoadMoreTableViewCellDelegate
       [self.arrayConversation addObjectsFromArray:arrayConversation];
     }
     [self.tableViewActivity reloadData];
+    self.tableViewActivity.hidden = NO;
+    [SVProgressHUD dismiss];
   }
                                                        andFailureBlock:^(NSInteger statusCode, NSError *error)
   {
