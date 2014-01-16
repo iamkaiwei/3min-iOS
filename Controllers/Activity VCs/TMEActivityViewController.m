@@ -115,7 +115,7 @@ TMELoadMoreTableViewCellDelegate
 #pragma mark - Caching stuffs
 
 - (void)getCachedActivity{
-    NSArray *largeArray = [TMEConversation MR_findAllSortedBy:@"lastest_update" ascending:NO];
+    NSArray *largeArray = [TMEConversation MR_findAllSortedBy:@"latest_update" ascending:NO];
   
   if (largeArray.count > 10) {
     NSArray *smallArray = [largeArray subarrayWithRange:NSMakeRange(0, 9)];

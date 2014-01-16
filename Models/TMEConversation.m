@@ -45,12 +45,12 @@
     [conversation.repliesSet addObjectsFromArray:arrayReplies];
   }
   
-  if (data[@"lastest_message"] && ![data[@"lastest_message"] isKindOfClass:[NSNull class]]) {
-    conversation.lastest_message = data[@"lastest_message"];
+  if (data[@"latest_message"] && ![data[@"latest_message"] isKindOfClass:[NSNull class]]) {
+    conversation.latest_message = data[@"latest_message"];
   }
   
-  if (data[@"lastest_update"] && ![data[@"lastest_update"] isKindOfClass:[NSNull class]]) {
-    conversation.lastest_update = [NSDate dateWithTimeIntervalSince1970:[data[@"lastest_update"] doubleValue]];
+  if (data[@"latest_update"] && ![data[@"latest_update"] isKindOfClass:[NSNull class]]) {
+    conversation.latest_update = [NSDate dateWithTimeIntervalSince1970:[data[@"latest_update"] doubleValue]];
   }
   
   conversation.offer = @0;

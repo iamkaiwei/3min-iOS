@@ -74,10 +74,9 @@ TMELoadMoreTableViewCellDelegate
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
   }
   if (self.conversation) {
-    [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:1 showBottom:NO];
+    [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:1 showBottom:YES];
     return;
   }
-//  [self loadConversationShowBottom:NO];
 }
 
 #pragma mark - Table view delegate
@@ -173,7 +172,7 @@ TMELoadMoreTableViewCellDelegate
                                                         [self loadMessageWithReplyIDLargerID:lastestReplyID
                                                                                  orSmallerID:0
                                                                                     withPage:1
-                                                                                  showBottom:NO];
+                                                                                  showBottom:YES];
                                                       }
                                                     }
                                                    andFailureBlock:^(NSInteger statusCode, id obj){
@@ -199,14 +198,7 @@ TMELoadMoreTableViewCellDelegate
                                                                        onSuccessBlock:^(TMEConversation *conversation)
    {
      self.conversation = conversation;
-       if (!largerReplyID && !smallerReplyID) {
-           self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
-       }
-     
-       else
-       {
-           [self.arrayReply addObjectsFromArray:[[conversation.repliesSet allObjects] mutableCopy]];
-       }
+     self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
      self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
      [self reloadTableViewConversationShowBottom:showBottom];
    }
@@ -215,25 +207,6 @@ TMELoadMoreTableViewCellDelegate
      return DLog(@"%d", statusCode);
    }];
 }
-
-#pragma mark - Load conversation
-
-//- (void)loadConversationShowBottom:(BOOL)showBottom{
-//  [[TMEConversationManager sharedInstance] getConversationWithProductID:self.product.id
-//                                                               toUserID:self.product.user.id
-//                                                         onSuccessBlock:^(TMEConversation *conversation){
-//                                                           self.conversation = conversation;
-//                                                           if (conversation.replies.count) {
-//                                                             self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
-//                                                             self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
-//                                                           }
-//                                                           [self reloadTableViewConversationShowBottom:showBottom];
-//                                                         }
-//                                                        andFailureBlock:^(NSInteger statusCode, id obj){
-//                                                          DLog(@"%d",statusCode);
-//                                                        
-//                                                        }];
-//}
 
 #pragma mark - Helper method
 
@@ -274,16 +247,21 @@ TMELoadMoreTableViewCellDelegate
 
 - (void)reloadTableViewConversationShowBottom:(BOOL)showBottom{
   [self.tableViewConversation reloadData];
-self.tableViewConversation.height = self.tableViewConversation.contentSize.height;
+  self.tableViewConversation.height = self.tableViewConversation.contentSize.height;
   [self.textViewInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
   [self.textViewInputMessage setHeight:35.5];
   [self.scrollViewContent autoAdjustScrollViewContentSize];
   
-  if (showBottom) {
-    CGPoint bottomOffset = CGPointMake(0, self.scrollViewContent.contentSize.height);
+  CGPoint bottomOffset = CGPointMake(0, 0);
+  if (showBottom && self.scrollViewContent.contentSize.height > self.scrollViewContent.height) {
+    if (!self.isKeyboardShowing) {
+      bottomOffset = CGPointMake(0, self.scrollViewContent.contentSize.height - CGRectGetHeight(self.scrollViewContent.bounds));
+    }
+    else{
+      bottomOffset = CGPointMake(0, self.scrollViewContent.contentSize.height - CGRectGetHeight(self.scrollViewContent.bounds) + 166);
+    }
     [self.scrollViewContent setContentOffset:bottomOffset animated:YES];
   }
-  
   [SVProgressHUD dismiss];
 }
 
@@ -298,7 +276,7 @@ self.tableViewConversation.height = self.tableViewConversation.contentSize.heigh
   self.arrayReply = [self.conversation.repliesSet mutableCopy];
   if (self.arrayReply.count) {
     self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
-    [self reloadTableViewConversationShowBottom:YES];
+    [self reloadTableViewConversationShowBottom:NO];
   }
 }
 

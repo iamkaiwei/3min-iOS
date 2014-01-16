@@ -24,14 +24,14 @@
 - (void)configCellWithConversation:(TMEConversation *)conversation{
   
   self.labelUserName.text = conversation.user_full_name;
-  self.labelTimestamp.text = [conversation.lastest_update relativeDate];
+  self.labelTimestamp.text = [conversation.latest_update relativeDate];
   [self.labelTimestamp sizeToFit];
   
   CGRect frame = self.imageViewClock.frame;
   frame.origin.x = CGRectGetMaxX(self.labelTimestamp.frame) + 3;
   self.imageViewClock.frame = frame;
   
-  self.labelContent.text = conversation.lastest_message;
+  self.labelContent.text = conversation.latest_message;
   [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:conversation.user_avatar]];
   
   NSString *imageURL = [(TMEProductImages *)[conversation.product.imagesSet anyObject] medium];
