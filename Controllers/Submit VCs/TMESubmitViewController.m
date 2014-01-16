@@ -199,7 +199,7 @@ TMELoadMoreTableViewCellDelegate
    {
      self.conversation = conversation;
      self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
-     self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
+     self.arrayReply = [[self.arrayReply sortByAttribute:@"id" ascending:YES] mutableCopy];
      [self reloadTableViewConversationShowBottom:showBottom];
    }
                                                                       andFailureBlock:^(NSInteger statusCode,id obj)
@@ -222,15 +222,6 @@ TMELoadMoreTableViewCellDelegate
     return YES;
   }
   return NO;
-}
-
-- (NSArray *)sortArrayReplies:(NSArray *)array{
-  NSSortDescriptor *sortDescriptor;
-  sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"id"
-                                               ascending:YES];
-  NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-  NSArray *sortedArray = [array sortedArrayUsingDescriptors:sortDescriptors];
-  return sortedArray;
 }
 
 - (NSInteger)getLastestReplyID{
@@ -273,9 +264,9 @@ TMELoadMoreTableViewCellDelegate
 
 - (void)getCacheMessage{
   self.conversation = [[TMEConversation MR_findByAttribute:@"id" withValue:self.conversation.id] lastObject];
-  self.arrayReply = [self.conversation.repliesSet mutableCopy];
+  self.arrayReply = [[self.conversation.repliesSet allObjects] mutableCopy];
   if (self.arrayReply.count) {
-    self.arrayReply = [[self sortArrayReplies:self.arrayReply] mutableCopy];
+    self.arrayReply = [[self.arrayReply sortByAttribute:@"id" ascending:YES] mutableCopy];
     [self reloadTableViewConversationShowBottom:NO];
   }
 }

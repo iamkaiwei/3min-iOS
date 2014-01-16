@@ -30,4 +30,6 @@
  */
 - (NSArray*)filteredArrayWithValue:(id)value forKeyPath:(NSString*)keypath;
 
+- (NSArray *)sortByAttribute:(NSString *)attribute ascending:(BOOL)ascending;
+
 @end

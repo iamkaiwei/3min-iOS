@@ -90,4 +90,13 @@
 	return [NSArray arrayWithArray:objects];
 }
 
+- (NSArray *)sortByAttribute:(NSString *)attribute ascending:(BOOL)ascending;{
+  NSSortDescriptor *sortDescriptor;
+  sortDescriptor = [[NSSortDescriptor alloc] initWithKey:attribute
+                                               ascending:ascending];
+  NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+  NSArray *sortedArray = [self sortedArrayUsingDescriptors:sortDescriptors];
+  return sortedArray;
+}
+
 @end
