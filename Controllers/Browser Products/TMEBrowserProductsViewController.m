@@ -15,15 +15,13 @@
 <
 UIScrollViewDelegate,
 UITableViewDelegate,
-TMEBrowserProductsTableCellDelegate,
-SSPullToRefreshViewDelegate
+TMEBrowserProductsTableCellDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UITableView        * tableProducts;
 @property (strong, nonatomic) NSMutableArray            * arrProducts;
 @property (strong, nonatomic) TMEUser                   * loginUser;
 @property (strong, nonatomic) TMECategory               * currentCategory;
-@property (strong, nonatomic) SSPullToRefreshView       * pullToRefreshView;
 
 @end
 
@@ -44,17 +42,15 @@ SSPullToRefreshViewDelegate
   
 //  self.title = @"";
   self.navigationController.navigationBar.topItem.title = @"Browse Products";
-  [self paddingScrollWithTop];
   
   NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
   [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
   
-  self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.tableProducts delegate:self];
-  
-  [self.pullToRefreshView startLoading];
+  self.scrollableView = self.tableProducts;
+  [self enablePullToRefresh];
+  [self loadProducts];
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onCategoryChangeNotification:) name:CATEGORY_CHANGE_NOTIFICATION object:nil];
-  
 }
 
 #pragma mark - UITableView delegate

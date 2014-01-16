@@ -40,6 +40,8 @@ TMELoadMoreTableViewCellDelegate
 {
   [super viewDidLoad];
   self.navigationController.navigationBar.topItem.title = @"Activity";
+  self.scrollableView = self.tableViewActivity;
+  [self enablePullToRefresh];
   // Do any additional setup after loading the view from its nib.
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -125,6 +127,7 @@ TMELoadMoreTableViewCellDelegate
   }
   
   if (self.arrayConversation.count) {
+    self.currentPage = (self.arrayConversation.count / 10) + 1;
     [self.tableViewActivity reloadData];
     self.tableViewActivity.hidden = NO;
   }
@@ -144,7 +147,6 @@ TMELoadMoreTableViewCellDelegate
      if (!arrayConversation.count) {
        self.havingPreviousActivities = NO;
      }
-     self.currentPage = page;
      NSMutableSet *setConversation = [NSMutableSet setWithArray:self.arrayConversation];
      [setConversation addObjectsFromArray:arrayConversation];
      
@@ -153,16 +155,25 @@ TMELoadMoreTableViewCellDelegate
      
      [self.tableViewActivity reloadData];
      self.tableViewActivity.hidden = NO;
+     
+     [self.pullToRefreshView finishLoading];
      [SVProgressHUD dismiss];
    }
                                                        andFailureBlock:^(NSInteger statusCode, NSError *error)
    {
      return DLog(@"%d", statusCode);
+     [self.pullToRefreshView finishLoading];
    }];
   
 }
 
 - (void)reloadActivity:(NSNotification *)notification{
+  [self loadListActivityWithPage:1];
+}
+
+- (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view
+{
+  [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
   [self loadListActivityWithPage:1];
 }
 

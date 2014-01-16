@@ -14,7 +14,7 @@
 
 @class ADFormViewController;
 
-@interface TMEBaseViewController ()<UIGestureRecognizerDelegate>
+@interface TMEBaseViewController ()<UIGestureRecognizerDelegate, SSPullToRefreshViewDelegate>
 
 @property (nonatomic, strong) NSValue *keyboardFrame;
 @property (nonatomic, strong) UITapGestureRecognizer *tapToDismissKeyboardGestureRecognizer;
@@ -220,6 +220,10 @@
  */
 - (UIView *)getScrollableView
 {
+  if (self.scrollableView) {
+    return self.scrollableView;
+  }
+  
   UIView *scrollView = nil;
   NSArray * propertyNames = @[@"scrollView", @"tableView", @"collectionView"];
   
@@ -254,6 +258,10 @@
 //    vc.url = urlString;
 //    [self.navigationController pushViewController:vc animated:YES];
 //}
+
+- (void)enablePullToRefresh{
+  self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:(UIScrollView *)[self getScrollableView] delegate:self];
+}
 
 - (void)registerForKeyboardNotifications
 {

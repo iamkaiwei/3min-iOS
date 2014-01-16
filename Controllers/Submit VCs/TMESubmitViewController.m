@@ -232,7 +232,7 @@ TMELoadMoreTableViewCellDelegate
 - (void)loadProductDetail{
   self.lblProductName.text = self.product.name;
   self.lblProductPrice.text = [NSString stringWithFormat:@"$%@",self.product.price];
-  [self.imageViewProduct setImageWithURL:[NSURL URLWithString:[[self.product.images anyObject] thumb]]];
+  [self.imageViewProduct setImageWithURL:[NSURL URLWithString:[[[self.product.images allObjects] lastObject] thumb]]];
   self.lblPriceOffered.text = [NSString stringWithFormat:@"$%@",self.conversation.offer];
 }
 

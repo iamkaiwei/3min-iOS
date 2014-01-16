@@ -13,11 +13,13 @@
 
 @interface TMEBaseViewController : GAITrackedViewController <UITextFieldDelegate>
 
+@property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
 @property (nonatomic, strong) UITextField *activeTextField;
 @property (nonatomic, assign) BOOL isKeyboardShowing;
 @property (nonatomic, assign) BOOL previousVCIsHome;
 @property (nonatomic, assign) BOOL shouldHandleKeyboardNotification;
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIView *scrollableView;
 
 /**
  A Boolean value that specifies whether views should avoid keyboard. Default is YES.
@@ -58,7 +60,7 @@
  */
 - (IBAction)onBtnBack:(id)sender;
 
-
+- (void)enablePullToRefresh;
 /**
  *list all notification this view can receive
  *return: array of notification
