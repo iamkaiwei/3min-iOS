@@ -119,28 +119,57 @@ FacebookManagerDelegate
     NSString *productID = userInfo[@"aps"][@"other"][@"product_id"];
     NSString *conversationID = userInfo[@"aps"][@"other"][@"conversation_id"];
   
-    IIViewDeckController *deckController = (IIViewDeckController *)self.window.rootViewController;
-    UITabBarController *homeController = (UITabBarController *)deckController.centerController;
-    UINavigationController *navController = (UINavigationController *) [[homeController viewControllers] objectAtIndex:0];
-    
-    if (state == UIApplicationStateActive) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
-        NSString *message = [NSString stringWithFormat:@"%@", alert];
-        [TSMessage showNotificationWithTitle:message type:TSMessageNotificationTypeMessage];
-        return;
-    }
-    
+    IIViewDeckController __block *deckController = (IIViewDeckController *)self.window.rootViewController;
+    UITabBarController __block *homeController = (UITabBarController *)deckController.centerController;
+    UINavigationController *navController = (UINavigationController *) [homeController selectedViewController];
+  
     if ([navController.topViewController isMemberOfClass:[TMESubmitViewController class]])
     {
-        TMESubmitViewController *submitVC = (TMESubmitViewController *)navController.topViewController;
-        if ([submitVC.conversation.id isEqual:userInfo[@"aps"][@"other"][@"conversation_id"]]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
-            return;
-        }
+      TMESubmitViewController *submitVC = (TMESubmitViewController *)navController.topViewController;
+      if ([submitVC.conversation.id isEqual:conversationID]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
+        return;
+      }
     }
   
-    TMEConversation *notificationConversation = [[TMEConversation MR_findByAttribute:@"id" withValue:@900] lastObject];
-    TMEProduct *notificationProduct = [[TMEProduct MR_findByAttribute:@"id" withValue:@900] lastObject];
+    TMEConversation *notificationConversation = [[TMEConversation MR_findByAttribute:@"id" withValue:conversationID] lastObject];
+    TMEProduct *notificationProduct = [[TMEProduct MR_findByAttribute:@"id" withValue:productID] lastObject];
+  
+    if (state == UIApplicationStateActive) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
+      
+      if ([alert length] > 40) {
+        alert = [[alert substringToIndex: 40] stringByAppendingString:@"..."];
+      }
+      
+      [TSMessage showNotificationInViewController:homeController
+                                            title:alert
+                                         subtitle:nil
+                                            image:nil
+                                             type:TSMessageNotificationTypeMessage
+                                         duration:4.0f
+                                         callback:^{
+                                           if (notificationConversation && notificationProduct) {
+                                             TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
+                                             submitVC.conversation = notificationConversation;
+                                             submitVC.product = notificationProduct;
+                                             
+                                             [navController pushViewController:submitVC animated:YES];
+                                             return;
+                                           }
+                                           
+                                           [self showHomeViewController];
+                                           deckController = (IIViewDeckController *)self.window.rootViewController;
+                                           homeController = (UITabBarController *)deckController.centerController;
+                                           [homeController setSelectedIndex:3];
+                                           
+                                         }
+                                      buttonTitle:nil
+                                   buttonCallback:nil
+                                       atPosition:TSMessageNotificationPositionTop
+                              canBeDismisedByUser:YES];
+        return;
+    }
   
     if (notificationConversation && notificationProduct) {
       TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
@@ -148,6 +177,7 @@ FacebookManagerDelegate
       submitVC.product = notificationProduct;
     
       [navController pushViewController:submitVC animated:YES];
+      return;
     }
   
     [self showHomeViewController];
@@ -300,6 +330,7 @@ FacebookManagerDelegate
 }
 
 #pragma mark - ViewController change helpers
+
 - (void)switchRootViewController:(UIViewController *)viewController animated:(BOOL)animated completion:(void (^)())completion
 {
     if (animated) {
@@ -351,6 +382,10 @@ FacebookManagerDelegate
     } else {
       [self switchRootViewController:self.deckController animated:YES completion:nil];
     }
+}
+
+- (void)handleTapOnNotificationWithConversation:(TMEConversation *)conversation andProduct:(TMEProduct *)product{
+  
 }
 
 - (void)showTutorialController

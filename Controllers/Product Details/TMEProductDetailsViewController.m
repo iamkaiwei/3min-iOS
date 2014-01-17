@@ -18,11 +18,15 @@
 @property (weak, nonatomic) IBOutlet UIImageView  * imgUserAvatar;
 @property (weak, nonatomic) IBOutlet UILabel      * lblUserName;
 @property (weak, nonatomic) IBOutlet UILabel      * lblTimestamp;
-@property (weak, nonatomic) IBOutlet UIImageView  * imgProductImage;
+@property (weak, nonatomic) IBOutlet UIImageView  * imgProductImage1;
+@property (weak, nonatomic) IBOutlet UIImageView  * imgProductImage2;
+@property (weak, nonatomic) IBOutlet UIImageView  * imgProductImage3;
+@property (weak, nonatomic) IBOutlet UIImageView  * imgProductImage4;
 @property (weak, nonatomic) IBOutlet UILabel      * lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel      * lblProductPrice;
 @property (weak, nonatomic) IBOutlet UIView       * viewChatToBuyWrapper;
 @property (weak, nonatomic) IBOutlet UIScrollView * scrollViewProductDetail;
+@property (weak, nonatomic) IBOutlet UIView       * viewBottomDetail;
 @property (strong, nonatomic) TMEConversation     * conversation;
 
 @property (assign, nonatomic) BOOL                  firstTimeOffer;
@@ -61,7 +65,7 @@
 }
 
 - (void)loadProductDetail:(TMEProduct *)product{
-  
+  NSArray *arrayImageView = @[self.imgProductImage1, self.imgProductImage2, self.imgProductImage3, self.imgProductImage4];
   self.product = product;
   
   // Follow button
@@ -87,20 +91,27 @@
   self.lblUserName.text = product.user.fullname;
   self.lblTimestamp.text = [product.created_at relativeDate];
   
-  TMEProductImages *img = [[product.images allObjects] lastObject];
+  NSArray *arrayImageOfProduct = [product.images allObjects];
+  
+  for (int i = 0; i < arrayImageOfProduct.count; i++) {
+    TMEProductImages *img = arrayImageOfProduct[i];
+    [arrayImageView[i] setHidden:NO];
+    [arrayImageView[i] setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.origin]
+                                          placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
+  }
+  
+  [self.viewBottomDetail alignBelowView:arrayImageView[arrayImageOfProduct.count - 1] offsetY:0 sameWidth:NO];
   
   [[XLCircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
   [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
   [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
   
-  [self.imgProductImage setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.origin]
-                                            placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
-  
   self.lblProductName.text = product.name;
   self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
+  [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
   
   TMEUser *currentLoginUser = [[TMEUserManager sharedInstance] loggedUser];
-  [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
+  
   
   //If view chat to buy wrapper is hidden
   if([product.user.id isEqual:currentLoginUser.id])

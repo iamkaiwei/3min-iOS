@@ -77,8 +77,15 @@ static char kXLImageProgressIndicatorKey;
     [self setImageWithURLRequest:request
                 placeholderImage:placeholderImage
                          success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                             [weakSelf.xl_progressIndicatorView removeFromSuperview];
-                             weakSelf.image = image;
+                           [weakSelf.xl_progressIndicatorView removeFromSuperview];
+                           weakSelf.alpha = 0;
+                           weakSelf.image = image;
+                           [CAAnimation addAnimationToLayer:weakSelf.layer
+                                                withKeyPath:@"opacity"
+                                                   duration:0.5
+                                                         to:1
+                                             easingFunction:CAAnimationEasingFunctionEaseInCubic];
+                           
                              if (imageDidAppearBlock){
                                  imageDidAppearBlock(weakSelf);
                              }

@@ -45,12 +45,15 @@ TMEBrowserProductsTableCellDelegate
   
   NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
   [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
-  
   self.scrollableView = self.tableProducts;
+
   [self enablePullToRefresh];
   [self loadProducts];
   
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onCategoryChangeNotification:) name:CATEGORY_CHANGE_NOTIFICATION object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(onCategoryChangeNotification:)
+                                               name:CATEGORY_CHANGE_NOTIFICATION
+                                             object:nil];
 }
 
 #pragma mark - UITableView delegate
