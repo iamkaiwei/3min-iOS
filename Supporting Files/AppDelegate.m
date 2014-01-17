@@ -116,6 +116,9 @@ FacebookManagerDelegate
     UIApplicationState state = [[UIApplication sharedApplication] applicationState];
     
     NSString *alert = userInfo[@"aps"][@"alert"];
+    NSString *productID = userInfo[@"aps"][@"other"][@"product_id"];
+    NSString *conversationID = userInfo[@"aps"][@"other"][@"conversation_id"];
+  
     IIViewDeckController *deckController = (IIViewDeckController *)self.window.rootViewController;
     UITabBarController *homeController = (UITabBarController *)deckController.centerController;
     UINavigationController *navController = (UINavigationController *) [[homeController viewControllers] objectAtIndex:0];
@@ -135,11 +138,23 @@ FacebookManagerDelegate
             return;
         }
     }
+  
+    TMEConversation *notificationConversation = [[TMEConversation MR_findByAttribute:@"id" withValue:@900] lastObject];
+    TMEProduct *notificationProduct = [[TMEProduct MR_findByAttribute:@"id" withValue:@900] lastObject];
+  
+    if (notificationConversation && notificationProduct) {
+      TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
+      submitVC.conversation = notificationConversation;
+      submitVC.product = notificationProduct;
     
+      [navController pushViewController:submitVC animated:YES];
+    }
+  
     [self showHomeViewController];
     deckController = (IIViewDeckController *)self.window.rootViewController;
     homeController = (UITabBarController *)deckController.centerController;
     [homeController setSelectedIndex:3];
+  
 }
 
 - (void)saveContext

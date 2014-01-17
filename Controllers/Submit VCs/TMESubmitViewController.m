@@ -74,7 +74,10 @@ TMELoadMoreTableViewCellDelegate
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
   }
   if (self.conversation) {
-    [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:1 showBottom:YES];
+    [self loadMessageWithReplyIDLargerID:0
+                             orSmallerID:0
+                                withPage:1
+                              showBottom:YES];
     return;
   }
 }
