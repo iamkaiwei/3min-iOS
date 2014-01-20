@@ -15,7 +15,8 @@
 <
 UIScrollViewDelegate,
 UITableViewDelegate,
-TMEBrowserProductsTableCellDelegate
+TMEBrowserProductsTableCellDelegate,
+SSPullToRefreshViewDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UITableView        * tableProducts;
@@ -45,9 +46,10 @@ TMEBrowserProductsTableCellDelegate
   
   NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
   [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
-  self.scrollableView = self.tableProducts;
+  [self paddingScrollWithTop];
 
-  [self enablePullToRefresh];
+  self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.tableProducts delegate:self];
+  [self.pullToRefreshView startLoading];
   [self loadProducts];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
