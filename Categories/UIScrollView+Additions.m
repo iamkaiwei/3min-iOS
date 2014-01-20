@@ -52,8 +52,11 @@
         offset.y = self.contentSize.height - height;
     if (offset.y < 0)
         offset.y = 0;
-
-    [self setContentOffset:offset animated:animated];
+  
+  [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+   [self setContentOffset:offset animated:NO];
+  } completion:nil];
+  
 }
 
 @end
