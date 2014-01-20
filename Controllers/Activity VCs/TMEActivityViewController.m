@@ -120,21 +120,21 @@ TMELoadMoreTableViewCellDelegate
 #pragma mark - Caching stuffs
 
 - (void)getCachedActivity{
-  NSArray *largeArray = [TMEConversation MR_findAllSortedBy:@"latest_update" ascending:NO];
+  NSArray *arrayActivityCached = [TMEConversation MR_findAllSortedBy:@"latest_update" ascending:NO];
   
-  for (TMEConversation *conversation in largeArray) {
+  for (TMEConversation *conversation in arrayActivityCached) {
     [self.arrayConversation addObject:conversation];
   }
-  
+  self.currentPage = 0;
   if (self.arrayConversation.count) {
     self.currentPage = (self.arrayConversation.count / 10) + 1;
-    [self.tableViewActivity reloadData];
-    self.tableViewActivity.hidden = NO;
+    [self reloadTableViewActivity];
   }
 }
 
 - (void)onBtnLoadMore:(UIButton *)sender{
-  [self loadListActivityWithPage:self.currentPage + 1];
+  self.currentPage++;
+  [self loadListActivityWithPage:self.currentPage];
 }
 
 #pragma mark - Handle notification
@@ -147,14 +147,17 @@ TMELoadMoreTableViewCellDelegate
      if (!arrayConversation.count) {
        self.havingPreviousActivities = NO;
      }
+     
+     if (!self.currentPage) {
+       self.currentPage = page;
+     }
      NSMutableSet *setConversation = [NSMutableSet setWithArray:self.arrayConversation];
      [setConversation addObjectsFromArray:arrayConversation];
      
      self.arrayConversation = [[setConversation allObjects] mutableCopy];
      self.arrayConversation = [[self.arrayConversation sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
      
-     [self.tableViewActivity reloadData];
-     self.tableViewActivity.hidden = NO;
+     [self reloadTableViewActivity];
      
      [self.pullToRefreshView finishLoading];
      [SVProgressHUD dismiss];
@@ -169,6 +172,14 @@ TMELoadMoreTableViewCellDelegate
 
 - (void)reloadActivity:(NSNotification *)notification{
   [self loadListActivityWithPage:1];
+}
+
+- (void)reloadTableViewActivity{
+  [self.tableViewActivity reloadData];
+  
+  [UIView animateWithDuration:0.5 animations:^{
+    self.tableViewActivity.alpha = 1;
+  }];
 }
 
 - (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view
