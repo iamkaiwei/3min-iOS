@@ -26,6 +26,9 @@
           UITextAttributeFont: [UIFont fontWithName:@"Helvetica" size:20.0f] }];
     
       self.navigationBar.frame = CGRectMake(0, 0, 320, 44);
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+      self.navigationBar.translucent = YES;
+    }
       [self.navigationBar setBackgroundImage:[[UIImage imageNamed:@"navigation_background"] resizableImageWithStandardInsets]forBarMetrics:UIBarMetricsDefault];
   }
   

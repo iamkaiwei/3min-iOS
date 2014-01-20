@@ -31,7 +31,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="vRT-ds-U85">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="378"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="385"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="UKu-PP-axO">
@@ -61,11 +61,6 @@
                             <color key="textColor" red="0.5176470876" green="0.51372551919999998" blue="0.50980395079999996" alpha="1" colorSpace="deviceRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" id="48a-ZX-2jT">
-                            <rect key="frame" x="141" y="167" width="37" height="37"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="color" red="0.79607850309999995" green="0.79607850309999995" blue="0.79607850309999995" alpha="1" colorSpace="deviceRGB"/>
-                        </activityIndicatorView>
                         <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ZZ7-bd-Vkq">
                             <rect key="frame" x="0.0" y="39" width="320" height="320"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -119,7 +114,7 @@
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ogb-th-uxo">
-                                    <rect key="frame" x="260" y="38" width="50" height="32"/>
+                                    <rect key="frame" x="260" y="40" width="50" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="share-button.png">
                                         <color key="titleColor" red="0.52156865600000002" green="0.51372551919999998" blue="0.50980395079999996" alpha="1" colorSpace="deviceRGB"/>

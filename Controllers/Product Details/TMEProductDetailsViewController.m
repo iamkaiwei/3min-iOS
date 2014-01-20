@@ -39,9 +39,6 @@
 {
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
-  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    self.edgesForExtendedLayout = UIRectEdgeBottom;
-  }
   
   self.title = self.product.name;
   
@@ -58,7 +55,7 @@
 - (void)viewWillDisappear:(BOOL)animated{
   [super viewWillDisappear:animated];
   
-  [UIView animateWithDuration:0.2 animations:^{
+  [UIView animateWithDuration:0.4 animations:^{
     self.tabBarController.tabBar.alpha = 1;
     self.tabBarController.tabBar.hidden = NO;
   }];
@@ -92,6 +89,9 @@
   self.lblTimestamp.text = [product.created_at relativeDate];
   
   NSArray *arrayImageOfProduct = [product.images allObjects];
+  [self.imgProductImage1 setImageWithProgressIndicatorAndURL:nil
+                                            placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
+  self.imgProductImage1.hidden = NO;
   
   for (int i = 0; i < arrayImageOfProduct.count; i++) {
     TMEProductImages *img = arrayImageOfProduct[i];
@@ -100,7 +100,7 @@
                                           placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
   }
   
-  [self.viewBottomDetail alignBelowView:arrayImageView[arrayImageOfProduct.count - 1] offsetY:0 sameWidth:NO];
+  [self.viewBottomDetail alignBelowView:arrayImageView[(arrayImageOfProduct.count == 0 ? 0 : arrayImageOfProduct.count - 1)] offsetY:0 sameWidth:NO];
   
   [[XLCircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
   [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
@@ -120,11 +120,6 @@
     self.scrollViewProductDetail.height += 55;
     [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
   }
-  
-  //If view chat to buy wrapper is not hidden and System version is 7.0 or later
-  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")){
-    self.scrollViewProductDetail.contentInset = UIEdgeInsetsMake(0, 0, -50, 0);
-  }
 }
 
 - (void)setUpView
@@ -132,16 +127,10 @@
   UIScrollView *scrollView = (UIScrollView *)self.view.subviews[0];
   scrollView.bounces = NO;
   scrollView.showsVerticalScrollIndicator = NO;
-  [self setExtendedLayoutIncludesOpaqueBars:YES];
   
-  [UIView animateWithDuration:0.2 animations:^{
-      self.tabBarController.tabBar.alpha = 0;
+  if ([self respondsToSelector:@selector(setExtendedLayoutIncludesOpaqueBars:)]) {
+      [self setExtendedLayoutIncludesOpaqueBars:YES];
   }
-                   completion:^(BOOL finished)
-   {
-       self.tabBarController.tabBar.hidden = YES;
-     [self.tabBarController.tabBar setTranslucent:NO];
-   }];
 }
 
 - (UIViewController *)controllerForNextStep
@@ -179,6 +168,7 @@
                                                              self.firstTimeOffer = YES;
                                                            
                                                            UIViewController *viewController = [self controllerForNextStep];
+                                                           self.hidesBottomBarWhenPushed = NO;
                                                            [self.navigationController pushViewController:viewController animated:YES];
                                                          } andFailureBlock:^(NSInteger statusCode, id obj) {
                                                            [SVProgressHUD dismiss];

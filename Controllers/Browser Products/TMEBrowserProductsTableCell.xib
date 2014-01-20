@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="71R-rg-z1g">
-                                <rect key="frame" x="260" y="38" width="50" height="32"/>
+                                <rect key="frame" x="260" y="40" width="50" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="share-button.png">
                                     <color key="titleColor" red="0.5215686559677124" green="0.51372551918029785" blue="0.50980395078659058" alpha="1" colorSpace="deviceRGB"/>

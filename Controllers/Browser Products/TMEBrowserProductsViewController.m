@@ -65,6 +65,7 @@ SSPullToRefreshViewDelegate
   
   TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
   productDetailsController.product = self.arrProducts[indexPath.row];
+  productDetailsController.hidesBottomBarWhenPushed = YES;
   [self.navigationController pushViewController:productDetailsController animated:YES];
 }
 

@@ -59,9 +59,9 @@ TMELoadMoreTableViewCellDelegate
   
   self.textViewInputMessage.delegate = self;
   
-  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-  }
+//  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
+//  }
   
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(reloadMessageNotification:)
@@ -233,6 +233,9 @@ TMELoadMoreTableViewCellDelegate
 }
 
 - (void)loadProductDetail{
+  if ([[UITextView appearance] respondsToSelector:@selector(setTintColor:)]) {
+      [[UITextView appearance] setTintColor:[UIColor orangeMainColor]];
+  }
   self.lblProductName.text = self.product.name;
   self.lblProductPrice.text = [NSString stringWithFormat:@"$%@",self.product.price];
   [self.imageViewProduct setImageWithURL:[NSURL URLWithString:[[[self.product.images allObjects] lastObject] thumb]]];

@@ -36,6 +36,9 @@ UITextFieldDelegate
   [self.labelPriceOffer alignHorizontalCenterToView:self.view];
 
   self.txtPrice.text = @"";
+  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+    [self setEdgesForExtendedLayout:UIRectEdgeNone];
+  }
 }
 
 - (IBAction)onBtnChangePrice:(id)sender {
@@ -91,6 +94,9 @@ UITextFieldDelegate
 }
 
 - (void)onSubmitButton:(UIButton *)sender{
+  if (![self.labelPriceOffer.text isEqualToString:[NSString stringWithFormat:@"$%@",self.txtPrice.text]]) {
+    self.txtPrice.text = [self.product.price stringValue];
+  }
   [self setOfferPriceToConversation];
 }
 

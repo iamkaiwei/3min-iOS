@@ -68,7 +68,7 @@
                                              object:nil];
   
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")){
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.edgesForExtendedLayout = UIRectEdgeAll;
     [TSMessage iOS7StyleEnabled];
   }
   [self addNavigationItems];
