@@ -110,6 +110,10 @@ UITableViewDataSource
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
   switch (buttonIndex) {
     case 0:
+      if (![TMEReachabilityManager isReachable]) {
+        [SVProgressHUD showErrorWithStatus:@"No connection!"];
+        return;
+      }
       [[TMEUserManager sharedInstance] logOut];
       [[TMEFacebookManager sharedInstance] showLoginView];
       [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:LAST_LOGIN_TIMESTAMP_STORED_KEY];

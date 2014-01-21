@@ -26,6 +26,10 @@
 }
 
 - (IBAction)buttonLoginAction:(id)sender {
+  if (![TMEReachabilityManager isReachable]) {
+    [SVProgressHUD showErrorWithStatus:@"No connection!"];
+    return;
+  }
   [FacebookManager sharedInstance].delegate = self;
   [[FacebookManager sharedInstance] openSession];
 }
@@ -34,7 +38,6 @@
   [[FBRequest requestForMe] startWithCompletionHandler:
    ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
      if (!error) {
-//         [[TMEUserManager sharedInstance] setLoggedFacebookUser:user];
          [[AppDelegate sharedDelegate] showHomeViewController];
      }
    }];

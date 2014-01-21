@@ -88,7 +88,7 @@ FacebookManagerDelegate
         [self.window makeKeyAndVisible];
         return YES;
     }
-    
+  
     [self checkFacebookSessionAtTheAppLaunch];
     [self.window makeKeyAndVisible];
     
@@ -366,7 +366,7 @@ FacebookManagerDelegate
     if ([FBSession.activeSession isOpen] == NO) {
         [self showLoginView];
         return;
-    } else if (![[TMEUserManager sharedInstance] loggedUser]) {
+    } else if (![[TMEUserManager sharedInstance] loggedUser] && [TMEReachabilityManager isReachable]) {
         [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
         [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
             [SVProgressHUD showSuccessWithStatus:@"Login successfully"];
@@ -379,6 +379,8 @@ FacebookManagerDelegate
         } andFailureBlock:^(NSInteger statusCode, id obj) {
             [SVProgressHUD showErrorWithStatus:@"Login failure"];
         }];
+    } else if (![TMEReachabilityManager isReachable]) {
+      [SVProgressHUD showErrorWithStatus:@"No connection!"];
     } else {
       [self switchRootViewController:self.deckController animated:YES completion:nil];
     }

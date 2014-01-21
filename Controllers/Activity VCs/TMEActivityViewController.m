@@ -43,9 +43,6 @@ TMELoadMoreTableViewCellDelegate
   self.scrollableView = self.tableViewActivity;
   [self enablePullToRefresh];
   // Do any additional setup after loading the view from its nib.
-//  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-//    self.edgesForExtendedLayout = UIRectEdgeAll;
-//  }
   
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(reloadActivity:)

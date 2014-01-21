@@ -59,10 +59,6 @@ TMELoadMoreTableViewCellDelegate
   
   self.textViewInputMessage.delegate = self;
   
-//  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
-//  }
-  
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(reloadMessageNotification:)
                                                name:NOTIFICATION_RELOAD_CONVERSATION
@@ -70,9 +66,10 @@ TMELoadMoreTableViewCellDelegate
   [self getCacheMessage];
   [self loadProductDetail];
   
-  if (!self.arrayReply.count) {
+  if (!self.arrayReply.count && [TMEReachabilityManager isReachable]) {
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
   }
+  
   if (self.conversation) {
     [self loadMessageWithReplyIDLargerID:0
                              orSmallerID:0

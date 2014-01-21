@@ -16,6 +16,11 @@ SINGLETON_MACRO
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user
 {
+    if (![TMEReachabilityManager isReachable]) {
+      [SVProgressHUD showErrorWithStatus:@"No connection!"];
+      [FBSession.activeSession close];
+      return;
+    }
     [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
     [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
         [SVProgressHUD showSuccessWithStatus:@"Login successfully"];
