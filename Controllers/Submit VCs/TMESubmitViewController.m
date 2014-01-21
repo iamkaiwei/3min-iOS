@@ -52,7 +52,9 @@ TMELoadMoreTableViewCellDelegate
   
   [self registerForKeyboardNotifications];
   
-  self.tabBarController.tabBar.hidden = NO;
+  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+    self.edgesForExtendedLayout = UIRectEdgeBottom;
+  }
   
   [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCell class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCell class])];
   [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCellRight class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCellRight class])];
@@ -66,17 +68,22 @@ TMELoadMoreTableViewCellDelegate
   [self getCacheMessage];
   [self loadProductDetail];
   
-  if (!self.arrayReply.count && [TMEReachabilityManager isReachable]) {
-    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
-  }
-  
-  if (self.conversation) {
-    [self loadMessageWithReplyIDLargerID:0
-                             orSmallerID:0
-                                withPage:1
-                              showBottom:YES];
+  if ([TMEReachabilityManager isReachable]) {
+    if (!self.arrayReply.count) {
+      [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
+    }
+    
+    if (self.conversation) {
+      [self loadMessageWithReplyIDLargerID:0
+                               orSmallerID:0
+                                  withPage:1
+                                showBottom:YES];
+    }
     return;
   }
+  
+  [self reloadTableViewConversationShowBottom:NO];
+  [SVProgressHUD showErrorWithStatus:@"No connection!"];
 }
 
 #pragma mark - Table view delegate
@@ -310,6 +317,11 @@ TMELoadMoreTableViewCellDelegate
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
   if([text isEqualToString:@"\n"]) {
+    if (![TMEReachabilityManager isReachable]) {
+      [SVProgressHUD showErrorWithStatus:@"No connection!"];
+      return NO;
+    }
+    
     [self postMessage];
     [textView setText:@""];
     [self.scrollViewContent scrollSubviewToCenter:textView animated:NO];

@@ -47,10 +47,6 @@ UIImagePickerControllerDelegate
     [super viewDidLoad];
     self.title = @"Main Menu";
   
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-      self.tabBar.alpha = 0.8;
-    }
-  
     self.viewControllers = @[];
     
     [self addBrowserProductTab];

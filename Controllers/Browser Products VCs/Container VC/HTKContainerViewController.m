@@ -45,9 +45,6 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithHexString:@"#e4e2e1"];
     [self switchContainerViewControllerToViewController:self.normalViewController];
-  
-//  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
-//    self.edgesForExtendedLayout = UIRectEdgeTop;
 }
 
 - (void)switchContainerViewControllerToViewController:(UIViewController *)viewController

@@ -68,6 +68,11 @@ SSPullToRefreshViewDelegate
 }
 
 - (void)loadProducts {
+  if (![TMEReachabilityManager isReachable]) {
+    [SVProgressHUD showErrorWithStatus:@"No connection!"];
+    return;
+  }
+  
   if (self.currentCategory) {
     [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
                                                 onSuccessBlock:^(NSArray *arrProducts) {

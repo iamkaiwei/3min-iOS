@@ -42,6 +42,9 @@ TMELoadMoreTableViewCellDelegate
   self.navigationController.navigationBar.topItem.title = @"Activity";
   self.scrollableView = self.tableViewActivity;
   [self enablePullToRefresh];
+  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+    self.edgesForExtendedLayout = UIRectEdgeBottom;
+  }
   // Do any additional setup after loading the view from its nib.
   
   [[NSNotificationCenter defaultCenter] addObserver:self
@@ -181,6 +184,12 @@ TMELoadMoreTableViewCellDelegate
 
 - (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view
 {
+  if (![TMEReachabilityManager isReachable]) {
+    [SVProgressHUD showErrorWithStatus:@"No connection!"];
+    [self reloadTableViewActivity];
+    [self.pullToRefreshView finishLoading];
+    return;
+  }
   [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
   [self loadListActivityWithPage:1];
 }

@@ -149,6 +149,10 @@
 }
 
 - (IBAction)chatButtonAction:(id)sender {
+  if (![TMEReachabilityManager isReachable]) {
+    [SVProgressHUD showErrorWithStatus:@"No connection!"];
+    return;
+  }
   [self checkFirstTimeOffer];
 }
 
