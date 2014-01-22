@@ -63,10 +63,6 @@
     [self.imgCategoryCover setImageWithURL:imageURL placeholderImage:nil];
     
     TMEProductImages *img = [product.images anyObject];
-
-    [[XLCircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
-    [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
-    [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
   
     [self.imageViewProduct setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.medium]
                                             placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];

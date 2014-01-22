@@ -39,9 +39,12 @@ TMEBrowserProductsTableCellDelegate
 {
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
-  
-//  self.title = @"";
+
   self.navigationController.navigationBar.topItem.title = @"Browse Products";
+  
+  [[XLCircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
+  [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
+  [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
   
   NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
   [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
