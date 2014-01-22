@@ -68,7 +68,7 @@
     [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
     [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
   
-    [self.imageViewProduct setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.origin]
+    [self.imageViewProduct setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.medium]
                                             placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
   
     self.lblProductName.text = product.name;

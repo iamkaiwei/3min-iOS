@@ -31,7 +31,7 @@ UISearchDisplayDelegate
 {
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
-  
+  [self disableNavigationTranslucent];
   self.state = SEARCH_BY_PRODUCT;
   self.shouldHandleKeyboardNotification = NO;
   [self loadNavigationItem];

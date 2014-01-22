@@ -80,7 +80,11 @@ FacebookManagerDelegate
     // Make the color of Navigation bar no more effects the status bar
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque
                                                 animated:NO];
-    
+  
+  if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigation_background"] forBarMetrics:UIBarMetricsDefault];
+  }
+  
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     if (![TMETutorialViewController hasBeenPresented]) {
@@ -350,19 +354,8 @@ FacebookManagerDelegate
 
 #pragma mark - Switch View Controllers
 
-- (void)configTabbarAndNavigationBar
-{
-    // config tabbar appear
-    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar-background"];
-    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-    [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
-    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
-}
-
 - (void)showHomeViewController
 {
-    [self configTabbarAndNavigationBar];
-    
     if ([FBSession.activeSession isOpen] == NO) {
         [self showLoginView];
         return;

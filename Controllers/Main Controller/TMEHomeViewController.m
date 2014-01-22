@@ -47,8 +47,9 @@ UIImagePickerControllerDelegate
     [super viewDidLoad];
     self.title = @"Main Menu";
   
+    [self.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbar-background"]];
     self.viewControllers = @[];
-    
+
     [self addBrowserProductTab];
     [self addSearchButton];
     [self addPublishButton];

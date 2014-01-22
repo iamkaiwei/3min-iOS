@@ -42,10 +42,7 @@ TMELoadMoreTableViewCellDelegate
   self.navigationController.navigationBar.topItem.title = @"Activity";
   self.scrollableView = self.tableViewActivity;
   [self enablePullToRefresh];
-  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    self.edgesForExtendedLayout = UIRectEdgeBottom;
-  }
-  // Do any additional setup after loading the view from its nib.
+  [self disableNavigationTranslucent];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(reloadActivity:)
@@ -159,13 +156,13 @@ TMELoadMoreTableViewCellDelegate
      
      [self reloadTableViewActivity];
      
-     [self.pullToRefreshView finishLoading];
+     [self.pullToRefreshView endRefreshing];
      [SVProgressHUD dismiss];
    }
                                                        andFailureBlock:^(NSInteger statusCode, NSError *error)
    {
      return DLog(@"%d", statusCode);
-     [self.pullToRefreshView finishLoading];
+     [self.pullToRefreshView endRefreshing];
    }];
   
 }
@@ -182,12 +179,12 @@ TMELoadMoreTableViewCellDelegate
   }];
 }
 
-- (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view
+- (void)pullToRefreshViewDidStartLoading:(UIRefreshControl *)view
 {
   if (![TMEReachabilityManager isReachable]) {
     [SVProgressHUD showErrorWithStatus:@"No connection!"];
     [self reloadTableViewActivity];
-    [self.pullToRefreshView finishLoading];
+    [self.pullToRefreshView endRefreshing];
     return;
   }
   [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];

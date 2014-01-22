@@ -20,6 +20,11 @@
     return [UIColor colorWithRed:231/255.0 green:76/255.0 blue:60/255.0 alpha:1.0];
 }
 
++ (UIColor *)backgroundBrightGrayColor
+{
+  return [UIColor colorWithRed:228/255.0 green:226/255.0 blue:225/255.0 alpha:1.0];
+}
+
 + (UIColor *)backgroundBrightColor
 {
     return [UIColor colorWithRed:241/255.0 green:236/255.0 blue:223/255.0 alpha:1.0];

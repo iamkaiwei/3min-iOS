@@ -52,9 +52,7 @@ TMELoadMoreTableViewCellDelegate
   
   [self registerForKeyboardNotifications];
   
-  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    self.edgesForExtendedLayout = UIRectEdgeBottom;
-  }
+  [self disableNavigationTranslucent];
   
   [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCell class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCell class])];
   [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCellRight class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCellRight class])];

@@ -42,7 +42,7 @@
   
   self.title = self.product.name;
   
-  [self loadProductDetail:self.product];
+  [self loadProductDetail];
   [self setUpView];
 }
 
@@ -61,9 +61,8 @@
   }];
 }
 
-- (void)loadProductDetail:(TMEProduct *)product{
+- (void)loadProductDetail{
   NSArray *arrayImageView = @[self.imgProductImage1, self.imgProductImage2, self.imgProductImage3, self.imgProductImage4];
-  self.product = product;
   
   // Follow button
   self.btnFollow.layer.borderWidth = 1;
@@ -84,11 +83,11 @@
   
   // user
   self.imgUserAvatar.image = nil;
-  [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:product.user.photo_url] placeholderImage:nil];
-  self.lblUserName.text = product.user.fullname;
-  self.lblTimestamp.text = [product.created_at relativeDate];
+  [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:self.product.user.photo_url] placeholderImage:nil];
+  self.lblUserName.text = self.product.user.fullname;
+  self.lblTimestamp.text = [self.product.created_at relativeDate];
   
-  NSArray *arrayImageOfProduct = [product.images allObjects];
+  NSArray *arrayImageOfProduct = [self.product.images allObjects];
   [self.imgProductImage1 setImageWithProgressIndicatorAndURL:nil
                                             placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
   self.imgProductImage1.hidden = NO;
@@ -106,15 +105,12 @@
   [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
   [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
   
-  self.lblProductName.text = product.name;
-  self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
+  self.lblProductName.text = self.product.name;
+  self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [self.product.price stringValue]];
   [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
   
-  TMEUser *currentLoginUser = [[TMEUserManager sharedInstance] loggedUser];
-  
-  
   //If view chat to buy wrapper is hidden
-  if([product.user.id isEqual:currentLoginUser.id])
+  if([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id])
   {
     self.viewChatToBuyWrapper.hidden = YES;
     self.scrollViewProductDetail.height += 55;

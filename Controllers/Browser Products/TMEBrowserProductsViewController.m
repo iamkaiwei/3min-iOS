@@ -15,8 +15,7 @@
 <
 UIScrollViewDelegate,
 UITableViewDelegate,
-TMEBrowserProductsTableCellDelegate,
-SSPullToRefreshViewDelegate
+TMEBrowserProductsTableCellDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UITableView        * tableProducts;
@@ -46,10 +45,10 @@ SSPullToRefreshViewDelegate
   
   NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
   [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
-  [self paddingScrollWithTop];
-
-  self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.tableProducts delegate:self];
-  [self.pullToRefreshView startLoading];
+  
+  self.scrollableView = self.tableProducts;
+  [self enablePullToRefresh];
+  [self.pullToRefreshView beginRefreshing];
   [self loadProducts];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
@@ -97,7 +96,7 @@ SSPullToRefreshViewDelegate
 - (void)loadProducts {
   if (![TMEReachabilityManager isReachable]) {
     [SVProgressHUD showErrorWithStatus:@"No connection!"];
-    [self.pullToRefreshView finishLoading];
+    [self.pullToRefreshView endRefreshing];
     return;
   }
   
@@ -106,10 +105,10 @@ SSPullToRefreshViewDelegate
                                                 onSuccessBlock:^(NSArray *arrProducts) {
                                                   self.arrProducts = [arrProducts mutableCopy];
                                                   [self.tableProducts reloadData];
-                                                  [self.pullToRefreshView finishLoading];
+                                                  [self.pullToRefreshView endRefreshing];
                                                   [SVProgressHUD dismiss];
                                                 } andFailureBlock:^(NSInteger statusCode, id obj) {
-                                                  [self.pullToRefreshView finishLoading];
+                                                  [self.pullToRefreshView endRefreshing];
                                                   [SVProgressHUD dismiss];
                                                 }];
   } else {
@@ -118,9 +117,9 @@ SSPullToRefreshViewDelegate
       [self.tableProducts reloadData];
       [SVProgressHUD dismiss];
       
-      [self.pullToRefreshView finishLoading];
+      [self.pullToRefreshView endRefreshing];
     } andFailureBlock:^(NSInteger statusCode, id obj) {
-      [self.pullToRefreshView finishLoading];
+      [self.pullToRefreshView endRefreshing];
       [SVProgressHUD dismiss];
     }];
   }
@@ -148,7 +147,7 @@ SSPullToRefreshViewDelegate
 }
 
 #pragma mark - SSPullToRefreshView delegate
-- (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view
+- (void)pullToRefreshViewDidStartLoading:(UIRefreshControl *)view
 {
   [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
   [self loadProducts];

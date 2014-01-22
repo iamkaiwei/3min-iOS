@@ -35,6 +35,8 @@ UITableViewDataSource
   self.arrayCellTitleSectionTwo = @[@"My Listings", @"Offer I Made", @"Stuff I Liked"];
   self.arrayCellTitleSectionThree = @[@"Edit Profile", @"Share Settings", @"Notification Settings", @"Logout"];
   
+  [self disableNavigationTranslucent];
+  
   [self.tableViewMenu registerNib:[UINib nibWithNibName:NSStringFromClass([TMEMeTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([TMEMeTableViewCell class])];
 }
 

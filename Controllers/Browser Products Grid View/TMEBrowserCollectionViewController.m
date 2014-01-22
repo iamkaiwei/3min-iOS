@@ -14,14 +14,13 @@
 <
 UITextFieldDelegate,
 UICollectionViewDataSource,
-UICollectionViewDelegate,
-SSPullToRefreshViewDelegate
+UICollectionViewDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView       * collectionProductsView;
 @property (strong, nonatomic) NSArray                       * arrayProducts;
 @property (strong, nonatomic) TMECategory                   * currentCategory;
-@property (strong, nonatomic) SSPullToRefreshView           * pullToRefreshView;
+@property (strong, nonatomic) UIRefreshControl           * pullToRefreshView;
 
 @end
 
@@ -31,11 +30,11 @@ SSPullToRefreshViewDelegate
 {
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
-  
   [self paddingScrollWithTop];
   [self.collectionProductsView registerNib:[TMEBrowserCollectionCell defaultNib] forCellWithReuseIdentifier:NSStringFromClass([TMEBrowserCollectionCell class])];
   
-  self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionProductsView delegate:self];
+  self.scrollableView = self.collectionProductsView;
+  [self enablePullToRefresh];
   
   [self loadProducts];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onCategoryChangeNotification:) name:CATEGORY_CHANGE_NOTIFICATION object:nil];
@@ -78,10 +77,10 @@ SSPullToRefreshViewDelegate
                                                 onSuccessBlock:^(NSArray *arrProducts) {
                                                   self.arrayProducts = [arrProducts mutableCopy];
                                                   [self.collectionProductsView reloadData];
-                                                  [self.pullToRefreshView finishLoading];
+                                                  [self.pullToRefreshView endRefreshing];
                                                     [SVProgressHUD dismiss];
                                                 } andFailureBlock:^(NSInteger statusCode, id obj) {
-                                                  [self.pullToRefreshView finishLoading];
+                                                  [self.pullToRefreshView endRefreshing];
                                                     [SVProgressHUD dismiss];
                                                 }];
   } else {
@@ -89,17 +88,17 @@ SSPullToRefreshViewDelegate
       self.arrayProducts = [arrProducts mutableCopy];
       [self.collectionProductsView reloadData];
       
-      [self.pullToRefreshView finishLoading];
+      [self.pullToRefreshView endRefreshing];
       [SVProgressHUD dismiss];
     } andFailureBlock:^(NSInteger statusCode, id obj) {
-      [self.pullToRefreshView finishLoading];
+      [self.pullToRefreshView endRefreshing];
       [SVProgressHUD dismiss];
     }];
   }
 }
 
 #pragma mark - SSPullToRefreshView delegate
-- (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view
+- (void)pullToRefreshViewDidStartLoading:(UIRefreshControl *)view
 {
   [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
   [self loadProducts];

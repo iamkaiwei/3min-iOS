@@ -148,7 +148,6 @@
 #import "OpenUDID.h"
 #import "iCarousel.h"
 #import "UINavigationController+SGProgress.h"
-#import "SSPullToRefresh.h"
 #import "Reachability.h"
 #import "TSMessage.h"
 #import "SDWebImageDownloader.h"

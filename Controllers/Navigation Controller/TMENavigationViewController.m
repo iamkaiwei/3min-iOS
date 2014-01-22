@@ -29,7 +29,7 @@
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
       self.navigationBar.translucent = YES;
     }
-      [self.navigationBar setBackgroundImage:[[UIImage imageNamed:@"navigation_background"] resizableImageWithStandardInsets]forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.backgroundColor = [UIColor backgroundBrightGrayColor];
   }
   
   return self;

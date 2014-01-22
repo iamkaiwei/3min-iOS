@@ -21,9 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		0B15BD341883B42600C098C6 /* UIImageView+XLProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD301883B42600C098C6 /* UIImageView+XLProgressIndicator.m */; };
-		0B15BD351883B42600C098C6 /* XLCircleProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD321883B42600C098C6 /* XLCircleProgressIndicator.m */; };
-		0B15BD581883C37800C098C6 /* UIImageView+XLNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD571883C37800C098C6 /* UIImageView+XLNetworking.m */; };
 		0B15BD5B1883C39A00C098C6 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD5A1883C39A00C098C6 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0B15BD5E1883F12A00C098C6 /* CAAnimation+EasingEquations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD5D1883F12A00C098C6 /* CAAnimation+EasingEquations.m */; };
 		0B22066C187278A800B93BD1 /* chat_to_buy_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B22066A187278A800B93BD1 /* chat_to_buy_btn@2x.png */; };
@@ -96,6 +93,9 @@
 		0BA147751884D9E5004F0D15 /* button-submit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA147711884D9E5004F0D15 /* button-submit@2x.png */; };
 		0BA147781884DB34004F0D15 /* location-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA147771884DB34004F0D15 /* location-arrow@2x.png */; };
 		0BA1477A1884DB8F004F0D15 /* location-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BA147791884DB8F004F0D15 /* location-arrow.png */; };
+		0BBD1CC1188E799E00F9C29C /* UIImageView+XLNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD1CBC188E799E00F9C29C /* UIImageView+XLNetworking.m */; };
+		0BBD1CC2188E799E00F9C29C /* UIImageView+XLProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD1CBE188E799E00F9C29C /* UIImageView+XLProgressIndicator.m */; };
+		0BBD1CC3188E799E00F9C29C /* XLCircleProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD1CC0188E799E00F9C29C /* XLCircleProgressIndicator.m */; };
 		0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */; };
 		0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */; };
 		0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */; };
@@ -343,9 +343,6 @@
 		B453FEFD181CF3A2007D5DF0 /* publish_done_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B453FEF4181CF3A2007D5DF0 /* publish_done_btn@2x.png */; };
 		B45411FB1867DD8C001A75EE /* AFUrbanAirshipClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B45411FA1867DD8C001A75EE /* AFUrbanAirshipClient.m */; };
 		B459FDBB181BD07500D6BC79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B459FDBA181BD07500D6BC79 /* Images.xcassets */; };
-		B459FDCF181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B459FDCA181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.m */; };
-		B459FDD0181BD31200D6BC79 /* SSPullToRefreshSimpleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B459FDCC181BD31200D6BC79 /* SSPullToRefreshSimpleContentView.m */; };
-		B459FDD1181BD31200D6BC79 /* SSPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = B459FDCE181BD31200D6BC79 /* SSPullToRefreshView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B459FDD9181BF94E00D6BC79 /* Login1-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = B459FDD3181BF94E00D6BC79 /* Login1-568h.png */; };
 		B459FDDA181BF94E00D6BC79 /* Login1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B459FDD4181BF94E00D6BC79 /* Login1@2x.png */; };
 		B459FDDB181BF94E00D6BC79 /* Login2-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = B459FDD5181BF94E00D6BC79 /* Login2-568h.png */; };
@@ -388,12 +385,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B15BD2F1883B42600C098C6 /* UIImageView+XLProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XLProgressIndicator.h"; sourceTree = "<group>"; };
-		0B15BD301883B42600C098C6 /* UIImageView+XLProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XLProgressIndicator.m"; sourceTree = "<group>"; };
-		0B15BD311883B42600C098C6 /* XLCircleProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLCircleProgressIndicator.h; sourceTree = "<group>"; };
-		0B15BD321883B42600C098C6 /* XLCircleProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLCircleProgressIndicator.m; sourceTree = "<group>"; };
-		0B15BD561883C37800C098C6 /* UIImageView+XLNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XLNetworking.h"; sourceTree = "<group>"; };
-		0B15BD571883C37800C098C6 /* UIImageView+XLNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XLNetworking.m"; sourceTree = "<group>"; };
 		0B15BD591883C39A00C098C6 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		0B15BD5A1883C39A00C098C6 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		0B15BD5C1883F12A00C098C6 /* CAAnimation+EasingEquations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+EasingEquations.h"; sourceTree = "<group>"; };
@@ -479,6 +470,12 @@
 		0BA147711884D9E5004F0D15 /* button-submit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-submit@2x.png"; path = "Offer View Controller/button-submit@2x.png"; sourceTree = "<group>"; };
 		0BA147771884DB34004F0D15 /* location-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location-arrow@2x.png"; sourceTree = "<group>"; };
 		0BA147791884DB8F004F0D15 /* location-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location-arrow.png"; sourceTree = "<group>"; };
+		0BBD1CBB188E799E00F9C29C /* UIImageView+XLNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XLNetworking.h"; sourceTree = "<group>"; };
+		0BBD1CBC188E799E00F9C29C /* UIImageView+XLNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XLNetworking.m"; sourceTree = "<group>"; };
+		0BBD1CBD188E799E00F9C29C /* UIImageView+XLProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XLProgressIndicator.h"; sourceTree = "<group>"; };
+		0BBD1CBE188E799E00F9C29C /* UIImageView+XLProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XLProgressIndicator.m"; sourceTree = "<group>"; };
+		0BBD1CBF188E799E00F9C29C /* XLCircleProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLCircleProgressIndicator.h; sourceTree = "<group>"; };
+		0BBD1CC0188E799E00F9C29C /* XLCircleProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLCircleProgressIndicator.m; sourceTree = "<group>"; };
 		0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_57x57.png; sourceTree = "<group>"; };
 		0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_114x114.png; sourceTree = "<group>"; };
 		0C2CE1B017EAE30F0074C57F /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEUserManager.h; path = superclass/TMEUserManager.h; sourceTree = "<group>"; };
@@ -894,13 +891,6 @@
 		B45411F91867DD8C001A75EE /* AFUrbanAirshipClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFUrbanAirshipClient.h; sourceTree = "<group>"; };
 		B45411FA1867DD8C001A75EE /* AFUrbanAirshipClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUrbanAirshipClient.m; sourceTree = "<group>"; };
 		B459FDBA181BD07500D6BC79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PhotoButton/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		B459FDC8181BD31200D6BC79 /* SSPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefresh.h; sourceTree = "<group>"; };
-		B459FDC9181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshDefaultContentView.h; sourceTree = "<group>"; };
-		B459FDCA181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshDefaultContentView.m; sourceTree = "<group>"; };
-		B459FDCB181BD31200D6BC79 /* SSPullToRefreshSimpleContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshSimpleContentView.h; sourceTree = "<group>"; };
-		B459FDCC181BD31200D6BC79 /* SSPullToRefreshSimpleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshSimpleContentView.m; sourceTree = "<group>"; };
-		B459FDCD181BD31200D6BC79 /* SSPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshView.h; sourceTree = "<group>"; };
-		B459FDCE181BD31200D6BC79 /* SSPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshView.m; sourceTree = "<group>"; };
 		B459FDD3181BF94E00D6BC79 /* Login1-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login1-568h.png"; sourceTree = "<group>"; };
 		B459FDD4181BF94E00D6BC79 /* Login1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login1@2x.png"; sourceTree = "<group>"; };
 		B459FDD5181BF94E00D6BC79 /* Login2-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login2-568h.png"; sourceTree = "<group>"; };
@@ -982,19 +972,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B15BD2C1883B41A00C098C6 /* XLRemoteImageView */ = {
-			isa = PBXGroup;
-			children = (
-				0B15BD561883C37800C098C6 /* UIImageView+XLNetworking.h */,
-				0B15BD571883C37800C098C6 /* UIImageView+XLNetworking.m */,
-				0B15BD2F1883B42600C098C6 /* UIImageView+XLProgressIndicator.h */,
-				0B15BD301883B42600C098C6 /* UIImageView+XLProgressIndicator.m */,
-				0B15BD311883B42600C098C6 /* XLCircleProgressIndicator.h */,
-				0B15BD321883B42600C098C6 /* XLCircleProgressIndicator.m */,
-			);
-			name = XLRemoteImageView;
-			sourceTree = "<group>";
-		};
 		0B220669187278A800B93BD1 /* Chat To Buy */ = {
 			isa = PBXGroup;
 			children = (
@@ -1189,6 +1166,19 @@
 			path = "Submit View Controller";
 			sourceTree = "<group>";
 		};
+		0BBD1CBA188E799E00F9C29C /* XLRemoteImageView */ = {
+			isa = PBXGroup;
+			children = (
+				0BBD1CBB188E799E00F9C29C /* UIImageView+XLNetworking.h */,
+				0BBD1CBC188E799E00F9C29C /* UIImageView+XLNetworking.m */,
+				0BBD1CBD188E799E00F9C29C /* UIImageView+XLProgressIndicator.h */,
+				0BBD1CBE188E799E00F9C29C /* UIImageView+XLProgressIndicator.m */,
+				0BBD1CBF188E799E00F9C29C /* XLCircleProgressIndicator.h */,
+				0BBD1CC0188E799E00F9C29C /* XLCircleProgressIndicator.m */,
+			);
+			path = XLRemoteImageView;
+			sourceTree = "<group>";
+		};
 		0C28B28717DC1A1400BD0EC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1318,11 +1308,10 @@
 		0C28B28C17DC1B9200BD0EC2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				0BBD1CBA188E799E00F9C29C /* XLRemoteImageView */,
 				0B9E80E51888E38A004AF9E3 /* TSMessages */,
-				0B15BD2C1883B41A00C098C6 /* XLRemoteImageView */,
 				B45411F81867DD8C001A75EE /* AFUrbanAirshipClient */,
 				B4093B721810379700D51B69 /* Classes */,
-				B459FDC7181BD31200D6BC79 /* SSPullToRefresh */,
 				0C41FEFC17F8826300C9CB50 /* UINavigationController+SGProgress */,
 				20C4D5E517F733F80035BCA5 /* iCarousel */,
 				0C5954F517F711200076353E /* ViewDeck */,
@@ -2109,20 +2098,6 @@
 			path = AFUrbanAirshipClient;
 			sourceTree = "<group>";
 		};
-		B459FDC7181BD31200D6BC79 /* SSPullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				B459FDC8181BD31200D6BC79 /* SSPullToRefresh.h */,
-				B459FDC9181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.h */,
-				B459FDCA181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.m */,
-				B459FDCB181BD31200D6BC79 /* SSPullToRefreshSimpleContentView.h */,
-				B459FDCC181BD31200D6BC79 /* SSPullToRefreshSimpleContentView.m */,
-				B459FDCD181BD31200D6BC79 /* SSPullToRefreshView.h */,
-				B459FDCE181BD31200D6BC79 /* SSPullToRefreshView.m */,
-			);
-			path = SSPullToRefresh;
-			sourceTree = "<group>";
-		};
 		B459FDD2181BF94300D6BC79 /* Introdution Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -2438,7 +2413,6 @@
 				0C6E069017E0CBF60003F104 /* TMEHomeViewController.m in Sources */,
 				0C7EFBCE17E8D5170054C4DE /* NSObject+Additions.m in Sources */,
 				0C3DFC5617F4042C00DB4DAB /* OpenUDID.m in Sources */,
-				B459FDD0181BD31200D6BC79 /* SSPullToRefreshSimpleContentView.m in Sources */,
 				0C7EFB6E17E768C70054C4DE /* MagicalRecord+Setup.m in Sources */,
 				0C7053C717EF5E5E00E7615F /* TMECategory.m in Sources */,
 				0C7EFBD917E8D5170054C4DE /* UIImage+Additions.m in Sources */,
@@ -2452,6 +2426,7 @@
 				0C6E06A517E0CCD10003F104 /* TMEBaseTableViewController.m in Sources */,
 				B4202233180A842500F62FF0 /* TMEBrowserCollectionCell.m in Sources */,
 				0C7EFB5A17E768C70054C4DE /* NSNumber+MagicalDataImport.m in Sources */,
+				0BBD1CC3188E799E00F9C29C /* XLCircleProgressIndicator.m in Sources */,
 				84CFA5251879BF9100368A0D /* _TMEReply.m in Sources */,
 				0C7EFBD417E8D5170054C4DE /* UIBezierPath-Points.m in Sources */,
 				0C2F788C17F2DBA600201783 /* NSData+GIF.m in Sources */,
@@ -2460,7 +2435,6 @@
 				0C7053C817EF5E5E00E7615F /* TMEProduct.m in Sources */,
 				0C7EFB6817E768C70054C4DE /* NSPersistentStore+MagicalRecord.m in Sources */,
 				0C59550717F73E380076353E /* TMEBaseTabBarViewController.m in Sources */,
-				0B15BD351883B42600C098C6 /* XLCircleProgressIndicator.m in Sources */,
 				0C43914B17F2D27500640D82 /* TMEProduct+Additions.m in Sources */,
 				84CFA51F1879BE4900368A0D /* _TMEConversation.m in Sources */,
 				0C43CCB317F5E62A00D869F9 /* TMEBaseTableViewCell.m in Sources */,
@@ -2480,6 +2454,7 @@
 				0C7EFB6C17E768C70054C4DE /* MagicalRecord+iCloud.m in Sources */,
 				0C74C13017DC276900D8AF83 /* TMEPhotoButton.m in Sources */,
 				0C2F789517F2DBA600201783 /* UIImage+GIF.m in Sources */,
+				0BBD1CC2188E799E00F9C29C /* UIImageView+XLProgressIndicator.m in Sources */,
 				0B3D0D9918751EB900B740ED /* TMEMeTableViewCellBackgroundView.m in Sources */,
 				0B9E81031888E38A004AF9E3 /* HexColor.m in Sources */,
 				0C7053CB17EF5E5E00E7615F /* TMEUser.m in Sources */,
@@ -2515,7 +2490,6 @@
 				0C2F789717F2DBA600201783 /* UIImage+WebP.m in Sources */,
 				840C4CA11881B16000F7356A /* TMEOfferViewController.m in Sources */,
 				0CD9CF5717EA0FD400402E91 /* AFHTTPClient.m in Sources */,
-				0B15BD581883C37800C098C6 /* UIImageView+XLNetworking.m in Sources */,
 				0C5954FD17F711200076353E /* IIViewDeckController.m in Sources */,
 				0C7EFB6D17E768C70054C4DE /* MagicalRecord+Options.m in Sources */,
 				20C4D5E817F733F80035BCA5 /* iCarousel.m in Sources */,
@@ -2545,6 +2519,7 @@
 				0C2F788F17F2DBA600201783 /* SDWebImageDecoder.m in Sources */,
 				0C7053C217EF5E5E00E7615F /* _TMECategory.m in Sources */,
 				0C7EFBCD17E8D5170054C4DE /* NSNumber+Additions.m in Sources */,
+				0BBD1CC1188E799E00F9C29C /* UIImageView+XLNetworking.m in Sources */,
 				0C7EFB7017E768C70054C4DE /* MagicalRecord.m in Sources */,
 				0C7EFB6A17E768C70054C4DE /* MagicalRecord+Actions.m in Sources */,
 				0B3D0D85187509AB00B740ED /* TMEMeViewController.m in Sources */,
@@ -2557,10 +2532,8 @@
 				0CD9CF5A17EA0FD400402E91 /* AFJSONRequestOperation.m in Sources */,
 				0C2F788D17F2DBA600201783 /* SDImageCache.m in Sources */,
 				0C7EFBDE17E8D5170054C4DE /* UIScrollView+Additions.m in Sources */,
-				B459FDCF181BD31200D6BC79 /* SSPullToRefreshDefaultContentView.m in Sources */,
 				0C7EFB6317E768C70054C4DE /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				0C7EFB6F17E768C70054C4DE /* MagicalRecord+ShorthandSupport.m in Sources */,
-				B459FDD1181BD31200D6BC79 /* SSPullToRefreshView.m in Sources */,
 				0C41FEFF17F8826300C9CB50 /* UINavigationController+SGProgress.m in Sources */,
 				0C7EFB5717E768C70054C4DE /* MagicalImportFunctions.m in Sources */,
 				0C7EFBE317E8D5170054C4DE /* UIViewController+Additions.m in Sources */,
@@ -2577,7 +2550,6 @@
 				0C7EFBE117E8D5170054C4DE /* UIView+Glow.m in Sources */,
 				0CD9CF5917EA0FD400402E91 /* AFImageRequestOperation.m in Sources */,
 				0C7EFB5F17E768C70054C4DE /* NSManagedObject+MagicalDataImport.m in Sources */,
-				0B15BD341883B42600C098C6 /* UIImageView+XLProgressIndicator.m in Sources */,
 				0C2F789417F2DBA600201783 /* UIButton+WebCache.m in Sources */,
 				0CD9CF5C17EA0FD400402E91 /* AFPropertyListRequestOperation.m in Sources */,
 				0C7EFBD017E8D5170054C4DE /* NSString+Additions.m in Sources */,

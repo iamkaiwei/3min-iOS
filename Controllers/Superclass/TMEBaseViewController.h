@@ -13,7 +13,7 @@
 
 @interface TMEBaseViewController : GAITrackedViewController <UITextFieldDelegate>
 
-@property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
+@property (nonatomic, strong) UIRefreshControl *pullToRefreshView;
 @property (nonatomic, strong) UITextField *activeTextField;
 @property (nonatomic, assign) BOOL isKeyboardShowing;
 @property (nonatomic, assign) BOOL previousVCIsHome;
@@ -61,6 +61,7 @@
 - (IBAction)onBtnBack:(id)sender;
 
 - (void)enablePullToRefresh;
+- (void)disableNavigationTranslucent;
 /**
  *list all notification this view can receive
  *return: array of notification

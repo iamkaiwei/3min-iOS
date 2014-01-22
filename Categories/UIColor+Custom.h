@@ -18,6 +18,8 @@
 
 + (UIColor *)backgroundDarkColor;
 
++ (UIColor *)backgroundBrightGrayColor;
+
 + (UIColor *)brownTextColor;
 
 + (UIColor *)lightBrownTextColor;

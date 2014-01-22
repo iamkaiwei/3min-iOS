@@ -36,9 +36,7 @@ UITextFieldDelegate
   [self.labelPriceOffer alignHorizontalCenterToView:self.view];
 
   self.txtPrice.text = @"";
-  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    [self setEdgesForExtendedLayout:UIRectEdgeNone];
-  }
+  [self disableNavigationTranslucent];
 }
 
 - (IBAction)onBtnChangePrice:(id)sender {

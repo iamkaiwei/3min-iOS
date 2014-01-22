@@ -14,7 +14,7 @@
 
 @class ADFormViewController;
 
-@interface TMEBaseViewController ()<UIGestureRecognizerDelegate, SSPullToRefreshViewDelegate>
+@interface TMEBaseViewController ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSValue *keyboardFrame;
 @property (nonatomic, strong) UITapGestureRecognizer *tapToDismissKeyboardGestureRecognizer;
@@ -69,6 +69,7 @@
   
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")){
     self.edgesForExtendedLayout = UIRectEdgeAll;
+    [self setExtendedLayoutIncludesOpaqueBars:YES];
     self.tabBarController.tabBar.alpha = 0.9;
   }
   [self addNavigationItems];
@@ -261,7 +262,17 @@
 //}
 
 - (void)enablePullToRefresh{
-  self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:(UIScrollView *)[self getScrollableView] delegate:self];
+  self.pullToRefreshView = [[UIRefreshControl alloc] init];
+  [self.pullToRefreshView addTarget:self action:@selector(pullToRefreshViewDidStartLoading:) forControlEvents:UIControlEventValueChanged];
+  [[self getScrollableView] addSubview:self.pullToRefreshView];
+}
+
+- (void)disableNavigationTranslucent{
+  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationController.navigationBar.translucent = NO;
+    [self.navigationController.navigationBar setBarTintColor:[UIColor backgroundBrightGrayColor]];
+  }
 }
 
 - (void)registerForKeyboardNotifications
