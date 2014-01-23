@@ -43,6 +43,7 @@ UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
   TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
   productDetailsController.product = self.arrayProducts[indexPath.row];
+  productDetailsController.hidesBottomBarWhenPushed = YES;
   [self.navigationController pushViewController:productDetailsController animated:YES];
 }
 
@@ -66,12 +67,13 @@ UICollectionViewDelegate
   return cell;
 }
 
-- (void)loadProducts {
+- (void)loadProducts{
   if (![TMEReachabilityManager isReachable]) {
     [SVProgressHUD showErrorWithStatus:@"No connection!"];
     return;
   }
   
+  [SVProgressHUD showWithStatus:@"Refreshing products..."];
   if (self.currentCategory) {
     [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
                                                 onSuccessBlock:^(NSArray *arrProducts) {
@@ -100,7 +102,17 @@ UICollectionViewDelegate
 #pragma mark - SSPullToRefreshView delegate
 - (void)pullToRefreshViewDidStartLoading:(UIRefreshControl *)view
 {
-  [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
+  if (![TMEReachabilityManager isReachable]) {
+    [SVProgressHUD showErrorWithStatus:@"No connection!"];
+    [self.pullToRefreshView endRefreshing];
+    return;
+  }
+  
+  NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
+  [formattedDate setDateFormat:@"d MMM, h:mm a"];
+  NSString *lastupdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
+  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:lastupdated];
+  
   [self loadProducts];
 }
 

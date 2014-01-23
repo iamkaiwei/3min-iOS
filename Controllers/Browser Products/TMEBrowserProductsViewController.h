@@ -8,4 +8,6 @@
 
 @interface TMEBrowserProductsViewController : TMEBaseViewController
 
+- (void)loadProducts;
+
 @end

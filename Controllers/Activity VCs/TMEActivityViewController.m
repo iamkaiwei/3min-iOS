@@ -141,6 +141,8 @@ TMELoadMoreTableViewCellDelegate
                                                         onSuccessBlock:^(NSArray *arrayConversation)
    {
      self.havingPreviousActivities = YES;
+     self.tableViewActivity.hidden = NO;
+     
      if (!arrayConversation.count) {
        self.havingPreviousActivities = NO;
      }
@@ -184,8 +186,12 @@ TMELoadMoreTableViewCellDelegate
     [self.pullToRefreshView endRefreshing];
     return;
   }
-  [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
+  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing activities.."];
+  NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
+  [formattedDate setDateFormat:@"d MMM, h:mm a"];
+  NSString *lastupdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
   [self loadListActivityWithPage:1];
+  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:lastupdated];
 }
 
 @end

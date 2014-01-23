@@ -8,10 +8,10 @@
 
 #import "TMESearchViewController.h"
 
-typedef enum {
-  SEARCH_BY_PRODUCT,
-  SEARCH_BY_USER
-}SEARCH_BY;
+//typedef enum {
+//  SEARCH_BY_PRODUCT,
+//  SEARCH_BY_USER
+//}SEARCH_BY;
 
 @interface TMESearchViewController ()
 <
@@ -21,7 +21,7 @@ UISearchBarDelegate,
 UISearchDisplayDelegate
 >
 
-@property (assign, nonatomic) SEARCH_BY state;
+//@property (assign, nonatomic) SEARCH_BY state;
 
 @end
 
@@ -32,63 +32,64 @@ UISearchDisplayDelegate
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   [self disableNavigationTranslucent];
-  self.state = SEARCH_BY_PRODUCT;
+  self.navigationController.navigationBar.topItem.title = @"Search Product";
+//  self.state = SEARCH_BY_PRODUCT;
   self.shouldHandleKeyboardNotification = NO;
-  [self loadNavigationItem];
+//  [self loadNavigationItem];
 }
 
-#pragma mark - Navigation Bar Buttons
+//#pragma mark - Navigation Bar Buttons
+//
+//- (UIBarButtonItem *)leftNavigationButtonProducts
+//{
+//  UIImage *leftButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"btn_products" isIcon:YES];
+//  UIImage *leftButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"btn_products_selected" isIcon:YES];
+//  UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
+//  [leftButton addTarget:self action:@selector(onProductsButton:) forControlEvents:UIControlEventTouchUpInside];
+//  [leftButton setBackgroundImage:leftButtonBackgroundNormalImage forState:UIControlStateNormal];
+//  [leftButton setBackgroundImage:leftButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
+//  [leftButton setBackgroundImage:leftButtonBackgroundSelectedImage forState:UIControlStateSelected];
+//  
+//  if (self.state == SEARCH_BY_PRODUCT) {
+//    leftButton.selected = YES;
+//  }
+//  
+//  return [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+//}
 
-- (UIBarButtonItem *)leftNavigationButtonProducts
-{
-  UIImage *leftButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"btn_products" isIcon:YES];
-  UIImage *leftButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"btn_products_selected" isIcon:YES];
-  UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
-  [leftButton addTarget:self action:@selector(onProductsButton:) forControlEvents:UIControlEventTouchUpInside];
-  [leftButton setBackgroundImage:leftButtonBackgroundNormalImage forState:UIControlStateNormal];
-  [leftButton setBackgroundImage:leftButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
-  [leftButton setBackgroundImage:leftButtonBackgroundSelectedImage forState:UIControlStateSelected];
-  
-  if (self.state == SEARCH_BY_PRODUCT) {
-    leftButton.selected = YES;
-  }
-  
-  return [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-}
+//- (UIBarButtonItem *)rightNavigationButtonUsers
+//{
+//  UIImage *rightButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"btn_users" isIcon:YES];
+//  UIImage *rightButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"btn_users_selected" isIcon:YES];
+//  UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
+//  [rightButton addTarget:self action:@selector(onUsersButton:) forControlEvents:UIControlEventTouchUpInside];
+//  [rightButton setBackgroundImage:rightButtonBackgroundNormalImage forState:UIControlStateNormal];
+//  [rightButton setBackgroundImage:rightButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
+//  [rightButton setBackgroundImage:rightButtonBackgroundSelectedImage forState:UIControlStateSelected];
+//  
+//  if (self.state == SEARCH_BY_USER) {
+//    rightButton.selected = YES;
+//  }
+//  
+//  return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+//}
+//
+//- (void)loadNavigationItem{
+//  self.navigationItem.leftBarButtonItem = [self leftNavigationButtonProducts];
+//  self.navigationItem.rightBarButtonItem = [self rightNavigationButtonUsers];
+//}
 
-- (UIBarButtonItem *)rightNavigationButtonUsers
-{
-  UIImage *rightButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"btn_users" isIcon:YES];
-  UIImage *rightButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"btn_users_selected" isIcon:YES];
-  UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
-  [rightButton addTarget:self action:@selector(onUsersButton:) forControlEvents:UIControlEventTouchUpInside];
-  [rightButton setBackgroundImage:rightButtonBackgroundNormalImage forState:UIControlStateNormal];
-  [rightButton setBackgroundImage:rightButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
-  [rightButton setBackgroundImage:rightButtonBackgroundSelectedImage forState:UIControlStateSelected];
-  
-  if (self.state == SEARCH_BY_USER) {
-    rightButton.selected = YES;
-  }
-  
-  return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-}
-
-- (void)loadNavigationItem{
-  self.navigationItem.leftBarButtonItem = [self leftNavigationButtonProducts];
-  self.navigationItem.rightBarButtonItem = [self rightNavigationButtonUsers];
-}
-
-#pragma mark - Actions
-
-- (void)onProductsButton:(id)sender{
-  self.state = SEARCH_BY_PRODUCT;
-  [self loadNavigationItem];
-}
-
-- (void)onUsersButton:(id)sender{
-  self.state = SEARCH_BY_USER;
-  [self loadNavigationItem];
-}
+//#pragma mark - Actions
+//
+//- (void)onProductsButton:(id)sender{
+//  self.state = SEARCH_BY_PRODUCT;
+//  [self loadNavigationItem];
+//}
+//
+//- (void)onUsersButton:(id)sender{
+//  self.state = SEARCH_BY_USER;
+//  [self loadNavigationItem];
+//}
 
 #pragma mark - UITableView delegate and datasource
 

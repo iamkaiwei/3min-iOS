@@ -10,4 +10,6 @@
 
 @interface TMEBrowserCollectionViewController : TMEBaseViewController
 
+- (void)loadProducts;
+
 @end

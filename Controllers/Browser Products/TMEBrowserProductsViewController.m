@@ -50,7 +50,6 @@ TMEBrowserProductsTableCellDelegate
   [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
   self.scrollableView = self.tableProducts;
   [self enablePullToRefresh];
-  [self.pullToRefreshView beginRefreshing];
   [self loadProducts];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
@@ -95,13 +94,13 @@ TMEBrowserProductsTableCellDelegate
   return [TMEBrowserProductsTableCell getHeight];
 }
 
-- (void)loadProducts {
+- (void)loadProducts{
   if (![TMEReachabilityManager isReachable]) {
     [SVProgressHUD showErrorWithStatus:@"No connection!"];
     [self.pullToRefreshView endRefreshing];
     return;
   }
-  
+  [SVProgressHUD showWithStatus:@"Refreshing products..."];
   if (self.currentCategory) {
     [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
                                                 onSuccessBlock:^(NSArray *arrProducts) {
@@ -127,31 +126,20 @@ TMEBrowserProductsTableCellDelegate
   }
 }
 
-#pragma mark - Table cell delegate
-
-- (void)onBtnComment:(UIButton *)sender{
-//  UIView *superView = sender.superview;
-//  
-//  
-//  while (nil != sender.superview) {
-//    if ([superView isKindOfClass:[UITableViewCell class]]) {
-//      break;
-//    } else {
-//      superView = superView.superview;
-//    }
-//  }
-//  
-//  NSIndexPath *indexPath = [self.tableProducts indexPathForCell:(UITableViewCell *)superView];
-//  
-//  TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
-//  submitController.product = self.arrProducts[indexPath.row];
-//  [self.navigationController pushViewController:submitController animated:YES];
-}
 
 #pragma mark - SSPullToRefreshView delegate
 - (void)pullToRefreshViewDidStartLoading:(UIRefreshControl *)view
 {
-  [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
+  if (![TMEReachabilityManager isReachable]) {
+    [SVProgressHUD showErrorWithStatus:@"No connection!"];
+    [self.pullToRefreshView endRefreshing];
+    return;
+  }
+  
+  NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
+  [formattedDate setDateFormat:@"d MMM, h:mm a"];
+  NSString *lastupdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
+  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:lastupdated];
   [self loadProducts];
 }
 

@@ -10,4 +10,6 @@
 
 @interface HTKContainerViewController : TMEBaseViewController
 
+@property (strong, nonatomic) UIViewController *currentViewController;
+
 @end

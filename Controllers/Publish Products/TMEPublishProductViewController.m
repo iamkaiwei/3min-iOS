@@ -8,6 +8,8 @@
 
 #import "TMEPublishProductViewController.h"
 #import "TMEBrowserProductsViewController.h"
+#import "TMEBrowserCollectionViewController.h"
+#import "HTKContainerViewController.h"
 #import "PBImageHelper.h"
 
 @interface TMEPublishProductViewController ()
@@ -48,6 +50,7 @@ UIPickerViewDelegate
       button.photoSize = CGSizeMake(1000, 1000);
     }
   }
+  [self disableNavigationTranslucent];
   self.navigationItem.leftBarButtonItem = [self leftNavigationButton];
   self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
   
@@ -229,8 +232,19 @@ UIPickerViewDelegate
      [self.navigationController finishSGProgress];
      
      // move to browser tab if they are another tab
-     if(![self.tabBarController.selectedViewController isKindOfClass:[TMEBrowserProductsViewController class]])
+     if(![self.tabBarController.selectedViewController isKindOfClass:[TMEBrowserProductsViewController class]]){
        [self.tabBarController setSelectedIndex:0];
+       
+       HTKContainerViewController *containerVC = (HTKContainerViewController *)((TMENavigationViewController *)self.tabBarController.selectedViewController).topViewController;
+       
+       if ([containerVC.currentViewController isKindOfClass:[TMEBrowserProductsViewController class]]) {
+         [((TMEBrowserProductsViewController *)containerVC.currentViewController) loadProducts];
+       }
+       
+       if ([containerVC.currentViewController isKindOfClass:[TMEBrowserCollectionViewController class]]) {
+         [((TMEBrowserCollectionViewController *)containerVC.currentViewController) loadProducts];
+       }
+     }
      
    } failure:^(NSError *error) {
      

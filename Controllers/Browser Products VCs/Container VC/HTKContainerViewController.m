@@ -13,8 +13,6 @@
 
 @interface HTKContainerViewController ()
 
-@property (strong, nonatomic) UIViewController *currentViewController;
-
 @property (strong, nonatomic) TMEBrowserProductsViewController *normalViewController;
 @property (strong, nonatomic) TMEBrowserCollectionViewController *gridViewController;
 

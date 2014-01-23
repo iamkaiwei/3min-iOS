@@ -12,8 +12,7 @@
 
 - (void)onClickCategoryButton:(NSInteger)categoryID;
 
-@required
-- (void)onBtnComment:(UIButton *)sender;
+@optional
 - (void)onBtnLike;
 - (void)onBtnShare;
 
