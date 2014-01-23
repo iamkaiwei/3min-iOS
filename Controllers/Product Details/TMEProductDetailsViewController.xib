@@ -31,8 +31,8 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="vRT-ds-U85">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="385"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="379"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="UKu-PP-axO">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
@@ -125,7 +125,6 @@
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                         </view>
                     </subviews>
-                    <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
                 </scrollView>
                 <view contentMode="scaleToFill" id="Kb4-vK-jyJ">
                     <rect key="frame" x="0.0" y="378" width="320" height="56"/>

@@ -53,7 +53,7 @@
     if (offset.y < 0)
         offset.y = 0;
   
-  [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
+  [UIView animateWithDuration:.318 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
    [self setContentOffset:offset animated:NO];
   } completion:nil];
   

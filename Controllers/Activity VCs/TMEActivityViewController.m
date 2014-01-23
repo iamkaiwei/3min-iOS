@@ -173,10 +173,7 @@ TMELoadMoreTableViewCellDelegate
 
 - (void)reloadTableViewActivity{
   [self.tableViewActivity reloadData];
-  
-  [UIView animateWithDuration:0.5 animations:^{
-    self.tableViewActivity.alpha = 1;
-  }];
+  self.tableViewActivity.hidden = NO;
 }
 
 - (void)pullToRefreshViewDidStartLoading:(UIRefreshControl *)view

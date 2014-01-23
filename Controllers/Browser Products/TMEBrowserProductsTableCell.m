@@ -14,7 +14,6 @@
 
 // product
 
-@property (weak, nonatomic) IBOutlet UIButton        * btnProductCategory;
 @property (weak, nonatomic) IBOutlet UILabel         * lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel         * lblProductPrice;
 @property (weak, nonatomic) IBOutlet UIImageView     * imageViewProduct;
@@ -26,10 +25,8 @@
 
 // social
 @property (weak, nonatomic) IBOutlet UIButton       * btnFollow;
-@property (weak, nonatomic) IBOutlet UIButton       * btnComment;
 @property (weak, nonatomic) IBOutlet UIButton       * btnShare;
 
-@property (weak, nonatomic) IBOutlet UIImageView *imgCategoryCover;
 
 @end
 
@@ -41,12 +38,7 @@
     self.btnFollow.layer.borderWidth = 1;
     self.btnFollow.layer.borderColor = [UIColor grayColor].CGColor;
     self.btnFollow.layer.cornerRadius = 3;
-    
-    // Comment button
-    self.btnComment.layer.borderWidth = 1;
-    self.btnComment.layer.borderColor = [UIColor grayColor].CGColor;
-    self.btnComment.layer.cornerRadius = 3;
-    
+  
     // Share button
     self.btnShare.layer.borderWidth = 1;
     self.btnShare.layer.borderColor = [UIColor grayColor].CGColor;
@@ -58,9 +50,6 @@
     [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:product.user.photo_url] placeholderImage:nil];
     self.lblUserName.text = product.user.fullname;
     self.lblTimestamp.text = [product.created_at relativeDate];
-    
-    NSURL *imageURL = [NSURL URLWithString:product.category.photo_url];
-    [self.imgCategoryCover setImageWithURL:imageURL placeholderImage:nil];
     
     TMEProductImages *img = [product.images anyObject];
   

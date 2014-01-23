@@ -48,7 +48,6 @@ TMEBrowserProductsTableCellDelegate
   
   NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
   [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
-  
   self.scrollableView = self.tableProducts;
   [self enablePullToRefresh];
   [self.pullToRefreshView beginRefreshing];
