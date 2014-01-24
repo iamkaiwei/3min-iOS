@@ -217,13 +217,7 @@ FacebookManagerDelegate
     
     [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
     [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
-    
-    deckController.rightSize = 60;
-    
-    self.leftController = deckController.leftController;
-    self.centerController = deckController.centerController;
-    self.navController = (TMENavigationViewController *)deckController.centerController;
-    
+  
     return deckController;
 }
 

@@ -8,10 +8,13 @@
 
 #import "TMELeftMenuViewController.h"
 #import "TMELeftMenuTableViewCell.h"
+#import "TMEHomeViewController.h"
 
 @interface TMELeftMenuViewController ()
+<IIViewDeckControllerDelegate>
 
 @property (strong, nonatomic) NSArray *arrayCategories;
+@property (strong, nonatomic) UIView *statusBarView;
 
 @end
 
@@ -21,6 +24,13 @@
 {
   [super viewDidLoad];
   [self.tableView registerNib:[TMELeftMenuTableViewCell defaultNib] forCellReuseIdentifier:NSStringFromClass([TMELeftMenuTableViewCell class])]; //iOS 6+
+  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+    self.statusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];
+    [self.statusBarView setBackgroundColor:[UIColor blackColor]];
+    [self.statusBarView setAlpha:0.0];
+    [self.view addSubview:self.statusBarView];
+    [self.tableView setContentInset:UIEdgeInsetsMake(20, 0, 0, 0)];
+  }
   
   [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories) {
     _arrayCategories = arrayCategories;
@@ -32,7 +42,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+  [super viewWillAppear:animated];
+  [self setNeedsStatusBarAppearanceUpdate];
 }
 
 #pragma mark - UITableView Datasource And Delegate
@@ -61,6 +72,17 @@
   [userInfo setObject:category forKey:@"category"];
   [[NSNotificationCenter defaultCenter] postNotificationName:CATEGORY_CHANGE_NOTIFICATION object:nil userInfo:userInfo];
   [self.viewDeckController closeLeftView];
+}
+
+- (void)viewDeckController:(IIViewDeckController *)viewDeckController didChangeOffset:(CGFloat)offset orientation:(IIViewDeckOffsetOrientation)orientation panning:(BOOL)panning{
+  CGFloat percentVisible = offset/276;
+  [self.statusBarView setAlpha:percentVisible];
+  [((TMEHomeViewController *)self.viewDeckController.centerController) setStatusBarViewAlpha:percentVisible];
+  DLog(@"%f",percentVisible);
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+  return UIStatusBarStyleLightContent;
 }
 
 @end

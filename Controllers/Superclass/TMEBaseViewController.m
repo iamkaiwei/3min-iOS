@@ -14,7 +14,10 @@
 
 @class ADFormViewController;
 
-@interface TMEBaseViewController ()<UIGestureRecognizerDelegate>
+@interface TMEBaseViewController ()
+<UIGestureRecognizerDelegate,
+IIViewDeckControllerDelegate
+>
 
 @property (nonatomic, strong) NSValue *keyboardFrame;
 @property (nonatomic, strong) UITapGestureRecognizer *tapToDismissKeyboardGestureRecognizer;
@@ -45,8 +48,8 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
   // notification
+  self.viewDeckController.delegate = self;
   if ([self respondsToSelector:@selector(onFinishLogin:)]) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onFinishLogin:) name:NOTIFICATION_FINISH_LOGIN object:nil];
   }

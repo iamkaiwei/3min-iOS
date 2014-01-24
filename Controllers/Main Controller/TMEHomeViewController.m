@@ -37,6 +37,7 @@ UIImagePickerControllerDelegate
 >
 
 @property (nonatomic, strong) TMEBrowserProductsViewController *browser;
+@property (nonatomic, strong) UIView *statusBarView;
 
 @end
 
@@ -46,6 +47,13 @@ UIImagePickerControllerDelegate
 {
     [super viewDidLoad];
     self.title = @"Main Menu";
+  
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+      self.statusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];
+      [self.statusBarView setBackgroundColor:[UIColor blackColor]];
+      [self.statusBarView setAlpha:0.0];
+      [self.view addSubview:self.statusBarView];
+    }
   
     [self.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbar-background"]];
     self.viewControllers = @[];
@@ -129,6 +137,10 @@ UIImagePickerControllerDelegate
                withIconName:@"tabbar-sell-icon"];
 }
 
+- (void)setStatusBarViewAlpha:(CGFloat)alpha{
+  [self.statusBarView setAlpha:alpha];
+}
+
 #pragma marks - UIImagePicker Delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -137,6 +149,11 @@ UIImagePickerControllerDelegate
     
     // Add that image to Publish VC
 }
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+  return UIStatusBarStyleLightContent;
+}
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     

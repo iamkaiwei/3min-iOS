@@ -13,4 +13,6 @@
 
 @interface TMEHomeViewController : TMEBaseTabBarViewController
 
+- (void)setStatusBarViewAlpha:(CGFloat)alpha;
+
 @end
