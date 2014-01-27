@@ -57,6 +57,51 @@ SINGLETON_MACRO
    }];
 }
 
+- (void)likeProductWithProductID:(NSNumber *)productID
+                  onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                 andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+  NSDictionary *params = @{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken]};
+  NSString *path = [NSString stringWithFormat:@"%@%@%@/%@%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, productID, API_LIKES];
+  [[TMEHTTPClient sharedClient] postPath:path
+                              parameters:params
+                                 success:^(AFHTTPRequestOperation *operation, id responseObject)
+   {
+     if (successBlock) {
+//       successBlock(responseObject[@"status"]);
+     }
+   }
+                                 failure:^(AFHTTPRequestOperation *operation, NSError *error)
+   {
+     if (failureBlock) {
+       failureBlock(error.code, error);
+     }
+   }];
+
+}
+
+- (void)unlikeProductWithProductID:(NSNumber *)productID
+                    onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                   andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+  NSDictionary *params = @{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken]};
+  NSString *path = [NSString stringWithFormat:@"%@%@%@/%@%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, productID, API_LIKES];
+  [[TMEHTTPClient sharedClient] deletePath:path
+                              parameters:params
+                                 success:^(AFHTTPRequestOperation *operation, id responseObject)
+   {
+     if (successBlock) {
+       //       successBlock(responseObject[@"status"]);
+     }
+   }
+                                 failure:^(AFHTTPRequestOperation *operation, NSError *error)
+   {
+     if (failureBlock) {
+       failureBlock(error.code, error);
+     }
+   }];
+  
+
+}
+
 #pragma marks - Fake functions to handle products.
 - (NSArray *)fakeGetAllStoredProducts
 {

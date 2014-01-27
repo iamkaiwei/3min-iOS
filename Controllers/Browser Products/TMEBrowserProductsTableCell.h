@@ -10,11 +10,9 @@
 
 @protocol TMEBrowserProductsTableCellDelegate <NSObject>
 
-- (void)onClickCategoryButton:(NSInteger)categoryID;
-
 @optional
-- (void)onBtnLike;
-- (void)onBtnShare;
+- (void)onBtnLike:(UIButton *)sender label:(UILabel *)label;
+- (void)onBtnShare:(UIButton *)sender;
 
 @end
 

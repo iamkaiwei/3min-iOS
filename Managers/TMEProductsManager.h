@@ -17,4 +17,13 @@
 -(void)getProductsOfCategory:(TMECategory *)category
               onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
              andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+
+- (void)likeProductWithProductID:(NSNumber *)productID
+                  onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                 andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+
+- (void)unlikeProductWithProductID:(NSNumber *)productID
+                    onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                   andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+
 @end

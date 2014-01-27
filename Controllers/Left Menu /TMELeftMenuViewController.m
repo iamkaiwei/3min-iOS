@@ -40,12 +40,6 @@
   }];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-  [super viewWillAppear:animated];
-  [self setNeedsStatusBarAppearanceUpdate];
-}
-
 #pragma mark - UITableView Datasource And Delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -55,6 +55,7 @@ TMELoadMoreTableViewCellDelegate
   if (!self.arrayConversation.count) {
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
   }
+  
   [self loadListActivityWithPage:1];
 }
 

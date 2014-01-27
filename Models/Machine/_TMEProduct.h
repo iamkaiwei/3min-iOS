@@ -10,6 +10,7 @@ extern const struct TMEProductAttributes {
 	__unsafe_unretained NSString *details;
 	__unsafe_unretained NSString *dislikes;
 	__unsafe_unretained NSString *id;
+	__unsafe_unretained NSString *liked;
 	__unsafe_unretained NSString *likes;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *price;
@@ -31,6 +32,7 @@ extern const struct TMEProductFetchedProperties {
 @class TMEConversation;
 @class TMEProductImages;
 @class TMEUser;
+
 
 
 
@@ -109,6 +111,20 @@ extern const struct TMEProductFetchedProperties {
 - (void)setIdValue:(int64_t)value_;
 
 //- (BOOL)validateId:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* liked;
+
+
+
+@property BOOL likedValue;
+- (BOOL)likedValue;
+- (void)setLikedValue:(BOOL)value_;
+
+//- (BOOL)validateLiked:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -256,6 +272,15 @@ extern const struct TMEProductFetchedProperties {
 
 - (int64_t)primitiveIdValue;
 - (void)setPrimitiveIdValue:(int64_t)value_;
+
+
+
+
+- (NSNumber*)primitiveLiked;
+- (void)setPrimitiveLiked:(NSNumber*)value;
+
+- (BOOL)primitiveLikedValue;
+- (void)setPrimitiveLikedValue:(BOOL)value_;
 
 
 

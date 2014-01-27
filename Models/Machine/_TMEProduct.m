@@ -9,6 +9,7 @@ const struct TMEProductAttributes TMEProductAttributes = {
 	.details = @"details",
 	.dislikes = @"dislikes",
 	.id = @"id",
+	.liked = @"liked",
 	.likes = @"likes",
 	.name = @"name",
 	.price = @"price",
@@ -59,6 +60,11 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 	}
 	if ([key isEqualToString:@"idValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"id"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"likedValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"liked"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -151,6 +157,32 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 
 - (void)setPrimitiveIdValue:(int64_t)value_ {
 	[self setPrimitiveId:[NSNumber numberWithLongLong:value_]];
+}
+
+
+
+
+
+@dynamic liked;
+
+
+
+- (BOOL)likedValue {
+	NSNumber *result = [self liked];
+	return [result boolValue];
+}
+
+- (void)setLikedValue:(BOOL)value_ {
+	[self setLiked:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveLikedValue {
+	NSNumber *result = [self primitiveLiked];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveLikedValue:(BOOL)value_ {
+	[self setPrimitiveLiked:[NSNumber numberWithBool:value_]];
 }
 
 

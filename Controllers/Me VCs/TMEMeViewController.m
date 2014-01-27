@@ -17,9 +17,11 @@ UIActionSheetDelegate,
 UITableViewDataSource
 >
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewAvatar;
 @property (strong, nonatomic) NSArray             * arrayCellTitleSectionOne;
 @property (strong, nonatomic) NSArray             * arrayCellTitleSectionTwo;
-@property (strong, nonatomic) NSArray             * arrayCellTitleSectionThree;
+@property (weak, nonatomic) IBOutlet UILabel *labelUsername;
+@property (weak, nonatomic) IBOutlet UILabel *labelUserEmail;
 
 @property (weak, nonatomic) IBOutlet UITableView  * tableViewMenu;
 @end
@@ -31,13 +33,28 @@ UITableViewDataSource
   [super viewDidLoad];
   
   // Do any additional setup after loading the view from its nib.
-  self.arrayCellTitleSectionOne = @[@"Find & Invite Friends", @"Recommended Users"];
-  self.arrayCellTitleSectionTwo = @[@"My Listings", @"Offer I Made", @"Stuff I Liked"];
-  self.arrayCellTitleSectionThree = @[@"Edit Profile", @"Share Settings", @"Notification Settings", @"Logout"];
+  self.arrayCellTitleSectionOne = @[@"My Listings", @"Offer I Made", @"Stuff I Liked"];
+  self.arrayCellTitleSectionTwo = @[@"Logout"];
+  
+  TMEUser *loggedUser = [[TMEUserManager sharedInstance] loggedUser];
+  
+  [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:loggedUser.photo_url]];
+  self.imageViewAvatar.layer.cornerRadius = 70;
+  
+  self.labelUsername.text = loggedUser.fullname;
+  [self.labelUsername sizeToFitKeepHeight];
+  [self.labelUsername alignHorizontalCenterToView:self.view];
+  
+  self.labelUserEmail.text = loggedUser.email;
+  [self.labelUserEmail sizeToFitKeepHeight];
+  [self.labelUserEmail alignHorizontalCenterToView:self.view];
   
   [self disableNavigationTranslucent];
   
   [self.tableViewMenu registerNib:[UINib nibWithNibName:NSStringFromClass([TMEMeTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([TMEMeTableViewCell class])];
+  
+  [((UIScrollView *)self.view) setContentSize:CGSizeMake(CGRectGetWidth([[UIScreen mainScreen]bounds]), 465)];
+  
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -55,11 +72,8 @@ UITableViewDataSource
     case 0:
       [cell configCellWithTitle:self.arrayCellTitleSectionOne[indexPath.row]];
       break;
-    case 1:
-      [cell configCellWithTitle:self.arrayCellTitleSectionTwo[indexPath.row]];
-      break;
     default:
-      [cell configCellWithTitle:self.arrayCellTitleSectionThree[indexPath.row]];
+      [cell configCellWithTitle:self.arrayCellTitleSectionTwo[indexPath.row]];
       break;
   }
   
@@ -71,10 +85,8 @@ UITableViewDataSource
   switch (indexPath.section) {
     case 0:
       break;
-    case 1:
-      break;
     default:
-      if (indexPath.row == 3) {
+      if (indexPath.row == 0) {
         [self showActionSheetLogOut];
       }
       break;
@@ -82,17 +94,16 @@ UITableViewDataSource
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-  return 3;
+  return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+  
   switch (section) {
     case 0:
-      return 2;
-    case 1:
       return 3;
     default:
-      return 4;
+      return 1;
   }
 }
 

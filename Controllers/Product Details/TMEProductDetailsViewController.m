@@ -13,7 +13,6 @@
 @interface TMEProductDetailsViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton     * btnFollow;
-@property (weak, nonatomic) IBOutlet UIButton     * btnComment;
 @property (weak, nonatomic) IBOutlet UIButton     * btnShare;
 @property (weak, nonatomic) IBOutlet UIImageView  * imgUserAvatar;
 @property (weak, nonatomic) IBOutlet UILabel      * lblUserName;
@@ -30,6 +29,7 @@
 @property (strong, nonatomic) TMEConversation     * conversation;
 
 @property (assign, nonatomic) BOOL                  firstTimeOffer;
+@property (weak, nonatomic) IBOutlet UILabel *labelLikes;
 
 @end
 
@@ -59,11 +59,6 @@
   self.btnFollow.layer.borderWidth = 1;
   self.btnFollow.layer.borderColor = [UIColor grayColor].CGColor;
   self.btnFollow.layer.cornerRadius = 3;
-  
-  // Comment button
-  self.btnComment.layer.borderWidth = 1;
-  self.btnComment.layer.borderColor = [UIColor grayColor].CGColor;
-  self.btnComment.layer.cornerRadius = 3;
   
   // Share button
   self.btnShare.layer.borderWidth = 1;
@@ -98,6 +93,10 @@
   
   self.lblProductName.text = self.product.name;
   self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [self.product.price stringValue]];
+  
+  self.labelLikes.text = self.product.likes.stringValue;
+  self.btnFollow.selected = self.product.likedValue;
+  
   [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
   
   //If view chat to buy wrapper is hidden
@@ -166,5 +165,27 @@
                                                            self.firstTimeOffer = NO;
                                                          }];
 }
+
+- (IBAction)onBtnLike:(id)sender {
+  self.btnFollow.selected = !self.product.likedValue;
+  
+  if (!self.product.likedValue) {
+    [[TMEProductsManager sharedInstance] likeProductWithProductID:self.product.id
+                                                   onSuccessBlock:nil
+                                                  andFailureBlock:nil];
+    self.product.likedValue = YES;
+    self.product.likesValue++;
+    self.labelLikes.text = [@(self.labelLikes.text.integerValue + 1) stringValue];
+    return;
+  }
+  
+  [[TMEProductsManager sharedInstance] unlikeProductWithProductID:self.product.id
+                                                   onSuccessBlock:nil
+                                                  andFailureBlock:nil];
+  self.product.likedValue = NO;
+  self.product.likesValue--;
+  self.labelLikes.text = [@(self.labelLikes.text.integerValue - 1) stringValue];
+}
+
 
 @end

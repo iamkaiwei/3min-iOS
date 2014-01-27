@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEProductDetailsViewController">
             <connections>
-                <outlet property="btnComment" destination="Veb-pS-hwT" id="2gR-0A-li7"/>
                 <outlet property="btnFollow" destination="hgE-PJ-NcV" id="LeB-kv-FXL"/>
                 <outlet property="btnShare" destination="ogb-th-uxo" id="zMh-WI-y5I"/>
                 <outlet property="imgProductImage1" destination="ZZ7-bd-Vkq" id="RnJ-12-38a"/>
@@ -15,6 +14,7 @@
                 <outlet property="imgProductImage3" destination="HFe-WO-aca" id="W3F-Il-MYg"/>
                 <outlet property="imgProductImage4" destination="Wit-Em-Wog" id="Oa2-fE-R49"/>
                 <outlet property="imgUserAvatar" destination="0b6-Xg-2kj" id="yif-fB-duM"/>
+                <outlet property="labelLikes" destination="AYZ-ax-CQO" id="Wkm-u9-Mz1"/>
                 <outlet property="lblProductName" destination="yd2-fX-QVx" id="mJV-Ln-g81"/>
                 <outlet property="lblProductPrice" destination="og4-Kd-gtt" id="UrI-fA-8hC"/>
                 <outlet property="lblTimestamp" destination="uic-nE-mLE" id="7xK-x8-t7y"/>
@@ -96,22 +96,17 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hgE-PJ-NcV">
-                                    <rect key="frame" x="11" y="40" width="50" height="32"/>
+                                    <rect key="frame" x="11" y="40" width="72" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <state key="normal" title="43" image="follow-button.png">
+                                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="23" maxY="0.0"/>
+                                    <state key="normal" image="follow-button.png">
                                         <color key="titleColor" red="0.5176470876" green="0.51372551919999998" blue="0.50980395079999996" alpha="1" colorSpace="deviceRGB"/>
                                     </state>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Veb-pS-hwT">
-                                    <rect key="frame" x="85" y="40" width="50" height="32"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="5" image="comment-button.png">
-                                        <color key="titleColor" red="0.5176470876" green="0.51372551919999998" blue="0.50980395079999996" alpha="1" colorSpace="deviceRGB"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
+                                    <state key="selected" image="follow-button-pressed.png"/>
+                                    <connections>
+                                        <action selector="onBtnLike:" destination="-1" eventType="touchUpInside" id="2Dy-Wn-cee"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ogb-th-uxo">
                                     <rect key="frame" x="260" y="40" width="50" height="32"/>
@@ -121,6 +116,13 @@
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AYZ-ax-CQO">
+                                    <rect key="frame" x="52" y="44" width="26" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.5176470876" green="0.51372551919999998" blue="0.50980395079999996" alpha="1" colorSpace="deviceRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                         </view>
@@ -161,7 +163,7 @@
         <image name="chat_to_buy_btn.png" width="100" height="44"/>
         <image name="chat_to_buy_pressed_btn.png" width="100" height="44"/>
         <image name="clock-icon.png" width="17" height="17"/>
-        <image name="comment-button.png" width="23" height="19"/>
+        <image name="follow-button-pressed.png" width="25" height="21"/>
         <image name="follow-button.png" width="25" height="21"/>
         <image name="share-button.png" width="29" height="23"/>
     </resources>

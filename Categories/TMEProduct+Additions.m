@@ -15,7 +15,12 @@
     TMEProduct *product = [TMEProduct MR_createEntity];
     
     product.id = data[@"id"];
-    
+    if ([data[@"likes"] isEqual:[NSNull null]])
+      product.likes = @0;
+    else product.likes = @([data[@"likes"] floatValue]);
+  
+    product.liked = data[@"liked"];
+  
     if ([data[@"name"] isEqual:[NSNull null]])
         product.name = @"";
     else product.name = data[@"name"];
@@ -28,9 +33,6 @@
     if ([data[@"description"] isEqual:[NSNull null]])
         product.details = @"";
     else product.details = data[@"description"];
-    
-    product.dislikes = data[@"dislike"];
-    product.likes = data[@"like"];
     
     if ([data[@"price"] isEqual:[NSNull null]])
         product.price = @0;

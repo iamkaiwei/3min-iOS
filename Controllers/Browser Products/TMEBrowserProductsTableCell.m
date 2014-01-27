@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel         * lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel         * lblProductPrice;
 @property (weak, nonatomic) IBOutlet UIImageView     * imageViewProduct;
+@property (weak, nonatomic) IBOutlet UILabel *labelLikes;
 
 // user
 @property (weak, nonatomic) IBOutlet UIImageView    * imgUserAvatar;
@@ -50,7 +51,10 @@
     [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:product.user.photo_url] placeholderImage:nil];
     self.lblUserName.text = product.user.fullname;
     self.lblTimestamp.text = [product.created_at relativeDate];
-    
+ 
+    self.labelLikes.text = product.likes.stringValue;
+    self.btnFollow.selected = product.likedValue;
+  
     TMEProductImages *img = [product.images anyObject];
   
     [self.imageViewProduct setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.medium]
@@ -60,11 +64,13 @@
     self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
     
 }
-- (IBAction)onBtnComment:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(onBtnComment:)]) {
-        [self.delegate performSelector:@selector(onBtnComment:) withObject:sender];
-    }
+
+- (IBAction)onBtnLike:(id)sender {
+  if ([self.delegate respondsToSelector:@selector(onBtnLike:label:)]) {
+    [self.delegate performSelector:@selector(onBtnLike:label:) withObject:sender withObject:self.labelLikes];
+  }
 }
+
 
 + (CGFloat)getHeight{
     return 440;

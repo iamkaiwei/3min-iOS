@@ -58,6 +58,11 @@ TMEBrowserProductsTableCellDelegate
                                              object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+  [super viewWillAppear:animated];
+  [self.tableProducts reloadData];
+}
+
 #pragma mark - UITableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -159,6 +164,38 @@ TMEBrowserProductsTableCellDelegate
   NSDictionary *userInfo = [notification userInfo];
   self.currentCategory = [userInfo objectForKey:@"category"];
   [self loadProducts];
+}
+
+- (void)onBtnLike:(UIButton *)sender label:(UILabel *)label{
+  UIView *superView = sender.superview;
+  
+  while (nil != sender.superview) {
+    if ([superView isKindOfClass:[UITableViewCell class]]) {
+      break;
+    }
+    superView = superView.superview;
+  }
+  
+  NSIndexPath *indexPath = [self.tableProducts indexPathForCell:(UITableViewCell *)superView];
+  TMEProduct *currentCellProduct = self.arrProducts[indexPath.row];
+  sender.selected = !currentCellProduct.likedValue;
+  
+  if (!currentCellProduct.likedValue) {
+    [[TMEProductsManager sharedInstance] likeProductWithProductID:currentCellProduct.id
+                                                   onSuccessBlock:nil
+                                                  andFailureBlock:nil];
+    currentCellProduct.likedValue = YES;
+    currentCellProduct.likesValue++;
+    label.text = [@(label.text.integerValue + 1) stringValue];
+    return;
+  }
+  
+  [[TMEProductsManager sharedInstance] unlikeProductWithProductID:currentCellProduct.id
+                                                   onSuccessBlock:nil
+                                                  andFailureBlock:nil];
+  currentCellProduct.likedValue = NO;
+  currentCellProduct.likesValue--;
+  label.text = [@(label.text.integerValue - 1) stringValue];
 }
 
 @end
