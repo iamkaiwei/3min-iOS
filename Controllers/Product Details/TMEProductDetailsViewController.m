@@ -52,15 +52,6 @@
   [self setUpView];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-  [super viewWillDisappear:animated];
-  
-  [UIView animateWithDuration:0.4 animations:^{
-    self.tabBarController.tabBar.alpha = 1;
-    self.tabBarController.tabBar.hidden = NO;
-  }];
-}
-
 - (void)loadProductDetail{
   NSArray *arrayImageView = @[self.imgProductImage1, self.imgProductImage2, self.imgProductImage3, self.imgProductImage4];
   

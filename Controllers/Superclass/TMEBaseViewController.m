@@ -73,7 +73,7 @@ IIViewDeckControllerDelegate
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")){
     self.edgesForExtendedLayout = UIRectEdgeAll;
     [self setExtendedLayoutIncludesOpaqueBars:YES];
-    self.tabBarController.tabBar.alpha = 0.9;
+    self.tabBarController.tabBar.translucent = YES;
   }
   [self addNavigationItems];
 }
