@@ -319,8 +319,10 @@ IIViewDeckControllerDelegate
   self.navigationItem.rightBarButtonItem = [self rightNavigationButtonDone];
   self.title = @"";
   
-  textView.text = @"";
-  textView.textColor = [UIColor blackColor];
+  if ([textView.text isEqualToString:@"Type message here to chat..."]) {
+    textView.text = @"";
+    textView.textColor = [UIColor blackColor];
+  }
   
   UIScrollView *scrollView = (UIScrollView *)[self getScrollableView];
   if (scrollView == nil) {

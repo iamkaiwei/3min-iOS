@@ -333,8 +333,10 @@ TMELoadMoreTableViewCellDelegate
   self.navigationItem.rightBarButtonItem = nil;
   self.title = @"Your Offer";
   
-  textView.textColor = [UIColor lightGrayColor];
-  textView.text = @"Type message here to chat...";
+  if ([textView.text isEqualToString:@""]) {
+    textView.textColor = [UIColor lightGrayColor];
+    textView.text = @"Type message here to chat...";
+  }
   
   return YES;
 }
