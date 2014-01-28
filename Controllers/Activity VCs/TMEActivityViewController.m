@@ -14,8 +14,7 @@
 @interface TMEActivityViewController ()
 <
 UITableViewDataSource,
-UITableViewDelegate,
-TMELoadMoreTableViewCellDelegate
+UITableViewDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UITableView                    * tableViewActivity;
@@ -89,8 +88,8 @@ TMELoadMoreTableViewCellDelegate
       // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
       cellLoadMore = [topLevelObjects objectAtIndex:0];
     }
-    cellLoadMore.delegate = self;
-    [cellLoadMore.buttonLoadMore setTitle:@"Load more activities..." forState:UIControlStateNormal];
+    self.currentPage++;
+    [self loadListActivityWithPage:self.currentPage];
     
     return cellLoadMore;
   }
@@ -128,11 +127,6 @@ TMELoadMoreTableViewCellDelegate
     self.currentPage = (self.arrayConversation.count / 10) + 1;
     [self reloadTableViewActivity];
   }
-}
-
-- (void)onBtnLoadMore:(UIButton *)sender{
-  self.currentPage++;
-  [self loadListActivityWithPage:self.currentPage];
 }
 
 #pragma mark - Handle notification

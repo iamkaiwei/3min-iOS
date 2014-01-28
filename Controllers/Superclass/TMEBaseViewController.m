@@ -272,6 +272,8 @@ IIViewDeckControllerDelegate
   [[self getScrollableView] sendSubviewToBack:self.pullToRefreshView];
 }
 
+
+
 - (void)disableNavigationTranslucent{
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     self.edgesForExtendedLayout = UIRectEdgeNone;

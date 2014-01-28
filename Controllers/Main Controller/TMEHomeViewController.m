@@ -47,12 +47,9 @@ UIImagePickerControllerDelegate
 {
     [super viewDidLoad];
     self.title = @"Main Menu";
+    [self.view enableOrangeStatusBar];
   
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-      UIView *fakeStatusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];
-      fakeStatusBarView.backgroundColor = [UIColor orangeMainColor];
-      [self.view addSubview:fakeStatusBarView];
-      
       self.statusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];
       [self.statusBarView setBackgroundColor:[UIColor blackColor]];
       [self.statusBarView setAlpha:0.0];

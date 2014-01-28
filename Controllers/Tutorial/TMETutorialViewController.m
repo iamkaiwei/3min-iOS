@@ -76,6 +76,7 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
     [self.view addSubview:self.iCarousel];
     [self.view addSubview:self.loginView];
     [self.view addSubview:self.tutorialPageControl];
+    [self.view enableOrangeStatusBar];
 //    [self.view addSubview:self.skipButton];
 }
 

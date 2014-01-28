@@ -19,8 +19,7 @@ static NSInteger const kUserID = 36;
 <UITableViewDataSource,
 UITableViewDelegate,
 UIApplicationDelegate,
-UITextViewDelegate,
-TMELoadMoreTableViewCellDelegate
+UITextViewDelegate
 >
 
 @property (strong, nonatomic)            NSMutableArray                         * arrayReply;
@@ -87,7 +86,18 @@ TMELoadMoreTableViewCellDelegate
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  if ([self havePreviousReply] && indexPath.row == 0) {
+    TMELoadMoreTableViewCell *cell = (TMELoadMoreTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.indicatorLoading.hidden = NO;
+    [cell.indicatorLoading startAnimating];
+    cell.labelLoading.text = @"Loading...";
+    
+    NSInteger previousPage = self.arrayReply.count/10 + 1;
+    [self loadMessageWithReplyIDLargerID:0
+                             orSmallerID:0
+                                withPage:previousPage
+                              showBottom:NO];
+  } 
 }
 
 #pragma mark - Table view datasource
@@ -129,9 +139,11 @@ TMELoadMoreTableViewCellDelegate
       // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
       cellLoadMore = [topLevelObjects objectAtIndex:0];
     }
-    cellLoadMore.delegate = self;
-    [cellLoadMore.buttonLoadMore setTitle:@"View previous messages..." forState:UIControlStateNormal];
-    
+    cellLoadMore.labelLoading.text = @"View previous message..";
+    [cellLoadMore.labelLoading sizeToFitKeepHeight];
+    [cellLoadMore.labelLoading alignHorizontalCenterToView:self.view];
+    cellLoadMore.indicatorLoading.hidden = YES;
+    cellLoadMore.backgroundColor = [UIColor lightGrayColor];
     return cellLoadMore;
   }
   
@@ -277,14 +289,6 @@ TMELoadMoreTableViewCellDelegate
     self.arrayReply = [[self.arrayReply sortByAttribute:@"id" ascending:YES] mutableCopy];
     [self reloadTableViewConversationShowBottom:NO];
   }
-}
-
-- (void)onBtnLoadMore:(UIButton *)sender{
-  NSInteger previousPage = self.arrayReply.count/10 + 1;
-  [self loadMessageWithReplyIDLargerID:0
-                           orSmallerID:0
-                              withPage:previousPage
-                            showBottom:NO];
 }
 
 #pragma mark - Remote Notification

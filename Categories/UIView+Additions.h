@@ -142,7 +142,7 @@
 //Mainly for UIScrollView
 - (void)autoPushUpAllElements;
 
-
+- (void)enableOrangeStatusBar;
 
 //Mainly for UITextField & UITextView
 - (void)showHighlightBorder;

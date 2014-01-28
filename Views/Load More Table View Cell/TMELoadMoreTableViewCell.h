@@ -8,17 +8,10 @@
 
 #import "TMEBaseTableViewCell.h"
 
-@protocol TMELoadMoreTableViewCellDelegate <NSObject>
-
-- (void)onBtnLoadMore:(UIButton *)sender;
-
-@end
-
 @interface TMELoadMoreTableViewCell : TMEBaseTableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *labelLoading;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorLoading;
 
 + (CGFloat)getHeight;
-
-@property (weak, nonatomic) IBOutlet UIButton *buttonLoadMore;
-@property (assign, nonatomic) id <TMELoadMoreTableViewCellDelegate> delegate;
 
 @end

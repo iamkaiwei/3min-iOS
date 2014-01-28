@@ -536,4 +536,12 @@
     });
 }
 
+- (void)enableOrangeStatusBar{
+  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+    UIView *fakeStatusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];
+    fakeStatusBarView.backgroundColor = [UIColor orangeMainColor];
+    [self addSubview:fakeStatusBarView];
+  }
+}
+
 @end
