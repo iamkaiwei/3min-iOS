@@ -23,6 +23,15 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  [self registerNibForTableView];
+  for (int i = 0; i < self.arrayCellIdentifier.count; i++) {
+    NSString *cellIdentifier = self.arrayCellIdentifier[i];
+    [self.tableView registerNib:[UINib nibWithNibName:cellIdentifier bundle:nil] forCellReuseIdentifier:cellIdentifier];
+  }
+}
+
+- (void)registerNibForTableView{
+  return;
 }
 
 #pragma mark - Table view data source

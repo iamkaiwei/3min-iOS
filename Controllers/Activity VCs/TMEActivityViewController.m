@@ -10,6 +10,10 @@
 #import "TMEActivityTableViewCell.h"
 #import "TMESubmitViewController.h"
 #import "TMELoadMoreTableViewCell.h"
+#import "TMEActivityViewControllerArrayDataSource.h"
+
+static NSString * const ActivityCellIdentifier = @"TMEActivityTableViewCell";
+static NSString * const LoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
 
 @interface TMEActivityViewController ()
 <
@@ -21,7 +25,7 @@ UITableViewDelegate
 @property (strong, nonatomic) NSMutableArray                        * arrayConversation;
 @property (assign, nonatomic) BOOL                                    havingPreviousActivities;
 @property (assign, nonatomic) NSInteger                               currentPage;
-
+@property (strong, nonatomic) TMEActivityViewControllerArrayDataSource *activitiesArrayDataSource;
 @end
 
 @implementation TMEActivityViewController
@@ -48,7 +52,7 @@ UITableViewDelegate
                                                name:NOTIFICATION_RELOAD_CONVERSATION
                                              object:nil];
   
-  [self.tableViewActivity registerNib:[UINib nibWithNibName:NSStringFromClass([TMEActivityTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([TMEActivityTableViewCell class])];
+  
   [self getCachedActivity];
   
   if (!self.arrayConversation.count) {
@@ -63,14 +67,28 @@ UITableViewDelegate
   [self loadListActivityWithPage:1];
 }
 
-#pragma mark - UITableView datasource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-  if (self.havingPreviousActivities) {
-    return self.arrayConversation.count + 1;
-  }
-  return self.arrayConversation.count;
+- (void)setUpTableView{
+  TableViewCellConfigureBlock configureCell = ^(TMEActivityTableViewCell *cell, TMEConversation *conversation) {
+    [cell configCellWithConversation:conversation];
+  };
+  
+  TableViewCellHandleBlock handleCell = ^(){
+    self.currentPage++;
+    [self loadListActivityWithPage:self.currentPage];
+  };
+  
+  self.activitiesArrayDataSource = [[TMEActivityViewControllerArrayDataSource alloc] initWithItems:self.arrayConversation
+                                                                                    cellIdentifier:ActivityCellIdentifier cellLoadMoreIdentifier:LoadMoreCellIdentifier paging:self.havingPreviousActivities configureCellBlock:configureCell handleCellBlock:handleCell];
+                                    
+  self.tableViewActivity.dataSource = self.activitiesArrayDataSource;
 }
+
+- (void)registerNibForTableView{
+  self.tableView = self.tableViewActivity;
+  self.arrayCellIdentifier = @[[TMEActivityTableViewCell getIdentifier],[TMELoadMoreTableViewCell getIdentifier]];
+}
+
+#pragma mark - UITableView delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
   if (self.havingPreviousActivities && indexPath.row == self.arrayConversation.count) {
@@ -79,27 +97,6 @@ UITableViewDelegate
   return [TMEActivityTableViewCell getHeight];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-  if (self.havingPreviousActivities && indexPath.row == self.arrayConversation.count) {
-    TMELoadMoreTableViewCell *cellLoadMore = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMELoadMoreTableViewCell class])];
-    if (cellLoadMore == nil) {
-      // Load the top-level objects from the custom cell XIB.
-      NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([TMELoadMoreTableViewCell class]) owner:self options:nil];
-      // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
-      cellLoadMore = [topLevelObjects objectAtIndex:0];
-    }
-    self.currentPage++;
-    [self loadListActivityWithPage:self.currentPage];
-    
-    return cellLoadMore;
-  }
-  
-  TMEConversation *conversation = self.arrayConversation[indexPath.row];
-  TMEActivityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMEActivityTableViewCell class]) forIndexPath:indexPath];
-  [cell configCellWithConversation:conversation]; return cell;
-}
-
-#pragma mark - UITableView delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
   if (indexPath.row < self.arrayConversation.count) {
@@ -169,6 +166,7 @@ UITableViewDelegate
 }
 
 - (void)reloadTableViewActivity{
+  [self setUpTableView];
   [self.tableViewActivity reloadData];
   self.tableViewActivity.hidden = NO;
 }
@@ -182,11 +180,9 @@ UITableViewDelegate
     return;
   }
   self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing activities.."];
-  NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
-  [formattedDate setDateFormat:@"d MMM, h:mm a"];
-  NSString *lastupdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
+  
   [self loadListActivityWithPage:1];
-  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:lastupdated];
+  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:[NSString getLastestUpdateString]];
 }
 
 @end

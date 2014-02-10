@@ -8,6 +8,6 @@
 
 #import "TMEBaseViewController.h"
 
-@interface TMEActivityViewController : TMEBaseViewController
+@interface TMEActivityViewController : TMEBaseTableViewController
 
 @end

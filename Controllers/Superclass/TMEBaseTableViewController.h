@@ -13,8 +13,10 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UILabel *lblInstruction;
+@property (nonatomic, strong) NSArray *arrayCellIdentifier;
 @property (nonatomic, strong) NSArray *dataArray;
 
+- (void)registerNibForTableView;
 - (void)deselectAllCellsAnimated:(BOOL)animated;
 - (void)fadeInTableView;
 - (void)fadeOutTableView;

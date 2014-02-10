@@ -176,4 +176,11 @@
     return [self integerValue] == [anotherString integerValue];
 }
 
++ (NSString *)getLastestUpdateString{
+  NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
+  [formattedDate setDateFormat:@"d MMM, h:mm a"];
+  NSString *lastUpdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
+  return lastUpdated;
+}
+
 @end

@@ -29,7 +29,7 @@
     [self.statusBarView setBackgroundColor:[UIColor blackColor]];
     [self.statusBarView setAlpha:0.0];
     [self.view addSubview:self.statusBarView];
-    [self.tableView setContentInset:UIEdgeInsetsMake(20, 0, 0, 0)];
+    [self.tableView setContentInset:UIEdgeInsetsMake(30, 0, 0, 0)];
   }
   
   [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories) {

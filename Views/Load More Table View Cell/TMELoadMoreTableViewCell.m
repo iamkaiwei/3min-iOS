@@ -10,6 +10,10 @@
 
 @implementation TMELoadMoreTableViewCell
 
++ (NSString *)getIdentifier{
+  return NSStringFromClass([TMELoadMoreTableViewCell class]);
+}
+
 + (CGFloat)getHeight{
   return 44;
 }

@@ -39,6 +39,10 @@
 
 }
 
++ (NSString *)getIdentifier{
+  return NSStringFromClass([TMEActivityTableViewCell class]);
+}
+
 + (CGFloat)getHeight{
   return 97;
 }

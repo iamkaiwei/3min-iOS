@@ -60,6 +60,8 @@
 		0B3D0DC018755D2600B740ED /* clear_button_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3D0DBE18755D2600B740ED /* clear_button_pressed@2x.png */; };
 		0B69C41918965FC600A4537F /* follow-button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B69C41718965FC600A4537F /* follow-button-pressed.png */; };
 		0B69C41A18965FC600A4537F /* follow-button-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B69C41818965FC600A4537F /* follow-button-pressed@2x.png */; };
+		0B8D540818A8886A00F10BB5 /* TMEBaseArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D540718A8886A00F10BB5 /* TMEBaseArrayDataSource.m */; };
+		0B8D540E18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D540D18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.m */; };
 		0B9366F7186C10A900491FA4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9366F6186C10A900491FA4 /* Reachability.m */; };
 		0B9366FA186C139400491FA4 /* TMEReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9366F9186C139400491FA4 /* TMEReachabilityManager.m */; };
 		0B95F77E187667C700F2B2E8 /* icon_chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B95F77C187667C700F2B2E8 /* icon_chat.png */; };
@@ -432,6 +434,10 @@
 		0B3D0DBE18755D2600B740ED /* clear_button_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clear_button_pressed@2x.png"; sourceTree = "<group>"; };
 		0B69C41718965FC600A4537F /* follow-button-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "follow-button-pressed.png"; sourceTree = "<group>"; };
 		0B69C41818965FC600A4537F /* follow-button-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "follow-button-pressed@2x.png"; sourceTree = "<group>"; };
+		0B8D540618A8886A00F10BB5 /* TMEBaseArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseArrayDataSource.h; sourceTree = "<group>"; };
+		0B8D540718A8886A00F10BB5 /* TMEBaseArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseArrayDataSource.m; sourceTree = "<group>"; };
+		0B8D540C18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEActivityViewControllerArrayDataSource.h; path = "Activity VCs/TMEActivityViewControllerArrayDataSource.h"; sourceTree = "<group>"; };
+		0B8D540D18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEActivityViewControllerArrayDataSource.m; path = "Activity VCs/TMEActivityViewControllerArrayDataSource.m"; sourceTree = "<group>"; };
 		0B9366F5186C10A900491FA4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		0B9366F6186C10A900491FA4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		0B9366F8186C139400491FA4 /* TMEReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEReachabilityManager.h; sourceTree = "<group>"; };
@@ -1599,6 +1605,8 @@
 				0C6E06A817E0DA590003F104 /* TMEBasePhotoEditorViewController.m */,
 				0C59550517F73E380076353E /* TMEBaseTabBarViewController.h */,
 				0C59550617F73E380076353E /* TMEBaseTabBarViewController.m */,
+				0B8D540618A8886A00F10BB5 /* TMEBaseArrayDataSource.h */,
+				0B8D540718A8886A00F10BB5 /* TMEBaseArrayDataSource.m */,
 			);
 			path = Superclass;
 			sourceTree = "<group>";
@@ -2027,6 +2035,8 @@
 				84325C2E1875B4AD00D14B70 /* TMEActivityTableViewCell.h */,
 				84325C2F1875B4AD00D14B70 /* TMEActivityTableViewCell.m */,
 				84325C311875B4C200D14B70 /* TMEActivityTableViewCell.xib */,
+				0B8D540C18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.h */,
+				0B8D540D18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.m */,
 			);
 			name = "Activity VCs";
 			sourceTree = "<group>";
@@ -2491,6 +2501,7 @@
 				0C9C957317F2D49B00E69F53 /* TMEProductImages+Additions.m in Sources */,
 				0C6E06A917E0DA590003F104 /* TMEBasePhotoEditorViewController.m in Sources */,
 				0C7EFBC317E8D5170054C4DE /* ActiveSupportInflector.m in Sources */,
+				0B8D540E18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.m in Sources */,
 				0C59550317F711CF0076353E /* TMELeftMenuViewController.m in Sources */,
 				0C6D86AE17EA0E9A00D959F8 /* BaseManager.m in Sources */,
 				B42ADE86180D561300B0E473 /* HTKContainerViewController.m in Sources */,
@@ -2514,6 +2525,7 @@
 				0C7EFBC517E8D5170054C4DE /* ISO8601DateFormatter.m in Sources */,
 				20A10FCD17F80FA200471983 /* TMECategoryManager.m in Sources */,
 				0C34A89B17F0A665003ACEFF /* TMEHTTPClient.m in Sources */,
+				0B8D540818A8886A00F10BB5 /* TMEBaseArrayDataSource.m in Sources */,
 				0C7EFBDD17E8D5170054C4DE /* UINavigationController+Additions.m in Sources */,
 				0C34A89817F0A5CF003ACEFF /* TMEProductsManager.m in Sources */,
 				0C7EFB6B17E768C70054C4DE /* MagicalRecord+ErrorHandling.m in Sources */,

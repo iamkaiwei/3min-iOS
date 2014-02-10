@@ -58,7 +58,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
 	[picker dismissViewControllerAnimated:NO completion:nil];
-    
+
   [self beforeGetImageWithPhotoButton:self];
 
   UIImage *image = nil;
@@ -73,12 +73,16 @@
   [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+  [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
 - (void)takeOrChoosePhoto:(BOOL)take
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
-    picker.allowsEditing=YES;
-    
+    picker.allowsEditing = YES;
+  
     if (take) {
         if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
             picker.sourceType = UIImagePickerControllerSourceTypeCamera;

@@ -12,6 +12,8 @@
 
 - (NSUInteger)wordCount;
 - (NSArray *)charArray;
++ (NSString *)getLastestUpdateString;
+
 
 - (BOOL)contains:(NSString*)needle;
 - (BOOL)startsWith:(NSString*)needle;
