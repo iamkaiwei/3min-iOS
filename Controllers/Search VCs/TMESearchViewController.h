@@ -8,6 +8,6 @@
 
 #import "TMEBaseViewController.h"
 
-@interface TMESearchViewController : TMEBaseViewController
+@interface TMESearchViewController : TMEBaseTableViewController
 
 @end

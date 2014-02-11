@@ -63,6 +63,7 @@ UITableViewDelegate
 
 - (void)viewWillAppear:(BOOL)animated{
   [super viewWillAppear:animated];
+  [self.tabBarController.tabBar.selectedItem setBadgeValue:nil];
   [self loadListActivityWithPage:1];
 }
 

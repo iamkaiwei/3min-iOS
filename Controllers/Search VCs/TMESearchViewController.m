@@ -22,6 +22,8 @@ UISearchDisplayDelegate
 >
 
 //@property (assign, nonatomic) SEARCH_BY state;
+@property (weak, nonatomic) IBOutlet UITableView *tableViewResult;
+@property (weak, nonatomic) IBOutlet UILabel *labelNoResult;
 
 @end
 
@@ -32,10 +34,20 @@ UISearchDisplayDelegate
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   [self disableNavigationTranslucent];
+  
+  self.tableView = self.tableViewResult;
+  self.lblInstruction = self.labelNoResult;
+  self.dataArray = @[];
+  
   self.navigationController.navigationBar.topItem.title = @"Search Product";
 //  self.state = SEARCH_BY_PRODUCT;
   self.shouldHandleKeyboardNotification = NO;
 //  [self loadNavigationItem];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+  [super viewWillAppear:animated];
+  [self refreshTableViewAnimated:YES];
 }
 
 //#pragma mark - Navigation Bar Buttons

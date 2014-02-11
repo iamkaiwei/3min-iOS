@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) NSArray *arrayCategories;
 @property (strong, nonatomic) UIView *statusBarView;
+@property (weak, nonatomic) IBOutlet UITableView *tableViewMenu;
 
 @end
 
@@ -23,6 +24,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  self.tableView = self.tableViewMenu;
   [self.tableView registerNib:[TMELeftMenuTableViewCell defaultNib] forCellReuseIdentifier:NSStringFromClass([TMELeftMenuTableViewCell class])]; //iOS 6+
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     self.statusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];

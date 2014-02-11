@@ -342,7 +342,7 @@ static NSTimeInterval durationToAnimate(CGFloat pointsToAnimate, CGFloat velocit
     _shadowEnabled = YES;
     _shadowLayer = [CALayer new];
     _shadowLayer.masksToBounds = NO;
-    _shadowLayer.shadowRadius = 10;
+    _shadowLayer.shadowRadius = 2;
     _shadowLayer.shadowOpacity = 0.5;
     _shadowLayer.shadowColor = [[UIColor blackColor] CGColor];
     _shadowLayer.shadowOffset = CGSizeZero;

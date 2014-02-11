@@ -127,6 +127,7 @@ FacebookManagerDelegate
     UITabBarController __block *homeController = (UITabBarController *)deckController.centerController;
     UINavigationController *navController = (UINavigationController *) [homeController selectedViewController];
   
+  [homeController.tabBar.items[3] setBadgeValue:@"1"];
     if ([navController.topViewController isMemberOfClass:[TMESubmitViewController class]])
     {
       TMESubmitViewController *submitVC = (TMESubmitViewController *)navController.topViewController;
