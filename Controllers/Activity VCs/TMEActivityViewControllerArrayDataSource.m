@@ -10,26 +10,16 @@
 #import "TMEActivityTableViewCell.h"
 #import "TMELoadMoreTableViewCell.h"
 
-@interface TMEActivityViewControllerArrayDataSource()
-
-@property (nonatomic, assign) BOOL paging;
-@property (nonatomic, copy) NSString *cellLoadMoreIdentifier;
-
-@end
-
 @implementation TMEActivityViewControllerArrayDataSource
 
 - (id)initWithItems:(NSArray *)anItems
      cellIdentifier:(NSString *)aCellIdentifier
-cellLoadMoreIdentifier:(NSString *)aCellLoadMoreIdentifier
              paging:(BOOL)flag
- configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock
-    handleCellBlock:(TableViewCellHandleBlock)aHandleCellBlock
+    handleCellBlock:(LoadMoreCellHandleBlock)aHandleCellBlock
 {
-  self = [super initWithItems:anItems cellIdentifier:aCellIdentifier configureCellBlock:aConfigureCellBlock];
+  self = [super initWithItems:anItems cellIdentifier:aCellIdentifier configureCellBlock:nil];
   if (self) {
     self.paging = flag;
-    self.cellLoadMoreIdentifier = aCellLoadMoreIdentifier;
     self.handleCellBlock = [aHandleCellBlock copy];
   }
   return self;
@@ -48,18 +38,21 @@ cellLoadMoreIdentifier:(NSString *)aCellLoadMoreIdentifier
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   if (self.paging && indexPath.row == self.items.count) {
-    TMELoadMoreTableViewCell *cellLoadMore = [tableView dequeueReusableCellWithIdentifier:self.cellLoadMoreIdentifier];
+    TMELoadMoreTableViewCell *cellLoadMore = [tableView dequeueReusableCellWithIdentifier:CELL_LOAD_MORE_IDENTIFIER];
     
     [cellLoadMore startLoading];
+    
+    cellLoadMore.backgroundColor = [UIColor whiteColor];
+    cellLoadMore.labelLoading.textColor = [UIColor blackColor];
     
     self.handleCellBlock();
     return cellLoadMore;
   }
   
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
+  TMEActivityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
                                                           forIndexPath:indexPath];
   id item = [self itemAtIndexPath:indexPath];
-  self.configureCellBlock(cell, item);
+  [cell configCellWithConversation:item];
   return cell;
 }
 

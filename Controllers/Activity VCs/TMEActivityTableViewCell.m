@@ -37,7 +37,12 @@
   [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:conversation.user_avatar]];
   
   NSString *imageURL = [(TMEProductImages *)[[conversation.product.imagesSet allObjects] lastObject] medium];
-  [self.imageViewProduct setImageWithURL:[NSURL URLWithString:imageURL]];
+  
+  if (imageURL) {
+    [self.imageViewProduct setImageWithURL:[NSURL URLWithString:imageURL]];
+    self.imageViewProduct.hidden = NO;
+  }
+  
   [self.productIndicator startAnimating];
   [self.avatarIndicator startAnimating];
 }

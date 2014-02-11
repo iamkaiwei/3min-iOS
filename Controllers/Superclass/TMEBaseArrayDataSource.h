@@ -10,6 +10,8 @@
 
 typedef void (^TableViewCellConfigureBlock)(id cell, id item);
 
+#define CELL_LOAD_MORE_IDENTIFIER                   @"TMELoadMoreTableViewCell"
+
 @interface TMEBaseArrayDataSource : NSObject <UITableViewDataSource>
 
 @property (nonatomic, strong) NSArray *items;

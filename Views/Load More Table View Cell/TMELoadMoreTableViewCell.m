@@ -8,16 +8,12 @@
 
 #import "TMELoadMoreTableViewCell.h"
 
-@interface TMELoadMoreTableViewCell()
-
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
-
-@end
-
 @implementation TMELoadMoreTableViewCell
 
 - (void)startLoading{
-  [self.loadingIndicator startAnimating];
+  self.indicatorLoading.hidden = NO;
+  [self.indicatorLoading startAnimating];
+  self.labelLoading.text = @"Loading...";
 }
 
 + (NSString *)getIdentifier{

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TMESubmitViewController : TMEBaseViewController
+@interface TMESubmitViewController : TMEBaseTableViewController
 
 @property (strong, nonatomic) TMEProduct *product;
 @property (assign, nonatomic) TMEConversation * conversation;

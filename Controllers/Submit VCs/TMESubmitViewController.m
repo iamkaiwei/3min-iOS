@@ -11,7 +11,11 @@
 #import "TMESubmitTableCellRight.h"
 #import "TMELoadMoreTableViewCell.h"
 #import "AppDelegate.h"
+#import "TMESubmitViewControllerArrayDataSource.h"
 
+static NSString * const SubmitCellIdentifier = @"TMESubmitTableCell";
+static NSString * const SubmitRightCellIdentifier = @"TMESubmitTableCellRight";
+static NSString * const LoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
 static CGFloat const LABEL_CONTENT_DEFAULT_HEIGHT = 26;
 static NSInteger const kUserID = 36;
 
@@ -31,6 +35,8 @@ UITextViewDelegate
 @property (weak, nonatomic)   IBOutlet   UILabel                                * lblDealLocation;
 @property (weak, nonatomic)   IBOutlet   UITableView                            * tableViewConversation;
 @property (weak, nonatomic)   IBOutlet   UITextView                             * textViewInputMessage;
+@property (strong, nonatomic) TMESubmitViewControllerArrayDataSource *repliesArrayDataSource;
+
 
 @end
 
@@ -52,9 +58,6 @@ UITextViewDelegate
   [self registerForKeyboardNotifications];
   
   [self disableNavigationTranslucent];
-  
-  [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCell class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCell class])];
-  [self.tableViewConversation registerNib:[UINib nibWithNibName:NSStringFromClass([TMESubmitTableCellRight class]) bundle:Nil] forCellReuseIdentifier:NSStringFromClass([TMESubmitTableCellRight class])];
   
   self.textViewInputMessage.delegate = self;
   
@@ -83,14 +86,23 @@ UITextViewDelegate
   [SVProgressHUD showErrorWithStatus:@"No connection!"];
 }
 
+- (void)setUpTableView{
+  self.repliesArrayDataSource = [[TMESubmitViewControllerArrayDataSource alloc] initWithItems:self.arrayReply cellIdentifier:SubmitCellIdentifier cellRightIdentifier:SubmitRightCellIdentifier conversation:self.conversation paging:[self havePreviousReply]];
+  self.tableViewConversation.dataSource = self.repliesArrayDataSource;
+}
+
+- (void)registerNibForTableView{
+  self.tableView = self.tableViewConversation;
+  self.arrayCellIdentifier = @[SubmitCellIdentifier,SubmitRightCellIdentifier,LoadMoreCellIdentifier];
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   if ([self havePreviousReply] && indexPath.row == 0) {
     TMELoadMoreTableViewCell *cell = (TMELoadMoreTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    cell.indicatorLoading.hidden = NO;
-    [cell.indicatorLoading startAnimating];
-    cell.labelLoading.text = @"Loading...";
+    cell.indicatorLoading.color = [UIColor whiteColor];
+    [cell startLoading];
     
     NSInteger previousPage = self.arrayReply.count/10 + 1;
     [self loadMessageWithReplyIDLargerID:0
@@ -117,56 +129,6 @@ UITextViewDelegate
   
   reply = self.arrayReply[indexPath.row];
   return [cell getHeightWithContent:reply.reply];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-  if ([self havePreviousReply]) {
-    return self.arrayReply.count + 1;
-  }
-  
-  return self.arrayReply.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-  TMEReply *reply;
-  if ([self havePreviousReply] && indexPath.row == 0) {
-    
-    TMELoadMoreTableViewCell *cellLoadMore = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMELoadMoreTableViewCell class])];
-    if (cellLoadMore == nil) {
-      // Load the top-level objects from the custom cell XIB.
-      NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([TMELoadMoreTableViewCell class]) owner:self options:nil];
-      // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
-      cellLoadMore = [topLevelObjects objectAtIndex:0];
-    }
-    cellLoadMore.labelLoading.text = @"View previous message..";
-    [cellLoadMore.labelLoading sizeToFitKeepHeight];
-    [cellLoadMore.labelLoading alignHorizontalCenterToView:self.view];
-    cellLoadMore.indicatorLoading.hidden = YES;
-    cellLoadMore.backgroundColor = [UIColor lightGrayColor];
-    return cellLoadMore;
-  }
-  
-  if ([self havePreviousReply]) {
-    reply = self.arrayReply[indexPath.row - 1];
-  }
-  else{
-    reply = self.arrayReply[indexPath.row];
-  }
-  
-  if ([reply.user_id isEqual:[[[TMEUserManager sharedInstance] loggedUser] id]]) {
-    reply.user_full_name = [[[TMEUserManager sharedInstance] loggedUser] fullname];
-    reply.user_avatar = [[[TMEUserManager sharedInstance] loggedUser] photo_url];
-    TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCell class]) forIndexPath:indexPath];
-    [cell configCellWithMessage:reply];
-    return cell;
-  }
-  
-  reply.user_full_name = self.conversation.user_full_name;
-  reply.user_avatar = self.conversation.user_avatar;
-  TMESubmitTableCellRight *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMESubmitTableCellRight class]) forIndexPath:indexPath];
-  [cell configCellWithMessage:reply];
-  
-  return cell;
 }
 
 #pragma mark - Post message
@@ -226,13 +188,6 @@ UITextViewDelegate
 
 #pragma mark - Helper method
 
-- (BOOL)isSeller{
-  if ([[[TMEUserManager sharedInstance] loggedUser].id isEqual:self.product.user.id]) {
-    return YES;
-  }
-  return NO;
-}
-
 - (BOOL)havePreviousReply{
   if (self.arrayReply.count % 10 == 0 && self.arrayReply.count) {
     return YES;
@@ -256,6 +211,7 @@ UITextViewDelegate
 }
 
 - (void)reloadTableViewConversationShowBottom:(BOOL)showBottom{
+  [self setUpTableView];
   [self.tableViewConversation reloadData];
   self.tableViewConversation.height = self.tableViewConversation.contentSize.height;
   [self.textViewInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];

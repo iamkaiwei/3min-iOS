@@ -100,6 +100,7 @@
 		0BBD1CC1188E799E00F9C29C /* UIImageView+XLNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD1CBC188E799E00F9C29C /* UIImageView+XLNetworking.m */; };
 		0BBD1CC2188E799E00F9C29C /* UIImageView+XLProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD1CBE188E799E00F9C29C /* UIImageView+XLProgressIndicator.m */; };
 		0BBD1CC3188E799E00F9C29C /* XLCircleProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BBD1CC0188E799E00F9C29C /* XLCircleProgressIndicator.m */; };
+		0BC615BA18A9FD9C004C115E /* TMESubmitViewControllerArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC615B918A9FD9C004C115E /* TMESubmitViewControllerArrayDataSource.m */; };
 		0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */; };
 		0C28B2A017DC1BE300BD0EC2 /* add_photo_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */; };
 		0C2CE1B217EAE30F0074C57F /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CE1B117EAE30F0074C57F /* TMEUserManager.m */; };
@@ -486,6 +487,8 @@
 		0BBD1CBE188E799E00F9C29C /* UIImageView+XLProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XLProgressIndicator.m"; sourceTree = "<group>"; };
 		0BBD1CBF188E799E00F9C29C /* XLCircleProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLCircleProgressIndicator.h; sourceTree = "<group>"; };
 		0BBD1CC0188E799E00F9C29C /* XLCircleProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLCircleProgressIndicator.m; sourceTree = "<group>"; };
+		0BC615B818A9FD9C004C115E /* TMESubmitViewControllerArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitViewControllerArrayDataSource.h; path = "Submit VCs/TMESubmitViewControllerArrayDataSource.h"; sourceTree = "<group>"; };
+		0BC615B918A9FD9C004C115E /* TMESubmitViewControllerArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESubmitViewControllerArrayDataSource.m; path = "Submit VCs/TMESubmitViewControllerArrayDataSource.m"; sourceTree = "<group>"; };
 		0C28B29D17DC1BE300BD0EC2 /* add_photo_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_57x57.png; sourceTree = "<group>"; };
 		0C28B29E17DC1BE300BD0EC2 /* add_photo_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo_114x114.png; sourceTree = "<group>"; };
 		0C2CE1B017EAE30F0074C57F /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEUserManager.h; path = superclass/TMEUserManager.h; sourceTree = "<group>"; };
@@ -1005,6 +1008,8 @@
 				84FCC0CC186A1163002892B2 /* TMESubmitTableCellRight.h */,
 				84FCC0CD186A1163002892B2 /* TMESubmitTableCellRight.m */,
 				84FCC0CF186A117B002892B2 /* TMESubmitTableCellRight.xib */,
+				0BC615B818A9FD9C004C115E /* TMESubmitViewControllerArrayDataSource.h */,
+				0BC615B918A9FD9C004C115E /* TMESubmitViewControllerArrayDataSource.m */,
 			);
 			name = "Submit VCs";
 			sourceTree = "<group>";
@@ -2420,6 +2425,7 @@
 				B4E9664B180AE4DA004A6530 /* TMEBrowserCollectionViewController.m in Sources */,
 				0C7EFBC617E8D5170054C4DE /* MKMapView+Additions.m in Sources */,
 				0C7053C917EF5E5E00E7615F /* TMEProductImages.m in Sources */,
+				0BC615BA18A9FD9C004C115E /* TMESubmitViewControllerArrayDataSource.m in Sources */,
 				0CD9CF5D17EA0FD400402E91 /* AFURLConnectionOperation.m in Sources */,
 				0CD9CF5B17EA0FD400402E91 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				B4093B781810379700D51B69 /* YIFullScreenScroll.m in Sources */,

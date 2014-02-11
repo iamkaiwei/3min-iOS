@@ -8,17 +8,16 @@
 
 #import "TMEBaseArrayDataSource.h"
 
-typedef void (^TableViewCellHandleBlock)();
+typedef void (^LoadMoreCellHandleBlock)();
 
 @interface TMEActivityViewControllerArrayDataSource : TMEBaseArrayDataSource
 
-@property (nonatomic, copy) TableViewCellHandleBlock handleCellBlock;
+@property (nonatomic, assign) BOOL paging;
+@property (nonatomic, copy) LoadMoreCellHandleBlock handleCellBlock;
 
 - (id)initWithItems:(NSArray *)anItems
      cellIdentifier:(NSString *)aCellIdentifier
-cellLoadMoreIdentifier:(NSString *)aCellLoadMoreIdentifier
              paging:(BOOL)flag
- configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock
-    handleCellBlock:(TableViewCellHandleBlock)aHandleCellBlock;
+    handleCellBlock:(LoadMoreCellHandleBlock)aHandleCellBlock;
 
 @end

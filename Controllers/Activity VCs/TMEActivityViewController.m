@@ -67,17 +67,12 @@ UITableViewDelegate
 }
 
 - (void)setUpTableView{
-  TableViewCellConfigureBlock configureCell = ^(TMEActivityTableViewCell *cell, TMEConversation *conversation) {
-    [cell configCellWithConversation:conversation];
-  };
-  
-  TableViewCellHandleBlock handleCell = ^(){
+  LoadMoreCellHandleBlock handleCell = ^(){
     self.currentPage++;
     [self loadListActivityWithPage:self.currentPage];
   };
   
-  self.activitiesArrayDataSource = [[TMEActivityViewControllerArrayDataSource alloc] initWithItems:self.arrayConversation
-                                                                                    cellIdentifier:ActivityCellIdentifier cellLoadMoreIdentifier:LoadMoreCellIdentifier paging:self.havingPreviousActivities configureCellBlock:configureCell handleCellBlock:handleCell];
+  self.activitiesArrayDataSource = [[TMEActivityViewControllerArrayDataSource alloc] initWithItems:self.arrayConversation cellIdentifier:ActivityCellIdentifier paging:[self havingPreviousActivities] handleCellBlock:handleCell];
                                     
   self.tableViewActivity.dataSource = self.activitiesArrayDataSource;
 }
