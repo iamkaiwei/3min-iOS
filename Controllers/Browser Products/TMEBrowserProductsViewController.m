@@ -50,8 +50,8 @@ TMEBrowserProductsTableCellDelegate
   [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
   [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
   
-  NSString *reuseCellsIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
-  [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
+  [self registerNibForTableView];
+  
   self.scrollableView = self.tableProducts;
   [self enablePullToRefresh];
   
@@ -65,6 +65,11 @@ TMEBrowserProductsTableCellDelegate
 - (void)viewWillAppear:(BOOL)animated{
   [super viewWillAppear:animated];
   [self setUpTableView];
+}
+
+- (void)registerNibForTableView{
+  self.tableView = self.tableProducts;
+  self.arrayCellIdentifier = @[BrowseProductCellIdentifier];
 }
 
 - (void)setUpTableView{
@@ -179,7 +184,9 @@ TMEBrowserProductsTableCellDelegate
   if (!currentCellProduct.likedValue) {
     [[TMEProductsManager sharedInstance] likeProductWithProductID:currentCellProduct.id
                                                    onSuccessBlock:nil
-                                                  andFailureBlock:nil];
+                                                  andFailureBlock:^(NSInteger statusCode, NSError *error){
+                                                    [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:NO];
+                                                  }];
     currentCellProduct.likedValue = YES;
     currentCellProduct.likesValue++;
     label.text = [@(label.text.integerValue + 1) stringValue];
@@ -188,10 +195,26 @@ TMEBrowserProductsTableCellDelegate
   
   [[TMEProductsManager sharedInstance] unlikeProductWithProductID:currentCellProduct.id
                                                    onSuccessBlock:nil
-                                                  andFailureBlock:nil];
+                                                  andFailureBlock:^(NSInteger statusCode, NSError *error){
+                                                    [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:YES];
+                                                  }];
   currentCellProduct.likedValue = NO;
   currentCellProduct.likesValue--;
   label.text = [@(label.text.integerValue - 1) stringValue];
 }
 
+- (void)likeProductFailureHandleButtonLike:(UIButton *)sender currentCellProduct:(TMEProduct *)currentCellProduct label:(UILabel *)label unlike:(BOOL)flag{
+  [UIAlertView showAlertWithTitle:@"Something Wrong" message:@"Please try again later!"];
+  sender.selected = !currentCellProduct.likedValue;
+  currentCellProduct.likedValue = !currentCellProduct.likedValue;
+  
+  if (flag) {
+    currentCellProduct.likesValue++;
+    label.text = [@(label.text.integerValue + 1) stringValue];
+    return;
+  }
+  
+  currentCellProduct.likesValue--;
+  label.text = [@(label.text.integerValue - 1) stringValue];
+}
 @end

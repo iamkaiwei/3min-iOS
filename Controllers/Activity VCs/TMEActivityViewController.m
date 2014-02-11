@@ -52,7 +52,6 @@ UITableViewDelegate
                                                name:NOTIFICATION_RELOAD_CONVERSATION
                                              object:nil];
   
-  
   [self getCachedActivity];
   
   if (!self.arrayConversation.count) {
@@ -85,7 +84,7 @@ UITableViewDelegate
 
 - (void)registerNibForTableView{
   self.tableView = self.tableViewActivity;
-  self.arrayCellIdentifier = @[[TMEActivityTableViewCell getIdentifier],[TMELoadMoreTableViewCell getIdentifier]];
+  self.arrayCellIdentifier = @[ActivityCellIdentifier,LoadMoreCellIdentifier];
 }
 
 #pragma mark - UITableView delegate

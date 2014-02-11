@@ -112,11 +112,10 @@ UITextViewDelegate
   
   if ([self havePreviousReply]) {
      reply = self.arrayReply[indexPath.row - 1];
-  }
-  else{
-    reply = self.arrayReply[indexPath.row];
+    return [cell getHeightWithContent:reply.reply];
   }
   
+  reply = self.arrayReply[indexPath.row];
   return [cell getHeightWithContent:reply.reply];
 }
 
