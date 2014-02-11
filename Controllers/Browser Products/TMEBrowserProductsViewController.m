@@ -10,6 +10,9 @@
 #import "TMEBrowserProductsTableCell.h"
 #import "TMESubmitViewController.h"
 #import "TMEProductDetailsViewController.h"
+#import "TMEBaseArrayDataSource.h"
+
+static NSString * const BrowseProductCellIdentifier = @"TMEBrowserProductsTableCell";
 
 @interface TMEBrowserProductsViewController ()
 <
@@ -22,6 +25,7 @@ TMEBrowserProductsTableCellDelegate
 @property (strong, nonatomic) NSMutableArray            * arrProducts;
 @property (strong, nonatomic) TMEUser                   * loginUser;
 @property (strong, nonatomic) TMECategory               * currentCategory;
+@property (strong, nonatomic) TMEBaseArrayDataSource    * productsArrayDataSource;
 
 @end
 
@@ -50,8 +54,8 @@ TMEBrowserProductsTableCellDelegate
   [self.tableProducts registerNib:[UINib nibWithNibName:reuseCellsIndentifier bundle:nil] forCellReuseIdentifier:reuseCellsIndentifier];
   self.scrollableView = self.tableProducts;
   [self enablePullToRefresh];
-  [self loadProducts];
   
+  [self loadProducts];
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(onCategoryChangeNotification:)
                                                name:CATEGORY_CHANGE_NOTIFICATION
@@ -60,6 +64,18 @@ TMEBrowserProductsTableCellDelegate
 
 - (void)viewWillAppear:(BOOL)animated{
   [super viewWillAppear:animated];
+  [self setUpTableView];
+}
+
+- (void)setUpTableView{
+  TableViewCellConfigureBlock configureCell = ^(TMEBrowserProductsTableCell *cell, TMEProduct *product){
+    [cell configCellWithProduct:product];
+    cell.delegate = self;
+  };
+  
+  self.productsArrayDataSource = [[TMEBaseArrayDataSource alloc] initWithItems:self.arrProducts cellIdentifier:BrowseProductCellIdentifier configureCellBlock:configureCell];
+  
+  self.tableProducts.dataSource = self.productsArrayDataSource;
   [self.tableProducts reloadData];
 }
 
@@ -74,30 +90,12 @@ TMEBrowserProductsTableCellDelegate
   [self.navigationController pushViewController:productDetailsController animated:YES];
 }
 
-#pragma mark - UITableView datasource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-  return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-  return self.arrProducts.count;
-}
-
-- (TMEBrowserProductsTableCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  NSString *cellIndentifier = NSStringFromClass([TMEBrowserProductsTableCell class]);
-  TMEBrowserProductsTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
-  
-  TMEProduct *product = [self.arrProducts objectAtIndex:indexPath.row];
-  [cell configCellWithProduct:product];
-  cell.delegate = self;
-  
-  return cell;
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
   return [TMEBrowserProductsTableCell getHeight];
 }
+
+#pragma mark - Load Product
 
 - (void)loadProducts{
   if (![TMEReachabilityManager isReachable]) {
@@ -105,7 +103,7 @@ TMEBrowserProductsTableCellDelegate
     [self.pullToRefreshView endRefreshing];
     return;
   }
-  [SVProgressHUD showWithStatus:@"Refreshing products..."];
+  [SVProgressHUD showWithStatus:@"Refreshing products..." maskType:SVProgressHUDMaskTypeGradient];
   if (self.currentCategory) {
     [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
                                                 onSuccessBlock:^(NSArray *arrProducts) {
@@ -120,7 +118,7 @@ TMEBrowserProductsTableCellDelegate
   } else {
     [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
       self.arrProducts = [arrProducts mutableCopy];
-      [self.tableProducts reloadData];
+      [self setUpTableView];
       [SVProgressHUD dismiss];
       
       [self.pullToRefreshView endRefreshing];
@@ -141,10 +139,7 @@ TMEBrowserProductsTableCellDelegate
     return;
   }
   
-  NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
-  [formattedDate setDateFormat:@"d MMM, h:mm a"];
-  NSString *lastupdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
-  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:lastupdated];
+  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:[NSString getLastestUpdateString]];
   [self loadProducts];
 }
 
@@ -166,6 +161,7 @@ TMEBrowserProductsTableCellDelegate
   [self loadProducts];
 }
 
+#pragma mark - Button Like Action
 - (void)onBtnLike:(UIButton *)sender label:(UILabel *)label{
   UIView *superView = sender.superview;
   

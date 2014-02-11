@@ -26,23 +26,14 @@ cellLoadMoreIdentifier:(NSString *)aCellLoadMoreIdentifier
  configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock
     handleCellBlock:(TableViewCellHandleBlock)aHandleCellBlock
 {
-  self = [super init];
+  self = [super initWithItems:anItems cellIdentifier:aCellIdentifier configureCellBlock:aConfigureCellBlock];
   if (self) {
     self.paging = flag;
-    self.items = anItems;
-    self.cellIdentifier = aCellIdentifier;
     self.cellLoadMoreIdentifier = aCellLoadMoreIdentifier;
     self.handleCellBlock = [aHandleCellBlock copy];
-    self.configureCellBlock = [aConfigureCellBlock copy];
   }
   return self;
 }
-
-- (id)itemAtIndexPath:(NSIndexPath *)indexPath
-{
-  return self.items[(NSUInteger) indexPath.row];
-}
-
 
 #pragma mark UITableViewDataSource
 
@@ -58,10 +49,13 @@ cellLoadMoreIdentifier:(NSString *)aCellLoadMoreIdentifier
 {
   if (self.paging && indexPath.row == self.items.count) {
     TMELoadMoreTableViewCell *cellLoadMore = [tableView dequeueReusableCellWithIdentifier:self.cellLoadMoreIdentifier];
+    
     [cellLoadMore startLoading];
+    
     self.handleCellBlock();
     return cellLoadMore;
   }
+  
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
                                                           forIndexPath:indexPath];
   id item = [self itemAtIndexPath:indexPath];

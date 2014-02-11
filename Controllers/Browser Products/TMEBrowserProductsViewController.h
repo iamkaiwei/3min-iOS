@@ -6,7 +6,7 @@
 //
 //
 
-@interface TMEBrowserProductsViewController : TMEBaseViewController
+@interface TMEBrowserProductsViewController : TMEBaseTableViewController
 
 - (void)loadProducts;
 

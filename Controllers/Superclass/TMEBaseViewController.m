@@ -268,8 +268,7 @@ IIViewDeckControllerDelegate
   self.pullToRefreshView = [[UIRefreshControl alloc] init];
   self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
   [self.pullToRefreshView addTarget:self action:@selector(pullToRefreshViewDidStartLoading:) forControlEvents:UIControlEventValueChanged];
-  [[self getScrollableView] addSubview:self.pullToRefreshView];
-  [[self getScrollableView] sendSubviewToBack:self.pullToRefreshView];
+  [[self getScrollableView] insertSubview:self.pullToRefreshView atIndex:0];
 }
 
 
