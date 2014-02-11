@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelLoading;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorLoading;
 
+- (void)startLoading;
 + (NSString *)getIdentifier;
 + (CGFloat)getHeight;
 

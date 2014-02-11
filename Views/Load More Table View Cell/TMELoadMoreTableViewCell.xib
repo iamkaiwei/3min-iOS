@@ -30,6 +30,7 @@
             <connections>
                 <outlet property="indicatorLoading" destination="nqa-zu-9G5" id="hLN-6T-7Cv"/>
                 <outlet property="labelLoading" destination="EI3-zs-3iu" id="MHc-Ed-Vcd"/>
+                <outlet property="loadingIndicator" destination="nqa-zu-9G5" id="DqO-Mm-gQe"/>
             </connections>
         </tableViewCell>
     </objects>

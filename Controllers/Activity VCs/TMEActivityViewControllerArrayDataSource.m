@@ -57,12 +57,8 @@ cellLoadMoreIdentifier:(NSString *)aCellLoadMoreIdentifier
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   if (self.paging && indexPath.row == self.items.count) {
-    UITableViewCell *cellLoadMore = [tableView dequeueReusableCellWithIdentifier:self.cellLoadMoreIdentifier];
-        if (cellLoadMore == nil) {
-         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:self.cellLoadMoreIdentifier owner:self options:nil];
-          cellLoadMore = [topLevelObjects objectAtIndex:0];
-        }
-
+    TMELoadMoreTableViewCell *cellLoadMore = [tableView dequeueReusableCellWithIdentifier:self.cellLoadMoreIdentifier];
+    [cellLoadMore startLoading];
     self.handleCellBlock();
     return cellLoadMore;
   }

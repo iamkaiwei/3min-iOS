@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewAvatar;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewProduct;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewClock;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *productIndicator;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *avatarIndicator;
 
 @end
 
@@ -36,7 +38,8 @@
   
   NSString *imageURL = [(TMEProductImages *)[[conversation.product.imagesSet allObjects] lastObject] medium];
   [self.imageViewProduct setImageWithURL:[NSURL URLWithString:imageURL]];
-
+  [self.productIndicator startAnimating];
+  [self.avatarIndicator startAnimating];
 }
 
 + (NSString *)getIdentifier{

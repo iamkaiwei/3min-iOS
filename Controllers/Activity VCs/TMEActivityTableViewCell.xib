@@ -14,9 +14,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" id="9ch-P7-9jE">
-                        <rect key="frame" x="252" y="29" width="37" height="37"/>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" id="9ch-P7-9jE">
+                        <rect key="frame" x="261" y="37" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </activityIndicatorView>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" id="ieQ-Oq-28I">
                         <rect key="frame" x="25" y="24" width="20" height="20"/>
@@ -61,12 +62,14 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="avatarIndicator" destination="ieQ-Oq-28I" id="O9g-u0-FUi"/>
                 <outlet property="imageViewAvatar" destination="hiL-Mg-A05" id="Obh-3l-5Ex"/>
                 <outlet property="imageViewClock" destination="cpC-Rg-8UG" id="3GR-ns-9Ie"/>
                 <outlet property="imageViewProduct" destination="j52-lG-viQ" id="dOW-Qd-cmQ"/>
                 <outlet property="labelContent" destination="Sbt-U0-YsO" id="rk3-Y4-J80"/>
                 <outlet property="labelTimestamp" destination="cxp-du-rp8" id="G9R-YI-oDb"/>
                 <outlet property="labelUserName" destination="fjF-fr-hup" id="p2k-Ak-x0f"/>
+                <outlet property="productIndicator" destination="9ch-P7-9jE" id="0vM-LQ-c8T"/>
             </connections>
         </tableViewCell>
     </objects>
