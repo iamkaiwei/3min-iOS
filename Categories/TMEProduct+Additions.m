@@ -12,7 +12,10 @@
 
 + (TMEProduct *)productWithDictionary:(NSDictionary *)data
 {
-    TMEProduct *product = [TMEProduct MR_createEntity];
+    TMEProduct *product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"id"]] lastObject];
+    if (!product) {
+      product = [TMEProduct MR_createEntity];
+    }
     
     product.id = data[@"id"];
     if ([data[@"likes"] isEqual:[NSNull null]])
@@ -63,7 +66,10 @@
          TMEUser *user = [TMEUser userWithData:userData];
         product.user = user;
     }
-    
+    else{
+      product.user = [[TMEUserManager sharedInstance] loggedUser];
+    }
+  
     // images
     NSSet *setImages = [[NSSet alloc] init];
     if ([data[@"images"] isKindOfClass:[NSArray class]])

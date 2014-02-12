@@ -9,6 +9,7 @@
 #import "TMEMeViewController.h"
 #import "TMEMeTableViewCell.h"
 #import "TMEMeTableViewCellBackgroundView.h"
+#import "TMEMyListingViewController.h"
 
 @interface TMEMeViewController ()
 <
@@ -84,6 +85,9 @@ UITableViewDataSource
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
   switch (indexPath.section) {
     case 0:
+      if (indexPath.row == 0) {
+        [self.navigationController pushViewController:[[TMEMyListingViewController alloc] init] animated:YES];
+      }
       break;
     default:
       if (indexPath.row == 0) {

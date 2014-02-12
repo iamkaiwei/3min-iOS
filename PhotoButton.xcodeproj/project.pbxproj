@@ -21,6 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0B0B4A2218AB754900AC3E93 /* TMEMyListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0B4A2018AB754900AC3E93 /* TMEMyListingViewController.m */; };
+		0B0B4A2318AB754900AC3E93 /* TMEMyListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B0B4A2118AB754900AC3E93 /* TMEMyListingViewController.xib */; };
+		0B0B4A2618AB75D000AC3E93 /* TMEMyListingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0B4A2518AB75D000AC3E93 /* TMEMyListingTableViewCell.m */; };
+		0B0B4A2818AB75E800AC3E93 /* TMEMyListingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B0B4A2718AB75E800AC3E93 /* TMEMyListingTableViewCell.xib */; };
 		0B15BD5B1883C39A00C098C6 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD5A1883C39A00C098C6 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0B15BD5E1883F12A00C098C6 /* CAAnimation+EasingEquations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B15BD5D1883F12A00C098C6 /* CAAnimation+EasingEquations.m */; };
 		0B22066C187278A800B93BD1 /* chat_to_buy_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B22066A187278A800B93BD1 /* chat_to_buy_btn@2x.png */; };
@@ -61,7 +65,7 @@
 		0B69C41918965FC600A4537F /* follow-button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B69C41718965FC600A4537F /* follow-button-pressed.png */; };
 		0B69C41A18965FC600A4537F /* follow-button-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B69C41818965FC600A4537F /* follow-button-pressed@2x.png */; };
 		0B8D540818A8886A00F10BB5 /* TMEBaseArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D540718A8886A00F10BB5 /* TMEBaseArrayDataSource.m */; };
-		0B8D540E18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D540D18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.m */; };
+		0B8D540E18A8BC6900F10BB5 /* TMEBaseArrayDataSourceWithLoadMore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D540D18A8BC6900F10BB5 /* TMEBaseArrayDataSourceWithLoadMore.m */; };
 		0B9366F7186C10A900491FA4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9366F6186C10A900491FA4 /* Reachability.m */; };
 		0B9366FA186C139400491FA4 /* TMEReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9366F9186C139400491FA4 /* TMEReachabilityManager.m */; };
 		0B95F77E187667C700F2B2E8 /* icon_chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B95F77C187667C700F2B2E8 /* icon_chat.png */; };
@@ -390,6 +394,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B0B4A1F18AB754900AC3E93 /* TMEMyListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEMyListingViewController.h; path = "Me VCs/My Listing VCs/TMEMyListingViewController.h"; sourceTree = "<group>"; };
+		0B0B4A2018AB754900AC3E93 /* TMEMyListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEMyListingViewController.m; path = "Me VCs/My Listing VCs/TMEMyListingViewController.m"; sourceTree = "<group>"; };
+		0B0B4A2118AB754900AC3E93 /* TMEMyListingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEMyListingViewController.xib; path = "Me VCs/My Listing VCs/TMEMyListingViewController.xib"; sourceTree = "<group>"; };
+		0B0B4A2418AB75D000AC3E93 /* TMEMyListingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEMyListingTableViewCell.h; path = "Me VCs/My Listing VCs/TMEMyListingTableViewCell.h"; sourceTree = "<group>"; };
+		0B0B4A2518AB75D000AC3E93 /* TMEMyListingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEMyListingTableViewCell.m; path = "Me VCs/My Listing VCs/TMEMyListingTableViewCell.m"; sourceTree = "<group>"; };
+		0B0B4A2718AB75E800AC3E93 /* TMEMyListingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEMyListingTableViewCell.xib; path = "Me VCs/My Listing VCs/TMEMyListingTableViewCell.xib"; sourceTree = "<group>"; };
 		0B15BD591883C39A00C098C6 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		0B15BD5A1883C39A00C098C6 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		0B15BD5C1883F12A00C098C6 /* CAAnimation+EasingEquations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+EasingEquations.h"; sourceTree = "<group>"; };
@@ -437,8 +447,8 @@
 		0B69C41818965FC600A4537F /* follow-button-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "follow-button-pressed@2x.png"; sourceTree = "<group>"; };
 		0B8D540618A8886A00F10BB5 /* TMEBaseArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseArrayDataSource.h; sourceTree = "<group>"; };
 		0B8D540718A8886A00F10BB5 /* TMEBaseArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseArrayDataSource.m; sourceTree = "<group>"; };
-		0B8D540C18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEActivityViewControllerArrayDataSource.h; path = "Activity VCs/TMEActivityViewControllerArrayDataSource.h"; sourceTree = "<group>"; };
-		0B8D540D18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEActivityViewControllerArrayDataSource.m; path = "Activity VCs/TMEActivityViewControllerArrayDataSource.m"; sourceTree = "<group>"; };
+		0B8D540C18A8BC6900F10BB5 /* TMEBaseArrayDataSourceWithLoadMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEBaseArrayDataSourceWithLoadMore.h; path = "../Activity VCs/TMEBaseArrayDataSourceWithLoadMore.h"; sourceTree = "<group>"; };
+		0B8D540D18A8BC6900F10BB5 /* TMEBaseArrayDataSourceWithLoadMore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEBaseArrayDataSourceWithLoadMore.m; path = "../Activity VCs/TMEBaseArrayDataSourceWithLoadMore.m"; sourceTree = "<group>"; };
 		0B9366F5186C10A900491FA4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		0B9366F6186C10A900491FA4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		0B9366F8186C139400491FA4 /* TMEReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEReachabilityManager.h; sourceTree = "<group>"; };
@@ -985,6 +995,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B0B4A1E18AB750F00AC3E93 /* My Listing VCs */ = {
+			isa = PBXGroup;
+			children = (
+				0B0B4A1F18AB754900AC3E93 /* TMEMyListingViewController.h */,
+				0B0B4A2018AB754900AC3E93 /* TMEMyListingViewController.m */,
+				0B0B4A2118AB754900AC3E93 /* TMEMyListingViewController.xib */,
+				0B0B4A2418AB75D000AC3E93 /* TMEMyListingTableViewCell.h */,
+				0B0B4A2518AB75D000AC3E93 /* TMEMyListingTableViewCell.m */,
+				0B0B4A2718AB75E800AC3E93 /* TMEMyListingTableViewCell.xib */,
+			);
+			name = "My Listing VCs";
+			sourceTree = "<group>";
+		};
 		0B220669187278A800B93BD1 /* Chat To Buy */ = {
 			isa = PBXGroup;
 			children = (
@@ -1017,6 +1040,7 @@
 		0B3D0D811875094300B740ED /* Me VCs */ = {
 			isa = PBXGroup;
 			children = (
+				0B0B4A1E18AB750F00AC3E93 /* My Listing VCs */,
 				0B3D0D82187509AB00B740ED /* TMEMeViewController.h */,
 				0B3D0D83187509AB00B740ED /* TMEMeViewController.m */,
 				0B3D0D84187509AB00B740ED /* TMEMeViewController.xib */,
@@ -1612,6 +1636,8 @@
 				0C59550617F73E380076353E /* TMEBaseTabBarViewController.m */,
 				0B8D540618A8886A00F10BB5 /* TMEBaseArrayDataSource.h */,
 				0B8D540718A8886A00F10BB5 /* TMEBaseArrayDataSource.m */,
+				0B8D540C18A8BC6900F10BB5 /* TMEBaseArrayDataSourceWithLoadMore.h */,
+				0B8D540D18A8BC6900F10BB5 /* TMEBaseArrayDataSourceWithLoadMore.m */,
 			);
 			path = Superclass;
 			sourceTree = "<group>";
@@ -2040,8 +2066,6 @@
 				84325C2E1875B4AD00D14B70 /* TMEActivityTableViewCell.h */,
 				84325C2F1875B4AD00D14B70 /* TMEActivityTableViewCell.m */,
 				84325C311875B4C200D14B70 /* TMEActivityTableViewCell.xib */,
-				0B8D540C18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.h */,
-				0B8D540D18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.m */,
 			);
 			name = "Activity VCs";
 			sourceTree = "<group>";
@@ -2248,6 +2272,7 @@
 				0B9E81091888E38A004AF9E3 /* NotificationBackgroundMessage.png in Resources */,
 				0B3D0DBF18755D2600B740ED /* clear_button_pressed.png in Resources */,
 				840C4CA21881B16000F7356A /* TMEOfferViewController.xib in Resources */,
+				0B0B4A2818AB75E800AC3E93 /* TMEMyListingTableViewCell.xib in Resources */,
 				B459FDDB181BF94E00D6BC79 /* Login2-568h.png in Resources */,
 				B49C6F5B181C321800EB380A /* normal-view-icon@2x.png in Resources */,
 				0B3D0D86187509AB00B740ED /* TMEMeViewController.xib in Resources */,
@@ -2331,6 +2356,7 @@
 				0C5954F217F6BDDD0076353E /* navigation_background@2x.png in Resources */,
 				B42FE3D118190F1C004E39EF /* tabbar-activity-icon-pressed.png in Resources */,
 				0B69C41918965FC600A4537F /* follow-button-pressed.png in Resources */,
+				0B0B4A2318AB754900AC3E93 /* TMEMyListingViewController.xib in Resources */,
 				B459FDBB181BD07500D6BC79 /* Images.xcassets in Resources */,
 				0B327B5A1868437B00468DF9 /* TMESubmitTableCell.xib in Resources */,
 				B49C6F69181C37D600EB380A /* Books.png in Resources */,
@@ -2426,6 +2452,7 @@
 				0C7EFBC617E8D5170054C4DE /* MKMapView+Additions.m in Sources */,
 				0C7053C917EF5E5E00E7615F /* TMEProductImages.m in Sources */,
 				0BC615BA18A9FD9C004C115E /* TMESubmitViewControllerArrayDataSource.m in Sources */,
+				0B0B4A2618AB75D000AC3E93 /* TMEMyListingTableViewCell.m in Sources */,
 				0CD9CF5D17EA0FD400402E91 /* AFURLConnectionOperation.m in Sources */,
 				0CD9CF5B17EA0FD400402E91 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				B4093B781810379700D51B69 /* YIFullScreenScroll.m in Sources */,
@@ -2448,6 +2475,7 @@
 				0C7EFB5D17E768C70054C4DE /* NSString+MagicalDataImport.m in Sources */,
 				0C7EFB7F17E8D2ED0054C4DE /* SVProgressHUD.m in Sources */,
 				0C6E06A517E0CCD10003F104 /* TMEBaseTableViewController.m in Sources */,
+				0B0B4A2218AB754900AC3E93 /* TMEMyListingViewController.m in Sources */,
 				B4202233180A842500F62FF0 /* TMEBrowserCollectionCell.m in Sources */,
 				0C7EFB5A17E768C70054C4DE /* NSNumber+MagicalDataImport.m in Sources */,
 				0BBD1CC3188E799E00F9C29C /* XLCircleProgressIndicator.m in Sources */,
@@ -2507,7 +2535,7 @@
 				0C9C957317F2D49B00E69F53 /* TMEProductImages+Additions.m in Sources */,
 				0C6E06A917E0DA590003F104 /* TMEBasePhotoEditorViewController.m in Sources */,
 				0C7EFBC317E8D5170054C4DE /* ActiveSupportInflector.m in Sources */,
-				0B8D540E18A8BC6900F10BB5 /* TMEActivityViewControllerArrayDataSource.m in Sources */,
+				0B8D540E18A8BC6900F10BB5 /* TMEBaseArrayDataSourceWithLoadMore.m in Sources */,
 				0C59550317F711CF0076353E /* TMELeftMenuViewController.m in Sources */,
 				0C6D86AE17EA0E9A00D959F8 /* BaseManager.m in Sources */,
 				B42ADE86180D561300B0E473 /* HTKContainerViewController.m in Sources */,

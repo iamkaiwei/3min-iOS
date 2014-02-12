@@ -10,7 +10,7 @@
 #import "TMEActivityTableViewCell.h"
 #import "TMESubmitViewController.h"
 #import "TMELoadMoreTableViewCell.h"
-#import "TMEActivityViewControllerArrayDataSource.h"
+#import "TMEBaseArrayDataSourceWithLoadMore.h"
 
 static NSString * const ActivityCellIdentifier = @"TMEActivityTableViewCell";
 static NSString * const LoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
@@ -23,9 +23,9 @@ UITableViewDelegate
 
 @property (weak, nonatomic) IBOutlet UITableView                    * tableViewActivity;
 @property (strong, nonatomic) NSMutableArray                        * arrayConversation;
-@property (assign, nonatomic) BOOL                                    havingPreviousActivities;
+@property (assign, nonatomic) BOOL                                    havePreviousActivities;
 @property (assign, nonatomic) NSInteger                               currentPage;
-@property (strong, nonatomic) TMEActivityViewControllerArrayDataSource *activitiesArrayDataSource;
+@property (strong, nonatomic) TMEBaseArrayDataSourceWithLoadMore *activitiesArrayDataSource;
 @end
 
 @implementation TMEActivityViewController
@@ -73,7 +73,7 @@ UITableViewDelegate
     [self loadListActivityWithPage:self.currentPage];
   };
   
-  self.activitiesArrayDataSource = [[TMEActivityViewControllerArrayDataSource alloc] initWithItems:self.arrayConversation cellIdentifier:ActivityCellIdentifier paging:[self havingPreviousActivities] handleCellBlock:handleCell];
+  self.activitiesArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.arrayConversation cellIdentifier:ActivityCellIdentifier paging:self.havePreviousActivities handleCellBlock:handleCell];
                                     
   self.tableViewActivity.dataSource = self.activitiesArrayDataSource;
 }
@@ -86,7 +86,7 @@ UITableViewDelegate
 #pragma mark - UITableView delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  if (self.havingPreviousActivities && indexPath.row == self.arrayConversation.count) {
+  if (self.havePreviousActivities && indexPath.row == self.arrayConversation.count) {
     return [TMELoadMoreTableViewCell getHeight];
   }
   return [TMEActivityTableViewCell getHeight];
@@ -127,11 +127,10 @@ UITableViewDelegate
   [[TMEConversationManager sharedInstance] getListConversationWithPage:page
                                                         onSuccessBlock:^(NSArray *arrayConversation)
    {
-     self.havingPreviousActivities = YES;
-     self.tableViewActivity.hidden = NO;
+     self.havePreviousActivities = YES;
      
      if (!arrayConversation.count) {
-       self.havingPreviousActivities = NO;
+       self.havePreviousActivities = NO;
      }
      
      if (!self.currentPage) {
@@ -144,9 +143,6 @@ UITableViewDelegate
      self.arrayConversation = [[self.arrayConversation sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
      
      [self reloadTableViewActivity];
-     
-     [self.pullToRefreshView endRefreshing];
-     [SVProgressHUD dismiss];
    }
                                                        andFailureBlock:^(NSInteger statusCode, NSError *error)
    {
@@ -164,6 +160,8 @@ UITableViewDelegate
   [self setUpTableView];
   [self.tableViewActivity reloadData];
   self.tableViewActivity.hidden = NO;
+  [self.pullToRefreshView endRefreshing];
+  [SVProgressHUD dismiss];
 }
 
 - (void)pullToRefreshViewDidStartLoading:(UIRefreshControl *)view

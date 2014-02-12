@@ -57,6 +57,29 @@ SINGLETON_MACRO
    }];
 }
 
+- (void)getSellingProductsOfCurrentUserOnPage:(NSInteger)page
+                                 SuccessBlock:(void (^) (NSArray *))successBlock
+                            failureBlock:(TMEJSONRequestFailureBlock)failureBlock
+{
+  NSDictionary *params = @{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
+                           @"page" : @(page)};
+  NSString *path = [NSString stringWithFormat:@"%@%@%@%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, API_ME];
+  [[TMEHTTPClient sharedClient] getPath:path
+                             parameters:params
+                                success:^(AFHTTPRequestOperation *operation, id obj)
+  {
+    NSArray *arrayProduct = [TMEProduct arrayProductsFromArray:obj];
+    if(successBlock){
+      successBlock(arrayProduct);
+    }
+  }
+                                failure:^(AFHTTPRequestOperation *operation, NSError *error)
+  {
+    failureBlock(error.code, error);
+  }];
+  
+}
+
 - (void)likeProductWithProductID:(NSNumber *)productID
                   onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
                  andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
@@ -66,9 +89,6 @@ SINGLETON_MACRO
                               parameters:params
                                  success:^(AFHTTPRequestOperation *operation, id responseObject)
    {
-     if (successBlock) {
-//       successBlock(responseObject[@"status"]);
-     }
    }
                                  failure:^(AFHTTPRequestOperation *operation, NSError *error)
    {
@@ -88,9 +108,6 @@ SINGLETON_MACRO
                               parameters:params
                                  success:^(AFHTTPRequestOperation *operation, id responseObject)
    {
-     if (successBlock) {
-       //       successBlock(responseObject[@"status"]);
-     }
    }
                                  failure:^(AFHTTPRequestOperation *operation, NSError *error)
    {
@@ -98,7 +115,6 @@ SINGLETON_MACRO
        failureBlock(error.code, error);
      }
    }];
-  
 
 }
 

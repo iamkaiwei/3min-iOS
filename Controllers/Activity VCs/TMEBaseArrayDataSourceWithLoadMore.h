@@ -10,7 +10,7 @@
 
 typedef void (^LoadMoreCellHandleBlock)();
 
-@interface TMEActivityViewControllerArrayDataSource : TMEBaseArrayDataSource
+@interface TMEBaseArrayDataSourceWithLoadMore : TMEBaseArrayDataSource
 
 @property (nonatomic, assign) BOOL paging;
 @property (nonatomic, copy) LoadMoreCellHandleBlock handleCellBlock;

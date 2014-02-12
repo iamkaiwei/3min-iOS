@@ -23,7 +23,7 @@
 
 @implementation TMEActivityTableViewCell
 
-- (void)configCellWithConversation:(TMEConversation *)conversation{
+- (void)configCellWithData:(TMEConversation *)conversation{
   
   self.labelUserName.text = conversation.user_full_name;
   self.labelTimestamp.text = [conversation.latest_update relativeDate];

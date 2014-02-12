@@ -90,9 +90,7 @@ SINGLETON_MACRO
         {
             return;
         }];
-        
-        
-        
+      
         return;
     }
     

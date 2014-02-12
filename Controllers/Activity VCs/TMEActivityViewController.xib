@@ -21,7 +21,6 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="jhX-i6-owC"/>
                         <outlet property="delegate" destination="-1" id="1yr-RA-8rG"/>
                     </connections>
                 </tableView>

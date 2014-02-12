@@ -6,11 +6,11 @@
 //
 //
 
-#import "TMEActivityViewControllerArrayDataSource.h"
+#import "TMEBaseArrayDataSourceWithLoadMore.h"
 
 typedef void (^TableViewCellRightConfigureBlock)(id cell, id item);
 
-@interface TMESubmitViewControllerArrayDataSource : TMEActivityViewControllerArrayDataSource
+@interface TMESubmitViewControllerArrayDataSource : TMEBaseArrayDataSourceWithLoadMore
 
 - (id)initWithItems:(NSArray *)anItems
      cellIdentifier:(NSString *)aCellIdentifier

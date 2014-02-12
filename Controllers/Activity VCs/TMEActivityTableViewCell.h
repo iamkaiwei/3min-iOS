@@ -10,7 +10,7 @@
 
 @interface TMEActivityTableViewCell : TMEBaseTableViewCell
 
-- (void)configCellWithConversation:(TMEConversation *)conversation;
+- (void)configCellWithData:(TMEConversation *)conversation;
 + (NSString *)getIdentifier;
 + (CGFloat)getHeight;
 

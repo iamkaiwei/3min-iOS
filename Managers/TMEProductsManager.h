@@ -18,6 +18,9 @@
               onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
              andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
+- (void)getSellingProductsOfCurrentUserOnPage:(NSInteger)page SuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                                 failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+
 - (void)likeProductWithProductID:(NSNumber *)productID
                   onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
                  andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;

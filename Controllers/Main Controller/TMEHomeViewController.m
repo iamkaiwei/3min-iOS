@@ -29,6 +29,8 @@ typedef NS_ENUM(NSInteger, TMETabbarButtonType){
 #import "TMESearchViewController.h"
 #import "TMEActivityViewController.h"
 
+static CGFloat const TabbarHeight = 50;
+
 @interface TMEHomeViewController ()
 <
 AFPhotoEditorControllerDelegate,

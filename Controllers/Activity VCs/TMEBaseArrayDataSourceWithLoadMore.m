@@ -6,11 +6,11 @@
 //
 //
 
-#import "TMEActivityViewControllerArrayDataSource.h"
+#import "TMEBaseArrayDataSourceWithLoadMore.h"
 #import "TMEActivityTableViewCell.h"
 #import "TMELoadMoreTableViewCell.h"
 
-@implementation TMEActivityViewControllerArrayDataSource
+@implementation TMEBaseArrayDataSourceWithLoadMore
 
 - (id)initWithItems:(NSArray *)anItems
      cellIdentifier:(NSString *)aCellIdentifier
@@ -49,10 +49,14 @@
     return cellLoadMore;
   }
   
-  TMEActivityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
+  id cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
                                                           forIndexPath:indexPath];
+  
+  
   id item = [self itemAtIndexPath:indexPath];
-  [cell configCellWithConversation:item];
+  if([cell respondsToSelector:@selector(configCellWithData:)]){
+    [cell performSelector:@selector(configCellWithData:) withObject:item];
+  }
   return cell;
 }
 
