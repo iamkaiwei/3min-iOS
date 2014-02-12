@@ -10,6 +10,8 @@
 
 @interface TMEBaseTableViewController ()
 
+@property (strong, nonatomic) NSNumber * currentCellHeight;
+
 @end
 
 @implementation TMEBaseTableViewController
@@ -45,6 +47,24 @@
 {
   DLog(@"This method should be overrided in subclass");
   return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (1 != self.arrayCellIdentifier.count)
+        return 44;
+
+    if(self.currentCellHeight)
+        return self.currentCellHeight.floatValue;
+
+    NSString * customCellIdentifier = self.arrayCellIdentifier[0];
+    NSArray * nibViews = [[NSBundle mainBundle] loadNibNamed:customCellIdentifier
+                                                      owner:nil
+                                                    options:nil];
+    UITableViewCell * cell = nibViews[0];
+    self.currentCellHeight = @(cell.height);
+
+    return cell.height;
 }
 
 #pragma mark - Helpers

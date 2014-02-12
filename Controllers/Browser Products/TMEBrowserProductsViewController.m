@@ -96,9 +96,9 @@ TMEBrowserProductsTableCellDelegate
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  return [TMEBrowserProductsTableCell getHeight];
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//  return [TMEBrowserProductsTableCell getHeight];
+//}
 
 #pragma mark - Load Product
 
