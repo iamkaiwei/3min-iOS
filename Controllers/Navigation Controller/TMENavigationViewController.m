@@ -27,9 +27,10 @@
     
       self.navigationBar.frame = CGRectMake(0, 0, 320, 44);
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+      self.navigationBar.barStyle = UIBarStyleBlackTranslucent;
       self.navigationBar.translucent = YES;
+      self.navigationBar.barTintColor = [UIColor backgroundBrightGrayColor];
     }
-    self.navigationBar.backgroundColor = [UIColor backgroundBrightGrayColor];
   }
   
   return self;
