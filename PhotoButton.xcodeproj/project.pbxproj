@@ -74,6 +74,10 @@
 		0B95F78318767A7500F2B2E8 /* login-facebook-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B95F78118767A7500F2B2E8 /* login-facebook-pressed@2x.png */; };
 		0B985177187E5180005AAF8E /* TMELoadMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B985176187E5180005AAF8E /* TMELoadMoreTableViewCell.m */; };
 		0B985179187E5193005AAF8E /* TMELoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B985178187E5193005AAF8E /* TMELoadMoreTableViewCell.xib */; };
+		0B98D28418ACCD220079CA12 /* TMEOfferedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98D28318ACCD220079CA12 /* TMEOfferedViewController.m */; };
+		0B98D28618ACCD4F0079CA12 /* TMEOfferedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B98D28518ACCD4F0079CA12 /* TMEOfferedViewController.xib */; };
+		0B98D28918ACCE520079CA12 /* TMEOfferedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98D28818ACCE520079CA12 /* TMEOfferedTableViewCell.m */; };
+		0B98D28B18ACCE620079CA12 /* TMEOfferedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B98D28A18ACCE620079CA12 /* TMEOfferedTableViewCell.xib */; };
 		0B9E81031888E38A004AF9E3 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E80E81888E38A004AF9E3 /* HexColor.m */; };
 		0B9E81041888E38A004AF9E3 /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E80EA1888E38A004AF9E3 /* TSMessage.m */; };
 		0B9E81051888E38A004AF9E3 /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B9E80ED1888E38A004AF9E3 /* NotificationBackgroundError.png */; };
@@ -460,6 +464,12 @@
 		0B985175187E5180005AAF8E /* TMELoadMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMELoadMoreTableViewCell.h; path = "Load More Table View Cell/TMELoadMoreTableViewCell.h"; sourceTree = "<group>"; };
 		0B985176187E5180005AAF8E /* TMELoadMoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMELoadMoreTableViewCell.m; path = "Load More Table View Cell/TMELoadMoreTableViewCell.m"; sourceTree = "<group>"; };
 		0B985178187E5193005AAF8E /* TMELoadMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMELoadMoreTableViewCell.xib; path = "Load More Table View Cell/TMELoadMoreTableViewCell.xib"; sourceTree = "<group>"; };
+		0B98D28218ACCD220079CA12 /* TMEOfferedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEOfferedViewController.h; path = "Me VCs/Offered VCs/TMEOfferedViewController.h"; sourceTree = "<group>"; };
+		0B98D28318ACCD220079CA12 /* TMEOfferedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEOfferedViewController.m; path = "Me VCs/Offered VCs/TMEOfferedViewController.m"; sourceTree = "<group>"; };
+		0B98D28518ACCD4F0079CA12 /* TMEOfferedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEOfferedViewController.xib; path = "Me VCs/Offered VCs/TMEOfferedViewController.xib"; sourceTree = "<group>"; };
+		0B98D28718ACCE520079CA12 /* TMEOfferedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEOfferedTableViewCell.h; path = "Me VCs/Offered VCs/TMEOfferedTableViewCell.h"; sourceTree = "<group>"; };
+		0B98D28818ACCE520079CA12 /* TMEOfferedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEOfferedTableViewCell.m; path = "Me VCs/Offered VCs/TMEOfferedTableViewCell.m"; sourceTree = "<group>"; };
+		0B98D28A18ACCE620079CA12 /* TMEOfferedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEOfferedTableViewCell.xib; path = "Me VCs/Offered VCs/TMEOfferedTableViewCell.xib"; sourceTree = "<group>"; };
 		0B9E80E71888E38A004AF9E3 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
 		0B9E80E81888E38A004AF9E3 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
 		0B9E80E91888E38A004AF9E3 /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
@@ -1040,6 +1050,7 @@
 		0B3D0D811875094300B740ED /* Me VCs */ = {
 			isa = PBXGroup;
 			children = (
+				0B98D28118ACCCC70079CA12 /* Offered VCs */,
 				0B0B4A1E18AB750F00AC3E93 /* My Listing VCs */,
 				0B3D0D82187509AB00B740ED /* TMEMeViewController.h */,
 				0B3D0D83187509AB00B740ED /* TMEMeViewController.m */,
@@ -1130,6 +1141,19 @@
 				0B985178187E5193005AAF8E /* TMELoadMoreTableViewCell.xib */,
 			);
 			name = "Load More Table View Cell";
+			sourceTree = "<group>";
+		};
+		0B98D28118ACCCC70079CA12 /* Offered VCs */ = {
+			isa = PBXGroup;
+			children = (
+				0B98D28218ACCD220079CA12 /* TMEOfferedViewController.h */,
+				0B98D28318ACCD220079CA12 /* TMEOfferedViewController.m */,
+				0B98D28518ACCD4F0079CA12 /* TMEOfferedViewController.xib */,
+				0B98D28718ACCE520079CA12 /* TMEOfferedTableViewCell.h */,
+				0B98D28818ACCE520079CA12 /* TMEOfferedTableViewCell.m */,
+				0B98D28A18ACCE620079CA12 /* TMEOfferedTableViewCell.xib */,
+			);
+			name = "Offered VCs";
 			sourceTree = "<group>";
 		};
 		0B9E80E51888E38A004AF9E3 /* TSMessages */ = {
@@ -2334,6 +2358,7 @@
 				0B9E81141888E38A004AF9E3 /* NotificationButtonBackground@2x.png in Resources */,
 				0B3D0DAE1875428F00B740ED /* btn_users@2x.png in Resources */,
 				0B3D0DB81875573400B740ED /* search_icon@2x.png in Resources */,
+				0B98D28B18ACCE620079CA12 /* TMEOfferedTableViewCell.xib in Resources */,
 				0B9E810A1888E38A004AF9E3 /* NotificationBackgroundMessage@2x.png in Resources */,
 				B49C6F6D181C37D600EB380A /* For-him.png in Resources */,
 				0C5954EE17F6BDDD0076353E /* category-list-icon@2x.png in Resources */,
@@ -2392,6 +2417,7 @@
 				B42FE3D618190F1C004E39EF /* tabbar-me-icon.png in Resources */,
 				0B9E81071888E38A004AF9E3 /* NotificationBackgroundErrorIcon.png in Resources */,
 				B4E1DEFF18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png in Resources */,
+				0B98D28618ACCD4F0079CA12 /* TMEOfferedViewController.xib in Resources */,
 				0B3D0D8B18750FE400B740ED /* TMEMeTableViewCell.xib in Resources */,
 				0B3D0D911875122A00B740ED /* disclosure.png in Resources */,
 				0B985179187E5193005AAF8E /* TMELoadMoreTableViewCell.xib in Resources */,
@@ -2481,6 +2507,7 @@
 				0BBD1CC3188E799E00F9C29C /* XLCircleProgressIndicator.m in Sources */,
 				84CFA5251879BF9100368A0D /* _TMEReply.m in Sources */,
 				0C7EFBD417E8D5170054C4DE /* UIBezierPath-Points.m in Sources */,
+				0B98D28418ACCD220079CA12 /* TMEOfferedViewController.m in Sources */,
 				0C2F788C17F2DBA600201783 /* NSData+GIF.m in Sources */,
 				0C2F788B17F2DBA600201783 /* MKAnnotationView+WebCache.m in Sources */,
 				0C6E069F17E0CC850003F104 /* TMEBaseViewController.m in Sources */,
@@ -2516,6 +2543,7 @@
 				0C5954FE17F711200076353E /* IIWrapController.m in Sources */,
 				0C7EFBEC17E8D5790054C4DE /* NSString+FontAwesome.m in Sources */,
 				0C7EFB6417E768C70054C4DE /* NSManagedObjectContext+MagicalRecord.m in Sources */,
+				0B98D28918ACCE520079CA12 /* TMEOfferedTableViewCell.m in Sources */,
 				0C7EFBD617E8D5170054C4DE /* UIColor+Additions.m in Sources */,
 				0C7EFB5B17E768C70054C4DE /* NSObject+MagicalDataImport.m in Sources */,
 				0C2F789617F2DBA600201783 /* UIImage+MultiFormat.m in Sources */,

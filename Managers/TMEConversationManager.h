@@ -26,6 +26,10 @@
                      onSuccessBlock:(void (^)(NSArray *))successBlock
                     andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
+- (void)getOfferedConversationWithPage:(NSInteger)page
+                        onSuccessBlock:(void (^)(NSArray *))successBlock
+                       andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+
 - (void)createConversationWithProductID:(NSNumber *)productID
                             toUserID:(NSNumber *)userID
                       onSuccessBlock:(void (^)(TMEConversation *))successBlock

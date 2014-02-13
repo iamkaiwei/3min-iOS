@@ -110,6 +110,36 @@ SINGLETON_MACRO
                                 }];
 }
 
+- (void)getOfferedConversationWithPage:(NSInteger)page
+                        onSuccessBlock:(void (^)(NSArray *))successBlock
+                       andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+  NSMutableDictionary *params = [@{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken]} mutableCopy];
+  if (page) {
+    [params setObject:@(page) forKey:@"page"];
+  }
+  
+  NSString *path = [NSString stringWithFormat:@"%@%@%@%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, API_OFFER];
+  [[TMEHTTPClient sharedClient] getPath:path
+                             parameters:params
+                                success:^(AFHTTPRequestOperation *operation, id responseObject){
+                                  NSArray *arrayConversation = [TMEConversation arrayConversationFromArrayData:responseObject];
+                                  
+                                  if (successBlock) {
+                                    successBlock(arrayConversation);
+                                  }
+                                  
+                                }
+                                failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                                  
+                                  if (failureBlock) {
+                                    failureBlock(error.code, error);
+                                  }
+                                  
+                                }];
+
+
+};
+
 - (void)createConversationWithProductID:(NSNumber *)productID
                             toUserID:(NSNumber *)userID
                      onSuccessBlock:(void (^)(TMEConversation *))successBlock

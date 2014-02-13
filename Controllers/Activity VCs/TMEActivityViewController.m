@@ -16,7 +16,6 @@ static NSString * const kActivityTableViewCellIdentifier = @"TMEActivityTableVie
 
 @interface TMEActivityViewController ()
 <
-UITableViewDataSource,
 UITableViewDelegate
 >
 

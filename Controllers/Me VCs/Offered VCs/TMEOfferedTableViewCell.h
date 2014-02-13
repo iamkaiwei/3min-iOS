@@ -1,14 +1,14 @@
 //
-//  TMEActivityTableViewCell.h
+//  TMEOfferedTableViewCell.h
 //  PhotoButton
 //
-//  Created by admin on 1/2/14.
+//  Created by Toan Slan on 2/13/14.
 //
 //
 
 #import "TMEBaseTableViewCell.h"
 
-@interface TMEActivityTableViewCell : TMEBaseTableViewCell
+@interface TMEOfferedTableViewCell : TMEBaseTableViewCell
 
 - (void)configCellWithData:(TMEConversation *)conversation;
 + (CGFloat)getHeight;
