@@ -11,6 +11,6 @@
 @interface TMELeftMenuTableViewCell : TMEBaseTableViewCell
 
 + (CGFloat )getHeight;
-- (void)configCategoryCellWithCategory:(TMECategory *)category;
+- (void)configCellWithData:(TMECategory *)category;
 
 @end

@@ -33,7 +33,7 @@
 
 @implementation TMEBrowserProductsTableCell
 
-- (void)configCellWithProduct:(TMEProduct *)product{
+- (void)configCellWithData:(TMEProduct *)product{
     
     // Follow button
     self.btnFollow.layer.borderWidth = 1;

@@ -12,14 +12,11 @@
 #import "TMEBaseArrayDataSourceWithLoadMore.h"
 #import "TMEProductDetailsViewController.h"
 
-static NSString * const CellIdentifier = @"TMEMyListingTableViewCell";
-static NSString * const CellLoadMoreIdentifier = @"TMELoadMoreTableViewCell";
+static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableViewCell";
 
 @interface TMEMyListingViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *tableViewMyListing;
 @property (strong, nonatomic) NSMutableArray *arrayProduct;
-@property (assign, nonatomic) BOOL havePreviousProducts;
 @property (assign, nonatomic) NSInteger currentPage;
 @property (strong, nonatomic) TMEBaseArrayDataSourceWithLoadMore *myListingsArrayDataSource;
 
@@ -38,7 +35,7 @@ static NSString * const CellLoadMoreIdentifier = @"TMELoadMoreTableViewCell";
 {
   [super viewDidLoad];
   self.title = @"My Listings";
-  self.scrollableView = self.tableViewMyListing;
+  self.scrollableView = self.tableView;
   [self enablePullToRefresh];
   [self disableNavigationTranslucent];
   [self getCachedMyListing];
@@ -51,8 +48,8 @@ static NSString * const CellLoadMoreIdentifier = @"TMELoadMoreTableViewCell";
 }
 
 - (void)registerNibForTableView{
-  self.tableView = self.tableViewMyListing;
-  self.arrayCellIdentifier = @[CellIdentifier, CellLoadMoreIdentifier];
+  self.arrayCellIdentifier = @[kMyListingTableViewCellIdentifier];
+  self.registerLoadMoreCell = YES;
 }
 
 - (void)setUpTableView{
@@ -60,17 +57,16 @@ static NSString * const CellLoadMoreIdentifier = @"TMELoadMoreTableViewCell";
     [self loadMyListWithPage:self.currentPage++];
   };
   
-  self.myListingsArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.arrayProduct cellIdentifier:CellIdentifier paging:self.havePreviousProducts handleCellBlock:handleCell];
+  self.myListingsArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.arrayProduct cellIdentifier:kMyListingTableViewCellIdentifier paging:self.paging handleCellBlock:handleCell];
   
-  self.tableViewMyListing.dataSource = self.myListingsArrayDataSource;
-  
+  self.tableView.dataSource = self.myListingsArrayDataSource;
   [self.tableView reloadData];
 }
 
 #pragma mark - UITableView delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  if (self.havePreviousProducts && indexPath.row == self.arrayProduct.count) {
+  if (self.paging && indexPath.row == self.arrayProduct.count) {
     return [TMELoadMoreTableViewCell getHeight];
   }
   return [TMEMyListingTableViewCell getHeight];
@@ -102,10 +98,10 @@ static NSString * const CellLoadMoreIdentifier = @"TMELoadMoreTableViewCell";
   [[TMEProductsManager sharedInstance] getSellingProductsOfCurrentUserOnPage:page
                                                                 SuccessBlock:^(NSArray *arrayProduct)
   {
-    self.havePreviousProducts = YES;
+    self.paging = YES;
     
     if (!arrayProduct.count) {
-      self.havePreviousProducts = NO;
+      self.paging = NO;
     }
     
     if (!self.currentPage) {
@@ -129,8 +125,9 @@ static NSString * const CellLoadMoreIdentifier = @"TMELoadMoreTableViewCell";
 
 - (void)reloadTableViewMyListing{
   [self setUpTableView];
-  [self.tableViewMyListing reloadData];
-  self.tableViewMyListing.hidden = NO;
+  if (self.arrayProduct.count) {
+      self.tableView.hidden = NO;
+  }
   [SVProgressHUD dismiss];
   [self.pullToRefreshView endRefreshing];
 }

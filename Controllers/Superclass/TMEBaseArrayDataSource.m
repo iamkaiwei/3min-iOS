@@ -38,10 +38,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
+  id cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
                                                           forIndexPath:indexPath];
   id item = [self itemAtIndexPath:indexPath];
-  self.configureCellBlock(cell, item);
+  
+  if (self.configureCellBlock) {
+    self.configureCellBlock(cell,item);
+  }
+  
+  if([cell respondsToSelector:@selector(configCellWithData:)]){
+    [cell performSelector:@selector(configCellWithData:) withObject:item];
+  }
   return cell;
 }
 

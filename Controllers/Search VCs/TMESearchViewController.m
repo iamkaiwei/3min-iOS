@@ -22,7 +22,6 @@ UISearchDisplayDelegate
 >
 
 //@property (assign, nonatomic) SEARCH_BY state;
-@property (weak, nonatomic) IBOutlet UITableView *tableViewResult;
 @property (weak, nonatomic) IBOutlet UILabel *labelNoResult;
 
 @end
@@ -34,8 +33,6 @@ UISearchDisplayDelegate
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   [self disableNavigationTranslucent];
-  
-  self.tableView = self.tableViewResult;
   self.lblInstruction = self.labelNoResult;
   self.dataArray = @[];
   

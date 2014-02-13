@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMELeftMenuViewController">
             <connections>
-                <outlet property="tableViewMenu" destination="NuX-2m-nMV" id="1Ev-2q-dX3"/>
+                <outlet property="tableView" destination="NuX-2m-nMV" id="aP1-fM-Cph"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -21,7 +21,6 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="jg8-KR-miy"/>
                         <outlet property="delegate" destination="-1" id="Lh5-2I-DFB"/>
                     </connections>
                 </tableView>

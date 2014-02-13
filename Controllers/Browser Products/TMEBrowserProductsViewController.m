@@ -12,7 +12,7 @@
 #import "TMEProductDetailsViewController.h"
 #import "TMEBaseArrayDataSource.h"
 
-static NSString * const BrowseProductCellIdentifier = @"TMEBrowserProductsTableCell";
+static NSString * const kBrowseProductCellIdentifier = @"TMEBrowserProductsTableCell";
 
 @interface TMEBrowserProductsViewController ()
 <
@@ -21,7 +21,6 @@ UITableViewDelegate,
 TMEBrowserProductsTableCellDelegate
 >
 
-@property (weak, nonatomic) IBOutlet UITableView        * tableProducts;
 @property (strong, nonatomic) NSMutableArray            * arrProducts;
 @property (strong, nonatomic) TMEUser                   * loginUser;
 @property (strong, nonatomic) TMECategory               * currentCategory;
@@ -52,7 +51,7 @@ TMEBrowserProductsTableCellDelegate
   
   [self registerNibForTableView];
   
-  self.scrollableView = self.tableProducts;
+  self.scrollableView = self.tableView;
   [self enablePullToRefresh];
   
   [self loadProducts];
@@ -68,20 +67,18 @@ TMEBrowserProductsTableCellDelegate
 }
 
 - (void)registerNibForTableView{
-  self.tableView = self.tableProducts;
-  self.arrayCellIdentifier = @[BrowseProductCellIdentifier];
+  self.arrayCellIdentifier = @[kBrowseProductCellIdentifier];
 }
 
 - (void)setUpTableView{
   TableViewCellConfigureBlock configureCell = ^(TMEBrowserProductsTableCell *cell, TMEProduct *product){
-    [cell configCellWithProduct:product];
     cell.delegate = self;
   };
   
-  self.productsArrayDataSource = [[TMEBaseArrayDataSource alloc] initWithItems:self.arrProducts cellIdentifier:BrowseProductCellIdentifier configureCellBlock:configureCell];
+  self.productsArrayDataSource = [[TMEBaseArrayDataSource alloc] initWithItems:self.arrProducts cellIdentifier:kBrowseProductCellIdentifier configureCellBlock:configureCell];
   
-  self.tableProducts.dataSource = self.productsArrayDataSource;
-  [self.tableProducts reloadData];
+  self.tableView.dataSource = self.productsArrayDataSource;
+  [self.tableView reloadData];
 }
 
 #pragma mark - UITableView delegate
@@ -108,7 +105,7 @@ TMEBrowserProductsTableCellDelegate
     [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
                                                 onSuccessBlock:^(NSArray *arrProducts) {
                                                   self.arrProducts = [arrProducts mutableCopy];
-                                                  [self.tableProducts reloadData];
+                                                  [self.tableView reloadData];
                                                   [self.pullToRefreshView endRefreshing];
                                                   [SVProgressHUD dismiss];
                                                 } andFailureBlock:^(NSInteger statusCode, id obj) {
@@ -150,7 +147,7 @@ TMEBrowserProductsTableCellDelegate
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     scrollViewTopInset += 20;
   }
-  self.tableProducts.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 0, 0);
+  self.tableView.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 0, 0);
 }
 
 #pragma mark - Notifications
@@ -172,7 +169,7 @@ TMEBrowserProductsTableCellDelegate
     superView = superView.superview;
   }
   
-  NSIndexPath *indexPath = [self.tableProducts indexPathForCell:(UITableViewCell *)superView];
+  NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)superView];
   TMEProduct *currentCellProduct = self.arrProducts[indexPath.row];
   sender.selected = !currentCellProduct.likedValue;
   

@@ -13,7 +13,7 @@
                 <outlet property="lblProductName" destination="wRi-g4-OKM" id="yWN-b2-Nk6"/>
                 <outlet property="lblProductPrice" destination="23l-74-UIC" id="B1C-lF-E3l"/>
                 <outlet property="scrollViewContent" destination="Uam-YN-rMv" id="uqa-rp-qSq"/>
-                <outlet property="tableViewConversation" destination="ysv-iK-kiL" id="60H-AX-jaf"/>
+                <outlet property="tableView" destination="ysv-iK-kiL" id="fvH-KG-5JC"/>
                 <outlet property="textViewInputMessage" destination="oqS-JD-XZR" id="b9d-B3-bx0"/>
                 <outlet property="view" destination="Uam-YN-rMv" id="8Bl-rc-JS6"/>
             </connections>

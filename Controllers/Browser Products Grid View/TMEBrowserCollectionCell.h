@@ -10,7 +10,7 @@
 
 @interface TMEBrowserCollectionCell : UICollectionViewCell
 
-- (void)configCellWithProduct:(TMEProduct *)product;
+- (void)configCellWithData:(TMEProduct *)product;
 + (CGSize)productCellSize;
 
 @end

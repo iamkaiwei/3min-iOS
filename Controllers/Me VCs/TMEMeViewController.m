@@ -11,7 +11,7 @@
 #import "TMEMeTableViewCellBackgroundView.h"
 #import "TMEMyListingViewController.h"
 
-static NSString * const MeTableViewCell = @"TMEMeTableViewCell";
+static NSString * const kMeTableViewCellIdentifier = @"TMEMeTableViewCell";
 
 @interface TMEMeViewController ()
 <
@@ -26,7 +26,6 @@ UITableViewDataSource
 @property (weak, nonatomic) IBOutlet UILabel *labelUsername;
 @property (weak, nonatomic) IBOutlet UILabel *labelUserEmail;
 
-@property (weak, nonatomic) IBOutlet UITableView  * tableViewMenu;
 @end
 
 @implementation TMEMeViewController
@@ -62,14 +61,13 @@ UITableViewDataSource
   [self.labelUserEmail sizeToFitKeepHeight];
   [self.labelUserEmail alignHorizontalCenterToView:self.view];
   
-  [self.tableViewMenu reloadData];
-  self.tableViewMenu.height = self.tableViewMenu.contentSize.height;
+  [self.tableView reloadData];
+  self.tableView.height = self.tableView.contentSize.height;
   [((UIScrollView *)self.view) autoAdjustScrollViewContentSize];
 }
 
 - (void)registerNibForTableView{
-  self.tableView = self.tableViewMenu;
-  self.arrayCellIdentifier = @[MeTableViewCell];
+  self.arrayCellIdentifier = @[kMeTableViewCellIdentifier];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

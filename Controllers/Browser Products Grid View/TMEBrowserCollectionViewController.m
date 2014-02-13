@@ -62,7 +62,7 @@ UICollectionViewDelegate
   TMEBrowserCollectionCell *cell = [self.collectionProductsView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TMEBrowserCollectionCell class]) forIndexPath:indexPath];
   
   TMEProduct *product = [self.arrayProducts objectAtIndex:indexPath.row];
-  [cell configCellWithProduct:product];
+  [cell configCellWithData:product];
   
   return cell;
 }

@@ -10,7 +10,7 @@
                 <outlet property="imageViewAvatar" destination="RrH-BE-HCH" id="WLA-R9-ee5"/>
                 <outlet property="labelUserEmail" destination="eN0-Xe-3zC" id="GzP-A2-kH0"/>
                 <outlet property="labelUsername" destination="d7J-G1-p2Z" id="dHm-cu-ClS"/>
-                <outlet property="tableViewMenu" destination="eNH-s5-9EI" id="plo-PP-4uz"/>
+                <outlet property="tableView" destination="eNH-s5-9EI" id="zUy-Po-bf1"/>
                 <outlet property="view" destination="9Oh-59-dir" id="gKB-W9-sKx"/>
             </connections>
         </placeholder>

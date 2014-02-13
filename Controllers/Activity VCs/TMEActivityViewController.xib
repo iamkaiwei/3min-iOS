@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEActivityViewController">
             <connections>
-                <outlet property="tableViewActivity" destination="LmM-Kh-Jpf" id="mpo-xc-KCT"/>
+                <outlet property="tableView" destination="LmM-Kh-Jpf" id="kK2-jG-xqx"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>

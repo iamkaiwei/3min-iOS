@@ -13,10 +13,9 @@
 #import "AppDelegate.h"
 #import "TMESubmitViewControllerArrayDataSource.h"
 
-static NSString * const SubmitCellIdentifier = @"TMESubmitTableCell";
-static NSString * const SubmitRightCellIdentifier = @"TMESubmitTableCellRight";
-static NSString * const LoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
-static CGFloat const LABEL_CONTENT_DEFAULT_HEIGHT = 26;
+static NSString * const kSubmitTableViewCellIdentifier = @"TMESubmitTableCell";
+static NSString * const kSubmitTableViewCellRightIdentifier = @"TMESubmitTableCellRight";
+static CGFloat const kLabelContentDefaultHeight = 26;
 static NSInteger const kUserID = 36;
 
 @interface TMESubmitViewController()
@@ -33,7 +32,6 @@ UITextViewDelegate
 @property (weak, nonatomic)   IBOutlet   UILabel                                * lblProductPrice;
 @property (weak, nonatomic)   IBOutlet   UILabel                                * lblPriceOffered;
 @property (weak, nonatomic)   IBOutlet   UILabel                                * lblDealLocation;
-@property (weak, nonatomic)   IBOutlet   UITableView                            * tableViewConversation;
 @property (weak, nonatomic)   IBOutlet   UITextView                             * textViewInputMessage;
 @property (strong, nonatomic) TMESubmitViewControllerArrayDataSource *repliesArrayDataSource;
 
@@ -54,11 +52,8 @@ UITextViewDelegate
 - (void)viewDidLoad{
   [super viewDidLoad];
   self.title = @"You Offer";
-  
   [self registerForKeyboardNotifications];
-  
   [self disableNavigationTranslucent];
-  
   self.textViewInputMessage.delegate = self;
   
   [[NSNotificationCenter defaultCenter] addObserver:self
@@ -87,13 +82,14 @@ UITextViewDelegate
 }
 
 - (void)setUpTableView{
-  self.repliesArrayDataSource = [[TMESubmitViewControllerArrayDataSource alloc] initWithItems:self.arrayReply cellIdentifier:SubmitCellIdentifier cellRightIdentifier:SubmitRightCellIdentifier conversation:self.conversation paging:self.paging];
-  self.tableViewConversation.dataSource = self.repliesArrayDataSource;
+  self.repliesArrayDataSource = [[TMESubmitViewControllerArrayDataSource alloc] initWithItems:self.arrayReply cellIdentifier:kSubmitTableViewCellIdentifier cellRightIdentifier:kSubmitTableViewCellRightIdentifier conversation:self.conversation paging:self.paging];
+  self.tableView.dataSource = self.repliesArrayDataSource;
+  [self.tableView reloadData];
 }
 
 - (void)registerNibForTableView{
-  self.tableView = self.tableViewConversation;
-  self.arrayCellIdentifier = @[SubmitCellIdentifier,SubmitRightCellIdentifier,LoadMoreCellIdentifier];
+  self.arrayCellIdentifier = @[kSubmitTableViewCellIdentifier,kSubmitTableViewCellRightIdentifier];
+  self.registerLoadMoreCell = YES;
 }
 
 #pragma mark - Table view delegate
@@ -208,9 +204,8 @@ UITextViewDelegate
 
 - (void)reloadTableViewConversationShowBottom:(BOOL)showBottom{
   [self setUpTableView];
-  [self.tableViewConversation reloadData];
-  self.tableViewConversation.height = self.tableViewConversation.contentSize.height;
-  [self.textViewInputMessage alignBelowView:self.tableViewConversation offsetY:10 sameWidth:YES];
+  self.tableView.height = self.tableView.contentSize.height;
+  [self.textViewInputMessage alignBelowView:self.tableView offsetY:10 sameWidth:YES];
   [self.textViewInputMessage setHeight:35.5];
   [self.scrollViewContent autoAdjustScrollViewContentSize];
   

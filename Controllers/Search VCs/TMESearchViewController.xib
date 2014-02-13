@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMESearchViewController">
             <connections>
                 <outlet property="searchDisplayController" destination="dAX-dZ-scn" id="fHA-vr-opo"/>
-                <outlet property="tableViewResult" destination="Xdc-nU-KcQ" id="7MY-uI-a5j"/>
+                <outlet property="tableView" destination="Xdc-nU-KcQ" id="ojv-Gf-9zp"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>

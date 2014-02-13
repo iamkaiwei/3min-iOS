@@ -8,6 +8,8 @@
 
 #import "TMEBaseTableViewController.h"
 
+static NSString * const kLoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
+
 @interface TMEBaseTableViewController ()
 
 @property (strong, nonatomic) NSNumber * currentCellHeight;
@@ -29,6 +31,9 @@
   for (int i = 0; i < self.arrayCellIdentifier.count; i++) {
     NSString *cellIdentifier = self.arrayCellIdentifier[i];
     [self.tableView registerNib:[UINib nibWithNibName:cellIdentifier bundle:nil] forCellReuseIdentifier:cellIdentifier];
+  }
+  if (self.registerLoadMoreCell) {
+    [self.tableView registerNib:[UINib nibWithNibName:kLoadMoreCellIdentifier bundle:nil] forCellReuseIdentifier:kLoadMoreCellIdentifier];
   }
 }
 

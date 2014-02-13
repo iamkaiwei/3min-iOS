@@ -12,8 +12,7 @@
 #import "TMELoadMoreTableViewCell.h"
 #import "TMEBaseArrayDataSourceWithLoadMore.h"
 
-static NSString * const ActivityCellIdentifier = @"TMEActivityTableViewCell";
-static NSString * const LoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
+static NSString * const kActivityTableViewCellIdentifier = @"TMEActivityTableViewCell";
 
 @interface TMEActivityViewController ()
 <
@@ -21,9 +20,7 @@ UITableViewDataSource,
 UITableViewDelegate
 >
 
-@property (weak, nonatomic) IBOutlet UITableView                    * tableViewActivity;
 @property (strong, nonatomic) NSMutableArray                        * arrayConversation;
-@property (assign, nonatomic) BOOL                                    havePreviousActivities;
 @property (assign, nonatomic) NSInteger                               currentPage;
 @property (strong, nonatomic) TMEBaseArrayDataSourceWithLoadMore *activitiesArrayDataSource;
 @end
@@ -43,7 +40,7 @@ UITableViewDelegate
 {
   [super viewDidLoad];
   self.navigationController.navigationBar.topItem.title = @"Activity";
-  self.scrollableView = self.tableViewActivity;
+  self.scrollableView = self.tableView;
   [self enablePullToRefresh];
   [self disableNavigationTranslucent];
   
@@ -69,24 +66,24 @@ UITableViewDelegate
 
 - (void)setUpTableView{
   LoadMoreCellHandleBlock handleCell = ^(){
-    self.currentPage++;
-    [self loadListActivityWithPage:self.currentPage];
+    [self loadListActivityWithPage:self.currentPage++];
   };
   
-  self.activitiesArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.arrayConversation cellIdentifier:ActivityCellIdentifier paging:self.havePreviousActivities handleCellBlock:handleCell];
+  self.activitiesArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.arrayConversation cellIdentifier:kActivityTableViewCellIdentifier paging:self.paging handleCellBlock:handleCell];
                                     
-  self.tableViewActivity.dataSource = self.activitiesArrayDataSource;
+  self.tableView.dataSource = self.activitiesArrayDataSource;
+   [self.tableView reloadData];
 }
 
 - (void)registerNibForTableView{
-  self.tableView = self.tableViewActivity;
-  self.arrayCellIdentifier = @[ActivityCellIdentifier,LoadMoreCellIdentifier];
+  self.arrayCellIdentifier = @[kActivityTableViewCellIdentifier];
+  self.registerLoadMoreCell = YES;
 }
 
 #pragma mark - UITableView delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  if (self.havePreviousActivities && indexPath.row == self.arrayConversation.count) {
+  if (self.paging && indexPath.row == self.arrayConversation.count) {
     return [TMELoadMoreTableViewCell getHeight];
   }
   return [TMEActivityTableViewCell getHeight];
@@ -127,10 +124,10 @@ UITableViewDelegate
   [[TMEConversationManager sharedInstance] getListConversationWithPage:page
                                                         onSuccessBlock:^(NSArray *arrayConversation)
    {
-     self.havePreviousActivities = YES;
+     self.paging = YES;
      
      if (!arrayConversation.count) {
-       self.havePreviousActivities = NO;
+       self.paging = NO;
      }
      
      if (!self.currentPage) {
@@ -158,8 +155,7 @@ UITableViewDelegate
 
 - (void)reloadTableViewActivity{
   [self setUpTableView];
-  [self.tableViewActivity reloadData];
-  self.tableViewActivity.hidden = NO;
+  self.tableView.hidden = NO;
   [self.pullToRefreshView endRefreshing];
   [SVProgressHUD dismiss];
 }

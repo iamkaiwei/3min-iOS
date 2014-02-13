@@ -20,7 +20,7 @@
 
 @property (assign, nonatomic) id<TMEBrowserProductsTableCellDelegate> delegate;
 
-- (void)configCellWithProduct:(TMEProduct *)product;
+- (void)configCellWithData:(TMEProduct *)product;
 + (CGFloat)getHeight;
 
 @end

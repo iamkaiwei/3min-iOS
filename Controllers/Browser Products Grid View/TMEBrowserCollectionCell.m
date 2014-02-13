@@ -28,7 +28,7 @@
     return self;
 }
 
-- (void)configCellWithProduct:(TMEProduct *)product
+- (void)configCellWithData:(TMEProduct *)product
 {
     self.backgroundColor = [UIColor whiteColor];
     self.imgProduct.image = nil;
