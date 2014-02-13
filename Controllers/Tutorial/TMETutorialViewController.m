@@ -47,7 +47,7 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
         _loginView.frame = CGRectMake((self.view.width - 240) / 2, self.view.height - 90, 240, 44);
         _loginView.delegate = (id)[TMEFacebookManager sharedInstance];
         
-        _loginView.readPermissions = @[@"user_about_me"];
+        _loginView.readPermissions = @[@"email", @"user_birthday", @"user_status", @"friends_status"];
         _loginView.defaultAudience = FBSessionDefaultAudienceFriends;
         
       for(UIView *view in _loginView.subviews)

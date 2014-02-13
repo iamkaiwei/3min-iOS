@@ -127,8 +127,6 @@ SINGLETON_MACRO
 - (void)sendNewLoginRequestWithSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock
                             andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
-    self.isLogging = YES;
-    
     NSDictionary *params = @{
                              @"fb_token": [[TMEUserManager sharedInstance] getFacebookToken],
                              @"udid": [[TMEUserManager sharedInstance] getUDID],

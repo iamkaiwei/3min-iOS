@@ -34,7 +34,7 @@ SINGLETON_MACRO
     }];
 }
 
-- (IBAction)performLogin:(id)sender
+- (void)openSession
 {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate openSession];

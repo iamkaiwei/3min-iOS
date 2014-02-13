@@ -108,8 +108,6 @@ UITextViewDelegate
   } 
 }
 
-#pragma mark - Table view delegate
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
   if (self.paging && indexPath.row == 0) {
         return [TMELoadMoreTableViewCell getHeight];
