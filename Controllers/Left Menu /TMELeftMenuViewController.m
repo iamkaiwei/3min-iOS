@@ -10,6 +10,8 @@
 #import "TMELeftMenuTableViewCell.h"
 #import "TMEHomeViewController.h"
 
+static NSString * const LeftMenuTableViewCellIdentifier = @"TMELeftMenuTableViewCell";
+
 @interface TMELeftMenuViewController ()
 <IIViewDeckControllerDelegate>
 
@@ -24,8 +26,6 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.tableView = self.tableViewMenu;
-  [self.tableView registerNib:[TMELeftMenuTableViewCell defaultNib] forCellReuseIdentifier:NSStringFromClass([TMELeftMenuTableViewCell class])]; //iOS 6+
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     self.statusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];
     [self.statusBarView setBackgroundColor:[UIColor blackColor]];
@@ -42,16 +42,16 @@
   }];
 }
 
+- (void)registerNibForTableView{
+  self.tableView = self.tableViewMenu;
+  self.arrayCellIdentifier = @[LeftMenuTableViewCellIdentifier];
+}
+
 #pragma mark - UITableView Datasource And Delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.arrayCategories.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return [TMELeftMenuTableViewCell getHeight];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

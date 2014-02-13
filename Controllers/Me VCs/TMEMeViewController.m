@@ -11,6 +11,8 @@
 #import "TMEMeTableViewCellBackgroundView.h"
 #import "TMEMyListingViewController.h"
 
+static NSString * const MeTableViewCell = @"TMEMeTableViewCell";
+
 @interface TMEMeViewController ()
 <
 UITableViewDelegate,
@@ -36,7 +38,17 @@ UITableViewDataSource
   // Do any additional setup after loading the view from its nib.
   self.arrayCellTitleSectionOne = @[@"My Listings", @"Offer I Made", @"Stuff I Liked"];
   self.arrayCellTitleSectionTwo = @[@"Logout"];
+  [self disableNavigationTranslucent];
+  [self configView];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+  [super viewWillAppear:animated];
+  self.navigationController.navigationBar.topItem.title = [[TMEUserManager sharedInstance] loggedUser].fullname;
   
+}
+
+- (void)configView{
   TMEUser *loggedUser = [[TMEUserManager sharedInstance] loggedUser];
   
   [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:loggedUser.photo_url]];
@@ -50,19 +62,14 @@ UITableViewDataSource
   [self.labelUserEmail sizeToFitKeepHeight];
   [self.labelUserEmail alignHorizontalCenterToView:self.view];
   
-  [self disableNavigationTranslucent];
-  
-  [self.tableViewMenu registerNib:[UINib nibWithNibName:NSStringFromClass([TMEMeTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([TMEMeTableViewCell class])];
-  
-  [((UIScrollView *)self.view) setContentSize:CGSizeMake(CGRectGetWidth([[UIScreen mainScreen]bounds]), 465)];
-  
+  [self.tableViewMenu reloadData];
+  self.tableViewMenu.height = self.tableViewMenu.contentSize.height;
+  [((UIScrollView *)self.view) autoAdjustScrollViewContentSize];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-  
-  [super viewWillAppear:animated];
-  self.navigationController.navigationBar.topItem.title = [[TMEUserManager sharedInstance] loggedUser].fullname;
-  
+- (void)registerNibForTableView{
+  self.tableView = self.tableViewMenu;
+  self.arrayCellIdentifier = @[MeTableViewCell];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -109,10 +116,6 @@ UITableViewDataSource
     default:
       return 1;
   }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  return [TMEMeTableViewCell getHeight];
 }
 
 - (void)showActionSheetLogOut{

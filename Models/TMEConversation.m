@@ -27,18 +27,17 @@
   
   if (!conversation) {
     conversation = [TMEConversation MR_createEntity];
+    conversation.id = data[@"id"];
+    conversation.user_id = data[@"user"][@"id"];
+    conversation.user_full_name = data[@"user"][@"full_name"];
+    
+    if (![data[@"user"][@"facebook_avatar"] isKindOfClass:[NSNull class]]) {
+      conversation.user_avatar = data[@"user"][@"facebook_avatar"];
+    }
+    
+    TMEProduct *product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"product_id"]] lastObject];
+    conversation.product = product;
   }
-
-  conversation.id = data[@"id"];
-  conversation.user_id = data[@"user"][@"id"];
-  conversation.user_full_name = data[@"user"][@"full_name"];
-  
-  if (![data[@"user"][@"facebook_avatar"] isKindOfClass:[NSNull class]]) {
-    conversation.user_avatar = data[@"user"][@"facebook_avatar"];
-  }
-  
-  TMEProduct *product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"product_id"]] lastObject];
-  conversation.product = product;
   
   if (data[@"replies"] && ![data[@"replies"] isKindOfClass:[NSNull class]]) {
     NSArray *arrayReplies = [TMEReply arrayRepliesFromArrayData:data[@"replies"] ofConversation:conversation];

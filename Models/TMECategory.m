@@ -24,22 +24,25 @@
 
 + (TMECategory *)categoryWithDictionary:(NSDictionary *)data
 {
-  TMECategory *cat = [TMECategory MR_createEntity];
-  
-  cat.id = data[@"id"];
-  
-  if ([data[@"name"] isEqual:[NSNull null]])
-    cat.name = @"";
-  else cat.name = data[@"name"];
-  
-  if ([data[@"description"] isEqual:[NSNull null]])
-    cat.details = @"";
-  else cat.details = data[@"description"];
-  
-  // category
-  if (data[@"image"]) {
-    NSDictionary *image = data[@"image"];
-    cat.photo_url = image[@"url"];
+  TMECategory *cat = [[TMECategory MR_findByAttribute:@"id" withValue:data[@"id"]] lastObject];
+  if (!cat) {
+    cat = [TMECategory MR_createEntity];
+    
+    cat.id = data[@"id"];
+    
+    if ([data[@"name"] isEqual:[NSNull null]])
+      cat.name = @"";
+    else cat.name = data[@"name"];
+    
+    if ([data[@"description"] isEqual:[NSNull null]])
+      cat.details = @"";
+    else cat.details = data[@"description"];
+    
+    // category
+    if (data[@"image"]) {
+      NSDictionary *image = data[@"image"];
+      cat.photo_url = image[@"url"];
+    }
   }
   
   return cat;

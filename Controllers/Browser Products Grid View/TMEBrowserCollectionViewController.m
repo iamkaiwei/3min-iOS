@@ -73,7 +73,7 @@ UICollectionViewDelegate
     return;
   }
   
-  [SVProgressHUD showWithStatus:@"Refreshing products..."];
+  [SVProgressHUD showWithStatus:@"Loading products..." maskType:SVProgressHUDMaskTypeGradient];
   if (self.currentCategory) {
     [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
                                                 onSuccessBlock:^(NSArray *arrProducts) {

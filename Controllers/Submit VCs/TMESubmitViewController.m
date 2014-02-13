@@ -87,7 +87,7 @@ UITextViewDelegate
 }
 
 - (void)setUpTableView{
-  self.repliesArrayDataSource = [[TMESubmitViewControllerArrayDataSource alloc] initWithItems:self.arrayReply cellIdentifier:SubmitCellIdentifier cellRightIdentifier:SubmitRightCellIdentifier conversation:self.conversation paging:[self havePreviousReply]];
+  self.repliesArrayDataSource = [[TMESubmitViewControllerArrayDataSource alloc] initWithItems:self.arrayReply cellIdentifier:SubmitCellIdentifier cellRightIdentifier:SubmitRightCellIdentifier conversation:self.conversation paging:self.paging];
   self.tableViewConversation.dataSource = self.repliesArrayDataSource;
 }
 
@@ -99,7 +99,7 @@ UITextViewDelegate
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  if ([self havePreviousReply] && indexPath.row == 0) {
+  if (self.paging && indexPath.row == 0) {
     TMELoadMoreTableViewCell *cell = (TMELoadMoreTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     cell.indicatorLoading.color = [UIColor whiteColor];
     [cell startLoading];
@@ -112,17 +112,17 @@ UITextViewDelegate
   } 
 }
 
-#pragma mark - Table view datasource
+#pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  if ([self havePreviousReply] && indexPath.row == 0) {
+  if (self.paging && indexPath.row == 0) {
         return [TMELoadMoreTableViewCell getHeight];
   }
   
   TMESubmitTableCell *cell = [[TMESubmitTableCell alloc] init];
   TMEReply *reply;
   
-  if ([self havePreviousReply]) {
+  if (self.paging) {
      reply = self.arrayReply[indexPath.row - 1];
     return [cell getHeightWithContent:reply.reply];
   }
@@ -175,8 +175,11 @@ UITextViewDelegate
                                                                              withPage:page
                                                                        onSuccessBlock:^(TMEConversation *conversation)
    {
+     self.paging = NO;
      self.conversation = conversation;
      self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
+     if (self.arrayReply.count % 10 == 0 && self.arrayReply.count)
+       self.paging = YES;
      self.arrayReply = [[self.arrayReply sortByAttribute:@"id" ascending:YES] mutableCopy];
      [self reloadTableViewConversationShowBottom:showBottom];
    }
@@ -187,13 +190,6 @@ UITextViewDelegate
 }
 
 #pragma mark - Helper method
-
-- (BOOL)havePreviousReply{
-  if (self.arrayReply.count % 10 == 0 && self.arrayReply.count) {
-    return YES;
-  }
-  return NO;
-}
 
 - (NSInteger)getLastestReplyID{
   TMEReply *reply = (TMEReply *)[self.arrayReply lastObject];

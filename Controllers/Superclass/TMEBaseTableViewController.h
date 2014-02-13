@@ -13,6 +13,7 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UILabel *lblInstruction;
+@property (nonatomic, assign) BOOL paging;
 @property (nonatomic, strong) NSArray *arrayCellIdentifier;
 @property (nonatomic, strong) NSArray *dataArray;
 

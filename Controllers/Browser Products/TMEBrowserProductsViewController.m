@@ -95,11 +95,6 @@ TMEBrowserProductsTableCellDelegate
   [self.navigationController pushViewController:productDetailsController animated:YES];
 }
 
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//  return [TMEBrowserProductsTableCell getHeight];
-//}
-
 #pragma mark - Load Product
 
 - (void)loadProducts{
@@ -108,7 +103,7 @@ TMEBrowserProductsTableCellDelegate
     [self.pullToRefreshView endRefreshing];
     return;
   }
-  [SVProgressHUD showWithStatus:@"Refreshing products..." maskType:SVProgressHUDMaskTypeGradient];
+  [SVProgressHUD showWithStatus:@"Loading products..." maskType:SVProgressHUDMaskTypeGradient];
   if (self.currentCategory) {
     [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
                                                 onSuccessBlock:^(NSArray *arrProducts) {
