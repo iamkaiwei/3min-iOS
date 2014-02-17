@@ -96,7 +96,7 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
 
 - (void)loadMyListWithPage:(NSInteger)page{
   [[TMEProductsManager sharedInstance] getSellingProductsOfCurrentUserOnPage:page
-                                                                SuccessBlock:^(NSArray *arrayProduct)
+                                                                successBlock:^(NSArray *arrayProduct)
   {
     self.paging = YES;
     

@@ -80,6 +80,8 @@
 		0B98D28B18ACCE620079CA12 /* TMEOfferedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B98D28A18ACCE620079CA12 /* TMEOfferedTableViewCell.xib */; };
 		0B996BD618B1B1910051F6D7 /* TMELikedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B996BD418B1B1910051F6D7 /* TMELikedViewController.m */; };
 		0B996BD718B1B1910051F6D7 /* TMELikedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B996BD518B1B1910051F6D7 /* TMELikedViewController.xib */; };
+		0B996BDA18B1CEA40051F6D7 /* TMELikedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B996BD918B1CEA40051F6D7 /* TMELikedTableViewCell.m */; };
+		0B996BDC18B1CEB60051F6D7 /* TMELikedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B996BDB18B1CEB60051F6D7 /* TMELikedTableViewCell.xib */; };
 		0B9E81031888E38A004AF9E3 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E80E81888E38A004AF9E3 /* HexColor.m */; };
 		0B9E81041888E38A004AF9E3 /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E80EA1888E38A004AF9E3 /* TSMessage.m */; };
 		0B9E81051888E38A004AF9E3 /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B9E80ED1888E38A004AF9E3 /* NotificationBackgroundError.png */; };
@@ -475,6 +477,9 @@
 		0B996BD318B1B1910051F6D7 /* TMELikedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMELikedViewController.h; path = "Me VCs/Liked VCs/TMELikedViewController.h"; sourceTree = "<group>"; };
 		0B996BD418B1B1910051F6D7 /* TMELikedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMELikedViewController.m; path = "Me VCs/Liked VCs/TMELikedViewController.m"; sourceTree = "<group>"; };
 		0B996BD518B1B1910051F6D7 /* TMELikedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMELikedViewController.xib; path = "Me VCs/Liked VCs/TMELikedViewController.xib"; sourceTree = "<group>"; };
+		0B996BD818B1CEA40051F6D7 /* TMELikedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMELikedTableViewCell.h; path = "Me VCs/Liked VCs/TMELikedTableViewCell.h"; sourceTree = "<group>"; };
+		0B996BD918B1CEA40051F6D7 /* TMELikedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMELikedTableViewCell.m; path = "Me VCs/Liked VCs/TMELikedTableViewCell.m"; sourceTree = "<group>"; };
+		0B996BDB18B1CEB60051F6D7 /* TMELikedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMELikedTableViewCell.xib; path = "Me VCs/Liked VCs/TMELikedTableViewCell.xib"; sourceTree = "<group>"; };
 		0B9E80E71888E38A004AF9E3 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
 		0B9E80E81888E38A004AF9E3 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
 		0B9E80E91888E38A004AF9E3 /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
@@ -1168,6 +1173,9 @@
 				0B996BD318B1B1910051F6D7 /* TMELikedViewController.h */,
 				0B996BD418B1B1910051F6D7 /* TMELikedViewController.m */,
 				0B996BD518B1B1910051F6D7 /* TMELikedViewController.xib */,
+				0B996BD818B1CEA40051F6D7 /* TMELikedTableViewCell.h */,
+				0B996BD918B1CEA40051F6D7 /* TMELikedTableViewCell.m */,
+				0B996BDB18B1CEB60051F6D7 /* TMELikedTableViewCell.xib */,
 			);
 			name = "Liked VCs";
 			sourceTree = "<group>";
@@ -2277,6 +2285,7 @@
 			files = (
 				84325C2C1875B33D00D14B70 /* TMEActivityViewController.xib in Resources */,
 				0C5954F117F6BDDD0076353E /* navigation_background.png in Resources */,
+				0B996BDC18B1CEB60051F6D7 /* TMELikedTableViewCell.xib in Resources */,
 				B42FE3E118190F1C004E39EF /* tabbar-background.png in Resources */,
 				B4AB2E5118712930000A9E68 /* price.png in Resources */,
 				B453FEFC181CF3A2007D5DF0 /* publish_done_btn_pressed@2x.png in Resources */,
@@ -2564,6 +2573,7 @@
 				0B98D28918ACCE520079CA12 /* TMEOfferedTableViewCell.m in Sources */,
 				0C7EFBD617E8D5170054C4DE /* UIColor+Additions.m in Sources */,
 				0C7EFB5B17E768C70054C4DE /* NSObject+MagicalDataImport.m in Sources */,
+				0B996BDA18B1CEA40051F6D7 /* TMELikedTableViewCell.m in Sources */,
 				0C2F789617F2DBA600201783 /* UIImage+MultiFormat.m in Sources */,
 				0C2F789017F2DBA600201783 /* SDWebImageDownloader.m in Sources */,
 				84CFA5281879BF9A00368A0D /* TMEReply.m in Sources */,

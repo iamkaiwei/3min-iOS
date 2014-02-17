@@ -65,6 +65,7 @@
 #define API_CONVERSATION_REPLIES                    @"/conversation_replies"
 #define API_OFFER                                   @"/offer"
 #define API_LIKES                                   @"/likes"
+#define API_LIKED                                   @"/liked"
 #define API_ME                                      @"/me"
 #define API_USER_LOGIN                              @"/oauth/token"
 

@@ -49,8 +49,6 @@ TMEBrowserProductsTableCellDelegate
   [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
   [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
   
-  [self registerNibForTableView];
-  
   self.scrollableView = self.tableView;
   [self enablePullToRefresh];
   

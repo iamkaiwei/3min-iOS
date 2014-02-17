@@ -11,6 +11,7 @@
 #import "TMEMeTableViewCellBackgroundView.h"
 #import "TMEMyListingViewController.h"
 #import "TMEOfferedViewController.h"
+#import "TMELikedViewController.h"
 
 static NSString * const kMeTableViewCellIdentifier = @"TMEMeTableViewCell";
 
@@ -92,7 +93,7 @@ UITableViewDataSource
   switch (indexPath.section) {
     case 0:
     {
-      NSArray *viewControllers = @[[TMEMyListingViewController new], [TMEOfferedViewController new], [TMEMyListingViewController new]];
+      NSArray *viewControllers = @[[TMEMyListingViewController new], [TMEOfferedViewController new], [TMELikedViewController new]];
       [self.navigationController pushViewController:viewControllers[indexPath.row] animated:YES];
       break;
     }

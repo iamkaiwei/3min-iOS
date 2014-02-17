@@ -1,14 +1,14 @@
 //
-//  TMEMyListingTableViewCell.m
+//  TMELikedTableViewCell.m
 //  PhotoButton
 //
-//  Created by Toan Slan on 2/12/14.
+//  Created by Toan Slan on 2/17/14.
 //
 //
 
-#import "TMEMyListingTableViewCell.h"
+#import "TMELikedTableViewCell.h"
 
-@interface TMEMyListingTableViewCell()
+@interface TMELikedTableViewCell()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewProduct;
 @property (weak, nonatomic) IBOutlet UILabel *labelProductName;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation TMEMyListingTableViewCell
+@implementation TMELikedTableViewCell
 
 - (void)configCellWithData:(TMEProduct *)product{
   [self.indicatorLoading startAnimating];

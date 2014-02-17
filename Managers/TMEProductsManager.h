@@ -18,8 +18,12 @@
               onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
              andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)getSellingProductsOfCurrentUserOnPage:(NSInteger)page SuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+- (void)getSellingProductsOfCurrentUserOnPage:(NSInteger)page successBlock:(void (^) (NSArray *arrayProducts))successBlock
                                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+
+- (void)getLikedProductOnPage:(NSInteger)page
+                 successBlock:(void (^) (NSArray *))successBlock
+                 failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 - (void)likeProductWithProductID:(NSNumber *)productID
                   onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
