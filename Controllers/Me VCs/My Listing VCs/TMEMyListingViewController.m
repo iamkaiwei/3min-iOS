@@ -16,20 +16,12 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
 
 @interface TMEMyListingViewController ()
 
-@property (strong, nonatomic) NSMutableArray *arrayProduct;
 @property (assign, nonatomic) NSInteger currentPage;
 @property (strong, nonatomic) TMEBaseArrayDataSourceWithLoadMore *myListingsArrayDataSource;
 
 @end
 
 @implementation TMEMyListingViewController
-
-- (NSMutableArray *)arrayProduct{
-  if (!_arrayProduct) {
-    _arrayProduct = [[NSMutableArray alloc] init];
-  }
-  return _arrayProduct;
-}
 
 - (void)viewDidLoad
 {
@@ -40,7 +32,7 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
   [self disableNavigationTranslucent];
   [self getCachedMyListing];
   
-  if (!self.arrayProduct.count) {
+  if (!self.dataArray.count) {
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
   }
   
@@ -57,7 +49,7 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
     [self loadMyListWithPage:self.currentPage++];
   };
   
-  self.myListingsArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.arrayProduct cellIdentifier:kMyListingTableViewCellIdentifier paging:self.paging handleCellBlock:handleCell];
+  self.myListingsArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:kMyListingTableViewCellIdentifier paging:self.paging handleCellBlock:handleCell];
   
   self.tableView.dataSource = self.myListingsArrayDataSource;
   [self.tableView reloadData];
@@ -66,7 +58,7 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
 #pragma mark - UITableView delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  if (self.paging && indexPath.row == self.arrayProduct.count) {
+  if (self.paging && indexPath.row == self.dataArray.count) {
     return [TMELoadMoreTableViewCell getHeight];
   }
   return [TMEMyListingTableViewCell getHeight];
@@ -76,7 +68,7 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
   
   TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
-  productDetailsController.product = self.arrayProduct[indexPath.row];
+  productDetailsController.product = self.dataArray[indexPath.row];
   productDetailsController.hidesBottomBarWhenPushed = YES;
   [self.navigationController pushViewController:productDetailsController animated:YES];
 }
@@ -85,11 +77,11 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
   NSArray *arrayProductCached = [TMEProduct MR_findByAttribute:@"user" withValue:[[TMEUserManager sharedInstance] loggedUser] andOrderBy:@"created_at" ascending:NO];
   
   for (TMEProduct *product in arrayProductCached) {
-    [self.arrayProduct addObject:product];
+    [self.dataArray addObject:product];
   }
   self.currentPage = 0;
-  if (self.arrayProduct.count) {
-    self.currentPage = (self.arrayProduct.count / 10) + 1;
+  if (self.dataArray.count) {
+    self.currentPage = (self.dataArray.count / 10) + 1;
     [self reloadTableViewMyListing];
   }
 }
@@ -108,11 +100,11 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
       self.currentPage = page;
     }
     
-    NSMutableSet *setProduct = [NSMutableSet setWithArray:self.arrayProduct];
+    NSMutableSet *setProduct = [NSMutableSet setWithArray:self.dataArray];
     [setProduct addObjectsFromArray:arrayProduct];
     
-    self.arrayProduct = [[setProduct allObjects] mutableCopy];
-    self.arrayProduct = [[self.arrayProduct sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+    self.dataArray = [[setProduct allObjects] mutableCopy];
+    self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
     
     [self reloadTableViewMyListing];
   }
@@ -125,9 +117,7 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
 
 - (void)reloadTableViewMyListing{
   [self setUpTableView];
-  if (self.arrayProduct.count) {
-      self.tableView.hidden = NO;
-  }
+  [self refreshTableViewAnimated:NO];
   [SVProgressHUD dismiss];
   [self.pullToRefreshView endRefreshing];
 }

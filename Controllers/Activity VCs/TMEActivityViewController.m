@@ -19,19 +19,11 @@ static NSString * const kActivityTableViewCellIdentifier = @"TMEActivityTableVie
 UITableViewDelegate
 >
 
-@property (strong, nonatomic) NSMutableArray                        * arrayConversation;
 @property (assign, nonatomic) NSInteger                               currentPage;
 @property (strong, nonatomic) TMEBaseArrayDataSourceWithLoadMore *activitiesArrayDataSource;
 @end
 
 @implementation TMEActivityViewController
-
-- (NSMutableArray *)arrayConversation{
-  if (!_arrayConversation) {
-    _arrayConversation = [[NSMutableArray alloc] init];
-  }
-  return _arrayConversation;
-}
 
 #pragma mark - VC cycle life
 
@@ -40,6 +32,7 @@ UITableViewDelegate
   [super viewDidLoad];
   self.navigationController.navigationBar.topItem.title = @"Activity";
   self.scrollableView = self.tableView;
+  [self.lblInstruction alignVerticallyCenterToView:self.view];
   [self enablePullToRefresh];
   [self disableNavigationTranslucent];
   
@@ -50,7 +43,7 @@ UITableViewDelegate
   
   [self getCachedActivity];
   
-  if (!self.arrayConversation.count) {
+  if (!self.dataArray.count) {
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
   }
   
@@ -68,7 +61,7 @@ UITableViewDelegate
     [self loadListActivityWithPage:self.currentPage++];
   };
   
-  self.activitiesArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.arrayConversation cellIdentifier:kActivityTableViewCellIdentifier paging:self.paging handleCellBlock:handleCell];
+  self.activitiesArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:kActivityTableViewCellIdentifier paging:self.paging handleCellBlock:handleCell];
                                     
   self.tableView.dataSource = self.activitiesArrayDataSource;
    [self.tableView reloadData];
@@ -82,7 +75,7 @@ UITableViewDelegate
 #pragma mark - UITableView delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  if (self.paging && indexPath.row == self.arrayConversation.count) {
+  if (self.paging && indexPath.row == self.dataArray.count) {
     return [TMELoadMoreTableViewCell getHeight];
   }
   return [TMEActivityTableViewCell getHeight];
@@ -92,7 +85,7 @@ UITableViewDelegate
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
     TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
     
-    TMEConversation *conversation = self.arrayConversation[indexPath.row];
+    TMEConversation *conversation = self.dataArray[indexPath.row];
     
     submitController.product = conversation.product;
     submitController.conversation = conversation;
@@ -106,11 +99,11 @@ UITableViewDelegate
   NSArray *arrayActivityCached = [TMEConversation MR_findAllSortedBy:@"latest_update" ascending:NO];
   
   for (TMEConversation *conversation in arrayActivityCached) {
-    [self.arrayConversation addObject:conversation];
+    [self.dataArray addObject:conversation];
   }
   self.currentPage = 0;
-  if (self.arrayConversation.count) {
-    self.currentPage = (self.arrayConversation.count / 10) + 1;
+  if (self.dataArray.count) {
+    self.currentPage = (self.dataArray.count / 10) + 1;
     [self reloadTableViewActivity];
   }
 }
@@ -130,11 +123,11 @@ UITableViewDelegate
      if (!self.currentPage) {
        self.currentPage = page;
      }
-     NSMutableSet *setConversation = [NSMutableSet setWithArray:self.arrayConversation];
+     NSMutableSet *setConversation = [NSMutableSet setWithArray:self.dataArray];
      [setConversation addObjectsFromArray:arrayConversation];
      
-     self.arrayConversation = [[setConversation allObjects] mutableCopy];
-     self.arrayConversation = [[self.arrayConversation sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
+     self.dataArray = [[setConversation allObjects] mutableCopy];
+     self.dataArray = [[self.dataArray sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
      
      [self reloadTableViewActivity];
    }
@@ -143,7 +136,6 @@ UITableViewDelegate
      return DLog(@"%d", statusCode);
      [self.pullToRefreshView endRefreshing];
    }];
-  
 }
 
 - (void)reloadActivity:(NSNotification *)notification{
@@ -152,7 +144,7 @@ UITableViewDelegate
 
 - (void)reloadTableViewActivity{
   [self setUpTableView];
-  self.tableView.hidden = NO;
+  [self refreshTableViewAnimated:NO];
   [self.pullToRefreshView endRefreshing];
   [SVProgressHUD dismiss];
 }

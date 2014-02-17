@@ -16,20 +16,12 @@ static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewC
 
 @interface TMEOfferedViewController()
 
-@property (strong, nonatomic) NSMutableArray * arrayOfferedConversation;
 @property (assign, nonatomic) NSInteger currentPage;
 @property (strong, nonatomic) TMEBaseArrayDataSourceWithLoadMore * offeredConversationArrayDataSource;
 
 @end
 
 @implementation TMEOfferedViewController
-
-- (NSMutableArray *)arrayOfferedConversation{
-  if (!_arrayOfferedConversation) {
-    _arrayOfferedConversation = [NSMutableArray new];
-  }
-  return _arrayOfferedConversation;
-}
 
 #pragma mark - VC cycle life
 
@@ -42,7 +34,7 @@ static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewC
   
   [self getCachedOfferedConversation];
   
-  if (!self.arrayOfferedConversation.count) {
+  if (!self.dataArray.count) {
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
   }
   
@@ -54,7 +46,7 @@ static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewC
     [self loadListOfferedConversationWithPage:self.currentPage++];
   };
   
-  self.offeredConversationArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.arrayOfferedConversation cellIdentifier:KOfferedTableVIewCellIdentifier paging:self.paging handleCellBlock:handleCell];
+  self.offeredConversationArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:KOfferedTableVIewCellIdentifier paging:self.paging handleCellBlock:handleCell];
   
   self.tableView.dataSource = self.offeredConversationArrayDataSource;
   [self.tableView reloadData];
@@ -66,7 +58,7 @@ static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewC
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  if (self.paging && indexPath.row == self.arrayOfferedConversation.count) {
+  if (self.paging && indexPath.row == self.dataArray.count) {
     return [TMELoadMoreTableViewCell getHeight];
   }
   return [TMEOfferedTableViewCell getHeight];
@@ -76,7 +68,7 @@ static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewC
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
   TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
   
-  TMEConversation *conversation = self.arrayOfferedConversation[indexPath.row];
+  TMEConversation *conversation = self.dataArray[indexPath.row];
   
   submitController.product = conversation.product;
   submitController.conversation = conversation;
@@ -99,11 +91,11 @@ static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewC
        self.currentPage = page;
      }
      
-     NSMutableSet *setConversation = [NSMutableSet setWithArray:self.arrayOfferedConversation];
+     NSMutableSet *setConversation = [NSMutableSet setWithArray:self.dataArray];
      [setConversation addObjectsFromArray:arrayOfferedConversation];
      
-     self.arrayOfferedConversation = [[setConversation allObjects] mutableCopy];
-     self.arrayOfferedConversation = [[self.arrayOfferedConversation sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
+     self.dataArray = [[setConversation allObjects] mutableCopy];
+     self.dataArray = [[self.dataArray sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
      
      [self reloadTableViewOfferedConversation];
    }
@@ -118,18 +110,18 @@ static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewC
   NSArray *arrayOfferedConversationCached = [TMEConversation MR_findAllSortedBy:@"latest_update" ascending:NO];
   
   for (TMEConversation *conversation in arrayOfferedConversationCached) {
-    [self.arrayOfferedConversation addObject:conversation];
+    [self.dataArray addObject:conversation];
   }
   self.currentPage = 0;
-  if (self.arrayOfferedConversation.count) {
-    self.currentPage = (self.arrayOfferedConversation.count / 10) + 1;
+  if (self.dataArray.count) {
+    self.currentPage = (self.dataArray.count / 10) + 1;
     [self reloadTableViewOfferedConversation];
   }
 }
 
 - (void)reloadTableViewOfferedConversation{
   [self setUpTableView];
-  self.tableView.hidden = NO;
+  [self refreshTableViewAnimated:NO];
   [self.pullToRefreshView endRefreshing];
   [SVProgressHUD dismiss];
 }

@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "TMEBaseViewController.h"
 
-@interface TMEBaseTableViewController : TMEBaseViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TMEBaseTableViewController : TMEBaseViewController <UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UILabel *lblInstruction;
 @property (nonatomic, assign) BOOL paging;
 @property (assign, nonatomic) BOOL registerLoadMoreCell;
 @property (nonatomic, strong) NSArray *arrayCellIdentifier;
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
 - (void)registerNibForTableView;
 - (void)deselectAllCellsAnimated:(BOOL)animated;

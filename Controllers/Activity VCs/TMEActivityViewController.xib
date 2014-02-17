@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEActivityViewController">
             <connections>
+                <outlet property="lblInstruction" destination="PSp-ga-9kc" id="TLV-vR-E42"/>
                 <outlet property="tableView" destination="LmM-Kh-Jpf" id="kK2-jG-xqx"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -24,6 +25,13 @@
                         <outlet property="delegate" destination="-1" id="1yr-RA-8rG"/>
                     </connections>
                 </tableView>
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PSp-ga-9kc">
+                    <rect key="frame" x="95" y="261" width="130" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                    <color key="textColor" red="0.49803921580314636" green="0.49803921580314636" blue="0.49803921580314636" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

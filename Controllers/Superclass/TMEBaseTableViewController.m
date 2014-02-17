@@ -18,16 +18,20 @@ static NSString * const kLoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
 
 @implementation TMEBaseTableViewController
 
+- (NSMutableArray *)dataArray{
+  if (!_dataArray) {
+    _dataArray = [[NSMutableArray alloc] init];
+  }
+  return _dataArray;
+}
+
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
-  // Uncomment the following line to preserve selection between presentations.
-  // self.clearsSelectionOnViewWillAppear = NO;
-  
-  // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-  [self registerNibForTableView];
+  [self.lblInstruction alignVerticallyCenterToView:self.view];
+  if ([self respondsToSelector:@selector(registerNibForTableView)]) {
+    [self performSelector:@selector(registerNibForTableView)];
+  }
   for (int i = 0; i < self.arrayCellIdentifier.count; i++) {
     NSString *cellIdentifier = self.arrayCellIdentifier[i];
     [self.tableView registerNib:[UINib nibWithNibName:cellIdentifier bundle:nil] forCellReuseIdentifier:cellIdentifier];
@@ -37,22 +41,7 @@ static NSString * const kLoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
   }
 }
 
-- (void)registerNibForTableView{
-  return;
-}
-
 #pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-  return self.dataArray.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  DLog(@"This method should be overrided in subclass");
-  return nil;
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
