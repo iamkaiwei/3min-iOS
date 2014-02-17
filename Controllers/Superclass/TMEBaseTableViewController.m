@@ -20,13 +20,13 @@ static NSString * const kLoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  [super viewDidLoad];
+  
+  // Uncomment the following line to preserve selection between presentations.
+  // self.clearsSelectionOnViewWillAppear = NO;
+  
+  // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
   [self registerNibForTableView];
   for (int i = 0; i < self.arrayCellIdentifier.count; i++) {
     NSString *cellIdentifier = self.arrayCellIdentifier[i];
@@ -45,7 +45,7 @@ static NSString * const kLoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataArray.count;
+  return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,20 +56,35 @@ static NSString * const kLoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (1 != self.arrayCellIdentifier.count)
-        return 44;
+  if (1 != self.arrayCellIdentifier.count)
+    return 44;
+  
+  if(self.currentCellHeight)
+    return self.currentCellHeight.floatValue;
+  
+  NSString * customCellIdentifier = self.arrayCellIdentifier[0];
+  NSArray * nibViews = [[NSBundle mainBundle] loadNibNamed:customCellIdentifier
+                                                     owner:nil
+                                                   options:nil];
+  UITableViewCell * cell = nibViews[0];
+  self.currentCellHeight = @(cell.height);
+  
+  return cell.height;
+}
 
-    if(self.currentCellHeight)
-        return self.currentCellHeight.floatValue;
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
+  UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+  if ([cell respondsToSelector:@selector(didSelectCellAnimation)]) {
+    [cell performSelector:@selector(didSelectCellAnimation)];
+  }
+  return YES;
+}
 
-    NSString * customCellIdentifier = self.arrayCellIdentifier[0];
-    NSArray * nibViews = [[NSBundle mainBundle] loadNibNamed:customCellIdentifier
-                                                      owner:nil
-                                                    options:nil];
-    UITableViewCell * cell = nibViews[0];
-    self.currentCellHeight = @(cell.height);
-
-    return cell.height;
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath{
+  UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+  if ([cell respondsToSelector:@selector(didDeselectCellAnimation)]) {
+    [cell performSelector:@selector(didDeselectCellAnimation)];
+  }
 }
 
 #pragma mark - Helpers

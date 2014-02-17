@@ -64,8 +64,7 @@ static NSString * const kLikedTableViewCellIdentifier = @"TMELikedTableViewCell"
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  [tableView deselectRowAtIndexPath:indexPath animated:YES];
-  
+
   TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
   NSInteger row = indexPath.row;
   productDetailsController.product = self.arrayProduct[row];

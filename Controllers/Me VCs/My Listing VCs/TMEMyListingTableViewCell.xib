@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TMEMyListingTableViewCell" rowHeight="132" id="0Ap-Gv-Duf" customClass="TMEMyListingTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TMEMyListingTableViewCell" rowHeight="132" id="0Ap-Gv-Duf" customClass="TMEMyListingTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Ap-Gv-Duf" id="yKq-JN-eyd">
@@ -55,6 +55,7 @@
                 <outlet property="labelProductName" destination="eTx-2C-Agc" id="E2q-cn-pDU"/>
                 <outlet property="labelProductPrice" destination="V22-54-81n" id="UXU-0G-Cu6"/>
                 <outlet property="labelTimestamp" destination="Urn-gy-KzP" id="06x-me-vfa"/>
+                <outlet property="viewContent" destination="yKq-JN-eyd" id="oyW-pD-j5E"/>
             </connections>
         </tableViewCell>
     </objects>

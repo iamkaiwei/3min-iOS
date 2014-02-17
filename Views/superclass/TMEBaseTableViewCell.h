@@ -10,4 +10,9 @@
 
 @interface TMEBaseTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIView *viewContent;
+
+- (void)didSelectCellAnimation;
+- (void)didDeselectCellAnimation;
+
 @end

@@ -27,4 +27,12 @@
     // Configure the view for the selected state
 }
 
+- (void)didSelectCellAnimation{
+  [CAAnimation addAnimationToLayer:self.viewContent.layer withKeyPath:@"transform.scale" duration:1 from:1 to:0.97 easingFunction:CAAnimationEasingFunctionEaseOutBack];
+}
+
+- (void)didDeselectCellAnimation{
+  [CAAnimation addAnimationToLayer:self.viewContent.layer withKeyPath:@"transform.scale" duration:1 from:0.97 to:1 easingFunction:CAAnimationEasingFunctionEaseOutBack];
+}
+
 @end
