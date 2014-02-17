@@ -90,16 +90,14 @@ UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
-  if (indexPath.row < self.arrayConversation.count) {
     TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
     
     TMEConversation *conversation = self.arrayConversation[indexPath.row];
     
     submitController.product = conversation.product;
     submitController.conversation = conversation;
-    
+  
     [self.navigationController pushViewController:submitController animated:YES];
-  }
 }
 
 #pragma mark - Caching stuffs

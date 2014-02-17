@@ -16,7 +16,9 @@
   NSMutableArray *arrayConversation = [@[] mutableCopy];
   for (NSDictionary *data in arrayData) {
     TMEConversation *conversation = [TMEConversation conversationFromData:data];
-    [arrayConversation addObject:conversation];
+    if (![conversation.offer isEqualToNumber:@0]) {
+      [arrayConversation addObject:conversation];
+    }
   }
   
   return arrayConversation;
@@ -28,6 +30,7 @@
   if (!conversation) {
     conversation = [TMEConversation MR_createEntity];
     conversation.id = data[@"id"];
+    
     conversation.user_id = data[@"user"][@"id"];
     conversation.user_full_name = data[@"user"][@"full_name"];
     
@@ -38,6 +41,7 @@
     TMEProduct *product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"product_id"]] lastObject];
     conversation.product = product;
   }
+  
   
   if (data[@"replies"] && ![data[@"replies"] isKindOfClass:[NSNull class]]) {
     NSArray *arrayReplies = [TMEReply arrayRepliesFromArrayData:data[@"replies"] ofConversation:conversation];

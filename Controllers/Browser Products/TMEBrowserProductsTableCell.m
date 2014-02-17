@@ -34,35 +34,40 @@
 @implementation TMEBrowserProductsTableCell
 
 - (void)configCellWithData:(TMEProduct *)product{
-    
-    // Follow button
-    self.btnFollow.layer.borderWidth = 1;
-    self.btnFollow.layer.borderColor = [UIColor grayColor].CGColor;
-    self.btnFollow.layer.cornerRadius = 3;
   
-    // Share button
-    self.btnShare.layer.borderWidth = 1;
-    self.btnShare.layer.borderColor = [UIColor grayColor].CGColor;
-    self.btnShare.layer.cornerRadius = 3;
-    
-    // for now when we get product, we get all imformantion about this product like user, category, etc.
+  // Follow button
+  self.btnFollow.layer.borderWidth = 1;
+  self.btnFollow.layer.borderColor = [UIColor grayColor].CGColor;
+  self.btnFollow.layer.cornerRadius = 3;
   
-    // user
-    [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:product.user.photo_url] placeholderImage:nil];
-    self.lblUserName.text = product.user.fullname;
-    self.lblTimestamp.text = [product.created_at relativeDate];
- 
-    self.labelLikes.text = product.likes.stringValue;
-    self.btnFollow.selected = product.likedValue;
+  // Share button
+  self.btnShare.layer.borderWidth = 1;
+  self.btnShare.layer.borderColor = [UIColor grayColor].CGColor;
+  self.btnShare.layer.cornerRadius = 3;
   
-    TMEProductImages *img = [product.images anyObject];
+  // for now when we get product, we get all imformantion about this product like user, category, etc.
   
-    [self.imageViewProduct setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.medium]
+  // user
+  [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:product.user.photo_url] placeholderImage:nil];
+  self.lblUserName.text = product.user.fullname;
+  self.lblTimestamp.text = [product.created_at relativeDate];
+  
+  self.labelLikes.text = product.likes.stringValue;
+  self.btnFollow.selected = product.likedValue;
+  
+  TMEProductImages *img = [product.images anyObject];
+  
+  [self.imageViewProduct setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.medium]
                                             placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
   
-    self.lblProductName.text = product.name;
-    self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
-    
+  self.lblProductName.text = product.name;
+  self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
+  
+  CGRect beforeFrame = self.lblProductPrice.frame;
+  [self.lblProductPrice sizeToFitKeepHeight];
+  CGRect afterFrame = self.lblProductPrice.frame;
+  self.lblProductPrice.frame = CGRectMake(beforeFrame.origin.x + beforeFrame.size.width - afterFrame.size.width, self.lblProductPrice.frame.origin.y, self.lblProductPrice.frame.size.width, self.lblProductPrice.frame.size.height);
+  
 }
 
 - (IBAction)onBtnLike:(id)sender {
@@ -73,7 +78,7 @@
 
 
 + (CGFloat)getHeight{
-    return 440;
+  return 440;
 }
 
 @end

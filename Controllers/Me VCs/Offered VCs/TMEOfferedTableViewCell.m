@@ -32,7 +32,8 @@
   frame.origin.x = CGRectGetMaxX(self.labelTimestamp.frame) + 3;
   self.imageViewClock.frame = frame;
   
-  self.labelOfferPrice.text = [NSString stringWithFormat:@"Offered $%@",conversation.offer];
+  self.labelOfferPrice.text = [NSString stringWithFormat:@"$%@",conversation.offer];
+  [self.labelOfferPrice sizeToFitKeepHeight];
   [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:conversation.user_avatar]];
   
   NSString *imageURL = [(TMEProductImages *)[[conversation.product.imagesSet allObjects] lastObject] medium];

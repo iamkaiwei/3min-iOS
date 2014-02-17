@@ -78,6 +78,8 @@
 		0B98D28618ACCD4F0079CA12 /* TMEOfferedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B98D28518ACCD4F0079CA12 /* TMEOfferedViewController.xib */; };
 		0B98D28918ACCE520079CA12 /* TMEOfferedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B98D28818ACCE520079CA12 /* TMEOfferedTableViewCell.m */; };
 		0B98D28B18ACCE620079CA12 /* TMEOfferedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B98D28A18ACCE620079CA12 /* TMEOfferedTableViewCell.xib */; };
+		0B996BD618B1B1910051F6D7 /* TMELikedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B996BD418B1B1910051F6D7 /* TMELikedViewController.m */; };
+		0B996BD718B1B1910051F6D7 /* TMELikedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B996BD518B1B1910051F6D7 /* TMELikedViewController.xib */; };
 		0B9E81031888E38A004AF9E3 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E80E81888E38A004AF9E3 /* HexColor.m */; };
 		0B9E81041888E38A004AF9E3 /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E80EA1888E38A004AF9E3 /* TSMessage.m */; };
 		0B9E81051888E38A004AF9E3 /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B9E80ED1888E38A004AF9E3 /* NotificationBackgroundError.png */; };
@@ -470,6 +472,9 @@
 		0B98D28718ACCE520079CA12 /* TMEOfferedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEOfferedTableViewCell.h; path = "Me VCs/Offered VCs/TMEOfferedTableViewCell.h"; sourceTree = "<group>"; };
 		0B98D28818ACCE520079CA12 /* TMEOfferedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEOfferedTableViewCell.m; path = "Me VCs/Offered VCs/TMEOfferedTableViewCell.m"; sourceTree = "<group>"; };
 		0B98D28A18ACCE620079CA12 /* TMEOfferedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEOfferedTableViewCell.xib; path = "Me VCs/Offered VCs/TMEOfferedTableViewCell.xib"; sourceTree = "<group>"; };
+		0B996BD318B1B1910051F6D7 /* TMELikedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMELikedViewController.h; path = "Me VCs/Liked VCs/TMELikedViewController.h"; sourceTree = "<group>"; };
+		0B996BD418B1B1910051F6D7 /* TMELikedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMELikedViewController.m; path = "Me VCs/Liked VCs/TMELikedViewController.m"; sourceTree = "<group>"; };
+		0B996BD518B1B1910051F6D7 /* TMELikedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMELikedViewController.xib; path = "Me VCs/Liked VCs/TMELikedViewController.xib"; sourceTree = "<group>"; };
 		0B9E80E71888E38A004AF9E3 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
 		0B9E80E81888E38A004AF9E3 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
 		0B9E80E91888E38A004AF9E3 /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
@@ -1050,6 +1055,7 @@
 		0B3D0D811875094300B740ED /* Me VCs */ = {
 			isa = PBXGroup;
 			children = (
+				0B996BD218B1AF840051F6D7 /* Liked VCs */,
 				0B98D28118ACCCC70079CA12 /* Offered VCs */,
 				0B0B4A1E18AB750F00AC3E93 /* My Listing VCs */,
 				0B3D0D82187509AB00B740ED /* TMEMeViewController.h */,
@@ -1154,6 +1160,16 @@
 				0B98D28A18ACCE620079CA12 /* TMEOfferedTableViewCell.xib */,
 			);
 			name = "Offered VCs";
+			sourceTree = "<group>";
+		};
+		0B996BD218B1AF840051F6D7 /* Liked VCs */ = {
+			isa = PBXGroup;
+			children = (
+				0B996BD318B1B1910051F6D7 /* TMELikedViewController.h */,
+				0B996BD418B1B1910051F6D7 /* TMELikedViewController.m */,
+				0B996BD518B1B1910051F6D7 /* TMELikedViewController.xib */,
+			);
+			name = "Liked VCs";
 			sourceTree = "<group>";
 		};
 		0B9E80E51888E38A004AF9E3 /* TSMessages */ = {
@@ -2308,6 +2324,7 @@
 				B42FE3D918190F1C004E39EF /* tabbar-me-icon@2x.png in Resources */,
 				0C7EFBC417E8D5170054C4DE /* ActiveSupportInflector.plist in Resources */,
 				0CFC0FFA17ECBA3F008FBD92 /* bt_fb_signin_pressed.png in Resources */,
+				0B996BD718B1B1910051F6D7 /* TMELikedViewController.xib in Resources */,
 				0C43CCAC17F5D29A00D869F9 /* follow-button.png in Resources */,
 				B459FDD9181BF94E00D6BC79 /* Login1-568h.png in Resources */,
 				84D2B1D818824FC400CE77CD /* you-offer-selected@2x.png in Resources */,
@@ -2494,6 +2511,7 @@
 				0C7053C717EF5E5E00E7615F /* TMECategory.m in Sources */,
 				0C7EFBD917E8D5170054C4DE /* UIImage+Additions.m in Sources */,
 				0CA51A6A17EEC8E600AD55E6 /* FacebookManager.m in Sources */,
+				0B996BD618B1B1910051F6D7 /* TMELikedViewController.m in Sources */,
 				0C7EFBCA17E8D5170054C4DE /* NSDate+Additions.m in Sources */,
 				0C7EFB5917E768C70054C4DE /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				0C7EFB6517E768C70054C4DE /* NSManagedObjectContext+MagicalSaves.m in Sources */,

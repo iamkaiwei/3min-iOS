@@ -10,6 +10,7 @@
 #import "TMEOfferedTableViewCell.h"
 #import "TMEBaseArrayDataSourceWithLoadMore.h"
 #import "TMELoadMoreTableViewCell.h"
+#import "TMESubmitViewController.h"
 
 static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewCell";
 
@@ -72,36 +73,45 @@ static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewC
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
   
+  TMEConversation *conversation = self.arrayOfferedConversation[indexPath.row];
+  
+  submitController.product = conversation.product;
+  submitController.conversation = conversation;
+  
+
+  [self.navigationController pushViewController:submitController animated:YES];
 }
 
 - (void)loadListOfferedConversationWithPage:(NSInteger)page{
   [[TMEConversationManager sharedInstance] getOfferedConversationWithPage:page
                                                            onSuccessBlock:^(NSArray *arrayOfferedConversation)
-  {
-    self.paging = YES;
-    
-    if (!arrayOfferedConversation.count) {
-      self.paging = NO;
-    }
-    
-    if (!self.currentPage) {
-      self.currentPage = page;
-    }
-    
-    NSMutableSet *setConversation = [NSMutableSet setWithArray:self.arrayOfferedConversation];
-    [setConversation addObjectsFromArray:arrayOfferedConversation];
-    
-    self.arrayOfferedConversation = [[setConversation allObjects] mutableCopy];
-    self.arrayOfferedConversation = [[self.arrayOfferedConversation sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
-    
-    [self reloadTableViewOfferedConversation];
-  }
+   {
+     self.paging = YES;
+     
+     if (!arrayOfferedConversation.count) {
+       self.paging = NO;
+     }
+     
+     if (!self.currentPage) {
+       self.currentPage = page;
+     }
+     
+     NSMutableSet *setConversation = [NSMutableSet setWithArray:self.arrayOfferedConversation];
+     [setConversation addObjectsFromArray:arrayOfferedConversation];
+     
+     self.arrayOfferedConversation = [[setConversation allObjects] mutableCopy];
+     self.arrayOfferedConversation = [[self.arrayOfferedConversation sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
+     
+     [self reloadTableViewOfferedConversation];
+   }
                                                           andFailureBlock:^(NSInteger statusCode, NSError *error)
-  {
-    return DLog(@"%d", statusCode);
-    [self.pullToRefreshView endRefreshing];
-  }];
+   {
+     return DLog(@"%d", statusCode);
+     [self.pullToRefreshView endRefreshing];
+   }];
 }
 
 - (void)getCachedOfferedConversation{

@@ -11,6 +11,7 @@
 #import "TMESubmitTableCellRight.h"
 #import "TMELoadMoreTableViewCell.h"
 #import "AppDelegate.h"
+#import "HTKContainerViewController.h"
 #import "TMESubmitViewControllerArrayDataSource.h"
 
 static NSString * const kSubmitTableViewCellIdentifier = @"TMESubmitTableCell";
@@ -292,7 +293,11 @@ UITextViewDelegate
 #pragma mark - Navigation back button override
 
 - (void)onBtnBack{
-  [self.navigationController popToRootViewControllerAnimated:YES];
+  UIViewController *root = self.navigationController.viewControllers[0];
+  if ([root isKindOfClass:[HTKContainerViewController class]]) {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+  }
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Override KeyboardShowNotification
