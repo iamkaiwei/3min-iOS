@@ -26,7 +26,7 @@
   [self.imageViewProduct setImageWithURL:[NSURL URLWithString:img.medium]];
   self.labelProductName.text = product.name;
   self.labelTimestamp.text = [product.created_at relativeDate];
-  self.labelProductPrice.text = [NSString stringWithFormat:@"$%@", [product.price stringValue]];
+  self.labelProductPrice.text = [NSString stringWithFormat:@"$%.2f", product.priceValue];
   [self.labelProductPrice sizeToFitKeepHeight];
 }
 

@@ -21,7 +21,9 @@ UIPickerViewDataSource,
 UIPickerViewDelegate
 >
 
+@property (assign, nonatomic) BOOL postingInProgress;
 @property (strong, nonatomic) TMEPhotoButton        * currentPhotoButton;
+@property (strong, nonatomic) TMEProduct            * product;
 @property (weak, nonatomic) IBOutlet UISwitch *switchFacebookShare;
 
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductName;
@@ -197,15 +199,17 @@ UIPickerViewDelegate
   
   [self dismissKeyboard];
   
+  //  [SVProgressHUD showWithStatus:@"Uploading..."];
+  
   if (![self validateInputs])
     return;
   
-  TMEProduct *product = [self getTheInputProductFromForm];
+  self.product = [self getTheInputProductFromForm];
   
-  NSDictionary *params = @{@"user_id": product.user.id,
-                           @"name": product.name,
-                           @"category_id": product.category.id,
-                           @"price": product.price,
+  NSDictionary *params = @{@"user_id": self.product.user.id,
+                           @"name": self.product.name,
+                           @"category_id": self.product.category.id,
+                           @"price": self.product.price,
                            @"sold_out": @NO};
   
   __block NSNumber *percent = @(0.0f);
@@ -216,13 +220,11 @@ UIPickerViewDelegate
                                                                 method:POST_METHOD
                                              constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
    {
-     NSMutableData *dataImage = [NSMutableData data];
      for (TMEPhotoButton *photoButton in self.photoButtons) {
        if ([photoButton hasPhoto]) {
          NSData *imageData = UIImageJPEGRepresentation([photoButton backgroundImageForState:UIControlStateNormal], 0.5);
          NSString *imageName = [@([[NSDate date] timeIntervalSince1970]) stringValue];
          [formData appendPartWithFileData:imageData name:@"images[]" fileName:imageName mimeType:@"image/jpeg"];
-         [dataImage appendData:imageData];
        }
      }
      
@@ -242,12 +244,7 @@ UIPickerViewDelegate
      }
      // reset the form
      if ([self.switchFacebookShare isOn]) {
-       NSDictionary *image = json[@"product"][@"images"][0];
-       NSString *imageURL = image[@"origin"];
-       
-       NSString *message = [NSString stringWithFormat:@"Hi! I want to sell \"%@\" for $%@. Let\'s take a look. ", product.name, product.price] ;
-       
-       [[TMEFacebookManager sharedInstance] postPhotoWithText:message imageURL:imageURL];
+       [self prepareMyBatchRequest];
      }
      
      [self resetAllForms];
@@ -334,6 +331,71 @@ UIPickerViewDelegate
   
   UIScrollView *scrollView = (UIScrollView *)self.view;
   scrollView.scrollEnabled = YES;
+}
+
+- (void)prepareMyBatchRequest{
+  NSString *message = [NSString stringWithFormat:@"Hi! I want to sell %@ for $%.2f. Let's take a look!", [self.product.name capitalizedString], self.product.priceValue];
+  
+  NSString *jsonRequestsArray = @"[";
+  NSString *jsonRequest = @"";
+  NSInteger count = 1;
+  NSMutableDictionary *params = [NSMutableDictionary new];
+  
+  for (TMEPhotoButton *photoButton in self.photoButtons) {
+    if ([photoButton hasPhoto]) {
+      NSString *imageName = [NSString stringWithFormat:@"file%d", count];
+      [params setObject:[photoButton backgroundImageForState:UIControlStateNormal] forKey:imageName];
+      
+      jsonRequest = [NSString stringWithFormat:@"{ \"method\": \"POST\", \"relative_url\": \"me/photos\" , \"body\": \"message=%@\", \"attached_files\": \"%@\" }", message, imageName];
+      
+      jsonRequestsArray = [jsonRequestsArray stringByAppendingString:[NSString stringWithFormat:@"%@,",jsonRequest]];
+      count++;
+    }
+  }
+  
+  jsonRequestsArray = [jsonRequestsArray substringToIndex:[jsonRequestsArray length] - 1];
+  jsonRequestsArray = [jsonRequestsArray stringByAppendingString:@"]"];
+  
+  
+  [params setObject:jsonRequestsArray forKey:@"batch"];
+  __block FBRequest *request;
+  if ([FBSession.activeSession.permissions indexOfObject:@"publish_actions"] == NSNotFound)
+  {
+    // No permissions found in session, ask for it
+    [FBSession.activeSession requestNewPublishPermissions: [NSArray arrayWithObject:@"publish_actions"]
+                                          defaultAudience: FBSessionDefaultAudienceFriends
+                                        completionHandler: ^(FBSession *session, NSError *error)
+     {
+       if (!error)
+       {
+         // If permissions granted and not already posting then publish the story
+         if (!self.postingInProgress)
+         {
+           request = [FBRequest requestWithGraphPath:@"me" parameters:params HTTPMethod:@"POST"];
+         }
+       }
+     }];
+    return;
+  }
+  // If permissions present and not already posting then publish the story
+  if (!self.postingInProgress)
+  {
+     request = [FBRequest requestWithGraphPath:@"me" parameters:params HTTPMethod:@"POST"];
+  }
+  
+  [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error){
+    NSArray *allResponses = result;
+    for (int i=0; i < [allResponses count]; i++) {
+      NSDictionary *response = [allResponses objectAtIndex:i];
+      int httpCode = [[response objectForKey:@"code"] intValue];
+      NSString *jsonResponse = [response objectForKey:@"body"];
+      if (httpCode != 200) {
+        NSLog(@"Facebook request error: code: %d  message: %@", httpCode, jsonResponse);
+      } else {
+        NSLog(@"Facebook response: %@", jsonResponse);
+      }
+    }
+  }];
 }
 
 #pragma marks - Helper methods

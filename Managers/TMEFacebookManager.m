@@ -9,12 +9,6 @@
 #import "AppDelegate.h"
 #import "TMEFacebookManager.h"
 
-@interface TMEFacebookManager()
-
-@property (assign, nonatomic) BOOL postingInProgress;
-
-@end
-
 @implementation TMEFacebookManager
 
 SINGLETON_MACRO
@@ -65,66 +59,6 @@ SINGLETON_MACRO
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
 {
     
-}
-
-- (void)postPhotoWithText:(NSString *) message
-           imageURL:(NSString *) imageURL
-{
-  
-  NSMutableDictionary* params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                 imageURL, @"url",
-                                 message, @"message",
-                                 nil];
-  
-  if ([FBSession.activeSession.permissions indexOfObject:@"publish_actions"] == NSNotFound)
-  {
-    // No permissions found in session, ask for it
-    [FBSession.activeSession requestNewPublishPermissions: [NSArray arrayWithObject:@"publish_actions"]
-                                          defaultAudience: FBSessionDefaultAudienceFriends
-                                        completionHandler: ^(FBSession *session, NSError *error)
-     {
-       if (!error)
-       {
-         // If permissions granted and not already posting then publish the story
-         if (!self.postingInProgress)
-         {
-           [self postToWall: params];
-         }
-       }
-     }];
-    return;
-  }
-    // If permissions present and not already posting then publish the story
-    if (!self.postingInProgress)
-    {
-      [self postToWall: params];
-    }
-}
-
-- (void)postToWall:(NSMutableDictionary*) params
-{
-  self.postingInProgress = YES; //for not allowing multiple hits
-  
-  [FBRequestConnection startWithGraphPath:@"me/photos"
-                               parameters:params
-                               HTTPMethod:@"POST"
-                        completionHandler:^(FBRequestConnection *connection,
-                                            id result,
-                                            NSError *error)
-   {
-     if (error)
-     {
-       //showing an alert for failure
-       UIAlertView *alertView = [[UIAlertView alloc]
-                                 initWithTitle:@"Post Failed"
-                                 message:error.localizedDescription
-                                 delegate:nil
-                                 cancelButtonTitle:@"OK"
-                                 otherButtonTitles:nil];
-       [alertView show];
-     }
-     self.postingInProgress = NO;
-   }];
 }
 
 @end

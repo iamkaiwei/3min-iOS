@@ -15,7 +15,4 @@
                             user:(id<FBGraphUser>)user;
 - (void)showLoginView;
 
-- (void)postPhotoWithText:(NSString *) message
-           imageURL:(NSString *) imageURL;
-
 @end

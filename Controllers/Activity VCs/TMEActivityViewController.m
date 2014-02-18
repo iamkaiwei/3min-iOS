@@ -52,6 +52,7 @@ UITableViewDelegate
 
 - (void)viewWillAppear:(BOOL)animated{
   [super viewWillAppear:animated];
+  NSLog(@"### FB SDK VERSION : %@", [[FBRequestConnection class] performSelector:@selector(userAgent)]);
   [self.tabBarController.tabBar.selectedItem setBadgeValue:nil];
   [self loadListActivityWithPage:1];
 }
