@@ -6,6 +6,7 @@
 const struct TMEProductAttributes TMEProductAttributes = {
 	.comments = @"comments",
 	.created_at = @"created_at",
+	.description_product = @"description_product",
 	.details = @"details",
 	.dislikes = @"dislikes",
 	.id = @"id",
@@ -98,6 +99,13 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 
 
 @dynamic created_at;
+
+
+
+
+
+
+@dynamic description_product;
 
 
 

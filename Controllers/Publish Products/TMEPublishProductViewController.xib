@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="pickerCategories" destination="eA3-fI-RTA" id="RQr-wg-BPN"/>
                 <outlet property="pickerCategoryButton" destination="ZTD-zX-sep" id="wZu-N5-6Cf"/>
+                <outlet property="switchFacebookShare" destination="P79-n0-OL6" id="IdA-cY-Ri6"/>
                 <outlet property="txtProductName" destination="Ush-64-dcO" id="Zpw-2f-kwu"/>
                 <outlet property="txtProductPrice" destination="ZVR-0Y-oVp" id="geX-SY-fwF"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -99,7 +100,7 @@
                                     <rect key="frame" x="153" y="86" width="126" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What are you selling?" textAlignment="right" minimumFontSize="17" id="Ush-64-dcO">
                                     <rect key="frame" x="115" y="37" width="167" height="47"/>
@@ -136,7 +137,7 @@
                                     <rect key="frame" x="13" y="7" width="12" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="P79-n0-OL6">
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="P79-n0-OL6">
                                     <rect key="frame" x="230" y="4" width="51" height="31"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </switch>

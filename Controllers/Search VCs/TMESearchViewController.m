@@ -34,7 +34,7 @@ UISearchDisplayDelegate
   // Do any additional setup after loading the view from its nib.
   [self disableNavigationTranslucent];
   self.lblInstruction = self.labelNoResult;
-  self.dataArray = @[];
+  self.dataArray = [@[] mutableCopy];
   
   self.navigationController.navigationBar.topItem.title = @"Search Product";
 //  self.state = SEARCH_BY_PRODUCT;

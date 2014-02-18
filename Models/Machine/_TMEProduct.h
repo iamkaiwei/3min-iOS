@@ -7,6 +7,7 @@
 extern const struct TMEProductAttributes {
 	__unsafe_unretained NSString *comments;
 	__unsafe_unretained NSString *created_at;
+	__unsafe_unretained NSString *description_product;
 	__unsafe_unretained NSString *details;
 	__unsafe_unretained NSString *dislikes;
 	__unsafe_unretained NSString *id;
@@ -32,6 +33,7 @@ extern const struct TMEProductFetchedProperties {
 @class TMEConversation;
 @class TMEProductImages;
 @class TMEUser;
+
 
 
 
@@ -73,6 +75,16 @@ extern const struct TMEProductFetchedProperties {
 
 
 //- (BOOL)validateCreated_at:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* description_product;
+
+
+
+//- (BOOL)validateDescription_product:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -248,6 +260,12 @@ extern const struct TMEProductFetchedProperties {
 
 - (NSDate*)primitiveCreated_at;
 - (void)setPrimitiveCreated_at:(NSDate*)value;
+
+
+
+
+- (NSString*)primitiveDescription_product;
+- (void)setPrimitiveDescription_product:(NSString*)value;
 
 
 

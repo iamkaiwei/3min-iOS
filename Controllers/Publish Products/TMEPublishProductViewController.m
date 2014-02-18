@@ -22,6 +22,8 @@ UIPickerViewDelegate
 >
 
 @property (strong, nonatomic) TMEPhotoButton        * currentPhotoButton;
+@property (weak, nonatomic) IBOutlet UISwitch *switchFacebookShare;
+
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductName;
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductPrice;
 @property (strong, nonatomic) NSArray               * arrayCategories;
@@ -153,13 +155,13 @@ UIPickerViewDelegate
 
 - (BOOL)hasNoImages
 {
-    for (TMEPhotoButton *photoButton in self.photoButtons) {
-        if ([photoButton hasPhoto]) {
-            return NO;
-        }
+  for (TMEPhotoButton *photoButton in self.photoButtons) {
+    if ([photoButton hasPhoto]) {
+      return NO;
     }
-
-    return YES;
+  }
+  
+  return YES;
 }
 
 - (BOOL)validateInputs
@@ -169,35 +171,35 @@ UIPickerViewDelegate
     [alertView show];
     return NO;
   }
-
+  
   if (![self hasProductName]){
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You haven't chose any name yet" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
     [alertView show];
     return NO;
   }
-
+  
   if (![self hasProductPrice]){
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You haven't chose any price yet" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
     [alertView show];
     return NO;
   }
-
+  
   if ([self hasNoImages]) {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There is no images in your product, try to add one" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
     [alertView show];
     return NO;
   }
-
+  
   return YES;
 }
 
-- (IBAction)onPublishButton:(id)sender {
-
+- (void)onPublishButton:(id)sender {
+  
   [self dismissKeyboard];
-
+  
   if (![self validateInputs])
     return;
-
+  
   TMEProduct *product = [self getTheInputProductFromForm];
   
   NSDictionary *params = @{@"user_id": product.user.id,
@@ -214,18 +216,40 @@ UIPickerViewDelegate
                                                                 method:POST_METHOD
                                              constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
    {
+     NSMutableData *dataImage = [NSMutableData data];
      for (TMEPhotoButton *photoButton in self.photoButtons) {
        if ([photoButton hasPhoto]) {
          NSData *imageData = UIImageJPEGRepresentation([photoButton backgroundImageForState:UIControlStateNormal], 0.5);
          NSString *imageName = [@([[NSDate date] timeIntervalSince1970]) stringValue];
          [formData appendPartWithFileData:imageData name:@"images[]" fileName:imageName mimeType:@"image/jpeg"];
+         [dataImage appendData:imageData];
        }
      }
      
    } success:^(NSHTTPURLResponse *response, id responseObject) {
      [SVProgressHUD dismiss];
      
-     // reset the forms
+     NSError* error;
+     
+     NSDictionary* json = responseObject;
+     
+     if ([responseObject isKindOfClass:[NSData class]]) {
+       json = [NSJSONSerialization
+               JSONObjectWithData:responseObject
+               
+               options:kNilOptions
+               error:&error];
+     }
+     // reset the form
+     if ([self.switchFacebookShare isOn]) {
+       NSDictionary *image = json[@"product"][@"images"][0];
+       NSString *imageURL = image[@"origin"];
+       
+       NSString *message = [NSString stringWithFormat:@"Hi! I want to sell \"%@\" for $%@. Let\'s take a look. ", product.name, product.price] ;
+       
+       [[TMEFacebookManager sharedInstance] postPhotoWithText:message imageURL:imageURL];
+     }
+     
      [self resetAllForms];
      
      [SVProgressHUD showSuccessWithStatus:@"Upload successfully."];
@@ -295,7 +319,7 @@ UIPickerViewDelegate
 }
 
 - (IBAction)onButtonPickerDone:(id)sender {
-
+  
   NSInteger row = [self.pickerCategories selectedRowInComponent:0];
   TMECategory *cat = [self.arrayCategories objectAtIndex:row];
   [self.pickerCategoryButton setTitle:cat.name forState:UIControlStateNormal];
@@ -333,7 +357,7 @@ UIPickerViewDelegate
 {
   if ([self hasProductName])
     return;
-
+  
   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You haven't choice any name yet" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
   [alertView show];
 }
