@@ -54,6 +54,7 @@ static NSString * const kLeftMenuTableViewCellIdentifier = @"TMELeftMenuTableVie
   [userInfo setObject:category forKey:@"category"];
   [[NSNotificationCenter defaultCenter] postNotificationName:CATEGORY_CHANGE_NOTIFICATION object:nil userInfo:userInfo];
   [self.viewDeckController closeLeftView];
+  ((UITabBarController *)self.viewDeckController.centerController).selectedIndex = 0;
 }
 
 - (void)viewDeckController:(IIViewDeckController *)viewDeckController didChangeOffset:(CGFloat)offset orientation:(IIViewDeckOffsetOrientation)orientation panning:(BOOL)panning{
