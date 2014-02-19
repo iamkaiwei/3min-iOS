@@ -50,17 +50,7 @@
       }
       product.category = category;
     }
-    
-    // user
-    if (data[@"owner"]) {
-      NSDictionary *userData = data[@"owner"];
-      TMEUser *user = [TMEUser userWithData:userData];
-      product.user = user;
-    }
-    else{
-      product.user = [[TMEUserManager sharedInstance] loggedUser];
-    }
-    
+        
     NSSet *setImages = [[NSSet alloc] init];
     if ([data[@"images"] isKindOfClass:[NSArray class]])
       setImages = [TMEProductImages productImagesSetFromArray:data[@"images"]];
@@ -68,6 +58,16 @@
     if (setImages.count > 0)
       product.images = setImages;
     
+  }
+  
+  // user
+  if (data[@"owner"]) {
+    NSDictionary *userData = data[@"owner"];
+    TMEUser *user = [TMEUser userWithData:userData];
+    product.user = user;
+  }
+  else{
+    product.user = [[TMEUserManager sharedInstance] loggedUser];
   }
   
   if (![data[@"likes"] isEqual:[NSNull null]] && data[@"likes"])

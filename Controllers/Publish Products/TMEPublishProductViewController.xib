@@ -9,7 +9,7 @@
             <connections>
                 <outlet property="pickerCategories" destination="eA3-fI-RTA" id="RQr-wg-BPN"/>
                 <outlet property="pickerCategoryButton" destination="ZTD-zX-sep" id="wZu-N5-6Cf"/>
-                <outlet property="switchFacebookShare" destination="P79-n0-OL6" id="IdA-cY-Ri6"/>
+                <outlet property="switchFacebookShare" destination="M1e-cp-OqE" id="uid-FP-cah"/>
                 <outlet property="txtProductName" destination="Ush-64-dcO" id="Zpw-2f-kwu"/>
                 <outlet property="txtProductPrice" destination="ZVR-0Y-oVp" id="geX-SY-fwF"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -85,7 +85,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZTD-zX-sep">
-                                    <rect key="frame" x="190" y="7" width="90" height="30"/>
+                                    <rect key="frame" x="15" y="7" width="265" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="Choose one">
@@ -97,13 +97,13 @@
                                     </connections>
                                 </button>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Set a price" textAlignment="right" minimumFontSize="17" id="ZVR-0Y-oVp">
-                                    <rect key="frame" x="153" y="86" width="126" height="30"/>
+                                    <rect key="frame" x="15" y="86" width="265" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What are you selling?" textAlignment="right" minimumFontSize="17" id="Ush-64-dcO">
-                                    <rect key="frame" x="115" y="37" width="167" height="47"/>
+                                    <rect key="frame" x="15" y="37" width="265" height="47"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -134,13 +134,14 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook.png" id="c2x-IM-keR">
-                                    <rect key="frame" x="13" y="7" width="12" height="25"/>
+                                    <rect key="frame" x="18" y="7" width="12" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="P79-n0-OL6">
-                                    <rect key="frame" x="230" y="4" width="51" height="31"/>
+                                <view contentMode="scaleToFill" id="M1e-cp-OqE" customClass="TMESwitch">
+                                    <rect key="frame" x="215" y="5" width="76" height="28"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </switch>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" red="0.89411771297454834" green="0.88627457618713379" blue="0.88235300779342651" alpha="1" colorSpace="deviceRGB"/>
                         </view>

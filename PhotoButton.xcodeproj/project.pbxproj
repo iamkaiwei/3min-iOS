@@ -64,6 +64,13 @@
 		0B3D0DC018755D2600B740ED /* clear_button_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3D0DBE18755D2600B740ED /* clear_button_pressed@2x.png */; };
 		0B69C41918965FC600A4537F /* follow-button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B69C41718965FC600A4537F /* follow-button-pressed.png */; };
 		0B69C41A18965FC600A4537F /* follow-button-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B69C41818965FC600A4537F /* follow-button-pressed@2x.png */; };
+		0B6B3F0318B45E8800610608 /* RESwitch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0B6B3F0018B45E8800610608 /* RESwitch.bundle */; };
+		0B6B3F0418B45E8800610608 /* RESwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6B3F0218B45E8800610608 /* RESwitch.m */; };
+		0B6B3F0818B45ECB00610608 /* TMESwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6B3F0718B45ECB00610608 /* TMESwitch.m */; };
+		0B6B3F0D18B4612C00610608 /* Switch_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6B3F0918B4612C00610608 /* Switch_Background.png */; };
+		0B6B3F0E18B4612C00610608 /* Switch_Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6B3F0A18B4612C00610608 /* Switch_Background@2x.png */; };
+		0B6B3F0F18B4612C00610608 /* Switch_Knob.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6B3F0B18B4612C00610608 /* Switch_Knob.png */; };
+		0B6B3F1018B4612C00610608 /* Switch_Knob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6B3F0C18B4612C00610608 /* Switch_Knob@2x.png */; };
 		0B8D540818A8886A00F10BB5 /* TMEBaseArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D540718A8886A00F10BB5 /* TMEBaseArrayDataSource.m */; };
 		0B8D540E18A8BC6900F10BB5 /* TMEBaseArrayDataSourceWithLoadMore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D540D18A8BC6900F10BB5 /* TMEBaseArrayDataSourceWithLoadMore.m */; };
 		0B9366F7186C10A900491FA4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9366F6186C10A900491FA4 /* Reachability.m */; };
@@ -453,6 +460,15 @@
 		0B3D0DBE18755D2600B740ED /* clear_button_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clear_button_pressed@2x.png"; sourceTree = "<group>"; };
 		0B69C41718965FC600A4537F /* follow-button-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "follow-button-pressed.png"; sourceTree = "<group>"; };
 		0B69C41818965FC600A4537F /* follow-button-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "follow-button-pressed@2x.png"; sourceTree = "<group>"; };
+		0B6B3F0018B45E8800610608 /* RESwitch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RESwitch.bundle; sourceTree = "<group>"; };
+		0B6B3F0118B45E8800610608 /* RESwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESwitch.h; sourceTree = "<group>"; };
+		0B6B3F0218B45E8800610608 /* RESwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESwitch.m; sourceTree = "<group>"; };
+		0B6B3F0618B45ECB00610608 /* TMESwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESwitch.h; path = "Custom Switch/TMESwitch.h"; sourceTree = "<group>"; };
+		0B6B3F0718B45ECB00610608 /* TMESwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESwitch.m; path = "Custom Switch/TMESwitch.m"; sourceTree = "<group>"; };
+		0B6B3F0918B4612C00610608 /* Switch_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Switch_Background.png; sourceTree = "<group>"; };
+		0B6B3F0A18B4612C00610608 /* Switch_Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Switch_Background@2x.png"; sourceTree = "<group>"; };
+		0B6B3F0B18B4612C00610608 /* Switch_Knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Switch_Knob.png; sourceTree = "<group>"; };
+		0B6B3F0C18B4612C00610608 /* Switch_Knob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Switch_Knob@2x.png"; sourceTree = "<group>"; };
 		0B8D540618A8886A00F10BB5 /* TMEBaseArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseArrayDataSource.h; sourceTree = "<group>"; };
 		0B8D540718A8886A00F10BB5 /* TMEBaseArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseArrayDataSource.m; sourceTree = "<group>"; };
 		0B8D540C18A8BC6900F10BB5 /* TMEBaseArrayDataSourceWithLoadMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEBaseArrayDataSourceWithLoadMore.h; path = "../Activity VCs/TMEBaseArrayDataSourceWithLoadMore.h"; sourceTree = "<group>"; };
@@ -1126,6 +1142,25 @@
 			name = "Search Bar";
 			sourceTree = "<group>";
 		};
+		0B6B3EFF18B45E8800610608 /* RESwitch */ = {
+			isa = PBXGroup;
+			children = (
+				0B6B3F0018B45E8800610608 /* RESwitch.bundle */,
+				0B6B3F0118B45E8800610608 /* RESwitch.h */,
+				0B6B3F0218B45E8800610608 /* RESwitch.m */,
+			);
+			path = RESwitch;
+			sourceTree = "<group>";
+		};
+		0B6B3F0518B45E9B00610608 /* Custom Switch */ = {
+			isa = PBXGroup;
+			children = (
+				0B6B3F0618B45ECB00610608 /* TMESwitch.h */,
+				0B6B3F0718B45ECB00610608 /* TMESwitch.m */,
+			);
+			name = "Custom Switch";
+			sourceTree = "<group>";
+		};
 		0B9366F4186C10A900491FA4 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -1395,6 +1430,7 @@
 		0C28B28C17DC1B9200BD0EC2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				0B6B3EFF18B45E8800610608 /* RESwitch */,
 				0BBD1CBA188E799E00F9C29C /* XLRemoteImageView */,
 				0B9E80E51888E38A004AF9E3 /* TSMessages */,
 				B45411F81867DD8C001A75EE /* AFUrbanAirshipClient */,
@@ -1420,6 +1456,7 @@
 		0C28B28D17DC1B9200BD0EC2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B6B3F0518B45E9B00610608 /* Custom Switch */,
 				0B985174187E50FF005AAF8E /* Load More Table View Cell */,
 				0B3D0DB118754D5B00B740ED /* Search Bar */,
 				0C43CCB017F5E60C00D869F9 /* superclass */,
@@ -1492,6 +1529,10 @@
 				B4AB2E4C18712930000A9E68 /* star@2x.png */,
 				B4AB2E5518712B32000A9E68 /* arrow.png */,
 				B4AB2E5618712B32000A9E68 /* arrow@2x.png */,
+				0B6B3F0918B4612C00610608 /* Switch_Background.png */,
+				0B6B3F0A18B4612C00610608 /* Switch_Background@2x.png */,
+				0B6B3F0B18B4612C00610608 /* Switch_Knob.png */,
+				0B6B3F0C18B4612C00610608 /* Switch_Knob@2x.png */,
 			);
 			path = "Publish Product";
 			sourceTree = "<group>";
@@ -2285,6 +2326,7 @@
 			files = (
 				84325C2C1875B33D00D14B70 /* TMEActivityViewController.xib in Resources */,
 				0C5954F117F6BDDD0076353E /* navigation_background.png in Resources */,
+				0B6B3F1018B4612C00610608 /* Switch_Knob@2x.png in Resources */,
 				0B996BDC18B1CEB60051F6D7 /* TMELikedTableViewCell.xib in Resources */,
 				B42FE3E118190F1C004E39EF /* tabbar-background.png in Resources */,
 				B4AB2E5118712930000A9E68 /* price.png in Resources */,
@@ -2341,11 +2383,13 @@
 				0BA147781884DB34004F0D15 /* location-arrow@2x.png in Resources */,
 				B459FDE4181BFC7900D6BC79 /* Login3.png in Resources */,
 				84D2B1D718824FC400CE77CD /* you-offer-selected.png in Resources */,
+				0B6B3F0E18B4612C00610608 /* Switch_Background@2x.png in Resources */,
 				0CFC100117ECBE06008FBD92 /* TMELoginViewController.xib in Resources */,
 				B459FDDD181BF94E00D6BC79 /* Login3-568h.png in Resources */,
 				0BA1477A1884DB8F004F0D15 /* location-arrow.png in Resources */,
 				B4202235180A844F00F62FF0 /* TMEBrowserCollectionCell.xib in Resources */,
 				0C6E069217E0CBF60003F104 /* TMEHomeViewController.xib in Resources */,
+				0B6B3F0318B45E8800610608 /* RESwitch.bundle in Resources */,
 				B42FE3DB18190F1C004E39EF /* tabbar-activity-icon@2x.png in Resources */,
 				B49C6F6C181C37D600EB380A /* For-her.png in Resources */,
 				0C43CC9C17F5CC4A00D869F9 /* arrow-down@2x.png in Resources */,
@@ -2370,6 +2414,7 @@
 				B42FE3DF18190F1C004E39EF /* tabbar-browser-icon@2x.png in Resources */,
 				0C28B29F17DC1BE300BD0EC2 /* add_photo_57x57.png in Resources */,
 				0CAE978F17E76635003A22CA /* InfoPlist.strings in Resources */,
+				0B6B3F0D18B4612C00610608 /* Switch_Background.png in Resources */,
 				B4AB2E4E18712930000A9E68 /* facebook@2x.png in Resources */,
 				0CFC0FF917ECBA3F008FBD92 /* bt_fb_signin_normal@2x.png in Resources */,
 				B42FE3E218190F1C004E39EF /* tabbar-background@2x.png in Resources */,
@@ -2379,6 +2424,7 @@
 				0B3D0DBB18755B0000B740ED /* clear_button.png in Resources */,
 				0B9E81051888E38A004AF9E3 /* NotificationBackgroundError.png in Resources */,
 				B4AB2E4D18712930000A9E68 /* facebook.png in Resources */,
+				0B6B3F0F18B4612C00610608 /* Switch_Knob.png in Resources */,
 				0BA147741884D9E5004F0D15 /* button-submit.png in Resources */,
 				0B9E810D1888E38A004AF9E3 /* NotificationBackgroundSuccessIcon.png in Resources */,
 				0B9E81141888E38A004AF9E3 /* NotificationButtonBackground@2x.png in Resources */,
@@ -2555,6 +2601,7 @@
 				B49C6F5E181C34E200EB380A /* TMELeftMenuTableViewCell.m in Sources */,
 				0C34A8A117F0ADFE003ACEFF /* AFDownloadRequestOperation.m in Sources */,
 				0C7EFBE017E8D5170054C4DE /* UIView+Additions.m in Sources */,
+				0B6B3F0418B45E8800610608 /* RESwitch.m in Sources */,
 				0C7EFBD217E8D5170054C4DE /* UIAlertView+Additions.m in Sources */,
 				0C7EFBDC17E8D5170054C4DE /* UILabel+Additions.m in Sources */,
 				0C7EFB6C17E768C70054C4DE /* MagicalRecord+iCloud.m in Sources */,
@@ -2614,6 +2661,7 @@
 				0B9E81041888E38A004AF9E3 /* TSMessage.m in Sources */,
 				0C7EFBC517E8D5170054C4DE /* ISO8601DateFormatter.m in Sources */,
 				20A10FCD17F80FA200471983 /* TMECategoryManager.m in Sources */,
+				0B6B3F0818B45ECB00610608 /* TMESwitch.m in Sources */,
 				0C34A89B17F0A665003ACEFF /* TMEHTTPClient.m in Sources */,
 				0B8D540818A8886A00F10BB5 /* TMEBaseArrayDataSource.m in Sources */,
 				0C7EFBDD17E8D5170054C4DE /* UINavigationController+Additions.m in Sources */,

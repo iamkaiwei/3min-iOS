@@ -10,6 +10,7 @@
 #import "TMEBrowserProductsViewController.h"
 #import "TMEBrowserCollectionViewController.h"
 #import "HTKContainerViewController.h"
+#import "TMESwitch.h"
 #import "PBImageHelper.h"
 
 @interface TMEPublishProductViewController ()
@@ -21,10 +22,10 @@ UIPickerViewDataSource,
 UIPickerViewDelegate
 >
 
-@property (assign, nonatomic) BOOL postingInProgress;
+@property (assign, nonatomic) BOOL                    postingInProgress;
 @property (strong, nonatomic) TMEPhotoButton        * currentPhotoButton;
 @property (strong, nonatomic) TMEProduct            * product;
-@property (weak, nonatomic) IBOutlet UISwitch *switchFacebookShare;
+@property (weak, nonatomic) IBOutlet TMESwitch      * switchFacebookShare;
 
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductName;
 @property (weak, nonatomic) IBOutlet UITextField    * txtProductPrice;
