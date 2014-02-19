@@ -30,7 +30,7 @@ SINGLETON_MACRO
         [[AppDelegate sharedDelegate] showHomeViewController];
         
     } andFailureBlock:^(NSInteger statusCode, id obj) {
-        [SVProgressHUD showErrorWithStatus:@"Login failure"];
+        [SVProgressHUD showErrorWithStatus:@"Login failed"];
     }];
 }
 

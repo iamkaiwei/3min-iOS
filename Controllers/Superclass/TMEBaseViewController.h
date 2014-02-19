@@ -80,7 +80,7 @@
 - (void)sendNotification:(NSString *)notificationName;
 - (void)sendNotification:(NSString *)notificationName body:(id)body;
 - (void)sendNotification:(NSString *)notificationName body:(id)body type:(id)type;
-
+- (UIBarButtonItem *)leftNavigationButtonCancel;
 - (void)unregisterForKeyboardNotifications;
 - (void)registerForKeyboardNotifications;
 

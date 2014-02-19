@@ -46,6 +46,8 @@ UIPickerViewDelegate
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   self.title = @"";
+  self.txtProductName.delegate = self;
+  self.txtProductPrice.delegate = self;
   //    self.navigationController.navigationBar.topItem.title = @"Publish Product";
   
   for (TMEPhotoButton *button in self.view.subviews) {
@@ -56,11 +58,11 @@ UIPickerViewDelegate
     }
   }
   [self disableNavigationTranslucent];
-  self.navigationItem.leftBarButtonItem = [self leftNavigationButton];
+  self.navigationItem.leftBarButtonItem = [self leftNavigationButtonCancel];
   self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
   
-  //Ask user to take picture
-  [self.photoButtons[0] takeOrChoosePhoto:YES];
+  ((UIScrollView *)self.view).showsHorizontalScrollIndicator = NO;
+  ((UIScrollView *)self.view).showsVerticalScrollIndicator = NO;
   
   [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories) {
     self.arrayCategories = arrayCategories;
@@ -72,9 +74,17 @@ UIPickerViewDelegate
   [self autoAdjustScrollViewContentSize];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+  [super viewWillAppear:animated];
+  //Ask user to take picture
+  if ([self hasNoImages]) {
+    [self.photoButtons[0] takeOrChoosePhoto:YES];
+  }
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
-  [self hideTheKeyboard];
+  [self dismissKeyboard];
 }
 
 - (BOOL)hidesBottomBarWhenPushed
@@ -82,22 +92,10 @@ UIPickerViewDelegate
   return YES;
 }
 
-- (UIBarButtonItem *)leftNavigationButton
-{
-  UIImage *leftButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"publish_cancel_btn" isIcon:YES];
-  UIImage *leftButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"publish_cancel_btn_pressed" isIcon:YES];
-  UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
-  [leftButton addTarget:self action:@selector(onCancelButton:) forControlEvents:UIControlEventTouchUpInside];
-  [leftButton setBackgroundImage:leftButtonBackgroundNormalImage forState:UIControlStateNormal];
-  [leftButton setBackgroundImage:leftButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
-  
-  return [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-}
-
 - (UIBarButtonItem *)rightNavigationButton
 {
-  UIImage *rightButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn" isIcon:YES];
-  UIImage *rightButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"publish_done_btn_pressed" isIcon:YES];
+  UIImage *rightButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"button-submit" isIcon:YES];
+  UIImage *rightButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"button-submit-pressed" isIcon:YES];
   UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
   [rightButton addTarget:self action:@selector(onPublishButton:) forControlEvents:UIControlEventTouchUpInside];
   [rightButton setBackgroundImage:rightButtonBackgroundNormalImage forState:UIControlStateNormal];
@@ -125,9 +123,12 @@ UIPickerViewDelegate
 - (void)photoSaved:(TMEPhotoButton *)button
 {
   self.currentPhotoButton = button;
+  
   UIImage *image = [button backgroundImageForState:UIControlStateNormal];
   TMEBasePhotoEditorViewController *editorController = [[TMEBasePhotoEditorViewController alloc] initWithImage:image];
   editorController.delegate = self;
+  
+  [AFPhotoEditorCustomization setToolOrder:@[kAFEffects]];
   [self presentModalViewController:editorController withPushDirection:@"left"];
 }
 
@@ -153,6 +154,10 @@ UIPickerViewDelegate
 }
 
 - (void)onCancelButton:(id)sender {
+  if (self.isKeyboardShowing) {
+    [self dismissKeyboard];
+    return;
+  }
   self.tabBarController.selectedIndex = 0;
 }
 
@@ -197,14 +202,12 @@ UIPickerViewDelegate
 }
 
 - (void)onPublishButton:(id)sender {
-  
   [self dismissKeyboard];
-  
-  //  [SVProgressHUD showWithStatus:@"Uploading..."];
   
   if (![self validateInputs])
     return;
   
+  [SVProgressHUD showWithStatus:@"Uploading..."];
   self.product = [self getTheInputProductFromForm];
   
   NSDictionary *params = @{@"user_id": self.product.user.id,
@@ -302,7 +305,7 @@ UIPickerViewDelegate
 }
 
 - (IBAction)onButtonPicker:(id)sender {
-  [self hideTheKeyboard];
+  [self dismissKeyboard];
   
   UIScrollView *scrollView = (UIScrollView *)self.view;
   scrollView.scrollEnabled = NO;
@@ -381,7 +384,7 @@ UIPickerViewDelegate
   // If permissions present and not already posting then publish the story
   if (!self.postingInProgress)
   {
-     request = [FBRequest requestWithGraphPath:@"me" parameters:params HTTPMethod:@"POST"];
+    request = [FBRequest requestWithGraphPath:@"me" parameters:params HTTPMethod:@"POST"];
   }
   
   [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error){
@@ -401,17 +404,13 @@ UIPickerViewDelegate
 
 #pragma marks - Helper methods
 
-- (void)hideTheKeyboard{
-  [self.txtProductName endEditing:YES];
-  [self.txtProductPrice endEditing:YES];
-}
-
 - (void)resetAllForms
 {
   for (id button in self.view.subviews)
     if ([button isKindOfClass:[TMEPhotoButton class]])
       [button resetAttributes];
   
+  self.pickerCategoryButton.titleLabel.text = @"Choose one";
   self.txtProductName.text = @"";
   self.txtProductPrice.text = @"";
 }
@@ -447,6 +446,28 @@ UIPickerViewDelegate
     return YES;
   }
   return NO;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+  if ([self.activeTextField isEqual:textField]) {
+    self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
+  }
+  return YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField*)textField;
+{
+  NSInteger nextTag = textField.tag + 1;
+  // Try to find next responder
+  UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+  if (nextResponder) {
+    // Found next responder, so set it.
+    [nextResponder becomeFirstResponder];
+    return NO;
+  }
+  // Not found, so remove keyboard.
+  [self dismissKeyboard];
+  return NO; // We do not want UITextField to insert line-breaks.
 }
 
 @end

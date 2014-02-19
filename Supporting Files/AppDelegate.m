@@ -365,7 +365,7 @@ FacebookManagerDelegate
             UITabBarController *tabBarController = (UITabBarController *)self.deckController.centerController;
             tabBarController.selectedIndex = 0;
         } andFailureBlock:^(NSInteger statusCode, id obj) {
-            [SVProgressHUD showErrorWithStatus:@"Login failure"];
+            [SVProgressHUD showErrorWithStatus:@"Login failed"];
         }];
     } else if (![TMEReachabilityManager isReachable]) {
       [SVProgressHUD showErrorWithStatus:@"No connection!"];

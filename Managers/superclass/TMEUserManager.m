@@ -167,7 +167,7 @@ SINGLETON_MACRO
         
         if (failureBlock)
             failureBlock(error.code, error);
-        
+      [[TMEFacebookManager sharedInstance] logout];
         self.isLogging = NO;
         
     }];

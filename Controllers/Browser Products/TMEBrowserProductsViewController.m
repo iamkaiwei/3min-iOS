@@ -103,7 +103,7 @@ TMEBrowserProductsTableCellDelegate
     [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
                                                 onSuccessBlock:^(NSArray *arrProducts) {
                                                   self.arrProducts = [arrProducts mutableCopy];
-                                                  [self.tableView reloadData];
+                                                  [self setUpTableView];
                                                   [self.pullToRefreshView endRefreshing];
                                                   [SVProgressHUD dismiss];
                                                 } andFailureBlock:^(NSInteger statusCode, id obj) {
@@ -153,6 +153,7 @@ TMEBrowserProductsTableCellDelegate
 {
   NSDictionary *userInfo = [notification userInfo];
   self.currentCategory = [userInfo objectForKey:@"category"];
+  self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
   [self loadProducts];
 }
 

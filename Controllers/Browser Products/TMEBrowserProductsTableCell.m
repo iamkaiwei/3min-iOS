@@ -36,14 +36,14 @@
 - (void)configCellWithData:(TMEProduct *)product{
   
   // Follow button
-  self.btnFollow.layer.borderWidth = 1;
+  self.btnFollow.layer.backgroundColor = [UIColor backgroundBrightGrayColor].CGColor;
   self.btnFollow.layer.borderColor = [UIColor grayColor].CGColor;
-  self.btnFollow.layer.cornerRadius = 3;
+  self.btnFollow.layer.cornerRadius = 2;
   
   // Share button
-  self.btnShare.layer.borderWidth = 1;
+  self.btnShare.layer.backgroundColor = [UIColor backgroundBrightGrayColor].CGColor;
   self.btnShare.layer.borderColor = [UIColor grayColor].CGColor;
-  self.btnShare.layer.cornerRadius = 3;
+  self.btnShare.layer.cornerRadius = 2;
   
   // for now when we get product, we get all imformantion about this product like user, category, etc.
   
