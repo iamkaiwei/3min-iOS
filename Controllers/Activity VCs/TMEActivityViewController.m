@@ -133,7 +133,6 @@ UITableViewDelegate
    }
                                                        andFailureBlock:^(NSInteger statusCode, NSError *error)
    {
-     return DLog(@"%d", statusCode);
      [self.pullToRefreshView endRefreshing];
    }];
 }

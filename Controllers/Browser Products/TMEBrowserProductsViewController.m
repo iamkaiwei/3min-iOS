@@ -21,22 +21,14 @@ UITableViewDelegate,
 TMEBrowserProductsTableCellDelegate
 >
 
-@property (strong, nonatomic) NSMutableArray            * arrProducts;
 @property (strong, nonatomic) TMEUser                   * loginUser;
 @property (strong, nonatomic) TMECategory               * currentCategory;
 @property (strong, nonatomic) TMEBaseArrayDataSource    * productsArrayDataSource;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewProductPlaceholder;
 
 @end
 
 @implementation TMEBrowserProductsViewController
-
-- (NSMutableArray *)arrProducts{
-  if (_arrProducts) {
-    return _arrProducts;
-  }
-  
-  return [@[] mutableCopy];
-}
 
 - (void)viewDidLoad
 {
@@ -73,10 +65,10 @@ TMEBrowserProductsTableCellDelegate
     cell.delegate = self;
   };
   
-  self.productsArrayDataSource = [[TMEBaseArrayDataSource alloc] initWithItems:self.arrProducts cellIdentifier:kBrowseProductCellIdentifier configureCellBlock:configureCell];
+  self.productsArrayDataSource = [[TMEBaseArrayDataSource alloc] initWithItems:self.dataArray cellIdentifier:kBrowseProductCellIdentifier configureCellBlock:configureCell];
   
   self.tableView.dataSource = self.productsArrayDataSource;
-  [self.tableView reloadData];
+  [self refreshTableViewAnimated:NO];
 }
 
 #pragma mark - UITableView delegate
@@ -85,7 +77,7 @@ TMEBrowserProductsTableCellDelegate
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
   
   TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
-  productDetailsController.product = self.arrProducts[indexPath.row];
+  productDetailsController.product = self.dataArray[indexPath.row];
   productDetailsController.hidesBottomBarWhenPushed = YES;
   [self.navigationController pushViewController:productDetailsController animated:YES];
 }
@@ -102,10 +94,11 @@ TMEBrowserProductsTableCellDelegate
   if (self.currentCategory) {
     [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
                                                 onSuccessBlock:^(NSArray *arrProducts) {
-                                                  self.arrProducts = [arrProducts mutableCopy];
+                                                  self.imageViewProductPlaceholder.hidden = YES;
+                                                  self.dataArray = [arrProducts mutableCopy];
                                                   [self setUpTableView];
                                                   [self.pullToRefreshView endRefreshing];
-                                                  [self.tableView setContentOffset:CGPointMake(0, -60) animated:YES];
+                                                  [self.tableView setContentOffset:CGPointMake(0, -40) animated:YES];
                                                   [SVProgressHUD dismiss];
                                                 } andFailureBlock:^(NSInteger statusCode, id obj) {
                                                   [self.pullToRefreshView endRefreshing];
@@ -113,7 +106,7 @@ TMEBrowserProductsTableCellDelegate
                                                 }];
   } else {
     [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
-      self.arrProducts = [arrProducts mutableCopy];
+      self.dataArray = [arrProducts mutableCopy];
       [self setUpTableView];
       [SVProgressHUD dismiss];
       
@@ -170,7 +163,7 @@ TMEBrowserProductsTableCellDelegate
   }
   
   NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)superView];
-  TMEProduct *currentCellProduct = self.arrProducts[indexPath.row];
+  TMEProduct *currentCellProduct = self.dataArray[indexPath.row];
   sender.selected = !currentCellProduct.likedValue;
   
   if (!currentCellProduct.likedValue) {

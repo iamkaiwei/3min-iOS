@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEBrowserProductsViewController">
             <connections>
+                <outlet property="imageViewProductPlaceholder" destination="5nX-lr-mhy" id="fH0-EJ-V1b"/>
                 <outlet property="tableView" destination="Th7-ZM-0Ed" id="2ba-iy-HcB"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -24,10 +25,17 @@
                         <outlet property="delegate" destination="-1" id="AN2-L9-9XV"/>
                     </connections>
                 </tableView>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product-placeholder.png" id="5nX-lr-mhy">
+                    <rect key="frame" x="0.0" y="100" width="320" height="325"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="product-placeholder.png" width="270" height="272"/>
+    </resources>
 </document>

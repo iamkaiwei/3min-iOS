@@ -16,6 +16,7 @@
 @interface TMEPublishProductViewController ()
 <
 AFPhotoEditorControllerDelegate,
+UIAlertViewDelegate,
 UITextFieldDelegate,
 TMEPhotoButtonDelegate,
 UIPickerViewDataSource,
@@ -162,10 +163,17 @@ UIPickerViewDelegate
   if (self.activeTextField) {
     self.activeTextField.text = @"";
   }
+  
   if (self.isKeyboardShowing) {
     [self dismissKeyboard];
     return;
   }
+  
+  if ([self hasChoseCategory] || [self hasProductName] || [self hasProductPrice] || ![self hasNoImages]) {
+    [self showAlertViewOnCancel];
+    return;
+  }
+  
   self.tabBarController.selectedIndex = 0;
 }
 
@@ -215,8 +223,12 @@ UIPickerViewDelegate
   if (![self validateInputs])
     return;
   
-  [SVProgressHUD showWithStatus:@"Uploading..."];
   self.product = [self getTheInputProductFromForm];
+  
+  // move to browser tab if they are another tab
+  if(![self.tabBarController.selectedViewController isKindOfClass:[TMEBrowserProductsViewController class]]){
+    [self.tabBarController setSelectedIndex:0];
+  }
   
   NSDictionary *params = @{@"user_id": self.product.user.id,
                            @"name": self.product.name,
@@ -261,13 +273,7 @@ UIPickerViewDelegate
      
      [self resetAllForms];
      
-     [SVProgressHUD showSuccessWithStatus:@"Upload successfully."];
-     [self.navigationController finishSGProgress];
-     
-     // move to browser tab if they are another tab
-     if(![self.tabBarController.selectedViewController isKindOfClass:[TMEBrowserProductsViewController class]]){
-       [self.tabBarController setSelectedIndex:0];
-       
+     if ([((TMENavigationViewController *)self.tabBarController.selectedViewController).topViewController isKindOfClass:[HTKContainerViewController class]]) {
        HTKContainerViewController *containerVC = (HTKContainerViewController *)((TMENavigationViewController *)self.tabBarController.selectedViewController).topViewController;
        
        if ([containerVC.currentViewController isKindOfClass:[TMEBrowserProductsViewController class]]) {
@@ -278,11 +284,14 @@ UIPickerViewDelegate
          [((TMEBrowserCollectionViewController *)containerVC.currentViewController) loadProducts];
        }
      }
+     [TSMessage showNotificationWithTitle:@"Your product has been uploaded successfully." type:TSMessageNotificationTypeSuccess];
+     
+     [((TMENavigationViewController *)self.tabBarController.selectedViewController) finishSGProgress];
      
    } failure:^(NSError *error) {
      
      [SVProgressHUD showErrorWithStatus:@"Fail to upload, try again later"];
-     [self.navigationController finishSGProgress];
+     [((TMENavigationViewController *)self.tabBarController.selectedViewController) finishSGProgress];
      
    } progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
      
@@ -290,7 +299,7 @@ UIPickerViewDelegate
      percent = @(((float)totalBytesWritten)/totalBytesExpectedToWrite * 0.7);
      float percentage = [percent floatValue];
      percentage *= 100;
-     [self.navigationController setSGProgressPercentage:percentage];
+     [((TMENavigationViewController *)self.tabBarController.selectedViewController) setSGProgressPercentage:percentage];
    }];
 }
 
@@ -456,6 +465,18 @@ UIPickerViewDelegate
   return NO;
 }
 
+- (void)showAlertViewOnCancel{
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Do you want to save this item for later?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+  [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+  if (!buttonIndex) {
+    [self resetAllForms];
+  }
+  self.tabBarController.selectedIndex = 0;
+}
+
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
   if ([self.activeTextField isEqual:textField]) {
     self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
@@ -465,7 +486,7 @@ UIPickerViewDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
   if ([textField isEqual:self.txtProductPrice]) {
-    if (self.txtProductPrice.text.length >= 11) {
+    if (self.txtProductPrice.text.length >= 11 && ![string isEqualToString:@""]) {
       self.txtProductPrice.text = @"99999999999";
       return NO;
     }

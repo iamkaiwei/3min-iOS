@@ -30,6 +30,7 @@
       self.navigationBar.barStyle = UIBarStyleBlackTranslucent;
       self.navigationBar.translucent = YES;
       self.navigationBar.barTintColor = [UIColor backgroundBrightGrayColor];
+      self.navigationBar.tintColor = [UIColor orangeMainColor];
     }
   }
   
