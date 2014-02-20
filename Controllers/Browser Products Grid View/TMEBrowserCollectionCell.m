@@ -45,6 +45,14 @@
   self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", product.price];
 }
 
+- (void)didSelectCellAnimation{
+  [CAAnimation addAnimationToLayer:self.layer withKeyPath:@"transform.scale" duration:1 from:1 to:0.97 easingFunction:CAAnimationEasingFunctionEaseOutBack];
+}
+
+- (void)didDeselectCellAnimation{
+  [CAAnimation addAnimationToLayer:self.layer withKeyPath:@"transform.scale" duration:1 from:0.97 to:1 easingFunction:CAAnimationEasingFunctionEaseOutBack];
+}
+
 + (CGSize)productCellSize
 {
   return CGSizeMake(153, 190);

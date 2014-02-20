@@ -105,6 +105,7 @@ TMEBrowserProductsTableCellDelegate
                                                   self.arrProducts = [arrProducts mutableCopy];
                                                   [self setUpTableView];
                                                   [self.pullToRefreshView endRefreshing];
+                                                  [self.tableView setContentOffset:CGPointMake(0, -60) animated:YES];
                                                   [SVProgressHUD dismiss];
                                                 } andFailureBlock:^(NSInteger statusCode, id obj) {
                                                   [self.pullToRefreshView endRefreshing];

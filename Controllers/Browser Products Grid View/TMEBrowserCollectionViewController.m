@@ -40,6 +40,21 @@ UICollectionViewDelegate
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onCategoryChangeNotification:) name:CATEGORY_CHANGE_NOTIFICATION object:nil];
 }
 
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+  UICollectionViewCell * cell = [collectionView cellForItemAtIndexPath:indexPath];
+  if ([cell respondsToSelector:@selector(didSelectCellAnimation)]) {
+    [cell performSelector:@selector(didSelectCellAnimation)];
+  }
+  return YES;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+  UICollectionViewCell * cell = [collectionView cellForItemAtIndexPath:indexPath];
+  if ([cell respondsToSelector:@selector(didDeselectCellAnimation)]) {
+    [cell performSelector:@selector(didDeselectCellAnimation)];
+  }
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
   TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
   productDetailsController.product = self.arrayProducts[indexPath.row];
@@ -133,6 +148,8 @@ UICollectionViewDelegate
   [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
   NSDictionary *userInfo = [notification userInfo];
   self.currentCategory= [userInfo objectForKey:@"category"];
+  self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
   [self loadProducts];
 }
+
 @end

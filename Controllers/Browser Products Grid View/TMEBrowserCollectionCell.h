@@ -11,6 +11,8 @@
 @interface TMEBrowserCollectionCell : UICollectionViewCell
 
 - (void)configCellWithData:(TMEProduct *)product;
+- (void)didSelectCellAnimation;
+- (void)didDeselectCellAnimation;
 + (CGSize)productCellSize;
 
 @end

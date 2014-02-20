@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -49,13 +49,16 @@
                         <color key="backgroundColor" red="0.8784313725490196" green="0.8666666666666667" blue="0.87058823529411766" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                 </subviews>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="imageViewAvatar" destination="X8M-rz-hYI" id="2z2-lr-iVJ"/>
                 <outlet property="lblContent" destination="8uC-5R-oCF" id="XcC-pb-1jV"/>
                 <outlet property="lblTime" destination="zAn-3t-IM4" id="NMp-ob-WED"/>
                 <outlet property="lblUsername" destination="NM5-T8-kZ3" id="CTR-xN-WfR"/>
                 <outlet property="separatorView" destination="yAD-Ia-ivz" id="PNQ-Vm-dyb"/>
+                <outlet property="viewContent" destination="hjq-ZF-baC" id="OMm-hB-ofy"/>
             </connections>
         </tableViewCell>
     </objects>

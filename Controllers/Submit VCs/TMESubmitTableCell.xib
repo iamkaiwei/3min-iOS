@@ -53,7 +53,9 @@
                         <color key="backgroundColor" red="0.8795335310218978" green="0.86493499087591241" blue="0.8722342609489051" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                 </subviews>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="imageViewAvatar" destination="oXj-hm-0YL" id="2SJ-Sb-d36"/>
                 <outlet property="indicator" destination="09F-Cj-PLa" id="DnM-A1-bSL"/>
@@ -61,6 +63,7 @@
                 <outlet property="lblTime" destination="1CW-fn-fqJ" id="hlS-mT-2QT"/>
                 <outlet property="lblUsername" destination="sxJ-m2-pDa" id="MNt-fo-E13"/>
                 <outlet property="separatorView" destination="iFK-6A-X73" id="RAH-BX-a0S"/>
+                <outlet property="viewContent" destination="93A-jp-Ftz" id="Fd5-dG-YOO"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -27,12 +27,15 @@ static NSString * const kLeftMenuTableViewCellIdentifier = @"TMELeftMenuTableVie
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  [self handleStatusBarAnimation];
+  [self getAllCategories];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+  [super viewWillAppear:animated];
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    [self handleStatusBarAnimation];
     [self.tableView setContentInset:UIEdgeInsetsMake(20, 0, 0, 0)];
   }
-  
-  [self getAllCategories];
 }
 
 - (void)registerNibForTableView{
