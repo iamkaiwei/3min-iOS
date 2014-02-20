@@ -148,6 +148,7 @@ UIAlertViewDelegate
 #pragma UIKeyboardNotification
 - (void)onKeyboardWillShowNotification:(NSNotification *)sender
 {
+  ((IIViewDeckController *)self.tabBarController).panningMode = IIViewDeckNoPanning;
 }
 
 - (void)onKeyboardWillHideNotification:(NSNotification *)sender

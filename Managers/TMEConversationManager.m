@@ -118,11 +118,11 @@ SINGLETON_MACRO
     [params setObject:@(page) forKey:@"page"];
   }
   
-  NSString *path = [NSString stringWithFormat:@"%@%@%@", API_SERVER_HOST, API_PREFIX, API_CONVERSATIONS];
+  NSString *path = [NSString stringWithFormat:@"%@%@%@%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, API_OFFER];
   [[TMEHTTPClient sharedClient] getPath:path
                              parameters:params
                                 success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                  NSArray *arrayConversation = [TMEConversation arrayConversationFromArrayData:responseObject];
+                                  NSArray *arrayConversation = [TMEConversation arrayConversationFromOfferArrayData:responseObject];
                                   
                                   if (successBlock) {
                                     successBlock(arrayConversation);

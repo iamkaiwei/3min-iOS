@@ -27,14 +27,20 @@
   [self.productIndicator startAnimating];
   [self.avatarIndicator startAnimating];
   self.labelUserName.text = conversation.user_full_name;
-  self.labelTimestamp.text = [conversation.latest_update relativeDate];
-  [self.labelTimestamp sizeToFit];
   
-  CGRect frame = self.imageViewClock.frame;
-  frame.origin.x = CGRectGetMaxX(self.labelTimestamp.frame) + 3;
-  self.imageViewClock.frame = frame;
+  if (conversation.latest_update) {
+    self.labelTimestamp.hidden = NO;
+    self.imageViewClock.hidden = NO;
+    self.labelTimestamp.text = [conversation.latest_update relativeDate];
+    [self.labelTimestamp sizeToFit];
+    
+    CGRect frame = self.imageViewClock.frame;
+    frame.origin.x = CGRectGetMaxX(self.labelTimestamp.frame) + 3;
+    self.imageViewClock.frame = frame;
+  }
   
   self.labelOfferPrice.text = [NSString stringWithFormat:@"$%@",conversation.offer];
+  
   [self.labelOfferPrice sizeToFitKeepHeight];
   [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:conversation.user_avatar]];
   

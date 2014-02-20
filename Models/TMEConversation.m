@@ -16,7 +16,7 @@
   NSMutableArray *arrayConversation = [@[] mutableCopy];
   for (NSDictionary *data in arrayData) {
     TMEConversation *conversation = [TMEConversation conversationFromData:data];
-    if (![conversation.offer isEqualToNumber:@0]) {
+    if (![conversation.offer isEqualToNumber:@0] && ![conversation.offer isEqual:[NSNull null]]) {
       [arrayConversation addObject:conversation];
     }
   }
@@ -56,6 +56,43 @@
   }
   
   conversation.offer = @0;
+  if (data[@"offer"] && ![data[@"offer"] isKindOfClass:[NSNull class]]) {
+    conversation.offer = data[@"offer"];
+  }
+  
+  return conversation;
+}
+
++ (NSArray *)arrayConversationFromOfferArrayData:(NSArray *)arrayData{
+  NSMutableArray *arrayConversation = [@[] mutableCopy];
+  for (NSDictionary *data in arrayData) {
+    TMEConversation *conversation = [TMEConversation conversationFromOfferData:data];
+    if (![conversation.offer isEqualToNumber:@0] && ![conversation.offer isEqual:[NSNull null]]) {
+      [arrayConversation addObject:conversation];
+    }
+  }
+  
+  return arrayConversation;
+}
+
++ (TMEConversation *)conversationFromOfferData:(NSDictionary *)data{
+  TMEConversation *conversation = [[TMEConversation MR_findByAttribute:@"id" withValue:data[@"conversation_id"]] lastObject];
+  
+  if (!conversation) {
+    conversation = [TMEConversation MR_createEntity];
+    conversation.id = data[@"conversation_id"];
+    
+    conversation.user_id = data[@"owner"][@"id"];
+    TMEProduct *product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"id"]] lastObject];
+    conversation.product = product;
+  }
+  
+  conversation.user_full_name = data[@"owner"][@"full_name"];
+  
+  if (![data[@"owner"][@"facebook_avatar"] isKindOfClass:[NSNull class]]) {
+    conversation.user_avatar = data[@"owner"][@"facebook_avatar"];
+  }
+  
   if (data[@"offer"] && ![data[@"offer"] isKindOfClass:[NSNull class]]) {
     conversation.offer = data[@"offer"];
   }

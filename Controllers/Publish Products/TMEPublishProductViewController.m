@@ -48,6 +48,11 @@ UIPickerViewDelegate
   self.title = @"";
   self.txtProductName.delegate = self;
   self.txtProductPrice.delegate = self;
+  
+  if ([self.txtProductName respondsToSelector:@selector(setTintColor:)]) {
+    [self.txtProductName setTintColor:[UIColor orangeMainColor]];
+    [self.txtProductPrice setTintColor:[UIColor orangeMainColor]];
+  }
   //    self.navigationController.navigationBar.topItem.title = @"Publish Product";
   
   for (TMEPhotoButton *button in self.view.subviews) {

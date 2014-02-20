@@ -192,8 +192,8 @@ UITextViewDelegate
 }
 
 - (void)loadProductDetail{
-  if ([[UITextView appearance] respondsToSelector:@selector(setTintColor:)]) {
-      [[UITextView appearance] setTintColor:[UIColor orangeMainColor]];
+  if ([self.textViewInputMessage respondsToSelector:@selector(setTintColor:)]) {
+      [self.textViewInputMessage setTintColor:[UIColor orangeMainColor]];
   }
   self.lblProductName.text = self.product.name;
   self.lblProductPrice.text = [NSString stringWithFormat:@"$%@",self.product.price];
