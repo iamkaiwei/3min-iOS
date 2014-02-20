@@ -24,6 +24,8 @@
 @implementation TMEOfferedTableViewCell
 
 - (void)configCellWithData:(TMEConversation *)conversation{
+  [self.productIndicator startAnimating];
+  [self.avatarIndicator startAnimating];
   self.labelUserName.text = conversation.user_full_name;
   self.labelTimestamp.text = [conversation.latest_update relativeDate];
   [self.labelTimestamp sizeToFit];
@@ -32,19 +34,20 @@
   frame.origin.x = CGRectGetMaxX(self.labelTimestamp.frame) + 3;
   self.imageViewClock.frame = frame;
   
-  self.labelOfferPrice.text = [NSString stringWithFormat:@"$%.2f",conversation.offerValue];
+  self.labelOfferPrice.text = [NSString stringWithFormat:@"$%@",conversation.offer];
   [self.labelOfferPrice sizeToFitKeepHeight];
   [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:conversation.user_avatar]];
   
   NSString *imageURL = [(TMEProductImages *)[[conversation.product.imagesSet allObjects] lastObject] medium];
   
   if (imageURL) {
-    [self.imageViewProduct setImageWithURL:[NSURL URLWithString:imageURL]];
-    self.imageViewProduct.hidden = NO;
+    [self.imageViewProduct setImageWithURL:[NSURL URLWithString:imageURL] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+      if (!cacheType) {
+        self.imageViewProduct.alpha = 0;
+      }
+      [self.imageViewProduct fadeInWithDuration:0.5];
+    }];
   }
-  
-  [self.productIndicator startAnimating];
-  [self.avatarIndicator startAnimating];
 }
 
 + (CGFloat)getHeight{

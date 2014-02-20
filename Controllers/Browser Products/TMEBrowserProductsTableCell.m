@@ -61,12 +61,9 @@
                                             placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
   
   self.lblProductName.text = product.name;
-  self.lblProductPrice.text = [NSString stringWithFormat:@"$%.2f", product.priceValue];
+  self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", product.price];
   
-  CGRect beforeFrame = self.lblProductPrice.frame;
-  [self.lblProductPrice sizeToFitKeepHeight];
-  CGRect afterFrame = self.lblProductPrice.frame;
-  self.lblProductPrice.frame = CGRectMake(beforeFrame.origin.x + beforeFrame.size.width - afterFrame.size.width, self.lblProductPrice.frame.origin.y, self.lblProductPrice.frame.size.width, self.lblProductPrice.frame.size.height);
+  [self.lblProductPrice sizeToFitKeepHeightAlignRight];
   
 }
 

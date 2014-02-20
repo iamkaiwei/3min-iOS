@@ -92,7 +92,9 @@
   [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
   
   self.lblProductName.text = self.product.name;
-  self.lblProductPrice.text = [NSString stringWithFormat:@"$%.2f", self.product.priceValue];
+  self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", self.product.price];
+  
+  [self.lblProductPrice sizeToFitKeepHeightAlignRight];
   
   self.labelLikes.text = self.product.likes.stringValue;
   self.btnFollow.selected = self.product.likedValue;

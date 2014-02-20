@@ -52,7 +52,7 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
   self.myListingsArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:kMyListingTableViewCellIdentifier paging:self.paging handleCellBlock:handleCell];
   
   self.tableView.dataSource = self.myListingsArrayDataSource;
-  [self.tableView reloadData];
+  [self refreshTableViewAnimated:NO];
 }
 
 #pragma mark - UITableView delegate
@@ -77,8 +77,11 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
   NSArray *arrayProductCached = [TMEProduct MR_findByAttribute:@"user" withValue:[[TMEUserManager sharedInstance] loggedUser] andOrderBy:@"created_at" ascending:NO];
   
   for (TMEProduct *product in arrayProductCached) {
-    [self.dataArray addObject:product];
+    if (product.created_at) {
+      [self.dataArray addObject:product];
+    }
   }
+  
   self.currentPage = 0;
   if (self.dataArray.count) {
     self.currentPage = (self.dataArray.count / 10) + 1;
@@ -117,7 +120,6 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
 
 - (void)reloadTableViewMyListing{
   [self setUpTableView];
-  [self refreshTableViewAnimated:NO];
   [SVProgressHUD dismiss];
   [self.pullToRefreshView endRefreshing];
 }

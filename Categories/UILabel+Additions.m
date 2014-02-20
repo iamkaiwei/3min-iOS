@@ -19,6 +19,13 @@
   self.frame = frame;
 }
 
+- (void)sizeToFitKeepHeightAlignRight{
+  CGRect beforeFrame = self.frame;
+  [self sizeToFitKeepHeight];
+  CGRect afterFrame = self.frame;
+  self.frame = CGRectMake(beforeFrame.origin.x + beforeFrame.size.width - afterFrame.size.width, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
+}
+
 - (void)sizeToFitKeepWidth
 {
   CGFloat initialWidth = CGRectGetWidth(self.frame);

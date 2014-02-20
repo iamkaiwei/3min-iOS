@@ -139,14 +139,14 @@
 - (CGFloat)screenViewX {
   CGFloat x = 0;
   for (UIView* view = self; view; view = view.superview) {
-      x += view.left;
-
+    x += view.left;
+    
     if ([view isKindOfClass:[UIScrollView class]]) {
       UIScrollView* scrollView = (UIScrollView*)view;
       x -= scrollView.contentOffset.x;
     }
   }
-
+  
   return x;
 }
 
@@ -156,7 +156,7 @@
   CGFloat y = 0;
   for (UIView* view = self; view; view = view.superview) {
     y += view.top;
-
+    
     if ([view isKindOfClass:[UIScrollView class]]) {
       UIScrollView* scrollView = (UIScrollView*)view;
       y -= scrollView.contentOffset.y;
@@ -234,22 +234,22 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIView *)findAndResignFirstResponder;
 {
-    if (self.isFirstResponder) {
-        [self resignFirstResponder];
-        return self;
-    }
-    for (UIView *subView in self.subviews) {
-        if ([subView findAndResignFirstResponder])
-            return self;
-    }
-    return NO;
+  if (self.isFirstResponder) {
+    [self resignFirstResponder];
+    return self;
+  }
+  for (UIView *subView in self.subviews) {
+    if ([subView findAndResignFirstResponder])
+      return self;
+  }
+  return NO;
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (CGPoint)contentCenter
 {
-    return CGPointMake(floorf(self.width/2.0f), floorf(self.height/2.0f));
+  return CGPointMake(floorf(self.width/2.0f), floorf(self.height/2.0f));
 }
 
 
@@ -277,7 +277,7 @@
     DLog(@"WARNING: anotherView is empty. Check IB linking.");
     return;
   }
-
+  
   if ([anotherView.subviews containsObject:self])
     self.center = CGPointMake(CGRectGetWidth(anotherView.bounds)/2, self.center.y);
   else
@@ -357,42 +357,42 @@
  */
 - (void)fitSubviews
 {
-    CGFloat maxY = 0;
-    for (UIView *subview in self.subviews)
-        if (maxY < CGRectGetMaxY(subview.frame))
-            maxY = CGRectGetMaxY(subview.frame);
-    maxY += 5;
-    
-    //If lesser than current size
-    if (maxY <= self.height)
-        maxY = self.height;
-    
-    [self resizeHeightTo:maxY keepBottom:NO];
+  CGFloat maxY = 0;
+  for (UIView *subview in self.subviews)
+    if (maxY < CGRectGetMaxY(subview.frame))
+      maxY = CGRectGetMaxY(subview.frame);
+  maxY += 5;
+  
+  //If lesser than current size
+  if (maxY <= self.height)
+    maxY = self.height;
+  
+  [self resizeHeightTo:maxY keepBottom:NO];
 }
 
 - (void)autoPushUpAllElements
 {
-    if ([self.subviews count] <= 0)
-        return;
-    
-    //Find the first element
-    CGFloat minY = self.height;
-    UIView * minView = nil;
-    for (UIView *subview in self.subviews)
-        if (subview.hidden == NO && subview.alpha > 0)
-            if (subview.top < minY) {
-                minY = subview.top;
-                minView = subview;
-            }
-    if (minView == nil)
-        return;
-    
-    //How much to shift
-    CGFloat delta = minView.origin.y;
-    
-    //Shift everything
-    for (UIView *subview in self.subviews)
-        subview.top = subview.top - delta;
+  if ([self.subviews count] <= 0)
+    return;
+  
+  //Find the first element
+  CGFloat minY = self.height;
+  UIView * minView = nil;
+  for (UIView *subview in self.subviews)
+    if (subview.hidden == NO && subview.alpha > 0)
+      if (subview.top < minY) {
+        minY = subview.top;
+        minView = subview;
+      }
+  if (minView == nil)
+    return;
+  
+  //How much to shift
+  CGFloat delta = minView.origin.y;
+  
+  //Shift everything
+  for (UIView *subview in self.subviews)
+    subview.top = subview.top - delta;
 }
 
 
@@ -402,65 +402,62 @@
 
 - (void)showHighlightBorder
 {
-    self.layer.borderColor = [UIColor colorWithRed:28.0f/255.0f green:96.0f/255.0f blue:150.0f/255.0f alpha:1.0f].CGColor;
-    self.layer.borderWidth = 1.0f;
-    self.layer.cornerRadius = 4;
+  self.layer.borderColor = [UIColor colorWithRed:28.0f/255.0f green:96.0f/255.0f blue:150.0f/255.0f alpha:1.0f].CGColor;
+  self.layer.borderWidth = 1.0f;
+  self.layer.cornerRadius = 4;
 }
 
 - (void)hideHighlightBorder
 {
-    self.layer.borderColor = [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor;
-    self.layer.borderWidth = 0.5f;
-    self.layer.cornerRadius = 4;
+  self.layer.borderColor = [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor;
+  self.layer.borderWidth = 0.5f;
+  self.layer.cornerRadius = 4;
 }
 
 - (void)clearHighlightBorder
 {
-    self.layer.borderColor = [UIColor clearColor].CGColor;
-    self.layer.borderWidth = 0;
-    self.layer.cornerRadius = 0;
+  self.layer.borderColor = [UIColor clearColor].CGColor;
+  self.layer.borderWidth = 0;
+  self.layer.cornerRadius = 0;
 }
 
 - (void)roundCorner
 {
-    CGFloat min = MIN(self.frame.size.width,
-                      self.frame.size.height);
-    
-    self.layer.cornerRadius = min / 2;
-    self.layer.masksToBounds = YES;
+  CGFloat min = MIN(self.frame.size.width,
+                    self.frame.size.height);
+  
+  self.layer.cornerRadius = min / 2;
+  self.layer.masksToBounds = YES;
 }
 
 - (UIImage *)capture
 {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
-    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return img;
+  UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
+  [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+  UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+  UIGraphicsEndImageContext();
+  
+  return img;
 }
-
-
-
 
 #pragma mark - Animation
 
 - (void)fadeInWithDuration:(CGFloat)duration
 {
-    [UIView animateWithDuration:duration animations:^{
-        self.alpha = 1;
-    } completion:^(BOOL finished) {
-        self.alpha = 1;
-    }];
+  [UIView animateWithDuration:duration animations:^{
+    self.alpha = 1;
+  } completion:^(BOOL finished) {
+    self.alpha = 1;
+  }];
 }
 
 - (void)fadeOutWithDuration:(CGFloat)duration
 {
-    [UIView animateWithDuration:duration animations:^{
-        self.alpha = 0;
-    } completion:^(BOOL finished) {
-        self.alpha = 0;
-    }];
+  [UIView animateWithDuration:duration animations:^{
+    self.alpha = 0;
+  } completion:^(BOOL finished) {
+    self.alpha = 0;
+  }];
 }
 
 - (void)fadeToAlpha:(CGFloat)alpha withDuration:(CGFloat)duration
@@ -474,66 +471,66 @@
 
 - (void)growAndShrinkOnCompletion:(void (^)(BOOL finished))completion
 {
-    UIView *superview = self.superview;
-    if (superview == nil)
-        return;
-    if (self.hidden || self.alpha <= 0)
-        return;
+  UIView *superview = self.superview;
+  if (superview == nil)
+    return;
+  if (self.hidden || self.alpha <= 0)
+    return;
+  
+  UIImage * selfImage = [self capture];
+  UIImageView * imageView = [[UIImageView alloc] initWithImage:selfImage];
+  imageView.backgroundColor = [UIColor clearColor];
+  imageView.contentMode = UIViewContentModeScaleToFill;
+  imageView.layer.shouldRasterize = YES;
+  imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
+  imageView.frame = self.frame;
+  imageView.alpha = self.alpha;
+  imageView.hidden = NO;
+  [superview addSubview:imageView];
+  self.hidden = YES;
+  
+  CGRect originalFrame = self.frame;
+  CGRect enlargedFrame = self.frame;
+  enlargedFrame.size.width *= 1.1;
+  enlargedFrame.size.height *= 1.1;
+  enlargedFrame.origin.x = CGRectGetMidX(originalFrame) - CGRectGetWidth(enlargedFrame)/2;
+  enlargedFrame.origin.y = CGRectGetMidY(originalFrame) - CGRectGetHeight(enlargedFrame)/2;
+  
+  __block UIView * weakSelf = self;
+  __block UIImageView * weakImageView = imageView;
+  
+  [UIView animateWithDuration:0.2 animations:^{
+    weakImageView.frame = enlargedFrame;
     
-    UIImage * selfImage = [self capture];
-    UIImageView * imageView = [[UIImageView alloc] initWithImage:selfImage];
-    imageView.backgroundColor = [UIColor clearColor];
-    imageView.contentMode = UIViewContentModeScaleToFill;
-    imageView.layer.shouldRasterize = YES;
-    imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
-    imageView.frame = self.frame;
-    imageView.alpha = self.alpha;
-    imageView.hidden = NO;
-    [superview addSubview:imageView];
-    self.hidden = YES;
-    
-    CGRect originalFrame = self.frame;
-    CGRect enlargedFrame = self.frame;
-    enlargedFrame.size.width *= 1.1;
-    enlargedFrame.size.height *= 1.1;
-    enlargedFrame.origin.x = CGRectGetMidX(originalFrame) - CGRectGetWidth(enlargedFrame)/2;
-    enlargedFrame.origin.y = CGRectGetMidY(originalFrame) - CGRectGetHeight(enlargedFrame)/2;
-    
-    __block UIView * weakSelf = self;
-    __block UIImageView * weakImageView = imageView;
+  } completion:^(BOOL finished) {
     
     [UIView animateWithDuration:0.2 animations:^{
-        weakImageView.frame = enlargedFrame;
-        
+      weakImageView.frame = originalFrame;
+      
     } completion:^(BOOL finished) {
-        
-        [UIView animateWithDuration:0.2 animations:^{
-            weakImageView.frame = originalFrame;
-            
-        } completion:^(BOOL finished) {
-            weakSelf.hidden = NO;
-            [weakImageView removeFromSuperview];
-            weakImageView.image = nil;
-            
-            if (completion)
-                completion(finished);
-        }];
+      weakSelf.hidden = NO;
+      [weakImageView removeFromSuperview];
+      weakImageView.image = nil;
+      
+      if (completion)
+        completion(finished);
     }];
+  }];
 }
 
 - (void)animateShadowToOpacity:(CGFloat)opacity duration:(CGFloat)duration
 {
-    if (self.layer.shadowOpacity == opacity)
-        return;
-    
-    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
-    anim.toValue = [NSNumber numberWithFloat:opacity];
-    anim.duration = duration;
-    [self.layer addAnimation:anim forKey:@"shadowOpacity"];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
-        self.layer.shadowOpacity = opacity;
-    });
+  if (self.layer.shadowOpacity == opacity)
+    return;
+  
+  CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
+  anim.toValue = [NSNumber numberWithFloat:opacity];
+  anim.duration = duration;
+  [self.layer addAnimation:anim forKey:@"shadowOpacity"];
+  
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
+    self.layer.shadowOpacity = opacity;
+  });
 }
 
 - (void)enableOrangeStatusBar{

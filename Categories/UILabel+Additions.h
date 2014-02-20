@@ -11,6 +11,7 @@
 @interface UILabel (Additions)
 
 - (void)sizeToFitKeepHeight;
+- (void)sizeToFitKeepHeightAlignRight;
 - (void)sizeToFitKeepWidth;
 - (CGFloat)expectedHeight;
 - (CGFloat)expectedWidth;

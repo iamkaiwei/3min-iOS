@@ -39,8 +39,12 @@
   NSString *imageURL = [(TMEProductImages *)[[conversation.product.imagesSet allObjects] lastObject] medium];
   
   if (imageURL) {
-    [self.imageViewProduct setImageWithURL:[NSURL URLWithString:imageURL]];
-    self.imageViewProduct.hidden = NO;
+    [self.imageViewProduct setImageWithURL:[NSURL URLWithString:imageURL] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+      if (!cacheType) {
+        self.imageViewProduct.alpha = 0;
+      }
+      [self.imageViewProduct fadeInWithDuration:0.5];
+    }];
   }
   
   [self.productIndicator startAnimating];

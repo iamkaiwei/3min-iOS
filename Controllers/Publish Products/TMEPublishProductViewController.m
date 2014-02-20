@@ -154,6 +154,9 @@ UIPickerViewDelegate
 }
 
 - (void)onCancelButton:(id)sender {
+  if (self.activeTextField) {
+    self.activeTextField.text = @"";
+  }
   if (self.isKeyboardShowing) {
     [self dismissKeyboard];
     return;
@@ -338,7 +341,7 @@ UIPickerViewDelegate
 }
 
 - (void)prepareMyBatchRequest{
-  NSString *message = [NSString stringWithFormat:@"Hi! I want to sell %@ for $%.2f. Let's take a look!", [self.product.name capitalizedString], self.product.priceValue];
+  NSString *message = [NSString stringWithFormat:@"Hi! I want to sell %@ for $%@. Let's take a look!", [self.product.name capitalizedString], self.product.price];
   
   NSString *jsonRequestsArray = @"[";
   NSString *jsonRequest = @"";
@@ -451,6 +454,16 @@ UIPickerViewDelegate
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
   if ([self.activeTextField isEqual:textField]) {
     self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
+  }
+  return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+  if ([textField isEqual:self.txtProductPrice]) {
+    if (self.txtProductPrice.text.length >= 11) {
+      self.txtProductPrice.text = @"99999999999";
+      return NO;
+    }
   }
   return YES;
 }

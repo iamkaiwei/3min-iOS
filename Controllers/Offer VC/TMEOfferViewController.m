@@ -11,7 +11,8 @@
 
 @interface TMEOfferViewController ()
 <
-UITextFieldDelegate
+UITextFieldDelegate,
+UIAlertViewDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UILabel *labelDetail;
@@ -87,14 +88,25 @@ UITextFieldDelegate
   
   self.labelPriceOffer.text = [NSString stringWithFormat:@"$%@", self.product.price];
   self.txtPrice.text = @"";
-  [self.labelPriceOffer sizeToFitKeepHeight];
-  [self.labelPriceOffer alignHorizontalCenterToView:self.view];
+  [self sizeToKeepLabelPriceHeightAlignCenter];
+}
+
+- (void)onDoneButton:(id)sender {
+  if (![self invalidateOfferPrice]) {
+    self.txtPrice.text = @"";
+    self.labelPriceOffer.text = [@"$" stringByAppendingString:[self.product.price stringValue]];
+    [self sizeToKeepLabelPriceHeightAlignCenter];
+  }
+  [self.view findAndResignFirstResponder];
 }
 
 - (void)onSubmitButton:(UIButton *)sender{
-  if (![self.labelPriceOffer.text isEqualToString:[NSString stringWithFormat:@"$%@",self.txtPrice.text]]) {
-    self.txtPrice.text = [self.product.price stringValue];
+  
+  if (![self invalidateOfferPrice]) {
+    [self showSubmitAlert];
+    return;
   }
+  
   [self setOfferPriceToConversation];
 }
 
@@ -120,10 +132,16 @@ UITextFieldDelegate
   }
 
   price = [NSString stringWithFormat:@"$%@", price];
-
+  
+  if (price.length >= 12) {
+    price = @"$99999999999";
+    self.labelPriceOffer.text = price;
+    [self sizeToKeepLabelPriceHeightAlignCenter];
+    return NO;
+  }
+  
   self.labelPriceOffer.text = price;
-  [self.labelPriceOffer sizeToFitKeepHeight];
-  [self.labelPriceOffer alignHorizontalCenterToView:self.view];
+  [self sizeToKeepLabelPriceHeightAlignCenter];
   return YES;
 }
 
@@ -140,8 +158,33 @@ UITextFieldDelegate
   self.buttonTapToChange.userInteractionEnabled = YES;
 }
 
+- (BOOL)invalidateOfferPrice{
+  if ([self.txtPrice.text isEqualToString:@"0"] || [self.txtPrice.text isEqualToString:@""]) {
+    return NO;
+  }
+  return YES;
+}
+
+- (void)sizeToKeepLabelPriceHeightAlignCenter{
+  [self.labelPriceOffer sizeToFitKeepHeight];
+  [self.labelPriceOffer alignHorizontalCenterToView:self.view];
+}
+
+- (void)showSubmitAlert{
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm Offer" message:@"Do you want to offer with original price?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+  [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+  if (buttonIndex) {
+    self.txtPrice.text = [self.product.price stringValue];
+    [self setOfferPriceToConversation];
+  }
+}
+
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-  [self.view endEditing:YES];
+  [self performSelector:@selector(onDoneButton:) withObject:self.navigationItem.rightBarButtonItem];
 }
 
 @end
