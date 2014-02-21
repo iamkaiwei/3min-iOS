@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEBrowserProductsViewController">
             <connections>
                 <outlet property="imageViewProductPlaceholder" destination="5nX-lr-mhy" id="fH0-EJ-V1b"/>
+                <outlet property="labelAnimated" destination="Xo5-tI-WZU" id="sxt-Ls-nGl"/>
                 <outlet property="tableView" destination="Th7-ZM-0Ed" id="2ba-iy-HcB"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -25,10 +26,17 @@
                         <outlet property="delegate" destination="-1" id="AN2-L9-9XV"/>
                     </connections>
                 </tableView>
-                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product-placeholder.png" id="5nX-lr-mhy">
-                    <rect key="frame" x="0.0" y="100" width="320" height="325"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product-placeholder.png" id="5nX-lr-mhy">
+                    <rect key="frame" x="0.0" y="102" width="320" height="325"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 mins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xo5-tI-WZU" customClass="MTAnimatedLabel">
+                    <rect key="frame" x="96" y="343" width="135" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -36,6 +44,6 @@
         </view>
     </objects>
     <resources>
-        <image name="product-placeholder.png" width="270" height="272"/>
+        <image name="product-placeholder.png" width="270" height="271"/>
     </resources>
 </document>

@@ -27,7 +27,6 @@ static NSString * const kLeftMenuTableViewCellIdentifier = @"TMELeftMenuTableVie
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  [self handleStatusBarAnimation];
   [self getAllCategories];
 }
 
@@ -35,6 +34,7 @@ static NSString * const kLeftMenuTableViewCellIdentifier = @"TMELeftMenuTableVie
   [super viewWillAppear:animated];
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     [self.view enableOrangeStatusBar];
+    [self handleStatusBarAnimation];
     [self.tableView setContentInset:UIEdgeInsetsMake(20, 0, 0, 0)];
   }
 }

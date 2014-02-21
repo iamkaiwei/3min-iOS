@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
+#import "IIViewDeckController.h"
 
 #define LABEL_SPACING             5
 
 @interface TMEBaseViewController : GAITrackedViewController <UITextFieldDelegate>
 
+@property (nonatomic, strong) IIViewDeckController *deckController;
 @property (nonatomic, strong) UIRefreshControl *pullToRefreshView;
 @property (nonatomic, strong) UITextField *activeTextField;
 @property (nonatomic, assign) BOOL isKeyboardShowing;

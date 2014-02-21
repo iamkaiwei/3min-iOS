@@ -48,7 +48,6 @@
 
 - (void)viewWillAppear:(BOOL)animated{
   [super viewWillAppear:animated];
-
   [self setUpView];
 }
 
@@ -56,14 +55,14 @@
   NSArray *arrayImageView = @[self.imgProductImage1, self.imgProductImage2, self.imgProductImage3, self.imgProductImage4];
   
   // Follow button
-  self.btnFollow.layer.borderWidth = 1;
-  self.btnFollow.layer.borderColor = [UIColor grayColor].CGColor;
-  self.btnFollow.layer.cornerRadius = 3;
-  
-  // Share button
-  self.btnShare.layer.borderWidth = 1;
-  self.btnShare.layer.borderColor = [UIColor grayColor].CGColor;
-  self.btnShare.layer.cornerRadius = 3;
+//  self.btnFollow.layer.borderWidth = 1;
+//  self.btnFollow.layer.borderColor = [UIColor grayColor].CGColor;
+//  self.btnFollow.layer.cornerRadius = 3;
+//  
+//  // Share button
+//  self.btnShare.layer.borderWidth = 1;
+//  self.btnShare.layer.borderColor = [UIColor grayColor].CGColor;
+//  self.btnShare.layer.cornerRadius = 3;
   
   // for now when we get product, we get all imformantion about this product like user, category, etc.
   

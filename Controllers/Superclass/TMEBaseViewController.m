@@ -9,6 +9,7 @@
 #import "TMEBaseViewController.h"
 #import "TMEBrowserCollectionViewController.h"
 #import "TMEBrowserProductsViewController.h"
+#import "AppDelegate.h"
 
 #define DEFAULT_KEYBOARD_HEIGHT   216
 
@@ -49,6 +50,7 @@ IIViewDeckControllerDelegate
 {
   [super viewDidLoad];
   // notification
+  self.deckController = (IIViewDeckController *)[AppDelegate sharedDelegate].window.rootViewController;
   self.viewDeckController.delegate = self;
   if ([self respondsToSelector:@selector(onFinishLogin:)]) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onFinishLogin:) name:NOTIFICATION_FINISH_LOGIN object:nil];
@@ -419,6 +421,7 @@ IIViewDeckControllerDelegate
   } completion:nil];
 }
 
+
 - (void)onKeyboardWillHideNotification:(NSNotification *)sender
 {
   self.isKeyboardShowing = NO;
@@ -556,6 +559,7 @@ IIViewDeckControllerDelegate
 - (void)addNavigationItems
 {
   UIBarButtonItem *leftButtonItem = [self leftNavigationButton];
+
   self.navigationItem.leftBarButtonItem = leftButtonItem;
 }
 

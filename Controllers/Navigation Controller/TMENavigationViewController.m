@@ -20,10 +20,10 @@
   if (self) {
     // Custom initialization
       [[UINavigationBar appearance] setTitleTextAttributes:
-       @{ UITextAttributeTextColor: [UIColor colorWithHexString:@"ffffff"],
+       @{ UITextAttributeTextColor: [UIColor whiteColor],
           UITextAttributeTextShadowColor: [UIColor clearColor],
           UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
-          UITextAttributeFont: [UIFont fontWithName:@"Helvetica" size:20.0f] }];
+          UITextAttributeFont: [UIFont fontWithName:@"HelveticaNeue-Thin" size:25.0f] }];
     
       self.navigationBar.frame = CGRectMake(0, 0, 320, 44);
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {

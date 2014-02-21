@@ -85,8 +85,7 @@
     [rightButton addTarget:self action:@selector(onBtnGridView:) forControlEvents:UIControlEventTouchUpInside];
     rightButton.frame = CGRectMake(0, 0, 40, 30);
     [rightButton adjustNavigationBarButtonDependSystem];
-    
-    return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    return [[UIBarButtonItem alloc] initWithCustomView:rightButton];;
 }
 
 - (void)configNavigationRightButton

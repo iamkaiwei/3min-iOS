@@ -24,8 +24,8 @@ TMEBrowserProductsTableCellDelegate
 @property (strong, nonatomic) TMEUser                   * loginUser;
 @property (strong, nonatomic) TMECategory               * currentCategory;
 @property (strong, nonatomic) TMEBaseArrayDataSource    * productsArrayDataSource;
-@property (weak, nonatomic) IBOutlet UIImageView *imageViewProductPlaceholder;
-
+@property (weak, nonatomic) IBOutlet UIImageView        * imageViewProductPlaceholder;
+@property (weak, nonatomic) IBOutlet MTAnimatedLabel    * labelAnimated;
 @end
 
 @implementation TMEBrowserProductsViewController
@@ -34,7 +34,7 @@ TMEBrowserProductsTableCellDelegate
 {
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
-
+  [self.labelAnimated startAnimating];
   self.navigationController.navigationBar.topItem.title = @"Browse Products";
   
   [[XLCircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
@@ -43,7 +43,7 @@ TMEBrowserProductsTableCellDelegate
   
   self.scrollableView = self.tableView;
   [self enablePullToRefresh];
-  
+  [self paddingScrollWithTop];
   [self loadProducts];
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(onCategoryChangeNotification:)
@@ -94,11 +94,11 @@ TMEBrowserProductsTableCellDelegate
   if (self.currentCategory) {
     [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
                                                 onSuccessBlock:^(NSArray *arrProducts) {
-                                                  self.imageViewProductPlaceholder.hidden = YES;
+                                                  [self hidePlaceHolder];
                                                   self.dataArray = [arrProducts mutableCopy];
                                                   [self setUpTableView];
                                                   [self.pullToRefreshView endRefreshing];
-                                                  [self.tableView setContentOffset:CGPointMake(0, -40) animated:YES];
+                                                  [self.tableView setContentOffset:CGPointMake(0, -60) animated:YES];
                                                   [SVProgressHUD dismiss];
                                                 } andFailureBlock:^(NSInteger statusCode, id obj) {
                                                   [self.pullToRefreshView endRefreshing];
@@ -106,6 +106,7 @@ TMEBrowserProductsTableCellDelegate
                                                 }];
   } else {
     [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
+      [self hidePlaceHolder];
       self.dataArray = [arrProducts mutableCopy];
       [self setUpTableView];
       [SVProgressHUD dismiss];
@@ -135,11 +136,10 @@ TMEBrowserProductsTableCellDelegate
 #pragma mark - Utilities
 - (void)paddingScrollWithTop
 {
-  CGFloat scrollViewTopInset = 44;
-  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    scrollViewTopInset += 20;
+  if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+    CGFloat scrollViewTopInset = 44;
+    self.tableView.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 0, 0);
   }
-  self.tableView.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 0, 0);
 }
 
 #pragma mark - Notifications
@@ -201,5 +201,11 @@ TMEBrowserProductsTableCellDelegate
   
   currentCellProduct.likesValue--;
   label.text = [@(label.text.integerValue - 1) stringValue];
+}
+
+- (void)hidePlaceHolder{
+  [self.labelAnimated stopAnimating];
+  [self.labelAnimated fadeOutWithDuration:0.4];
+  self.imageViewProductPlaceholder.hidden = YES;
 }
 @end

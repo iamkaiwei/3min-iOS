@@ -8,6 +8,7 @@
 
 #import "TMEOfferViewController.h"
 #import "TMESubmitViewController.h"
+#import "AppDelegate.h"
 
 @interface TMEOfferViewController ()
 <

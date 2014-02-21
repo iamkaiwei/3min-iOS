@@ -18,7 +18,8 @@
 UITableViewDataSource,
 UITableViewDelegate,
 UISearchBarDelegate,
-UISearchDisplayDelegate
+UISearchDisplayDelegate,
+IIViewDeckControllerDelegate
 >
 
 //@property (assign, nonatomic) SEARCH_BY state;

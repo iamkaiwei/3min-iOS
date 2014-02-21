@@ -315,6 +315,7 @@ UITextViewDelegate
     [self.scrollViewContent setContentInset:edgeInsets];
     [self.scrollViewContent setScrollIndicatorInsets:edgeInsets];
   } completion:nil];
+  self.deckController.panningMode = IIViewDeckNoPanning;
 }
 
 #pragma mark - Handle changing reachability
