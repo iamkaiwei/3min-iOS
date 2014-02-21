@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEProductDetailsViewController">
@@ -14,6 +14,7 @@
                 <outlet property="imgProductImage3" destination="HFe-WO-aca" id="W3F-Il-MYg"/>
                 <outlet property="imgProductImage4" destination="Wit-Em-Wog" id="Oa2-fE-R49"/>
                 <outlet property="imgUserAvatar" destination="0b6-Xg-2kj" id="yif-fB-duM"/>
+                <outlet property="labelBottom" destination="crN-3j-ueo" id="Aup-Qh-99e"/>
                 <outlet property="labelLikes" destination="AYZ-ax-CQO" id="Wkm-u9-Mz1"/>
                 <outlet property="lblProductName" destination="yd2-fX-QVx" id="mJV-Ln-g81"/>
                 <outlet property="lblProductPrice" destination="og4-Kd-gtt" id="UrI-fA-8hC"/>
@@ -133,7 +134,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="crN-3j-ueo">
-                            <rect key="frame" x="9" y="19" width="42" height="21"/>
+                            <rect key="frame" x="11" y="17" width="42" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>

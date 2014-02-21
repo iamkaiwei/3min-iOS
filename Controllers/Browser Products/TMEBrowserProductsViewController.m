@@ -75,7 +75,7 @@ TMEBrowserProductsTableCellDelegate
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
   
   TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
-  productDetailsController.product = self.dataArray[indexPath.row];
+  productDetailsController.product = self.dataArray[indexPath.section];
   productDetailsController.hidesBottomBarWhenPushed = YES;
   [self.navigationController pushViewController:productDetailsController animated:YES];
 }

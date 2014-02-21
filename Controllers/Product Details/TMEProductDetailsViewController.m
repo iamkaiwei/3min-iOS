@@ -30,6 +30,7 @@
 
 @property (assign, nonatomic) BOOL                  firstTimeOffer;
 @property (weak, nonatomic) IBOutlet UILabel *labelLikes;
+@property (weak, nonatomic) IBOutlet UILabel *labelBottom;
 
 @end
 
@@ -95,6 +96,7 @@
   
   [self.lblProductPrice sizeToFitKeepHeightAlignRight];
   
+  self.labelBottom.text = self.lblProductPrice.text;
   self.labelLikes.text = self.product.likes.stringValue;
   self.btnFollow.selected = self.product.likedValue;
   
@@ -103,10 +105,9 @@
   //If view chat to buy wrapper is hidden
   if([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id])
   {
-    self.viewChatToBuyWrapper.hidden = YES;
-    self.scrollViewProductDetail.height += 55;
-    [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
+    self.labelBottom.text = @"You have 3 offer";
   }
+  [self.labelBottom sizeToFitKeepHeight];
 }
 
 - (void)setUpView
