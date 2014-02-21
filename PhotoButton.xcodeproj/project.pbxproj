@@ -379,8 +379,6 @@
 		B49C6F53181C091D00EB380A /* login-facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F51181C091D00EB380A /* login-facebook.png */; };
 		B49C6F54181C091D00EB380A /* login-facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F52181C091D00EB380A /* login-facebook@2x.png */; };
 		B49C6F57181C152900EB380A /* TMEFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B49C6F56181C152900EB380A /* TMEFacebookManager.m */; };
-		B49C6F5A181C321800EB380A /* normal-view-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F58181C321800EB380A /* normal-view-icon.png */; };
-		B49C6F5B181C321800EB380A /* normal-view-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F59181C321800EB380A /* normal-view-icon@2x.png */; };
 		B49C6F5E181C34E200EB380A /* TMELeftMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B49C6F5D181C34E200EB380A /* TMELeftMenuTableViewCell.m */; };
 		B49C6F60181C34F400EB380A /* TMELeftMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F5F181C34F400EB380A /* TMELeftMenuTableViewCell.xib */; };
 		B49C6F69181C37D600EB380A /* Books.png in Resources */ = {isa = PBXBuildFile; fileRef = B49C6F62181C37D600EB380A /* Books.png */; };
@@ -966,8 +964,6 @@
 		B49C6F52181C091D00EB380A /* login-facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-facebook@2x.png"; sourceTree = "<group>"; };
 		B49C6F55181C152900EB380A /* TMEFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFacebookManager.h; sourceTree = "<group>"; };
 		B49C6F56181C152900EB380A /* TMEFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFacebookManager.m; sourceTree = "<group>"; };
-		B49C6F58181C321800EB380A /* normal-view-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "normal-view-icon.png"; sourceTree = "<group>"; };
-		B49C6F59181C321800EB380A /* normal-view-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "normal-view-icon@2x.png"; sourceTree = "<group>"; };
 		B49C6F5C181C34E200EB380A /* TMELeftMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELeftMenuTableViewCell.h; sourceTree = "<group>"; };
 		B49C6F5D181C34E200EB380A /* TMELeftMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELeftMenuTableViewCell.m; sourceTree = "<group>"; };
 		B49C6F5F181C34F400EB380A /* TMELeftMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMELeftMenuTableViewCell.xib; sourceTree = "<group>"; };
@@ -1562,8 +1558,6 @@
 				0B69C41818965FC600A4537F /* follow-button-pressed@2x.png */,
 				84919C001883091600A26B94 /* photo-placeholder.png */,
 				84919C011883091600A26B94 /* photo-placeholder@2x.png */,
-				B49C6F58181C321800EB380A /* normal-view-icon.png */,
-				B49C6F59181C321800EB380A /* normal-view-icon@2x.png */,
 				0C43CCA017F5D29A00D869F9 /* clock-icon.png */,
 				0C43CCA117F5D29A00D869F9 /* clock-icon@2x.png */,
 				0C43CCA217F5D29A00D869F9 /* comment-button.png */,
@@ -2355,7 +2349,6 @@
 				0B9E810B1888E38A004AF9E3 /* NotificationBackgroundSuccess.png in Resources */,
 				B42FE3DD18190F1C004E39EF /* tabbar-search-icon@2x.png in Resources */,
 				0C59550417F711CF0076353E /* TMELeftMenuViewController.xib in Resources */,
-				B49C6F5A181C321800EB380A /* normal-view-icon.png in Resources */,
 				0B3D0D9F1875382400B740ED /* TMESearchViewController.xib in Resources */,
 				B42FE3E318190F1C004E39EF /* tabbar-sell-icon.png in Resources */,
 				0B9E81091888E38A004AF9E3 /* NotificationBackgroundMessage.png in Resources */,
@@ -2363,7 +2356,6 @@
 				840C4CA21881B16000F7356A /* TMEOfferViewController.xib in Resources */,
 				0B0B4A2818AB75E800AC3E93 /* TMEMyListingTableViewCell.xib in Resources */,
 				B459FDDB181BF94E00D6BC79 /* Login2-568h.png in Resources */,
-				B49C6F5B181C321800EB380A /* normal-view-icon@2x.png in Resources */,
 				0B3D0D86187509AB00B740ED /* TMEMeViewController.xib in Resources */,
 				20C10DAB17F6E2960036D9FF /* FacebookSDKOverrides.bundle in Resources */,
 				B453FEFA181CF3A2007D5DF0 /* publish_cancel_btn_pressed@2x.png in Resources */,

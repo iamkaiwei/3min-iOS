@@ -80,7 +80,7 @@
 - (UIBarButtonItem *)rightNavigationButton{
     // Nav right button
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    NSString *rightButtonImageName = ([self.currentViewController isEqual:self.normalViewController] ? @"grid-view-icon" : @"normal-view-icon");
+    NSString *rightButtonImageName = ([self.currentViewController isEqual:self.normalViewController] ? @"grid-view-icon" : @"simple-view-icon");
     [rightButton setImage:[UIImage imageNamed:rightButtonImageName] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(onBtnGridView:) forControlEvents:UIControlEventTouchUpInside];
     rightButton.frame = CGRectMake(0, 0, 40, 30);

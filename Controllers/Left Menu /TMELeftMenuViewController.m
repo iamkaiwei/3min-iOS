@@ -34,6 +34,7 @@ static NSString * const kLeftMenuTableViewCellIdentifier = @"TMELeftMenuTableVie
 - (void)viewWillAppear:(BOOL)animated{
   [super viewWillAppear:animated];
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+    [self.view enableOrangeStatusBar];
     [self.tableView setContentInset:UIEdgeInsetsMake(20, 0, 0, 0)];
   }
 }
@@ -78,13 +79,9 @@ static NSString * const kLeftMenuTableViewCellIdentifier = @"TMELeftMenuTableVie
 
 - (void)handleStatusBarAnimation{
   self.statusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];
-  [self.statusBarView setBackgroundColor:[UIColor blackColor]];
+  [self.statusBarView setBackgroundColor:[UIColor orangeMainColor]];
   [self.statusBarView setAlpha:0.0];
   [self.view addSubview:self.statusBarView];
-}
-
--(UIStatusBarStyle)preferredStatusBarStyle{
-  return UIStatusBarStyleLightContent;
 }
 
 @end

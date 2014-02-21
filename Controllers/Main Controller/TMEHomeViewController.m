@@ -49,7 +49,6 @@ UIImagePickerControllerDelegate
 {
   [super viewDidLoad];
   self.title = @"Main Menu";
-  [self.view enableOrangeStatusBar];
   
   [self.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbar-background"]];
   self.viewControllers = @[];
@@ -62,7 +61,7 @@ UIImagePickerControllerDelegate
   
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     self.statusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];
-    [self.statusBarView setBackgroundColor:[UIColor blackColor]];
+    [self.statusBarView setBackgroundColor:[UIColor orangeMainColor]];
     [self.statusBarView setAlpha:0.0];
     [self.view addSubview:self.statusBarView];
     return;
@@ -151,10 +150,6 @@ UIImagePickerControllerDelegate
 {
   // close the picker VCs.
   [self.navigationController dismissViewControllerAnimated:NO completion:nil];
-}
-
--(UIStatusBarStyle)preferredStatusBarStyle{
-  return UIStatusBarStyleLightContent;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

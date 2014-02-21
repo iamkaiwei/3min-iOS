@@ -271,13 +271,11 @@ IIViewDeckControllerDelegate
   [[self getScrollableView] insertSubview:self.pullToRefreshView atIndex:0];
 }
 
-
-
 - (void)disableNavigationTranslucent{
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationController.navigationBar.translucent = NO;
-    [self.navigationController.navigationBar setBarTintColor:[UIColor backgroundBrightGrayColor]];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor orangeMainColor]];
   }
 }
 
