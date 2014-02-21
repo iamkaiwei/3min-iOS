@@ -26,7 +26,6 @@ SINGLETON_MACRO
         [SVProgressHUD showSuccessWithStatus:@"Login successfully"];
         [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:user];
         
-        [SVProgressHUD dismiss];
         [[AppDelegate sharedDelegate] showHomeViewController];
         
     } andFailureBlock:^(NSInteger statusCode, id obj) {

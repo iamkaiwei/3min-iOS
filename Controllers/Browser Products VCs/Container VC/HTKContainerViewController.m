@@ -100,10 +100,11 @@
 - (void)onBtnGridView:(id)sender
 {
     if ([self.currentViewController isEqual:self.normalViewController]) {
+        self.gridViewController.arrayProducts = self.normalViewController.dataArray;
         [self switchContainerViewControllerToViewController:self.gridViewController];
         return;
     }
-    
+    self.normalViewController.dataArray = self.gridViewController.arrayProducts;
     [self switchContainerViewControllerToViewController:self.normalViewController];
     return;
 }

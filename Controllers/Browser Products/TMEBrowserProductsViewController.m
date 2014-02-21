@@ -178,8 +178,7 @@ TMEBrowserProductsTableCellDelegate
   
   if (!currentCellProduct.likedValue) {
     [[TMEProductsManager sharedInstance] likeProductWithProductID:currentCellProduct.id
-                                                   onSuccessBlock:nil
-                                                  andFailureBlock:^(NSInteger statusCode, NSError *error){
+                                                   onSuccessBlock:nil                                                  andFailureBlock:^(NSInteger statusCode, NSError *error){
                                                     [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:NO];
                                                   }];
     currentCellProduct.likedValue = YES;
@@ -189,8 +188,7 @@ TMEBrowserProductsTableCellDelegate
   }
   
   [[TMEProductsManager sharedInstance] unlikeProductWithProductID:currentCellProduct.id
-                                                   onSuccessBlock:nil
-                                                  andFailureBlock:^(NSInteger statusCode, NSError *error){
+                                                   onSuccessBlock:nil                                                  andFailureBlock:^(NSInteger statusCode, NSError *error){
                                                     [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:YES];
                                                   }];
   currentCellProduct.likedValue = NO;
@@ -222,6 +220,7 @@ TMEBrowserProductsTableCellDelegate
 - (void)fullScreenScrollDidLayoutUIBars:(YIFullScreenScroll *)fullScreenScroll{
   CGRect newFrame = self.tableView.frame;
   newFrame.origin.y = fullScreenScroll.navigationBarHeight;
+  newFrame.size.height = [[UIScreen mainScreen]bounds].size.height - fullScreenScroll.navigationBarHeight;
   self.tableView.frame = newFrame;
 }
 

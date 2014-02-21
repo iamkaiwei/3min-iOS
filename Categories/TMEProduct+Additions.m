@@ -86,8 +86,7 @@
 {
   NSMutableArray *arrProducts = [@[] mutableCopy];
   for (NSDictionary *data in arrData) {
-    TMEProduct *product = [TMEProduct MR_createEntity];
-    product = [TMEProduct productWithDictionary:data];
+    TMEProduct *product = [TMEProduct productWithDictionary:data];
     [arrProducts addObject:product];
   }
   NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];

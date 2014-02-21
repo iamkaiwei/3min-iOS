@@ -18,7 +18,6 @@ UICollectionViewDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView       * collectionProductsView;
-@property (strong, nonatomic) NSArray                       * arrayProducts;
 @property (strong, nonatomic) TMECategory                   * currentCategory;
 @property (strong, nonatomic) UIRefreshControl           * pullToRefreshView;
 
@@ -36,8 +35,12 @@ UICollectionViewDelegate
   self.scrollableView = self.collectionProductsView;
   [self enablePullToRefresh];
   
-  [self loadProducts];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onCategoryChangeNotification:) name:CATEGORY_CHANGE_NOTIFICATION object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+  [super viewWillAppear:animated];
+  [self.collectionProductsView reloadData];
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath{

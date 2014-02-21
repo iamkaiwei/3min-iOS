@@ -360,7 +360,6 @@ FacebookManagerDelegate
             [SVProgressHUD showSuccessWithStatus:@"Login successfully"];
             [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:nil];
             
-            [SVProgressHUD dismiss];
             [self switchRootViewController:self.deckController animated:YES completion:nil];
             UITabBarController *tabBarController = (UITabBarController *)self.deckController.centerController;
             tabBarController.selectedIndex = 0;

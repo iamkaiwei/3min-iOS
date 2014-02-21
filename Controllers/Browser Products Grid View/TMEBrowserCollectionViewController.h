@@ -10,6 +10,7 @@
 
 @interface TMEBrowserCollectionViewController : TMEBaseViewController
 
+@property (strong, nonatomic) NSMutableArray                * arrayProducts;
 - (void)loadProducts;
 
 @end
