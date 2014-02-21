@@ -63,6 +63,9 @@
 		0B3D0DBF18755D2600B740ED /* clear_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3D0DBD18755D2600B740ED /* clear_button_pressed.png */; };
 		0B3D0DC018755D2600B740ED /* clear_button_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3D0DBE18755D2600B740ED /* clear_button_pressed@2x.png */; };
 		0B66AFF718B72BF7007F9EA4 /* MTAnimatedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B66AFF618B72BF7007F9EA4 /* MTAnimatedLabel.m */; };
+		0B66AFFA18B74A82007F9EA4 /* TMEBrowserProductsViewControllerArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B66AFF918B74A82007F9EA4 /* TMEBrowserProductsViewControllerArrayDataSource.m */; };
+		0B66B00118B75A12007F9EA4 /* TMEBrowserProductTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B66B00018B75A12007F9EA4 /* TMEBrowserProductTableViewHeader.xib */; };
+		0B66B00418B75A48007F9EA4 /* TMEBrowserProductTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B66B00318B75A48007F9EA4 /* TMEBrowserProductTableViewHeader.m */; };
 		0B69C41918965FC600A4537F /* follow-button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B69C41718965FC600A4537F /* follow-button-pressed.png */; };
 		0B69C41A18965FC600A4537F /* follow-button-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B69C41818965FC600A4537F /* follow-button-pressed@2x.png */; };
 		0B6B3F0318B45E8800610608 /* RESwitch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0B6B3F0018B45E8800610608 /* RESwitch.bundle */; };
@@ -459,6 +462,11 @@
 		0B3D0DBE18755D2600B740ED /* clear_button_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clear_button_pressed@2x.png"; sourceTree = "<group>"; };
 		0B66AFF518B72BF7007F9EA4 /* MTAnimatedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAnimatedLabel.h; sourceTree = "<group>"; };
 		0B66AFF618B72BF7007F9EA4 /* MTAnimatedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAnimatedLabel.m; sourceTree = "<group>"; };
+		0B66AFF818B74A82007F9EA4 /* TMEBrowserProductsViewControllerArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductsViewControllerArrayDataSource.h; sourceTree = "<group>"; };
+		0B66AFF918B74A82007F9EA4 /* TMEBrowserProductsViewControllerArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductsViewControllerArrayDataSource.m; sourceTree = "<group>"; };
+		0B66B00018B75A12007F9EA4 /* TMEBrowserProductTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserProductTableViewHeader.xib; sourceTree = "<group>"; };
+		0B66B00218B75A48007F9EA4 /* TMEBrowserProductTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductTableViewHeader.h; sourceTree = "<group>"; };
+		0B66B00318B75A48007F9EA4 /* TMEBrowserProductTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductTableViewHeader.m; sourceTree = "<group>"; };
 		0B69C41718965FC600A4537F /* follow-button-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "follow-button-pressed.png"; sourceTree = "<group>"; };
 		0B69C41818965FC600A4537F /* follow-button-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "follow-button-pressed@2x.png"; sourceTree = "<group>"; };
 		0B6B3F0018B45E8800610608 /* RESwitch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RESwitch.bundle; sourceTree = "<group>"; };
@@ -1968,6 +1976,11 @@
 				0CFC0FE417ECB690008FBD92 /* TMEBrowserProductsTableCell.h */,
 				0CFC0FE517ECB690008FBD92 /* TMEBrowserProductsTableCell.m */,
 				0CFC0FE617ECB690008FBD92 /* TMEBrowserProductsTableCell.xib */,
+				0B66AFF818B74A82007F9EA4 /* TMEBrowserProductsViewControllerArrayDataSource.h */,
+				0B66AFF918B74A82007F9EA4 /* TMEBrowserProductsViewControllerArrayDataSource.m */,
+				0B66B00018B75A12007F9EA4 /* TMEBrowserProductTableViewHeader.xib */,
+				0B66B00218B75A48007F9EA4 /* TMEBrowserProductTableViewHeader.h */,
+				0B66B00318B75A48007F9EA4 /* TMEBrowserProductTableViewHeader.m */,
 			);
 			name = "Browser Products";
 			path = "../Browser Products";
@@ -2494,6 +2507,7 @@
 				B42FE3D618190F1C004E39EF /* tabbar-me-icon.png in Resources */,
 				0B9E81071888E38A004AF9E3 /* NotificationBackgroundErrorIcon.png in Resources */,
 				B4E1DEFF18191C7D002D0609 /* tabbar-sell-icon-pressed@2x.png in Resources */,
+				0B66B00118B75A12007F9EA4 /* TMEBrowserProductTableViewHeader.xib in Resources */,
 				0B98D28618ACCD4F0079CA12 /* TMEOfferedViewController.xib in Resources */,
 				0B3D0D8B18750FE400B740ED /* TMEMeTableViewCell.xib in Resources */,
 				0B3D0D911875122A00B740ED /* disclosure.png in Resources */,
@@ -2584,9 +2598,11 @@
 				0C7EFB5A17E768C70054C4DE /* NSNumber+MagicalDataImport.m in Sources */,
 				0BBD1CC3188E799E00F9C29C /* XLCircleProgressIndicator.m in Sources */,
 				84CFA5251879BF9100368A0D /* _TMEReply.m in Sources */,
+				0B66B00418B75A48007F9EA4 /* TMEBrowserProductTableViewHeader.m in Sources */,
 				0C7EFBD417E8D5170054C4DE /* UIBezierPath-Points.m in Sources */,
 				0B98D28418ACCD220079CA12 /* TMEOfferedViewController.m in Sources */,
 				0C2F788C17F2DBA600201783 /* NSData+GIF.m in Sources */,
+				0B66AFFA18B74A82007F9EA4 /* TMEBrowserProductsViewControllerArrayDataSource.m in Sources */,
 				0B66AFF718B72BF7007F9EA4 /* MTAnimatedLabel.m in Sources */,
 				0C2F788B17F2DBA600201783 /* MKAnnotationView+WebCache.m in Sources */,
 				0C6E069F17E0CC850003F104 /* TMEBaseViewController.m in Sources */,

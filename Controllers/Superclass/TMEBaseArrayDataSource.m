@@ -10,15 +10,15 @@
 
 @implementation TMEBaseArrayDataSource
 
-- (id)initWithItems:(NSArray *)anItems
+- (id)initWithItems:(NSArray *)items
      cellIdentifier:(NSString *)aCellIdentifier
- configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock
+           delegate:(id)delegate
 {
   self = [super init];
   if (self) {
-    self.items = anItems;
+    self.items = items;
     self.cellIdentifier = aCellIdentifier;
-    self.configureCellBlock = [aConfigureCellBlock copy];
+    self.delegate = delegate;
   }
   return self;
 }
@@ -40,11 +40,11 @@
 {
   id cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
                                                           forIndexPath:indexPath];
-  id item = [self itemAtIndexPath:indexPath];
-  
-  if (self.configureCellBlock) {
-    self.configureCellBlock(cell,item);
+  if (self.delegate && [cell respondsToSelector:@selector(setDelegate:)]) {
+    [cell performSelector:@selector(setDelegate:) withObject:self.delegate];
   }
+  
+  id item = [self itemAtIndexPath:indexPath];
   
   if([cell respondsToSelector:@selector(configCellWithData:)]){
     [cell performSelector:@selector(configCellWithData:) withObject:item];

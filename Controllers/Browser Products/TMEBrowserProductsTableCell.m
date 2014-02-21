@@ -19,11 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView     * imageViewProduct;
 @property (weak, nonatomic) IBOutlet UILabel *labelLikes;
 
-// user
-@property (weak, nonatomic) IBOutlet UIImageView    * imgUserAvatar;
-@property (weak, nonatomic) IBOutlet UILabel        * lblUserName;
-@property (weak, nonatomic) IBOutlet UILabel        * lblTimestamp;
-
 // social
 @property (weak, nonatomic) IBOutlet UIButton       * btnFollow;
 @property (weak, nonatomic) IBOutlet UIButton       * btnShare;
@@ -48,9 +43,6 @@
   // for now when we get product, we get all imformantion about this product like user, category, etc.
   
   // user
-  [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:product.user.photo_url] placeholderImage:nil];
-  self.lblUserName.text = product.user.fullname;
-  self.lblTimestamp.text = [product.created_at relativeDate];
   
   self.labelLikes.text = product.likes.stringValue;
   self.btnFollow.selected = product.likedValue;

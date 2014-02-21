@@ -17,7 +17,7 @@
              paging:(BOOL)flag
     handleCellBlock:(LoadMoreCellHandleBlock)aHandleCellBlock
 {
-  self = [super initWithItems:anItems cellIdentifier:aCellIdentifier configureCellBlock:nil];
+  self = [super initWithItems:anItems cellIdentifier:aCellIdentifier delegate:nil];
   if (self) {
     self.paging = flag;
     self.handleCellBlock = [aHandleCellBlock copy];

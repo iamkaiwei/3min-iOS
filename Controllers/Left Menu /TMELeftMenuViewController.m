@@ -44,7 +44,7 @@ static NSString * const kLeftMenuTableViewCellIdentifier = @"TMELeftMenuTableVie
 }
 
 - (void)setUpTableView{
-  self.categoryArrayDataSource = [[TMEBaseArrayDataSource alloc] initWithItems:self.arrayCategories cellIdentifier:kLeftMenuTableViewCellIdentifier configureCellBlock:nil];
+  self.categoryArrayDataSource = [[TMEBaseArrayDataSource alloc] initWithItems:self.arrayCategories cellIdentifier:kLeftMenuTableViewCellIdentifier delegate:nil];
   
   self.tableView.dataSource = self.categoryArrayDataSource;
   [self.tableView reloadData];

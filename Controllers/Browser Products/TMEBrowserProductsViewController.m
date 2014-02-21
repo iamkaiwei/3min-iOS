@@ -10,9 +10,11 @@
 #import "TMEBrowserProductsTableCell.h"
 #import "TMESubmitViewController.h"
 #import "TMEProductDetailsViewController.h"
-#import "TMEBaseArrayDataSource.h"
+#import "TMEBrowserProductTableViewHeader.h"
+#import "TMEBrowserProductsViewControllerArrayDataSource.h"
 
 static NSString * const kBrowseProductCellIdentifier = @"TMEBrowserProductsTableCell";
+static NSString * const kBrowseProductHeaderIdentifier = @"TMEBrowserProductTableViewHeader";
 
 @interface TMEBrowserProductsViewController ()
 <
@@ -23,7 +25,7 @@ TMEBrowserProductsTableCellDelegate
 
 @property (strong, nonatomic) TMEUser                   * loginUser;
 @property (strong, nonatomic) TMECategory               * currentCategory;
-@property (strong, nonatomic) TMEBaseArrayDataSource    * productsArrayDataSource;
+@property (strong, nonatomic) TMEBrowserProductsViewControllerArrayDataSource    * productsArrayDataSource;
 @property (weak, nonatomic) IBOutlet UIImageView        * imageViewProductPlaceholder;
 @property (weak, nonatomic) IBOutlet MTAnimatedLabel    * labelAnimated;
 @end
@@ -40,6 +42,8 @@ TMEBrowserProductsTableCellDelegate
   [[XLCircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
   [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
   [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
+  
+  [self.tableView registerNib:[UINib nibWithNibName:kBrowseProductHeaderIdentifier bundle:[NSBundle mainBundle]] forHeaderFooterViewReuseIdentifier:kBrowseProductHeaderIdentifier];
   
   self.scrollableView = self.tableView;
   [self enablePullToRefresh];
@@ -61,11 +65,7 @@ TMEBrowserProductsTableCellDelegate
 }
 
 - (void)setUpTableView{
-  TableViewCellConfigureBlock configureCell = ^(TMEBrowserProductsTableCell *cell, TMEProduct *product){
-    cell.delegate = self;
-  };
-  
-  self.productsArrayDataSource = [[TMEBaseArrayDataSource alloc] initWithItems:self.dataArray cellIdentifier:kBrowseProductCellIdentifier configureCellBlock:configureCell];
+  self.productsArrayDataSource = [[TMEBrowserProductsViewControllerArrayDataSource alloc] initWithItems:self.dataArray cellIdentifier:kBrowseProductCellIdentifier headerIdentifier:kBrowseProductHeaderIdentifier delegate:self];
   
   self.tableView.dataSource = self.productsArrayDataSource;
   [self refreshTableViewAnimated:NO];
@@ -82,6 +82,17 @@ TMEBrowserProductsTableCellDelegate
   [self.navigationController pushViewController:productDetailsController animated:YES];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+  return 40;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+  TMEBrowserProductTableViewHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kBrowseProductHeaderIdentifier];
+  [header configHeaderWithData:self.dataArray[section]];
+  
+  return header;
+}
+
 #pragma mark - Load Product
 
 - (void)loadProducts{
@@ -93,17 +104,18 @@ TMEBrowserProductsTableCellDelegate
   [SVProgressHUD showWithStatus:@"Loading products..." maskType:SVProgressHUDMaskTypeGradient];
   if (self.currentCategory) {
     [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
-                                                onSuccessBlock:^(NSArray *arrProducts) {
-                                                  [self hidePlaceHolder];
-                                                  self.dataArray = [arrProducts mutableCopy];
-                                                  [self setUpTableView];
-                                                  [self.pullToRefreshView endRefreshing];
-                                                  [self.tableView setContentOffset:CGPointMake(0, -60) animated:YES];
-                                                  [SVProgressHUD dismiss];
-                                                } andFailureBlock:^(NSInteger statusCode, id obj) {
-                                                  [self.pullToRefreshView endRefreshing];
-                                                  [SVProgressHUD dismiss];
-                                                }];
+                                                onSuccessBlock:^(NSArray *arrProducts)
+     {
+       [self hidePlaceHolder];
+       self.dataArray = [arrProducts mutableCopy];
+       [self setUpTableView];
+       [self.pullToRefreshView endRefreshing];
+       [self.tableView setContentOffset:CGPointMake(0, -60) animated:YES];
+       [SVProgressHUD dismiss];
+     } andFailureBlock:^(NSInteger statusCode, id obj) {
+       [self.pullToRefreshView endRefreshing];
+       [SVProgressHUD dismiss];
+     }];
   } else {
     [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
       [self hidePlaceHolder];

@@ -8,19 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^TableViewCellConfigureBlock)(id cell, id item);
-
 #define CELL_LOAD_MORE_IDENTIFIER                   @"TMELoadMoreTableViewCell"
 
 @interface TMEBaseArrayDataSource : NSObject <UITableViewDataSource>
 
+@property (nonatomic, strong) id delegate;
 @property (nonatomic, strong) NSArray *items;
 @property (nonatomic, copy) NSString *cellIdentifier;
-@property (nonatomic, copy) TableViewCellConfigureBlock configureCellBlock;
 
-- (id)initWithItems:(NSArray *)anItems
+- (id)initWithItems:(NSArray *)items
      cellIdentifier:(NSString *)aCellIdentifier
- configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock;
+           delegate:(id)delegate;
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath;
 
