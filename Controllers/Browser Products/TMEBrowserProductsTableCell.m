@@ -67,7 +67,7 @@
 
 
 + (CGFloat)getHeight{
-  return 440;
+  return 400;
 }
 
 @end

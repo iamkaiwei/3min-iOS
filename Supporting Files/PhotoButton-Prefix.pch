@@ -168,6 +168,7 @@
 #import "TMEBaseTableViewController.h"
 #import "TMELeftMenuViewController.h"
 #import "TMEBaseTabBarViewController.h"
+#import "TMEHomeViewController.h"
 
 // Views
 #import "TMEBaseTableViewCell.h"

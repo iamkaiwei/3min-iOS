@@ -6,8 +6,11 @@
 //
 //
 
+#import "YIFullScreenScroll.h"
+
 @interface TMEBrowserProductsViewController : TMEBaseTableViewController
 
 - (void)loadProducts;
+- (void)fullScreenScrollDidLayoutUIBars:(YIFullScreenScroll *)fullScreenScroll;
 
 @end

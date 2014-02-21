@@ -12,6 +12,7 @@
 #import "YIFullScreenScroll.h"
 
 @interface HTKContainerViewController ()
+<YIFullScreenScrollDelegate>
 
 @property (strong, nonatomic) TMEBrowserProductsViewController *normalViewController;
 @property (strong, nonatomic) TMEBrowserCollectionViewController *gridViewController;
@@ -72,7 +73,9 @@
     }
     
     self.fullScreenScroll = [[YIFullScreenScroll alloc] initWithViewController:self
-                                                                    scrollView:scrollView];
+                                                                    scrollView:scrollView
+                                                                         style:YIFullScreenScrollStyleFacebook];
+    self.fullScreenScroll.delegate = self;
     return;
 }
 
@@ -124,6 +127,12 @@
 - (UIScrollView *)getScrollView
 {
     return [self getScrollViewOfViewController:self.currentViewController];
+}
+
+- (void)fullScreenScrollDidLayoutUIBars:(YIFullScreenScroll *)fullScreenScroll{
+  if([self.currentViewController respondsToSelector:@selector(fullScreenScrollDidLayoutUIBars:)]){
+    [self.currentViewController performSelector:@selector(fullScreenScrollDidLayoutUIBars:) withObject:fullScreenScroll];
+  }
 }
 
 @end

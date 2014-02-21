@@ -38,13 +38,11 @@ TMEBrowserProductsTableCellDelegate
   // Do any additional setup after loading the view from its nib.
   [self.labelAnimated startAnimating];
   self.navigationController.navigationBar.topItem.title = @"Browse Products";
-  
   [[XLCircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
   [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
   [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
   
   [self.tableView registerNib:[UINib nibWithNibName:kBrowseProductHeaderIdentifier bundle:[NSBundle mainBundle]] forHeaderFooterViewReuseIdentifier:kBrowseProductHeaderIdentifier];
-  
   self.scrollableView = self.tableView;
   [self enablePullToRefresh];
   [self paddingScrollWithTop];
@@ -220,4 +218,11 @@ TMEBrowserProductsTableCellDelegate
   [self.labelAnimated fadeOutWithDuration:0.4];
   self.imageViewProductPlaceholder.hidden = YES;
 }
+
+- (void)fullScreenScrollDidLayoutUIBars:(YIFullScreenScroll *)fullScreenScroll{
+  CGRect newFrame = self.tableView.frame;
+  newFrame.origin.y = fullScreenScroll.navigationBarHeight;
+  self.tableView.frame = newFrame;
+}
+
 @end

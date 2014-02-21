@@ -30,4 +30,19 @@
   return self.items.count;
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+  id cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
+                                            forIndexPath:indexPath];
+  if (self.delegate && [cell respondsToSelector:@selector(setDelegate:)]) {
+    [cell performSelector:@selector(setDelegate:) withObject:self.delegate];
+  }
+  
+  id item = self.items[indexPath.section];
+  
+  if([cell respondsToSelector:@selector(configCellWithData:)]){
+    [cell performSelector:@selector(configCellWithData:) withObject:item];
+  }
+  return cell;
+}
+
 @end
