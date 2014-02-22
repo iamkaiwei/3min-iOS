@@ -443,8 +443,8 @@
 		B49025F818B9232E00B00671 /* TMEReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEReply.m; sourceTree = "<group>"; };
 		B49025F918B9232E00B00671 /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
 		B49025FA18B9232E00B00671 /* TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUser.m; sourceTree = "<group>"; };
-		B490260318B9232E00B00671 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B490260418B9232E00B00671 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B490260318B9232E00B00671 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "PhotoButton/Supporting Files/AppDelegate.h"; sourceTree = "<group>"; };
+		B490260418B9232E00B00671 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "PhotoButton/Supporting Files/AppDelegate.m"; sourceTree = "<group>"; };
 		B490260618B9232E00B00671 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B490260718B9232E00B00671 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B490260818B9232E00B00671 /* PhotoButton-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PhotoButton-Info.plist"; sourceTree = "<group>"; };
@@ -549,13 +549,15 @@
 		5976C03415925D2D007F6FC3 = {
 			isa = PBXGroup;
 			children = (
-				B490250018B9232D00B00671 /* Categories */,
+				B490260318B9232E00B00671 /* AppDelegate.h */,
+				B490260418B9232E00B00671 /* AppDelegate.m */,
+				B49025E118B9232D00B00671 /* Models */,
+				B49026F518B9232E00B00671 /* Views */,
 				B490254C18B9232D00B00671 /* Controllers */,
 				B49025CB18B9232D00B00671 /* Managers */,
-				B49025E118B9232D00B00671 /* Models */,
+				B490250018B9232D00B00671 /* Categories */,
 				B490260218B9232E00B00671 /* Supporting Files */,
 				B490260C18B9232E00B00671 /* Vendors */,
-				B49026F518B9232E00B00671 /* Views */,
 				0C28B28717DC1A1400BD0EC2 /* Resources */,
 				5976C04215925D2D007F6FC3 /* Frameworks */,
 				5976C04015925D2D007F6FC3 /* Products */,
@@ -1034,8 +1036,6 @@
 			isa = PBXGroup;
 			children = (
 				B49027FB18B9235300B00671 /* TMEModels.xcdatamodeld */,
-				B490260318B9232E00B00671 /* AppDelegate.h */,
-				B490260418B9232E00B00671 /* AppDelegate.m */,
 				B490260518B9232E00B00671 /* InfoPlist.strings */,
 				B490260718B9232E00B00671 /* main.m */,
 				B490260818B9232E00B00671 /* PhotoButton-Info.plist */,
