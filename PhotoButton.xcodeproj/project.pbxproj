@@ -43,11 +43,6 @@
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
 		B459FDBB181BD07500D6BC79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B459FDBA181BD07500D6BC79 /* Images.xcassets */; };
-		B490270318B9232E00B00671 /* TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B49024F718B9232D00B00671 /* TMECategory.m */; };
-		B490270418B9232E00B00671 /* TMEProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = B49024F918B9232D00B00671 /* TMEProduct.m */; };
-		B490270518B9232E00B00671 /* TMEProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = B49024FB18B9232D00B00671 /* TMEProductImages.m */; };
-		B490270618B9232E00B00671 /* TMETransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = B49024FD18B9232D00B00671 /* TMETransaction.m */; };
-		B490270718B9232E00B00671 /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B49024FF18B9232D00B00671 /* TMEUser.m */; };
 		B490270818B9232E00B00671 /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = B490250218B9232D00B00671 /* ActiveSupportInflector.m */; };
 		B490270918B9232E00B00671 /* ActiveSupportInflector.plist in Resources */ = {isa = PBXBuildFile; fileRef = B490250318B9232D00B00671 /* ActiveSupportInflector.plist */; };
 		B490270A18B9232E00B00671 /* CAAnimation+EasingEquations.m in Sources */ = {isa = PBXBuildFile; fileRef = B490250518B9232D00B00671 /* CAAnimation+EasingEquations.m */; };
@@ -235,7 +230,7 @@
 		B49027C118B9232F00B00671 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = B490268B18B9232E00B00671 /* MagicalRecord+ShorthandSupport.m */; };
 		B49027C218B9232F00B00671 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B490268D18B9232E00B00671 /* MagicalRecord.m */; };
 		B49027C318B9232F00B00671 /* MTAnimatedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B490269218B9232E00B00671 /* MTAnimatedLabel.m */; };
-		B49027C418B9232F00B00671 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = B490269518B9232E00B00671 /* OpenUDID.m */; };
+		B49027C418B9232F00B00671 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = B490269518B9232E00B00671 /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B49027C518B9232F00B00671 /* PBImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B490269818B9232E00B00671 /* PBImageHelper.m */; };
 		B49027C618B9232F00B00671 /* TMEPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B490269A18B9232E00B00671 /* TMEPhotoButton.m */; };
 		B49027C718B9232F00B00671 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B490269D18B9232E00B00671 /* Reachability.m */; };
@@ -317,16 +312,6 @@
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B459FDBA181BD07500D6BC79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PhotoButton/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		B49024F618B9232D00B00671 /* TMECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECategory.h; sourceTree = "<group>"; };
-		B49024F718B9232D00B00671 /* TMECategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECategory.m; sourceTree = "<group>"; };
-		B49024F818B9232D00B00671 /* TMEProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProduct.h; sourceTree = "<group>"; };
-		B49024F918B9232D00B00671 /* TMEProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProduct.m; sourceTree = "<group>"; };
-		B49024FA18B9232D00B00671 /* TMEProductImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductImages.h; sourceTree = "<group>"; };
-		B49024FB18B9232D00B00671 /* TMEProductImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductImages.m; sourceTree = "<group>"; };
-		B49024FC18B9232D00B00671 /* TMETransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETransaction.h; sourceTree = "<group>"; };
-		B49024FD18B9232D00B00671 /* TMETransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETransaction.m; sourceTree = "<group>"; };
-		B49024FE18B9232D00B00671 /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
-		B49024FF18B9232D00B00671 /* TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUser.m; sourceTree = "<group>"; };
 		B490250118B9232D00B00671 /* ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveSupportInflector.h; sourceTree = "<group>"; };
 		B490250218B9232D00B00671 /* ActiveSupportInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveSupportInflector.m; sourceTree = "<group>"; };
 		B490250318B9232D00B00671 /* ActiveSupportInflector.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = ActiveSupportInflector.plist; sourceTree = "<group>"; };
@@ -819,7 +804,6 @@
 		5976C03415925D2D007F6FC3 = {
 			isa = PBXGroup;
 			children = (
-				B49024F518B9232D00B00671 /* --template-var */,
 				B490250018B9232D00B00671 /* Categories */,
 				B490254C18B9232D00B00671 /* Controllers */,
 				B49025CA18B9232D00B00671 /* Images.xcassets */,
@@ -869,24 +853,6 @@
 				5976C04715925D2D007F6FC3 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B49024F518B9232D00B00671 /* --template-var */ = {
-			isa = PBXGroup;
-			children = (
-				B49024F618B9232D00B00671 /* TMECategory.h */,
-				B49024F718B9232D00B00671 /* TMECategory.m */,
-				B49024F818B9232D00B00671 /* TMEProduct.h */,
-				B49024F918B9232D00B00671 /* TMEProduct.m */,
-				B49024FA18B9232D00B00671 /* TMEProductImages.h */,
-				B49024FB18B9232D00B00671 /* TMEProductImages.m */,
-				B49024FC18B9232D00B00671 /* TMETransaction.h */,
-				B49024FD18B9232D00B00671 /* TMETransaction.m */,
-				B49024FE18B9232D00B00671 /* TMEUser.h */,
-				B49024FF18B9232D00B00671 /* TMEUser.m */,
-			);
-			name = "--template-var";
-			path = "PhotoButton/--template-var";
 			sourceTree = "<group>";
 		};
 		B490250018B9232D00B00671 /* Categories */ = {
@@ -2051,7 +2017,6 @@
 				B490275C18B9232E00B00671 /* TMEProductDetailsViewController.m in Sources */,
 				B49027C418B9232F00B00671 /* OpenUDID.m in Sources */,
 				B490277318B9232E00B00671 /* FacebookManager.m in Sources */,
-				B490270418B9232E00B00671 /* TMEProduct.m in Sources */,
 				B490270E18B9232E00B00671 /* NSCalendar+Additions.m in Sources */,
 				B490277918B9232E00B00671 /* TMEProductsManager.m in Sources */,
 				B490279F18B9232F00B00671 /* YIFullScreenScroll.m in Sources */,
@@ -2118,7 +2083,6 @@
 				B490279518B9232F00B00671 /* AFPropertyListRequestOperation.m in Sources */,
 				B49027B518B9232F00B00671 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				B490278118B9232F00B00671 /* TMECategory.m in Sources */,
-				B490270318B9232E00B00671 /* TMECategory.m in Sources */,
 				B490274618B9232E00B00671 /* TMEHomeViewController.m in Sources */,
 				B49027D118B9232F00B00671 /* SDWebImageManager.m in Sources */,
 				B49027BF18B9232F00B00671 /* MagicalRecord+Options.m in Sources */,
@@ -2168,7 +2132,6 @@
 				B49027DA18B9232F00B00671 /* HexColor.m in Sources */,
 				B490271A18B9232E00B00671 /* TMEUser+Additions.m in Sources */,
 				B490272C18B9232E00B00671 /* UIViewController+Additions.m in Sources */,
-				B490270718B9232E00B00671 /* TMEUser.m in Sources */,
 				B49027AE18B9232F00B00671 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				B490272D18B9232E00B00671 /* UIWebView+Additions.m in Sources */,
 				B490273718B9232E00B00671 /* TMEBrowserProductsViewControllerArrayDataSource.m in Sources */,
@@ -2201,10 +2164,8 @@
 				B490272018B9232E00B00671 /* UIColor+Custom.m in Sources */,
 				B49027CC18B9232F00B00671 /* SDImageCache.m in Sources */,
 				B490277D18B9232E00B00671 /* _TMEProduct.m in Sources */,
-				B490270518B9232E00B00671 /* TMEProductImages.m in Sources */,
 				B490278618B9232F00B00671 /* TMEUser.m in Sources */,
 				B490271018B9232E00B00671 /* NSDate+Additions.m in Sources */,
-				B490270618B9232E00B00671 /* TMETransaction.m in Sources */,
 				B49027A618B9232F00B00671 /* UIFont+FontAwesome.m in Sources */,
 				B490271B18B9232E00B00671 /* UIAlertView+Additions.m in Sources */,
 				B490271218B9232E00B00671 /* NSMutableArray+Additions.m in Sources */,
