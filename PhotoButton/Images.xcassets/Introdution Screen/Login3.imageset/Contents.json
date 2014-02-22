@@ -1,0 +1,25 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "Login3.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "Login3@2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "Login3-568h.png",
+      "unassigned" : true,
+      "subtype" : "retina4",
+      "scale" : "1x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
