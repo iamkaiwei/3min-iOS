@@ -23,6 +23,7 @@ UITableViewDelegate,
 TMEBrowserProductsTableCellDelegate
 >
 
+@property (assign, nonatomic) CGFloat                     currentNavBarHeight;
 @property (strong, nonatomic) TMEUser                   * loginUser;
 @property (strong, nonatomic) TMECategory               * currentCategory;
 @property (strong, nonatomic) TMEBrowserProductsViewControllerArrayDataSource    * productsArrayDataSource;
@@ -218,10 +219,19 @@ TMEBrowserProductsTableCellDelegate
 }
 
 - (void)fullScreenScrollDidLayoutUIBars:(YIFullScreenScroll *)fullScreenScroll{
+    if(self.currentNavBarHeight == fullScreenScroll.navigationBarHeight){
+        return;
+    }
   CGRect newFrame = self.tableView.frame;
-  newFrame.origin.y = fullScreenScroll.navigationBarHeight;
-  newFrame.size.height = [[UIScreen mainScreen]bounds].size.height - fullScreenScroll.navigationBarHeight;
+    CGFloat navBarHeightForVersionCheck = fullScreenScroll.navigationBarHeight;
+    if(SYSTEM_VERSION_LESS_THAN(@"7.0")){
+        navBarHeightForVersionCheck = fullScreenScroll.navigationBarHeight + CGRectGetHeight([[UIApplication sharedApplication] statusBarFrame]);
+    }
+
+  newFrame.origin.y = navBarHeightForVersionCheck;
+  newFrame.size.height = [[UIScreen mainScreen]bounds].size.height - navBarHeightForVersionCheck;
   self.tableView.frame = newFrame;
+    self.currentNavBarHeight = fullScreenScroll.navigationBarHeight;
 }
 
 @end
