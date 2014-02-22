@@ -46,7 +46,6 @@ UITableViewDataSource
 - (void)viewWillAppear:(BOOL)animated{
   [super viewWillAppear:animated];
   self.navigationController.navigationBar.topItem.title = [[TMEUserManager sharedInstance] loggedUser].fullname;
-  
 }
 
 - (void)configView{
