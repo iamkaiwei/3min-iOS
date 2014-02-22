@@ -115,7 +115,6 @@
 #import "UIViewController+Additions.h"
 #import "UIWebView+Additions.h"
 #import "UIButton+Additions.h"
-#import "UIFont+FontAwesome.h"
 #import "NSString+FontAwesome.h"
 #import "AFDownloadRequestOperation.h"
 #import "SDWebImageManager.h"
