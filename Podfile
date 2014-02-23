@@ -1,6 +1,7 @@
 platform :ios, '6.0'
 
 target :PhotoButton, :exclusive => true do
+
   pod 'AFNetworking', '1.3.3'
   pod 'Reachability'
   pod 'SVProgressHUD'
@@ -16,4 +17,6 @@ target :PhotoButton, :exclusive => true do
   pod 'MTAnimatedLabel'
   pod 'TSMessages', '0.9.5'
   pod 'FontAwesome-iOS'
+  pod 'Foursquare-API-v2'
+  
 end
