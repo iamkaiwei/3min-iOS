@@ -12,6 +12,7 @@
 #import "HTKContainerViewController.h"
 #import "TMESwitch.h"
 #import "PBImageHelper.h"
+#import "PublishLocationPickerViewController.h"
 
 @interface TMEPublishProductViewController ()
 <
@@ -422,7 +423,7 @@ UITextViewDelegate
   }];
 }
 
-#pragma marks - Helper methods
+#pragma mark - Helper methods
 
 - (void)resetAllForms
 {
@@ -516,5 +517,13 @@ UITextViewDelegate
   [self dismissKeyboard];
   return NO; // We do not want UITextField to insert line-breaks.
 }
+
+#pragma mark - Actions
+
+- (IBAction)onBtnShowLocation:(id)sender {
+    PublishLocationPickerViewController *locationVC = [[PublishLocationPickerViewController alloc] init];
+    [self presentModalViewController:locationVC withPushDirection:@"bottom"];
+}
+
 
 @end

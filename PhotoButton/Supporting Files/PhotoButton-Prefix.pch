@@ -160,6 +160,8 @@
 #import "UIImageView+AFNetworking.h"
 #import "MTAnimatedLabel.h"
 #import <Foursquare2.h>
+#import "FSVenue.h"
+#import "FSConverter.h"
 
 // Common VCs
 #import "TMENavigationViewController.h"

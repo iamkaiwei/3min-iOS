@@ -42,6 +42,11 @@
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
 		B4255A5A18B9F2760022B3A5 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A5918B9F2760022B3A5 /* UIPlaceHolderTextView.m */; };
+		B4255A5E18B9FA6A0022B3A5 /* PublishLocationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A5C18B9FA6A0022B3A5 /* PublishLocationPickerViewController.m */; };
+		B4255A5F18B9FA6A0022B3A5 /* PublishLocationPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4255A5D18B9FA6A0022B3A5 /* PublishLocationPickerViewController.xib */; };
+		B4255A6418B9FBFC0022B3A5 /* FSConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A6118B9FBFC0022B3A5 /* FSConverter.m */; };
+		B4255A6518B9FBFC0022B3A5 /* FSVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A6318B9FBFC0022B3A5 /* FSVenue.m */; };
+		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
 		B490270818B9232E00B00671 /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = B490250218B9232D00B00671 /* ActiveSupportInflector.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B490270918B9232E00B00671 /* ActiveSupportInflector.plist in Resources */ = {isa = PBXBuildFile; fileRef = B490250318B9232D00B00671 /* ActiveSupportInflector.plist */; };
 		B490270A18B9232E00B00671 /* CAAnimation+EasingEquations.m in Sources */ = {isa = PBXBuildFile; fileRef = B490250518B9232D00B00671 /* CAAnimation+EasingEquations.m */; };
@@ -222,6 +227,14 @@
 		8D5F82EBDA924B60AFAB0110 /* libPods-PhotoButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4255A5818B9F2760022B3A5 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
 		B4255A5918B9F2760022B3A5 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
+		B4255A5B18B9FA6A0022B3A5 /* PublishLocationPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishLocationPickerViewController.h; sourceTree = "<group>"; };
+		B4255A5C18B9FA6A0022B3A5 /* PublishLocationPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishLocationPickerViewController.m; sourceTree = "<group>"; };
+		B4255A5D18B9FA6A0022B3A5 /* PublishLocationPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PublishLocationPickerViewController.xib; sourceTree = "<group>"; };
+		B4255A6018B9FBFC0022B3A5 /* FSConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSConverter.h; sourceTree = "<group>"; };
+		B4255A6118B9FBFC0022B3A5 /* FSConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSConverter.m; sourceTree = "<group>"; };
+		B4255A6218B9FBFC0022B3A5 /* FSVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVenue.h; sourceTree = "<group>"; };
+		B4255A6318B9FBFC0022B3A5 /* FSVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVenue.m; sourceTree = "<group>"; };
+		B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B490250118B9232D00B00671 /* ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveSupportInflector.h; sourceTree = "<group>"; };
 		B490250218B9232D00B00671 /* ActiveSupportInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveSupportInflector.m; sourceTree = "<group>"; };
 		B490250318B9232D00B00671 /* ActiveSupportInflector.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = ActiveSupportInflector.plist; sourceTree = "<group>"; };
@@ -511,6 +524,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */,
 				201EFE1F17F6F6BC00DA6BB4 /* SystemConfiguration.framework in Frameworks */,
 				0C7EFBEF17E8D86E0054C4DE /* CoreImage.framework in Frameworks */,
 				0C2F789A17F2DD1F00201783 /* ImageIO.framework in Frameworks */,
@@ -580,6 +594,7 @@
 		5976C04215925D2D007F6FC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */,
 				201EFE1E17F6F6BC00DA6BB4 /* SystemConfiguration.framework */,
 				0C2F789917F2DD1F00201783 /* ImageIO.framework */,
 				0C5C936817EA162100ECF9B3 /* Security.framework */,
@@ -607,6 +622,10 @@
 		B4255A5718B9F2760022B3A5 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				B4255A6018B9FBFC0022B3A5 /* FSConverter.h */,
+				B4255A6118B9FBFC0022B3A5 /* FSConverter.m */,
+				B4255A6218B9FBFC0022B3A5 /* FSVenue.h */,
+				B4255A6318B9FBFC0022B3A5 /* FSVenue.m */,
 				B4255A5818B9F2760022B3A5 /* UIPlaceHolderTextView.h */,
 				B4255A5918B9F2760022B3A5 /* UIPlaceHolderTextView.m */,
 			);
@@ -910,6 +929,9 @@
 				B49025A718B9232D00B00671 /* TMEPublishProductViewController.h */,
 				B49025A818B9232D00B00671 /* TMEPublishProductViewController.m */,
 				B49025A918B9232D00B00671 /* TMEPublishProductViewController.xib */,
+				B4255A5B18B9FA6A0022B3A5 /* PublishLocationPickerViewController.h */,
+				B4255A5C18B9FA6A0022B3A5 /* PublishLocationPickerViewController.m */,
+				B4255A5D18B9FA6A0022B3A5 /* PublishLocationPickerViewController.xib */,
 			);
 			path = "Publish Products";
 			sourceTree = "<group>";
@@ -1300,6 +1322,7 @@
 				B490276218B9232E00B00671 /* TMESearchViewController.xib in Resources */,
 				B490274B18B9232E00B00671 /* TMELikedViewController.xib in Resources */,
 				B490280118B92A5500B00671 /* Images.xcassets in Resources */,
+				B4255A5F18B9FA6A0022B3A5 /* PublishLocationPickerViewController.xib in Resources */,
 				B490274118B9232E00B00671 /* TMELeftMenuTableViewCell.xib in Resources */,
 				B490276818B9232E00B00671 /* TMESubmitViewController.xib in Resources */,
 				B490273F18B9232E00B00671 /* HTKContainerViewController.xib in Resources */,
@@ -1412,6 +1435,7 @@
 				B490278A18B9232F00B00671 /* AppDelegate.m in Sources */,
 				B490277C18B9232E00B00671 /* _TMEConversation.m in Sources */,
 				B490271C18B9232E00B00671 /* UIBarButtonItem+Custom.m in Sources */,
+				B4255A6418B9FBFC0022B3A5 /* FSConverter.m in Sources */,
 				B490275A18B9232E00B00671 /* TMEOfferViewController.m in Sources */,
 				B490276A18B9232E00B00671 /* TMEBaseArrayDataSource.m in Sources */,
 				B490274818B9232E00B00671 /* TMELikedTableViewCell.m in Sources */,
@@ -1444,6 +1468,7 @@
 				B490277518B9232E00B00671 /* TMECategoryManager.m in Sources */,
 				B490279918B9232F00B00671 /* AFUrbanAirshipClient.m in Sources */,
 				B490276318B9232E00B00671 /* TMESubmitTableCell.m in Sources */,
+				B4255A5E18B9FA6A0022B3A5 /* PublishLocationPickerViewController.m in Sources */,
 				B490273E18B9232E00B00671 /* HTKContainerViewController.m in Sources */,
 				B490278118B9232F00B00671 /* TMECategory.m in Sources */,
 				B490274618B9232E00B00671 /* TMEHomeViewController.m in Sources */,
@@ -1501,6 +1526,7 @@
 				B490271618B9232E00B00671 /* NSString+Additions.m in Sources */,
 				B490275218B9232E00B00671 /* TMEOfferedViewController.m in Sources */,
 				B490275618B9232E00B00671 /* TMEMeTableViewCellBackgroundView.m in Sources */,
+				B4255A6518B9FBFC0022B3A5 /* FSVenue.m in Sources */,
 				B490277618B9232E00B00671 /* TMEConversationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
