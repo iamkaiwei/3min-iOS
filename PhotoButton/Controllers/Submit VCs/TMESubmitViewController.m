@@ -20,7 +20,7 @@ static CGFloat const kLabelContentDefaultHeight = 26;
 static NSInteger const kUserID = 36;
 
 @interface TMESubmitViewController()
-<UITableViewDataSource,
+<
 UITableViewDelegate,
 UIApplicationDelegate,
 UITextViewDelegate
