@@ -57,12 +57,43 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <view hidden="YES" contentMode="scaleToFill" id="SGe-uq-UW7" userLabel="Picker wrapper">
+                    <rect key="frame" x="0.0" y="433" width="320" height="260"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <pickerView contentMode="scaleToFill" id="eA3-fI-RTA">
+                            <rect key="frame" x="-5" y="44" width="325" height="216"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="1gX-hr-cyD"/>
+                                <outlet property="delegate" destination="-1" id="7h0-BC-UFg"/>
+                            </connections>
+                        </pickerView>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="nYo-Dk-dTh">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <barButtonItem style="done" systemItem="done" id="kor-7V-OWO">
+                                    <connections>
+                                        <action selector="onButtonPickerDone:" destination="-1" id="NFT-xq-dvk"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem style="done" systemItem="cancel" id="ovh-pb-qIV">
+                                    <connections>
+                                        <action selector="onButtonPickerCancel:" destination="-1" id="vXZ-88-JE1"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
                 <view contentMode="scaleToFill" id="w4T-jL-VMS" userLabel="product information">
                     <rect key="frame" x="12" y="324" width="294" height="360"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="8F5-R1-hB3">
-                            <rect key="frame" x="0.0" y="9" width="294" height="120"/>
+                            <rect key="frame" x="0.0" y="9" width="294" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wnt-ns-3S7">
@@ -120,11 +151,24 @@
                                     <rect key="frame" x="12" y="86" width="25" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
+                                <view contentMode="scaleToFill" id="lkr-x0-A45">
+                                    <rect key="frame" x="0.0" y="119" width="294" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jGK-j5-YQA">
+                                            <rect key="frame" x="46" y="10" width="159" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.89411771299999998" green="0.88627457620000005" blue="0.88235300780000003" alpha="1" colorSpace="deviceRGB"/>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" red="0.89411771297454834" green="0.88627457618713379" blue="0.88235300779342651" alpha="1" colorSpace="deviceRGB"/>
                         </view>
                         <view contentMode="scaleToFill" id="wks-W1-I7v">
-                            <rect key="frame" x="0.0" y="139" width="294" height="40"/>
+                            <rect key="frame" x="0.0" y="177" width="294" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share on facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SnB-fg-j2A">
@@ -145,70 +189,17 @@
                             </subviews>
                             <color key="backgroundColor" red="0.89411771297454834" green="0.88627457618713379" blue="0.88235300779342651" alpha="1" colorSpace="deviceRGB"/>
                         </view>
-                        <view contentMode="scaleToFill" id="lkr-x0-A45">
-                            <rect key="frame" x="0.0" y="307" width="294" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jGK-j5-YQA">
-                                    <rect key="frame" x="46" y="10" width="159" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook.png" id="16t-jO-rW1">
-                                    <rect key="frame" x="18" y="7" width="12" height="25"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
-                                <view contentMode="scaleToFill" id="Lkh-Vg-jV5" customClass="TMESwitch">
-                                    <rect key="frame" x="210" y="6" width="76" height="28"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                </view>
-                            </subviews>
-                            <color key="backgroundColor" red="0.89411771299999998" green="0.88627457620000005" blue="0.88235300780000003" alpha="1" colorSpace="deviceRGB"/>
-                        </view>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="gIL-0S-NPq">
-                            <rect key="frame" x="0.0" y="188" width="294" height="108"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="gIL-0S-NPq" customClass="UIPlaceHolderTextView">
+                            <rect key="frame" x="0.0" y="226" width="294" height="108"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <connections>
-                                <outlet property="delegate" destination="1" id="dOM-WT-9CH"/>
+                                <outlet property="delegate" destination="-1" id="iHW-An-YvW"/>
                             </connections>
                         </textView>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                </view>
-                <view hidden="YES" contentMode="scaleToFill" id="SGe-uq-UW7" userLabel="Picker wrapper">
-                    <rect key="frame" x="0.0" y="433" width="320" height="260"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <pickerView contentMode="scaleToFill" id="eA3-fI-RTA">
-                            <rect key="frame" x="-5" y="44" width="325" height="216"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="1gX-hr-cyD"/>
-                                <outlet property="delegate" destination="-1" id="7h0-BC-UFg"/>
-                            </connections>
-                        </pickerView>
-                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="nYo-Dk-dTh">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <barButtonItem style="done" systemItem="done" id="kor-7V-OWO">
-                                    <connections>
-                                        <action selector="onButtonPickerDone:" destination="-1" id="NFT-xq-dvk"/>
-                                    </connections>
-                                </barButtonItem>
-                                <barButtonItem style="done" systemItem="cancel" id="ovh-pb-qIV">
-                                    <connections>
-                                        <action selector="onButtonPickerCancel:" destination="-1" id="vXZ-88-JE1"/>
-                                    </connections>
-                                </barButtonItem>
-                            </items>
-                        </toolbar>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>

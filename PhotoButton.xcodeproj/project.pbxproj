@@ -41,6 +41,7 @@
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
+		B4255A5A18B9F2760022B3A5 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A5918B9F2760022B3A5 /* UIPlaceHolderTextView.m */; };
 		B490270818B9232E00B00671 /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = B490250218B9232D00B00671 /* ActiveSupportInflector.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B490270918B9232E00B00671 /* ActiveSupportInflector.plist in Resources */ = {isa = PBXBuildFile; fileRef = B490250318B9232D00B00671 /* ActiveSupportInflector.plist */; };
 		B490270A18B9232E00B00671 /* CAAnimation+EasingEquations.m in Sources */ = {isa = PBXBuildFile; fileRef = B490250518B9232D00B00671 /* CAAnimation+EasingEquations.m */; };
@@ -219,6 +220,8 @@
 		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		64C3B8A6E8EA4A30A3BD2235 /* Pods-PhotoButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoButton.xcconfig"; path = "Pods/Pods-PhotoButton.xcconfig"; sourceTree = "<group>"; };
 		8D5F82EBDA924B60AFAB0110 /* libPods-PhotoButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4255A5818B9F2760022B3A5 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		B4255A5918B9F2760022B3A5 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		B490250118B9232D00B00671 /* ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveSupportInflector.h; sourceTree = "<group>"; };
 		B490250218B9232D00B00671 /* ActiveSupportInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveSupportInflector.m; sourceTree = "<group>"; };
 		B490250318B9232D00B00671 /* ActiveSupportInflector.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = ActiveSupportInflector.plist; sourceTree = "<group>"; };
@@ -551,6 +554,7 @@
 			children = (
 				B490260318B9232E00B00671 /* AppDelegate.h */,
 				B490260418B9232E00B00671 /* AppDelegate.m */,
+				B4255A5718B9F2760022B3A5 /* Class */,
 				B49025E118B9232D00B00671 /* Models */,
 				B49026F518B9232E00B00671 /* Views */,
 				B490254C18B9232D00B00671 /* Controllers */,
@@ -598,6 +602,16 @@
 				8D5F82EBDA924B60AFAB0110 /* libPods-PhotoButton.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4255A5718B9F2760022B3A5 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				B4255A5818B9F2760022B3A5 /* UIPlaceHolderTextView.h */,
+				B4255A5918B9F2760022B3A5 /* UIPlaceHolderTextView.m */,
+			);
+			name = Class;
+			path = PhotoButton/Class;
 			sourceTree = "<group>";
 		};
 		B490250018B9232D00B00671 /* Categories */ = {
@@ -1460,6 +1474,7 @@
 				B490272A18B9232E00B00671 /* UIView+Glow.m in Sources */,
 				B490278518B9232F00B00671 /* TMEReply.m in Sources */,
 				B490277218B9232E00B00671 /* BaseNetworkManager.m in Sources */,
+				B4255A5A18B9F2760022B3A5 /* UIPlaceHolderTextView.m in Sources */,
 				B490271A18B9232E00B00671 /* TMEUser+Additions.m in Sources */,
 				B490272C18B9232E00B00671 /* UIViewController+Additions.m in Sources */,
 				B490272D18B9232E00B00671 /* UIWebView+Additions.m in Sources */,

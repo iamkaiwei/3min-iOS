@@ -20,7 +20,8 @@ UIAlertViewDelegate,
 UITextFieldDelegate,
 TMEPhotoButtonDelegate,
 UIPickerViewDataSource,
-UIPickerViewDelegate
+UIPickerViewDelegate,
+UITextViewDelegate
 >
 
 @property (assign, nonatomic) BOOL                    postingInProgress;
@@ -35,6 +36,8 @@ UIPickerViewDelegate
 @property (weak, nonatomic) IBOutlet UIView         * viewPickerWrapper;
 @property (weak, nonatomic) IBOutlet UIButton       * pickerCategoryButton;
 @property (weak, nonatomic) IBOutlet UIScrollView   * scrollViewContainner;
+
+
 
 @property (strong, nonatomic) IBOutletCollection(TMEPhotoButton) NSArray * photoButtons;
 
@@ -475,6 +478,11 @@ UIPickerViewDelegate
     [self resetAllForms];
   }
   self.tabBarController.selectedIndex = 0;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    self.activeTextField = (id)textView;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
