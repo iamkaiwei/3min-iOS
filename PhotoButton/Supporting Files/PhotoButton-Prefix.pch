@@ -159,6 +159,7 @@
 #import "UIImageView+XLProgressIndicator.h"
 #import "UIImageView+AFNetworking.h"
 #import "MTAnimatedLabel.h"
+#import <Foursquare2.h>
 
 // Common VCs
 #import "TMENavigationViewController.h"

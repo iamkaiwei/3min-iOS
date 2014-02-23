@@ -72,6 +72,9 @@ FacebookManagerDelegate
     
     // start MR
     [MagicalRecord setupCoreDataStack];
+
+    // start foursquare
+    [self initFourSquare];
     
     // Google analytics
     [self setUpGoogleAnalytics];
@@ -303,6 +306,12 @@ FacebookManagerDelegate
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
+    NSString *specifier = [[url resourceSpecifier] lowercaseString];
+
+    if ([specifier contains:@"foursquare"]) {
+        return [Foursquare2 handleURL:url];
+    }
+
     return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
 }
 
@@ -345,6 +354,15 @@ FacebookManagerDelegate
         self.window.rootViewController = viewController;
         if (completion) completion();
     }
+}
+
+#pragma mark - Foursquare initialization
+
+- (void)initFourSquare
+{
+    [Foursquare2 setupFoursquareWithClientId:@"UTG1422BL21NVOSHA24C2FGEQXVYWYWXHBSSP0XNBSLVPIAM"
+                                      secret:@"PMK2RVQ5EEOJH3ZVINAIDUZPXR3QZED3MYDRWMQYQDCOMR0W"
+                                 callbackURL:@"3mins://foursquare"];
 }
 
 #pragma mark - Switch View Controllers

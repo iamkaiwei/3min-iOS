@@ -33,6 +33,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>3mins</string>
 				<string>fb580806171975545</string>
 			</array>
 		</dict>
