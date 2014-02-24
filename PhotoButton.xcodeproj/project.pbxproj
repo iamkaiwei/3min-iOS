@@ -21,9 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		0B7F441518BB10EF000777BF /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B490263018B9232E00B00671 /* libAviarySDK.a */; };
-		0B7F441618BB1109000777BF /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B490264118B9232E00B00671 /* libCrittercism_v4_0_7.a */; };
-		0B7F441718BB112E000777BF /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B490265018B9232E00B00671 /* libGoogleAnalytics.a */; };
 		0B7F441B18BB126F000777BF /* TMECircleProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F441A18BB126F000777BF /* TMECircleProgressIndicator.m */; };
 		0B7F441E18BB1581000777BF /* UIImageView+CircleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F441D18BB1581000777BF /* UIImageView+CircleProgress.m */; };
 		0B7F442218BB2E9A000777BF /* JZRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F442118BB2E9A000777BF /* JZRefreshControl.m */; };
@@ -187,12 +184,10 @@
 		B490278C18B9232F00B00671 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B490260718B9232E00B00671 /* main.m */; };
 		B490278D18B9232F00B00671 /* PhotoButton-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B490260818B9232E00B00671 /* PhotoButton-Info.plist */; };
 		B490279918B9232F00B00671 /* AFUrbanAirshipClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B490262518B9232E00B00671 /* AFUrbanAirshipClient.m */; };
-		B490279B18B9232F00B00671 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B490263218B9232E00B00671 /* AviarySDKResources.bundle */; };
 		B490279C18B9232F00B00671 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263518B9232E00B00671 /* JRSwizzle.m */; };
 		B490279D18B9232F00B00671 /* UIViewController+YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263718B9232E00B00671 /* UIViewController+YIFullScreenScroll.m */; };
 		B490279E18B9232F00B00671 /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263918B9232E00B00671 /* ViewUtils.m */; };
 		B490279F18B9232F00B00671 /* YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263B18B9232E00B00671 /* YIFullScreenScroll.m */; };
-		B49027A018B9232F00B00671 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = B490264018B9232E00B00671 /* dsym_upload.sh */; };
 		B49027C518B9232F00B00671 /* PBImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B490269818B9232E00B00671 /* PBImageHelper.m */; };
 		B49027C618B9232F00B00671 /* TMEPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B490269A18B9232E00B00671 /* TMEPhotoButton.m */; };
 		B49027EF18B9232F00B00671 /* UINavigationController+SGProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = B49026E618B9232E00B00671 /* UINavigationController+SGProgress.m */; };
@@ -204,6 +199,11 @@
 		B49027FD18B9235300B00671 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B49027FB18B9235300B00671 /* TMEModels.xcdatamodeld */; };
 		B490280118B92A5500B00671 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B490280018B92A5500B00671 /* Images.xcassets */; };
 		B490281818B92B4100B00671 /* AFDownloadRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B490280418B92B4100B00671 /* AFDownloadRequestOperation.m */; };
+		B4D551DB18BB443600745DAC /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = B4D551D918BB443600745DAC /* dsym_upload.sh */; };
+		B4D551DC18BB443600745DAC /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D551DA18BB443600745DAC /* libCrittercism_v4_0_7.a */; };
+		B4D551E318BB444700745DAC /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D551E218BB444700745DAC /* libGoogleAnalytics.a */; };
+		B4D551F018BB445600745DAC /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D551ED18BB445600745DAC /* libAviarySDK.a */; };
+		B4D551F118BB445600745DAC /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B4D551EF18BB445600745DAC /* AviarySDKResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -482,16 +482,6 @@
 		B490260918B9232E00B00671 /* PhotoButton-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PhotoButton-Prefix.pch"; sourceTree = "<group>"; };
 		B490262418B9232E00B00671 /* AFUrbanAirshipClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFUrbanAirshipClient.h; sourceTree = "<group>"; };
 		B490262518B9232E00B00671 /* AFUrbanAirshipClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUrbanAirshipClient.m; sourceTree = "<group>"; };
-		B490262818B9232E00B00671 /* AFOpenGLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenGLManager.h; sourceTree = "<group>"; };
-		B490262918B9232E00B00671 /* AFPhotoEditorContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorContext.h; sourceTree = "<group>"; };
-		B490262A18B9232E00B00671 /* AFPhotoEditorController+InAppPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFPhotoEditorController+InAppPurchase.h"; sourceTree = "<group>"; };
-		B490262B18B9232E00B00671 /* AFPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorController.h; sourceTree = "<group>"; };
-		B490262C18B9232E00B00671 /* AFPhotoEditorControllerOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorControllerOptions.h; sourceTree = "<group>"; };
-		B490262D18B9232E00B00671 /* AFPhotoEditorCustomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorCustomization.h; sourceTree = "<group>"; };
-		B490262E18B9232E00B00671 /* AFPhotoEditorProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorProduct.h; sourceTree = "<group>"; };
-		B490262F18B9232E00B00671 /* AFPhotoEditorSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorSession.h; sourceTree = "<group>"; };
-		B490263018B9232E00B00671 /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
-		B490263218B9232E00B00671 /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
 		B490263418B9232E00B00671 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		B490263518B9232E00B00671 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		B490263618B9232E00B00671 /* UIViewController+YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YIFullScreenScroll.h"; sourceTree = "<group>"; };
@@ -500,17 +490,6 @@
 		B490263918B9232E00B00671 /* ViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtils.m; sourceTree = "<group>"; };
 		B490263A18B9232E00B00671 /* YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YIFullScreenScroll.h; sourceTree = "<group>"; };
 		B490263B18B9232E00B00671 /* YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YIFullScreenScroll.m; sourceTree = "<group>"; };
-		B490263D18B9232E00B00671 /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
-		B490263E18B9232E00B00671 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
-		B490263F18B9232E00B00671 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
-		B490264018B9232E00B00671 /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
-		B490264118B9232E00B00671 /* libCrittercism_v4_0_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_0_7.a; sourceTree = "<group>"; };
-		B490264B18B9232E00B00671 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		B490264C18B9232E00B00671 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		B490264D18B9232E00B00671 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		B490264E18B9232E00B00671 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
-		B490264F18B9232E00B00671 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
-		B490265018B9232E00B00671 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		B490269718B9232E00B00671 /* PBImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBImageHelper.h; sourceTree = "<group>"; };
 		B490269818B9232E00B00671 /* PBImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBImageHelper.m; sourceTree = "<group>"; };
 		B490269918B9232E00B00671 /* TMEPhotoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPhotoButton.h; sourceTree = "<group>"; };
@@ -530,6 +509,27 @@
 		B490280018B92A5500B00671 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PhotoButton/Resources/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		B490280318B92B4100B00671 /* AFDownloadRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFDownloadRequestOperation.h; sourceTree = "<group>"; };
 		B490280418B92B4100B00671 /* AFDownloadRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFDownloadRequestOperation.m; sourceTree = "<group>"; };
+		B4D551D618BB443600745DAC /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
+		B4D551D718BB443600745DAC /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
+		B4D551D818BB443600745DAC /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
+		B4D551D918BB443600745DAC /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
+		B4D551DA18BB443600745DAC /* libCrittercism_v4_0_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_0_7.a; sourceTree = "<group>"; };
+		B4D551DD18BB444700745DAC /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		B4D551DE18BB444700745DAC /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		B4D551DF18BB444700745DAC /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		B4D551E018BB444700745DAC /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		B4D551E118BB444700745DAC /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		B4D551E218BB444700745DAC /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		B4D551E518BB445600745DAC /* AFOpenGLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenGLManager.h; sourceTree = "<group>"; };
+		B4D551E618BB445600745DAC /* AFPhotoEditorContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorContext.h; sourceTree = "<group>"; };
+		B4D551E718BB445600745DAC /* AFPhotoEditorController+InAppPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFPhotoEditorController+InAppPurchase.h"; sourceTree = "<group>"; };
+		B4D551E818BB445600745DAC /* AFPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorController.h; sourceTree = "<group>"; };
+		B4D551E918BB445600745DAC /* AFPhotoEditorControllerOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorControllerOptions.h; sourceTree = "<group>"; };
+		B4D551EA18BB445600745DAC /* AFPhotoEditorCustomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorCustomization.h; sourceTree = "<group>"; };
+		B4D551EB18BB445600745DAC /* AFPhotoEditorProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorProduct.h; sourceTree = "<group>"; };
+		B4D551EC18BB445600745DAC /* AFPhotoEditorSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorSession.h; sourceTree = "<group>"; };
+		B4D551ED18BB445600745DAC /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
+		B4D551EF18BB445600745DAC /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -537,20 +537,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B7F441718BB112E000777BF /* libGoogleAnalytics.a in Frameworks */,
-				0B7F441618BB1109000777BF /* libCrittercism_v4_0_7.a in Frameworks */,
-				0B7F441518BB10EF000777BF /* libAviarySDK.a in Frameworks */,
 				B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */,
 				201EFE1F17F6F6BC00DA6BB4 /* SystemConfiguration.framework in Frameworks */,
 				0C7EFBEF17E8D86E0054C4DE /* CoreImage.framework in Frameworks */,
 				0C2F789A17F2DD1F00201783 /* ImageIO.framework in Frameworks */,
 				5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */,
 				5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */,
+				B4D551F018BB445600745DAC /* libAviarySDK.a in Frameworks */,
 				0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */,
 				0CD9CF6117EA10DF00402E91 /* MobileCoreServices.framework in Frameworks */,
 				0C7EFBF117E8DBE50054C4DE /* MapKit.framework in Frameworks */,
 				0CBE48AE17D1C02E00DC7482 /* Accelerate.framework in Frameworks */,
 				5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */,
+				B4D551DC18BB443600745DAC /* libCrittercism_v4_0_7.a in Frameworks */,
 				0CBE48BE17D1C0A400DC7482 /* QuartzCore.framework in Frameworks */,
 				0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */,
 				0CBE48C017D1C0AB00DC7482 /* StoreKit.framework in Frameworks */,
@@ -561,6 +560,7 @@
 				0CBE48B217D1C03E00DC7482 /* CoreData.framework in Frameworks */,
 				0CBE48B017D1C03700DC7482 /* AdSupport.framework in Frameworks */,
 				195CE077929C4006BA5DF024 /* libPods-PhotoButton.a in Frameworks */,
+				B4D551E318BB444700745DAC /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1154,34 +1154,11 @@
 		B490262618B9232E00B00671 /* AviarySDK */ = {
 			isa = PBXGroup;
 			children = (
-				B490262718B9232E00B00671 /* Headers */,
-				B490263018B9232E00B00671 /* libAviarySDK.a */,
-				B490263118B9232E00B00671 /* Resources */,
+				B4D551E418BB445600745DAC /* Headers */,
+				B4D551ED18BB445600745DAC /* libAviarySDK.a */,
+				B4D551EE18BB445600745DAC /* Resources */,
 			);
 			path = AviarySDK;
-			sourceTree = "<group>";
-		};
-		B490262718B9232E00B00671 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				B490262818B9232E00B00671 /* AFOpenGLManager.h */,
-				B490262918B9232E00B00671 /* AFPhotoEditorContext.h */,
-				B490262A18B9232E00B00671 /* AFPhotoEditorController+InAppPurchase.h */,
-				B490262B18B9232E00B00671 /* AFPhotoEditorController.h */,
-				B490262C18B9232E00B00671 /* AFPhotoEditorControllerOptions.h */,
-				B490262D18B9232E00B00671 /* AFPhotoEditorCustomization.h */,
-				B490262E18B9232E00B00671 /* AFPhotoEditorProduct.h */,
-				B490262F18B9232E00B00671 /* AFPhotoEditorSession.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		B490263118B9232E00B00671 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				B490263218B9232E00B00671 /* AviarySDKResources.bundle */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		B490263318B9232E00B00671 /* Classes */ = {
@@ -1202,11 +1179,11 @@
 		B490263C18B9232E00B00671 /* CrittercismSDK */ = {
 			isa = PBXGroup;
 			children = (
-				B490263D18B9232E00B00671 /* CRFilter.h */,
-				B490263E18B9232E00B00671 /* Crittercism.h */,
-				B490263F18B9232E00B00671 /* CrittercismDelegate.h */,
-				B490264018B9232E00B00671 /* dsym_upload.sh */,
-				B490264118B9232E00B00671 /* libCrittercism_v4_0_7.a */,
+				B4D551D618BB443600745DAC /* CRFilter.h */,
+				B4D551D718BB443600745DAC /* Crittercism.h */,
+				B4D551D818BB443600745DAC /* CrittercismDelegate.h */,
+				B4D551D918BB443600745DAC /* dsym_upload.sh */,
+				B4D551DA18BB443600745DAC /* libCrittercism_v4_0_7.a */,
 			);
 			path = CrittercismSDK;
 			sourceTree = "<group>";
@@ -1214,12 +1191,12 @@
 		B490264A18B9232E00B00671 /* Google Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				B490264B18B9232E00B00671 /* GAI.h */,
-				B490264C18B9232E00B00671 /* GAITrackedViewController.h */,
-				B490264D18B9232E00B00671 /* GAITracker.h */,
-				B490264E18B9232E00B00671 /* GAITransaction.h */,
-				B490264F18B9232E00B00671 /* GAITransactionItem.h */,
-				B490265018B9232E00B00671 /* libGoogleAnalytics.a */,
+				B4D551DD18BB444700745DAC /* GAI.h */,
+				B4D551DE18BB444700745DAC /* GAITrackedViewController.h */,
+				B4D551DF18BB444700745DAC /* GAITracker.h */,
+				B4D551E018BB444700745DAC /* GAITransaction.h */,
+				B4D551E118BB444700745DAC /* GAITransactionItem.h */,
+				B4D551E218BB444700745DAC /* libGoogleAnalytics.a */,
 			);
 			path = "Google Analytics";
 			sourceTree = "<group>";
@@ -1304,6 +1281,29 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		B4D551E418BB445600745DAC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				B4D551E518BB445600745DAC /* AFOpenGLManager.h */,
+				B4D551E618BB445600745DAC /* AFPhotoEditorContext.h */,
+				B4D551E718BB445600745DAC /* AFPhotoEditorController+InAppPurchase.h */,
+				B4D551E818BB445600745DAC /* AFPhotoEditorController.h */,
+				B4D551E918BB445600745DAC /* AFPhotoEditorControllerOptions.h */,
+				B4D551EA18BB445600745DAC /* AFPhotoEditorCustomization.h */,
+				B4D551EB18BB445600745DAC /* AFPhotoEditorProduct.h */,
+				B4D551EC18BB445600745DAC /* AFPhotoEditorSession.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		B4D551EE18BB445600745DAC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B4D551EF18BB445600745DAC /* AviarySDKResources.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1362,6 +1362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4D551DB18BB443600745DAC /* dsym_upload.sh in Resources */,
 				B490275118B9232E00B00671 /* TMEOfferedTableViewCell.xib in Resources */,
 				B490275318B9232E00B00671 /* TMEOfferedViewController.xib in Resources */,
 				B490276218B9232E00B00671 /* TMESearchViewController.xib in Resources */,
@@ -1375,15 +1376,14 @@
 				B490276418B9232E00B00671 /* TMESubmitTableCell.xib in Resources */,
 				B490273D18B9232E00B00671 /* TMEBrowserCollectionViewController.xib in Resources */,
 				B490274518B9232E00B00671 /* TMELoginViewController.xib in Resources */,
+				B4D551F118BB445600745DAC /* AviarySDKResources.bundle in Resources */,
 				B490273418B9232E00B00671 /* TMEBrowserProductsTableCell.xib in Resources */,
 				B490278D18B9232F00B00671 /* PhotoButton-Info.plist in Resources */,
 				B490275F18B9232E00B00671 /* TMEPublishProductViewController.xib in Resources */,
 				B490273B18B9232E00B00671 /* TMEBrowserCollectionCell.xib in Resources */,
-				B49027A018B9232F00B00671 /* dsym_upload.sh in Resources */,
 				B490273118B9232E00B00671 /* TMEActivityViewController.xib in Resources */,
 				B490273918B9232E00B00671 /* TMEBrowserProductTableViewHeader.xib in Resources */,
 				B490270918B9232E00B00671 /* ActiveSupportInflector.plist in Resources */,
-				B490279B18B9232F00B00671 /* AviarySDKResources.bundle in Resources */,
 				B490275D18B9232E00B00671 /* TMEProductDetailsViewController.xib in Resources */,
 				B49027F818B9232F00B00671 /* TMELoadMoreTableViewCell.xib in Resources */,
 				B490275818B9232E00B00671 /* TMEMeViewController.xib in Resources */,
@@ -1700,13 +1700,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\"$(SRCROOT)/Vendors/\\\\\\\"",
-					"\\\\\\\"$(SRCROOT)/Vendors/CrittercismSDK/\\\\\\\"",
-					"\\\\\\\"$(SRCROOT)/Vendors/AviarySDK/\\\\\\\"",
-					"\\\\\\\"$(SRCROOT)/Vendors/Google\\\\\\ Analytics/\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/CrittercismSDK/\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/AviarySDK/\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/Google\\\\\\\\\\\\\\ Analytics/\\\\\\\\\\\\\\\"",
 					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/AviarySDK",
 					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/CrittercismSDK",
 					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/Google\\ Analytics",
+					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/CrittercismSDK",
+					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/Google\\ Analytics",
+					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/AviarySDK",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1739,13 +1742,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\"$(SRCROOT)/Vendors/\\\\\\\"",
-					"\\\\\\\"$(SRCROOT)/Vendors/CrittercismSDK/\\\\\\\"",
-					"\\\\\\\"$(SRCROOT)/Vendors/AviarySDK/\\\\\\\"",
-					"\\\\\\\"$(SRCROOT)/Vendors/Google\\\\\\ Analytics/\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/CrittercismSDK/\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/AviarySDK/\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/Google\\\\\\\\\\\\\\ Analytics/\\\\\\\\\\\\\\\"",
 					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/AviarySDK",
 					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/CrittercismSDK",
 					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/Google\\ Analytics",
+					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/CrittercismSDK",
+					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/Google\\ Analytics",
+					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/AviarySDK",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
