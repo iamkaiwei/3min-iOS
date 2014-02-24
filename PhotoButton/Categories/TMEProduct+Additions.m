@@ -30,8 +30,24 @@
     if ([data[@"description"] isEqual:[NSNull null]])
       product.details = @"";
     else product.details = data[@"description"];
+
+      if ([data[@"venue_id"] isEqual:[NSNull null]])
+          product.venue_id = @"";
+      else product.venue_id = data[@"venue_id"];
+
+      if ([data[@"venue_long"] isEqual:[NSNull null]])
+          product.venue_long = @"";
+      else product.venue_long = data[@"venue_long"];
+
+      if ([data[@"venue_lat"] isEqual:[NSNull null]])
+          product.venue_lat = @"";
+      else product.venue_lat = data[@"venue_lat"];
+
+      if ([data[@"venue_name"] isEqual:[NSNull null]])
+          product.venue_name = @"";
+      else product.venue_name = data[@"venue_name"];
     
-    if ([data[@"price"] isEqual:[NSNull null]])
+    if ([data[@"venue_lat"] isEqual:[NSNull null]])
       product.price = @0;
     else product.price = @([data[@"price"] floatValue]);
     

@@ -16,6 +16,10 @@ const struct TMEProductAttributes TMEProductAttributes = {
 	.price = @"price",
 	.sold_out = @"sold_out",
 	.updated_at = @"updated_at",
+	.venue_id = @"venue_id",
+	.venue_lat = @"venue_lat",
+	.venue_long = @"venue_long",
+	.venue_name = @"venue_name",
 };
 
 const struct TMEProductRelationships TMEProductRelationships = {
@@ -283,6 +287,34 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 
 
 @dynamic updated_at;
+
+
+
+
+
+
+@dynamic venue_id;
+
+
+
+
+
+
+@dynamic venue_lat;
+
+
+
+
+
+
+@dynamic venue_long;
+
+
+
+
+
+
+@dynamic venue_name;
 
 
 

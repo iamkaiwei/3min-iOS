@@ -17,6 +17,10 @@ extern const struct TMEProductAttributes {
 	__unsafe_unretained NSString *price;
 	__unsafe_unretained NSString *sold_out;
 	__unsafe_unretained NSString *updated_at;
+	__unsafe_unretained NSString *venue_id;
+	__unsafe_unretained NSString *venue_lat;
+	__unsafe_unretained NSString *venue_long;
+	__unsafe_unretained NSString *venue_name;
 } TMEProductAttributes;
 
 extern const struct TMEProductRelationships {
@@ -33,6 +37,10 @@ extern const struct TMEProductFetchedProperties {
 @class TMEConversation;
 @class TMEProductImages;
 @class TMEUser;
+
+
+
+
 
 
 
@@ -204,6 +212,46 @@ extern const struct TMEProductFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* venue_id;
+
+
+
+//- (BOOL)validateVenue_id:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* venue_lat;
+
+
+
+//- (BOOL)validateVenue_lat:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* venue_long;
+
+
+
+//- (BOOL)validateVenue_long:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* venue_name;
+
+
+
+//- (BOOL)validateVenue_name:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) TMECategory *category;
 
 //- (BOOL)validateCategory:(id*)value_ error:(NSError**)error_;
@@ -338,6 +386,30 @@ extern const struct TMEProductFetchedProperties {
 
 - (NSDate*)primitiveUpdated_at;
 - (void)setPrimitiveUpdated_at:(NSDate*)value;
+
+
+
+
+- (NSString*)primitiveVenue_id;
+- (void)setPrimitiveVenue_id:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveVenue_lat;
+- (void)setPrimitiveVenue_lat:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveVenue_long;
+- (void)setPrimitiveVenue_long:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveVenue_name;
+- (void)setPrimitiveVenue_name:(NSString*)value;
 
 
 

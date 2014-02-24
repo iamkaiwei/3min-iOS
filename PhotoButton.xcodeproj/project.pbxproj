@@ -1416,7 +1416,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mogenerator -m TMEModels.xcdatamodeld/TMEModels.xcdatamodel/ --machine-dir Models/Machine/ --human-dir Models/ --template-var arc=true";
+			shellScript = "mogenerator -m PhotoButton/Supporting\\ Files/TMEModels.xcdatamodeld/TMEModels.xcdatamodel/ --machine-dir PhotoButton/Models/Machine/ --human-dir PhotoButton/Models/ --template-var arc=true";
 		};
 		16888B0968C049BC84E52B4F /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="TMECategory" representedClassName="TMECategory" syncable="YES">
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -31,6 +31,10 @@
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="sold_out" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="venue_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="venue_lat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="venue_long" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="venue_name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMECategory" inverseName="products" inverseEntity="TMECategory" syncable="YES"/>
         <relationship name="conversation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEConversation" inverseName="product" inverseEntity="TMEConversation" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProductImages" inverseName="product" inverseEntity="TMEProductImages" syncable="YES"/>
@@ -68,11 +72,11 @@
         <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="user" inverseEntity="TMEProduct" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TMECategory" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TMEConversation" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TMEProduct" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TMEProductImages" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TMEReply" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TMEUser" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="TMECategory" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="TMEConversation" positionX="0" positionY="0" width="128" height="180"/>
+        <element name="TMEProduct" positionX="223" positionY="-396" width="128" height="343"/>
+        <element name="TMEProductImages" positionX="81" positionY="-261" width="128" height="150"/>
+        <element name="TMEReply" positionX="241" positionY="75" width="128" height="150"/>
+        <element name="TMEUser" positionX="360" positionY="-246" width="128" height="210"/>
     </elements>
 </model>
