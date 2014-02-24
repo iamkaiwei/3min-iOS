@@ -69,6 +69,9 @@ FacebookManagerDelegate
     
     // Crittercism
     [Crittercism enableWithAppID: @"51f8bef646b7c2316f000007"];
+
+    // Version checker
+    [self initVersionChecker];
     
     // start MR
     [MagicalRecord setupCoreDataStack];
@@ -400,4 +403,33 @@ FacebookManagerDelegate
     [self switchRootViewController:[[TMETutorialViewController alloc] init] animated:YES completion:nil];
 }
 
+#pragma mark - Version checker
+
+- (void)initVersionChecker
+{
+    [VENVersionTracker beginTrackingVersionForChannel:@"internal"
+                                       serviceBaseUrl:@"https://www.dropbox.com/sh/ijwghminfsqwd0n/s3t44SLYPf/version"
+                                         timeInterval:1800
+                                          withHandler:^(VENVersionTrackerState state, VENVersion *version) {
+
+                                              dispatch_sync(dispatch_get_main_queue(), ^{
+                                                  switch (state) {
+                                                      case VENVersionTrackerStateDeprecated:
+                                                          [version install];
+                                                          break;
+                                                          
+                                                      case VENVersionTrackerStateOutdated:
+                                                      {
+                                                          // Offer the user the option to update
+                                                          UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Update required" message:@"There is a newer version, please update to get the best experience" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Okie", nil];
+                                                          [alertView show];
+
+                                                          break;
+                                                      }
+                                                      default:
+                                                          break;
+                                                  }
+                                              });
+                                          }];
+}
 @end

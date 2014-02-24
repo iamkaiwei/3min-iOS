@@ -162,6 +162,7 @@
 #import <Foursquare2.h>
 #import "FSVenue.h"
 #import "FSConverter.h"
+#import <VENVersionTracker.h>
 
 // Common VCs
 #import "TMENavigationViewController.h"
