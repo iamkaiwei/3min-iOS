@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEProductDetailsViewController">
             <connections>
+                <outlet property="btnChatToBuy" destination="WgW-oG-8eF" id="N5i-jR-RrG"/>
                 <outlet property="btnFollow" destination="hgE-PJ-NcV" id="LeB-kv-FXL"/>
                 <outlet property="btnShare" destination="ogb-th-uxo" id="zMh-WI-y5I"/>
                 <outlet property="imgProductImage1" destination="ZZ7-bd-Vkq" id="RnJ-12-38a"/>
@@ -143,11 +144,11 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WgW-oG-8eF">
                             <rect key="frame" x="204" y="6" width="110" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" backgroundImage="chat_to_buy_btn.png">
+                            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <state key="normal" title="Chat to Buy">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <state key="highlighted" backgroundImage="chat_to_buy_pressed_btn.png"/>
                             <connections>
                                 <action selector="chatButtonAction:" destination="-1" eventType="touchUpInside" id="bp4-LZ-epk"/>
                             </connections>
@@ -161,8 +162,6 @@
         </view>
     </objects>
     <resources>
-        <image name="chat_to_buy_btn.png" width="100" height="44"/>
-        <image name="chat_to_buy_pressed_btn.png" width="100" height="44"/>
         <image name="clock-icon.png" width="17" height="17"/>
         <image name="follow-button-pressed.png" width="25" height="21"/>
         <image name="follow-button.png" width="25" height="21"/>

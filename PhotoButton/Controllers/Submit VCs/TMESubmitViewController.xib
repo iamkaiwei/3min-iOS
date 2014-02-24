@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMESubmitViewController">
             <connections>
+                <outlet property="buttonMarkAsSold" destination="Zwb-dk-GOR" id="abd-uX-wpb"/>
                 <outlet property="imageViewProduct" destination="maC-hh-nK4" id="E32-xN-d3t"/>
                 <outlet property="lblDealLocation" destination="qKS-Hj-q47" id="Qs7-NX-7ne"/>
                 <outlet property="lblPriceOffered" destination="9n4-OA-NsG" id="Wzw-sr-O7L"/>
@@ -87,12 +88,15 @@
                     <color key="backgroundColor" red="0.29803922772407532" green="0.85490202903747559" blue="0.39215689897537231" alpha="1" colorSpace="deviceRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <state key="normal" title="Mark as Sold">
-                        <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="highlighted">
                         <color key="titleColor" red="1" green="0.40000003576278687" blue="0.13333334028720856" alpha="1" colorSpace="deviceRGB"/>
                     </state>
+                    <connections>
+                        <action selector="btnMarkAsSoldPressed:" destination="-1" eventType="touchUpInside" id="r4T-dW-SD4"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" id="p1j-rK-B1Z">
                     <rect key="frame" x="0.0" y="241" width="320" height="1"/>

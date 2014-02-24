@@ -80,6 +80,24 @@ SINGLETON_MACRO
   
 }
 
+- (void)putSoldOutWithProductID:(NSNumber *)productID
+                 onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+    NSDictionary *params = @{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
+                             @"sold_out" : @YES};
+    NSString *path = [NSString stringWithFormat:@"%@%@%@/%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, productID];
+    [[TMEHTTPClient sharedClient] putPath:path
+                               parameters:params
+                                  success:^(AFHTTPRequestOperation *operation, id obj)
+     {
+
+     }
+                                  failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         failureBlock(error.code, error);
+     }];
+}
+
 - (void)getLikedProductOnPage:(NSInteger)page
                  successBlock:(void (^) (NSArray *))successBlock
                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock{

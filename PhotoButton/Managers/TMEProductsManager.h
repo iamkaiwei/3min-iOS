@@ -21,6 +21,10 @@
 - (void)getSellingProductsOfCurrentUserOnPage:(NSInteger)page successBlock:(void (^) (NSArray *arrayProducts))successBlock
                                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
+- (void)putSoldOutWithProductID:(NSNumber *)productID
+                 onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+
 - (void)getLikedProductOnPage:(NSInteger)page
                  successBlock:(void (^) (NSArray *))successBlock
                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
