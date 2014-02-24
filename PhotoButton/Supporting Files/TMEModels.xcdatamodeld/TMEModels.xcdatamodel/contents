@@ -32,8 +32,8 @@
         <attribute name="sold_out" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="venue_id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="venue_lat" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="venue_long" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="venue_lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="venue_long" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="venue_name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMECategory" inverseName="products" inverseEntity="TMECategory" syncable="YES"/>
         <relationship name="conversation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEConversation" inverseName="product" inverseEntity="TMEConversation" syncable="YES"/>

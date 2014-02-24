@@ -36,18 +36,18 @@
       else product.venue_id = data[@"venue_id"];
 
       if ([data[@"venue_long"] isEqual:[NSNull null]])
-          product.venue_long = @"";
-      else product.venue_long = data[@"venue_long"];
+          product.venue_long = nil;
+      else product.venue_long = @([data[@"venue_long"] floatValue]);
 
       if ([data[@"venue_lat"] isEqual:[NSNull null]])
-          product.venue_lat = @"";
-      else product.venue_lat = data[@"venue_lat"];
+          product.venue_lat = nil;
+      else product.venue_lat = @([data[@"venue_lat"] floatValue]);
 
       if ([data[@"venue_name"] isEqual:[NSNull null]])
           product.venue_name = @"";
       else product.venue_name = data[@"venue_name"];
     
-    if ([data[@"venue_lat"] isEqual:[NSNull null]])
+    if ([data[@"price"] isEqual:[NSNull null]])
       product.price = @0;
     else product.price = @([data[@"price"] floatValue]);
     

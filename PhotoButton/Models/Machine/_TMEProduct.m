@@ -88,6 +88,16 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
+	if ([key isEqualToString:@"venue_latValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"venue_lat"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"venue_longValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"venue_long"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
@@ -304,11 +314,49 @@ const struct TMEProductFetchedProperties TMEProductFetchedProperties = {
 
 
 
+- (double)venue_latValue {
+	NSNumber *result = [self venue_lat];
+	return [result doubleValue];
+}
+
+- (void)setVenue_latValue:(double)value_ {
+	[self setVenue_lat:[NSNumber numberWithDouble:value_]];
+}
+
+- (double)primitiveVenue_latValue {
+	NSNumber *result = [self primitiveVenue_lat];
+	return [result doubleValue];
+}
+
+- (void)setPrimitiveVenue_latValue:(double)value_ {
+	[self setPrimitiveVenue_lat:[NSNumber numberWithDouble:value_]];
+}
+
+
 
 
 
 @dynamic venue_long;
 
+
+
+- (double)venue_longValue {
+	NSNumber *result = [self venue_long];
+	return [result doubleValue];
+}
+
+- (void)setVenue_longValue:(double)value_ {
+	[self setVenue_long:[NSNumber numberWithDouble:value_]];
+}
+
+- (double)primitiveVenue_longValue {
+	NSNumber *result = [self primitiveVenue_long];
+	return [result doubleValue];
+}
+
+- (void)setPrimitiveVenue_longValue:(double)value_ {
+	[self setPrimitiveVenue_long:[NSNumber numberWithDouble:value_]];
+}
 
 
 

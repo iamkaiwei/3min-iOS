@@ -222,9 +222,13 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* venue_lat;
+@property (nonatomic, strong) NSNumber* venue_lat;
 
 
+
+@property double venue_latValue;
+- (double)venue_latValue;
+- (void)setVenue_latValue:(double)value_;
 
 //- (BOOL)validateVenue_lat:(id*)value_ error:(NSError**)error_;
 
@@ -232,9 +236,13 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* venue_long;
+@property (nonatomic, strong) NSNumber* venue_long;
 
 
+
+@property double venue_longValue;
+- (double)venue_longValue;
+- (void)setVenue_longValue:(double)value_;
 
 //- (BOOL)validateVenue_long:(id*)value_ error:(NSError**)error_;
 
@@ -396,14 +404,20 @@ extern const struct TMEProductFetchedProperties {
 
 
 
-- (NSString*)primitiveVenue_lat;
-- (void)setPrimitiveVenue_lat:(NSString*)value;
+- (NSNumber*)primitiveVenue_lat;
+- (void)setPrimitiveVenue_lat:(NSNumber*)value;
+
+- (double)primitiveVenue_latValue;
+- (void)setPrimitiveVenue_latValue:(double)value_;
 
 
 
 
-- (NSString*)primitiveVenue_long;
-- (void)setPrimitiveVenue_long:(NSString*)value;
+- (NSNumber*)primitiveVenue_long;
+- (void)setPrimitiveVenue_long:(NSNumber*)value;
+
+- (double)primitiveVenue_longValue;
+- (void)setPrimitiveVenue_longValue:(double)value_;
 
 
 

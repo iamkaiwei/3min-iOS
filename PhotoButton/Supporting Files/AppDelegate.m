@@ -71,8 +71,8 @@ FacebookManagerDelegate
     [Crittercism enableWithAppID: @"51f8bef646b7c2316f000007"];
 
     // Version checker
-    [self initVersionChecker];
-    
+//    [self initVersionChecker];
+
     // start MR
     [MagicalRecord setupCoreDataStack];
 
