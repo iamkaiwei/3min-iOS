@@ -9,8 +9,10 @@
 #import "TMEBaseTableViewController.h"
 #import "TMEPublishProductViewController.h"
 
+typedef void (^SelectedVenueBlock)(FSVenue *venue);
+
 @interface PublishLocationPickerViewController : TMEBaseTableViewController
 
-- (id)initWithPublishViewController:(TMEPublishProductViewController *)publishVC;
+- (id)initWithSelectedVenueBlock:(SelectedVenueBlock)returnBlock;
 
 @end

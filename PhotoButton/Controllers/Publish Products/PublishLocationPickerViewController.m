@@ -23,15 +23,17 @@ CLLocationManagerDelegate
 @property (strong, nonatomic) FSVenue * selectedVenue;
 @property (strong, nonatomic) NSArray * nearbyVenues;
 
+@property (copy, nonatomic) SelectedVenueBlock returnBlock;
+
 @end
 
 @implementation PublishLocationPickerViewController
 
-- (id)initWithPublishViewController:(TMEPublishProductViewController *)publishVC
+- (id)initWithSelectedVenueBlock:(SelectedVenueBlock)returnBlock
 {
     self = [super init];
     if (self) {
-        self.publishVC = publishVC;
+        self.returnBlock = returnBlock;
     }
     return self;
 }
@@ -176,7 +178,9 @@ CLLocationManagerDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.selectedVenue = self.nearbyVenues[indexPath.row];
-    [self.publishVC setSelectedVenue:self.nearbyVenues[indexPath.row]];
+    if (self.returnBlock) {
+        self.returnBlock(self.selectedVenue);
+    }
     [self onBtnBack:nil];
 }
 

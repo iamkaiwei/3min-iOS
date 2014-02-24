@@ -10,8 +10,7 @@
 #import "TMEPhotoButton.h"
 #import "TMEBasePhotoEditorViewController.h"
 
-@interface TMEPublishProductViewController : TMEBaseViewController
 
-- (void)setSelectedVenue:(FSVenue *)venue;
+@interface TMEPublishProductViewController : TMEBaseViewController
 
 @end
