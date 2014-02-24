@@ -60,7 +60,7 @@ UIImagePickerControllerDelegate
 
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         self.statusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];
-        [self.statusBarView setBackgroundColor:[UIColor orangeMainColor]];
+        [self.statusBarView setBackgroundColor:[UIColor blackColor]];
         [self.statusBarView setAlpha:0.0];
         [self.view addSubview:self.statusBarView];
         
@@ -150,13 +150,7 @@ UIImagePickerControllerDelegate
 #pragma marks - UIImagePicker Delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-  // close the picker VCs.
   [self.navigationController dismissViewControllerAnimated:NO completion:nil];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-  
 }
 
 @end

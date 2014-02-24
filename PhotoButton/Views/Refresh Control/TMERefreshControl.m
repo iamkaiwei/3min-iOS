@@ -36,10 +36,12 @@
 
 - (void)refreshingWithDelta:(CGFloat)delta{
     [self.refreshLabel startAnimating];
+    self.tableView.userInteractionEnabled = NO;
 }
 
 - (void)reset{
     [self.refreshLabel stopAnimating];
+    self.tableView.userInteractionEnabled = YES;
 }
 
 @end
