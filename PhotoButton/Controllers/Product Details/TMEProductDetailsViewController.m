@@ -8,6 +8,7 @@
 
 #import "TMEProductDetailsViewController.h"
 #import "TMEOfferViewController.h"
+#import "TMECircleProgressIndicator.h"
 #import "TMESubmitViewController.h"
 
 @interface TMEProductDetailsViewController ()
@@ -86,10 +87,6 @@
   }
   
   [self.viewBottomDetail alignBelowView:arrayImageView[(arrayImageOfProduct.count == 0 ? 0 : arrayImageOfProduct.count - 1)] offsetY:0 sameWidth:NO];
-  
-  [[XLCircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
-  [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
-  [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
   
   self.lblProductName.text = self.product.name;
   self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", self.product.price];

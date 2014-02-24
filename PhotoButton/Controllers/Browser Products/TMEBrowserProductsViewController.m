@@ -39,9 +39,9 @@ TMEBrowserProductsTableCellDelegate
   // Do any additional setup after loading the view from its nib.
   [self.labelAnimated startAnimating];
   self.navigationController.navigationBar.topItem.title = @"Browse Products";
-  [[XLCircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
-  [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
-  [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
+  [[TMECircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
+  [[TMECircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
+  [[TMECircleProgressIndicator appearance] setStrokeWidth:3.0f];
   
   [self.tableView registerNib:[UINib nibWithNibName:kBrowseProductHeaderIdentifier bundle:[NSBundle mainBundle]] forHeaderFooterViewReuseIdentifier:kBrowseProductHeaderIdentifier];
   self.scrollableView = self.tableView;

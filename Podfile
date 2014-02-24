@@ -9,7 +9,6 @@ target :PhotoButton, :exclusive => true do
   pod 'iCarousel'
   pod 'MagicalRecord'
   pod 'SDWebImage'
-  pod 'XLRemoteImageView'
   pod 'ViewDeck', '2.2.11'
   pod 'SSPullToRefresh'
   pod 'RESwitch', '~> 1.0.1'

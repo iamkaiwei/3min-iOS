@@ -155,8 +155,8 @@
 #import "TSMessage.h"
 #import "SDWebImageDownloader.h"
 #import "UIImageView+WebCache.h"
-#import "XLCircleProgressIndicator.h"
-#import "UIImageView+XLProgressIndicator.h"
+#import "TMECircleProgressIndicator.h"
+#import "UIImageView+CircleProgress.h"
 #import "UIImageView+AFNetworking.h"
 #import "MTAnimatedLabel.h"
 #import <Foursquare2.h>

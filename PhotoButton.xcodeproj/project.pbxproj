@@ -21,6 +21,12 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0B7F441418BB109E000777BF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B490264218B9232E00B00671 /* FacebookSDK.framework */; };
+		0B7F441518BB10EF000777BF /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B490263018B9232E00B00671 /* libAviarySDK.a */; };
+		0B7F441618BB1109000777BF /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B490264118B9232E00B00671 /* libCrittercism_v4_0_7.a */; };
+		0B7F441718BB112E000777BF /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B490265018B9232E00B00671 /* libGoogleAnalytics.a */; };
+		0B7F441B18BB126F000777BF /* TMECircleProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F441A18BB126F000777BF /* TMECircleProgressIndicator.m */; };
+		0B7F441E18BB1581000777BF /* UIImageView+CircleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F441D18BB1581000777BF /* UIImageView+CircleProgress.m */; };
 		0C2F789A17F2DD1F00201783 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2F789917F2DD1F00201783 /* ImageIO.framework */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
 		0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B717D1C08F00DC7482 /* libz.1.2.5.dylib */; };
@@ -178,17 +184,13 @@
 		B490278C18B9232F00B00671 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B490260718B9232E00B00671 /* main.m */; };
 		B490278D18B9232F00B00671 /* PhotoButton-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B490260818B9232E00B00671 /* PhotoButton-Info.plist */; };
 		B490279918B9232F00B00671 /* AFUrbanAirshipClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B490262518B9232E00B00671 /* AFUrbanAirshipClient.m */; };
-		B490279A18B9232F00B00671 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B490263018B9232E00B00671 /* libAviarySDK.a */; };
 		B490279B18B9232F00B00671 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B490263218B9232E00B00671 /* AviarySDKResources.bundle */; };
 		B490279C18B9232F00B00671 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263518B9232E00B00671 /* JRSwizzle.m */; };
 		B490279D18B9232F00B00671 /* UIViewController+YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263718B9232E00B00671 /* UIViewController+YIFullScreenScroll.m */; };
 		B490279E18B9232F00B00671 /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263918B9232E00B00671 /* ViewUtils.m */; };
 		B490279F18B9232F00B00671 /* YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263B18B9232E00B00671 /* YIFullScreenScroll.m */; };
 		B49027A018B9232F00B00671 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = B490264018B9232E00B00671 /* dsym_upload.sh */; };
-		B49027A118B9232F00B00671 /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B490264118B9232E00B00671 /* libCrittercism_v4_0_7.a */; };
-		B49027A218B9232F00B00671 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B490264218B9232E00B00671 /* FacebookSDK.framework */; };
 		B49027A318B9232F00B00671 /* FacebookSDKOverrides.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B490264318B9232E00B00671 /* FacebookSDKOverrides.bundle */; };
-		B49027A718B9232F00B00671 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B490265018B9232E00B00671 /* libGoogleAnalytics.a */; };
 		B49027C518B9232F00B00671 /* PBImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B490269818B9232E00B00671 /* PBImageHelper.m */; };
 		B49027C618B9232F00B00671 /* TMEPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B490269A18B9232E00B00671 /* TMEPhotoButton.m */; };
 		B49027EF18B9232F00B00671 /* UINavigationController+SGProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = B49026E618B9232E00B00671 /* UINavigationController+SGProgress.m */; };
@@ -203,6 +205,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B7F441918BB126F000777BF /* TMECircleProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMECircleProgressIndicator.h; path = "Progress View/TMECircleProgressIndicator.h"; sourceTree = "<group>"; };
+		0B7F441A18BB126F000777BF /* TMECircleProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMECircleProgressIndicator.m; path = "Progress View/TMECircleProgressIndicator.m"; sourceTree = "<group>"; };
+		0B7F441C18BB1581000777BF /* UIImageView+CircleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CircleProgress.h"; sourceTree = "<group>"; };
+		0B7F441D18BB1581000777BF /* UIImageView+CircleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CircleProgress.m"; sourceTree = "<group>"; };
 		0C2F789917F2DD1F00201783 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		0C5C936817EA162100ECF9B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0C7EFBEE17E8D86E0054C4DE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -524,11 +530,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7F441718BB112E000777BF /* libGoogleAnalytics.a in Frameworks */,
+				0B7F441618BB1109000777BF /* libCrittercism_v4_0_7.a in Frameworks */,
+				0B7F441518BB10EF000777BF /* libAviarySDK.a in Frameworks */,
+				0B7F441418BB109E000777BF /* FacebookSDK.framework in Frameworks */,
 				B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */,
 				201EFE1F17F6F6BC00DA6BB4 /* SystemConfiguration.framework in Frameworks */,
 				0C7EFBEF17E8D86E0054C4DE /* CoreImage.framework in Frameworks */,
 				0C2F789A17F2DD1F00201783 /* ImageIO.framework in Frameworks */,
-				B490279A18B9232F00B00671 /* libAviarySDK.a in Frameworks */,
 				5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */,
 				5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */,
 				0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */,
@@ -536,8 +545,6 @@
 				0C7EFBF117E8DBE50054C4DE /* MapKit.framework in Frameworks */,
 				0CBE48AE17D1C02E00DC7482 /* Accelerate.framework in Frameworks */,
 				5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */,
-				B49027A218B9232F00B00671 /* FacebookSDK.framework in Frameworks */,
-				B49027A118B9232F00B00671 /* libCrittercism_v4_0_7.a in Frameworks */,
 				0CBE48BE17D1C0A400DC7482 /* QuartzCore.framework in Frameworks */,
 				0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */,
 				0CBE48C017D1C0AB00DC7482 /* StoreKit.framework in Frameworks */,
@@ -547,7 +554,6 @@
 				0CBE48B417D1C04400DC7482 /* CoreText.framework in Frameworks */,
 				0CBE48B217D1C03E00DC7482 /* CoreData.framework in Frameworks */,
 				0CBE48B017D1C03700DC7482 /* AdSupport.framework in Frameworks */,
-				B49027A718B9232F00B00671 /* libGoogleAnalytics.a in Frameworks */,
 				195CE077929C4006BA5DF024 /* libPods-PhotoButton.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,6 +561,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B7F441818BB121F000777BF /* Progress View */ = {
+			isa = PBXGroup;
+			children = (
+				0B7F441918BB126F000777BF /* TMECircleProgressIndicator.h */,
+				0B7F441A18BB126F000777BF /* TMECircleProgressIndicator.m */,
+			);
+			name = "Progress View";
+			sourceTree = "<group>";
+		};
 		0C28B28717DC1A1400BD0EC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +726,8 @@
 				B490254918B9232D00B00671 /* UIViewController+Additions.m */,
 				B490254A18B9232D00B00671 /* UIWebView+Additions.h */,
 				B490254B18B9232D00B00671 /* UIWebView+Additions.m */,
+				0B7F441C18BB1581000777BF /* UIImageView+CircleProgress.h */,
+				0B7F441D18BB1581000777BF /* UIImageView+CircleProgress.m */,
 			);
 			name = Categories;
 			path = PhotoButton/Categories;
@@ -1204,6 +1221,7 @@
 		B49026F518B9232E00B00671 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B7F441818BB121F000777BF /* Progress View */,
 				B49026F618B9232E00B00671 /* Custom Switch */,
 				B49026F918B9232E00B00671 /* Load More Table View Cell */,
 				B49026FD18B9232E00B00671 /* Search Bar */,
@@ -1432,6 +1450,7 @@
 				B490273518B9232E00B00671 /* TMEBrowserProductsViewController.m in Sources */,
 				B490276D18B9232E00B00671 /* TMEBaseTableViewController.m in Sources */,
 				B490273318B9232E00B00671 /* TMEBrowserProductsTableCell.m in Sources */,
+				0B7F441B18BB126F000777BF /* TMECircleProgressIndicator.m in Sources */,
 				B490278A18B9232F00B00671 /* AppDelegate.m in Sources */,
 				B490277C18B9232E00B00671 /* _TMEConversation.m in Sources */,
 				B490271C18B9232E00B00671 /* UIBarButtonItem+Custom.m in Sources */,
@@ -1510,6 +1529,7 @@
 				B490278018B9232F00B00671 /* _TMEUser.m in Sources */,
 				B490276118B9232E00B00671 /* TMESearchViewController.m in Sources */,
 				B490272718B9232E00B00671 /* UIScrollView+Additions.m in Sources */,
+				0B7F441E18BB1581000777BF /* UIImageView+CircleProgress.m in Sources */,
 				B490271918B9232E00B00671 /* TMEProductImages+Additions.m in Sources */,
 				B490277718B9232E00B00671 /* TMEFacebookManager.m in Sources */,
 				B490273C18B9232E00B00671 /* TMEBrowserCollectionViewController.m in Sources */,
@@ -1641,8 +1661,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Khang Hoàng Triệu (DZFE2DLGY9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/Vendors\\\"",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors\\\\\\\\\\\\\\\"",
+					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/PhotoButton-Prefix.pch";
@@ -1650,13 +1670,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/Vendors/\\\"",
-					"\\\"$(SRCROOT)/Vendors/CrittercismSDK/\\\"",
-					"\\\"$(SRCROOT)/Vendors/AviarySDK/\\\"",
-					"\\\"$(SRCROOT)/Vendors/Google\\ Analytics/\\\"",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/AviarySDK",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/CrittercismSDK",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/Google\\ Analytics",
+					"\\\\\\\"$(SRCROOT)/Vendors/\\\\\\\"",
+					"\\\\\\\"$(SRCROOT)/Vendors/CrittercismSDK/\\\\\\\"",
+					"\\\\\\\"$(SRCROOT)/Vendors/AviarySDK/\\\\\\\"",
+					"\\\\\\\"$(SRCROOT)/Vendors/Google\\\\\\ Analytics/\\\\\\\"",
+					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/AviarySDK",
+					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/CrittercismSDK",
+					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/Google\\ Analytics",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1680,8 +1700,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Khang Hoàng Triệu (DZFE2DLGY9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/Vendors\\\"",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors\\\\\\\\\\\\\\\"",
+					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/PhotoButton-Prefix.pch";
@@ -1689,13 +1709,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/Vendors/\\\"",
-					"\\\"$(SRCROOT)/Vendors/CrittercismSDK/\\\"",
-					"\\\"$(SRCROOT)/Vendors/AviarySDK/\\\"",
-					"\\\"$(SRCROOT)/Vendors/Google\\ Analytics/\\\"",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/AviarySDK",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/CrittercismSDK",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/Google\\ Analytics",
+					"\\\\\\\"$(SRCROOT)/Vendors/\\\\\\\"",
+					"\\\\\\\"$(SRCROOT)/Vendors/CrittercismSDK/\\\\\\\"",
+					"\\\\\\\"$(SRCROOT)/Vendors/AviarySDK/\\\\\\\"",
+					"\\\\\\\"$(SRCROOT)/Vendors/Google\\\\\\ Analytics/\\\\\\\"",
+					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/AviarySDK",
+					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/CrittercismSDK",
+					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/Google\\ Analytics",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
