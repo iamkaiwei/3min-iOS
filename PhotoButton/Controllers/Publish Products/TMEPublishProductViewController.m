@@ -504,8 +504,18 @@ UITextViewDelegate
     self.activeTextField = (id)textView;
 }
 
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+{
+  if ([self.activeTextField isEqual:textView])
+  {
+    self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
+  }
+  return YES;
+}
+
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
-  if ([self.activeTextField isEqual:textField]) {
+  if ([self.activeTextField isEqual:textField])
+  {
     self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
   }
   return YES;
