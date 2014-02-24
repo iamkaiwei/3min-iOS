@@ -7,7 +7,10 @@
 //
 
 #import "TMEBaseTableViewController.h"
+#import "TMEPublishProductViewController.h"
 
 @interface PublishLocationPickerViewController : TMEBaseTableViewController
+
+- (id)initWithPublishViewController:(TMEPublishProductViewController *)publishVC;
 
 @end

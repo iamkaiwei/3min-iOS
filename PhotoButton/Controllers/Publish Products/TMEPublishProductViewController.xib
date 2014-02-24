@@ -7,9 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEPublishProductViewController">
             <connections>
+                <outlet property="lblLocationName" destination="jGK-j5-YQA" id="4oL-Ys-lRt"/>
                 <outlet property="pickerCategories" destination="eA3-fI-RTA" id="RQr-wg-BPN"/>
                 <outlet property="pickerCategoryButton" destination="ZTD-zX-sep" id="wZu-N5-6Cf"/>
                 <outlet property="switchFacebookShare" destination="M1e-cp-OqE" id="uid-FP-cah"/>
+                <outlet property="txtProductDescription" destination="gIL-0S-NPq" id="h6P-YU-CbU"/>
                 <outlet property="txtProductName" destination="Ush-64-dcO" id="Zpw-2f-kwu"/>
                 <outlet property="txtProductPrice" destination="ZVR-0Y-oVp" id="geX-SY-fwF"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -161,10 +163,11 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zcm-7t-CGd">
-                                            <rect key="frame" x="124" y="5" width="46" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zcm-7t-CGd">
+                                            <rect key="frame" x="0.0" y="5" width="294" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button">
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <state key="normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>

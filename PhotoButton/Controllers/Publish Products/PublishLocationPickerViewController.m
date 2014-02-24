@@ -13,6 +13,8 @@
 CLLocationManagerDelegate
 >
 
+@property (strong, nonatomic) TMEPublishProductViewController *publishVC;
+
 @property (strong, nonatomic) CLLocationManager * locationManager;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -24,6 +26,15 @@ CLLocationManagerDelegate
 @end
 
 @implementation PublishLocationPickerViewController
+
+- (id)initWithPublishViewController:(TMEPublishProductViewController *)publishVC
+{
+    self = [super init];
+    if (self) {
+        self.publishVC = publishVC;
+    }
+    return self;
+}
 
 - (NSArray *)nearbyVenues
 {
@@ -51,6 +62,11 @@ CLLocationManagerDelegate
     // Do any additional setup after loading the view from its nib.
 
     [self.locationManager startUpdatingLocation];
+}
+
+- (void)onBtnBack:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)removeAllAnnotationExceptOfCurrentUser {
@@ -138,7 +154,7 @@ CLLocationManagerDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
     if(!cell)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
@@ -160,6 +176,8 @@ CLLocationManagerDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.selectedVenue = self.nearbyVenues[indexPath.row];
+    [self.publishVC setSelectedVenue:self.nearbyVenues[indexPath.row]];
+    [self onBtnBack:nil];
 }
 
 @end

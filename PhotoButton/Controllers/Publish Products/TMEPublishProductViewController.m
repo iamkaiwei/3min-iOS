@@ -13,6 +13,7 @@
 #import "TMESwitch.h"
 #import "PBImageHelper.h"
 #import "PublishLocationPickerViewController.h"
+#import "UIPlaceHolderTextView.h"
 
 @interface TMEPublishProductViewController ()
 <
@@ -36,9 +37,11 @@ UITextViewDelegate
 @property (weak, nonatomic) IBOutlet UIPickerView   * pickerCategories;
 @property (weak, nonatomic) IBOutlet UIView         * viewPickerWrapper;
 @property (weak, nonatomic) IBOutlet UIButton       * pickerCategoryButton;
-@property (weak, nonatomic) IBOutlet UIScrollView   * scrollViewContainner;
 
+@property (strong, nonatomic) FSVenue               * selectVenue;
+@property (weak, nonatomic) IBOutlet UILabel        * lblLocationName;
 
+@property (weak, nonatomic) IBOutlet UIPlaceHolderTextView *txtProductDescription;
 
 @property (strong, nonatomic) IBOutletCollection(TMEPhotoButton) NSArray * photoButtons;
 
@@ -90,11 +93,15 @@ UITextViewDelegate
   if ([self hasNoImages]) {
     [self.photoButtons[0] takeOrChoosePhoto:YES];
   }
+
+    if (self.selectVenue) {
+        self.lblLocationName.text = self.selectVenue.name;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-  [self dismissKeyboard];
+    [self dismissKeyboard];
 }
 
 - (BOOL)hidesBottomBarWhenPushed
@@ -234,11 +241,22 @@ UITextViewDelegate
     [self.tabBarController setSelectedIndex:0];
   }
   
-  NSDictionary *params = @{@"user_id": self.product.user.id,
+  NSMutableDictionary *params = [@{@"user_id": self.product.user.id,
                            @"name": self.product.name,
                            @"category_id": self.product.category.id,
                            @"price": self.product.price,
-                           @"sold_out": @NO};
+                           @"sold_out": @NO} mutableCopy];
+
+    if (self.selectVenue) {
+        params[@"venue_id"] = self.selectVenue.venueId;
+        params[@"venue_name"] = self.selectVenue.name;
+        params[@"venue_long"] = @(self.selectVenue.location.coordinate.longitude);
+        params[@"venue_lat"] = @(self.selectVenue.location.coordinate.latitude);
+    }
+
+    if (self.txtProductDescription.text) {
+        params[@"description"] = self.txtProductDescription.text;
+    }
   
   __block NSNumber *percent = @(0.0f);
   
@@ -520,10 +538,15 @@ UITextViewDelegate
 
 #pragma mark - Actions
 
-- (IBAction)onBtnShowLocation:(id)sender {
-    PublishLocationPickerViewController *locationVC = [[PublishLocationPickerViewController alloc] init];
-    [self presentModalViewController:locationVC withPushDirection:@"bottom"];
+- (IBAction)onBtnShowLocation:(id)sender
+{
+    PublishLocationPickerViewController *locationVC = [[PublishLocationPickerViewController alloc] initWithPublishViewController:self];
+    [self.navigationController pushViewController:locationVC animated:YES];
 }
 
+- (void)setSelectedVenue:(FSVenue *)venue
+{
+    self.selectVenue = venue;
+}
 
 @end

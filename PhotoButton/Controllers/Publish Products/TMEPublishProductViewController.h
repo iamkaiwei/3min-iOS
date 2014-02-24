@@ -12,4 +12,6 @@
 
 @interface TMEPublishProductViewController : TMEBaseViewController
 
+- (void)setSelectedVenue:(FSVenue *)venue;
+
 @end
