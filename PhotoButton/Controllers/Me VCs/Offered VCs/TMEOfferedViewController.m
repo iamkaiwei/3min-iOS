@@ -28,7 +28,6 @@ static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewC
 - (void)viewDidLoad{
   [super viewDidLoad];
   self.title = @"Offer I Made";
-  self.scrollableView = self.tableView;
   [self enablePullToRefresh];
   [self disableNavigationTranslucent];
   
@@ -128,7 +127,7 @@ static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewC
   [SVProgressHUD dismiss];
 }
 
-- (void)pullToRefreshViewDidStartLoading:(UIRefreshControl *)view
+- (void)pullToRefreshViewDidStartLoading
 {
   if (![TMEReachabilityManager isReachable]) {
     [SVProgressHUD showErrorWithStatus:@"No connection!"];
@@ -136,10 +135,7 @@ static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewC
     [self.pullToRefreshView endRefreshing];
     return;
   }
-  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing activities.."];
-  
   [self loadListOfferedConversationWithPage:1];
-  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:[NSString getLastestUpdateString]];
 }
 
 

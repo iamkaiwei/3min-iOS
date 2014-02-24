@@ -7,7 +7,10 @@
 //
 
 #import "TMEBaseViewController.h"
+#import "TMERefreshControl.h"
 
 @interface TMEActivityViewController : TMEBaseTableViewController
+
+@property (strong, nonatomic) TMERefreshControl                     * myRefresh;
 
 @end

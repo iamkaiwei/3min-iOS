@@ -27,7 +27,6 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
 {
   [super viewDidLoad];
   self.title = @"My Listings";
-  self.scrollableView = self.tableView;
   [self enablePullToRefresh];
   [self disableNavigationTranslucent];
   [self getCachedMyListing];
@@ -124,7 +123,7 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
   [self.pullToRefreshView endRefreshing];
 }
 
-- (void)pullToRefreshViewDidStartLoading:(UIRefreshControl *)view
+- (void)pullToRefreshViewDidStartLoading
 {
   if (![TMEReachabilityManager isReachable]) {
     [SVProgressHUD showErrorWithStatus:@"No connection!"];
@@ -132,10 +131,7 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
     [self.pullToRefreshView endRefreshing];
     return;
   }
-  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing activities.."];
-  
   [self loadMyListWithPage:1];
-  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:[NSString getLastestUpdateString]];
 }
 
 

@@ -44,7 +44,6 @@ TMEBrowserProductsTableCellDelegate
   [[TMECircleProgressIndicator appearance] setStrokeWidth:3.0f];
   
   [self.tableView registerNib:[UINib nibWithNibName:kBrowseProductHeaderIdentifier bundle:[NSBundle mainBundle]] forHeaderFooterViewReuseIdentifier:kBrowseProductHeaderIdentifier];
-  self.scrollableView = self.tableView;
   [self enablePullToRefresh];
   [self paddingScrollWithTop];
   [self loadProducts];
@@ -100,7 +99,7 @@ TMEBrowserProductsTableCellDelegate
     [self.pullToRefreshView endRefreshing];
     return;
   }
-  [SVProgressHUD showWithStatus:@"Loading products..." maskType:SVProgressHUDMaskTypeGradient];
+
   if (self.currentCategory) {
     [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
                                                 onSuccessBlock:^(NSArray *arrProducts)
@@ -132,15 +131,14 @@ TMEBrowserProductsTableCellDelegate
 
 
 #pragma mark - SSPullToRefreshView delegate
-- (void)pullToRefreshViewDidStartLoading:(UIRefreshControl *)view
+- (void)pullToRefreshViewDidStartLoading
 {
   if (![TMEReachabilityManager isReachable]) {
     [SVProgressHUD showErrorWithStatus:@"No connection!"];
     [self.pullToRefreshView endRefreshing];
     return;
   }
-  
-  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc]initWithString:[NSString getLastestUpdateString]];
+
   [self loadProducts];
 }
 

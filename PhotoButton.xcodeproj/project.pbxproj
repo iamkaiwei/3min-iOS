@@ -26,6 +26,8 @@
 		0B7F441718BB112E000777BF /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B490265018B9232E00B00671 /* libGoogleAnalytics.a */; };
 		0B7F441B18BB126F000777BF /* TMECircleProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F441A18BB126F000777BF /* TMECircleProgressIndicator.m */; };
 		0B7F441E18BB1581000777BF /* UIImageView+CircleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F441D18BB1581000777BF /* UIImageView+CircleProgress.m */; };
+		0B7F442218BB2E9A000777BF /* JZRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F442118BB2E9A000777BF /* JZRefreshControl.m */; };
+		0B7F442618BB2EF6000777BF /* TMERefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F442518BB2EF6000777BF /* TMERefreshControl.m */; };
 		0C2F789A17F2DD1F00201783 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2F789917F2DD1F00201783 /* ImageIO.framework */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
 		0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B717D1C08F00DC7482 /* libz.1.2.5.dylib */; };
@@ -207,6 +209,10 @@
 		0B7F441A18BB126F000777BF /* TMECircleProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMECircleProgressIndicator.m; path = "Progress View/TMECircleProgressIndicator.m"; sourceTree = "<group>"; };
 		0B7F441C18BB1581000777BF /* UIImageView+CircleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CircleProgress.h"; sourceTree = "<group>"; };
 		0B7F441D18BB1581000777BF /* UIImageView+CircleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CircleProgress.m"; sourceTree = "<group>"; };
+		0B7F442018BB2E9A000777BF /* JZRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZRefreshControl.h; sourceTree = "<group>"; };
+		0B7F442118BB2E9A000777BF /* JZRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZRefreshControl.m; sourceTree = "<group>"; };
+		0B7F442418BB2EF6000777BF /* TMERefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMERefreshControl.h; path = "Refresh Control/TMERefreshControl.h"; sourceTree = "<group>"; };
+		0B7F442518BB2EF6000777BF /* TMERefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMERefreshControl.m; path = "Refresh Control/TMERefreshControl.m"; sourceTree = "<group>"; };
 		0C2F789917F2DD1F00201783 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		0C5C936817EA162100ECF9B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0C7EFBEE17E8D86E0054C4DE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -563,6 +569,24 @@
 				0B7F441A18BB126F000777BF /* TMECircleProgressIndicator.m */,
 			);
 			name = "Progress View";
+			sourceTree = "<group>";
+		};
+		0B7F441F18BB2E9A000777BF /* JZRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				0B7F442018BB2E9A000777BF /* JZRefreshControl.h */,
+				0B7F442118BB2E9A000777BF /* JZRefreshControl.m */,
+			);
+			path = JZRefreshControl;
+			sourceTree = "<group>";
+		};
+		0B7F442318BB2ED7000777BF /* Refresh Control */ = {
+			isa = PBXGroup;
+			children = (
+				0B7F442418BB2EF6000777BF /* TMERefreshControl.h */,
+				0B7F442518BB2EF6000777BF /* TMERefreshControl.m */,
+			);
+			name = "Refresh Control";
 			sourceTree = "<group>";
 		};
 		0C28B28717DC1A1400BD0EC2 /* Resources */ = {
@@ -1096,6 +1120,7 @@
 		B490260C18B9232E00B00671 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				0B7F441F18BB2E9A000777BF /* JZRefreshControl */,
 				B490280218B92B4100B00671 /* AFNetworking */,
 				B490262318B9232E00B00671 /* AFUrbanAirshipClient */,
 				B490262618B9232E00B00671 /* AviarySDK */,
@@ -1214,6 +1239,7 @@
 		B49026F518B9232E00B00671 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B7F442318BB2ED7000777BF /* Refresh Control */,
 				0B7F441818BB121F000777BF /* Progress View */,
 				B49026F618B9232E00B00671 /* Custom Switch */,
 				B49026F918B9232E00B00671 /* Load More Table View Cell */,
@@ -1431,6 +1457,7 @@
 				B490275E18B9232E00B00671 /* TMEPublishProductViewController.m in Sources */,
 				B490271418B9232E00B00671 /* NSObject+Additions.m in Sources */,
 				B490274C18B9232E00B00671 /* TMEMyListingTableViewCell.m in Sources */,
+				0B7F442218BB2E9A000777BF /* JZRefreshControl.m in Sources */,
 				B490276018B9232E00B00671 /* TMESearchDisplayController.m in Sources */,
 				B490271F18B9232E00B00671 /* UIColor+Additions.m in Sources */,
 				B490274A18B9232E00B00671 /* TMELikedViewController.m in Sources */,
@@ -1471,6 +1498,7 @@
 				B490272B18B9232E00B00671 /* UIView+Nib.m in Sources */,
 				B490275918B9232E00B00671 /* TMENavigationViewController.m in Sources */,
 				B490276E18B9232E00B00671 /* TMEBaseViewController.m in Sources */,
+				0B7F442618BB2EF6000777BF /* TMERefreshControl.m in Sources */,
 				B490271518B9232E00B00671 /* NSString+ActiveSupportInflector.m in Sources */,
 				B490272618B9232E00B00671 /* UINavigationController+Additions.m in Sources */,
 				B49027F618B9232F00B00671 /* TMESwitch.m in Sources */,

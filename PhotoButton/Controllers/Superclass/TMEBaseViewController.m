@@ -9,6 +9,7 @@
 #import "TMEBaseViewController.h"
 #import "TMEBrowserCollectionViewController.h"
 #import "TMEBrowserProductsViewController.h"
+#import "TMERefreshControl.h"
 #import "AppDelegate.h"
 
 #define DEFAULT_KEYBOARD_HEIGHT   216
@@ -267,10 +268,15 @@ IIViewDeckControllerDelegate
 //}
 
 - (void)enablePullToRefresh{
-  self.pullToRefreshView = [[UIRefreshControl alloc] init];
-  self.pullToRefreshView.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
-  [self.pullToRefreshView addTarget:self action:@selector(pullToRefreshViewDidStartLoading:) forControlEvents:UIControlEventValueChanged];
-  [[self getScrollableView] insertSubview:self.pullToRefreshView atIndex:0];
+    self.pullToRefreshView = [[TMERefreshControl alloc] initWithFrame:CGRectMake(0, 0, self.scrollableView.frame.size.width, 50)];
+    self.pullToRefreshView.tableView = (id) self.scrollableView;
+    
+    __weak UIViewController *weakSelf = self;
+	self.pullToRefreshView.refreshBlock = ^{
+		if ([weakSelf respondsToSelector:@selector(pullToRefreshViewDidStartLoading)]) {
+            [weakSelf performSelector:@selector(pullToRefreshViewDidStartLoading)];
+        }
+	};
 }
 
 - (void)disableNavigationTranslucent{

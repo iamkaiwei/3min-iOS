@@ -76,7 +76,27 @@ static NSString * const kLoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
   }
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.pullToRefreshView scrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+    [self.pullToRefreshView scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
+}
+
 #pragma mark - Helpers
+
+- (void)enablePullToRefresh{
+    self.pullToRefreshView = [[TMERefreshControl alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 50)];
+    self.pullToRefreshView.tableView = self.tableView;
+    
+    __weak UIViewController *weakSelf = self;
+	self.pullToRefreshView.refreshBlock = ^{
+		if ([weakSelf respondsToSelector:@selector(pullToRefreshViewDidStartLoading)]) {
+            [weakSelf performSelector:@selector(pullToRefreshViewDidStartLoading)];
+        }
+	};
+}
 
 - (void)deselectAllCellsAnimated:(BOOL)animated
 {
