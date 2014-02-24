@@ -10,22 +10,28 @@
 
 @implementation TMESwitch
 
++ (void)initialize{
+    [super initialize];
+    
+    [[TMESwitch appearance] setBackgroundImage:[UIImage imageNamed:@"Switch_Background"]];
+    [[TMESwitch appearance] setOverlayImage:nil];
+    [[TMESwitch appearance] setKnobImage:[UIImage imageNamed:@"Switch_Knob"]];
+    [[TMESwitch appearance] setHighlightedKnobImage:nil];
+    [[TMESwitch appearance] setKnobOffset:CGSizeMake(0, 0)];
+    [[TMESwitch appearance] setCornerRadius:0];
+    [[TMESwitch appearance] setFont:[UIFont boldSystemFontOfSize:14]];
+    [[TMESwitch appearance] setTextOffset:CGSizeMake(0, 2) forLabel:RESwitchLabelOn];
+    [[TMESwitch appearance] setTextOffset:CGSizeMake(0, 2) forLabel:RESwitchLabelOff];
+    [[TMESwitch appearance] setTextShadowOffset:CGSizeMake(0, 0)];
+    [[TMESwitch appearance] setTextColor:[UIColor whiteColor] forLabel:RESwitchLabelOn];
+    [[TMESwitch appearance] setTextColor:[UIColor orangeMainColor] forLabel:RESwitchLabelOff];
+}
+
 - (id)initWithCoder:(NSCoder *)aDecoder{
   self = [super initWithCoder:aDecoder];
   if (self) {
     self.on = NO;
-    [self setBackgroundImage:[UIImage imageNamed:@"Switch_Background"]];
-    [self setKnobImage:[UIImage imageNamed:@"Switch_Knob"]];
-    [self setOverlayImage:nil];
-    [self setHighlightedKnobImage:nil];
-    [self setCornerRadius:0];
-    [self setKnobOffset:CGSizeMake(0, 0)];
-    [self setTextShadowOffset:CGSizeMake(0, 0)];
-    [self setFont:[UIFont boldSystemFontOfSize:14]];
-    [self setTextOffset:CGSizeMake(0, 2) forLabel:RESwitchLabelOn];
-    [self setTextOffset:CGSizeMake(3, 2) forLabel:RESwitchLabelOff];
-    [self setTextColor:[UIColor whiteColor] forLabel:RESwitchLabelOn];
-    [self setTextColor:[UIColor orangeMainColor] forLabel:RESwitchLabelOff];
+
     self.layer.cornerRadius = 4;
     self.layer.borderColor = [UIColor orangeMainColor].CGColor;
     self.layer.borderWidth = 1;
