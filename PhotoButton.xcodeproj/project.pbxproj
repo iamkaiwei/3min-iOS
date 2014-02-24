@@ -21,7 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		0B7F441418BB109E000777BF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B490264218B9232E00B00671 /* FacebookSDK.framework */; };
 		0B7F441518BB10EF000777BF /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B490263018B9232E00B00671 /* libAviarySDK.a */; };
 		0B7F441618BB1109000777BF /* libCrittercism_v4_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B490264118B9232E00B00671 /* libCrittercism_v4_0_7.a */; };
 		0B7F441718BB112E000777BF /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B490265018B9232E00B00671 /* libGoogleAnalytics.a */; };
@@ -190,7 +189,6 @@
 		B490279E18B9232F00B00671 /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263918B9232E00B00671 /* ViewUtils.m */; };
 		B490279F18B9232F00B00671 /* YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263B18B9232E00B00671 /* YIFullScreenScroll.m */; };
 		B49027A018B9232F00B00671 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = B490264018B9232E00B00671 /* dsym_upload.sh */; };
-		B49027A318B9232F00B00671 /* FacebookSDKOverrides.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B490264318B9232E00B00671 /* FacebookSDKOverrides.bundle */; };
 		B49027C518B9232F00B00671 /* PBImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B490269818B9232E00B00671 /* PBImageHelper.m */; };
 		B49027C618B9232F00B00671 /* TMEPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B490269A18B9232E00B00671 /* TMEPhotoButton.m */; };
 		B49027EF18B9232F00B00671 /* UINavigationController+SGProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = B49026E618B9232E00B00671 /* UINavigationController+SGProgress.m */; };
@@ -496,8 +494,6 @@
 		B490263F18B9232E00B00671 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
 		B490264018B9232E00B00671 /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
 		B490264118B9232E00B00671 /* libCrittercism_v4_0_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_0_7.a; sourceTree = "<group>"; };
-		B490264218B9232E00B00671 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		B490264318B9232E00B00671 /* FacebookSDKOverrides.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKOverrides.bundle; sourceTree = "<group>"; };
 		B490264B18B9232E00B00671 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		B490264C18B9232E00B00671 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		B490264D18B9232E00B00671 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
@@ -533,7 +529,6 @@
 				0B7F441718BB112E000777BF /* libGoogleAnalytics.a in Frameworks */,
 				0B7F441618BB1109000777BF /* libCrittercism_v4_0_7.a in Frameworks */,
 				0B7F441518BB10EF000777BF /* libAviarySDK.a in Frameworks */,
-				0B7F441418BB109E000777BF /* FacebookSDK.framework in Frameworks */,
 				B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */,
 				201EFE1F17F6F6BC00DA6BB4 /* SystemConfiguration.framework in Frameworks */,
 				0C7EFBEF17E8D86E0054C4DE /* CoreImage.framework in Frameworks */,
@@ -1106,8 +1101,6 @@
 				B490262618B9232E00B00671 /* AviarySDK */,
 				B490263318B9232E00B00671 /* Classes */,
 				B490263C18B9232E00B00671 /* CrittercismSDK */,
-				B490264218B9232E00B00671 /* FacebookSDK.framework */,
-				B490264318B9232E00B00671 /* FacebookSDKOverrides.bundle */,
 				B490264A18B9232E00B00671 /* Google Analytics */,
 				B490269618B9232E00B00671 /* PhotoButton */,
 				B49026E418B9232E00B00671 /* UINavigationController+SGProgress */,
@@ -1356,7 +1349,6 @@
 				B490273118B9232E00B00671 /* TMEActivityViewController.xib in Resources */,
 				B490273918B9232E00B00671 /* TMEBrowserProductTableViewHeader.xib in Resources */,
 				B490270918B9232E00B00671 /* ActiveSupportInflector.plist in Resources */,
-				B49027A318B9232F00B00671 /* FacebookSDKOverrides.bundle in Resources */,
 				B490279B18B9232F00B00671 /* AviarySDKResources.bundle in Resources */,
 				B490275D18B9232E00B00671 /* TMEProductDetailsViewController.xib in Resources */,
 				B49027F818B9232F00B00671 /* TMELoadMoreTableViewCell.xib in Resources */,

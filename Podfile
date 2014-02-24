@@ -17,5 +17,10 @@ target :PhotoButton, :exclusive => true do
   pod 'TSMessages', '0.9.5'
   pod 'FontAwesome-iOS'
   pod 'Foursquare-API-v2'
+  pod 'Facebook-iOS-SDK'
+  pod 'AWSiOSSDK'
+  pod 'CrittercismSDK'
+  pod 'GoogleAnalytics-iOS-SDK'
+  pod 'AviarySDK'
   
 end
