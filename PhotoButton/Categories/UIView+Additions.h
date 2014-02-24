@@ -3,6 +3,8 @@
 
 @interface UIView (KNCategory)
 
++ (NSString *)kind;
+
 /**
  * Shortcut for frame.origin.x.
  *

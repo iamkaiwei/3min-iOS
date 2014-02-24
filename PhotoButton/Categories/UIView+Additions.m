@@ -6,6 +6,11 @@
 
 @implementation UIView (KNCategory)
 
++ (NSString *)kind
+{
+    return NSStringFromClass([self class]);
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (CGFloat)left {

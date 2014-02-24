@@ -28,6 +28,8 @@
 		0B7F441E18BB1581000777BF /* UIImageView+CircleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F441D18BB1581000777BF /* UIImageView+CircleProgress.m */; };
 		0B7F442218BB2E9A000777BF /* JZRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F442118BB2E9A000777BF /* JZRefreshControl.m */; };
 		0B7F442618BB2EF6000777BF /* TMERefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F442518BB2EF6000777BF /* TMERefreshControl.m */; };
+		0BAACBCF18BB47F700162311 /* TMESearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BAACBCE18BB47F700162311 /* TMESearchTableViewCell.m */; };
+		0BAACBD118BB480E00162311 /* TMESearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BAACBD018BB480E00162311 /* TMESearchTableViewCell.xib */; };
 		0C2F789A17F2DD1F00201783 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2F789917F2DD1F00201783 /* ImageIO.framework */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
 		0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B717D1C08F00DC7482 /* libz.1.2.5.dylib */; };
@@ -213,6 +215,9 @@
 		0B7F442118BB2E9A000777BF /* JZRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZRefreshControl.m; sourceTree = "<group>"; };
 		0B7F442418BB2EF6000777BF /* TMERefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMERefreshControl.h; path = "Refresh Control/TMERefreshControl.h"; sourceTree = "<group>"; };
 		0B7F442518BB2EF6000777BF /* TMERefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMERefreshControl.m; path = "Refresh Control/TMERefreshControl.m"; sourceTree = "<group>"; };
+		0BAACBCD18BB47F700162311 /* TMESearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESearchTableViewCell.h; sourceTree = "<group>"; };
+		0BAACBCE18BB47F700162311 /* TMESearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESearchTableViewCell.m; sourceTree = "<group>"; };
+		0BAACBD018BB480E00162311 /* TMESearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMESearchTableViewCell.xib; sourceTree = "<group>"; };
 		0C2F789917F2DD1F00201783 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		0C5C936817EA162100ECF9B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0C7EFBEE17E8D86E0054C4DE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -980,6 +985,9 @@
 				B49025AD18B9232D00B00671 /* TMESearchViewController.h */,
 				B49025AE18B9232D00B00671 /* TMESearchViewController.m */,
 				B49025AF18B9232D00B00671 /* TMESearchViewController.xib */,
+				0BAACBCD18BB47F700162311 /* TMESearchTableViewCell.h */,
+				0BAACBCE18BB47F700162311 /* TMESearchTableViewCell.m */,
+				0BAACBD018BB480E00162311 /* TMESearchTableViewCell.xib */,
 			);
 			path = "Search VCs";
 			sourceTree = "<group>";
@@ -1380,6 +1388,7 @@
 				B49027F818B9232F00B00671 /* TMELoadMoreTableViewCell.xib in Resources */,
 				B490275818B9232E00B00671 /* TMEMeViewController.xib in Resources */,
 				B490274D18B9232E00B00671 /* TMEMyListingTableViewCell.xib in Resources */,
+				0BAACBD118BB480E00162311 /* TMESearchTableViewCell.xib in Resources */,
 				B490275518B9232E00B00671 /* TMEMeTableViewCell.xib in Resources */,
 				B490275B18B9232E00B00671 /* TMEOfferViewController.xib in Resources */,
 				B490276618B9232E00B00671 /* TMESubmitTableCellRight.xib in Resources */,
@@ -1539,6 +1548,7 @@
 				B490278518B9232F00B00671 /* TMEReply.m in Sources */,
 				B490277218B9232E00B00671 /* BaseNetworkManager.m in Sources */,
 				B4255A5A18B9F2760022B3A5 /* UIPlaceHolderTextView.m in Sources */,
+				0BAACBCF18BB47F700162311 /* TMESearchTableViewCell.m in Sources */,
 				B490271A18B9232E00B00671 /* TMEUser+Additions.m in Sources */,
 				B490272C18B9232E00B00671 /* UIViewController+Additions.m in Sources */,
 				B490272D18B9232E00B00671 /* UIWebView+Additions.m in Sources */,
