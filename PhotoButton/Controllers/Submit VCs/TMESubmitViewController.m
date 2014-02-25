@@ -17,13 +17,13 @@
 static NSString * const kSubmitTableViewCellIdentifier = @"TMESubmitTableCell";
 static NSString * const kSubmitTableViewCellRightIdentifier = @"TMESubmitTableCellRight";
 static CGFloat const kLabelContentDefaultHeight = 26;
-static NSInteger const kUserID = 36;
 
 @interface TMESubmitViewController()
 <
 UITableViewDelegate,
 UIApplicationDelegate,
-UITextViewDelegate
+UITextViewDelegate,
+UIAlertViewDelegate
 >
 
 @property (strong, nonatomic)            NSMutableArray                         * arrayReply;
@@ -192,6 +192,18 @@ UITextViewDelegate
     return [reply.id integerValue];
 }
 
+- (void)handleMarkAsSoldButtonTitle{
+    if (self.product.sold_outValue) {
+        self.buttonMarkAsSold.enabled = NO;
+        [self.buttonMarkAsSold setTitle:@"Sold" forState:UIControlStateNormal];
+        return;
+    }
+    if (![self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
+        self.buttonMarkAsSold.enabled = NO;
+        [self.buttonMarkAsSold setTitle:@"Selling" forState:UIControlStateNormal];
+    }
+}
+
 - (void)loadProductDetail{
     if ([self.textViewInputMessage respondsToSelector:@selector(setTintColor:)]) {
         [self.textViewInputMessage setTintColor:[UIColor orangeMainColor]];
@@ -200,10 +212,7 @@ UITextViewDelegate
     self.lblProductPrice.text = [NSString stringWithFormat:@"$%@",self.product.price];
     [self.imageViewProduct setImageWithURL:[NSURL URLWithString:[[[self.product.images allObjects] lastObject] thumb]]];
     self.lblPriceOffered.text = [NSString stringWithFormat:@"$%@",self.conversation.offer];
-    if (self.product.sold_outValue) {
-        self.buttonMarkAsSold.enabled = NO;
-        [self.buttonMarkAsSold setTitle:@"Sold" forState:UIControlStateNormal];
-    }
+    [self handleMarkAsSoldButtonTitle];
 }
 
 - (void)reloadTableViewConversationShowBottom:(BOOL)showBottom{
@@ -324,13 +333,20 @@ UITextViewDelegate
 }
 
 - (IBAction)btnMarkAsSoldPressed:(id)sender {
-    [[TMEProductsManager sharedInstance] putSoldOutWithProductID:self.product.id onSuccessBlock:^(NSArray *array)
-     {
-         return;
-     } andFailureBlock:^(NSInteger statusCode, id obj)
-     {
-         return;
-     }];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Do you want to Mark as sold your product?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex) {
+        [[TMEProductsManager sharedInstance] putSoldOutWithProductID:self.product.id onSuccessBlock:^(NSArray *array)
+         {
+             return;
+         } andFailureBlock:^(NSInteger statusCode, id obj)
+         {
+             return;
+         }];
+    }
 }
 
 #pragma mark - Handle changing reachability
