@@ -35,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelLikes;
 @property (weak, nonatomic) IBOutlet UILabel *labelBottom;
 @property (weak, nonatomic) IBOutlet UIButton *btnChatToBuy;
+@property (weak, nonatomic) IBOutlet MTAnimatedLabel *labelChatToBuy;
 
 @end
 
@@ -58,19 +59,7 @@
 
 - (void)loadProductDetail{
     NSArray *arrayImageView = @[self.imgProductImage1, self.imgProductImage2, self.imgProductImage3, self.imgProductImage4];
-    
-    // Follow button
-    //  self.btnFollow.layer.borderWidth = 1;
-    //  self.btnFollow.layer.borderColor = [UIColor grayColor].CGColor;
-    //  self.btnFollow.layer.cornerRadius = 3;
-    //
-    //  // Share button
-    //  self.btnShare.layer.borderWidth = 1;
-    //  self.btnShare.layer.borderColor = [UIColor grayColor].CGColor;
-    //  self.btnShare.layer.cornerRadius = 3;
-    
-    // for now when we get product, we get all imformantion about this product like user, category, etc.
-    
+ 
     // user
     self.imgUserAvatar.image = nil;
     [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:self.product.user.photo_url] placeholderImage:nil];
@@ -113,6 +102,11 @@
         self.scrollViewProductDetail.frame = self.view.frame;
     }
     
+    if (self.product.sold_outValue) {
+        self.labelChatToBuy.text = @"Sold";
+        self.btnChatToBuy.enabled = NO;
+    }
+    
     [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
 }
 
@@ -152,13 +146,12 @@
 
 - (void)checkFirstTimeOffer
 {
-    [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
-    
+    self.labelChatToBuy.textColor = [UIColor darkGrayColor];
+    [self.labelChatToBuy startAnimating];
     [[TMEConversationManager sharedInstance] createConversationWithProductID:self.product.id
                                                                     toUserID:self.product.user.id
                                                               onSuccessBlock:^(TMEConversation *conversation) {
-                                                                  [SVProgressHUD dismiss];
-                                                                  
+                                                                  [self.labelChatToBuy stopAnimating];
                                                                   self.conversation = conversation;
                                                                   self.firstTimeOffer = NO;
                                                                   
@@ -169,7 +162,7 @@
                                                                   self.hidesBottomBarWhenPushed = NO;
                                                                   [self.navigationController pushViewController:viewController animated:YES];
                                                               } andFailureBlock:^(NSInteger statusCode, id obj) {
-                                                                  [SVProgressHUD dismiss];
+                                                                  [self.labelChatToBuy stopAnimating];
                                                                   self.firstTimeOffer = NO;
                                                               }];
 }
