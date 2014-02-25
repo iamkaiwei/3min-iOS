@@ -57,64 +57,63 @@
 }
 
 - (void)loadProductDetail{
-  NSArray *arrayImageView = @[self.imgProductImage1, self.imgProductImage2, self.imgProductImage3, self.imgProductImage4];
-  
-  // Follow button
-//  self.btnFollow.layer.borderWidth = 1;
-//  self.btnFollow.layer.borderColor = [UIColor grayColor].CGColor;
-//  self.btnFollow.layer.cornerRadius = 3;
-//  
-//  // Share button
-//  self.btnShare.layer.borderWidth = 1;
-//  self.btnShare.layer.borderColor = [UIColor grayColor].CGColor;
-//  self.btnShare.layer.cornerRadius = 3;
-  
-  // for now when we get product, we get all imformantion about this product like user, category, etc.
-  
-  // user
-  self.imgUserAvatar.image = nil;
-  [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:self.product.user.photo_url] placeholderImage:nil];
-  self.lblUserName.text = self.product.user.fullname;
-  self.lblTimestamp.text = [self.product.created_at relativeDate];
-  
-  NSArray *arrayImageOfProduct = [self.product.images allObjects];
-  [self.imgProductImage1 setImageWithProgressIndicatorAndURL:nil
-                                            placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
-  self.imgProductImage1.hidden = NO;
-  
-  for (int i = 0; i < arrayImageOfProduct.count; i++) {
-    TMEProductImages *img = arrayImageOfProduct[i];
-    [arrayImageView[i] setHidden:NO];
-    [arrayImageView[i] setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.origin]
-                                          placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
-  }
-  
-  [self.viewBottomDetail alignBelowView:arrayImageView[(arrayImageOfProduct.count == 0 ? 0 : arrayImageOfProduct.count - 1)] offsetY:0 sameWidth:NO];
-  
-  self.lblProductName.text = self.product.name;
-  self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", self.product.price];
-  
-  [self.lblProductPrice sizeToFitKeepHeightAlignRight];
-  
-  self.labelBottom.text = self.lblProductPrice.text;
-  self.labelLikes.text = self.product.likes.stringValue;
-  self.btnFollow.selected = self.product.likedValue;
-
-    //If view chat to buy wrapper is hidden
-    if([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id])
-    {
-        self.btnChatToBuy.enabled = NO;
-        self.labelBottom.text = @"You have 3 offer";
-        [self.btnChatToBuy setTitle:@"View Offer" forState:UIControlStateNormal];
+    NSArray *arrayImageView = @[self.imgProductImage1, self.imgProductImage2, self.imgProductImage3, self.imgProductImage4];
+    
+    // Follow button
+    //  self.btnFollow.layer.borderWidth = 1;
+    //  self.btnFollow.layer.borderColor = [UIColor grayColor].CGColor;
+    //  self.btnFollow.layer.cornerRadius = 3;
+    //
+    //  // Share button
+    //  self.btnShare.layer.borderWidth = 1;
+    //  self.btnShare.layer.borderColor = [UIColor grayColor].CGColor;
+    //  self.btnShare.layer.cornerRadius = 3;
+    
+    // for now when we get product, we get all imformantion about this product like user, category, etc.
+    
+    // user
+    self.imgUserAvatar.image = nil;
+    [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:self.product.user.photo_url] placeholderImage:nil];
+    self.lblUserName.text = self.product.user.fullname;
+    self.lblTimestamp.text = [self.product.created_at relativeDate];
+    
+    NSArray *arrayImageOfProduct = [self.product.images allObjects];
+    [self.imgProductImage1 setImageWithProgressIndicatorAndURL:nil
+                                              placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
+    self.imgProductImage1.hidden = NO;
+    
+    for (int i = 0; i < arrayImageOfProduct.count; i++) {
+        TMEProductImages *img = arrayImageOfProduct[i];
+        [arrayImageView[i] setHidden:NO];
+        [arrayImageView[i] setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.origin]
+                                              placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
     }
-    [self.labelBottom sizeToFitKeepHeight];
-
+    
+    [self.viewBottomDetail alignBelowView:arrayImageView[(arrayImageOfProduct.count == 0 ? 0 : arrayImageOfProduct.count - 1)] offsetY:0 sameWidth:NO];
+    
+    self.lblProductName.text = self.product.name;
+    self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", self.product.price];
+    
+    [self.lblProductPrice sizeToFitKeepHeightAlignRight];
+    
+    self.labelBottom.text = self.lblProductPrice.text;
+    self.labelLikes.text = self.product.likes.stringValue;
+    self.btnFollow.selected = self.product.likedValue;
+    
     self.lblProductLocation.text = self.product.venue_name;
     self.lblProductDescription.text = self.product.details;
     [self.lblProductDescription sizeToFitKeepWidth];
-    self.viewBottomDetail.height = CGRectGetMaxY(self.lblProductDescription.frame);
-
-  [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
+//    self.viewBottomDetail.height = CGRectGetMaxY(self.lblProductDescription.frame);
+    [self.labelBottom sizeToFitKeepHeight];
+    
+    //If view chat to buy wrapper is hidden
+    if([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id])
+    {
+        self.viewChatToBuyWrapper.hidden = YES;
+        self.scrollViewProductDetail.frame = self.view.frame;
+    }
+    
+    [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
 }
 
 - (void)setUpView

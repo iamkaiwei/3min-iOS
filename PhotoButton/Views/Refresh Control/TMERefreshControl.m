@@ -22,7 +22,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        self.refreshLabel = [[MTAnimatedLabel alloc] initWithFrame:CGRectMake(105, 20, 200, 50)];
+        self.refreshLabel = [[MTAnimatedLabel alloc] initWithFrame:CGRectMake(100, 15, 200, 50)];
         self.refreshLabel.text = @"3 mins loading...";
         self.refreshLabel.textColor = [UIColor darkTextColor];
         [self addSubview:self.refreshLabel];
