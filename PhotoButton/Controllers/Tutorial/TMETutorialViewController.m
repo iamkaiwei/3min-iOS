@@ -147,10 +147,9 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
     NSString *introductionImageName = [self.arrayIntroductionImages objectAtIndex:index];
-    UIImage *image = [UIImage oneTimeImageWithImageName:introductionImageName isIcon:NO];
     UIImageView *carouselView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    carouselView.image = image;
-    
+    carouselView.contentMode = UIViewContentModeScaleAspectFit ;
+    carouselView.image = [UIImage imageNamed:introductionImageName];
     return carouselView;
 }
 

@@ -224,7 +224,6 @@ FacebookManagerDelegate
     
     [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
     [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
-  
     return deckController;
 }
 
