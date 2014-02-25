@@ -8,8 +8,7 @@
 
 #import "TMESearchViewController.h"
 #import "TMESearchTableViewCell.h"
-
-static NSString * const kSearchTableViewCellIdentifier = @"TMESearchTableViewCell";
+#import "TMEProductDetailsViewController.h"
 
 @interface TMESearchViewController ()
 <
@@ -33,12 +32,8 @@ IIViewDeckControllerDelegate
     
     self.navigationController.navigationBar.topItem.title = @"Search Product";
     self.shouldHandleKeyboardNotification = NO;
-    
+    self.tableView = self.searchDisplayController.searchResultsTableView;
     [self.searchDisplayController.searchResultsTableView registerNib:[TMESearchTableViewCell defaultNib] forCellReuseIdentifier:[TMESearchTableViewCell kind]];
-}
-
-- (void)registerNibForTableView{
-    self.arrayCellIdentifier = @[kSearchTableViewCellIdentifier];
 }
 
 #pragma mark - UITableView delegate and datasource
@@ -52,14 +47,19 @@ IIViewDeckControllerDelegate
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TMESearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kSearchTableViewCellIdentifier forIndexPath:indexPath];
-    
-    if(!cell)
-        cell = [[TMESearchTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kSearchTableViewCellIdentifier];
+    TMESearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[TMESearchTableViewCell kind] forIndexPath:indexPath];
     
     [cell configCellWithData:self.dataArray[indexPath.row]];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self dismissKeyboard];
+    TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
+    productDetailsController.product = self.dataArray[indexPath.row];
+    productDetailsController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:productDetailsController animated:YES];
 }
 
 #pragma mark - Search View Controller
@@ -92,6 +92,15 @@ IIViewDeckControllerDelegate
     }
     
     return arrResultProduct;
+}
+
+-(void)viewWillLayoutSubviews
+{
+    if(self.searchDisplayController.isActive)
+    {
+        [self.navigationController setNavigationBarHidden:NO animated:NO];
+    }
+    [super viewWillLayoutSubviews];
 }
 
 @end

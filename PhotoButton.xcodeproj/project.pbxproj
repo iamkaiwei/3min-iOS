@@ -141,7 +141,6 @@
 		B490275D18B9232E00B00671 /* TMEProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49025A518B9232D00B00671 /* TMEProductDetailsViewController.xib */; };
 		B490275E18B9232E00B00671 /* TMEPublishProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025A818B9232D00B00671 /* TMEPublishProductViewController.m */; };
 		B490275F18B9232E00B00671 /* TMEPublishProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49025A918B9232D00B00671 /* TMEPublishProductViewController.xib */; };
-		B490276018B9232E00B00671 /* TMESearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025AC18B9232D00B00671 /* TMESearchDisplayController.m */; };
 		B490276118B9232E00B00671 /* TMESearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025AE18B9232D00B00671 /* TMESearchViewController.m */; };
 		B490276218B9232E00B00671 /* TMESearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49025AF18B9232D00B00671 /* TMESearchViewController.xib */; };
 		B490276318B9232E00B00671 /* TMESubmitTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025B218B9232D00B00671 /* TMESubmitTableCell.m */; };
@@ -402,8 +401,6 @@
 		B49025A718B9232D00B00671 /* TMEPublishProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPublishProductViewController.h; sourceTree = "<group>"; };
 		B49025A818B9232D00B00671 /* TMEPublishProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPublishProductViewController.m; sourceTree = "<group>"; };
 		B49025A918B9232D00B00671 /* TMEPublishProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEPublishProductViewController.xib; sourceTree = "<group>"; };
-		B49025AB18B9232D00B00671 /* TMESearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESearchDisplayController.h; sourceTree = "<group>"; };
-		B49025AC18B9232D00B00671 /* TMESearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESearchDisplayController.m; sourceTree = "<group>"; };
 		B49025AD18B9232D00B00671 /* TMESearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESearchViewController.h; sourceTree = "<group>"; };
 		B49025AE18B9232D00B00671 /* TMESearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESearchViewController.m; sourceTree = "<group>"; };
 		B49025AF18B9232D00B00671 /* TMESearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMESearchViewController.xib; sourceTree = "<group>"; };
@@ -980,8 +977,6 @@
 		B49025AA18B9232D00B00671 /* Search VCs */ = {
 			isa = PBXGroup;
 			children = (
-				B49025AB18B9232D00B00671 /* TMESearchDisplayController.h */,
-				B49025AC18B9232D00B00671 /* TMESearchDisplayController.m */,
 				B49025AD18B9232D00B00671 /* TMESearchViewController.h */,
 				B49025AE18B9232D00B00671 /* TMESearchViewController.m */,
 				B49025AF18B9232D00B00671 /* TMESearchViewController.xib */,
@@ -1467,7 +1462,6 @@
 				B490271418B9232E00B00671 /* NSObject+Additions.m in Sources */,
 				B490274C18B9232E00B00671 /* TMEMyListingTableViewCell.m in Sources */,
 				0B7F442218BB2E9A000777BF /* JZRefreshControl.m in Sources */,
-				B490276018B9232E00B00671 /* TMESearchDisplayController.m in Sources */,
 				B490271F18B9232E00B00671 /* UIColor+Additions.m in Sources */,
 				B490274A18B9232E00B00671 /* TMELikedViewController.m in Sources */,
 				B490275C18B9232E00B00671 /* TMEProductDetailsViewController.m in Sources */,
@@ -1691,8 +1685,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kaiwei Chen (898793SFE7)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors\\\\\\\\\\\\\\\"",
-					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors",
+					"\"$(SRCROOT)/Vendors/\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/PhotoButton-Prefix.pch";
@@ -1700,16 +1693,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/\\\\\\\\\\\\\\\"",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/CrittercismSDK/\\\\\\\\\\\\\\\"",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/AviarySDK/\\\\\\\\\\\\\\\"",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/Google\\\\\\\\\\\\\\ Analytics/\\\\\\\\\\\\\\\"",
-					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/AviarySDK",
-					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/CrittercismSDK",
-					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/Google\\ Analytics",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/CrittercismSDK",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/Google\\ Analytics",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/AviarySDK",
+					"\"$(SRCROOT)/PhotoButton/Vendors/\"",
+					"\"$(SRCROOT)/PhotoButton/Vendors/CrittercismSDK/\"",
+					"\"$(SRCROOT)/PhotoButton/Vendors/AviarySDK/\"",
+					"\"$(SRCROOT)/PhotoButton/Vendors/Google\\ Analytics/\"",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1733,8 +1720,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kaiwei Chen (898793SFE7)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors\\\\\\\\\\\\\\\"",
-					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors",
+					"\"$(SRCROOT)/Vendors/\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/PhotoButton-Prefix.pch";
@@ -1742,16 +1728,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/\\\\\\\\\\\\\\\"",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/CrittercismSDK/\\\\\\\\\\\\\\\"",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/AviarySDK/\\\\\\\\\\\\\\\"",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/Vendors/Google\\\\\\\\\\\\\\ Analytics/\\\\\\\\\\\\\\\"",
-					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/AviarySDK",
-					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/CrittercismSDK",
-					"/Users/toanslan/Documents/Work/3min-iOS/PhotoButton/Vendors/Google\\ Analytics",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/CrittercismSDK",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/Google\\ Analytics",
-					"/Users/hoangtrieukhang/Documents/2359\\ Media/3-mins/PhotoButton/Vendors/AviarySDK",
+					"\"$(SRCROOT)/PhotoButton/Vendors/\"",
+					"\"$(SRCROOT)/PhotoButton/Vendors/CrittercismSDK/\"",
+					"\"$(SRCROOT)/PhotoButton/Vendors/AviarySDK/\"",
+					"\"$(SRCROOT)/PhotoButton/Vendors/Google\\ Analytics/\"",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",

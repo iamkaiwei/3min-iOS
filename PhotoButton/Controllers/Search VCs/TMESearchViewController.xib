@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMESearchViewController">
             <connections>
                 <outlet property="searchDisplayController" destination="dAX-dZ-scn" id="fHA-vr-opo"/>
-                <outlet property="tableView" destination="Xdc-nU-KcQ" id="ojv-Gf-9zp"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -39,12 +38,12 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
-        <searchDisplayController id="dAX-dZ-scn" customClass="TMESearchDisplayController">
+        <searchDisplayController id="dAX-dZ-scn">
             <connections>
                 <outlet property="delegate" destination="-1" id="hSe-hu-svE"/>
                 <outlet property="searchBar" destination="Q12-Ol-l4S" id="c34-B6-cFN"/>
                 <outlet property="searchContentsController" destination="-1" id="Urg-dq-KuR"/>
-                <outlet property="searchResultsDataSource" destination="-1" id="6RH-Jc-4nb"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="aIL-lr-aiT"/>
                 <outlet property="searchResultsDelegate" destination="-1" id="JGd-qn-ctf"/>
             </connections>
         </searchDisplayController>
