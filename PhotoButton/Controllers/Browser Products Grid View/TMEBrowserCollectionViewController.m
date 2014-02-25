@@ -148,10 +148,11 @@ UICollectionViewDelegate
 #pragma mark - Notifications
 - (void)onCategoryChangeNotification:(NSNotification *)notification
 {
-    [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeGradient];
     NSDictionary *userInfo = [notification userInfo];
     self.currentCategory= [userInfo objectForKey:@"category"];
     self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
+    [self.collectionProductsView setContentOffset:CGPointMake(0, -60) animated:YES];
+    [self.pullToRefreshView beginRefreshing];
     [self loadProducts];
 }
 

@@ -39,6 +39,11 @@
     self.tableView.userInteractionEnabled = NO;
 }
 
+- (void)beginRefreshing{
+    [super beginRefreshing];
+    self.refreshLabel.alpha = 0.5;
+}
+
 - (void)reset{
     [self.refreshLabel stopAnimating];
     self.tableView.userInteractionEnabled = YES;
