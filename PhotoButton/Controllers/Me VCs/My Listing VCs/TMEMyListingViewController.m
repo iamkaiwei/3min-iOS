@@ -64,12 +64,12 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//  [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//  
-//  TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
-//  productDetailsController.product = self.dataArray[indexPath.row];
-//  productDetailsController.hidesBottomBarWhenPushed = YES;
-//  [self.navigationController pushViewController:productDetailsController animated:YES];
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  
+  TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
+  productDetailsController.product = self.dataArray[indexPath.row];
+  productDetailsController.hidesBottomBarWhenPushed = YES;
+  [self.navigationController pushViewController:productDetailsController animated:YES];
 }
 
 - (void)getCachedMyListing{

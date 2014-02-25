@@ -109,7 +109,7 @@ static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewC
   NSArray *arrayOfferedConversationCached = [TMEConversation MR_findAllSortedBy:@"latest_update" ascending:NO];
   
   for (TMEConversation *conversation in arrayOfferedConversationCached) {
-    if (![conversation.offer isEqualToNumber:@0] && ![conversation.offer isEqual:[NSNull null]]) {
+    if (![conversation.offer isEqualToNumber:@0] && ![conversation.offer isEqual:[NSNull null]] && ![conversation.product.user isEqual:[[TMEUserManager sharedInstance] loggedUser]]) {
       [self.dataArray addObject:conversation];
     }
   }
