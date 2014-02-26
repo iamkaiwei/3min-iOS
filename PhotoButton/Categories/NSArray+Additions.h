@@ -32,4 +32,6 @@
 
 - (NSArray *)sortByAttribute:(NSString *)attribute ascending:(BOOL)ascending;
 
+- (NSArray *)arrayUniqueByAddingObjectsFromArray:(NSArray *)array;
+
 @end

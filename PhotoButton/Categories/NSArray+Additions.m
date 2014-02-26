@@ -99,4 +99,10 @@
   return sortedArray;
 }
 
+- (NSArray *)arrayUniqueByAddingObjectsFromArray:(NSArray *)array{
+    NSMutableSet *set = [NSMutableSet setWithArray:self];
+    [set addObjectsFromArray:array];
+    return [set allObjects];
+}
+
 @end

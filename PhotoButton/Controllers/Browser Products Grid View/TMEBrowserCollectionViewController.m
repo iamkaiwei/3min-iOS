@@ -98,16 +98,16 @@ UICollectionViewDelegate
     }
 
     if (self.currentCategory) {
-        [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
-                                                    onSuccessBlock:^(NSArray *arrProducts) {
-                                                        self.arrayProducts = [arrProducts mutableCopy];
-                                                        [self.collectionProductsView reloadData];
-                                                        [self.pullToRefreshView endRefreshing];
-                                                        [SVProgressHUD dismiss];
-                                                    } andFailureBlock:^(NSInteger statusCode, id obj) {
-                                                        [self.pullToRefreshView endRefreshing];
-                                                        [SVProgressHUD dismiss];
-                                                    }];
+//        [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
+//                                                    onSuccessBlock:^(NSArray *arrProducts) {
+//                                                        self.arrayProducts = [arrProducts mutableCopy];
+//                                                        [self.collectionProductsView reloadData];
+//                                                        [self.pullToRefreshView endRefreshing];
+//                                                        [SVProgressHUD dismiss];
+//                                                    } andFailureBlock:^(NSInteger statusCode, id obj) {
+//                                                        [self.pullToRefreshView endRefreshing];
+//                                                        [SVProgressHUD dismiss];
+//                                                    }];
     } else {
 //        [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
 //            self.arrayProducts = [arrProducts mutableCopy];

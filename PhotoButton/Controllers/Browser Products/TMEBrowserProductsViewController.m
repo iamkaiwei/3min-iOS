@@ -44,17 +44,13 @@ TMEBrowserProductsTableCellDelegate
     
     [self.tableView registerNib:[TMEBrowserProductTableViewHeader defaultNib] forHeaderFooterViewReuseIdentifier:[TMEBrowserProductTableViewHeader kind]];
     [self enablePullToRefresh];
+    [self setUpTableView];
     [self paddingScrollWithTop];
     [self loadProductsWithPage:1];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onCategoryChangeNotification:)
                                                  name:CATEGORY_CHANGE_NOTIFICATION
                                                object:nil];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self setUpTableView];
 }
 
 - (void)registerNibForTableView{
@@ -116,10 +112,15 @@ TMEBrowserProductsTableCellDelegate
     
     if (self.currentCategory) {
         [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
+                                                          withPage:page
                                                     onSuccessBlock:^(NSArray *arrProducts)
          {
+             [self handlePagingWithResponseArray:arrProducts currentPage:page];
              [self hidePlaceHolder];
-             self.dataArray = [arrProducts mutableCopy];
+             
+             self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
+             self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+             
              [self setUpTableView];
              [self.pullToRefreshView endRefreshing];
              [SVProgressHUD dismiss];
@@ -131,22 +132,10 @@ TMEBrowserProductsTableCellDelegate
         [[TMEProductsManager sharedInstance] getAllProductsWihPage:page
                                                     onSuccessBlock:^(NSArray *arrProducts)
         {
-            self.paging = YES;
-            
-            if (!arrProducts.count) {
-                self.paging = NO;
-            }
-            
-            if (!self.currentPage) {
-                self.currentPage = page;
-            }
-            
+            [self handlePagingWithResponseArray:arrProducts currentPage:page];
             [self hidePlaceHolder];
             
-            NSMutableSet *setProduct = [NSMutableSet setWithArray:self.dataArray];
-            [setProduct addObjectsFromArray:arrProducts];
-            
-            self.dataArray = [[setProduct allObjects] mutableCopy];
+            self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
             self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
             [self setUpTableView];
             [SVProgressHUD dismiss];
@@ -185,10 +174,15 @@ TMEBrowserProductsTableCellDelegate
 - (void)onCategoryChangeNotification:(NSNotification *)notification
 {
     NSDictionary *userInfo = [notification userInfo];
+    if ([self.currentCategory isEqual:[userInfo objectForKey:@"category"]]) {
+        return;
+    }
+    
     self.currentCategory = [userInfo objectForKey:@"category"];
     self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
     [self.tableView setContentOffset:CGPointMake(0, -60) animated:YES];
     [self.pullToRefreshView beginRefreshing];
+    [self.dataArray removeAllObjects];
     [self loadProductsWithPage:1];
 }
 
@@ -248,6 +242,18 @@ TMEBrowserProductsTableCellDelegate
     self.imageViewProductPlaceholder.hidden = YES;
 }
 
+- (void)handlePagingWithResponseArray:(NSArray *)array currentPage:(NSInteger)page{
+    self.paging = YES;
+    
+    if (!array.count) {
+        self.paging = NO;
+    }
+    
+    if (!self.currentPage) {
+        self.currentPage = page;
+    }
+}
+
 - (void)fullScreenScrollDidLayoutUIBars:(YIFullScreenScroll *)fullScreenScroll{
     if(self.currentNavBarHeight == fullScreenScroll.navigationBarHeight){
         return;
@@ -261,7 +267,7 @@ TMEBrowserProductsTableCellDelegate
     newFrame.origin.y = navBarHeightForVersionCheck;
     newFrame.size.height = [[UIScreen mainScreen]bounds].size.height - navBarHeightForVersionCheck;
     self.tableView.frame = newFrame;
-    self.tableView.height = CGRectGetHeight(newFrame) + 49;
+    self.tableView.height = CGRectGetHeight(newFrame);
     self.currentNavBarHeight = fullScreenScroll.navigationBarHeight;
 }
 

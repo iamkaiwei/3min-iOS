@@ -36,10 +36,11 @@ SINGLETON_MACRO
 }
 
 -(void)getProductsOfCategory:(TMECategory *)category
+                    withPage:(NSInteger)page
               onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
              andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
-  NSMutableDictionary *params = [@{} mutableCopy];
+    NSMutableDictionary *params = [@{@"page" : @(page)} mutableCopy];
   [params setObject:category.id forKey:@"category_id"];
   [[BaseNetworkManager sharedInstance] getServerListForModelClass:[TMEProduct class]
                                                        withParams:params

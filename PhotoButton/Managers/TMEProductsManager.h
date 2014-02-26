@@ -16,6 +16,7 @@
               andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 -(void)getProductsOfCategory:(TMECategory *)category
+                    withPage:(NSInteger)page
               onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
              andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 

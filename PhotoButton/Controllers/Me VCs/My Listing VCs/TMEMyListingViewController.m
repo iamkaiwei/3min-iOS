@@ -98,12 +98,9 @@
       self.currentPage = page;
     }
     
-    NSMutableSet *setProduct = [NSMutableSet setWithArray:self.dataArray];
-    [setProduct addObjectsFromArray:arrayProduct];
-    
-    self.dataArray = [[setProduct allObjects] mutableCopy];
+    self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrayProduct] mutableCopy];
+      
     self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
-    
     [self reloadTableViewMyListing];
   }
                                                                 failureBlock:^(NSInteger statusCode, NSError *error)
