@@ -11,8 +11,7 @@
 @implementation TMELoadMoreTableViewCell
 
 - (void)startLoading{
-  self.indicatorLoading.hidden = NO;
-  [self.indicatorLoading startAnimating];
+  [self.labelLoading startAnimating];
   self.labelLoading.text = @"Loading...";
 }
 

@@ -43,7 +43,6 @@
         [cellLoadMore startLoading];
         
         cellLoadMore.backgroundColor = [UIColor whiteColor];
-        cellLoadMore.labelLoading.textColor = [UIColor blackColor];
         
         self.handleCellBlock();
         return cellLoadMore;

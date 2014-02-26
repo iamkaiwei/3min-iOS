@@ -9,8 +9,7 @@
 #import "TMEBaseTableViewCell.h"
 
 @interface TMELoadMoreTableViewCell : TMEBaseTableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *labelLoading;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorLoading;
+@property (weak, nonatomic) IBOutlet MTAnimatedLabel *labelLoading;
 
 - (void)startLoading;
 + (CGFloat)getHeight;

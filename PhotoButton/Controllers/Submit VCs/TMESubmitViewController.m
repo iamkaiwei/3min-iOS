@@ -99,7 +99,6 @@ UIAlertViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.paging && indexPath.row == 0) {
         TMELoadMoreTableViewCell *cell = (TMELoadMoreTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-        cell.indicatorLoading.color = [UIColor whiteColor];
         [cell startLoading];
         
         NSInteger previousPage = self.arrayReply.count/10 + 1;
