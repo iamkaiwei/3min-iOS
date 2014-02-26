@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorLoading;
 
 - (void)startLoading;
-+ (NSString *)getIdentifier;
 + (CGFloat)getHeight;
 
 @end

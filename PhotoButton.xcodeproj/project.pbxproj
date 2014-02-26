@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0B1E89F018BDCABB007D5D16 /* TMELoadMoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1E89EF18BDCABB007D5D16 /* TMELoadMoreCollectionViewCell.m */; };
+		0B1E89F218BDCACA007D5D16 /* TMELoadMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B1E89F118BDCACA007D5D16 /* TMELoadMoreCollectionViewCell.xib */; };
 		0B7F441B18BB126F000777BF /* TMECircleProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F441A18BB126F000777BF /* TMECircleProgressIndicator.m */; };
 		0B7F441E18BB1581000777BF /* UIImageView+CircleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F441D18BB1581000777BF /* UIImageView+CircleProgress.m */; };
 		0B7F442218BB2E9A000777BF /* JZRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F442118BB2E9A000777BF /* JZRefreshControl.m */; };
@@ -206,6 +208,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B1E89EE18BDCABB007D5D16 /* TMELoadMoreCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMELoadMoreCollectionViewCell.h; path = "Load More Collection View Cell/TMELoadMoreCollectionViewCell.h"; sourceTree = "<group>"; };
+		0B1E89EF18BDCABB007D5D16 /* TMELoadMoreCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMELoadMoreCollectionViewCell.m; path = "Load More Collection View Cell/TMELoadMoreCollectionViewCell.m"; sourceTree = "<group>"; };
+		0B1E89F118BDCACA007D5D16 /* TMELoadMoreCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMELoadMoreCollectionViewCell.xib; path = "Load More Collection View Cell/TMELoadMoreCollectionViewCell.xib"; sourceTree = "<group>"; };
 		0B7F441918BB126F000777BF /* TMECircleProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMECircleProgressIndicator.h; path = "Progress View/TMECircleProgressIndicator.h"; sourceTree = "<group>"; };
 		0B7F441A18BB126F000777BF /* TMECircleProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMECircleProgressIndicator.m; path = "Progress View/TMECircleProgressIndicator.m"; sourceTree = "<group>"; };
 		0B7F441C18BB1581000777BF /* UIImageView+CircleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CircleProgress.h"; sourceTree = "<group>"; };
@@ -564,6 +569,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B1E89ED18BDCA7E007D5D16 /* Load More Collection View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0B1E89EE18BDCABB007D5D16 /* TMELoadMoreCollectionViewCell.h */,
+				0B1E89EF18BDCABB007D5D16 /* TMELoadMoreCollectionViewCell.m */,
+				0B1E89F118BDCACA007D5D16 /* TMELoadMoreCollectionViewCell.xib */,
+			);
+			name = "Load More Collection View Cell";
+			sourceTree = "<group>";
+		};
 		0B7F441818BB121F000777BF /* Progress View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1219,6 +1234,7 @@
 		B49026F518B9232E00B00671 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B1E89ED18BDCA7E007D5D16 /* Load More Collection View Cell */,
 				0B7F442318BB2ED7000777BF /* Refresh Control */,
 				0B7F441818BB121F000777BF /* Progress View */,
 				B49026F618B9232E00B00671 /* Custom Switch */,
@@ -1368,6 +1384,7 @@
 				B490276818B9232E00B00671 /* TMESubmitViewController.xib in Resources */,
 				B490273F18B9232E00B00671 /* HTKContainerViewController.xib in Resources */,
 				B490274718B9232E00B00671 /* TMEHomeViewController.xib in Resources */,
+				0B1E89F218BDCACA007D5D16 /* TMELoadMoreCollectionViewCell.xib in Resources */,
 				B490276418B9232E00B00671 /* TMESubmitTableCell.xib in Resources */,
 				B490273D18B9232E00B00671 /* TMEBrowserCollectionViewController.xib in Resources */,
 				B490274518B9232E00B00671 /* TMELoginViewController.xib in Resources */,
@@ -1529,6 +1546,7 @@
 				B490270F18B9232E00B00671 /* NSData+Base64.m in Sources */,
 				B490271718B9232E00B00671 /* NSString+Validation.m in Sources */,
 				B490277818B9232E00B00671 /* TMEHTTPClient.m in Sources */,
+				0B1E89F018BDCABB007D5D16 /* TMELoadMoreCollectionViewCell.m in Sources */,
 				B490276C18B9232E00B00671 /* TMEBaseTabBarViewController.m in Sources */,
 				B490274418B9232E00B00671 /* TMELoginViewController.m in Sources */,
 				B490271E18B9232E00B00671 /* UIButton+Additions.m in Sources */,

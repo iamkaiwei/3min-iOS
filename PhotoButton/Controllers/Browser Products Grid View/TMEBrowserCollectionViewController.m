@@ -9,6 +9,7 @@
 #import "TMEBrowserCollectionViewController.h"
 #import "TMEBrowserCollectionCell.h"
 #import "TMEProductDetailsViewController.h"
+#import "TMELoadMoreCollectionViewCell.h"
 
 @interface TMEBrowserCollectionViewController ()
 <
@@ -31,7 +32,9 @@ UICollectionViewDelegate
     [self paddingScrollWithTop];
     self.scrollableView = self.collectionProductsView;
     [self enablePullToRefresh];
-    [self.collectionProductsView registerNib:[TMEBrowserCollectionCell defaultNib] forCellWithReuseIdentifier:NSStringFromClass([TMEBrowserCollectionCell class])];
+    [self.collectionProductsView registerNib:[TMEBrowserCollectionCell defaultNib] forCellWithReuseIdentifier:[TMEBrowserCollectionCell kind]];
+    
+    [self.collectionProductsView registerNib:[TMELoadMoreCollectionViewCell defaultNib] forCellWithReuseIdentifier:[TMELoadMoreCollectionViewCell kind]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onCategoryChangeNotification:) name:CATEGORY_CHANGE_NOTIFICATION object:nil];
 }
@@ -69,16 +72,26 @@ UICollectionViewDelegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.arrayProducts count];
+    if(self.paging){
+        return self.arrayProducts.count + 1;
+    }
+    return self.arrayProducts.count;
 }
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.paging && indexPath.row == self.arrayProducts.count) {
+        TMELoadMoreCollectionViewCell *cellLoadMore = [collectionView dequeueReusableCellWithReuseIdentifier:[TMELoadMoreCollectionViewCell kind] forIndexPath:indexPath];
+        
+        [cellLoadMore startLoading];
+        
+        [self loadProductsWithPage:self.currentPage++];
+        //        self.handleCellBlock();
+        return cellLoadMore;
+    }
     TMEBrowserCollectionCell *cell = [self.collectionProductsView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TMEBrowserCollectionCell class]) forIndexPath:indexPath];
-    
-    TMEProduct *product = [self.arrayProducts objectAtIndex:indexPath.row];
-    [cell configCellWithData:product];
+    [cell configCellWithData:self.arrayProducts[indexPath.row]];
     
     return cell;
 }
@@ -91,34 +104,49 @@ UICollectionViewDelegate
     [self.pullToRefreshView scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
 }
 
-- (void)loadProducts{
+- (void)loadProductsWithPage:(NSInteger)page{
     if (![TMEReachabilityManager isReachable]) {
         [SVProgressHUD showErrorWithStatus:@"No connection!"];
         return;
     }
-
+    
     if (self.currentCategory) {
-//        [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
-//                                                    onSuccessBlock:^(NSArray *arrProducts) {
-//                                                        self.arrayProducts = [arrProducts mutableCopy];
-//                                                        [self.collectionProductsView reloadData];
-//                                                        [self.pullToRefreshView endRefreshing];
-//                                                        [SVProgressHUD dismiss];
-//                                                    } andFailureBlock:^(NSInteger statusCode, id obj) {
-//                                                        [self.pullToRefreshView endRefreshing];
-//                                                        [SVProgressHUD dismiss];
-//                                                    }];
+        [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
+                                                          withPage:page
+                                                    onSuccessBlock:^(NSArray *arrProducts)
+         {
+             [self handlePagingWithResponseArray:arrProducts currentPage:page];
+             
+             self.arrayProducts = [[self.arrayProducts arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
+             self.arrayProducts = [[self.arrayProducts sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+             
+             [self.collectionProductsView reloadData];
+             [self.pullToRefreshView endRefreshing];
+             [SVProgressHUD dismiss];
+         }
+                                                   andFailureBlock:^(NSInteger statusCode, id obj)
+         {
+             [self.pullToRefreshView endRefreshing];
+             [SVProgressHUD dismiss];
+         }];
     } else {
-//        [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
-//            self.arrayProducts = [arrProducts mutableCopy];
-//            [self.collectionProductsView reloadData];
-//            
-//            [self.pullToRefreshView endRefreshing];
-//            [SVProgressHUD dismiss];
-//        } andFailureBlock:^(NSInteger statusCode, id obj) {
-//            [self.pullToRefreshView endRefreshing];
-//            [SVProgressHUD dismiss];
-//        }];
+        [[TMEProductsManager sharedInstance] getAllProductsWihPage:page
+                                                    onSuccessBlock:^(NSArray *arrProducts)
+         {
+             [self handlePagingWithResponseArray:arrProducts currentPage:page];
+             
+             self.arrayProducts = [[self.arrayProducts arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
+             self.arrayProducts = [[self.arrayProducts sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+             
+             [self.collectionProductsView reloadData];
+             
+             [self.pullToRefreshView endRefreshing];
+             [SVProgressHUD dismiss];
+         }
+                                                   andFailureBlock:^(NSInteger statusCode, id obj) {
+                                                       [self.pullToRefreshView endRefreshing];
+                                                       [SVProgressHUD dismiss];
+                                                   }];
     }
 }
 
@@ -131,7 +159,7 @@ UICollectionViewDelegate
         return;
     }
     
-    [self loadProducts];
+    [self loadProductsWithPage:1];
 }
 
 
@@ -149,11 +177,34 @@ UICollectionViewDelegate
 - (void)onCategoryChangeNotification:(NSNotification *)notification
 {
     NSDictionary *userInfo = [notification userInfo];
+    if ([self.currentCategory isEqual:userInfo[@"category"]]) {
+        return;
+    }
+    
     self.currentCategory= [userInfo objectForKey:@"category"];
     self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
     [self.collectionProductsView setContentOffset:CGPointMake(0, -60) animated:YES];
+    
     [self.pullToRefreshView beginRefreshing];
-    [self loadProducts];
+
+    [self loadProductsWithPage:1];
+}
+
+- (void)handlePagingWithResponseArray:(NSArray *)array currentPage:(NSInteger)page{
+    if (page == 1) {
+        [self.arrayProducts removeAllObjects];
+    }
+    
+    if (!self.currentPage) {
+        self.currentPage = page;
+    }
+    
+    if (!array.count) {
+        self.paging = NO;
+        return;
+    }
+    
+    self.paging = YES;
 }
 
 @end

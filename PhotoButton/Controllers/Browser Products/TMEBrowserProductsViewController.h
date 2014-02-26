@@ -9,8 +9,9 @@
 #import "YIFullScreenScroll.h"
 
 @interface TMEBrowserProductsViewController : TMEBaseTableViewController
+@property (assign, nonatomic) NSInteger                   currentPage;
 
-- (void)loadProducts;
+- (void)loadProductsWithPage:(NSInteger)page;
 - (void)fullScreenScrollDidLayoutUIBars:(YIFullScreenScroll *)fullScreenScroll;
 
 @end

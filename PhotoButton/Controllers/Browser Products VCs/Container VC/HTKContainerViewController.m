@@ -101,10 +101,14 @@
 {
     if ([self.currentViewController isEqual:self.normalViewController]) {
         self.gridViewController.arrayProducts = self.normalViewController.dataArray;
+        self.gridViewController.paging = self.normalViewController.paging;
+        self.gridViewController.currentPage = self.normalViewController.currentPage;
         [self switchContainerViewControllerToViewController:self.gridViewController];
         return;
     }
     self.normalViewController.dataArray = self.gridViewController.arrayProducts;
+    self.normalViewController.paging = self.gridViewController.paging;
+    self.normalViewController.currentPage = self.gridViewController.currentPage;
     [self switchContainerViewControllerToViewController:self.normalViewController];
     return;
 }

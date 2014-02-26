@@ -299,13 +299,13 @@ UITextViewDelegate
 
          if ([((TMENavigationViewController *)self.tabBarController.selectedViewController).topViewController isKindOfClass:[HTKContainerViewController class]]) {
              HTKContainerViewController *containerVC = (HTKContainerViewController *)((TMENavigationViewController *)self.tabBarController.selectedViewController).topViewController;
-
+             
              if ([containerVC.currentViewController isKindOfClass:[TMEBrowserProductsViewController class]]) {
-                 [((TMEBrowserProductsViewController *)containerVC.currentViewController) loadProducts];
+                 [((TMEBrowserProductsViewController *)containerVC.currentViewController) loadProductsWithPage:1];
              }
 
              if ([containerVC.currentViewController isKindOfClass:[TMEBrowserCollectionViewController class]]) {
-                 [((TMEBrowserCollectionViewController *)containerVC.currentViewController) loadProducts];
+                 [((TMEBrowserCollectionViewController *)containerVC.currentViewController) loadProductsWithPage:1];
              }
          }
          [TSMessage showNotificationWithTitle:@"Your product has been uploaded successfully." type:TSMessageNotificationTypeSuccess];

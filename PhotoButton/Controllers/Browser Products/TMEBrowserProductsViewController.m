@@ -22,7 +22,6 @@ TMEBrowserProductsTableCellDelegate
 >
 
 @property (assign, nonatomic) CGFloat                     currentNavBarHeight;
-@property (assign, nonatomic) NSInteger                   currentPage;
 @property (strong, nonatomic) TMEUser                   * loginUser;
 @property (strong, nonatomic) TMECategory               * currentCategory;
 @property (strong, nonatomic) TMEBrowserProductsViewControllerArrayDataSource    * productsArrayDataSource;
@@ -51,6 +50,11 @@ TMEBrowserProductsTableCellDelegate
                                              selector:@selector(onCategoryChangeNotification:)
                                                  name:CATEGORY_CHANGE_NOTIFICATION
                                                object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setUpTableView];
 }
 
 - (void)registerNibForTableView{
@@ -182,7 +186,6 @@ TMEBrowserProductsTableCellDelegate
     self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
     [self.tableView setContentOffset:CGPointMake(0, -60) animated:YES];
     [self.pullToRefreshView beginRefreshing];
-    [self.dataArray removeAllObjects];
     [self loadProductsWithPage:1];
 }
 
@@ -243,15 +246,20 @@ TMEBrowserProductsTableCellDelegate
 }
 
 - (void)handlePagingWithResponseArray:(NSArray *)array currentPage:(NSInteger)page{
-    self.paging = YES;
-    
-    if (!array.count) {
-        self.paging = NO;
+    if (page == 1) {
+        [self.dataArray removeAllObjects];
     }
     
     if (!self.currentPage) {
         self.currentPage = page;
     }
+    
+    if (!array.count) {
+        self.paging = NO;
+        return;
+    }
+    
+    self.paging = YES;
 }
 
 - (void)fullScreenScrollDidLayoutUIBars:(YIFullScreenScroll *)fullScreenScroll{

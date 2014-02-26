@@ -10,7 +10,10 @@
 
 @interface TMEBrowserCollectionViewController : TMEBaseViewController
 
+@property (assign, nonatomic) BOOL                            paging;
+@property (assign, nonatomic) NSInteger                       currentPage;
 @property (strong, nonatomic) NSMutableArray                * arrayProducts;
-- (void)loadProducts;
+
+- (void)loadProductsWithPage:(NSInteger)page;
 
 @end

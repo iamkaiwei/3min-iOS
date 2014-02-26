@@ -131,12 +131,15 @@ static char kTMEImageProgressIndicatorKey;
                              [weakSelf.tme_progressIndicatorView removeFromSuperview];
                              weakSelf.alpha = 0;
                              weakSelf.image = image;
-                             [CAAnimation addAnimationToLayer:weakSelf.layer
-                                                  withKeyPath:@"opacity"
-                                                     duration:0.5
-                                                           to:1
-                                               easingFunction:CAAnimationEasingFunctionEaseInCubic];
-
+                             if (request) {
+                                 [CAAnimation addAnimationToLayer:weakSelf.layer
+                                                      withKeyPath:@"opacity"
+                                                         duration:0.5
+                                                               to:1
+                                                   easingFunction:CAAnimationEasingFunctionEaseInCubic];
+                                 return;
+                             }
+                             weakSelf.alpha = 1;
                          }
                          failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                              [weakSelf.tme_progressIndicatorView setProgressValue:0.0f];
