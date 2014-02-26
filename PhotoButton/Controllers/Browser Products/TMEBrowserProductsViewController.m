@@ -8,9 +8,6 @@
 
 #import "TMEBrowserProductsViewController.h"
 #import "TMEBrowserProductsTableCell.h"
-#import "TMESubmitViewController.h"
-#import "TMELoadMoreTableViewCell.h"
-#import "TMEProductDetailsViewController.h"
 #import "TMEBrowserProductTableViewHeader.h"
 #import "TMEBrowserProductsViewControllerArrayDataSource.h"
 
@@ -37,15 +34,13 @@ TMEBrowserProductsTableCellDelegate
     // Do any additional setup after loading the view from its nib.
     [self.labelAnimated startAnimating];
     self.navigationController.navigationBar.topItem.title = @"Browse Products";
-    [[TMECircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
-    [[TMECircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
-    [[TMECircleProgressIndicator appearance] setStrokeWidth:3.0f];
     
-    [self.tableView registerNib:[TMEBrowserProductTableViewHeader defaultNib] forHeaderFooterViewReuseIdentifier:[TMEBrowserProductTableViewHeader kind]];
+    [self setUpCircleProgressIndicator];
     [self enablePullToRefresh];
     [self setUpTableView];
     [self paddingScrollWithTop];
     [self loadProductsWithPage:1];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onCategoryChangeNotification:)
                                                  name:CATEGORY_CHANGE_NOTIFICATION
@@ -58,8 +53,16 @@ TMEBrowserProductsTableCellDelegate
 }
 
 - (void)registerNibForTableView{
+    [self.tableView registerNib:[TMEBrowserProductTableViewHeader defaultNib] forHeaderFooterViewReuseIdentifier:[TMEBrowserProductTableViewHeader kind]];
+    
     self.arrayCellIdentifier = @[[TMEBrowserProductsTableCell kind]];
     self.registerLoadMoreCell = YES;
+}
+
+- (void)setUpCircleProgressIndicator{
+    [[TMECircleProgressIndicator appearance] setStrokeProgressColor:[UIColor orangeMainColor]];
+    [[TMECircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
+    [[TMECircleProgressIndicator appearance] setStrokeWidth:3.0f];
 }
 
 - (void)setUpTableView{
@@ -108,9 +111,7 @@ TMEBrowserProductsTableCellDelegate
 #pragma mark - Load Product
 
 - (void)loadProductsWithPage:(NSInteger)page{
-    if (![TMEReachabilityManager isReachable]) {
-        [SVProgressHUD showErrorWithStatus:@"No connection!"];
-        [self.pullToRefreshView endRefreshing];
+    if (![self reachability]) {
         return;
     }
     
@@ -126,39 +127,36 @@ TMEBrowserProductsTableCellDelegate
              self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
              
              [self setUpTableView];
-             [self.pullToRefreshView endRefreshing];
-             [SVProgressHUD dismiss];
+             [self finishLoading];
          } andFailureBlock:^(NSInteger statusCode, id obj) {
-             [self.pullToRefreshView endRefreshing];
-             [SVProgressHUD dismiss];
+             [self finishLoading];
          }];
-    } else {
-        [[TMEProductsManager sharedInstance] getAllProductsWihPage:page
-                                                    onSuccessBlock:^(NSArray *arrProducts)
-        {
-            [self handlePagingWithResponseArray:arrProducts currentPage:page];
-            [self hidePlaceHolder];
-            
-            self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
-            self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
-            [self setUpTableView];
-            [SVProgressHUD dismiss];
-            
-            [self.pullToRefreshView endRefreshing];
-        } andFailureBlock:^(NSInteger statusCode, id obj) {
-            [self.pullToRefreshView endRefreshing];
-            [SVProgressHUD dismiss];
-        }];
+        return;
     }
+    
+    [[TMEProductsManager sharedInstance] getAllProductsWihPage:page
+                                                onSuccessBlock:^(NSArray *arrProducts)
+     {
+         [self handlePagingWithResponseArray:arrProducts currentPage:page];
+         [self hidePlaceHolder];
+         
+         self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
+         self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+         
+         [self setUpTableView];
+         [self finishLoading];
+         
+     } andFailureBlock:^(NSInteger statusCode, id obj) {
+         [self finishLoading];
+     }];
+    
 }
 
 
 #pragma mark - SSPullToRefreshView delegate
 - (void)pullToRefreshViewDidStartLoading
 {
-    if (![TMEReachabilityManager isReachable]) {
-        [SVProgressHUD showErrorWithStatus:@"No connection!"];
-        [self.pullToRefreshView endRefreshing];
+    if (![self reachability]) {
         return;
     }
     
@@ -177,6 +175,9 @@ TMEBrowserProductsTableCellDelegate
 #pragma mark - Notifications
 - (void)onCategoryChangeNotification:(NSNotification *)notification
 {
+    if (![self reachability]) {
+        return;
+    }
     NSDictionary *userInfo = [notification userInfo];
     if ([self.currentCategory isEqual:[userInfo objectForKey:@"category"]]) {
         return;
@@ -191,34 +192,35 @@ TMEBrowserProductsTableCellDelegate
 
 #pragma mark - Button Like Action
 - (void)onBtnLike:(UIButton *)sender label:(UILabel *)label{
-    UIView *superView = sender.superview;
-    
-    while (nil != sender.superview) {
-        if ([superView isKindOfClass:[UITableViewCell class]]) {
-            break;
-        }
-        superView = superView.superview;
+    if (![self reachability]) {
+        return;
     }
+    UITableViewCell *cell = [self getCellFromButton:sender];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)superView];
     TMEProduct *currentCellProduct = self.dataArray[indexPath.row];
     sender.selected = !currentCellProduct.likedValue;
     
     if (!currentCellProduct.likedValue) {
         [[TMEProductsManager sharedInstance] likeProductWithProductID:currentCellProduct.id
-                                                       onSuccessBlock:nil                                                  andFailureBlock:^(NSInteger statusCode, NSError *error){
-                                                           [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:NO];
-                                                       }];
+                                                       onSuccessBlock:nil                                                  andFailureBlock:^(NSInteger statusCode, NSError *error)
+        {
+            [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:NO];
+        }];
+        
         currentCellProduct.likedValue = YES;
         currentCellProduct.likesValue++;
+        
         label.text = [@(label.text.integerValue + 1) stringValue];
         return;
     }
     
     [[TMEProductsManager sharedInstance] unlikeProductWithProductID:currentCellProduct.id
-                                                     onSuccessBlock:nil                                                  andFailureBlock:^(NSInteger statusCode, NSError *error){
-                                                         [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:YES];
-                                                     }];
+                                                     onSuccessBlock:nil                                                  andFailureBlock:^(NSInteger statusCode, NSError *error)
+    {
+        [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:YES];
+    }];
+    
     currentCellProduct.likedValue = NO;
     currentCellProduct.likesValue--;
     label.text = [@(label.text.integerValue - 1) stringValue];
@@ -239,27 +241,22 @@ TMEBrowserProductsTableCellDelegate
     label.text = [@(label.text.integerValue - 1) stringValue];
 }
 
+- (UITableViewCell *)getCellFromButton:(UIButton *)sender{
+    UIView *superView = sender.superview;
+    
+    while (nil != sender.superview) {
+        if ([superView isKindOfClass:[UITableViewCell class]]) {
+            break;
+        }
+        superView = superView.superview;
+    }
+    return (UITableViewCell *)superView;
+}
+
 - (void)hidePlaceHolder{
     [self.labelAnimated stopAnimating];
     [self.labelAnimated fadeOutWithDuration:0.4];
     self.imageViewProductPlaceholder.hidden = YES;
-}
-
-- (void)handlePagingWithResponseArray:(NSArray *)array currentPage:(NSInteger)page{
-    if (page == 1) {
-        [self.dataArray removeAllObjects];
-    }
-    
-    if (!self.currentPage) {
-        self.currentPage = page;
-    }
-    
-    if (!array.count) {
-        self.paging = NO;
-        return;
-    }
-    
-    self.paging = YES;
 }
 
 - (void)fullScreenScrollDidLayoutUIBars:(YIFullScreenScroll *)fullScreenScroll{
@@ -274,6 +271,7 @@ TMEBrowserProductsTableCellDelegate
     
     newFrame.origin.y = navBarHeightForVersionCheck;
     newFrame.size.height = [[UIScreen mainScreen]bounds].size.height - navBarHeightForVersionCheck;
+    
     self.tableView.frame = newFrame;
     self.tableView.height = CGRectGetHeight(newFrame);
     self.currentNavBarHeight = fullScreenScroll.navigationBarHeight;

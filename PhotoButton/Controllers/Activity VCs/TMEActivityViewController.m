@@ -8,19 +8,9 @@
 
 #import "TMEActivityViewController.h"
 #import "TMEActivityTableViewCell.h"
-#import "TMESubmitViewController.h"
-#import "TMELoadMoreTableViewCell.h"
-#import "TMERefreshControl.h"
-#import "TMEBaseArrayDataSourceWithLoadMore.h"
-
-static NSString * const kActivityTableViewCellIdentifier = @"TMEActivityTableViewCell";
 
 @interface TMEActivityViewController ()
-<
-UITableViewDelegate
->
 
-@property (assign, nonatomic) NSInteger                               currentPage;
 @property (strong, nonatomic) TMEBaseArrayDataSourceWithLoadMore    * activitiesArrayDataSource;
 @end
 
@@ -35,7 +25,6 @@ UITableViewDelegate
     // remember to avoid retain cycles!
     [self enablePullToRefresh];
     [self.lblInstruction alignVerticallyCenterToView:self.view];
-    //  [self enablePullToRefresh];
     [self disableNavigationTranslucent];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -46,7 +35,7 @@ UITableViewDelegate
     [self getCachedActivity];
     
     if (!self.dataArray.count) {
-        [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
+        [self.pullToRefreshView beginRefreshing];
     }
     
     [self loadListActivityWithPage:1];
@@ -63,14 +52,14 @@ UITableViewDelegate
         [self loadListActivityWithPage:self.currentPage++];
     };
     
-    self.activitiesArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:kActivityTableViewCellIdentifier paging:self.paging handleCellBlock:handleCell];
+    self.activitiesArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:[TMEActivityTableViewCell kind] paging:self.paging handleCellBlock:handleCell];
     
     self.tableView.dataSource = self.activitiesArrayDataSource;
-    [self.tableView reloadData];
+    [self refreshTableViewAnimated:NO];
 }
 
 - (void)registerNibForTableView{
-    self.arrayCellIdentifier = @[kActivityTableViewCellIdentifier];
+    self.arrayCellIdentifier = @[[TMEActivityTableViewCell kind]];
     self.registerLoadMoreCell = YES;
 }
 
@@ -116,26 +105,16 @@ UITableViewDelegate
     [[TMEConversationManager sharedInstance] getListConversationWithPage:page
                                                           onSuccessBlock:^(NSArray *arrayConversation)
      {
-         self.paging = YES;
+         [self handlePagingWithResponseArray:arrayConversation currentPage:page];
          
-         if (!arrayConversation.count) {
-             self.paging = NO;
-         }
-         
-         if (!self.currentPage) {
-             self.currentPage = page;
-         }
-         NSMutableSet *setConversation = [NSMutableSet setWithArray:self.dataArray];
-         [setConversation addObjectsFromArray:arrayConversation];
-         
-         self.dataArray = [[setConversation allObjects] mutableCopy];
+         self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrayConversation] mutableCopy];
          self.dataArray = [[self.dataArray sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
          
          [self reloadTableViewActivity];
      }
                                                          andFailureBlock:^(NSInteger statusCode, NSError *error)
      {
-         [self.pullToRefreshView endRefreshing];
+         [self finishLoading];
      }];
 }
 
@@ -145,9 +124,7 @@ UITableViewDelegate
 
 - (void)reloadTableViewActivity{
     [self setUpTableView];
-    [self refreshTableViewAnimated:NO];
-    [self.pullToRefreshView endRefreshing];
-    [SVProgressHUD dismiss];
+    [self finishLoading];
 }
 
 - (void)pullToRefreshViewDidStartLoading
@@ -155,7 +132,6 @@ UITableViewDelegate
     if (![TMEReachabilityManager isReachable]) {
         [SVProgressHUD showErrorWithStatus:@"No connection!"];
         [self reloadTableViewActivity];
-        [self.pullToRefreshView endRefreshing];
         return;
     }
     

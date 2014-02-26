@@ -9,14 +9,10 @@
 #import "TMELeftMenuViewController.h"
 #import "TMELeftMenuTableViewCell.h"
 #import "TMEHomeViewController.h"
-#import "TMEBaseArrayDataSource.h"
-
-static NSString * const kLeftMenuTableViewCellIdentifier = @"TMELeftMenuTableViewCell";
 
 @interface TMELeftMenuViewController ()
 <IIViewDeckControllerDelegate>
 
-@property (strong, nonatomic) NSArray *arrayCategories;
 @property (strong, nonatomic) UIView *statusBarView;
 @property (strong, nonatomic) TMEBaseArrayDataSource *categoryArrayDataSource;
 
@@ -39,20 +35,20 @@ static NSString * const kLeftMenuTableViewCellIdentifier = @"TMELeftMenuTableVie
 }
 
 - (void)registerNibForTableView{
-  self.arrayCellIdentifier = @[kLeftMenuTableViewCellIdentifier];
+  self.arrayCellIdentifier = @[[TMELeftMenuTableViewCell kind]];
 }
 
 - (void)setUpTableView{
-  self.categoryArrayDataSource = [[TMEBaseArrayDataSource alloc] initWithItems:self.arrayCategories cellIdentifier:kLeftMenuTableViewCellIdentifier delegate:nil];
+  self.categoryArrayDataSource = [[TMEBaseArrayDataSource alloc] initWithItems:self.dataArray cellIdentifier:[TMELeftMenuTableViewCell kind] delegate:nil];
   
   self.tableView.dataSource = self.categoryArrayDataSource;
-  [self.tableView reloadData];
+  [self refreshTableViewAnimated:NO];
 }
 
 #pragma mark - UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  TMECategory *category = [self.arrayCategories objectAtIndex:indexPath.row];
+  TMECategory *category = [self.dataArray objectAtIndex:indexPath.row];
   NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
   [userInfo setObject:category forKey:@"category"];
   [[NSNotificationCenter defaultCenter] postNotificationName:CATEGORY_CHANGE_NOTIFICATION object:nil userInfo:userInfo];
@@ -69,7 +65,7 @@ static NSString * const kLeftMenuTableViewCellIdentifier = @"TMELeftMenuTableVie
 
 - (void)getAllCategories{
   [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories) {
-    _arrayCategories = arrayCategories;
+    self.dataArray = [arrayCategories mutableCopy];
     [self setUpTableView];
   } andFailureBlock:^(NSInteger statusCode, id obj) {
     DLog(@"%d", statusCode);

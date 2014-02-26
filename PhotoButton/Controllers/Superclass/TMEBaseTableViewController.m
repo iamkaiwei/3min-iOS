@@ -158,4 +158,34 @@ static NSString * const kLoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
   }];
 }
 
+- (void)handlePagingWithResponseArray:(NSArray *)array currentPage:(NSInteger)page{
+    if (page == 1) {
+        [self.dataArray removeAllObjects];
+    }
+    
+    if (!self.currentPage) {
+        self.currentPage = page;
+    }
+    
+    if (!array.count) {
+        self.paging = NO;
+        return;
+    }
+    
+    self.paging = YES;
+}
+
+- (BOOL)reachability{
+    if (![TMEReachabilityManager isReachable]) {
+        [SVProgressHUD showErrorWithStatus:@"No connection!"];
+        return NO;
+    }
+    return YES;
+}
+
+- (void)finishLoading{
+    [self.pullToRefreshView endRefreshing];
+    [SVProgressHUD dismiss];
+}
+
 @end

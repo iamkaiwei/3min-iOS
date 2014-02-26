@@ -8,15 +8,9 @@
 
 #import "TMEOfferedViewController.h"
 #import "TMEOfferedTableViewCell.h"
-#import "TMEBaseArrayDataSourceWithLoadMore.h"
-#import "TMELoadMoreTableViewCell.h"
-#import "TMESubmitViewController.h"
-
-static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewCell";
 
 @interface TMEOfferedViewController()
 
-@property (assign, nonatomic) NSInteger currentPage;
 @property (strong, nonatomic) TMEBaseArrayDataSourceWithLoadMore * offeredConversationArrayDataSource;
 
 @end
@@ -26,116 +20,98 @@ static NSString * const KOfferedTableVIewCellIdentifier = @"TMEOfferedTableViewC
 #pragma mark - VC cycle life
 
 - (void)viewDidLoad{
-  [super viewDidLoad];
-  self.title = @"Offer I Made";
-  [self enablePullToRefresh];
-  [self disableNavigationTranslucent];
-  
-  [self getCachedOfferedConversation];
-  
-  if (!self.dataArray.count) {
-    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
-  }
-  
-  [self loadListOfferedConversationWithPage:1];
+    [super viewDidLoad];
+    self.title = @"Offer I Made";
+    [self enablePullToRefresh];
+    [self disableNavigationTranslucent];
+    [self getCachedOfferedConversation];
+    
+    if (!self.dataArray.count) {
+        [self.pullToRefreshView beginRefreshing];
+    }
+    
+    [self loadListOfferedConversationWithPage:1];
 }
 
 - (void)setUpTableView{
-  LoadMoreCellHandleBlock handleCell = ^(){
-    [self loadListOfferedConversationWithPage:self.currentPage++];
-  };
-  
-  self.offeredConversationArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:KOfferedTableVIewCellIdentifier paging:self.paging handleCellBlock:handleCell];
-  
-  self.tableView.dataSource = self.offeredConversationArrayDataSource;
-  [self.tableView reloadData];
+    LoadMoreCellHandleBlock handleCell = ^(){
+        [self loadListOfferedConversationWithPage:self.currentPage++];
+    };
+    
+    self.offeredConversationArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:[TMEOfferedTableViewCell kind] paging:self.paging handleCellBlock:handleCell];
+    
+    self.tableView.dataSource = self.offeredConversationArrayDataSource;
+    [self refreshTableViewAnimated:NO];
 }
 
 - (void)registerNibForTableView{
-  self.arrayCellIdentifier = @[KOfferedTableVIewCellIdentifier];
-  self.registerLoadMoreCell = YES;
+    self.arrayCellIdentifier = @[[TMEOfferedTableViewCell kind]];
+    self.registerLoadMoreCell = YES;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-  if (self.paging && indexPath.row == self.dataArray.count) {
-    return [TMELoadMoreTableViewCell getHeight];
-  }
-  return [TMEOfferedTableViewCell getHeight];
+    if (self.paging && indexPath.row == self.dataArray.count) {
+        return [TMELoadMoreTableViewCell getHeight];
+    }
+    return [TMEOfferedTableViewCell getHeight];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  [tableView deselectRowAtIndexPath:indexPath animated:YES];
-  TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
-  
-  TMEConversation *conversation = self.dataArray[indexPath.row];
-  
-  submitController.product = conversation.product;
-  submitController.conversation = conversation;
-  
-
-  [self.navigationController pushViewController:submitController animated:YES];
+    TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
+    
+    TMEConversation *conversation = self.dataArray[indexPath.row];
+    
+    submitController.product = conversation.product;
+    submitController.conversation = conversation;
+    
+    
+    [self.navigationController pushViewController:submitController animated:YES];
 }
 
 - (void)loadListOfferedConversationWithPage:(NSInteger)page{
-  [[TMEConversationManager sharedInstance] getOfferedConversationWithPage:page
-                                                           onSuccessBlock:^(NSArray *arrayOfferedConversation)
-   {
-     self.paging = YES;
-     
-     if (!arrayOfferedConversation.count) {
-       self.paging = NO;
+    [[TMEConversationManager sharedInstance] getOfferedConversationWithPage:page
+                                                             onSuccessBlock:^(NSArray *arrayOfferedConversation)
+     {
+         [self handlePagingWithResponseArray:arrayOfferedConversation currentPage:page];
+         self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrayOfferedConversation] mutableCopy];
+         self.dataArray = [[self.dataArray sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
+         
+         [self reloadTableViewOfferedConversation];
      }
-     
-     if (!self.currentPage) {
-       self.currentPage = page;
-     }
-     
-     NSMutableSet *setConversation = [NSMutableSet setWithArray:self.dataArray];
-     [setConversation addObjectsFromArray:arrayOfferedConversation];
-     
-     self.dataArray = [[setConversation allObjects] mutableCopy];
-     self.dataArray = [[self.dataArray sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
-     
-     [self reloadTableViewOfferedConversation];
-   }
-                                                          andFailureBlock:^(NSInteger statusCode, NSError *error)
-   {
-     return DLog(@"%d", statusCode);
-     [self.pullToRefreshView endRefreshing];
-   }];
+                                                            andFailureBlock:^(NSInteger statusCode, NSError *error)
+     {
+         [self finishLoading];
+     }];
 }
 
 - (void)getCachedOfferedConversation{
-  NSArray *arrayOfferedConversationCached = [TMEConversation MR_findAllSortedBy:@"latest_update" ascending:NO];
-  
-  for (TMEConversation *conversation in arrayOfferedConversationCached) {
-    if (![conversation.offer isEqualToNumber:@0] && ![conversation.offer isEqual:[NSNull null]] && ![conversation.product.user isEqual:[[TMEUserManager sharedInstance] loggedUser]]) {
-      [self.dataArray addObject:conversation];
+    NSArray *arrayOfferedConversationCached = [TMEConversation MR_findAllSortedBy:@"latest_update" ascending:NO];
+    
+    for (TMEConversation *conversation in arrayOfferedConversationCached) {
+        if (![conversation.offer isEqualToNumber:@0] && ![conversation.offer isEqual:[NSNull null]] && ![conversation.product.user isEqual:[[TMEUserManager sharedInstance] loggedUser]]) {
+            [self.dataArray addObject:conversation];
+        }
     }
-  }
-  self.currentPage = 0;
-  if (self.dataArray.count) {
-    self.currentPage = (self.dataArray.count / 10) + 1;
-    [self reloadTableViewOfferedConversation];
-  }
+    self.currentPage = 0;
+    if (self.dataArray.count) {
+        self.currentPage = (self.dataArray.count / 10) + 1;
+        [self reloadTableViewOfferedConversation];
+    }
 }
 
 - (void)reloadTableViewOfferedConversation{
-  [self setUpTableView];
-  [self refreshTableViewAnimated:NO];
-  [self.pullToRefreshView endRefreshing];
-  [SVProgressHUD dismiss];
+    [self setUpTableView];
+    [self finishLoading];
 }
 
 - (void)pullToRefreshViewDidStartLoading
 {
-  if (![TMEReachabilityManager isReachable]) {
-    [SVProgressHUD showErrorWithStatus:@"No connection!"];
-    [self reloadTableViewOfferedConversation];
-    [self.pullToRefreshView endRefreshing];
-    return;
-  }
-  [self loadListOfferedConversationWithPage:1];
+    if (![TMEReachabilityManager isReachable]) {
+        [SVProgressHUD showErrorWithStatus:@"No connection!"];
+        [self reloadTableViewOfferedConversation];
+        return;
+    }
+    [self loadListOfferedConversationWithPage:1];
 }
 
 

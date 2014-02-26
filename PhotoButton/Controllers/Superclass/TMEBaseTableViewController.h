@@ -13,8 +13,9 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UILabel *lblInstruction;
-@property (nonatomic, assign) BOOL paging;
+@property (assign, nonatomic) BOOL paging;
 @property (assign, nonatomic) BOOL registerLoadMoreCell;
+@property (assign, nonatomic) NSInteger currentPage;
 @property (nonatomic, strong) NSArray *arrayCellIdentifier;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
@@ -27,5 +28,8 @@
 
 - (void)refreshTableViewAnimated:(BOOL)animated;
 - (void)refreshTableViewOnCompletion:(void (^)(BOOL finished))completion;
+- (void)handlePagingWithResponseArray:(NSArray *)array currentPage:(NSInteger)page;
+- (BOOL)reachability;
+- (void)finishLoading;
 
 @end

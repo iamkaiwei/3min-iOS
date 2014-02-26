@@ -7,16 +7,10 @@
 //
 
 #import "TMELikedViewController.h"
-#import "TMEBaseArrayDataSourceWithLoadMore.h"
-#import "TMELoadMoreTableViewCell.h"
 #import "TMELikedTableViewCell.h"
-#import "TMEProductDetailsViewController.h"
-
-static NSString * const kLikedTableViewCellIdentifier = @"TMELikedTableViewCell";
 
 @interface TMELikedViewController ()
 
-@property (assign, nonatomic) NSInteger currentPage;
 @property (strong, nonatomic) TMEBaseArrayDataSourceWithLoadMore *likedProductArrayDataSource;
 
 @end
@@ -32,14 +26,14 @@ static NSString * const kLikedTableViewCellIdentifier = @"TMELikedTableViewCell"
     [self getCachedLikedProduct];
     
     if (!self.dataArray.count) {
-        [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
+        [self.pullToRefreshView beginRefreshing];
     }
     
     [self loadLikedProductWithPage:1];
 }
 
 - (void)registerNibForTableView{
-    self.arrayCellIdentifier = @[kLikedTableViewCellIdentifier];
+    self.arrayCellIdentifier = @[[TMELikedTableViewCell kind]];
     self.registerLoadMoreCell = YES;
 }
 
@@ -48,10 +42,10 @@ static NSString * const kLikedTableViewCellIdentifier = @"TMELikedTableViewCell"
         [self loadLikedProductWithPage:self.currentPage++];
     };
     
-    self.likedProductArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:kLikedTableViewCellIdentifier paging:self.paging handleCellBlock:handleCell];
+    self.likedProductArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:[TMELikedTableViewCell kind] paging:self.paging handleCellBlock:handleCell];
     
     self.tableView.dataSource = self.likedProductArrayDataSource;
-    [self.tableView reloadData];
+    [self refreshTableViewAnimated:NO];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -88,35 +82,22 @@ static NSString * const kLikedTableViewCellIdentifier = @"TMELikedTableViewCell"
     [[TMEProductsManager sharedInstance] getLikedProductOnPage:page
                                                   successBlock:^(NSArray *arrayProduct)
      {
-         self.paging = YES;
+         [self handlePagingWithResponseArray:arrayProduct currentPage:page];
          
-         if (!arrayProduct.count){
-             self.paging = NO;
-         }
-         
-         if (!self.currentPage) {
-             self.currentPage = page;
-         }
-         
-         NSMutableSet *setProduct = [NSMutableSet setWithArray:self.dataArray];
-         [setProduct addObjectsFromArray:arrayProduct];
-         self.dataArray = [[setProduct allObjects] mutableCopy];
+         self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrayProduct] mutableCopy];
          self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
          
          [self reloadTableViewLikedProduct];
      }
                                                   failureBlock:^(NSInteger statusCode, NSError *error)
      {
-         return DLog(@"%d", statusCode);
-         [self.pullToRefreshView endRefreshing];
+         [self finishLoading];
      }];
 }
 
 - (void)reloadTableViewLikedProduct{
     [self setUpTableView];
-    [self refreshTableViewAnimated:NO];
-    [SVProgressHUD dismiss];
-    [self.pullToRefreshView endRefreshing];
+    [self finishLoading];
 }
 
 - (void)pullToRefreshViewDidStartLoading
@@ -124,7 +105,6 @@ static NSString * const kLikedTableViewCellIdentifier = @"TMELikedTableViewCell"
     if (![TMEReachabilityManager isReachable]) {
         [SVProgressHUD showErrorWithStatus:@"No connection!"];
         [self reloadTableViewLikedProduct];
-        [self.pullToRefreshView endRefreshing];
         return;
     }
 

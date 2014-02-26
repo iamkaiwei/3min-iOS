@@ -9,18 +9,14 @@
 #import "TMESubmitViewController.h"
 #import "TMESubmitTableCell.h"
 #import "TMESubmitTableCellRight.h"
-#import "TMELoadMoreTableViewCell.h"
 #import "AppDelegate.h"
 #import "HTKContainerViewController.h"
 #import "TMESubmitViewControllerArrayDataSource.h"
 
-static NSString * const kSubmitTableViewCellIdentifier = @"TMESubmitTableCell";
-static NSString * const kSubmitTableViewCellRightIdentifier = @"TMESubmitTableCellRight";
 static CGFloat const kLabelContentDefaultHeight = 26;
 
 @interface TMESubmitViewController()
 <
-UITableViewDelegate,
 UIApplicationDelegate,
 UITextViewDelegate,
 UIAlertViewDelegate
@@ -65,32 +61,26 @@ UIAlertViewDelegate
     [self getCacheMessage];
     [self loadProductDetail];
     
-    if ([TMEReachabilityManager isReachable]) {
-        if (!self.arrayReply.count) {
-            [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
-        }
-        
-        if (self.conversation) {
-            [self loadMessageWithReplyIDLargerID:0
-                                     orSmallerID:0
-                                        withPage:1
-                                      showBottom:YES];
-        }
-        return;
+    if (!self.arrayReply.count) {
+        [self.pullToRefreshView beginRefreshing];
     }
     
-    [self reloadTableViewConversationShowBottom:NO];
-    [SVProgressHUD showErrorWithStatus:@"No connection!"];
+    [self loadMessageWithReplyIDLargerID:0
+                             orSmallerID:0
+                                withPage:1
+                              showBottom:YES];
+    
 }
 
 - (void)setUpTableView{
-    self.repliesArrayDataSource = [[TMESubmitViewControllerArrayDataSource alloc] initWithItems:self.arrayReply cellIdentifier:kSubmitTableViewCellIdentifier cellRightIdentifier:kSubmitTableViewCellRightIdentifier conversation:self.conversation paging:self.paging];
+    self.repliesArrayDataSource = [[TMESubmitViewControllerArrayDataSource alloc] initWithItems:self.arrayReply cellIdentifier:[TMESubmitTableCell kind] cellRightIdentifier:[TMESubmitTableCellRight kind] conversation:self.conversation paging:self.paging];
+    
     self.tableView.dataSource = self.repliesArrayDataSource;
     [self.tableView reloadData];
 }
 
 - (void)registerNibForTableView{
-    self.arrayCellIdentifier = @[kSubmitTableViewCellIdentifier,kSubmitTableViewCellRightIdentifier];
+    self.arrayCellIdentifier = @[[TMESubmitTableCell kind],[TMESubmitTableCellRight kind]];
     self.registerLoadMoreCell = YES;
 }
 
@@ -140,21 +130,20 @@ UIAlertViewDelegate
     NSInteger lastestReplyID = [self getLastestReplyID];
     [[TMEConversationManager sharedInstance] postReplyToConversation:[self.conversation.id intValue]
                                                          withMessage:self.textViewInputMessage.text
-                                                      onSuccessBlock:^(NSString *status){
-                                                          if ([status isEqualToString:@"success"]) {
-                                                              [self loadMessageWithReplyIDLargerID:lastestReplyID
-                                                                                       orSmallerID:0
-                                                                                          withPage:1
-                                                                                        showBottom:YES];
-                                                          }
+                                                      onSuccessBlock:^(NSString *status)
+    {
+        if ([status isEqualToString:@"success"]) {
+            [self loadMessageWithReplyIDLargerID:lastestReplyID
+                                     orSmallerID:0
+                                        withPage:1
+                                      showBottom:YES];
+        }
                                                       }
-                                                     andFailureBlock:^(NSInteger statusCode, id obj){
-                                                         [self.arrayReply removeLastObject];
-                                                         DLog(@"Error: %d", statusCode);
-                                                         if (self.textViewInputMessage.text.length > 200) {
-                                                             [self showAlertForLongMessageContent];
-                                                         }
-                                                     }];
+                                                     andFailureBlock:^(NSInteger statusCode, id obj)
+    {
+        [self.arrayReply removeLastObject];
+        DLog(@"Error: %d", statusCode);
+    }];
 }
 
 #pragma mark - Load message
@@ -164,6 +153,10 @@ UIAlertViewDelegate
                               withPage:(NSInteger)page
                             showBottom:(BOOL)showBottom
 {
+    if(![self reachability]){
+        return;
+    }
+    
     [[TMEConversationManager sharedInstance] getRepliesOfConversationWithConversationID:[self.conversation.id intValue]
                                                                      andReplyIDLargerID:largerReplyID
                                                                             orSmallerID:smallerReplyID
@@ -207,10 +200,14 @@ UIAlertViewDelegate
     if ([self.textViewInputMessage respondsToSelector:@selector(setTintColor:)]) {
         [self.textViewInputMessage setTintColor:[UIColor orangeMainColor]];
     }
+    
     self.lblProductName.text = self.product.name;
     self.lblProductPrice.text = [NSString stringWithFormat:@"$%@",self.product.price];
+    
     [self.imageViewProduct setImageWithURL:[NSURL URLWithString:[[[self.product.images allObjects] lastObject] thumb]]];
+    
     self.lblPriceOffered.text = [NSString stringWithFormat:@"$%@",self.conversation.offer];
+    
     [self handleMarkAsSoldButtonTitle];
 }
 
@@ -231,11 +228,12 @@ UIAlertViewDelegate
         }
         [self.scrollViewContent setContentOffset:bottomOffset animated:YES];
     }
-    [SVProgressHUD dismiss];
+    
+    [self finishLoading];
 }
 
 - (void)showAlertForLongMessageContent{
-    [self.arrayReply removeObject:[self.arrayReply lastObject]];
+    [self.arrayReply removeLastObject];
     [self reloadTableViewConversationShowBottom:YES];
     [UIAlertView showAlertWithTitle:@"Error" message:@"The text is too long!"];
 }
@@ -277,11 +275,9 @@ UIAlertViewDelegate
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if([text isEqualToString:@"\n"]) {
-        if (![TMEReachabilityManager isReachable]) {
-            [SVProgressHUD showErrorWithStatus:@"No connection!"];
+        if(![self reachability]){
             return NO;
         }
-        
         [self postMessage];
         [textView setText:@""];
         [self.scrollViewContent scrollSubviewToCenter:textView animated:NO];
@@ -338,13 +334,8 @@ UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex) {
-        [[TMEProductsManager sharedInstance] putSoldOutWithProductID:self.product.id onSuccessBlock:^(NSArray *array)
-         {
-             return;
-         } andFailureBlock:^(NSInteger statusCode, id obj)
-         {
-             return;
-         }];
+        [[TMEProductsManager sharedInstance] putSoldOutWithProductID:self.product.id onSuccessBlock:nil
+                                                     andFailureBlock:nil];
     }
 }
 
