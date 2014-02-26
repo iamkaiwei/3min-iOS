@@ -7,42 +7,59 @@
 //
 
 #import "TMEBrowserProductsViewControllerArrayDataSource.h"
+#import "TMELoadMoreTableViewCell.h"
 
 @implementation TMEBrowserProductsViewControllerArrayDataSource
 
 - (id)initWithItems:(NSArray *)items
      cellIdentifier:(NSString *)aCellIdentifier
-   headerIdentifier:(NSString *)aHeaderIdentifier
+             paging:(BOOL)paging
+    handleCellBlock:(LoadMoreCellHandleBlock)handleLoadMoreCell
            delegate:(id)delegate
 {
-  self = [super initWithItems:items cellIdentifier:aCellIdentifier delegate:delegate];
-  if (self) {
-    self.headerIdentifier = aHeaderIdentifier;
-  }
-  return self;
+    self = [super initWithItems:items cellIdentifier:aCellIdentifier paging:paging handleCellBlock:handleLoadMoreCell];
+    if (self) {
+        self.delegate = delegate;
+    }
+    return self;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-  return 1;
+    return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-  return self.items.count;
+    if(self.paging){
+        return self.items.count + 1;
+    }
+    return self.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-  id cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
-                                            forIndexPath:indexPath];
-  if (self.delegate && [cell respondsToSelector:@selector(setDelegate:)]) {
-    [cell performSelector:@selector(setDelegate:) withObject:self.delegate];
-  }
-  
-  id item = self.items[indexPath.section];
-  
-  if([cell respondsToSelector:@selector(configCellWithData:)]){
-    [cell performSelector:@selector(configCellWithData:) withObject:item];
-  }
-  return cell;
+    if (self.paging && indexPath.section == self.items.count) {
+        TMELoadMoreTableViewCell *cellLoadMore = [tableView dequeueReusableCellWithIdentifier:CELL_LOAD_MORE_IDENTIFIER];
+        
+        [cellLoadMore startLoading];
+        
+        cellLoadMore.backgroundColor = [UIColor whiteColor];
+        cellLoadMore.labelLoading.textColor = [UIColor blackColor];
+        
+        self.handleCellBlock();
+        return cellLoadMore;
+    }
+    
+    id cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
+                                              forIndexPath:indexPath];
+    if (self.delegate && [cell respondsToSelector:@selector(setDelegate:)]) {
+        [cell performSelector:@selector(setDelegate:) withObject:self.delegate];
+    }
+    
+    id item = self.items[indexPath.section];
+    
+    if([cell respondsToSelector:@selector(configCellWithData:)]){
+        [cell performSelector:@selector(configCellWithData:) withObject:item];
+    }
+    return cell;
 }
 
 @end

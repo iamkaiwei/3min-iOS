@@ -9,12 +9,10 @@
 #import "TMEBrowserProductsViewController.h"
 #import "TMEBrowserProductsTableCell.h"
 #import "TMESubmitViewController.h"
+#import "TMELoadMoreTableViewCell.h"
 #import "TMEProductDetailsViewController.h"
 #import "TMEBrowserProductTableViewHeader.h"
 #import "TMEBrowserProductsViewControllerArrayDataSource.h"
-
-static NSString * const kBrowseProductCellIdentifier = @"TMEBrowserProductsTableCell";
-static NSString * const kBrowseProductHeaderIdentifier = @"TMEBrowserProductTableViewHeader";
 
 @interface TMEBrowserProductsViewController ()
 <
@@ -24,6 +22,7 @@ TMEBrowserProductsTableCellDelegate
 >
 
 @property (assign, nonatomic) CGFloat                     currentNavBarHeight;
+@property (assign, nonatomic) NSInteger                   currentPage;
 @property (strong, nonatomic) TMEUser                   * loginUser;
 @property (strong, nonatomic) TMECategory               * currentCategory;
 @property (strong, nonatomic) TMEBrowserProductsViewControllerArrayDataSource    * productsArrayDataSource;
@@ -43,10 +42,10 @@ TMEBrowserProductsTableCellDelegate
     [[TMECircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor whiteColor]];
     [[TMECircleProgressIndicator appearance] setStrokeWidth:3.0f];
     
-    [self.tableView registerNib:[UINib nibWithNibName:kBrowseProductHeaderIdentifier bundle:[NSBundle mainBundle]] forHeaderFooterViewReuseIdentifier:kBrowseProductHeaderIdentifier];
+    [self.tableView registerNib:[TMEBrowserProductTableViewHeader defaultNib] forHeaderFooterViewReuseIdentifier:[TMEBrowserProductTableViewHeader kind]];
     [self enablePullToRefresh];
     [self paddingScrollWithTop];
-    [self loadProducts];
+    [self loadProductsWithPage:1];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onCategoryChangeNotification:)
                                                  name:CATEGORY_CHANGE_NOTIFICATION
@@ -59,11 +58,16 @@ TMEBrowserProductsTableCellDelegate
 }
 
 - (void)registerNibForTableView{
-    self.arrayCellIdentifier = @[kBrowseProductCellIdentifier];
+    self.arrayCellIdentifier = @[[TMEBrowserProductsTableCell kind]];
+    self.registerLoadMoreCell = YES;
 }
 
 - (void)setUpTableView{
-    self.productsArrayDataSource = [[TMEBrowserProductsViewControllerArrayDataSource alloc] initWithItems:self.dataArray cellIdentifier:kBrowseProductCellIdentifier headerIdentifier:kBrowseProductHeaderIdentifier delegate:self];
+    LoadMoreCellHandleBlock handleLoadMoreCell = ^(){
+        [self loadProductsWithPage:self.currentPage++];
+    };
+    
+    self.productsArrayDataSource = [[TMEBrowserProductsViewControllerArrayDataSource alloc] initWithItems:self.dataArray cellIdentifier:[TMEBrowserProductsTableCell kind] paging:self.paging handleCellBlock:handleLoadMoreCell delegate:self];
     
     self.tableView.dataSource = self.productsArrayDataSource;
     [self refreshTableViewAnimated:NO];
@@ -81,11 +85,21 @@ TMEBrowserProductsTableCellDelegate
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (self.paging && section == self.dataArray.count) {
+        return 0;
+    }
     return 40;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.paging && indexPath.section == self.dataArray.count) {
+        return [TMELoadMoreTableViewCell getHeight];
+    }
+    return [TMEBrowserProductsTableCell getHeight];
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    TMEBrowserProductTableViewHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kBrowseProductHeaderIdentifier];
+    TMEBrowserProductTableViewHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:[TMEBrowserProductTableViewHeader kind]];
     [header configHeaderWithData:self.dataArray[section]];
     
     return header;
@@ -93,7 +107,7 @@ TMEBrowserProductsTableCellDelegate
 
 #pragma mark - Load Product
 
-- (void)loadProducts{
+- (void)loadProductsWithPage:(NSInteger)page{
     if (![TMEReachabilityManager isReachable]) {
         [SVProgressHUD showErrorWithStatus:@"No connection!"];
         [self.pullToRefreshView endRefreshing];
@@ -114,9 +128,26 @@ TMEBrowserProductsTableCellDelegate
              [SVProgressHUD dismiss];
          }];
     } else {
-        [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
+        [[TMEProductsManager sharedInstance] getAllProductsWihPage:page
+                                                    onSuccessBlock:^(NSArray *arrProducts)
+        {
+            self.paging = YES;
+            
+            if (!arrProducts.count) {
+                self.paging = NO;
+            }
+            
+            if (!self.currentPage) {
+                self.currentPage = page;
+            }
+            
             [self hidePlaceHolder];
-            self.dataArray = [arrProducts mutableCopy];
+            
+            NSMutableSet *setProduct = [NSMutableSet setWithArray:self.dataArray];
+            [setProduct addObjectsFromArray:arrProducts];
+            
+            self.dataArray = [[setProduct allObjects] mutableCopy];
+            self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
             [self setUpTableView];
             [SVProgressHUD dismiss];
             
@@ -138,7 +169,7 @@ TMEBrowserProductsTableCellDelegate
         return;
     }
     
-    [self loadProducts];
+    [self loadProductsWithPage:1];
 }
 
 #pragma mark - Utilities
@@ -158,7 +189,7 @@ TMEBrowserProductsTableCellDelegate
     self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
     [self.tableView setContentOffset:CGPointMake(0, -60) animated:YES];
     [self.pullToRefreshView beginRefreshing];
-    [self loadProducts];
+    [self loadProductsWithPage:1];
 }
 
 #pragma mark - Button Like Action
@@ -230,6 +261,7 @@ TMEBrowserProductsTableCellDelegate
     newFrame.origin.y = navBarHeightForVersionCheck;
     newFrame.size.height = [[UIScreen mainScreen]bounds].size.height - navBarHeightForVersionCheck;
     self.tableView.frame = newFrame;
+    self.tableView.height = CGRectGetHeight(newFrame) + 49;
     self.currentNavBarHeight = fullScreenScroll.navigationBarHeight;
 }
 

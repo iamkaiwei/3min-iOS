@@ -109,16 +109,16 @@ UICollectionViewDelegate
                                                         [SVProgressHUD dismiss];
                                                     }];
     } else {
-        [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
-            self.arrayProducts = [arrProducts mutableCopy];
-            [self.collectionProductsView reloadData];
-            
-            [self.pullToRefreshView endRefreshing];
-            [SVProgressHUD dismiss];
-        } andFailureBlock:^(NSInteger statusCode, id obj) {
-            [self.pullToRefreshView endRefreshing];
-            [SVProgressHUD dismiss];
-        }];
+//        [[TMEProductsManager sharedInstance] getAllProductsOnSuccessBlock:^(NSArray *arrProducts) {
+//            self.arrayProducts = [arrProducts mutableCopy];
+//            [self.collectionProductsView reloadData];
+//            
+//            [self.pullToRefreshView endRefreshing];
+//            [SVProgressHUD dismiss];
+//        } andFailureBlock:^(NSInteger statusCode, id obj) {
+//            [self.pullToRefreshView endRefreshing];
+//            [SVProgressHUD dismiss];
+//        }];
     }
 }
 

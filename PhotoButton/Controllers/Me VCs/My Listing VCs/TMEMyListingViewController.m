@@ -12,8 +12,6 @@
 #import "TMEBaseArrayDataSourceWithLoadMore.h"
 #import "TMEProductDetailsViewController.h"
 
-static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableViewCell";
-
 @interface TMEMyListingViewController ()
 
 @property (assign, nonatomic) NSInteger currentPage;
@@ -39,7 +37,7 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
 }
 
 - (void)registerNibForTableView{
-  self.arrayCellIdentifier = @[kMyListingTableViewCellIdentifier];
+  self.arrayCellIdentifier = @[[TMEMyListingTableViewCell kind]];
   self.registerLoadMoreCell = YES;
 }
 
@@ -48,7 +46,7 @@ static NSString * const kMyListingTableViewCellIdentifier = @"TMEMyListingTableV
     [self loadMyListWithPage:self.currentPage++];
   };
   
-  self.myListingsArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:kMyListingTableViewCellIdentifier paging:self.paging handleCellBlock:handleCell];
+  self.myListingsArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:[TMEMyListingTableViewCell kind] paging:self.paging handleCellBlock:handleCell];
   
   self.tableView.dataSource = self.myListingsArrayDataSource;
   [self refreshTableViewAnimated:NO];

@@ -12,9 +12,11 @@
 
 SINGLETON_MACRO
 
--(void)getAllProductsOnSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
+-(void)getAllProductsWihPage:(NSInteger)page
+              onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+             andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
-    NSMutableDictionary *params = [@{} mutableCopy];
+    NSMutableDictionary *params = [@{@"page" : @(page)} mutableCopy];
   [[BaseNetworkManager sharedInstance] getServerListForModelClass:[TMEProduct class]
                                                        withParams:params
                                                         methodAPI:GET_METHOD

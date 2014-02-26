@@ -11,8 +11,9 @@
 @interface TMEProductsManager : BaseManager
 
 - (NSArray *)fakeGetAllStoredProducts;
-- (void)getAllProductsOnSuccessBlock:(void (^)(NSArray *arrayProducts))successBlock
-                     andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+- (void)getAllProductsWihPage:(NSInteger)page
+               onSuccessBlock:(void (^)(NSArray *arrayProducts))successBlock
+              andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 -(void)getProductsOfCategory:(TMECategory *)category
               onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock

@@ -7,16 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TMEBaseArrayDataSource.h"
+#import "TMEBaseArrayDataSourceWithLoadMore.h"
 
-@interface TMEBrowserProductsViewControllerArrayDataSource : TMEBaseArrayDataSource
-
-@property (nonatomic, strong) NSString *headerIdentifier;
-
+@interface TMEBrowserProductsViewControllerArrayDataSource : TMEBaseArrayDataSourceWithLoadMore
 
 - (id)initWithItems:(NSArray *)items
      cellIdentifier:(NSString *)aCellIdentifier
-   headerIdentifier:(NSString *)aHeaderIdentifier
+             paging:(BOOL)paging
+    handleCellBlock:(LoadMoreCellHandleBlock)handleLoadMoreCell
            delegate:(id)delegate;
 
 @end
