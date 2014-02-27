@@ -115,8 +115,6 @@
 		B490274118B9232E00B00671 /* TMELeftMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490257118B9232D00B00671 /* TMELeftMenuTableViewCell.xib */; };
 		B490274218B9232E00B00671 /* TMELeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B490257318B9232D00B00671 /* TMELeftMenuViewController.m */; };
 		B490274318B9232E00B00671 /* TMELeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490257418B9232D00B00671 /* TMELeftMenuViewController.xib */; };
-		B490274418B9232E00B00671 /* TMELoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B490257718B9232D00B00671 /* TMELoginViewController.m */; };
-		B490274518B9232E00B00671 /* TMELoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490257818B9232D00B00671 /* TMELoginViewController.xib */; };
 		B490274618B9232E00B00671 /* TMEHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B490257B18B9232D00B00671 /* TMEHomeViewController.m */; };
 		B490274718B9232E00B00671 /* TMEHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490257C18B9232D00B00671 /* TMEHomeViewController.xib */; };
 		B490274818B9232E00B00671 /* TMELikedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B490258018B9232D00B00671 /* TMELikedTableViewCell.m */; };
@@ -133,7 +131,6 @@
 		B490275318B9232E00B00671 /* TMEOfferedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490259218B9232D00B00671 /* TMEOfferedViewController.xib */; };
 		B490275418B9232E00B00671 /* TMEMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B490259418B9232D00B00671 /* TMEMeTableViewCell.m */; };
 		B490275518B9232E00B00671 /* TMEMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490259518B9232D00B00671 /* TMEMeTableViewCell.xib */; };
-		B490275618B9232E00B00671 /* TMEMeTableViewCellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = B490259718B9232D00B00671 /* TMEMeTableViewCellBackgroundView.m */; };
 		B490275718B9232E00B00671 /* TMEMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B490259918B9232D00B00671 /* TMEMeViewController.m */; };
 		B490275818B9232E00B00671 /* TMEMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B490259A18B9232D00B00671 /* TMEMeViewController.xib */; };
 		B490275918B9232E00B00671 /* TMENavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B490259D18B9232D00B00671 /* TMENavigationViewController.m */; };
@@ -363,9 +360,6 @@
 		B490257218B9232D00B00671 /* TMELeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELeftMenuViewController.h; sourceTree = "<group>"; };
 		B490257318B9232D00B00671 /* TMELeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELeftMenuViewController.m; sourceTree = "<group>"; };
 		B490257418B9232D00B00671 /* TMELeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMELeftMenuViewController.xib; sourceTree = "<group>"; };
-		B490257618B9232D00B00671 /* TMELoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoginViewController.h; sourceTree = "<group>"; };
-		B490257718B9232D00B00671 /* TMELoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoginViewController.m; sourceTree = "<group>"; };
-		B490257818B9232D00B00671 /* TMELoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMELoginViewController.xib; sourceTree = "<group>"; };
 		B490257A18B9232D00B00671 /* TMEHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHomeViewController.h; sourceTree = "<group>"; };
 		B490257B18B9232D00B00671 /* TMEHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEHomeViewController.m; sourceTree = "<group>"; };
 		B490257C18B9232D00B00671 /* TMEHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEHomeViewController.xib; sourceTree = "<group>"; };
@@ -390,8 +384,6 @@
 		B490259318B9232D00B00671 /* TMEMeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEMeTableViewCell.h; sourceTree = "<group>"; };
 		B490259418B9232D00B00671 /* TMEMeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMeTableViewCell.m; sourceTree = "<group>"; };
 		B490259518B9232D00B00671 /* TMEMeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEMeTableViewCell.xib; sourceTree = "<group>"; };
-		B490259618B9232D00B00671 /* TMEMeTableViewCellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEMeTableViewCellBackgroundView.h; sourceTree = "<group>"; };
-		B490259718B9232D00B00671 /* TMEMeTableViewCellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMeTableViewCellBackgroundView.m; sourceTree = "<group>"; };
 		B490259818B9232D00B00671 /* TMEMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEMeViewController.h; sourceTree = "<group>"; };
 		B490259918B9232D00B00671 /* TMEMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMeViewController.m; sourceTree = "<group>"; };
 		B490259A18B9232D00B00671 /* TMEMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEMeViewController.xib; sourceTree = "<group>"; };
@@ -777,7 +769,6 @@
 				B490256218B9232D00B00671 /* Browser Products Grid View */,
 				B490256918B9232D00B00671 /* Browser Products VCs */,
 				B490256E18B9232D00B00671 /* Left Menu  */,
-				B490257518B9232D00B00671 /* Login Page */,
 				B490257918B9232D00B00671 /* Main Controller */,
 				B490257D18B9232D00B00671 /* Me VCs */,
 				B490259B18B9232D00B00671 /* Navigation Controller */,
@@ -870,16 +861,6 @@
 			path = "Left Menu ";
 			sourceTree = "<group>";
 		};
-		B490257518B9232D00B00671 /* Login Page */ = {
-			isa = PBXGroup;
-			children = (
-				B490257618B9232D00B00671 /* TMELoginViewController.h */,
-				B490257718B9232D00B00671 /* TMELoginViewController.m */,
-				B490257818B9232D00B00671 /* TMELoginViewController.xib */,
-			);
-			path = "Login Page";
-			sourceTree = "<group>";
-		};
 		B490257918B9232D00B00671 /* Main Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -899,8 +880,6 @@
 				B490259318B9232D00B00671 /* TMEMeTableViewCell.h */,
 				B490259418B9232D00B00671 /* TMEMeTableViewCell.m */,
 				B490259518B9232D00B00671 /* TMEMeTableViewCell.xib */,
-				B490259618B9232D00B00671 /* TMEMeTableViewCellBackgroundView.h */,
-				B490259718B9232D00B00671 /* TMEMeTableViewCellBackgroundView.m */,
 				B490259818B9232D00B00671 /* TMEMeViewController.h */,
 				B490259918B9232D00B00671 /* TMEMeViewController.m */,
 				B490259A18B9232D00B00671 /* TMEMeViewController.xib */,
@@ -1387,7 +1366,6 @@
 				0B1E89F218BDCACA007D5D16 /* TMELoadMoreCollectionViewCell.xib in Resources */,
 				B490276418B9232E00B00671 /* TMESubmitTableCell.xib in Resources */,
 				B490273D18B9232E00B00671 /* TMEBrowserCollectionViewController.xib in Resources */,
-				B490274518B9232E00B00671 /* TMELoginViewController.xib in Resources */,
 				B4D551F118BB445600745DAC /* AviarySDKResources.bundle in Resources */,
 				B490273418B9232E00B00671 /* TMEBrowserProductsTableCell.xib in Resources */,
 				B490278D18B9232F00B00671 /* PhotoButton-Info.plist in Resources */,
@@ -1548,7 +1526,6 @@
 				B490277818B9232E00B00671 /* TMEHTTPClient.m in Sources */,
 				0B1E89F018BDCABB007D5D16 /* TMELoadMoreCollectionViewCell.m in Sources */,
 				B490276C18B9232E00B00671 /* TMEBaseTabBarViewController.m in Sources */,
-				B490274418B9232E00B00671 /* TMELoginViewController.m in Sources */,
 				B490271E18B9232E00B00671 /* UIButton+Additions.m in Sources */,
 				B490278218B9232F00B00671 /* TMEConversation.m in Sources */,
 				B490271818B9232E00B00671 /* TMEProduct+Additions.m in Sources */,
@@ -1587,7 +1564,6 @@
 				B490271218B9232E00B00671 /* NSMutableArray+Additions.m in Sources */,
 				B490271618B9232E00B00671 /* NSString+Additions.m in Sources */,
 				B490275218B9232E00B00671 /* TMEOfferedViewController.m in Sources */,
-				B490275618B9232E00B00671 /* TMEMeTableViewCellBackgroundView.m in Sources */,
 				B4255A6518B9FBFC0022B3A5 /* FSVenue.m in Sources */,
 				B490277618B9232E00B00671 /* TMEConversationManager.m in Sources */,
 			);

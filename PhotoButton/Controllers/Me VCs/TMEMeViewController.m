@@ -8,18 +8,13 @@
 
 #import "TMEMeViewController.h"
 #import "TMEMeTableViewCell.h"
-#import "TMEMeTableViewCellBackgroundView.h"
 #import "TMEMyListingViewController.h"
 #import "TMEOfferedViewController.h"
 #import "TMELikedViewController.h"
 
-static NSString * const kMeTableViewCellIdentifier = @"TMEMeTableViewCell";
-
 @interface TMEMeViewController ()
 <
-UITableViewDelegate,
-UIActionSheetDelegate,
-UITableViewDataSource
+UIActionSheetDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewAvatar;
@@ -68,40 +63,30 @@ UITableViewDataSource
 }
 
 - (void)registerNibForTableView{
-    self.arrayCellIdentifier = @[kMeTableViewCellIdentifier];
+    self.arrayCellIdentifier = @[[TMEMeTableViewCell kind]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     TMEMeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TMEMeTableViewCell class]) forIndexPath:indexPath];
     
-    switch (indexPath.section) {
-        case 0:
-            [cell configCellWithTitle:self.arrayCellTitleSectionOne[indexPath.row]];
-            break;
-        default:
-            [cell configCellWithTitle:self.arrayCellTitleSectionTwo[indexPath.row]];
-            break;
+    if (!indexPath.section) {
+        [cell configCellWithTitle:self.arrayCellTitleSectionOne[indexPath.row]];
+        return cell;
     }
     
+    [cell configCellWithTitle:self.arrayCellTitleSectionTwo[indexPath.row]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    switch (indexPath.section) {
-        case 0:
-        {
-            NSArray *viewControllers = @[[TMEMyListingViewController new], [TMEOfferedViewController new], [TMELikedViewController new]];
-            [self.navigationController pushViewController:viewControllers[indexPath.row] animated:YES];
-            break;
-        }
-        default:
-            if (indexPath.row == 0) {
-                [self showActionSheetLogOut];
-            }
-            break;
+    if (!indexPath.section) {
+        NSArray *viewControllers = @[[TMEMyListingViewController new], [TMEOfferedViewController new], [TMELikedViewController new]];
+        [self.navigationController pushViewController:viewControllers[indexPath.row] animated:YES];
+        return;
     }
+    [self showActionSheetLogOut];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -109,13 +94,7 @@ UITableViewDataSource
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    switch (section) {
-        case 0:
-            return 3;
-        default:
-            return 1;
-    }
+    return [@[@3,@1][section] integerValue];
 }
 
 - (void)showActionSheetLogOut{
@@ -128,19 +107,15 @@ UITableViewDataSource
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    switch (buttonIndex) {
-        case 0:
-            if (![self reachability]) {
-                return;
-            }
-            
-            [[TMEUserManager sharedInstance] logOut];
-            [[TMEFacebookManager sharedInstance] showLoginView];
-            [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:LAST_LOGIN_TIMESTAMP_STORED_KEY];
-            break;
-            
-        default:
-            break;
+    if (!buttonIndex) {
+        if (![self isReachable]) {
+            return;
+        }
+        [[TMEUserManager sharedInstance] logOut];
+        [[TMEFacebookManager sharedInstance] showLoginView];
+        UITabBarController *tabBarController = (UITabBarController *)self.deckController.centerController;
+        tabBarController.selectedIndex = 0;
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:LAST_LOGIN_TIMESTAMP_STORED_KEY];
     }
 }
 

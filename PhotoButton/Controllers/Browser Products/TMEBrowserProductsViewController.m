@@ -111,7 +111,7 @@ TMEBrowserProductsTableCellDelegate
 #pragma mark - Load Product
 
 - (void)loadProductsWithPage:(NSInteger)page{
-    if (![self reachability]) {
+    if (![self isReachable]) {
         return;
     }
     
@@ -156,7 +156,7 @@ TMEBrowserProductsTableCellDelegate
 #pragma mark - SSPullToRefreshView delegate
 - (void)pullToRefreshViewDidStartLoading
 {
-    if (![self reachability]) {
+    if (![self isReachable]) {
         return;
     }
     
@@ -175,7 +175,7 @@ TMEBrowserProductsTableCellDelegate
 #pragma mark - Notifications
 - (void)onCategoryChangeNotification:(NSNotification *)notification
 {
-    if (![self reachability]) {
+    if (![self isReachable]) {
         return;
     }
     NSDictionary *userInfo = [notification userInfo];
@@ -192,7 +192,7 @@ TMEBrowserProductsTableCellDelegate
 
 #pragma mark - Button Like Action
 - (void)onBtnLike:(UIButton *)sender label:(UILabel *)label{
-    if (![self reachability]) {
+    if (![self isReachable]) {
         return;
     }
     UITableViewCell *cell = [self getCellFromButton:sender];

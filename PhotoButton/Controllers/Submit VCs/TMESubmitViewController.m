@@ -153,7 +153,7 @@ UIAlertViewDelegate
                               withPage:(NSInteger)page
                             showBottom:(BOOL)showBottom
 {
-    if(![self reachability]){
+    if(![self isReachable]){
         return;
     }
     
@@ -275,7 +275,7 @@ UIAlertViewDelegate
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if([text isEqualToString:@"\n"]) {
-        if(![self reachability]){
+        if(![self isReachable]){
             return NO;
         }
         [self postMessage];

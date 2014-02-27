@@ -29,7 +29,7 @@
 - (void)refreshTableViewAnimated:(BOOL)animated;
 - (void)refreshTableViewOnCompletion:(void (^)(BOOL finished))completion;
 - (void)handlePagingWithResponseArray:(NSArray *)array currentPage:(NSInteger)page;
-- (BOOL)reachability;
+- (BOOL)isReachable;
 - (void)finishLoading;
 
 @end

@@ -8,8 +8,6 @@
 
 #import "TMEBaseTableViewController.h"
 
-static NSString * const kLoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
-
 @interface TMEBaseTableViewController ()
 
 @property (strong, nonatomic) NSNumber * currentCellHeight;
@@ -37,7 +35,7 @@ static NSString * const kLoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
     [self.tableView registerNib:[UINib nibWithNibName:cellIdentifier bundle:nil] forCellReuseIdentifier:cellIdentifier];
   }
   if (self.registerLoadMoreCell) {
-    [self.tableView registerNib:[UINib nibWithNibName:kLoadMoreCellIdentifier bundle:nil] forCellReuseIdentifier:kLoadMoreCellIdentifier];
+    [self.tableView registerNib:[TMELoadMoreTableViewCell defaultNib] forCellReuseIdentifier:[TMELoadMoreTableViewCell kind]];
   }
 }
 
@@ -175,7 +173,7 @@ static NSString * const kLoadMoreCellIdentifier = @"TMELoadMoreTableViewCell";
     self.paging = YES;
 }
 
-- (BOOL)reachability{
+- (BOOL)isReachable{
     if (![TMEReachabilityManager isReachable]) {
         [SVProgressHUD showErrorWithStatus:@"No connection!"];
         return NO;

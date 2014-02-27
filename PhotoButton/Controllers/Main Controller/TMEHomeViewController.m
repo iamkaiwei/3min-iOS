@@ -22,7 +22,6 @@ typedef NS_ENUM(NSInteger, TMETabbarButtonType){
 #import "AFPhotoEditorController.h"
 #import "TMEBrowserProductsViewController.h"
 #import "TMEPublishProductViewController.h"
-#import "TMELoginViewController.h"
 #import "PBImageHelper.h"
 #import "HTKContainerViewController.h"
 #import "TMEMeViewController.h"
