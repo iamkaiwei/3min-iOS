@@ -23,7 +23,9 @@
     [super viewDidLoad];
     self.title = @"Offer I Made";
     [self enablePullToRefresh];
-    [self disableNavigationTranslucent];
+    [self disableBottomTranslucent];
+    [self paddingScrollWithTop];
+    
     [self getCachedOfferedConversation];
     [self.pullToRefreshView beginRefreshing];
     [self loadListOfferedConversationWithPage:1];
@@ -31,7 +33,7 @@
 
 - (void)setUpTableView{
     LoadMoreCellHandleBlock handleCell = ^(){
-        [self loadListOfferedConversationWithPage:self.currentPage++];
+        [self loadListOfferedConversationWithPage:++self.currentPage];
     };
     
     self.offeredConversationArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:[TMEOfferedTableViewCell kind] paging:self.paging handleCellBlock:handleCell];

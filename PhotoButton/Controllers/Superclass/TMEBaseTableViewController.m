@@ -157,8 +157,11 @@
 }
 
 - (void)handlePagingWithResponseArray:(NSArray *)array currentPage:(NSInteger)page{
+    self.paging = YES;
+    
     if (page == 1) {
         [self.dataArray removeAllObjects];
+        self.currentPage = 1;
     }
     
     if (!self.currentPage) {
@@ -169,8 +172,16 @@
         self.paging = NO;
         return;
     }
-    
-    self.paging = YES;
+
+}
+
+- (void)paddingScrollWithTop
+{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        CGFloat scrollViewTopInset = 64;
+        self.tableView.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 22, 0);
+
+    }
 }
 
 - (BOOL)isReachable{

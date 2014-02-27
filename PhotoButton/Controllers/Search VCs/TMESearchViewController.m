@@ -27,7 +27,7 @@ IIViewDeckControllerDelegate
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self disableNavigationTranslucent];
+    [self disableTranslucent];
     self.dataArray = [@[] mutableCopy];
     
     self.navigationController.navigationBar.topItem.title = @"Search Product";
@@ -100,6 +100,7 @@ IIViewDeckControllerDelegate
     {
         [self.navigationController setNavigationBarHidden:NO animated:NO];
     }
+    [self paddingScrollWithTop];
     [super viewWillLayoutSubviews];
 }
 

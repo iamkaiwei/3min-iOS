@@ -51,7 +51,7 @@ UIAlertViewDelegate
     [super viewDidLoad];
     self.title = @"You Offer";
     [self registerForKeyboardNotifications];
-    [self disableNavigationTranslucent];
+    [self disableBottomTranslucent];
     self.textViewInputMessage.delegate = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -254,6 +254,13 @@ UIAlertViewDelegate
                              orSmallerID:0
                                 withPage:1
                               showBottom:YES];
+}
+
+- (void)paddingScrollWithTop{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        self.scrollViewContent.contentInset = UIEdgeInsetsMake(64, 0, 22, 0);
+
+    }
 }
 
 #pragma mark - Text view delegate

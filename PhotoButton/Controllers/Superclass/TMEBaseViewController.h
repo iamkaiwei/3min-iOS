@@ -64,7 +64,8 @@
 - (IBAction)onBtnBack:(id)sender;
 
 - (void)enablePullToRefresh;
-- (void)disableNavigationTranslucent;
+- (void)disableBottomTranslucent;
+- (void)disableTranslucent;
 /**
  *list all notification this view can receive
  *return: array of notification

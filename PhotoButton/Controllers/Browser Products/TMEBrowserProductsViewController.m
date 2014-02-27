@@ -31,8 +31,7 @@ TMEBrowserProductsTableCellDelegate
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.topItem.title = @"Browse Products";
-    
-    [self paddingScrollWithTop];
+
     [self.labelAnimated startAnimating];
     [self setUpCircleProgressIndicator];
     [self enablePullToRefresh];
@@ -43,11 +42,6 @@ TMEBrowserProductsTableCellDelegate
                                              selector:@selector(onCategoryChangeNotification:)
                                                  name:CATEGORY_CHANGE_NOTIFICATION
                                                object:nil];
-}
-
-- (void)viewWillLayoutSubviews{
-    [super viewWillLayoutSubviews];
-    [self paddingScrollWithTop];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -70,13 +64,14 @@ TMEBrowserProductsTableCellDelegate
 
 - (void)setUpTableView{
     LoadMoreCellHandleBlock handleLoadMoreCell = ^(){
-        [self loadProductsWithPage:self.currentPage++];
+        [self loadProductsWithPage:++self.currentPage];
     };
     
     self.productsArrayDataSource = [[TMEBrowserProductsViewControllerArrayDataSource alloc] initWithItems:self.dataArray cellIdentifier:[TMEBrowserProductsTableCell kind] paging:self.paging handleCellBlock:handleLoadMoreCell delegate:self];
     
     self.tableView.dataSource = self.productsArrayDataSource;
     [self refreshTableViewAnimated:NO];
+    [self paddingScrollWithTop];
 }
 
 #pragma mark - UITableView delegate
@@ -130,6 +125,7 @@ TMEBrowserProductsTableCellDelegate
              
              [self setUpTableView];
              [self finishLoading];
+             [self paddingScrollWithTop];
          } andFailureBlock:^(NSInteger statusCode, id obj) {
              [self finishLoading];
          }];
@@ -147,7 +143,7 @@ TMEBrowserProductsTableCellDelegate
          
          [self setUpTableView];
          [self finishLoading];
-         
+         [self paddingScrollWithTop];
      } andFailureBlock:^(NSInteger statusCode, id obj) {
          [self finishLoading];
      }];
@@ -165,14 +161,13 @@ TMEBrowserProductsTableCellDelegate
     [self loadProductsWithPage:1];
 }
 
-#pragma mark - Utilities
 - (void)paddingScrollWithTop
 {
     CGFloat scrollViewTopInset = 44;
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         scrollViewTopInset += 20;
     }
-    self.tableView.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 0, 0);;
+    self.tableView.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 22, 0);
 }
 
 #pragma mark - Notifications
@@ -188,7 +183,9 @@ TMEBrowserProductsTableCellDelegate
     }
     
     self.currentCategory = [userInfo objectForKey:@"category"];
-    [self.tableView setContentOffset:CGPointMake(0, -60) animated:YES];
+    [self.tableView setContentOffset:CGPointMake(0, 0) animated:NO];
+    
+    [self.tableView setOrigin:CGPointMake(0, 0)];
     
     [self.pullToRefreshView beginRefreshing];
     self.navigationController.navigationBar.topItem.title = self.currentCategory.name;

@@ -22,7 +22,8 @@
     [super viewDidLoad];
     self.title = @"My Listings";
     [self enablePullToRefresh];
-    [self disableNavigationTranslucent];
+    [self disableBottomTranslucent];
+    [self paddingScrollWithTop];
     
     [self getCachedMyListing];
     [self.pullToRefreshView beginRefreshing];
@@ -36,7 +37,7 @@
 
 - (void)setUpTableView{
     LoadMoreCellHandleBlock handleCell = ^(){
-        [self loadMyListWithPage:self.currentPage++];
+        [self loadMyListWithPage:++self.currentPage];
     };
     
     self.myListingsArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:[TMEMyListingTableViewCell kind] paging:self.paging handleCellBlock:handleCell];

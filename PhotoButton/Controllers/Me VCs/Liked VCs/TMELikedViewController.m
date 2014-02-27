@@ -22,7 +22,8 @@
     [super viewDidLoad];
     self.title = @"Stuff I Liked";
     [self enablePullToRefresh];
-    [self disableNavigationTranslucent];
+    [self disableBottomTranslucent];
+    [self paddingScrollWithTop];
     
     [self getCachedLikedProduct];
     [self.pullToRefreshView beginRefreshing];
@@ -36,7 +37,7 @@
 
 - (void)setUpTableView{
     LoadMoreCellHandleBlock handleCell = ^(){
-        [self loadLikedProductWithPage:self.currentPage++];
+        [self loadLikedProductWithPage:++self.currentPage];
     };
     
     self.likedProductArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:[TMELikedTableViewCell kind] paging:self.paging handleCellBlock:handleCell];

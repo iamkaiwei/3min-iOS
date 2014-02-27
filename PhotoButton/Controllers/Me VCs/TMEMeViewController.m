@@ -34,7 +34,7 @@ UIActionSheetDelegate
     // Do any additional setup after loading the view from its nib.
     self.arrayCellTitleSectionOne = @[@"My Listings", @"Offer I Made", @"Stuff I Liked"];
     self.arrayCellTitleSectionTwo = @[@"Logout"];
-    [self disableNavigationTranslucent];
+    [self disableBottomTranslucent];
     [self configView];
 }
 

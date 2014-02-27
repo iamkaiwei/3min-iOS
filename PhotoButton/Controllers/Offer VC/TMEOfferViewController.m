@@ -38,7 +38,7 @@ UIAlertViewDelegate
   [self.labelPriceOffer alignHorizontalCenterToView:self.view];
 
   self.txtPrice.text = @"";
-  [self disableNavigationTranslucent];
+  [self disableBottomTranslucent];
 }
 
 - (IBAction)onBtnChangePrice:(id)sender {

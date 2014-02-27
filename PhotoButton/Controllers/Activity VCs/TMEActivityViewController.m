@@ -24,12 +24,12 @@
     self.navigationController.navigationBar.topItem.title = @"Activity";
     // remember to avoid retain cycles!
     [self enablePullToRefresh];
+    [self disableBottomTranslucent];
+    [self paddingScrollWithTop];
     [self.lblInstruction alignVerticallyCenterToView:self.view];
-    [self disableNavigationTranslucent];
     
     [self getCachedActivity];
     [self.pullToRefreshView beginRefreshing];
-    [self loadListActivityWithPage:1];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadActivity:)
@@ -45,7 +45,7 @@
 
 - (void)setUpTableView{
     LoadMoreCellHandleBlock handleCell = ^(){
-        [self loadListActivityWithPage:self.currentPage++];
+        [self loadListActivityWithPage:++self.currentPage];
     };
     
     self.activitiesArrayDataSource = [[TMEBaseArrayDataSourceWithLoadMore alloc] initWithItems:self.dataArray cellIdentifier:[TMEActivityTableViewCell kind] paging:self.paging handleCellBlock:handleCell];
