@@ -332,8 +332,8 @@
 		B490255118B9232D00B00671 /* TMEActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEActivityViewController.h; sourceTree = "<group>"; };
 		B490255218B9232D00B00671 /* TMEActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEActivityViewController.m; sourceTree = "<group>"; };
 		B490255318B9232D00B00671 /* TMEActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEActivityViewController.xib; sourceTree = "<group>"; };
-		B490255418B9232D00B00671 /* TMEBaseArrayDataSourceWithLoadMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseArrayDataSourceWithLoadMore.h; sourceTree = "<group>"; };
-		B490255518B9232D00B00671 /* TMEBaseArrayDataSourceWithLoadMore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseArrayDataSourceWithLoadMore.m; sourceTree = "<group>"; };
+		B490255418B9232D00B00671 /* TMEBaseArrayDataSourceWithLoadMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEBaseArrayDataSourceWithLoadMore.h; path = "../Activity VCs/TMEBaseArrayDataSourceWithLoadMore.h"; sourceTree = "<group>"; };
+		B490255518B9232D00B00671 /* TMEBaseArrayDataSourceWithLoadMore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEBaseArrayDataSourceWithLoadMore.m; path = "../Activity VCs/TMEBaseArrayDataSourceWithLoadMore.m"; sourceTree = "<group>"; };
 		B490255718B9232D00B00671 /* TMEBrowserProductsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductsTableCell.h; sourceTree = "<group>"; };
 		B490255818B9232D00B00671 /* TMEBrowserProductsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductsTableCell.m; sourceTree = "<group>"; };
 		B490255918B9232D00B00671 /* TMEBrowserProductsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserProductsTableCell.xib; sourceTree = "<group>"; };
@@ -793,8 +793,6 @@
 				B490255118B9232D00B00671 /* TMEActivityViewController.h */,
 				B490255218B9232D00B00671 /* TMEActivityViewController.m */,
 				B490255318B9232D00B00671 /* TMEActivityViewController.xib */,
-				B490255418B9232D00B00671 /* TMEBaseArrayDataSourceWithLoadMore.h */,
-				B490255518B9232D00B00671 /* TMEBaseArrayDataSourceWithLoadMore.m */,
 			);
 			path = "Activity VCs";
 			sourceTree = "<group>";
@@ -1012,6 +1010,8 @@
 				B49025C418B9232D00B00671 /* TMEBaseTableViewController.m */,
 				B49025C518B9232D00B00671 /* TMEBaseViewController.h */,
 				B49025C618B9232D00B00671 /* TMEBaseViewController.m */,
+				B490255418B9232D00B00671 /* TMEBaseArrayDataSourceWithLoadMore.h */,
+				B490255518B9232D00B00671 /* TMEBaseArrayDataSourceWithLoadMore.m */,
 			);
 			path = Superclass;
 			sourceTree = "<group>";

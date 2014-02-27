@@ -23,12 +23,9 @@
     self.title = @"My Listings";
     [self enablePullToRefresh];
     [self disableNavigationTranslucent];
+    
     [self getCachedMyListing];
-    
-    if (!self.dataArray.count) {
-        [self.pullToRefreshView beginRefreshing];
-    }
-    
+    [self.pullToRefreshView beginRefreshing];
     [self loadMyListWithPage:1];
 }
 
@@ -81,14 +78,18 @@
 }
 
 - (void)loadMyListWithPage:(NSInteger)page{
+    if (![self isReachable]) {
+        return;
+    }
+    
     [[TMEProductsManager sharedInstance] getSellingProductsOfCurrentUserOnPage:page
                                                                   successBlock:^(NSArray *arrayProduct)
      {
          [self handlePagingWithResponseArray:arrayProduct currentPage:page];
          
          self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrayProduct] mutableCopy];
-         
          self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+         
          [self reloadTableViewMyListing];
      }
                                                                   failureBlock:^(NSInteger statusCode, NSError *error)
@@ -104,11 +105,10 @@
 
 - (void)pullToRefreshViewDidStartLoading
 {
-    if (![TMEReachabilityManager isReachable]) {
-        [SVProgressHUD showErrorWithStatus:@"No connection!"];
-        [self reloadTableViewMyListing];
+    if (![self isReachable]) {
         return;
     }
+    
     [self loadMyListWithPage:1];
 }
 

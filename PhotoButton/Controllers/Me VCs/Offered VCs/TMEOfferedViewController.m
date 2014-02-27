@@ -25,11 +25,7 @@
     [self enablePullToRefresh];
     [self disableNavigationTranslucent];
     [self getCachedOfferedConversation];
-    
-    if (!self.dataArray.count) {
-        [self.pullToRefreshView beginRefreshing];
-    }
-    
+    [self.pullToRefreshView beginRefreshing];
     [self loadListOfferedConversationWithPage:1];
 }
 
@@ -69,6 +65,10 @@
 }
 
 - (void)loadListOfferedConversationWithPage:(NSInteger)page{
+    if (![self isReachable]) {
+        return;
+    }
+    
     [[TMEConversationManager sharedInstance] getOfferedConversationWithPage:page
                                                              onSuccessBlock:^(NSArray *arrayOfferedConversation)
      {
@@ -106,11 +106,10 @@
 
 - (void)pullToRefreshViewDidStartLoading
 {
-    if (![TMEReachabilityManager isReachable]) {
-        [SVProgressHUD showErrorWithStatus:@"No connection!"];
-        [self reloadTableViewOfferedConversation];
+    if (![self isReachable]) {
         return;
     }
+    
     [self loadListOfferedConversationWithPage:1];
 }
 

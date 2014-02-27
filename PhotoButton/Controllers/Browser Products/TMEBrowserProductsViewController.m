@@ -14,12 +14,10 @@
 @interface TMEBrowserProductsViewController ()
 <
 UIScrollViewDelegate,
-UITableViewDelegate,
 TMEBrowserProductsTableCellDelegate
 >
 
 @property (assign, nonatomic) CGFloat                     currentNavBarHeight;
-@property (strong, nonatomic) TMEUser                   * loginUser;
 @property (strong, nonatomic) TMECategory               * currentCategory;
 @property (strong, nonatomic) TMEBrowserProductsViewControllerArrayDataSource    * productsArrayDataSource;
 @property (weak, nonatomic) IBOutlet UIImageView        * imageViewProductPlaceholder;
@@ -32,19 +30,24 @@ TMEBrowserProductsTableCellDelegate
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.labelAnimated startAnimating];
     self.navigationController.navigationBar.topItem.title = @"Browse Products";
     
+    [self paddingScrollWithTop];
+    [self.labelAnimated startAnimating];
     [self setUpCircleProgressIndicator];
     [self enablePullToRefresh];
     [self setUpTableView];
-    [self paddingScrollWithTop];
     [self loadProductsWithPage:1];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onCategoryChangeNotification:)
                                                  name:CATEGORY_CHANGE_NOTIFICATION
                                                object:nil];
+}
+
+- (void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    [self paddingScrollWithTop];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -79,13 +82,12 @@ TMEBrowserProductsTableCellDelegate
 #pragma mark - UITableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
     productDetailsController.product = self.dataArray[indexPath.section];
     productDetailsController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:productDetailsController animated:YES];
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (self.paging && section == self.dataArray.count) {
@@ -166,10 +168,11 @@ TMEBrowserProductsTableCellDelegate
 #pragma mark - Utilities
 - (void)paddingScrollWithTop
 {
-    if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
-        CGFloat scrollViewTopInset = 44;
-        self.tableView.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 0, 0);
+    CGFloat scrollViewTopInset = 44;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        scrollViewTopInset += 20;
     }
+    self.tableView.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 0, 0);;
 }
 
 #pragma mark - Notifications
@@ -178,16 +181,17 @@ TMEBrowserProductsTableCellDelegate
     if (![self isReachable]) {
         return;
     }
+    
     NSDictionary *userInfo = [notification userInfo];
     if ([self.currentCategory isEqual:[userInfo objectForKey:@"category"]]) {
         return;
     }
     
     self.currentCategory = [userInfo objectForKey:@"category"];
-    self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
     [self.tableView setContentOffset:CGPointMake(0, -60) animated:YES];
+    
     [self.pullToRefreshView beginRefreshing];
-    [self loadProductsWithPage:1];
+    self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
 }
 
 #pragma mark - Button Like Action

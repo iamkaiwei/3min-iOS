@@ -23,12 +23,9 @@
     self.title = @"Stuff I Liked";
     [self enablePullToRefresh];
     [self disableNavigationTranslucent];
+    
     [self getCachedLikedProduct];
-    
-    if (!self.dataArray.count) {
-        [self.pullToRefreshView beginRefreshing];
-    }
-    
+    [self.pullToRefreshView beginRefreshing];
     [self loadLikedProductWithPage:1];
 }
 
@@ -79,6 +76,10 @@
 }
 
 - (void)loadLikedProductWithPage:(NSInteger)page{
+    if (![self isReachable]) {
+        return;
+    }
+    
     [[TMEProductsManager sharedInstance] getLikedProductOnPage:page
                                                   successBlock:^(NSArray *arrayProduct)
      {
@@ -102,9 +103,7 @@
 
 - (void)pullToRefreshViewDidStartLoading
 {
-    if (![TMEReachabilityManager isReachable]) {
-        [SVProgressHUD showErrorWithStatus:@"No connection!"];
-        [self reloadTableViewLikedProduct];
+    if (![self isReachable]) {
         return;
     }
 

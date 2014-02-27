@@ -13,7 +13,6 @@
 @interface TMEBrowserProductsTableCell()
 
 // product
-
 @property (weak, nonatomic) IBOutlet UILabel         * lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel         * lblProductPrice;
 @property (weak, nonatomic) IBOutlet UIImageView     * imageViewProduct;
@@ -29,18 +28,6 @@
 @implementation TMEBrowserProductsTableCell
 
 - (void)configCellWithData:(TMEProduct *)product{
-  
-  // Follow button
-//  self.btnFollow.layer.backgroundColor = [UIColor backgroundBrightGrayColor].CGColor;
-//  self.btnFollow.layer.borderColor = [UIColor grayColor].CGColor;
-//  self.btnFollow.layer.cornerRadius = 2;
-//  
-//  // Share button
-//  self.btnShare.layer.backgroundColor = [UIColor backgroundBrightGrayColor].CGColor;
-//  self.btnShare.layer.borderColor = [UIColor grayColor].CGColor;
-//  self.btnShare.layer.cornerRadius = 2;
-  
-  // for now when we get product, we get all imformantion about this product like user, category, etc.
   
   // user
   

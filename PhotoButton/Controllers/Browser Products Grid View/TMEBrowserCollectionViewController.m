@@ -36,7 +36,10 @@ UICollectionViewDelegate
     
     [self.collectionProductsView registerNib:[TMELoadMoreCollectionViewCell defaultNib] forCellWithReuseIdentifier:[TMELoadMoreCollectionViewCell kind]];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onCategoryChangeNotification:) name:CATEGORY_CHANGE_NOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onCategoryChangeNotification:)
+                                                 name:CATEGORY_CHANGE_NOTIFICATION
+                                               object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -111,6 +114,8 @@ UICollectionViewDelegate
     }
     
     if (self.currentCategory) {
+        self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
+        
         [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
                                                           withPage:page
                                                     onSuccessBlock:^(NSArray *arrProducts)
@@ -182,12 +187,9 @@ UICollectionViewDelegate
     }
     
     self.currentCategory= [userInfo objectForKey:@"category"];
-    self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
     [self.collectionProductsView setContentOffset:CGPointMake(0, -60) animated:YES];
     
     [self.pullToRefreshView beginRefreshing];
-
-    [self loadProductsWithPage:1];
 }
 
 - (void)handlePagingWithResponseArray:(NSArray *)array currentPage:(NSInteger)page{

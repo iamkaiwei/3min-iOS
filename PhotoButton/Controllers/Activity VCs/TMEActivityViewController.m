@@ -27,18 +27,14 @@
     [self.lblInstruction alignVerticallyCenterToView:self.view];
     [self disableNavigationTranslucent];
     
+    [self getCachedActivity];
+    [self.pullToRefreshView beginRefreshing];
+    [self loadListActivityWithPage:1];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadActivity:)
                                                  name:NOTIFICATION_RELOAD_CONVERSATION
                                                object:nil];
-    
-    [self getCachedActivity];
-    
-    if (!self.dataArray.count) {
-        [self.pullToRefreshView beginRefreshing];
-    }
-    
-    [self loadListActivityWithPage:1];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -73,7 +69,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
     
     TMEConversation *conversation = self.dataArray[indexPath.row];
@@ -102,6 +97,10 @@
 #pragma mark - Handle notification
 
 - (void)loadListActivityWithPage:(NSInteger)page{
+    if (![self isReachable]) {
+        return;
+    }
+    
     [[TMEConversationManager sharedInstance] getListConversationWithPage:page
                                                           onSuccessBlock:^(NSArray *arrayConversation)
      {
@@ -129,9 +128,7 @@
 
 - (void)pullToRefreshViewDidStartLoading
 {
-    if (![TMEReachabilityManager isReachable]) {
-        [SVProgressHUD showErrorWithStatus:@"No connection!"];
-        [self reloadTableViewActivity];
+    if (![self isReachable]) {
         return;
     }
     
