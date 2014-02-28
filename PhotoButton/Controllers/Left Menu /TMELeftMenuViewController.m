@@ -74,6 +74,7 @@
     
     [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories) {
         self.dataArray = [arrayCategories mutableCopy];
+        self.dataArray = [self.dataArray reverse];
         [self setUpTableView];
     } andFailureBlock:^(NSInteger statusCode, id obj) {
         DLog(@"%d", statusCode);
