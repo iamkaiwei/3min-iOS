@@ -8,7 +8,6 @@
 
 #import "TMEBrowserCollectionViewController.h"
 #import "TMEBrowserCollectionCell.h"
-#import "TMEProductDetailsViewController.h"
 #import "TMELoadMoreCollectionViewCell.h"
 
 @interface TMEBrowserCollectionViewController ()

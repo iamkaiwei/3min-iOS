@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TMEBaseArrayDataSourceWithLoadMore.h"
 
 @interface TMEBrowserProductsViewControllerArrayDataSource : TMEBaseArrayDataSourceWithLoadMore
 

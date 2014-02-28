@@ -7,7 +7,6 @@
 //
 
 #import "TMEBrowserProductsViewControllerArrayDataSource.h"
-#import "TMELoadMoreTableViewCell.h"
 
 @implementation TMEBrowserProductsViewControllerArrayDataSource
 

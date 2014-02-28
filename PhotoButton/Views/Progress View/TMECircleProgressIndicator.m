@@ -69,9 +69,10 @@
 
 
 -(void)drawRect:(CGRect)rect {
+    CGRect superView = self.superview.bounds;
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGPoint center = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
-    float minSize =  MIN(rect.size.width, rect.size.height);
+    float minSize =  MIN(CGRectGetWidth(superView)/4, CGRectGetHeight(superView)/4);
     float lineWidth = _strokeWidth;
     if(lineWidth == -1.0) lineWidth = minSize * _strokeWidthRatio;
     float radius = (minSize - lineWidth) / 3.0;

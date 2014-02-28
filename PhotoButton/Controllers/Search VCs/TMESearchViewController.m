@@ -8,15 +8,11 @@
 
 #import "TMESearchViewController.h"
 #import "TMESearchTableViewCell.h"
-#import "TMEProductDetailsViewController.h"
 
 @interface TMESearchViewController ()
 <
-UITableViewDataSource,
-UITableViewDelegate,
 UISearchBarDelegate,
-UISearchDisplayDelegate,
-IIViewDeckControllerDelegate
+UISearchDisplayDelegate
 >
 
 @end
