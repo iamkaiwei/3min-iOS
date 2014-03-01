@@ -15,10 +15,14 @@
                onSuccessBlock:(void (^)(NSArray *arrayProducts))successBlock
               andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
--(void)getProductsOfCategory:(TMECategory *)category
+- (void)getProductsOfCategory:(TMECategory *)category
                     withPage:(NSInteger)page
               onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
              andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+
+- (void)getPopularProductswithPage:(NSInteger)page
+                   onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                  andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 - (void)getSellingProductsOfCurrentUserOnPage:(NSInteger)page successBlock:(void (^) (NSArray *arrayProducts))successBlock
                                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock;

@@ -43,7 +43,7 @@ UICollectionViewDelegate
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.collectionProductsView reloadData];
+//    [self.collectionProductsView reloadData];
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -113,6 +113,24 @@ UICollectionViewDelegate
     }
     
     if (self.currentCategory) {
+        if ([self.currentCategory.id isEqualToNumber:@8]) {
+            [[TMEProductsManager sharedInstance] getPopularProductswithPage:page
+                                                             onSuccessBlock:^(NSArray *arrProducts)
+             {
+                 [self handlePagingWithResponseArray:arrProducts currentPage:page];
+                 
+                 self.arrayProducts = [[self.arrayProducts arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
+                 self.arrayProducts = [[self.arrayProducts sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+                 
+                 [self.collectionProductsView reloadData];
+                 [self.pullToRefreshView endRefreshing];
+             }
+                                                            andFailureBlock:^(NSInteger statusCode, id obj)
+             {
+                 [self.pullToRefreshView endRefreshing];
+             }];
+            return;
+        }
         self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
         
         [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
@@ -126,12 +144,10 @@ UICollectionViewDelegate
              
              [self.collectionProductsView reloadData];
              [self.pullToRefreshView endRefreshing];
-             [SVProgressHUD dismiss];
          }
                                                    andFailureBlock:^(NSInteger statusCode, id obj)
          {
              [self.pullToRefreshView endRefreshing];
-             [SVProgressHUD dismiss];
          }];
     } else {
         [[TMEProductsManager sharedInstance] getAllProductsWihPage:page
@@ -143,13 +159,10 @@ UICollectionViewDelegate
              self.arrayProducts = [[self.arrayProducts sortByAttribute:@"created_at" ascending:NO] mutableCopy];
              
              [self.collectionProductsView reloadData];
-             
              [self.pullToRefreshView endRefreshing];
-             [SVProgressHUD dismiss];
          }
                                                    andFailureBlock:^(NSInteger statusCode, id obj) {
                                                        [self.pullToRefreshView endRefreshing];
-                                                       [SVProgressHUD dismiss];
                                                    }];
     }
 }

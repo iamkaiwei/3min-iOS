@@ -71,7 +71,6 @@ TMEBrowserProductsTableCellDelegate
     
     self.tableView.dataSource = self.productsArrayDataSource;
     [self refreshTableViewAnimated:NO];
-    [self paddingScrollWithTop];
 }
 
 #pragma mark - UITableView delegate
@@ -113,6 +112,26 @@ TMEBrowserProductsTableCellDelegate
     }
     
     if (self.currentCategory) {
+        if ([self.currentCategory.id isEqualToNumber:@8]) {
+            [[TMEProductsManager sharedInstance] getPopularProductswithPage:page
+                                                             onSuccessBlock:^(NSArray *arrProducts)
+            {
+                [self handlePagingWithResponseArray:arrProducts currentPage:page];
+                [self hidePlaceHolder];
+                
+                self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
+                self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+                
+                [self setUpTableView];
+                [self finishLoading];
+                [self paddingScrollWithTop];
+            }
+                                                            andFailureBlock:^(NSInteger statusCode, id obj)
+            {
+                [self finishLoading];
+            }];
+            return;
+        }
         [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
                                                           withPage:page
                                                     onSuccessBlock:^(NSArray *arrProducts)
