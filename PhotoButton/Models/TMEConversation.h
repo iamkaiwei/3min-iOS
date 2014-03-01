@@ -5,6 +5,6 @@
 
 + (NSArray *)arrayConversationFromArrayData:(NSArray *)arrayData;
 + (NSArray *)arrayConversationFromOfferArrayData:(NSArray *)arrayData;
-+ (TMEConversation *)conversationFromData:(NSDictionary *)data;
++ (TMEConversation *)aConversationFromData:(NSDictionary *)data;
 
 @end

@@ -12,182 +12,166 @@
 
 SINGLETON_MACRO
 
-- (void)getRepliesOfConversationWithConversationID:(NSInteger)conversationID
-                                andReplyIDLargerID:(NSInteger)largerReplyID
-                                       orSmallerID:(NSInteger)smallerReplyID
-                                          withPage:(NSInteger)page
-                                    onSuccessBlock:(void (^)(TMEConversation *))successBlock
-                                   andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
-  
-  NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-  params = [@{
-             @"access_token" : [[TMEUserManager sharedInstance] getAccessToken]
-             } mutableCopy];
-  
-  if (largerReplyID) {
-    [params setObject:@(largerReplyID) forKey:@"larger"];
-  }
-  if (smallerReplyID) {
-    [params setObject:@(smallerReplyID) forKey:@"smaller"];
-  }
-  if (page) {
-    [params setObject:@(page) forKey:@"page"];
-  }
-  
-  NSString *path = [NSString stringWithFormat:@"%@%@%@/%d",API_SERVER_HOST,API_PREFIX,API_CONVERSATIONS, conversationID];
-  
-  [[TMEHTTPClient sharedClient] getPath:path
-                             parameters:params
-                                success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                  TMEConversation *conversation = [TMEConversation conversationFromData:responseObject];
-                                  
-                                  NSManagedObjectContext *mainContext = [NSManagedObjectContext MR_defaultContext];
-                                  [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
-                                    DLog(@"Finish save to magical record");
-                                    
-                                    if (successBlock) {
-                                      successBlock(conversation);
-                                    }
-                                  }];
-                                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                  if (failureBlock) {
-                                    failureBlock(error.code, error);
-                                  }
-                                }];
++ (void)getRepliesOfConversationID:(NSInteger)conversationID
+                     largerReplyID:(NSInteger)largerReplyID
+                    smallerReplyID:(NSInteger)smallerReplyID
+                          withPage:(NSInteger)page
+                    onSuccessBlock:(void (^)(TMEConversation *))successBlock
+                      failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+    
+    NSMutableDictionary *params = [@{@"page": @(page)} mutableCopy];
+    
+    if (largerReplyID) {
+        [params setObject:@(largerReplyID) forKey:@"larger"];
+    }
+    if (smallerReplyID) {
+        [params setObject:@(smallerReplyID) forKey:@"smaller"];
+    }
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%d", API_CONVERSATIONS, conversationID];
+    
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:params
+                                                     method:GET_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
+     {
+         if (successBlock) {
+             TMEConversation *conversation = [TMEConversation aConversationFromData:responseObject];
+             successBlock(conversation);
+         }
+     }
+                                                    failure:^(NSError *error)
+     {
+         if (failureBlock) {
+             failureBlock(error.code, error);
+         }
+     }];
 }
 
-- (void)postReplyToConversation:(NSInteger)conversationID
++ (void)postReplyToConversation:(NSInteger)conversationID
                     withMessage:(NSString *)messageContent
                  onSuccessBlock:(void (^)(NSString *))successBlock
-                andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
-  
-  NSDictionary *params = @{
-                           @"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
-                           @"message" : messageContent,
-                           };
-  NSString *path = [NSString stringWithFormat:@"%@%@%@/%d%@", API_SERVER_HOST, API_PREFIX, API_CONVERSATIONS, conversationID, API_CONVERSATION_REPLIES];
-  [[TMEHTTPClient sharedClient] postPath:path
-                              parameters:params
-                                 success:^(AFHTTPRequestOperation *operation, id responseObject)
-   {
-     if (successBlock) {
-       successBlock(responseObject[@"status"]);
+                   failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+    
+    NSDictionary *params = @{@"message" : messageContent};
+    
+    NSString *path = [NSString stringWithFormat:@"%@/%d%@", API_CONVERSATIONS, conversationID, API_CONVERSATION_REPLIES];
+    
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:params
+                                                     method:POST_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
+     {
+         if (successBlock) {
+             successBlock(responseObject[@"status"]);
+         }
      }
-   }
-                                 failure:^(AFHTTPRequestOperation *operation, NSError *error)
-   {
-     if (failureBlock) {
-       failureBlock(error.code, error);
-     }
-   }];
+                                                    failure:^(NSError *error)
+     {
+         if (failureBlock) {
+             failureBlock(error.code, error);
+         }
+     }];
 }
 
-- (void)getListConversationWithPage:(NSInteger)page
++ (void)getListConversationWithPage:(NSInteger)page
                      onSuccessBlock:(void (^)(NSArray *))successBlock
-                    andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
-  NSMutableDictionary *params = [@{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken]} mutableCopy];
-  if (page) {
-    [params setObject:@(page) forKey:@"page"];
-  }
-  
-  NSString *path = [NSString stringWithFormat:@"%@%@%@", API_SERVER_HOST, API_PREFIX, API_CONVERSATIONS];
-  [[TMEHTTPClient sharedClient] getPath:path
-                             parameters:params
-                                success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                  NSArray *arrayConversation = [TMEConversation arrayConversationFromArrayData:responseObject];
-                                  
-                                  if (successBlock) {
-                                    successBlock(arrayConversation);
-                                  }
-
-                                }
-                                failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                                  
-                                  if (failureBlock) {
-                                    failureBlock(error.code, error);
-                                  }
-
-                                }];
+                       failureBlock:(TMEJSONRequestFailureBlock)failureBlock
+{
+    NSDictionary *params = @{@"page" : @(page)};
+    [[BaseNetworkManager sharedInstance] getServerListForModelClass:[TMEConversation class]
+                                                         withParams:params
+                                                          methodAPI:GET_METHOD
+                                                           parentId:nil
+                                                    withParentClass:nil
+                                                            success:^(NSMutableArray *objectsArray)
+     {
+         if (successBlock) {
+             NSArray *arrayConversation = [TMEConversation arrayConversationFromArrayData:objectsArray];
+             successBlock(arrayConversation);
+         }
+     }
+                                                            failure:^(NSError *error)
+     {
+         if (failureBlock)
+             failureBlock(error.code ,error);
+     }];
 }
 
-- (void)getOfferedConversationWithPage:(NSInteger)page
++ (void)getOfferedConversationWithPage:(NSInteger)page
                         onSuccessBlock:(void (^)(NSArray *))successBlock
-                       andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
-  NSMutableDictionary *params = [@{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken]} mutableCopy];
-  if (page) {
-    [params setObject:@(page) forKey:@"page"];
-  }
-  
-  NSString *path = [NSString stringWithFormat:@"%@%@%@%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, API_OFFER];
-  [[TMEHTTPClient sharedClient] getPath:path
-                             parameters:params
-                                success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                  NSArray *arrayConversation = [TMEConversation arrayConversationFromOfferArrayData:responseObject];
-                                  
-                                  if (successBlock) {
-                                    successBlock(arrayConversation);
-                                  }
-                                  
-                                }
-                                failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                                  
-                                  if (failureBlock) {
-                                    failureBlock(error.code, error);
-                                  }
-                                  
-                                }];
-
-
+                       failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+    NSDictionary *params = @{@"page" : @(page)};
+    NSString *path = [NSString stringWithFormat:@"%@%@%@%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, API_OFFER];
+    
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:params
+                                                     method:GET_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
+     {
+         if (successBlock) {
+             NSArray *arrayConversation = [TMEConversation arrayConversationFromOfferArrayData:responseObject];
+             successBlock(arrayConversation);
+         }
+     }
+                                                    failure:^(NSError *error)
+     {
+         if (failureBlock) {
+             failureBlock(error.code, error);
+         }
+     }];
 };
 
-- (void)createConversationWithProductID:(NSNumber *)productID
-                            toUserID:(NSNumber *)userID
-                     onSuccessBlock:(void (^)(TMEConversation *))successBlock
-                    andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
-  NSMutableDictionary *params = [@{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
-                                   @"product_id" : productID,
-                                   @"to" : userID
-                                   } mutableCopy];
-  
-  NSString *path = [NSString stringWithFormat:@"%@%@%@", API_SERVER_HOST, API_PREFIX, API_CONVERSATIONS];
-  [[TMEHTTPClient sharedClient] postPath:path
-                              parameters:params
-                                 success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                   TMEConversation *conversation = [TMEConversation conversationFromData:responseObject];
-                                   if (successBlock) {
-                                     successBlock(conversation);
-                                   }
-                                 }
-                                 failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                                   if (failureBlock) {
-                                     failureBlock(error.code, error);
-                                   }
-                                 }];
++ (void)createConversationWithProductID:(NSNumber *)productID
+                               toUserID:(NSNumber *)userID
+                         onSuccessBlock:(void (^)(TMEConversation *))successBlock
+                        failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+    NSDictionary *params = @{@"product_id" : productID,
+                             @"to" : userID};
+
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:API_CONVERSATIONS
+                                                 parameters:params
+                                                     method:POST_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
+     {
+         if (successBlock) {
+             TMEConversation *conversation = [TMEConversation aConversationFromData:responseObject];
+             successBlock(conversation);
+         }
+     }
+                                                    failure:^(NSError *error)
+     {
+         if (failureBlock) {
+             failureBlock(error.code, error);
+         }
+     }];
 }
 
-- (void)putOfferPriceToConversationWithConversationID:(NSNumber *)conversationID
-                                        andOfferPrice:(NSNumber *)offerPrice
-                                       onSuccessBlock:(void (^)(NSNumber *))successBlock
-                                      andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
++ (void)putOfferPriceToConversationID:(NSNumber *)conversationID
+                           offerPrice:(NSNumber *)offerPrice
+                       onSuccessBlock:(void (^)(NSNumber *))successBlock
+                         failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
-  NSMutableDictionary *param = [@{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
-                                  @"offer" : offerPrice
-                                  } mutableCopy];
-  NSString *path = [NSString stringWithFormat:@"%@%@%@/%@%@", API_SERVER_HOST, API_PREFIX, API_CONVERSATIONS, conversationID, API_OFFER];
-  [[TMEHTTPClient sharedClient] putPath:path
-                             parameters:param
-                                success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                  if ([responseObject[@"status"] isEqualToString:@"success"]){
-                                    if (successBlock) {
-                                      successBlock(offerPrice);
-                                    }
-                                  }
-                                }
-                                failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                                  if (failureBlock) {
-                                    failureBlock(error.code, error);
-                                  }
-                                }];
+    NSDictionary *param = @{@"offer" : offerPrice};
+    NSString *path = [NSString stringWithFormat:@"%@/%@%@", API_CONVERSATIONS, conversationID, API_OFFER];
+    
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:param
+                                                     method:PUT_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
+     {
+         if ([responseObject[@"status"] isEqualToString:@"success"]){
+             if (successBlock) {
+                 successBlock(offerPrice);
+             }
+         }
+     }
+                                                    failure:^(NSError *error)
+     {
+         if (failureBlock) {
+             failureBlock(error.code, error);
+         }
+     }];
 }
 
 @end

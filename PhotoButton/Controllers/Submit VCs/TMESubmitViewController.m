@@ -65,9 +65,7 @@ UIAlertViewDelegate
         [self.pullToRefreshView beginRefreshing];
     }
     
-    [self loadMessageWithReplyIDLargerID:0
-                             orSmallerID:0
-                                withPage:1
+    [self loadMessageWithReplyIDWithPage:1
                               showBottom:YES];
     
 }
@@ -92,9 +90,7 @@ UIAlertViewDelegate
         [cell startLoading];
         
         NSInteger previousPage = self.arrayReply.count/10 + 1;
-        [self loadMessageWithReplyIDLargerID:0
-                                 orSmallerID:0
-                                    withPage:previousPage
+        [self loadMessageWithReplyIDWithPage:previousPage
                                   showBottom:NO];
     }
 }
@@ -128,7 +124,7 @@ UIAlertViewDelegate
     [self reloadTableViewConversationShowBottom:YES];
     
     NSInteger lastestReplyID = [self getLastestReplyID];
-    [[TMEConversationManager sharedInstance] postReplyToConversation:[self.conversation.id intValue]
+    [TMEConversationManager postReplyToConversation:[self.conversation.id intValue]
                                                          withMessage:self.textViewInputMessage.text
                                                       onSuccessBlock:^(NSString *status)
     {
@@ -139,7 +135,7 @@ UIAlertViewDelegate
                                       showBottom:YES];
         }
                                                       }
-                                                     andFailureBlock:^(NSInteger statusCode, id obj)
+                                                     failureBlock:^(NSInteger statusCode, id obj)
     {
         [self.arrayReply removeLastObject];
         DLog(@"Error: %d", statusCode);
@@ -157,9 +153,9 @@ UIAlertViewDelegate
         return;
     }
     
-    [[TMEConversationManager sharedInstance] getRepliesOfConversationWithConversationID:[self.conversation.id intValue]
-                                                                     andReplyIDLargerID:largerReplyID
-                                                                            orSmallerID:smallerReplyID
+    [TMEConversationManager getRepliesOfConversationID:[self.conversation.id intValue]
+                                                                     largerReplyID:largerReplyID
+                                                                            smallerReplyID:smallerReplyID
                                                                                withPage:page
                                                                          onSuccessBlock:^(TMEConversation *conversation)
      {
@@ -171,10 +167,17 @@ UIAlertViewDelegate
          self.arrayReply = [[self.arrayReply sortByAttribute:@"id" ascending:YES] mutableCopy];
          [self reloadTableViewConversationShowBottom:showBottom];
      }
-                                                                        andFailureBlock:^(NSInteger statusCode,id obj)
+                                                                        failureBlock:^(NSInteger statusCode,id obj)
      {
          return DLog(@"%d", statusCode);
      }];
+}
+
+- (void)loadMessageWithReplyIDWithPage:(NSInteger)page
+                            showBottom:(BOOL)showBottom
+{
+    [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:page showBottom:showBottom];
+
 }
 
 #pragma mark - Helper method
@@ -232,12 +235,6 @@ UIAlertViewDelegate
     [self finishLoading];
 }
 
-- (void)showAlertForLongMessageContent{
-    [self.arrayReply removeLastObject];
-    [self reloadTableViewConversationShowBottom:YES];
-    [UIAlertView showAlertWithTitle:@"Error" message:@"The text is too long!"];
-}
-
 - (void)getCacheMessage{
     self.conversation = [[TMEConversation MR_findByAttribute:@"id" withValue:self.conversation.id] lastObject];
     self.arrayReply = [[self.conversation.repliesSet allObjects] mutableCopy];
@@ -254,13 +251,6 @@ UIAlertViewDelegate
                              orSmallerID:0
                                 withPage:1
                               showBottom:YES];
-}
-
-- (void)paddingScrollWithTop{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        self.scrollViewContent.contentInset = UIEdgeInsetsMake(64, 0, 22, 0);
-
-    }
 }
 
 #pragma mark - Text view delegate

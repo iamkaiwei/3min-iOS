@@ -10,34 +10,34 @@
 
 @interface TMEConversationManager : BaseManager
 
-- (void)getRepliesOfConversationWithConversationID:(NSInteger)conversationID
-                                andReplyIDLargerID:(NSInteger)largerReplyID
-                                       orSmallerID:(NSInteger)smallerReplyID
++ (void)getRepliesOfConversationID:(NSInteger)conversationID
+                                largerReplyID:(NSInteger)largerReplyID
+                                       smallerReplyID:(NSInteger)smallerReplyID
                                           withPage:(NSInteger)page
                                     onSuccessBlock:(void (^)(TMEConversation *))successBlock
-                                   andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                                   failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)postReplyToConversation:(NSInteger)conversationID
++ (void)postReplyToConversation:(NSInteger)conversationID
                     withMessage:(NSString *)messageContent
                  onSuccessBlock:(void (^)(NSString *))successBlock
-                andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)getListConversationWithPage:(NSInteger)page
++ (void)getListConversationWithPage:(NSInteger)page
                      onSuccessBlock:(void (^)(NSArray *))successBlock
-                    andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                    failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)getOfferedConversationWithPage:(NSInteger)page
++ (void)getOfferedConversationWithPage:(NSInteger)page
                         onSuccessBlock:(void (^)(NSArray *))successBlock
-                       andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                       failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)createConversationWithProductID:(NSNumber *)productID
++ (void)createConversationWithProductID:(NSNumber *)productID
                             toUserID:(NSNumber *)userID
                       onSuccessBlock:(void (^)(TMEConversation *))successBlock
-                     andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                     failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)putOfferPriceToConversationWithConversationID:(NSNumber *)conversationID
-                                        andOfferPrice:(NSNumber *)offerPrice
++ (void)putOfferPriceToConversationID:(NSNumber *)conversationID
+                                        offerPrice:(NSNumber *)offerPrice
                                        onSuccessBlock:(void (^)(NSNumber *))successBlock
-                                      andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                                      failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 @end

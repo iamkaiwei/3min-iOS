@@ -101,8 +101,8 @@
         return;
     }
     
-    [[TMEConversationManager sharedInstance] getListConversationWithPage:page
-                                                          onSuccessBlock:^(NSArray *arrayConversation)
+    [TMEConversationManager getListConversationWithPage:page
+                                         onSuccessBlock:^(NSArray *arrayConversation)
      {
          [self handlePagingWithResponseArray:arrayConversation currentPage:page];
          
@@ -111,7 +111,7 @@
          
          [self reloadTableViewActivity];
      }
-                                                         andFailureBlock:^(NSInteger statusCode, NSError *error)
+                                           failureBlock:^(NSInteger statusCode, NSError *error)
      {
          [self finishLoading];
      }];

@@ -19,6 +19,11 @@
         [arrayConversation addObject:conversation];
     }
     
+    NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
+    [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        DLog(@"Finish save to magical record");
+    }];
+    
     return arrayConversation;
 }
 
@@ -61,6 +66,15 @@
     return conversation;
 }
 
++ (TMEConversation *)aConversationFromData:(NSDictionary *)data{
+    TMEConversation *conversation = [TMEConversation conversationFromData:data];
+    NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
+    [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        DLog(@"Finish save to magical record");
+    }];
+    return conversation;
+}
+
 + (NSArray *)arrayConversationFromOfferArrayData:(NSArray *)arrayData{
     NSMutableArray *arrayConversation = [@[] mutableCopy];
     for (NSDictionary *data in arrayData) {
@@ -69,6 +83,11 @@
             [arrayConversation addObject:conversation];
         }
     }
+    
+    NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
+    [mainContext MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        DLog(@"Finish save to magical record");
+    }];
     
     return arrayConversation;
 }

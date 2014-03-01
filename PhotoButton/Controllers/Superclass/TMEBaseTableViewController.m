@@ -178,8 +178,7 @@
 - (void)paddingScrollWithTop
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        CGFloat scrollViewTopInset = 64;
-        self.tableView.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 22, 0);
+        self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 22, 0);
 
     }
 }

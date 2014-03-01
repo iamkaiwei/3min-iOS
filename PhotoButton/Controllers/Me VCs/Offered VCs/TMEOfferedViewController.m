@@ -71,8 +71,8 @@
         return;
     }
     
-    [[TMEConversationManager sharedInstance] getOfferedConversationWithPage:page
-                                                             onSuccessBlock:^(NSArray *arrayOfferedConversation)
+    [TMEConversationManager getOfferedConversationWithPage:page
+                                            onSuccessBlock:^(NSArray *arrayOfferedConversation)
      {
          [self handlePagingWithResponseArray:arrayOfferedConversation currentPage:page];
          self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrayOfferedConversation] mutableCopy];
@@ -80,7 +80,7 @@
          
          [self reloadTableViewOfferedConversation];
      }
-                                                            andFailureBlock:^(NSInteger statusCode, NSError *error)
+                                              failureBlock:^(NSInteger statusCode, NSError *error)
      {
          [self finishLoading];
      }];
