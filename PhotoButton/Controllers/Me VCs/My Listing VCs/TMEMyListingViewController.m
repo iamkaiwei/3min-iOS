@@ -83,8 +83,8 @@
         return;
     }
     
-    [[TMEProductsManager sharedInstance] getSellingProductsOfCurrentUserOnPage:page
-                                                                  successBlock:^(NSArray *arrayProduct)
+    [TMEProductsManager getSellingProductsOfCurrentUserOnPage:page
+                                                 successBlock:^(NSArray *arrayProduct)
      {
          [self handlePagingWithResponseArray:arrayProduct currentPage:page];
          
@@ -93,7 +93,7 @@
          
          [self reloadTableViewMyListing];
      }
-                                                                  failureBlock:^(NSInteger statusCode, NSError *error)
+                                                 failureBlock:^(NSInteger statusCode, NSError *error)
      {
          [self finishLoading];
      }];

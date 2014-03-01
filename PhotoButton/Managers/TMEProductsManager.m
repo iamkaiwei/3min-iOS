@@ -12,11 +12,11 @@
 
 SINGLETON_MACRO
 
--(void)getAllProductsWihPage:(NSInteger)page
++ (void)getAllProductsWihPage:(NSInteger)page
               onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
-             andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
+                failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
-    NSMutableDictionary *params = [@{@"page" : @(page)} mutableCopy];
+    NSDictionary *params = @{@"page" : @(page)};
     [[BaseNetworkManager sharedInstance] getServerListForModelClass:[TMEProduct class]
                                                          withParams:params
                                                           methodAPI:GET_METHOD
@@ -24,24 +24,26 @@ SINGLETON_MACRO
                                                     withParentClass:nil
                                                             success:^(NSMutableArray *objectsArray)
      {
-         
-         NSArray *arrProducts = [TMEProduct arrayProductsFromArray:objectsArray];
-         
-         if (successBlock)
+         if (successBlock){
+             NSArray *arrProducts = [TMEProduct arrayProductsFromArray:objectsArray];
              successBlock(arrProducts);
-     } failure:^(NSError *error) {
+         }
+     }
+                                                            failure:^(NSError *error)
+     {
          if (failureBlock)
              failureBlock(error.code ,error);
      }];
 }
 
--(void)getProductsOfCategory:(TMECategory *)category
++ (void)getProductsOfCategory:(TMECategory *)category
                     withPage:(NSInteger)page
               onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
-             andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
+                failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
-    NSMutableDictionary *params = [@{@"page" : @(page),
-                                     @"category_id" : category.id} mutableCopy];
+    NSDictionary *params = @{@"page" : @(page),
+                             @"category_id" : category.id};
+    
     [[BaseNetworkManager sharedInstance] getServerListForModelClass:[TMEProduct class]
                                                          withParams:params
                                                           methodAPI:GET_METHOD
@@ -49,112 +51,128 @@ SINGLETON_MACRO
                                                     withParentClass:nil
                                                             success:^(NSMutableArray *objectsArray)
      {
-         
-         NSArray *arrProducts = [TMEProduct arrayProductsFromArray:objectsArray];
-         
-         if (successBlock)
+         if (successBlock){
+             NSArray *arrProducts = [TMEProduct arrayProductsFromArray:objectsArray];
              successBlock(arrProducts);
-     } failure:^(NSError *error) {
+         }
+     }
+                                                            failure:^(NSError *error)
+     {
          if (failureBlock)
              failureBlock(error.code ,error);
      }];
 }
 
-- (void)getPopularProductswithPage:(NSInteger)page
++ (void)getPopularProductsWithPage:(NSInteger)page
                     onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
-                   andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
-    NSMutableDictionary *params = [@{@"page" : @(page)} mutableCopy];
-    NSString *path = [NSString stringWithFormat:@"%@%@%@%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, API_POPULAR];
+                      failureBlock:(TMEJSONRequestFailureBlock)failureBlock
+{
+    NSDictionary *params = @{@"page" : @(page)};
+    NSString *path = [NSString stringWithFormat:@"%@%@", API_PRODUCTS, API_POPULAR];
+    
     [[BaseNetworkManager sharedInstance] sendRequestForPath:path
                                                  parameters:params
                                                      method:GET_METHOD
                                                     success:^(NSHTTPURLResponse *response, id responseObject)
-    {
-        NSArray *arrProducts = [TMEProduct arrayProductsFromArray:responseObject];
-        if (successBlock)
-            successBlock(arrProducts);
-    }
+     {
+         if (successBlock){
+             NSArray *arrProducts = [TMEProduct arrayProductsFromArray:responseObject];
+             successBlock(arrProducts);
+         }
+     }
                                                     failure:^(NSError *error)
-    {
-        if (failureBlock)
-            failureBlock(error.code ,error);
-    }];
+     {
+         if (failureBlock)
+             failureBlock(error.code ,error);
+     }];
 }
 
-- (void)getSellingProductsOfCurrentUserOnPage:(NSInteger)page
++ (void)getSellingProductsOfCurrentUserOnPage:(NSInteger)page
                                  successBlock:(void (^) (NSArray *))successBlock
                                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
-    NSDictionary *params = @{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
-                             @"page" : @(page)};
-    NSString *path = [NSString stringWithFormat:@"%@%@%@%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, API_ME];
-    [[TMEHTTPClient sharedClient] getPath:path
-                               parameters:params
-                                  success:^(AFHTTPRequestOperation *operation, id obj)
+    NSDictionary *params = @{@"page" : @(page)};
+    NSString *path = [NSString stringWithFormat:@"%@%@", API_PRODUCTS, API_ME];
+    
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:params
+                                                     method:GET_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
      {
-         NSArray *arrayProduct = [TMEProduct arrayProductsFromArray:obj];
-         if(successBlock){
-             successBlock(arrayProduct);
+         if (successBlock){
+             NSArray *arrProducts = [TMEProduct arrayProductsFromArray:responseObject];
+             successBlock(arrProducts);
          }
      }
-                                  failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                                                    failure:^(NSError *error)
      {
-         failureBlock(error.code, error);
+         if (failureBlock)
+             failureBlock(error.code ,error);
      }];
-    
 }
 
-- (void)putSoldOutWithProductID:(NSNumber *)productID
++ (void)putSoldOutWithProductID:(NSNumber *)productID
                  onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
-                andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
-    NSDictionary *params = @{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
-                             @"sold_out" : @YES};
-    NSString *path = [NSString stringWithFormat:@"%@%@%@/%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, productID];
-    [[TMEHTTPClient sharedClient] putPath:path
-                               parameters:params
-                                  success:^(AFHTTPRequestOperation *operation, id obj)
+                   failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+    NSDictionary *params = @{@"sold_out" : @YES};
+    NSString *path = [NSString stringWithFormat:@"%@/%@", API_PRODUCTS, productID];
+    
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:params
+                                                     method:PUT_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
      {
-         
+         if (successBlock){
+             successBlock(nil);
+         }
      }
-                                  failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                                                    failure:^(NSError *error)
      {
-         failureBlock(error.code, error);
+         if (failureBlock)
+             failureBlock(error.code ,error);
      }];
 }
 
-- (void)getLikedProductOnPage:(NSInteger)page
++ (void)getLikedProductOnPage:(NSInteger)page
                  successBlock:(void (^) (NSArray *))successBlock
                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
-    NSDictionary *params = @{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken],
-                             @"page" : @(page)};
-    NSString *path = [NSString stringWithFormat:@"%@%@%@%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, API_LIKED];
-    [[TMEHTTPClient sharedClient] getPath:path
-                               parameters:params
-                                  success:^(AFHTTPRequestOperation *operation, id obj)
+    NSDictionary *params = @{@"page" : @(page)};
+    NSString *path = [NSString stringWithFormat:@"%@%@", API_PRODUCTS, API_LIKED];
+    
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:params
+                                                     method:GET_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
      {
-         NSArray *arrayProduct = [TMEProduct arrayProductsFromArray:obj];
          if(successBlock){
+             NSArray *arrayProduct = [TMEProduct arrayProductsFromArray:responseObject];
              successBlock(arrayProduct);
          }
      }
-                                  failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                                                    failure:^(NSError *error)
      {
-         failureBlock(error.code, error);
+         if (failureBlock) {
+             failureBlock(error.code, error);
+         }
      }];
 }
 
 
-- (void)likeProductWithProductID:(NSNumber *)productID
++ (void)likeProductWithProductID:(NSNumber *)productID
                   onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
-                 andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
-    NSDictionary *params = @{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken]};
-    NSString *path = [NSString stringWithFormat:@"%@%@%@/%@%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, productID, API_LIKES];
-    [[TMEHTTPClient sharedClient] postPath:path
-                                parameters:params
-                                   success:^(AFHTTPRequestOperation *operation, id responseObject)
+                    failureBlock:(TMEJSONRequestFailureBlock)failureBlock
+{
+    NSString *path = [NSString stringWithFormat:@"%@/%@%@", API_PRODUCTS, productID, API_LIKES];
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:nil
+                                                     method:POST_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
      {
+         if (successBlock) {
+             successBlock(nil);
+         }
      }
-                                   failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                                                    failure:^(NSError *error)
      {
          if (failureBlock) {
              failureBlock(error.code, error);
@@ -163,42 +181,26 @@ SINGLETON_MACRO
     
 }
 
-- (void)unlikeProductWithProductID:(NSNumber *)productID
++ (void)unlikeProductWithProductID:(NSNumber *)productID
                     onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
-                   andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock{
-    NSDictionary *params = @{@"access_token" : [[TMEUserManager sharedInstance] getAccessToken]};
-    NSString *path = [NSString stringWithFormat:@"%@%@%@/%@%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, productID, API_LIKES];
-    [[TMEHTTPClient sharedClient] deletePath:path
-                                  parameters:params
-                                     success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-     }
-                                     failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-         if (failureBlock) {
-             failureBlock(error.code, error);
-         }
-     }];
-    
-}
-
-#pragma marks - Fake functions to handle products.
-- (NSArray *)fakeGetAllStoredProducts
+                      failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
-    return [TMEProduct MR_findAll];
+    NSString *path = [NSString stringWithFormat:@"%@/%@%@", API_PRODUCTS, productID, API_LIKES];
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:nil
+                                                     method:DELETE_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
+    {
+        if (successBlock) {
+            successBlock(nil);
+        }
+    }
+                                                    failure:^(NSError *error)
+    {
+        if (failureBlock) {
+            failureBlock(error.code, error);
+        }
+    }];
 }
-
-- (NSArray *)fakeGetAllStoredProductsSellByUser:(TMEUser *)user
-{
-    return [TMEProduct MR_findByAttribute:@"user = " withValue:user];
-}
-
-- (NSArray *)fakeGetAllStoredProductsInCategory:(TMECategory *)category
-{
-    return [TMEProduct MR_findByAttribute:@"category = " withValue:category];
-}
-
-#pragma marks - Helper Methods
-
 
 @end

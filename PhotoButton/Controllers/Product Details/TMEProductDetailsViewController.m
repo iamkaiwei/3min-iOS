@@ -59,7 +59,7 @@
 
 - (void)loadProductDetail{
     NSArray *arrayImageView = @[self.imgProductImage1, self.imgProductImage2, self.imgProductImage3, self.imgProductImage4];
- 
+    
     // user
     self.imgUserAvatar.image = nil;
     [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:self.product.user.photo_url] placeholderImage:nil];
@@ -92,7 +92,7 @@
     self.lblProductLocation.text = self.product.venue_name;
     self.lblProductDescription.text = self.product.details;
     [self.lblProductDescription sizeToFitKeepWidth];
-//    self.viewBottomDetail.height = CGRectGetMaxY(self.lblProductDescription.frame);
+    //    self.viewBottomDetail.height = CGRectGetMaxY(self.lblProductDescription.frame);
     [self.labelBottom sizeToFitKeepHeight];
     
     //If view chat to buy wrapper is hidden
@@ -151,41 +151,41 @@
     [TMEConversationManager createConversationWithProductID:self.product.id
                                                    toUserID:self.product.user.id
                                              onSuccessBlock:^(TMEConversation *conversation)
-    {
-        [self.labelChatToBuy stopAnimating];
-        self.conversation = conversation;
-        self.firstTimeOffer = NO;
-        
-        if([conversation.offer isEqualToNumber:@0])
-            self.firstTimeOffer = YES;
-        
-        UIViewController *viewController = [self controllerForNextStep];
-        self.hidesBottomBarWhenPushed = NO;
-        [self.navigationController pushViewController:viewController animated:YES];
-    }
-                                            failureBlock:^(NSInteger statusCode, id obj)
-    {
-        [self.labelChatToBuy stopAnimating];
-        self.firstTimeOffer = NO;
-    }];
+     {
+         [self.labelChatToBuy stopAnimating];
+         self.conversation = conversation;
+         self.firstTimeOffer = NO;
+         
+         if([conversation.offer isEqualToNumber:@0])
+             self.firstTimeOffer = YES;
+         
+         UIViewController *viewController = [self controllerForNextStep];
+         self.hidesBottomBarWhenPushed = NO;
+         [self.navigationController pushViewController:viewController animated:YES];
+     }
+                                               failureBlock:^(NSInteger statusCode, id obj)
+     {
+         [self.labelChatToBuy stopAnimating];
+         self.firstTimeOffer = NO;
+     }];
 }
 
 - (IBAction)onBtnLike:(id)sender {
     self.btnFollow.selected = !self.product.likedValue;
     
     if (!self.product.likedValue) {
-        [[TMEProductsManager sharedInstance] likeProductWithProductID:self.product.id
-                                                       onSuccessBlock:nil
-                                                      andFailureBlock:nil];
+        [TMEProductsManager likeProductWithProductID:self.product.id
+                                      onSuccessBlock:nil
+                                        failureBlock:nil];
         self.product.likedValue = YES;
         self.product.likesValue++;
         self.labelLikes.text = [@(self.labelLikes.text.integerValue + 1) stringValue];
         return;
     }
     
-    [[TMEProductsManager sharedInstance] unlikeProductWithProductID:self.product.id
-                                                     onSuccessBlock:nil
-                                                    andFailureBlock:nil];
+    [TMEProductsManager unlikeProductWithProductID:self.product.id
+                                    onSuccessBlock:nil
+                                      failureBlock:nil];
     self.product.likedValue = NO;
     self.product.likesValue--;
     self.labelLikes.text = [@(self.labelLikes.text.integerValue - 1) stringValue];

@@ -102,7 +102,7 @@ SINGLETON_MACRO
                         onSuccessBlock:(void (^)(NSArray *))successBlock
                        failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
     NSDictionary *params = @{@"page" : @(page)};
-    NSString *path = [NSString stringWithFormat:@"%@%@%@%@", API_SERVER_HOST, API_PREFIX, API_PRODUCTS, API_OFFER];
+    NSString *path = [NSString stringWithFormat:@"%@%@", API_PRODUCTS, API_OFFER];
     
     [[BaseNetworkManager sharedInstance] sendRequestForPath:path
                                                  parameters:params

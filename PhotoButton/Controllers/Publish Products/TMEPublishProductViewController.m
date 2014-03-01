@@ -79,10 +79,10 @@ UITextViewDelegate
     ((UIScrollView *)self.view).showsHorizontalScrollIndicator = NO;
     ((UIScrollView *)self.view).showsVerticalScrollIndicator = NO;
 
-    [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories) {
+    [TMECategoryManager getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories) {
         self.arrayCategories = arrayCategories;
         [self.pickerCategories reloadAllComponents];
-    } andFailureBlock:^(NSInteger statusCode, id obj) {
+    } failureBlock:^(NSInteger statusCode, id obj) {
         [SVProgressHUD showErrorWithStatus:@"Failure to load categories"];
     }];
 

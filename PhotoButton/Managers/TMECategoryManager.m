@@ -12,12 +12,11 @@
 
 SINGLETON_MACRO
 
-- (void)getAllCategoriesOnSuccessBlock:(void (^) (NSArray *arrayCategories))successBlock
-                      andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
++ (void)getAllCategoriesOnSuccessBlock:(void (^) (NSArray *arrayCategories))successBlock
+                      failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
-    NSMutableDictionary *params = [@{} mutableCopy];
     [[BaseNetworkManager sharedInstance] getServerListForModelClass:[TMECategory class]
-                                                         withParams:params
+                                                         withParams:nil
                                                           methodAPI:GET_METHOD
                                                            parentId:nil
                                                     withParentClass:nil

@@ -43,7 +43,7 @@ UICollectionViewDelegate
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    [self.collectionProductsView reloadData];
+    //    [self.collectionProductsView reloadData];
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -113,9 +113,10 @@ UICollectionViewDelegate
     }
     
     if (self.currentCategory) {
+        self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
         if ([self.currentCategory.id isEqualToNumber:@8]) {
-            [[TMEProductsManager sharedInstance] getPopularProductswithPage:page
-                                                             onSuccessBlock:^(NSArray *arrProducts)
+            [TMEProductsManager getPopularProductsWithPage:page
+                                            onSuccessBlock:^(NSArray *arrProducts)
              {
                  [self handlePagingWithResponseArray:arrProducts currentPage:page];
                  
@@ -125,17 +126,16 @@ UICollectionViewDelegate
                  [self.collectionProductsView reloadData];
                  [self.pullToRefreshView endRefreshing];
              }
-                                                            andFailureBlock:^(NSInteger statusCode, id obj)
+                                              failureBlock:^(NSInteger statusCode, id obj)
              {
                  [self.pullToRefreshView endRefreshing];
              }];
             return;
         }
-        self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
         
-        [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
-                                                          withPage:page
-                                                    onSuccessBlock:^(NSArray *arrProducts)
+        [TMEProductsManager getProductsOfCategory:self.currentCategory
+                                         withPage:page
+                                   onSuccessBlock:^(NSArray *arrProducts)
          {
              [self handlePagingWithResponseArray:arrProducts currentPage:page];
              
@@ -145,26 +145,27 @@ UICollectionViewDelegate
              [self.collectionProductsView reloadData];
              [self.pullToRefreshView endRefreshing];
          }
-                                                   andFailureBlock:^(NSInteger statusCode, id obj)
+                                     failureBlock:^(NSInteger statusCode, id obj)
          {
              [self.pullToRefreshView endRefreshing];
          }];
-    } else {
-        [[TMEProductsManager sharedInstance] getAllProductsWihPage:page
-                                                    onSuccessBlock:^(NSArray *arrProducts)
-         {
-             [self handlePagingWithResponseArray:arrProducts currentPage:page];
-             
-             self.arrayProducts = [[self.arrayProducts arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
-             self.arrayProducts = [[self.arrayProducts sortByAttribute:@"created_at" ascending:NO] mutableCopy];
-             
-             [self.collectionProductsView reloadData];
-             [self.pullToRefreshView endRefreshing];
-         }
-                                                   andFailureBlock:^(NSInteger statusCode, id obj) {
-                                                       [self.pullToRefreshView endRefreshing];
-                                                   }];
+        return;
     }
+    [TMEProductsManager getAllProductsWihPage:page
+                               onSuccessBlock:^(NSArray *arrProducts)
+     {
+         [self handlePagingWithResponseArray:arrProducts currentPage:page];
+         
+         self.arrayProducts = [[self.arrayProducts arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
+         self.arrayProducts = [[self.arrayProducts sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+         
+         [self.collectionProductsView reloadData];
+         [self.pullToRefreshView endRefreshing];
+     }
+                                 failureBlock:^(NSInteger statusCode, id obj)
+     {
+         [self.pullToRefreshView endRefreshing];
+     }];
 }
 
 #pragma mark - SSPullToRefreshView delegate

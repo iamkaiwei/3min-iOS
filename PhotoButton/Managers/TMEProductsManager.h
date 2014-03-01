@@ -10,37 +10,37 @@
 
 @interface TMEProductsManager : BaseManager
 
-- (NSArray *)fakeGetAllStoredProducts;
-- (void)getAllProductsWihPage:(NSInteger)page
++ (void)getAllProductsWihPage:(NSInteger)page
                onSuccessBlock:(void (^)(NSArray *arrayProducts))successBlock
-              andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                 failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)getProductsOfCategory:(TMECategory *)category
-                    withPage:(NSInteger)page
-              onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
-             andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
++ (void)getProductsOfCategory:(TMECategory *)category
+                     withPage:(NSInteger)page
+               onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                 failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)getPopularProductswithPage:(NSInteger)page
-                   onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
-                  andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
++ (void)getPopularProductsWithPage:(NSInteger)page
+                    onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                      failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)getSellingProductsOfCurrentUserOnPage:(NSInteger)page successBlock:(void (^) (NSArray *arrayProducts))successBlock
++ (void)getSellingProductsOfCurrentUserOnPage:(NSInteger)page
+                                 successBlock:(void (^) (NSArray *arrayProducts))successBlock
                                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)putSoldOutWithProductID:(NSNumber *)productID
++ (void)putSoldOutWithProductID:(NSNumber *)productID
                  onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
-                andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                   failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)getLikedProductOnPage:(NSInteger)page
++ (void)getLikedProductOnPage:(NSInteger)page
                  successBlock:(void (^) (NSArray *))successBlock
                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)likeProductWithProductID:(NSNumber *)productID
++ (void)likeProductWithProductID:(NSNumber *)productID
                   onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
-                 andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                    failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
-- (void)unlikeProductWithProductID:(NSNumber *)productID
++ (void)unlikeProductWithProductID:(NSNumber *)productID
                     onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
-                   andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                      failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 @end

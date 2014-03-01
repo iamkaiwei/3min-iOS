@@ -331,8 +331,8 @@ UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex) {
-        [[TMEProductsManager sharedInstance] putSoldOutWithProductID:self.product.id onSuccessBlock:nil
-                                                     andFailureBlock:nil];
+        [TMEProductsManager putSoldOutWithProductID:self.product.id onSuccessBlock:nil
+                                                     failureBlock:nil];
     }
 }
 

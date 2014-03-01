@@ -81,8 +81,8 @@
         return;
     }
     
-    [[TMEProductsManager sharedInstance] getLikedProductOnPage:page
-                                                  successBlock:^(NSArray *arrayProduct)
+    [TMEProductsManager getLikedProductOnPage:page
+                                 successBlock:^(NSArray *arrayProduct)
      {
          [self handlePagingWithResponseArray:arrayProduct currentPage:page];
          
@@ -91,7 +91,7 @@
          
          [self reloadTableViewLikedProduct];
      }
-                                                  failureBlock:^(NSInteger statusCode, NSError *error)
+                                 failureBlock:^(NSInteger statusCode, NSError *error)
      {
          [self finishLoading];
      }];
@@ -107,7 +107,7 @@
     if (![self isReachable]) {
         return;
     }
-
+    
     [self loadLikedProductWithPage:1];
 }
 

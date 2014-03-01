@@ -51,7 +51,7 @@
     TMECategory *category = [self.dataArray objectAtIndex:indexPath.row];
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
     [userInfo setObject:category forKey:@"category"];
-
+    
     [self.viewDeckController closeLeftView];
     
     UITabBarController *tabbarVC = (UITabBarController *)self.viewDeckController.centerController;
@@ -72,13 +72,16 @@
         return;
     }
     
-    [[TMECategoryManager sharedInstance] getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories) {
-        self.dataArray = [arrayCategories mutableCopy];
-        self.dataArray = [self.dataArray reverse];
-        [self setUpTableView];
-    } andFailureBlock:^(NSInteger statusCode, id obj) {
-        DLog(@"%d", statusCode);
-    }];
+    [TMECategoryManager getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories)
+     {
+         self.dataArray = [arrayCategories mutableCopy];
+         self.dataArray = [self.dataArray reverse];
+         [self setUpTableView];
+     }
+                                          failureBlock:^(NSInteger statusCode, id obj)
+     {
+         DLog(@"%d", statusCode);
+     }];
 }
 
 - (void)handleStatusBarAnimation{

@@ -31,7 +31,7 @@ TMEBrowserProductsTableCellDelegate
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.topItem.title = @"Browse Products";
-
+    
     [self.labelAnimated startAnimating];
     [self setUpCircleProgressIndicator];
     [self enablePullToRefresh];
@@ -113,28 +113,28 @@ TMEBrowserProductsTableCellDelegate
     
     if (self.currentCategory) {
         if ([self.currentCategory.id isEqualToNumber:@8]) {
-            [[TMEProductsManager sharedInstance] getPopularProductswithPage:page
-                                                             onSuccessBlock:^(NSArray *arrProducts)
-            {
-                [self handlePagingWithResponseArray:arrProducts currentPage:page];
-                [self hidePlaceHolder];
-                
-                self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
-                self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
-                
-                [self setUpTableView];
-                [self finishLoading];
-                [self paddingScrollWithTop];
-            }
-                                                            andFailureBlock:^(NSInteger statusCode, id obj)
-            {
-                [self finishLoading];
-            }];
+            [TMEProductsManager getPopularProductsWithPage:page
+                                            onSuccessBlock:^(NSArray *arrProducts)
+             {
+                 [self handlePagingWithResponseArray:arrProducts currentPage:page];
+                 [self hidePlaceHolder];
+                 
+                 self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
+                 self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+                 
+                 [self setUpTableView];
+                 [self finishLoading];
+                 [self paddingScrollWithTop];
+             }
+                                              failureBlock:^(NSInteger statusCode, id obj)
+             {
+                 [self finishLoading];
+             }];
             return;
         }
-        [[TMEProductsManager sharedInstance] getProductsOfCategory:self.currentCategory
-                                                          withPage:page
-                                                    onSuccessBlock:^(NSArray *arrProducts)
+        [TMEProductsManager getProductsOfCategory:self.currentCategory
+                                         withPage:page
+                                   onSuccessBlock:^(NSArray *arrProducts)
          {
              [self handlePagingWithResponseArray:arrProducts currentPage:page];
              [self hidePlaceHolder];
@@ -145,14 +145,14 @@ TMEBrowserProductsTableCellDelegate
              [self setUpTableView];
              [self finishLoading];
              [self paddingScrollWithTop];
-         } andFailureBlock:^(NSInteger statusCode, id obj) {
+         } failureBlock:^(NSInteger statusCode, id obj) {
              [self finishLoading];
          }];
         return;
     }
     
-    [[TMEProductsManager sharedInstance] getAllProductsWihPage:page
-                                                onSuccessBlock:^(NSArray *arrProducts)
+    [TMEProductsManager getAllProductsWihPage:page
+                               onSuccessBlock:^(NSArray *arrProducts)
      {
          [self handlePagingWithResponseArray:arrProducts currentPage:page];
          [self hidePlaceHolder];
@@ -163,7 +163,9 @@ TMEBrowserProductsTableCellDelegate
          [self setUpTableView];
          [self finishLoading];
          [self paddingScrollWithTop];
-     } andFailureBlock:^(NSInteger statusCode, id obj) {
+     }
+                                 failureBlock:^(NSInteger statusCode, id obj)
+     {
          [self finishLoading];
      }];
     
@@ -222,11 +224,11 @@ TMEBrowserProductsTableCellDelegate
     sender.selected = !currentCellProduct.likedValue;
     
     if (!currentCellProduct.likedValue) {
-        [[TMEProductsManager sharedInstance] likeProductWithProductID:currentCellProduct.id
-                                                       onSuccessBlock:nil                                                  andFailureBlock:^(NSInteger statusCode, NSError *error)
-        {
-            [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:NO];
-        }];
+        [TMEProductsManager likeProductWithProductID:currentCellProduct.id
+                                      onSuccessBlock:nil                                                  failureBlock:^(NSInteger statusCode, NSError *error)
+         {
+             [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:NO];
+         }];
         
         currentCellProduct.likedValue = YES;
         currentCellProduct.likesValue++;
@@ -235,11 +237,11 @@ TMEBrowserProductsTableCellDelegate
         return;
     }
     
-    [[TMEProductsManager sharedInstance] unlikeProductWithProductID:currentCellProduct.id
-                                                     onSuccessBlock:nil                                                  andFailureBlock:^(NSInteger statusCode, NSError *error)
-    {
-        [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:YES];
-    }];
+    [TMEProductsManager unlikeProductWithProductID:currentCellProduct.id
+                                    onSuccessBlock:nil                                                  failureBlock:^(NSInteger statusCode, NSError *error)
+     {
+         [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:YES];
+     }];
     
     currentCellProduct.likedValue = NO;
     currentCellProduct.likesValue--;
