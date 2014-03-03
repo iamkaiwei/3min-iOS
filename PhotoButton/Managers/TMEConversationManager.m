@@ -100,7 +100,7 @@ SINGLETON_MACRO
 
 + (void)getOfferedConversationWithPage:(NSInteger)page
                         onSuccessBlock:(void (^)(NSArray *))successBlock
-                       failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+                          failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
     NSDictionary *params = @{@"page" : @(page)};
     NSString *path = [NSString stringWithFormat:@"%@%@", API_PRODUCTS, API_OFFER];
     
@@ -122,13 +122,36 @@ SINGLETON_MACRO
      }];
 };
 
++ (void)getListOffersOfProduct:(TMEProduct *)product
+                onSuccessBlock:(void (^)(NSArray *))successBlock
+                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+    NSString *path = [NSString stringWithFormat:@"%@/%@%@", API_PRODUCTS, product.id, API_SHOW_OFFER];
+    
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:nil
+                                                     method:GET_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
+     {
+         if (successBlock) {
+             NSArray *arrayConversation = [TMEConversation arrayConversationFromArrayData:responseObject];
+             successBlock(arrayConversation);
+         }
+     }
+                                                    failure:^(NSError *error)
+     {
+         if (failureBlock) {
+             failureBlock(error.code, error);
+         }
+     }];
+};
+
 + (void)createConversationWithProductID:(NSNumber *)productID
                                toUserID:(NSNumber *)userID
                          onSuccessBlock:(void (^)(TMEConversation *))successBlock
-                        failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+                           failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
     NSDictionary *params = @{@"product_id" : productID,
                              @"to" : userID};
-
+    
     [[BaseNetworkManager sharedInstance] sendRequestForPath:API_CONVERSATIONS
                                                  parameters:params
                                                      method:POST_METHOD

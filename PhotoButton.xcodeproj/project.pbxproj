@@ -30,6 +30,10 @@
 		0BAACBCF18BB47F700162311 /* TMESearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BAACBCE18BB47F700162311 /* TMESearchTableViewCell.m */; };
 		0BAACBD118BB480E00162311 /* TMESearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BAACBD018BB480E00162311 /* TMESearchTableViewCell.xib */; };
 		0BABFE9518C441BC00F95ACC /* TMEBrowserCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BABFE9418C441BC00F95ACC /* TMEBrowserCollectionViewDataSource.m */; };
+		0BABFE9D18C4723C00F95ACC /* TMEListOffersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BABFE9B18C4723C00F95ACC /* TMEListOffersTableViewController.m */; };
+		0BABFE9E18C4723C00F95ACC /* TMEListOffersTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BABFE9C18C4723C00F95ACC /* TMEListOffersTableViewController.xib */; };
+		0BABFEA118C4735100F95ACC /* TMEListOffersTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BABFEA018C4735100F95ACC /* TMEListOffersTableViewCell.m */; };
+		0BABFEA318C4736000F95ACC /* TMEListOffersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BABFEA218C4736000F95ACC /* TMEListOffersTableViewCell.xib */; };
 		0C2F789A17F2DD1F00201783 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2F789917F2DD1F00201783 /* ImageIO.framework */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
 		0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48B717D1C08F00DC7482 /* libz.1.2.5.dylib */; };
@@ -222,6 +226,12 @@
 		0BAACBD018BB480E00162311 /* TMESearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMESearchTableViewCell.xib; sourceTree = "<group>"; };
 		0BABFE9318C441BC00F95ACC /* TMEBrowserCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserCollectionViewDataSource.h; sourceTree = "<group>"; };
 		0BABFE9418C441BC00F95ACC /* TMEBrowserCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserCollectionViewDataSource.m; sourceTree = "<group>"; };
+		0BABFE9A18C4723C00F95ACC /* TMEListOffersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEListOffersTableViewController.h; path = "List Offers/TMEListOffersTableViewController.h"; sourceTree = "<group>"; };
+		0BABFE9B18C4723C00F95ACC /* TMEListOffersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEListOffersTableViewController.m; path = "List Offers/TMEListOffersTableViewController.m"; sourceTree = "<group>"; };
+		0BABFE9C18C4723C00F95ACC /* TMEListOffersTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEListOffersTableViewController.xib; path = "List Offers/TMEListOffersTableViewController.xib"; sourceTree = "<group>"; };
+		0BABFE9F18C4735100F95ACC /* TMEListOffersTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEListOffersTableViewCell.h; sourceTree = "<group>"; };
+		0BABFEA018C4735100F95ACC /* TMEListOffersTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEListOffersTableViewCell.m; sourceTree = "<group>"; };
+		0BABFEA218C4736000F95ACC /* TMEListOffersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEListOffersTableViewCell.xib; sourceTree = "<group>"; };
 		0C2F789917F2DD1F00201783 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		0C5C936817EA162100ECF9B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0C7EFBEE17E8D86E0054C4DE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -601,6 +611,19 @@
 			name = "Refresh Control";
 			sourceTree = "<group>";
 		};
+		0BABFE9918C4721100F95ACC /* List Offers */ = {
+			isa = PBXGroup;
+			children = (
+				0BABFE9A18C4723C00F95ACC /* TMEListOffersTableViewController.h */,
+				0BABFE9B18C4723C00F95ACC /* TMEListOffersTableViewController.m */,
+				0BABFE9C18C4723C00F95ACC /* TMEListOffersTableViewController.xib */,
+				0BABFE9F18C4735100F95ACC /* TMEListOffersTableViewCell.h */,
+				0BABFEA018C4735100F95ACC /* TMEListOffersTableViewCell.m */,
+				0BABFEA218C4736000F95ACC /* TMEListOffersTableViewCell.xib */,
+			);
+			name = "List Offers";
+			sourceTree = "<group>";
+		};
 		0C28B28717DC1A1400BD0EC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -951,6 +974,7 @@
 		B49025A218B9232D00B00671 /* Product Details */ = {
 			isa = PBXGroup;
 			children = (
+				0BABFE9918C4721100F95ACC /* List Offers */,
 				B49025A318B9232D00B00671 /* TMEProductDetailsViewController.h */,
 				B49025A418B9232D00B00671 /* TMEProductDetailsViewController.m */,
 				B49025A518B9232D00B00671 /* TMEProductDetailsViewController.xib */,
@@ -1361,6 +1385,7 @@
 				B490275118B9232E00B00671 /* TMEOfferedTableViewCell.xib in Resources */,
 				B490275318B9232E00B00671 /* TMEOfferedViewController.xib in Resources */,
 				B490276218B9232E00B00671 /* TMESearchViewController.xib in Resources */,
+				0BABFE9E18C4723C00F95ACC /* TMEListOffersTableViewController.xib in Resources */,
 				B490274B18B9232E00B00671 /* TMELikedViewController.xib in Resources */,
 				B490280118B92A5500B00671 /* Images.xcassets in Resources */,
 				B4255A5F18B9FA6A0022B3A5 /* PublishLocationPickerViewController.xib in Resources */,
@@ -1389,6 +1414,7 @@
 				B490276618B9232E00B00671 /* TMESubmitTableCellRight.xib in Resources */,
 				B490278B18B9232F00B00671 /* InfoPlist.strings in Resources */,
 				B490274918B9232E00B00671 /* TMELikedTableViewCell.xib in Resources */,
+				0BABFEA318C4736000F95ACC /* TMEListOffersTableViewCell.xib in Resources */,
 				B490273618B9232E00B00671 /* TMEBrowserProductsViewController.xib in Resources */,
 				B490274318B9232E00B00671 /* TMELeftMenuViewController.xib in Resources */,
 				B490274F18B9232E00B00671 /* TMEMyListingViewController.xib in Resources */,
@@ -1459,11 +1485,13 @@
 				B490273818B9232E00B00671 /* TMEBrowserProductTableViewHeader.m in Sources */,
 				B490275418B9232E00B00671 /* TMEMeTableViewCell.m in Sources */,
 				B490276F18B9232E00B00671 /* TMETutorialViewController.m in Sources */,
+				0BABFEA118C4735100F95ACC /* TMEListOffersTableViewCell.m in Sources */,
 				B490275E18B9232E00B00671 /* TMEPublishProductViewController.m in Sources */,
 				B490271418B9232E00B00671 /* NSObject+Additions.m in Sources */,
 				B490274C18B9232E00B00671 /* TMEMyListingTableViewCell.m in Sources */,
 				0B7F442218BB2E9A000777BF /* JZRefreshControl.m in Sources */,
 				B490271F18B9232E00B00671 /* UIColor+Additions.m in Sources */,
+				0BABFE9D18C4723C00F95ACC /* TMEListOffersTableViewController.m in Sources */,
 				B490274A18B9232E00B00671 /* TMELikedViewController.m in Sources */,
 				B490275C18B9232E00B00671 /* TMEProductDetailsViewController.m in Sources */,
 				B490277318B9232E00B00671 /* FacebookManager.m in Sources */,

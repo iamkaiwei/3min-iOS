@@ -50,11 +50,11 @@
                         <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock-icon.png" id="cpC-Rg-8UG">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock-icon" id="cpC-Rg-8UG">
                         <rect key="frame" x="157" y="40" width="18" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_chat.png" id="SpN-by-h9e">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_chat" id="SpN-by-h9e">
                         <rect key="frame" x="67" y="15" width="28" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
@@ -79,7 +79,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="clock-icon.png" width="17" height="17"/>
-        <image name="icon_chat.png" width="22" height="19"/>
+        <image name="clock-icon" width="17" height="17"/>
+        <image name="icon_chat" width="22" height="19"/>
     </resources>
 </document>

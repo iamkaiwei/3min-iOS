@@ -49,8 +49,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     TMEProductDetailsViewController *productDetailsController = [[TMEProductDetailsViewController alloc] init];
-    NSInteger row = indexPath.row;
-    productDetailsController.product = self.dataArray[row];
+    productDetailsController.product = self.dataArray[indexPath.row];
     productDetailsController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:productDetailsController animated:YES];
 }

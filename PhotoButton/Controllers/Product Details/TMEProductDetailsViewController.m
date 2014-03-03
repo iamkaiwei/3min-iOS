@@ -8,6 +8,7 @@
 
 #import "TMEOfferViewController.h"
 #import "TMESubmitViewController.h"
+#import "TMEListOffersTableViewController.h"
 
 @interface TMEProductDetailsViewController ()
 
@@ -93,20 +94,19 @@
     [self.lblProductDescription sizeToFitKeepWidth];
     //    self.viewBottomDetail.height = CGRectGetMaxY(self.lblProductDescription.frame);
     [self.labelBottom sizeToFitKeepHeight];
+
+    [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
     
-    //If view chat to buy wrapper is hidden
     if([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id])
     {
-        self.viewChatToBuyWrapper.hidden = YES;
-        self.scrollViewProductDetail.frame = self.view.frame;
+        self.labelChatToBuy.text = @"View Offers";
+        return;
     }
     
     if (self.product.sold_outValue) {
         self.labelChatToBuy.text = @"Sold";
         self.btnChatToBuy.enabled = NO;
     }
-    
-    [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
 }
 
 - (void)setUpView
@@ -140,6 +140,13 @@
         [SVProgressHUD showErrorWithStatus:@"No connection!"];
         return;
     }
+    if ([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
+        TMEListOffersTableViewController *listOfferTableViewController = [[TMEListOffersTableViewController alloc] init];
+        listOfferTableViewController.product = self.product;
+        [self.navigationController pushViewController:listOfferTableViewController animated:YES];
+        return;
+    }
+    
     [self checkFirstTimeOffer];
 }
 
