@@ -6,9 +6,7 @@
 //
 //
 
-#import "TMEProductDetailsViewController.h"
 #import "TMEOfferViewController.h"
-#import "TMECircleProgressIndicator.h"
 #import "TMESubmitViewController.h"
 
 @interface TMEProductDetailsViewController ()
@@ -61,8 +59,7 @@
     NSArray *arrayImageView = @[self.imgProductImage1, self.imgProductImage2, self.imgProductImage3, self.imgProductImage4];
     
     // user
-    self.imgUserAvatar.image = nil;
-    [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:self.product.user.photo_url] placeholderImage:nil];
+    [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:self.product.user.photo_url]];
     self.lblUserName.text = self.product.user.fullname;
     self.lblTimestamp.text = [self.product.created_at relativeDate];
     

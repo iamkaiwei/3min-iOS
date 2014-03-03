@@ -30,6 +30,11 @@ UIAlertViewDelegate
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"You Offer";
+    [self setUpView];
+    [self disableBottomTranslucent];
+}
+
+- (void)setUpView{
     self.navigationItem.rightBarButtonItem = [self rightNavigationButtonSubmit];
     self.labelDetail.text = [NSString stringWithFormat:@"%@ is selling it for $%@", self.product.user.fullname, self.product.price];
     
@@ -38,7 +43,6 @@ UIAlertViewDelegate
     [self.labelPriceOffer alignHorizontalCenterToView:self.view];
     
     self.txtPrice.text = @"";
-    [self disableBottomTranslucent];
 }
 
 - (IBAction)onBtnChangePrice:(id)sender {
@@ -64,9 +68,9 @@ UIAlertViewDelegate
          submitController.conversation = self.conversation;
          [self.navigationController pushViewController:submitController animated:YES];
      }
-                                             failureBlock:^(NSInteger statusCode, id obj)
+                                             failureBlock:^(NSInteger statusCode, NSError *error)
      {
-         DLog(@"%d", statusCode);
+         [self failureBlockHandleWithError:error];
      }];
 }
 
@@ -175,7 +179,11 @@ UIAlertViewDelegate
 }
 
 - (void)showSubmitAlert{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm Offer" message:@"Do you want to offer with original price?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm Offer"
+                                                    message:@"Do you want to offer with original price?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"No"
+                                          otherButtonTitles:@"Yes", nil];
     [alert show];
 }
 
@@ -185,7 +193,6 @@ UIAlertViewDelegate
         [self setOfferPriceToConversation];
     }
 }
-
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self performSelector:@selector(onDoneButton:) withObject:self.navigationItem.rightBarButtonItem];

@@ -22,7 +22,6 @@ UITextViewDelegate,
 UIAlertViewDelegate
 >
 
-@property (strong, nonatomic)            NSMutableArray                         * arrayReply;
 @property (strong, nonatomic) IBOutlet   UIScrollView                           * scrollViewContent;
 @property (weak, nonatomic)   IBOutlet   UIImageView                            * imageViewProduct;
 @property (weak, nonatomic)   IBOutlet   UILabel                                * lblProductName;
@@ -30,20 +29,13 @@ UIAlertViewDelegate
 @property (weak, nonatomic)   IBOutlet   UILabel                                * lblPriceOffered;
 @property (weak, nonatomic)   IBOutlet   UILabel                                * lblDealLocation;
 @property (weak, nonatomic)   IBOutlet   UITextView                             * textViewInputMessage;
-@property (strong, nonatomic) TMESubmitViewControllerArrayDataSource *repliesArrayDataSource;
+@property (strong, nonatomic) TMESubmitViewControllerArrayDataSource            * repliesArrayDataSource;
 @property (weak, nonatomic) IBOutlet UIButton *buttonMarkAsSold;
 
 
 @end
 
 @implementation TMESubmitViewController
-
-- (NSMutableArray *)arrayReply{
-    if (!_arrayReply) {
-        _arrayReply = [NSMutableArray array];
-    }
-    return _arrayReply;
-}
 
 #pragma mark - View controller life cycle
 
@@ -53,25 +45,21 @@ UIAlertViewDelegate
     [self registerForKeyboardNotifications];
     [self disableBottomTranslucent];
     self.textViewInputMessage.delegate = self;
+    [self getCacheMessage];
+    [self loadProductDetail];
+    
+    [self loadMessageWithReplyIDWithPage:1
+                              showBottom:YES];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadMessageNotification:)
                                                  name:NOTIFICATION_RELOAD_CONVERSATION
                                                object:nil];
-    [self getCacheMessage];
-    [self loadProductDetail];
-    
-    if (!self.arrayReply.count) {
-        [self.pullToRefreshView beginRefreshing];
-    }
-    
-    [self loadMessageWithReplyIDWithPage:1
-                              showBottom:YES];
     
 }
 
 - (void)setUpTableView{
-    self.repliesArrayDataSource = [[TMESubmitViewControllerArrayDataSource alloc] initWithItems:self.arrayReply cellIdentifier:[TMESubmitTableCell kind] cellRightIdentifier:[TMESubmitTableCellRight kind] conversation:self.conversation paging:self.paging];
+    self.repliesArrayDataSource = [[TMESubmitViewControllerArrayDataSource alloc] initWithItems:self.dataArray cellIdentifier:[TMESubmitTableCell kind] cellRightIdentifier:[TMESubmitTableCellRight kind] conversation:self.conversation paging:self.paging];
     
     self.tableView.dataSource = self.repliesArrayDataSource;
     [self.tableView reloadData];
@@ -89,7 +77,7 @@ UIAlertViewDelegate
         TMELoadMoreTableViewCell *cell = (TMELoadMoreTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
         [cell startLoading];
         
-        NSInteger previousPage = self.arrayReply.count/10 + 1;
+        NSInteger previousPage = self.dataArray.count/10 + 1;
         [self loadMessageWithReplyIDWithPage:previousPage
                                   showBottom:NO];
     }
@@ -104,11 +92,11 @@ UIAlertViewDelegate
     TMEReply *reply;
     
     if (self.paging) {
-        reply = self.arrayReply[indexPath.row - 1];
+        reply = self.dataArray[indexPath.row - 1];
         return [cell getHeightWithContent:reply.reply];
     }
     
-    reply = self.arrayReply[indexPath.row];
+    reply = self.dataArray[indexPath.row];
     return [cell getHeightWithContent:reply.reply];
 }
 
@@ -120,26 +108,26 @@ UIAlertViewDelegate
     }
     
     TMEReply *reply = [TMEReply replyPendingWithContent:self.textViewInputMessage.text];
-    [self.arrayReply addObject:reply];
+    [self.dataArray addObject:reply];
     [self reloadTableViewConversationShowBottom:YES];
     
     NSInteger lastestReplyID = [self getLastestReplyID];
     [TMEConversationManager postReplyToConversation:[self.conversation.id intValue]
-                                                         withMessage:self.textViewInputMessage.text
-                                                      onSuccessBlock:^(NSString *status)
-    {
-        if ([status isEqualToString:@"success"]) {
-            [self loadMessageWithReplyIDLargerID:lastestReplyID
-                                     orSmallerID:0
-                                        withPage:1
-                                      showBottom:YES];
-        }
-                                                      }
-                                                     failureBlock:^(NSInteger statusCode, id obj)
-    {
-        [self.arrayReply removeLastObject];
-        DLog(@"Error: %d", statusCode);
-    }];
+                                        withMessage:self.textViewInputMessage.text
+                                     onSuccessBlock:^(NSString *status)
+     {
+         if ([status isEqualToString:@"success"]) {
+             [self loadMessageWithReplyIDLargerID:lastestReplyID
+                                      orSmallerID:0
+                                         withPage:1
+                                       showBottom:YES];
+         }
+     }
+                                       failureBlock:^(NSInteger statusCode, NSError *error)
+     {
+         [self.dataArray removeLastObject];
+         [self failureBlockHandleWithError:error];
+     }];
 }
 
 #pragma mark - Load message
@@ -154,22 +142,22 @@ UIAlertViewDelegate
     }
     
     [TMEConversationManager getRepliesOfConversationID:[self.conversation.id intValue]
-                                                                     largerReplyID:largerReplyID
-                                                                            smallerReplyID:smallerReplyID
-                                                                               withPage:page
-                                                                         onSuccessBlock:^(TMEConversation *conversation)
+                                         largerReplyID:largerReplyID
+                                        smallerReplyID:smallerReplyID
+                                              withPage:page
+                                        onSuccessBlock:^(TMEConversation *conversation)
      {
          self.paging = NO;
          self.conversation = conversation;
-         self.arrayReply = [[conversation.repliesSet allObjects] mutableCopy];
-         if (self.arrayReply.count % 10 == 0 && self.arrayReply.count)
+         self.dataArray = [[conversation.repliesSet allObjects] mutableCopy];
+         if (self.dataArray.count % 10 == 0 && self.dataArray.count)
              self.paging = YES;
-         self.arrayReply = [[self.arrayReply sortByAttribute:@"id" ascending:YES] mutableCopy];
+         self.dataArray = [[self.dataArray sortByAttribute:@"id" ascending:YES] mutableCopy];
          [self reloadTableViewConversationShowBottom:showBottom];
      }
-                                                                        failureBlock:^(NSInteger statusCode,id obj)
+                                          failureBlock:^(NSInteger statusCode, NSError *error)
      {
-         return DLog(@"%d", statusCode);
+         [self failureBlockHandleWithError:error];
      }];
 }
 
@@ -177,13 +165,13 @@ UIAlertViewDelegate
                             showBottom:(BOOL)showBottom
 {
     [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:page showBottom:showBottom];
-
+    
 }
 
 #pragma mark - Helper method
 
 - (NSInteger)getLastestReplyID{
-    TMEReply *reply = (TMEReply *)[self.arrayReply lastObject];
+    TMEReply *reply = (TMEReply *)[self.dataArray lastObject];
     return [reply.id integerValue];
 }
 
@@ -193,6 +181,7 @@ UIAlertViewDelegate
         [self.buttonMarkAsSold setTitle:@"Sold" forState:UIControlStateNormal];
         return;
     }
+    
     if (![self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
         self.buttonMarkAsSold.enabled = NO;
         [self.buttonMarkAsSold setTitle:@"Selling" forState:UIControlStateNormal];
@@ -203,14 +192,12 @@ UIAlertViewDelegate
     if ([self.textViewInputMessage respondsToSelector:@selector(setTintColor:)]) {
         [self.textViewInputMessage setTintColor:[UIColor orangeMainColor]];
     }
-    
     self.lblProductName.text = self.product.name;
     self.lblProductPrice.text = [NSString stringWithFormat:@"$%@",self.product.price];
     
     [self.imageViewProduct setImageWithURL:[NSURL URLWithString:[[[self.product.images allObjects] lastObject] thumb]]];
     
     self.lblPriceOffered.text = [NSString stringWithFormat:@"$%@",self.conversation.offer];
-    
     [self handleMarkAsSoldButtonTitle];
 }
 
@@ -237,9 +224,9 @@ UIAlertViewDelegate
 
 - (void)getCacheMessage{
     self.conversation = [[TMEConversation MR_findByAttribute:@"id" withValue:self.conversation.id] lastObject];
-    self.arrayReply = [[self.conversation.repliesSet allObjects] mutableCopy];
-    if (self.arrayReply.count) {
-        self.arrayReply = [[self.arrayReply sortByAttribute:@"id" ascending:YES] mutableCopy];
+    self.dataArray = [[self.conversation.repliesSet allObjects] mutableCopy];
+    if (self.dataArray.count) {
+        self.dataArray = [[self.dataArray sortByAttribute:@"id" ascending:YES] mutableCopy];
         [self reloadTableViewConversationShowBottom:NO];
     }
 }
@@ -325,14 +312,19 @@ UIAlertViewDelegate
 }
 
 - (IBAction)btnMarkAsSoldPressed:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Do you want to Mark as sold your product?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm"
+                                                    message:@"Do you want to Mark as sold your product?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"No"
+                                          otherButtonTitles:@"Yes", nil];
     [alert show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex) {
-        [TMEProductsManager putSoldOutWithProductID:self.product.id onSuccessBlock:nil
-                                                     failureBlock:nil];
+        [TMEProductsManager putSoldOutWithProductID:self.product.id
+                                     onSuccessBlock:nil
+                                       failureBlock:nil];
     }
 }
 
@@ -344,7 +336,7 @@ UIAlertViewDelegate
         if (![TMEReachabilityManager sharedInstance].lastState) {
             [TSMessage showNotificationWithTitle:@"Connected" type:TSMessageNotificationTypeSuccess];
         }
-        [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:1 showBottom:YES];
+        [self loadMessageWithReplyIDWithPage:1 showBottom:YES];
         [TMEReachabilityManager sharedInstance].lastState = 1;
         return;
     }

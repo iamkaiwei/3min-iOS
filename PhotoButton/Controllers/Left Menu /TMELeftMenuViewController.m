@@ -8,7 +8,6 @@
 
 #import "TMELeftMenuViewController.h"
 #import "TMELeftMenuTableViewCell.h"
-#import "TMEHomeViewController.h"
 
 @interface TMELeftMenuViewController ()
 <IIViewDeckControllerDelegate>
@@ -28,10 +27,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        [self handleStatusBarAnimation];
-        [self.tableView setContentInset:UIEdgeInsetsMake(20, 0, 0, 0)];
-    }
+    [self handleStatusBarAnimation];
 }
 
 - (void)registerNibForTableView{
@@ -61,12 +57,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:CATEGORY_CHANGE_NOTIFICATION object:nil userInfo:userInfo];
 }
 
-- (void)viewDeckController:(IIViewDeckController *)viewDeckController didChangeOffset:(CGFloat)offset orientation:(IIViewDeckOffsetOrientation)orientation panning:(BOOL)panning{
-    CGFloat percentVisible = offset/276;
-    [self.statusBarView setAlpha:percentVisible];
-    [((TMEHomeViewController *)self.viewDeckController.centerController) setStatusBarViewAlpha:percentVisible];
-}
-
 - (void)getAllCategories{
     if (![self isReachable]) {
         return;
@@ -78,17 +68,31 @@
          self.dataArray = [self.dataArray reverse];
          [self setUpTableView];
      }
-                                          failureBlock:^(NSInteger statusCode, id obj)
+                                          failureBlock:^(NSInteger statusCode, NSError *error)
      {
-         DLog(@"%d", statusCode);
+         [self failureBlockHandleWithError:error];
      }];
 }
 
 - (void)handleStatusBarAnimation{
-    self.statusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];
-    [self.statusBarView setBackgroundColor:[UIColor blackColor]];
-    [self.statusBarView setAlpha:0.0];
-    [self.view addSubview:self.statusBarView];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        self.statusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];
+        [self.statusBarView setBackgroundColor:[UIColor blackColor]];
+        [self.statusBarView setAlpha:0.0];
+        [self.view addSubview:self.statusBarView];
+        
+        [self.tableView setContentInset:UIEdgeInsetsMake(20, 0, 0, 0)];
+    }
+}
+
+
+- (void)viewDeckController:(IIViewDeckController *)viewDeckController
+           didChangeOffset:(CGFloat)offset
+               orientation:(IIViewDeckOffsetOrientation)orientation
+                   panning:(BOOL)panning{
+    CGFloat percentVisible = offset/276;
+    [self.statusBarView setAlpha:percentVisible];
+    [((TMEHomeViewController *)self.viewDeckController.centerController) setStatusBarViewAlpha:percentVisible];
 }
 
 @end

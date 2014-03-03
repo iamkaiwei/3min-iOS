@@ -18,21 +18,8 @@
 
 @implementation TMEBrowserCollectionCell
 
-- (id)init
-{
-  self = [super init];
-  if (self) {
-    self.backgroundColor = [UIColor whiteColor];
-  }
-  
-  return self;
-}
-
 - (void)configCellWithData:(TMEProduct *)product
-{
-  self.backgroundColor = [UIColor whiteColor];
-  self.imgProduct.image = nil;
-  
+{  
   NSArray *images = [product.images allObjects];
   
   if (images.count > 0) {

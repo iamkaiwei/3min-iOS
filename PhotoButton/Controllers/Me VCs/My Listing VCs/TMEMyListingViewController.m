@@ -87,14 +87,12 @@
                                                  successBlock:^(NSArray *arrayProduct)
      {
          [self handlePagingWithResponseArray:arrayProduct currentPage:page];
-         
-         self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrayProduct] mutableCopy];
-         self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
-         
+         [self.dataArray addObjectsFromArray:arrayProduct];
          [self reloadTableViewMyListing];
      }
                                                  failureBlock:^(NSInteger statusCode, NSError *error)
      {
+         [self failureBlockHandleWithError:error];
          [self finishLoading];
      }];
 }
@@ -109,7 +107,6 @@
     if (![self isReachable]) {
         return;
     }
-    
     [self loadMyListWithPage:1];
 }
 

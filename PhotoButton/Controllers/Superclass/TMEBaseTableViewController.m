@@ -170,7 +170,6 @@
     
     if (!array.count) {
         self.paging = NO;
-        return;
     }
 
 }

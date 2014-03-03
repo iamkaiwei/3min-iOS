@@ -85,6 +85,7 @@
 - (void)sendNotification:(NSString *)notificationName body:(id)body;
 - (void)sendNotification:(NSString *)notificationName body:(id)body type:(id)type;
 - (UIBarButtonItem *)leftNavigationButtonCancel;
+- (void)failureBlockHandleWithError:(NSError *)error;
 - (void)unregisterForKeyboardNotifications;
 - (void)registerForKeyboardNotifications;
 

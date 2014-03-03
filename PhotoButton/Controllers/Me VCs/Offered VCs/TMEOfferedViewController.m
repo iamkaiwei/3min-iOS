@@ -58,10 +58,8 @@
     TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
     
     TMEConversation *conversation = self.dataArray[indexPath.row];
-    
     submitController.product = conversation.product;
     submitController.conversation = conversation;
-    
     
     [self.navigationController pushViewController:submitController animated:YES];
 }
@@ -75,13 +73,12 @@
                                             onSuccessBlock:^(NSArray *arrayOfferedConversation)
      {
          [self handlePagingWithResponseArray:arrayOfferedConversation currentPage:page];
-         self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrayOfferedConversation] mutableCopy];
-         self.dataArray = [[self.dataArray sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
-         
+         [self.dataArray addObjectsFromArray:arrayOfferedConversation];
          [self reloadTableViewOfferedConversation];
      }
                                               failureBlock:^(NSInteger statusCode, NSError *error)
      {
+         [self failureBlockHandleWithError:error];
          [self finishLoading];
      }];
 }
@@ -111,7 +108,6 @@
     if (![self isReachable]) {
         return;
     }
-    
     [self loadListOfferedConversationWithPage:1];
 }
 

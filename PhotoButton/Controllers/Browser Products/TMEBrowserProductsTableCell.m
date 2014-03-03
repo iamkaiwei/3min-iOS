@@ -28,9 +28,6 @@
 @implementation TMEBrowserProductsTableCell
 
 - (void)configCellWithData:(TMEProduct *)product{
-    
-    // user
-    
     self.labelLikes.text = product.likes.stringValue;
     [self.labelLikes sizeToFitKeepHeight];
     
@@ -53,7 +50,6 @@
         [self.delegate performSelector:@selector(onBtnLike:label:) withObject:sender withObject:self.labelLikes];
     }
 }
-
 
 + (CGFloat)getHeight{
     return 408;

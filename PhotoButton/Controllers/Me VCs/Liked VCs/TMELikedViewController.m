@@ -63,7 +63,7 @@
 }
 
 - (void)getCachedLikedProduct{
-    NSArray *arrayProductCached = [TMEProduct MR_findByAttribute:@"liked" withValue:@"1" andOrderBy:@"created_at" ascending:NO];
+    NSArray *arrayProductCached = [TMEProduct MR_findByAttribute:@"liked" withValue:@YES andOrderBy:@"created_at" ascending:NO];
     
     for (TMEProduct *product in arrayProductCached) {
         [self.dataArray addObject:product];
@@ -85,14 +85,12 @@
                                  successBlock:^(NSArray *arrayProduct)
      {
          [self handlePagingWithResponseArray:arrayProduct currentPage:page];
-         
-         self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrayProduct] mutableCopy];
-         self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
-         
+         [self.dataArray addObjectsFromArray:arrayProduct];
          [self reloadTableViewLikedProduct];
      }
                                  failureBlock:^(NSInteger statusCode, NSError *error)
      {
+         [self failureBlockHandleWithError:error];
          [self finishLoading];
      }];
 }
@@ -107,7 +105,6 @@
     if (![self isReachable]) {
         return;
     }
-    
     [self loadLikedProductWithPage:1];
 }
 

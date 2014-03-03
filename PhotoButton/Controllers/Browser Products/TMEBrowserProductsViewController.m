@@ -13,7 +13,6 @@
 
 @interface TMEBrowserProductsViewController ()
 <
-UIScrollViewDelegate,
 TMEBrowserProductsTableCellDelegate
 >
 
@@ -123,8 +122,9 @@ TMEBrowserProductsTableCellDelegate
                  [self finishLoading];
                  [self paddingScrollWithTop];
              }
-                                              failureBlock:^(NSInteger statusCode, id obj)
+                                              failureBlock:^(NSInteger statusCode, NSError *error)
              {
+                 [self failureBlockHandleWithError:error];
                  [self finishLoading];
              }];
             return;
@@ -141,7 +141,8 @@ TMEBrowserProductsTableCellDelegate
              [self setUpTableView];
              [self finishLoading];
              [self paddingScrollWithTop];
-         } failureBlock:^(NSInteger statusCode, id obj) {
+         } failureBlock:^(NSInteger statusCode, NSError *error) {
+             [self failureBlockHandleWithError:error];
              [self finishLoading];
          }];
         return;
@@ -159,8 +160,9 @@ TMEBrowserProductsTableCellDelegate
          [self finishLoading];
          [self paddingScrollWithTop];
      }
-                                 failureBlock:^(NSInteger statusCode, id obj)
+                                 failureBlock:^(NSInteger statusCode, NSError *error)
      {
+         [self failureBlockHandleWithError:error];
          [self finishLoading];
      }];
     
@@ -287,7 +289,7 @@ TMEBrowserProductsTableCellDelegate
     }
     
     newFrame.origin.y = navBarHeightForVersionCheck;
-    newFrame.size.height = [[UIScreen mainScreen]bounds].size.height - navBarHeightForVersionCheck;
+    newFrame.size.height = CGRectGetHeight([[UIScreen mainScreen]bounds]) - navBarHeightForVersionCheck;
     
     self.tableView.frame = newFrame;
     self.tableView.height = CGRectGetHeight(newFrame);

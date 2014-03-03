@@ -516,6 +516,10 @@ IIViewDeckControllerDelegate
   return [NSArray array];
 }
 
+- (void)failureBlockHandleWithError:(NSError *)error{
+    DLog(@"%@",error);
+}
+
 - (void)handleNotification:(NSNotification *)notification
 {
   

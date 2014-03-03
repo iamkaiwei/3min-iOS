@@ -29,13 +29,14 @@ UICollectionViewDelegate
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self paddingScrollWithTop];
+    [self setUpCollectionView];
     self.scrollableView = self.collectionProductsView;
     [self enablePullToRefresh];
+    
     [self.collectionProductsView registerNib:[TMEBrowserCollectionCell defaultNib] forCellWithReuseIdentifier:[TMEBrowserCollectionCell kind]];
     
     [self.collectionProductsView registerNib:[TMELoadMoreCollectionViewCell defaultNib] forCellWithReuseIdentifier:[TMELoadMoreCollectionViewCell kind]];
     
-    [self setUpCollectionView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onCategoryChangeNotification:)
@@ -99,15 +100,11 @@ UICollectionViewDelegate
             [TMEProductsManager getPopularProductsWithPage:page
                                             onSuccessBlock:^(NSArray *arrProducts)
              {
-                 [self handlePagingWithResponseArray:arrProducts currentPage:page];
-                 
-                 [self.arrayProducts addObjectsFromArray:arrProducts];
-                 
-                 [self.collectionProductsView reloadData];
-                 [self.pullToRefreshView endRefreshing];
+                 [self successBlockHandleWithResponseArray:arrProducts page:page];
              }
-                                              failureBlock:^(NSInteger statusCode, id obj)
+                                              failureBlock:^(NSInteger statusCode, NSError *error)
              {
+                 [self failureBlockHandleWithError:error];
                  [self.pullToRefreshView endRefreshing];
              }];
             return;
@@ -117,15 +114,11 @@ UICollectionViewDelegate
                                          withPage:page
                                    onSuccessBlock:^(NSArray *arrProducts)
          {
-             [self handlePagingWithResponseArray:arrProducts currentPage:page];
-             
-             [self.arrayProducts addObjectsFromArray:arrProducts];
-             
-             [self.collectionProductsView reloadData];
-             [self.pullToRefreshView endRefreshing];
+             [self successBlockHandleWithResponseArray:arrProducts page:page];
          }
-                                     failureBlock:^(NSInteger statusCode, id obj)
+                                     failureBlock:^(NSInteger statusCode, NSError *error)
          {
+             [self failureBlockHandleWithError:error];
              [self.pullToRefreshView endRefreshing];
          }];
         return;
@@ -133,15 +126,11 @@ UICollectionViewDelegate
     [TMEProductsManager getAllProductsWihPage:page
                                onSuccessBlock:^(NSArray *arrProducts)
      {
-         [self handlePagingWithResponseArray:arrProducts currentPage:page];
-         
-         [self.arrayProducts addObjectsFromArray:arrProducts];
-         
-         [self.collectionProductsView reloadData];
-         [self.pullToRefreshView endRefreshing];
+         [self successBlockHandleWithResponseArray:arrProducts page:page];
      }
-                                 failureBlock:^(NSInteger statusCode, id obj)
+                                 failureBlock:^(NSInteger statusCode, NSError *error)
      {
+         [self failureBlockHandleWithError:error];
          [self.pullToRefreshView endRefreshing];
      }];
 }
@@ -154,10 +143,15 @@ UICollectionViewDelegate
         [self.pullToRefreshView endRefreshing];
         return;
     }
-    
     [self loadProductsWithPage:1];
 }
 
+- (void)successBlockHandleWithResponseArray:(NSArray *)responseArray page:(NSInteger)page{
+    [self handlePagingWithResponseArray:responseArray currentPage:page];
+    [self.arrayProducts addObjectsFromArray:responseArray];
+    [self.collectionProductsView reloadData];
+    [self.pullToRefreshView endRefreshing];
+}
 
 #pragma mark - Utilities
 - (void)paddingScrollWithTop
@@ -176,10 +170,8 @@ UICollectionViewDelegate
     if ([self.currentCategory isEqual:userInfo[@"category"]]) {
         return;
     }
-    
     self.currentCategory= [userInfo objectForKey:@"category"];
     [self.collectionProductsView setContentOffset:CGPointMake(0, -60) animated:YES];
-    
     [self.pullToRefreshView beginRefreshing];
 }
 
@@ -187,16 +179,13 @@ UICollectionViewDelegate
     if (page == 1) {
         [self.arrayProducts removeAllObjects];
     }
-    
     if (!self.currentPage) {
         self.currentPage = page;
     }
-    
     if (!array.count) {
         self.paging = NO;
         return;
     }
-    
     self.paging = YES;
 }
 

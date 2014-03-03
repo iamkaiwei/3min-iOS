@@ -104,7 +104,15 @@
     [TMEConversationManager getListConversationWithPage:page
                                          onSuccessBlock:^(NSArray *arrayConversation)
      {
-         [self handlePagingWithResponseArray:arrayConversation currentPage:page];
+         self.paging = YES;
+         
+         if (!self.currentPage) {
+             self.currentPage = page;
+         }
+         
+         if (!arrayConversation.count) {
+             self.paging = NO;
+         }
          
          self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrayConversation] mutableCopy];
          self.dataArray = [[self.dataArray sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
@@ -113,6 +121,7 @@
      }
                                            failureBlock:^(NSInteger statusCode, NSError *error)
      {
+         [self failureBlockHandleWithError:error];
          [self finishLoading];
      }];
 }
