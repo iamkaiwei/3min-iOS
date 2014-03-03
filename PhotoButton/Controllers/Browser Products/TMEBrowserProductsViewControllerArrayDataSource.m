@@ -36,7 +36,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.paging && indexPath.section == self.items.count) {
-        TMELoadMoreTableViewCell *cellLoadMore = [tableView dequeueReusableCellWithIdentifier:CELL_LOAD_MORE_IDENTIFIER];
+        TMELoadMoreTableViewCell *cellLoadMore = [tableView dequeueReusableCellWithIdentifier:[TMELoadMoreTableViewCell kind]];
         
         [cellLoadMore startLoading];
         

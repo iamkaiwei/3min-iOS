@@ -8,16 +8,17 @@
 
 #import "TMEBrowserCollectionViewController.h"
 #import "TMEBrowserCollectionCell.h"
+#import "TMEBrowserCollectionViewDataSource.h"
 #import "TMELoadMoreCollectionViewCell.h"
 
 @interface TMEBrowserCollectionViewController ()
 <
 UITextFieldDelegate,
-UICollectionViewDataSource,
 UICollectionViewDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView       * collectionProductsView;
+@property (strong, nonatomic) TMEBrowserCollectionViewDataSource * productsArrayDataSource;
 
 @end
 
@@ -34,10 +35,22 @@ UICollectionViewDelegate
     
     [self.collectionProductsView registerNib:[TMELoadMoreCollectionViewCell defaultNib] forCellWithReuseIdentifier:[TMELoadMoreCollectionViewCell kind]];
     
+    [self setUpCollectionView];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onCategoryChangeNotification:)
                                                  name:CATEGORY_CHANGE_NOTIFICATION
                                                object:nil];
+}
+
+- (void)setUpCollectionView{
+    LoadMoreCellHandleBlock handleLoadMore = ^(){
+        [self loadProductsWithPage:++self.currentPage];
+    };
+    self.productsArrayDataSource = [[TMEBrowserCollectionViewDataSource alloc] initWithItems:self.arrayProducts cellIdentifier:[TMEBrowserCollectionCell kind] paging:self.paging delegate:self handleCellBlock:handleLoadMore];
+    
+    self.collectionProductsView.dataSource = self.productsArrayDataSource;
+    [self.collectionProductsView reloadData];
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -64,32 +77,6 @@ UICollectionViewDelegate
 
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
     return 1;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    if(self.paging){
-        return self.arrayProducts.count + 1;
-    }
-    return self.arrayProducts.count;
-}
-
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (self.paging && indexPath.row == self.arrayProducts.count) {
-        TMELoadMoreCollectionViewCell *cellLoadMore = [collectionView dequeueReusableCellWithReuseIdentifier:[TMELoadMoreCollectionViewCell kind] forIndexPath:indexPath];
-        
-        [cellLoadMore startLoading];
-        
-        [self loadProductsWithPage:self.currentPage++];
-        //        self.handleCellBlock();
-        return cellLoadMore;
-    }
-    TMEBrowserCollectionCell *cell = [self.collectionProductsView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TMEBrowserCollectionCell class]) forIndexPath:indexPath];
-    [cell configCellWithData:self.arrayProducts[indexPath.row]];
-    
-    return cell;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

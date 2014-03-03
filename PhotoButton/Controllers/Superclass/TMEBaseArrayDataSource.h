@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define CELL_LOAD_MORE_IDENTIFIER                   @"TMELoadMoreTableViewCell"
-
 @interface TMEBaseArrayDataSource : NSObject <UITableViewDataSource>
 
 @property (nonatomic, strong) id delegate;
