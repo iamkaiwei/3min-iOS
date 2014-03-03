@@ -13,6 +13,7 @@
 @property (assign, nonatomic) BOOL                            paging;
 @property (assign, nonatomic) NSInteger                       currentPage;
 @property (strong, nonatomic) NSMutableArray                * arrayProducts;
+@property (strong, nonatomic) TMECategory                   * currentCategory;
 
 - (void)loadProductsWithPage:(NSInteger)page;
 

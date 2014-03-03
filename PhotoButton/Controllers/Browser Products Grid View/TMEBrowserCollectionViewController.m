@@ -18,7 +18,6 @@ UICollectionViewDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView       * collectionProductsView;
-@property (strong, nonatomic) TMECategory                   * currentCategory;
 
 @end
 
@@ -39,11 +38,6 @@ UICollectionViewDelegate
                                              selector:@selector(onCategoryChangeNotification:)
                                                  name:CATEGORY_CHANGE_NOTIFICATION
                                                object:nil];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    //    [self.collectionProductsView reloadData];
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -120,8 +114,7 @@ UICollectionViewDelegate
              {
                  [self handlePagingWithResponseArray:arrProducts currentPage:page];
                  
-                 self.arrayProducts = [[self.arrayProducts arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
-                 self.arrayProducts = [[self.arrayProducts sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+                 [self.arrayProducts addObjectsFromArray:arrProducts];
                  
                  [self.collectionProductsView reloadData];
                  [self.pullToRefreshView endRefreshing];
@@ -139,8 +132,7 @@ UICollectionViewDelegate
          {
              [self handlePagingWithResponseArray:arrProducts currentPage:page];
              
-             self.arrayProducts = [[self.arrayProducts arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
-             self.arrayProducts = [[self.arrayProducts sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+             [self.arrayProducts addObjectsFromArray:arrProducts];
              
              [self.collectionProductsView reloadData];
              [self.pullToRefreshView endRefreshing];
@@ -156,8 +148,7 @@ UICollectionViewDelegate
      {
          [self handlePagingWithResponseArray:arrProducts currentPage:page];
          
-         self.arrayProducts = [[self.arrayProducts arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
-         self.arrayProducts = [[self.arrayProducts sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+         [self.arrayProducts addObjectsFromArray:arrProducts];
          
          [self.collectionProductsView reloadData];
          [self.pullToRefreshView endRefreshing];

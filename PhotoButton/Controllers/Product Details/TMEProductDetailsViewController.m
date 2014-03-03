@@ -71,14 +71,16 @@
                                               placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
     self.imgProductImage1.hidden = NO;
     
-    for (int i = 0; i < arrayImageOfProduct.count; i++) {
+    NSInteger minCount = MIN(arrayImageOfProduct.count, 3);
+    
+    for (int i = 0; i < minCount; i++) {
         TMEProductImages *img = arrayImageOfProduct[i];
         [arrayImageView[i] setHidden:NO];
         [arrayImageView[i] setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.origin]
                                               placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
     }
     
-    [self.viewBottomDetail alignBelowView:arrayImageView[(arrayImageOfProduct.count == 0 ? 0 : arrayImageOfProduct.count - 1)] offsetY:0 sameWidth:NO];
+    [self.viewBottomDetail alignBelowView:arrayImageView[(minCount == 0 ? 0 : minCount - 1)] offsetY:0 sameWidth:NO];
     
     self.lblProductName.text = self.product.name;
     self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", self.product.price];

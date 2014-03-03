@@ -18,7 +18,6 @@ TMEBrowserProductsTableCellDelegate
 >
 
 @property (assign, nonatomic) CGFloat                     currentNavBarHeight;
-@property (strong, nonatomic) TMECategory               * currentCategory;
 @property (strong, nonatomic) TMEBrowserProductsViewControllerArrayDataSource    * productsArrayDataSource;
 @property (weak, nonatomic) IBOutlet UIImageView        * imageViewProductPlaceholder;
 @property (weak, nonatomic) IBOutlet MTAnimatedLabel    * labelAnimated;
@@ -119,9 +118,7 @@ TMEBrowserProductsTableCellDelegate
                  [self handlePagingWithResponseArray:arrProducts currentPage:page];
                  [self hidePlaceHolder];
                  
-                 self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
-                 self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
-                 
+                 [self.dataArray addObjectsFromArray:arrProducts];
                  [self setUpTableView];
                  [self finishLoading];
                  [self paddingScrollWithTop];
@@ -139,8 +136,7 @@ TMEBrowserProductsTableCellDelegate
              [self handlePagingWithResponseArray:arrProducts currentPage:page];
              [self hidePlaceHolder];
              
-             self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
-             self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+             [self.dataArray addObjectsFromArray:arrProducts];
              
              [self setUpTableView];
              [self finishLoading];
@@ -157,8 +153,7 @@ TMEBrowserProductsTableCellDelegate
          [self handlePagingWithResponseArray:arrProducts currentPage:page];
          [self hidePlaceHolder];
          
-         self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrProducts] mutableCopy];
-         self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+         [self.dataArray addObjectsFromArray:arrProducts];
          
          [self setUpTableView];
          [self finishLoading];

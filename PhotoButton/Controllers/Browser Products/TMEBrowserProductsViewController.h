@@ -10,6 +10,8 @@
 
 @interface TMEBrowserProductsViewController : TMEBaseTableViewController
 
+@property (strong, nonatomic) TMECategory               * currentCategory;
+
 - (void)loadProductsWithPage:(NSInteger)page;
 - (void)fullScreenScrollDidLayoutUIBars:(YIFullScreenScroll *)fullScreenScroll;
 
