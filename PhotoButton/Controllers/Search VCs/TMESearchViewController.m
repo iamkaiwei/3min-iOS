@@ -82,6 +82,10 @@ UISearchBarDelegate
     [self.tableView reloadData];
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [self dismissKeyboard];
+}
+
 - (NSMutableArray *)arrProductsForSearchText:(NSString *)searchText
 {
     NSMutableArray *arrResultProduct = [[NSMutableArray alloc] init];
