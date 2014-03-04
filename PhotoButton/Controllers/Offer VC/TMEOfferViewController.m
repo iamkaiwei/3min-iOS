@@ -31,7 +31,7 @@ UIAlertViewDelegate
     // Do any additional setup after loading the view from its nib.
     self.title = @"You Offer";
     [self setUpView];
-    [self disableBottomTranslucent];
+    [self setEdgesForExtendedLayout:UIRectEdgeBottom];
 }
 
 - (void)setUpView{

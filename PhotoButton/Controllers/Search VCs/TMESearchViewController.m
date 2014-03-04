@@ -11,8 +11,7 @@
 
 @interface TMESearchViewController ()
 <
-UISearchBarDelegate,
-UISearchDisplayDelegate
+UISearchBarDelegate
 >
 
 @end
@@ -23,13 +22,15 @@ UISearchDisplayDelegate
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self disableTranslucent];
+    [self setEdgeForExtendedLayoutAll];
     self.dataArray = [@[] mutableCopy];
     
     self.navigationController.navigationBar.topItem.title = @"Search Product";
     self.shouldHandleKeyboardNotification = NO;
-    self.tableView = self.searchDisplayController.searchResultsTableView;
-    [self.searchDisplayController.searchResultsTableView registerNib:[TMESearchTableViewCell defaultNib] forCellReuseIdentifier:[TMESearchTableViewCell kind]];
+}
+
+- (void)registerNibForTableView{
+    self.arrayCellIdentifier = @[[TMESearchTableViewCell kind]];
 }
 
 #pragma mark - UITableView delegate and datasource
@@ -59,19 +60,26 @@ UISearchDisplayDelegate
 }
 
 #pragma mark - Search View Controller
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
-    [self filterListForSearchText:searchString]; // The method we made in step 7
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    self.navigationItem.leftBarButtonItem = [self leftNavigationButtonCancel];
+    self.navigationItem.rightBarButtonItem = [self rightNavigationButtonDone];
+    self.navigationController.navigationBar.topItem.title = @"";
     
-    // Return YES to cause the search result table view to be reloaded.
     return YES;
 }
 
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
+    [self addNavigationItems];
+    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationController.navigationBar.topItem.title = @"Search Product";
+    
+    return YES;
+}
 
-- (void)filterListForSearchText:(NSString *)searchText
-{
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     [self.dataArray removeAllObjects]; //clears the array from all the string objects it might contain from the previous searches
     self.dataArray = [self arrProductsForSearchText:searchText];
+    [self.tableView reloadData];
 }
 
 - (NSMutableArray *)arrProductsForSearchText:(NSString *)searchText
@@ -90,7 +98,7 @@ UISearchDisplayDelegate
     return arrResultProduct;
 }
 
--(void)viewWillLayoutSubviews
+- (void)viewWillLayoutSubviews
 {
     if(self.searchDisplayController.isActive)
     {

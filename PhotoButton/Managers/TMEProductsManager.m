@@ -13,8 +13,8 @@
 SINGLETON_MACRO
 
 + (void)getAllProductsWihPage:(NSInteger)page
-              onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
-                failureBlock:(TMEJSONRequestFailureBlock)failureBlock
+               onSuccessBlock:(void (^) (NSArray *))successBlock
+                 failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
     NSDictionary *params = @{@"page" : @(page)};
     [[BaseNetworkManager sharedInstance] getServerListForModelClass:[TMEProduct class]
@@ -37,9 +37,9 @@ SINGLETON_MACRO
 }
 
 + (void)getProductsOfCategory:(TMECategory *)category
-                    withPage:(NSInteger)page
-              onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
-                failureBlock:(TMEJSONRequestFailureBlock)failureBlock
+                     withPage:(NSInteger)page
+               onSuccessBlock:(void (^) (NSArray *))successBlock
+                 failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
     NSDictionary *params = @{@"page" : @(page),
                              @"category_id" : category.id};
@@ -64,7 +64,7 @@ SINGLETON_MACRO
 }
 
 + (void)getPopularProductsWithPage:(NSInteger)page
-                    onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                    onSuccessBlock:(void (^) (NSArray *))successBlock
                       failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
     NSDictionary *params = @{@"page" : @(page)};
@@ -112,7 +112,7 @@ SINGLETON_MACRO
 }
 
 + (void)putSoldOutWithProductID:(NSNumber *)productID
-                 onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                 onSuccessBlock:(void (^) (NSArray *))successBlock
                    failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
     NSDictionary *params = @{@"sold_out" : @YES};
     NSString *path = [NSString stringWithFormat:@"%@/%@", API_PRODUCTS, productID];
@@ -159,7 +159,7 @@ SINGLETON_MACRO
 
 
 + (void)likeProductWithProductID:(NSNumber *)productID
-                  onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                  onSuccessBlock:(void (^) (NSString *))successBlock
                     failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
     NSString *path = [NSString stringWithFormat:@"%@/%@%@", API_PRODUCTS, productID, API_LIKES];
@@ -169,7 +169,7 @@ SINGLETON_MACRO
                                                     success:^(NSHTTPURLResponse *response, id responseObject)
      {
          if (successBlock) {
-             successBlock(nil);
+             successBlock(responseObject[@"status"]);
          }
      }
                                                     failure:^(NSError *error)
@@ -182,7 +182,7 @@ SINGLETON_MACRO
 }
 
 + (void)unlikeProductWithProductID:(NSNumber *)productID
-                    onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                    onSuccessBlock:(void (^) (NSString *))successBlock
                       failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
     NSString *path = [NSString stringWithFormat:@"%@/%@%@", API_PRODUCTS, productID, API_LIKES];
@@ -190,17 +190,17 @@ SINGLETON_MACRO
                                                  parameters:nil
                                                      method:DELETE_METHOD
                                                     success:^(NSHTTPURLResponse *response, id responseObject)
-    {
-        if (successBlock) {
-            successBlock(nil);
-        }
-    }
+     {
+         if (successBlock) {
+             successBlock(responseObject[@"status"]);
+         }
+     }
                                                     failure:^(NSError *error)
-    {
-        if (failureBlock) {
-            failureBlock(error.code, error);
-        }
-    }];
+     {
+         if (failureBlock) {
+             failureBlock(error.code, error);
+         }
+     }];
 }
 
 @end

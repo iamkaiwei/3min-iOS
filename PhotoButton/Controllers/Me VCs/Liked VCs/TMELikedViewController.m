@@ -22,7 +22,7 @@
     [super viewDidLoad];
     self.title = @"Stuff I Liked";
     [self enablePullToRefresh];
-    [self disableBottomTranslucent];
+    [self setEdgeForExtendedLayoutAll];
     [self paddingScrollWithTop];
     
     [self getCachedLikedProduct];

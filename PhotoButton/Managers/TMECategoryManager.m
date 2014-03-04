@@ -12,7 +12,7 @@
 
 SINGLETON_MACRO
 
-+ (void)getAllCategoriesOnSuccessBlock:(void (^) (NSArray *arrayCategories))successBlock
++ (void)getAllCategoriesOnSuccessBlock:(void (^) (NSArray *))successBlock
                       failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
     [[BaseNetworkManager sharedInstance] getServerListForModelClass:[TMECategory class]

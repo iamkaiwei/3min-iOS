@@ -11,24 +11,24 @@
 @interface TMEProductsManager : BaseManager
 
 + (void)getAllProductsWihPage:(NSInteger)page
-               onSuccessBlock:(void (^)(NSArray *arrayProducts))successBlock
+               onSuccessBlock:(void (^)(NSArray *))successBlock
                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 + (void)getProductsOfCategory:(TMECategory *)category
                      withPage:(NSInteger)page
-               onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+               onSuccessBlock:(void (^) (NSArray *))successBlock
                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 + (void)getPopularProductsWithPage:(NSInteger)page
-                    onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                    onSuccessBlock:(void (^) (NSArray *))successBlock
                       failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 + (void)getSellingProductsOfCurrentUserOnPage:(NSInteger)page
-                                 successBlock:(void (^) (NSArray *arrayProducts))successBlock
+                                 successBlock:(void (^) (NSArray *))successBlock
                                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 + (void)putSoldOutWithProductID:(NSNumber *)productID
-                 onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                 onSuccessBlock:(void (^) (NSArray *))successBlock
                    failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 + (void)getLikedProductOnPage:(NSInteger)page
@@ -36,11 +36,11 @@
                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 + (void)likeProductWithProductID:(NSNumber *)productID
-                  onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                  onSuccessBlock:(void (^) (NSString *))successBlock
                     failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 + (void)unlikeProductWithProductID:(NSNumber *)productID
-                    onSuccessBlock:(void (^) (NSArray *arrayProducts))successBlock
+                    onSuccessBlock:(void (^) (NSString *))successBlock
                       failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
 @end

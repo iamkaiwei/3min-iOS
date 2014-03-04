@@ -279,19 +279,10 @@ IIViewDeckControllerDelegate
 	};
 }
 
-- (void)disableBottomTranslucent{
+- (void)setEdgeForExtendedLayoutAll{
   if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    self.edgesForExtendedLayout = UIRectEdgeTop;
-    [self.navigationController.navigationBar setBarTintColor:[UIColor orangeMainColor]];
+    self.edgesForExtendedLayout = UIRectEdgeAll;
   }
-}
-
-- (void)disableTranslucent{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.navigationController.navigationBar.translucent = NO;
-        [self.navigationController.navigationBar setBarTintColor:[UIColor orangeMainColor]];
-    }
 }
 
 - (void)registerForKeyboardNotifications

@@ -24,7 +24,7 @@
     self.navigationController.navigationBar.topItem.title = @"Activity";
     // remember to avoid retain cycles!
     [self enablePullToRefresh];
-    [self disableBottomTranslucent];
+    [self setEdgeForExtendedLayoutAll];
     [self paddingScrollWithTop];
     [self.lblInstruction alignVerticallyCenterToView:self.view];
     

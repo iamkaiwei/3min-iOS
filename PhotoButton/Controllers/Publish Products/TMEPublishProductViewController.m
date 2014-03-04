@@ -72,7 +72,7 @@ UITextViewDelegate
             button.photoSize = CGSizeMake(1000, 1000);
         }
     }
-    [self disableBottomTranslucent];
+    [self setEdgeForExtendedLayoutAll];
     self.navigationItem.leftBarButtonItem = [self leftNavigationButtonCancel];
     self.navigationItem.rightBarButtonItem = [self rightNavigationButton];
 

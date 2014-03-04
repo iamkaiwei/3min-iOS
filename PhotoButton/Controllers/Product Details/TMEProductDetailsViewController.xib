@@ -175,7 +175,7 @@
     </objects>
     <resources>
         <image name="chat_to_buy_btn" width="100" height="44"/>
-        <image name="clock-icon.png" width="17" height="17"/>
+        <image name="clock-icon.png" width="71" height="74"/>
         <image name="follow-button-pressed.png" width="25" height="21"/>
         <image name="follow-button.png" width="25" height="21"/>
         <image name="share-button.png" width="29" height="23"/>

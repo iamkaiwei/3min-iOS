@@ -55,15 +55,7 @@ UIImagePickerControllerDelegate
     [self addPublishButton];
     [self addActivityButton];
     [self addMeButton];
-
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        self.statusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];
-        [self.statusBarView setBackgroundColor:[UIColor blackColor]];
-        [self.statusBarView setAlpha:0.0];
-        [self.view addSubview:self.statusBarView];
-        
-        return;
-    }
+    [self addFakeStatusBar];
 
     [self.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbar-background"]];
     [self.tabBar setSelectionIndicatorImage:[[UIImage alloc] init]];
@@ -143,6 +135,17 @@ UIImagePickerControllerDelegate
 
 - (void)setStatusBarViewAlpha:(CGFloat)alpha{
   [self.statusBarView setAlpha:alpha];
+}
+
+- (void)addFakeStatusBar{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        self.statusBarView = [[UIView alloc] initWithFrame:[[UIApplication sharedApplication] statusBarFrame]];
+        [self.statusBarView setBackgroundColor:[UIColor blackColor]];
+        [self.statusBarView setAlpha:0.0];
+        [self.view addSubview:self.statusBarView];
+        
+        return;
+    }
 }
 
 #pragma marks - UIImagePicker Delegate

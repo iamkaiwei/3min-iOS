@@ -43,7 +43,7 @@ UIAlertViewDelegate
     [super viewDidLoad];
     self.title = @"You Offer";
     [self registerForKeyboardNotifications];
-    [self disableBottomTranslucent];
+    [self setEdgeForExtendedLayoutAll];
     self.textViewInputMessage.delegate = self;
     [self getCacheMessage];
     [self loadProductDetail];

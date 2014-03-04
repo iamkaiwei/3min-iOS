@@ -23,7 +23,7 @@
     [super viewDidLoad];
     self.title = @"Offer I Made";
     [self enablePullToRefresh];
-    [self disableBottomTranslucent];
+    [self setEdgeForExtendedLayoutAll];
     [self paddingScrollWithTop];
     
     [self getCachedOfferedConversation];

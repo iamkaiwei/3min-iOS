@@ -64,8 +64,7 @@
 - (IBAction)onBtnBack:(id)sender;
 
 - (void)enablePullToRefresh;
-- (void)disableBottomTranslucent;
-- (void)disableTranslucent;
+- (void)setEdgeForExtendedLayoutAll;
 /**
  *list all notification this view can receive
  *return: array of notification
@@ -84,7 +83,10 @@
 - (void)sendNotification:(NSString *)notificationName;
 - (void)sendNotification:(NSString *)notificationName body:(id)body;
 - (void)sendNotification:(NSString *)notificationName body:(id)body type:(id)type;
+- (void)onTapGesture:(UITapGestureRecognizer *)recognizer;
+- (void)onSwipeDownGesture:(UISwipeGestureRecognizer *)recognizer;
 - (UIBarButtonItem *)leftNavigationButtonCancel;
+- (UIBarButtonItem *)rightNavigationButtonDone;
 - (void)failureBlockHandleWithError:(NSError *)error;
 - (void)unregisterForKeyboardNotifications;
 - (void)registerForKeyboardNotifications;

@@ -22,7 +22,7 @@
     [super viewDidLoad];
     self.title = @"My Listings";
     [self enablePullToRefresh];
-    [self disableBottomTranslucent];
+    [self setEdgeForExtendedLayoutAll];
     [self paddingScrollWithTop];
     
     [self getCachedMyListing];

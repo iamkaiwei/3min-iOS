@@ -217,32 +217,44 @@ TMEBrowserProductsTableCellDelegate
     UITableViewCell *cell = [self getCellFromButton:sender];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
-    TMEProduct *currentCellProduct = self.dataArray[indexPath.row];
+    TMEProduct *currentCellProduct = self.dataArray[indexPath.section];
     sender.selected = !currentCellProduct.likedValue;
     
     if (!currentCellProduct.likedValue) {
         [TMEProductsManager likeProductWithProductID:currentCellProduct.id
-                                      onSuccessBlock:nil                                                  failureBlock:^(NSInteger statusCode, NSError *error)
+                                      onSuccessBlock:^(NSString *status)
+         {
+             if (![status isEqualToString:@"success"]) {
+                 [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:NO];
+             }
+             currentCellProduct.likedValue = YES;
+             currentCellProduct.likesValue++;
+             label.text = [@(label.text.integerValue + 1) stringValue];
+             [self.tableView reloadData];
+         }
+                                        failureBlock:^(NSInteger statusCode, NSError *error)
          {
              [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:NO];
          }];
         
-        currentCellProduct.likedValue = YES;
-        currentCellProduct.likesValue++;
-        
-        label.text = [@(label.text.integerValue + 1) stringValue];
         return;
     }
     
     [TMEProductsManager unlikeProductWithProductID:currentCellProduct.id
-                                    onSuccessBlock:nil                                                  failureBlock:^(NSInteger statusCode, NSError *error)
+                                    onSuccessBlock:^(NSString *status)
+     {
+         if (![status isEqualToString:@"success"]) {
+             [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:YES];
+         }
+         currentCellProduct.likedValue = NO;
+         currentCellProduct.likesValue--;
+         label.text = [@(label.text.integerValue - 1) stringValue];
+         [self.tableView reloadData];
+     }
+                                                  failureBlock:^(NSInteger statusCode, NSError *error)
      {
          [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:YES];
      }];
-    
-    currentCellProduct.likedValue = NO;
-    currentCellProduct.likesValue--;
-    label.text = [@(label.text.integerValue - 1) stringValue];
 }
 
 - (void)likeProductFailureHandleButtonLike:(UIButton *)sender currentCellProduct:(TMEProduct *)currentCellProduct label:(UILabel *)label unlike:(BOOL)flag{

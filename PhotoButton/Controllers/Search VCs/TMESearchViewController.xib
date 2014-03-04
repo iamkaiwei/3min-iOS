@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMESearchViewController">
             <connections>
-                <outlet property="searchDisplayController" destination="dAX-dZ-scn" id="fHA-vr-opo"/>
+                <outlet property="tableView" destination="Xdc-nU-KcQ" id="T1X-8O-VZ9"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -20,12 +20,12 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search                                                      " id="Q12-Ol-l4S" customClass="TMESearchBar">
+                    <searchBar key="tableHeaderView" contentMode="redraw" id="l90-CK-Pxb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
-                            <outlet property="delegate" destination="-1" id="S5H-Xn-yTj"/>
+                            <outlet property="delegate" destination="-1" id="0TQ-hw-GcE"/>
                         </connections>
                     </searchBar>
                     <connections>
@@ -38,14 +38,5 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
-        <searchDisplayController id="dAX-dZ-scn">
-            <connections>
-                <outlet property="delegate" destination="-1" id="hSe-hu-svE"/>
-                <outlet property="searchBar" destination="Q12-Ol-l4S" id="c34-B6-cFN"/>
-                <outlet property="searchContentsController" destination="-1" id="Urg-dq-KuR"/>
-                <outlet property="searchResultsDataSource" destination="-1" id="aIL-lr-aiT"/>
-                <outlet property="searchResultsDelegate" destination="-1" id="JGd-qn-ctf"/>
-            </connections>
-        </searchDisplayController>
     </objects>
 </document>
