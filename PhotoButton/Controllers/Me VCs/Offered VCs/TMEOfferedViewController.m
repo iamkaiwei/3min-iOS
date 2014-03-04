@@ -23,12 +23,16 @@
     [super viewDidLoad];
     self.title = @"Offer I Made";
     [self enablePullToRefresh];
-    [self setEdgeForExtendedLayoutAll];
     [self paddingScrollWithTop];
     
     [self getCachedOfferedConversation];
     [self.pullToRefreshView beginRefreshing];
     [self loadListOfferedConversationWithPage:1];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setEdgeForExtendedLayoutTop];
 }
 
 - (void)setUpTableView{

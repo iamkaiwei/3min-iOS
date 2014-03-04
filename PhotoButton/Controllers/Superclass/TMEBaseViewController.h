@@ -66,6 +66,8 @@
 - (void)enablePullToRefresh;
 - (void)setEdgeForExtendedLayoutAll;
 - (void)setEdgeForExtendedLayoutNone;
+- (void)setEdgeForExtendedLayoutTop;
+
 /**
  *list all notification this view can receive
  *return: array of notification

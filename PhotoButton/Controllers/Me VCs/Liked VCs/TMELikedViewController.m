@@ -22,12 +22,16 @@
     [super viewDidLoad];
     self.title = @"Stuff I Liked";
     [self enablePullToRefresh];
-    [self setEdgeForExtendedLayoutAll];
     [self paddingScrollWithTop];
     
     [self getCachedLikedProduct];
     [self.pullToRefreshView beginRefreshing];
     [self loadLikedProductWithPage:1];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setEdgeForExtendedLayoutTop];
 }
 
 - (void)registerNibForTableView{

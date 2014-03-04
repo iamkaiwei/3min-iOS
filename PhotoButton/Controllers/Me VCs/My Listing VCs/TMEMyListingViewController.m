@@ -22,12 +22,16 @@
     [super viewDidLoad];
     self.title = @"My Listings";
     [self enablePullToRefresh];
-    [self setEdgeForExtendedLayoutAll];
     [self paddingScrollWithTop];
     
     [self getCachedMyListing];
     [self.pullToRefreshView beginRefreshing];
     [self loadMyListWithPage:1];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setEdgeForExtendedLayoutTop];
 }
 
 - (void)registerNibForTableView{

@@ -23,10 +23,14 @@
     // Do any additional setup after loading the view from its nib.
     [self enablePullToRefresh];
     self.title = @"List Offers";
-    [self setEdgeForExtendedLayoutAll];
     
     [self.pullToRefreshView beginRefreshing];
     [self loadListOffer];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setEdgeForExtendedLayoutTop];
 }
 
 - (void)registerNibForTableView{

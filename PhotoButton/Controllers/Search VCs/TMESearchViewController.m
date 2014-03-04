@@ -22,11 +22,15 @@ UISearchBarDelegate
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setEdgeForExtendedLayoutAll];
     self.dataArray = [@[] mutableCopy];
     
     self.navigationController.navigationBar.topItem.title = @"Search Product";
     self.shouldHandleKeyboardNotification = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setEdgeForExtendedLayoutTop];
 }
 
 - (void)registerNibForTableView{

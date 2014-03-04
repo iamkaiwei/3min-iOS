@@ -34,12 +34,12 @@ UIActionSheetDelegate
     // Do any additional setup after loading the view from its nib.
     self.arrayCellTitleSectionOne = @[@"My Listings", @"Offer I Made", @"Stuff I Liked"];
     self.arrayCellTitleSectionTwo = @[@"Logout"];
-    [self setEdgeForExtendedLayoutAll];
     [self configView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self setEdgeForExtendedLayoutAll];
     self.navigationController.navigationBar.topItem.title = [[TMEUserManager sharedInstance] loggedUser].fullname;
 }
 

@@ -24,10 +24,8 @@
     self.navigationController.navigationBar.topItem.title = @"Activity";
     // remember to avoid retain cycles!
     [self enablePullToRefresh];
-    [self setEdgeForExtendedLayoutAll];
     [self paddingScrollWithTop];
     [self.lblInstruction alignVerticallyCenterToView:self.view];
-    
     [self getCachedActivity];
     [self.pullToRefreshView beginRefreshing];
     
@@ -39,6 +37,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self setEdgeForExtendedLayoutTop];
     [self.tabBarController.tabBar.selectedItem setBadgeValue:nil];
     [self loadListActivityWithPage:1];
 }

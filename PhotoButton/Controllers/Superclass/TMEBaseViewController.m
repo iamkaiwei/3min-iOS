@@ -295,6 +295,14 @@ IIViewDeckControllerDelegate
     }
 }
 
+- (void)setEdgeForExtendedLayoutTop{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        self.edgesForExtendedLayout = UIRectEdgeTop;
+        self.navigationController.navigationBar.translucent = YES;
+        self.tabBarController.tabBar.translucent = NO;
+    }
+}
+
 - (void)registerForKeyboardNotifications
 {
   [[NSNotificationCenter defaultCenter] addObserver:self
