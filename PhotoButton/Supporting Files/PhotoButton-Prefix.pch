@@ -72,6 +72,8 @@
 #define API_LIKES                                   @"/likes"
 #define API_LIKED                                   @"/liked"
 #define API_ME                                      @"/me"
+#define API_CATEGORY                                @"categories"
+#define API_CATEGORY_TAGGABLE                       @"/taggable"
 #define API_USER_LOGIN                              @"/oauth/token"
 
 //------------------------------------------------------------------------------------------------------

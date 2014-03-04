@@ -31,7 +31,6 @@ UIAlertViewDelegate
     // Do any additional setup after loading the view from its nib.
     self.title = @"You Offer";
     [self setUpView];
-    [self setEdgesForExtendedLayout:UIRectEdgeBottom];
 }
 
 - (void)setUpView{
@@ -43,6 +42,9 @@ UIAlertViewDelegate
     [self.labelPriceOffer alignHorizontalCenterToView:self.view];
     
     self.txtPrice.text = @"";
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        self.edgesForExtendedLayout = UIRectEdgeBottom;
+    }
 }
 
 - (IBAction)onBtnChangePrice:(id)sender {

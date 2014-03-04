@@ -92,7 +92,7 @@
     self.lblProductLocation.text = self.product.venue_name;
     self.lblProductDescription.text = self.product.details;
     [self.lblProductDescription sizeToFitKeepWidth];
-    //    self.viewBottomDetail.height = CGRectGetMaxY(self.lblProductDescription.frame);
+    self.viewBottomDetail.height = CGRectGetMaxY(self.lblProductDescription.frame);
     [self.labelBottom sizeToFitKeepHeight];
 
     [self.scrollViewProductDetail autoAdjustScrollViewContentSize];

@@ -13,4 +13,7 @@
 + (void)getAllCategoriesOnSuccessBlock:(void (^) (NSArray *))successBlock
                        failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
++ (void)getAllCategoriesTaggableOnSuccessBlock:(void (^) (NSArray *))successBlock
+                                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+
 @end

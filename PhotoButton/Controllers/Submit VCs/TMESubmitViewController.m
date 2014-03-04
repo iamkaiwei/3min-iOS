@@ -43,7 +43,7 @@ UIAlertViewDelegate
     [super viewDidLoad];
     self.title = @"You Offer";
     [self registerForKeyboardNotifications];
-    [self setEdgeForExtendedLayoutAll];
+    [self setEdgeForExtendedLayoutNone];
     self.textViewInputMessage.delegate = self;
     [self getCacheMessage];
     [self loadProductDetail];
@@ -56,6 +56,13 @@ UIAlertViewDelegate
                                                  name:NOTIFICATION_RELOAD_CONVERSATION
                                                object:nil];
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        self.tabBarController.tabBar.translucent = YES;
+    }
 }
 
 - (void)setUpTableView{

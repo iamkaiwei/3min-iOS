@@ -18,6 +18,8 @@
                 <outlet property="labelBottom" destination="crN-3j-ueo" id="Aup-Qh-99e"/>
                 <outlet property="labelChatToBuy" destination="ZTe-1m-1Fu" id="PD2-4o-kCg"/>
                 <outlet property="labelLikes" destination="AYZ-ax-CQO" id="Wkm-u9-Mz1"/>
+                <outlet property="lblProductDescription" destination="MUs-es-GQc" id="cWF-y7-4wO"/>
+                <outlet property="lblProductLocation" destination="cC9-YQ-FQF" id="tTo-38-JUq"/>
                 <outlet property="lblProductName" destination="yd2-fX-QVx" id="mJV-Ln-g81"/>
                 <outlet property="lblProductPrice" destination="og4-Kd-gtt" id="UrI-fA-8hC"/>
                 <outlet property="lblTimestamp" destination="uic-nE-mLE" id="7xK-x8-t7y"/>
@@ -42,7 +44,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock-icon.png" id="yhR-5w-C2a">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="follow-button-pressed." id="yhR-5w-C2a">
                             <rect key="frame" x="297" y="12" width="17" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -81,10 +83,10 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <view contentMode="scaleToFill" id="RqE-LA-dhn">
-                            <rect key="frame" x="0.0" y="1334" width="320" height="70"/>
+                            <rect key="frame" x="0.0" y="75" width="320" height="229"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T-shirt" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yd2-fX-QVx">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T-shirt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yd2-fX-QVx">
                                     <rect key="frame" x="11" y="0.0" width="213" height="41"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
@@ -103,10 +105,10 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="23" maxY="0.0"/>
-                                    <state key="normal" image="follow-button.png">
+                                    <state key="normal" image="follow-button">
                                         <color key="titleColor" red="0.5176470876" green="0.51372551919999998" blue="0.50980395079999996" alpha="1" colorSpace="deviceRGB"/>
                                     </state>
-                                    <state key="selected" image="follow-button-pressed.png"/>
+                                    <state key="selected" image="follow-button-pressed"/>
                                     <connections>
                                         <action selector="onBtnLike:" destination="-1" eventType="touchUpInside" id="2Dy-Wn-cee"/>
                                     </connections>
@@ -114,7 +116,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ogb-th-uxo">
                                     <rect key="frame" x="260" y="40" width="50" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="share-button.png">
+                                    <state key="normal" image="share-button">
                                         <color key="titleColor" red="0.52156865600000002" green="0.51372551919999998" blue="0.50980395079999996" alpha="1" colorSpace="deviceRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -124,6 +126,34 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.5176470876" green="0.51372551919999998" blue="0.50980395079999996" alpha="1" colorSpace="deviceRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CEf-BK-67c">
+                                    <rect key="frame" x="11" y="141" width="99" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                    <color key="textColor" red="0.5176470876" green="0.51372551919999998" blue="0.50980395079999996" alpha="0.80000000000000004" colorSpace="deviceRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MUs-es-GQc">
+                                    <rect key="frame" x="11" y="170" width="299" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.45490199327468872" green="0.44705885648727417" blue="0.44313728809356689" alpha="1" colorSpace="deviceRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uHA-iH-qET">
+                                    <rect key="frame" x="11" y="79" width="78" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                    <color key="textColor" red="0.5176470876" green="0.51372551919999998" blue="0.50980395079999996" alpha="0.80000000000000004" colorSpace="deviceRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cC9-YQ-FQF">
+                                    <rect key="frame" x="11" y="108" width="299" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.51372551918029785" green="0.5058823823928833" blue="0.50196081399917603" alpha="1" colorSpace="deviceRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -175,9 +205,9 @@
     </objects>
     <resources>
         <image name="chat_to_buy_btn" width="100" height="44"/>
-        <image name="clock-icon.png" width="71" height="74"/>
-        <image name="follow-button-pressed.png" width="25" height="21"/>
-        <image name="follow-button.png" width="25" height="21"/>
-        <image name="share-button.png" width="29" height="23"/>
+        <image name="follow-button" width="25" height="21"/>
+        <image name="follow-button-pressed" width="25" height="21"/>
+        <image name="follow-button-pressed." width="71" height="74"/>
+        <image name="share-button" width="29" height="23"/>
     </resources>
 </document>
