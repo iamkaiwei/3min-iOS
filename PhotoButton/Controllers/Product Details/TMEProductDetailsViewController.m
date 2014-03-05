@@ -181,20 +181,51 @@
     
     if (!self.product.likedValue) {
         [TMEProductsManager likeProductWithProductID:self.product.id
-                                      onSuccessBlock:nil
-                                        failureBlock:nil];
-        self.product.likedValue = YES;
-        self.product.likesValue++;
-        self.labelLikes.text = [@(self.labelLikes.text.integerValue + 1) stringValue];
+                                      onSuccessBlock:^(NSString *status)
+         {
+             if (![status isEqualToString:@"success"]) {
+                 [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:NO];
+             }
+             self.product.likedValue = YES;
+             self.product.likesValue++;
+             self.labelLikes.text = [@(self.labelLikes.text.integerValue + 1) stringValue];
+         }
+                                        failureBlock:^(NSInteger statusCode, NSError *error)
+         {
+             [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:NO];
+         }];
         return;
     }
     
     [TMEProductsManager unlikeProductWithProductID:self.product.id
-                                    onSuccessBlock:nil
-                                      failureBlock:nil];
-    self.product.likedValue = NO;
-    self.product.likesValue--;
-    self.labelLikes.text = [@(self.labelLikes.text.integerValue - 1) stringValue];
+                                    onSuccessBlock:^(NSString *status)
+     {
+         if (![status isEqualToString:@"success"]) {
+             [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:YES];
+         }
+         self.product.likedValue = NO;
+         self.product.likesValue--;
+         self.labelLikes.text = [@(self.labelLikes.text.integerValue - 1) stringValue];
+     }
+                                      failureBlock:^(NSInteger statusCode, NSError *error)
+     {
+         [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:YES];
+     }];
+}
+
+- (void)likeProductFailureHandleButtonLike:(UIButton *)sender currentProduct:(TMEProduct *)currentProduct label:(UILabel *)label unlike:(BOOL)flag{
+    [UIAlertView showAlertWithTitle:@"Something Wrong" message:@"Please try again later!"];
+    sender.selected = !currentProduct.likedValue;
+    currentProduct.likedValue = !currentProduct.likedValue;
+    
+    if (flag) {
+        currentProduct.likesValue++;
+        label.text = [@(label.text.integerValue + 1) stringValue];
+        return;
+    }
+    
+    currentProduct.likesValue--;
+    label.text = [@(label.text.integerValue - 1) stringValue];
 }
 
 

@@ -114,13 +114,7 @@ TMEBrowserProductsTableCellDelegate
             [TMEProductsManager getPopularProductsWithPage:page
                                             onSuccessBlock:^(NSArray *arrProducts)
              {
-                 [self handlePagingWithResponseArray:arrProducts currentPage:page];
-                 [self hidePlaceHolder];
-                 
-                 [self.dataArray addObjectsFromArray:arrProducts];
-                 [self setUpTableView];
-                 [self finishLoading];
-                 [self paddingScrollWithTop];
+                 [self loadSuccessHandleWithResponseArray:arrProducts page:page];
              }
                                               failureBlock:^(NSInteger statusCode, NSError *error)
              {
@@ -133,14 +127,7 @@ TMEBrowserProductsTableCellDelegate
                                          withPage:page
                                    onSuccessBlock:^(NSArray *arrProducts)
          {
-             [self handlePagingWithResponseArray:arrProducts currentPage:page];
-             [self hidePlaceHolder];
-             
-             [self.dataArray addObjectsFromArray:arrProducts];
-             
-             [self setUpTableView];
-             [self finishLoading];
-             [self paddingScrollWithTop];
+             [self loadSuccessHandleWithResponseArray:arrProducts page:page];
          } failureBlock:^(NSInteger statusCode, NSError *error) {
              [self failureBlockHandleWithError:error];
              [self finishLoading];
@@ -151,14 +138,7 @@ TMEBrowserProductsTableCellDelegate
     [TMEProductsManager getAllProductsWihPage:page
                                onSuccessBlock:^(NSArray *arrProducts)
      {
-         [self handlePagingWithResponseArray:arrProducts currentPage:page];
-         [self hidePlaceHolder];
-         
-         [self.dataArray addObjectsFromArray:arrProducts];
-         
-         [self setUpTableView];
-         [self finishLoading];
-         [self paddingScrollWithTop];
+         [self loadSuccessHandleWithResponseArray:arrProducts page:page];
      }
                                  failureBlock:^(NSInteger statusCode, NSError *error)
      {
@@ -288,6 +268,17 @@ TMEBrowserProductsTableCellDelegate
     [self.labelAnimated stopAnimating];
     [self.labelAnimated fadeOutWithDuration:0.4];
     self.imageViewProductPlaceholder.hidden = YES;
+}
+
+- (void)loadSuccessHandleWithResponseArray:(NSArray *)array page:(NSInteger)page{
+    [self handlePagingWithResponseArray:array currentPage:page];
+    [self hidePlaceHolder];
+    
+    [self.dataArray addObjectsFromArray:array];
+    
+    [self setUpTableView];
+    [self finishLoading];
+    [self paddingScrollWithTop];
 }
 
 - (void)fullScreenScrollDidLayoutUIBars:(YIFullScreenScroll *)fullScreenScroll{

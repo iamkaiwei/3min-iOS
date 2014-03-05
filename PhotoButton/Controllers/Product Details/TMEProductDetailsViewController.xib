@@ -139,7 +139,7 @@
                                     <rect key="frame" x="11" y="170" width="299" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="0.45490199327468872" green="0.44705885648727417" blue="0.44313728809356689" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="textColor" red="0.458823561668396" green="0.45098042488098145" blue="0.44705885648727417" alpha="1" colorSpace="deviceRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uHA-iH-qET">
