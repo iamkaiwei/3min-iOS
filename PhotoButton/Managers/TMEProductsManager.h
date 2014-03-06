@@ -7,6 +7,7 @@
 //
 
 #import "TMEHTTPClient.h"
+#import "TMECategory.h"
 
 @interface TMEProductsManager : BaseManager
 

@@ -88,7 +88,11 @@ SINGLETON_MACRO
          }
                  andFailure:^(NSInteger statusCode, NSError *error)
         {
-            return;
+            if (failureBlock) {
+                failureBlock(statusCode, error);
+            }
+            [[TMEFacebookManager sharedInstance] logout];
+            self.isLogging = NO;
         }];
       
         return;
@@ -136,9 +140,13 @@ SINGLETON_MACRO
     
     NSString *path = [NSString stringWithFormat:@"%@%@", API_SERVER_HOST, API_USER_LOGIN];
     
-    [[BaseNetworkManager sharedInstance] sendRequestForPath:path parameters:params method:POST_METHOD success:^(NSHTTPURLResponse *response, id responseObject) {
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:params
+                                                     method:POST_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
+    {
         
-        TMEUser *user = [TMEUser MR_createEntity];
+        TMEUser *user = [[TMEUser alloc] init];
         if (responseObject){
             user = [TMEUser userByFacebookDictionary:responseObject];
             [self storeLastLoginWithFacebookToken:[self getFacebookToken]
@@ -164,7 +172,6 @@ SINGLETON_MACRO
         self.isLogging = NO;
         
     } failure:^(NSError *error) {
-        
         if (failureBlock)
             failureBlock(error.code, error);
       [[TMEFacebookManager sharedInstance] logout];

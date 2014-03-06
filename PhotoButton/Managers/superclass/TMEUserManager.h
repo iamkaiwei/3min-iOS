@@ -7,6 +7,7 @@
 //
 
 #import "BaseManager.h"
+#import "TMEUser.h"
 
 static NSString * const LAST_LOGIN_TIMESTAMP_STORED_KEY     = @"LAST_LOGIN_TIMESTAMP_STORED_KEY";
 static NSString * const LAST_LOGIN_FACEBOOK_TOKEN           = @"LAST_LOGIN_FACEBOOK_TOKEN";

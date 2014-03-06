@@ -76,9 +76,6 @@
 		B490271518B9232E00B00671 /* NSString+ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = B490251B18B9232D00B00671 /* NSString+ActiveSupportInflector.m */; };
 		B490271618B9232E00B00671 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B490251D18B9232D00B00671 /* NSString+Additions.m */; };
 		B490271718B9232E00B00671 /* NSString+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = B490251F18B9232D00B00671 /* NSString+Validation.m */; };
-		B490271818B9232E00B00671 /* TMEProduct+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B490252118B9232D00B00671 /* TMEProduct+Additions.m */; };
-		B490271918B9232E00B00671 /* TMEProductImages+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B490252318B9232D00B00671 /* TMEProductImages+Additions.m */; };
-		B490271A18B9232E00B00671 /* TMEUser+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B490252518B9232D00B00671 /* TMEUser+Additions.m */; };
 		B490271B18B9232E00B00671 /* UIAlertView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B490252718B9232D00B00671 /* UIAlertView+Additions.m */; };
 		B490271C18B9232E00B00671 /* UIBarButtonItem+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = B490252918B9232D00B00671 /* UIBarButtonItem+Custom.m */; };
 		B490271D18B9232E00B00671 /* UIBezierPath-Points.m in Sources */ = {isa = PBXBuildFile; fileRef = B490252B18B9232D00B00671 /* UIBezierPath-Points.m */; };
@@ -295,12 +292,6 @@
 		B490251D18B9232D00B00671 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		B490251E18B9232D00B00671 /* NSString+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Validation.h"; sourceTree = "<group>"; };
 		B490251F18B9232D00B00671 /* NSString+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validation.m"; sourceTree = "<group>"; };
-		B490252018B9232D00B00671 /* TMEProduct+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEProduct+Additions.h"; sourceTree = "<group>"; };
-		B490252118B9232D00B00671 /* TMEProduct+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEProduct+Additions.m"; sourceTree = "<group>"; };
-		B490252218B9232D00B00671 /* TMEProductImages+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEProductImages+Additions.h"; sourceTree = "<group>"; };
-		B490252318B9232D00B00671 /* TMEProductImages+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEProductImages+Additions.m"; sourceTree = "<group>"; };
-		B490252418B9232D00B00671 /* TMEUser+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEUser+Additions.h"; sourceTree = "<group>"; };
-		B490252518B9232D00B00671 /* TMEUser+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEUser+Additions.m"; sourceTree = "<group>"; };
 		B490252618B9232D00B00671 /* UIAlertView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Additions.h"; sourceTree = "<group>"; };
 		B490252718B9232D00B00671 /* UIAlertView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Additions.m"; sourceTree = "<group>"; };
 		B490252818B9232D00B00671 /* UIBarButtonItem+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Custom.h"; sourceTree = "<group>"; };
@@ -736,12 +727,6 @@
 				B490251D18B9232D00B00671 /* NSString+Additions.m */,
 				B490251E18B9232D00B00671 /* NSString+Validation.h */,
 				B490251F18B9232D00B00671 /* NSString+Validation.m */,
-				B490252018B9232D00B00671 /* TMEProduct+Additions.h */,
-				B490252118B9232D00B00671 /* TMEProduct+Additions.m */,
-				B490252218B9232D00B00671 /* TMEProductImages+Additions.h */,
-				B490252318B9232D00B00671 /* TMEProductImages+Additions.m */,
-				B490252418B9232D00B00671 /* TMEUser+Additions.h */,
-				B490252518B9232D00B00671 /* TMEUser+Additions.m */,
 				B490252618B9232D00B00671 /* UIAlertView+Additions.h */,
 				B490252718B9232D00B00671 /* UIAlertView+Additions.m */,
 				B490252818B9232D00B00671 /* UIBarButtonItem+Custom.h */,
@@ -1562,7 +1547,6 @@
 				B490276C18B9232E00B00671 /* TMEBaseTabBarViewController.m in Sources */,
 				B490271E18B9232E00B00671 /* UIButton+Additions.m in Sources */,
 				B490278218B9232F00B00671 /* TMEConversation.m in Sources */,
-				B490271818B9232E00B00671 /* TMEProduct+Additions.m in Sources */,
 				B490273018B9232E00B00671 /* TMEActivityViewController.m in Sources */,
 				B490272E18B9232E00B00671 /* TMEActivityTableViewCell.m in Sources */,
 				B490270D18B9232E00B00671 /* NSArray+Additions.m in Sources */,
@@ -1572,7 +1556,6 @@
 				B490277218B9232E00B00671 /* BaseNetworkManager.m in Sources */,
 				B4255A5A18B9F2760022B3A5 /* UIPlaceHolderTextView.m in Sources */,
 				0BAACBCF18BB47F700162311 /* TMESearchTableViewCell.m in Sources */,
-				B490271A18B9232E00B00671 /* TMEUser+Additions.m in Sources */,
 				B490272C18B9232E00B00671 /* UIViewController+Additions.m in Sources */,
 				B490272D18B9232E00B00671 /* UIWebView+Additions.m in Sources */,
 				B490273718B9232E00B00671 /* TMEBrowserProductsViewControllerArrayDataSource.m in Sources */,
@@ -1583,7 +1566,6 @@
 				B490276118B9232E00B00671 /* TMESearchViewController.m in Sources */,
 				B490272718B9232E00B00671 /* UIScrollView+Additions.m in Sources */,
 				0B7F441E18BB1581000777BF /* UIImageView+CircleProgress.m in Sources */,
-				B490271918B9232E00B00671 /* TMEProductImages+Additions.m in Sources */,
 				B490277718B9232E00B00671 /* TMEFacebookManager.m in Sources */,
 				B490273C18B9232E00B00671 /* TMEBrowserCollectionViewController.m in Sources */,
 				B49027EF18B9232F00B00671 /* UINavigationController+SGProgress.m in Sources */,

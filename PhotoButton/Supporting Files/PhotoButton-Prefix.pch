@@ -126,9 +126,6 @@
 #import "AFDownloadRequestOperation.h"
 #import "SDWebImageManager.h"
 #import "IIViewDeckController.h"
-#import "TMEProduct+Additions.h"
-#import "TMEProductImages+Additions.h"
-#import "TMEUser+Additions.h"
 #import "CAAnimation+EasingEquations.h"
 
 // Managers
