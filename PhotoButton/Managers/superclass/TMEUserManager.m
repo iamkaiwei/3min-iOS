@@ -74,11 +74,10 @@ SINGLETON_MACRO
     }
     
     if (![self isAccessTokenExpired]) {
-        TMEUser *user = [TMEUser MR_createEntity];
-        user.id = [self getUserIDFromStore];
+        NSNumber *userID = [self getUserIDFromStore];
         
         
-        [self getUserWithID:user.id
+        [self getUserWithID:userID
                   onSuccess:^(TMEUser *userRes)
          {
              userRes.access_token = [self getAccessTokenFromStore];
@@ -114,8 +113,7 @@ SINGLETON_MACRO
                                                      method:GET_METHOD
                                                     success:^(NSHTTPURLResponse *response, id responseObject)
     {
-        TMEUser *user = [TMEUser MR_createEntity];
-        user = [TMEUser userWithData:responseObject];
+        TMEUser *user = [TMEUser userWithData:responseObject];
         
         if (successBlock) {
             successBlock(user);
@@ -145,16 +143,14 @@ SINGLETON_MACRO
                                                      method:POST_METHOD
                                                     success:^(NSHTTPURLResponse *response, id responseObject)
     {
-        
-        TMEUser *user = [[TMEUser alloc] init];
+        TMEUser *user;
         if (responseObject){
             user = [TMEUser userByFacebookDictionary:responseObject];
             [self storeLastLoginWithFacebookToken:[self getFacebookToken]
                                       accessToken:user.access_token
                                            userID:user.id];
+            [self setLoggedUser:user andFacebookUser:nil];
         }
-        
-        [self setLoggedUser:user andFacebookUser:nil];
         
         // Push notification
         if ([URBAN_AIRSHIP_APP_KEY length] > 0) {
@@ -183,7 +179,7 @@ SINGLETON_MACRO
 #pragma marks - Fake functions to handle users stuffs
 - (TMEUser *)userWithDictionary:(NSDictionary *)dicData
 {
-    TMEUser *user = [TMEUser MR_createEntity];
+    TMEUser *user;
     user.name = dicData[@"name"];
     user.id = @([[TMEUserManager sharedInstance] getTheLargestUserID]);
     return user;

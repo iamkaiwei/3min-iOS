@@ -165,11 +165,10 @@ UITextViewDelegate
     
     // category
     NSInteger pickerIndex = [self.pickerCategories selectedRowInComponent:0];
-    TMECategory *cat = [self.arrayCategories objectAtIndex:pickerIndex];
-    TMECategory *category = cat;
+    TMECategory *category = [self.arrayCategories objectAtIndex:pickerIndex];
     
     // create product
-    TMEProduct *product = [TMEProduct MR_createEntity];
+    TMEProduct *product;
     product.name = self.txtProductName.text;
     product.id = @1;
     product.price = @([self.txtProductPrice.text doubleValue]);

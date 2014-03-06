@@ -23,51 +23,52 @@
             product.name = @"";
         else product.name = data[@"name"];
         
-        NSInteger timeStamp = [data[@"create_time"] integerValue];
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
-        NSLog(@"%@", date);
-        product.created_at = date;
-        
         if ([data[@"description"] isEqual:[NSNull null]])
             product.details = @"";
         else product.details = data[@"description"];
-        
-        if ([data[@"venue_id"] isEqual:[NSNull null]])
-            product.venue_id = @"";
-        else product.venue_id = data[@"venue_id"];
-        
-        if ([data[@"venue_long"] isEqual:[NSNull null]])
-            product.venue_long = nil;
-        else product.venue_long = @([data[@"venue_long"] floatValue]);
-        
-        if ([data[@"venue_lat"] isEqual:[NSNull null]])
-            product.venue_lat = nil;
-        else product.venue_lat = @([data[@"venue_lat"] floatValue]);
-        
-        if ([data[@"venue_name"] isEqual:[NSNull null]])
-            product.venue_name = @"";
-        else product.venue_name = data[@"venue_name"];
-        
-        if ([data[@"price"] isEqual:[NSNull null]])
-            product.price = @0;
-        else product.price = @([data[@"price"] floatValue]);
-        
-        // category
-        if (data[@"category"]) {
-            NSDictionary *categoryData = data[@"category"];
-            TMECategory *category = [[TMECategory MR_findByAttribute:@"name" withValue:categoryData[@"name"]] lastObject];
-            
-            if (!category) {
-                category = [TMECategory MR_createEntity];
-                category.name = categoryData[@"name"];
-                if (categoryData[@"image"]) {
-                    NSDictionary *image = categoryData[@"image"];
-                    category.photo_url = image[@"url"];
-                }
-            }
-            product.category = category;
-        }
     }
+    
+    
+    if ([data[@"venue_id"] isEqual:[NSNull null]])
+        product.venue_id = @"";
+    else product.venue_id = data[@"venue_id"];
+    
+    if ([data[@"venue_long"] isEqual:[NSNull null]])
+        product.venue_long = nil;
+    else product.venue_long = @([data[@"venue_long"] floatValue]);
+    
+    if ([data[@"venue_lat"] isEqual:[NSNull null]])
+        product.venue_lat = nil;
+    else product.venue_lat = @([data[@"venue_lat"] floatValue]);
+    
+    if ([data[@"venue_name"] isEqual:[NSNull null]])
+        product.venue_name = @"";
+    else product.venue_name = data[@"venue_name"];
+    
+    if ([data[@"price"] isEqual:[NSNull null]])
+        product.price = @0;
+    else product.price = @([data[@"price"] floatValue]);
+    
+    // category
+    if (data[@"category"]) {
+        NSDictionary *categoryData = data[@"category"];
+        TMECategory *category = [[TMECategory MR_findByAttribute:@"id" withValue:categoryData[@"id"]] lastObject];
+        
+        if (!category) {
+            category = [TMECategory MR_createEntity];
+            category.id = categoryData[@"id"];
+            category.name = categoryData[@"name"];
+            if (categoryData[@"image"]) {
+                NSDictionary *image = categoryData[@"image"];
+                category.photo_url = image[@"url"];
+            }
+        }
+        product.category = category;
+    }
+    
+    NSInteger timeStamp = [data[@"create_time"] integerValue];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
+    product.created_at = date;
     
     NSSet *setImages = [[NSSet alloc] init];
     if ([data[@"images"] isKindOfClass:[NSArray class]])

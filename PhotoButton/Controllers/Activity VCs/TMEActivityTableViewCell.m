@@ -36,7 +36,7 @@
   self.labelContent.text = conversation.latest_message;
   [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:conversation.user_avatar]];
   
-  NSString *imageURL = [(TMEProductImages *)[[conversation.product.imagesSet allObjects] lastObject] medium];
+  NSString *imageURL = [(TMEProductImages *)[[conversation.product.imagesSet allObjects] lastObject] thumb];
   
   if (imageURL) {
     [self.imageViewProduct setImageWithURL:[NSURL URLWithString:imageURL] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {

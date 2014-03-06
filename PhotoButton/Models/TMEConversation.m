@@ -35,7 +35,9 @@
         conversation.id = data[@"id"];
         
         conversation.user_id = data[@"user"][@"id"];
-        TMEProduct *product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"product_id"]] lastObject];
+        
+        NSDictionary *dataProduct = data[@"product"];
+        TMEProduct *product = [TMEProduct productWithDictionary:dataProduct];
         conversation.product = product;
     }
     
@@ -100,7 +102,7 @@
         conversation.id = data[@"conversation_id"];
         
         conversation.user_id = data[@"owner"][@"id"];
-        TMEProduct *product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"id"]] lastObject];
+        TMEProduct *product = [TMEProduct productWithDictionary:data];
         conversation.product = product;
     }
     

@@ -33,35 +33,38 @@
 }
 
 + (TMEUser *)userByFacebookUser:(id<FBGraphUser>)facebookUser{
-    TMEUser *user = [[TMEUser alloc] init];
+    TMEUser *user = [[TMEUser MR_findByAttribute:@"facebook_id" withValue:facebookUser.id] lastObject];
+    if (!user) {
+        user = [TMEUser MR_createEntity];
+        user.facebook_id = facebookUser.id;
+    }
     user.name = facebookUser.name;
-    user.facebook_id = facebookUser.id;
     user.username = facebookUser.username;
-    
     return user;
 }
 
 + (TMEUser *)userByFacebookDictionary:(NSDictionary *)data{
-    TMEUser *user = [TMEUser MR_createEntity];
-    
     if (data[@"user"]) {
         NSDictionary *userData = data[@"user"];
-        
+        TMEUser *user = [[TMEUser MR_findByAttribute:@"id" withValue:userData[@"id"]] lastObject];
+        if (!user) {
+            user = [TMEUser MR_createEntity];
+            user.facebook_id = userData[@"facebook_id"];
+            user.id = userData[@"id"];
+            user.udid = userData[@"udid"];
+        }
         user.name = userData[@"full_name"];
-        user.facebook_id = userData[@"facebook_id"];
-        user.id = userData[@"id"];
         user.username = userData[@"username"];
         user.email = userData[@"email"];
         user.access_token = data[@"access_token"];
-        user.udid = userData[@"udid"];
         user.fullname = userData[@"full_name"];
         
         if (userData[@"facebook_avatar"] && ![userData[@"facebook_avatar"] isEqual:[NSNull null]]) {
             user.photo_url = userData[@"facebook_avatar"];
         }
+        return user;
     }
-    
-    return user;
+    return nil;
 }
 
 @end

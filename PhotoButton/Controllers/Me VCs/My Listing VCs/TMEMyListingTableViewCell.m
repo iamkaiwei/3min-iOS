@@ -24,7 +24,7 @@
   [self.indicatorLoading startAnimating];
   TMEProductImages *img = [product.images anyObject];
   
-  [self.imageViewProduct setImageWithURL:[NSURL URLWithString:img.medium] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+  [self.imageViewProduct setImageWithURL:[NSURL URLWithString:img.thumb] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
     if (!cacheType) {
       self.imageViewProduct.alpha = 0;
     }
