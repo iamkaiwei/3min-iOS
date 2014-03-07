@@ -20,7 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"My Listings";
+    self.title = NSLocalizedString(@"My Listings", nil);
     [self enablePullToRefresh];
     [self paddingScrollWithTop];
     

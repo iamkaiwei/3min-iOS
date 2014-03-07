@@ -5,3 +5,74 @@
   Created by Toan Slan on 3/6/14.
 
 */
+
+"Pull to refresh" = "Pull to refresh";
+"3 mins loading..." = "3 mins loading...";
+
+"Login..." = "Login...";
+"Login successfully" = "Login successfully";
+"Login failed" = "Login failed";
+
+"Connected" = "Connected";
+"No connection!" = "No connection!";
+"Loading..." = "Loading...";
+
+"Update required" = "Update required";
+"There is a newer version, please update to get the best experience" = "There is a newer version, please update to get the best experience";
+
+"Browse Products" = "Browse Products";
+"Search Product" = "Search Product";
+"Activity" = "Activity";
+"Main Menu" = "Main Menu";
+"Stuff I Liked" = "Stuff I Liked";
+"List Offers" = "List Offers";
+"My Listings" = "My Listings";
+"Offer I Made" = "Offer I Made";
+"You Offer" = "You Offer";
+
+"Something Wrong" = "Something Wrong";
+"Please try again later!" = "Please try again later!";
+"Confirm" = "Confirm";
+"Do you want to save this item for later?" = "Do you want to save this item for later?";
+"Do you want to offer with original price?" = "Do you want to offer with original price?";
+"Do you want to Mark as sold your product?" = "Do you want to Mark as sold your product?";
+"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Log out" = "Log out";
+"Failure to load categories" = "Failure to load categories";
+"Retry" = "Retry";
+"Cancel" = "Cancel";
+"No" = "No";
+"Yes" = "Yes";
+"OK" = "OK";
+"Error" = "Error";
+
+"You haven't chose any category yet" = "You haven't chose any category yet";
+"You haven't chose any name yet" = "You haven't chose any name yet";
+"You haven't chose any price yet" = "You haven't chose any price yet";
+"There is no images in your product, try to add one" = "There is no images in your product, try to add one";
+"Choose one" = "Choose one";
+"Your product has been uploaded successfully." = "Your product has been uploaded successfully.";
+"Fail to upload, try again later" = "Fail to upload, try again later";
+
+"Back"= "Back";
+
+"Type message here to chat..." = "Type message here to chat...";
+"Offers %@ VND" = "Offers %@ VND";
+"$99999999999" = "$99999999999";
+"%@ is selling it for %@ VND" = "%@ is selling it for %@ VND";
+
+"Delete Photo" = "Delete Photo";
+"Choose Photo" = "Choose Photo";
+"Take Photo" = "Take Photo";
+"Oh Snap" = "Oh Snap";
+"Failed to load the camera." = "Failed to load the camera.";
+
+"View Offers" = "View Offers";
+"Sold" = "Sold";
+"Selling" = "Selling";
+
+"Enter product description" = "Enter product description";
+"Hi! I want to sell %@ for %@ VND. Let's take a look!" = "Hi! I want to sell %@ for %@ VND. Let's take a look!";
+
+"Pending..." = "Pending...";
+"View previous message.." = "View previous message..";

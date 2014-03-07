@@ -39,7 +39,7 @@
                                               placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
     
     self.lblProductName.text = product.name;
-    self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", product.price];
+    self.lblProductPrice.text = [NSString stringWithFormat:@"%@ VND", product.price];
     
     [self.lblProductPrice sizeToFitKeepHeightAlignRight];
     

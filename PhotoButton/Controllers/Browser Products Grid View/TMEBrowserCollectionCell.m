@@ -29,7 +29,7 @@
   }
   
   self.lblProductName.text = product.name;
-  self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", product.price];
+  self.lblProductPrice.text = [NSString stringWithFormat:@"%@ VND", product.price];
 }
 
 - (void)didSelectCellAnimation{

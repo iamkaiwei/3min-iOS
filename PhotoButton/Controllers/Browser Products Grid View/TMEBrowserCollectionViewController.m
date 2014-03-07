@@ -90,7 +90,7 @@ UICollectionViewDelegate
 
 - (void)loadProductsWithPage:(NSInteger)page{
     if (![TMEReachabilityManager isReachable]) {
-        [SVProgressHUD showErrorWithStatus:@"No connection!"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
         return;
     }
     
@@ -139,7 +139,7 @@ UICollectionViewDelegate
 - (void)pullToRefreshViewDidStartLoading
 {
     if (![TMEReachabilityManager isReachable]) {
-        [SVProgressHUD showErrorWithStatus:@"No connection!"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
         [self.pullToRefreshView endRefreshing];
         return;
     }

@@ -21,7 +21,7 @@
 
 - (void)configCellWithData:(TMEConversation *)conversation{
     self.labelUserName.text = conversation.user_full_name;
-    self.labelContent.text = [@"Offers $" stringByAppendingString:[conversation.offer stringValue]];
+    self.labelContent.text = [NSString stringWithFormat:NSLocalizedString(@"Offers %@ VND", nil),[conversation.offer stringValue]];
     [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:conversation.user_avatar]];
     [self.avatarIndicator startAnimating];
 }

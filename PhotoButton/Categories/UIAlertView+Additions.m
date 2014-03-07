@@ -26,9 +26,9 @@
 
 + (void)showRetryAlertWithTitle:(NSString *)title message:(NSString *)message tag:(NSInteger)tag delegate:(id<UIAlertViewDelegate>)delegate
 {
-  NSString *buttonTitle = @"Retry";
+  NSString *buttonTitle = NSLocalizedString(@"Retry", nil);
   if (!delegate)
-    buttonTitle = @"Ok";
+    buttonTitle = NSLocalizedString(@"OK", nil);
   
   [[self class] showAlertWithTitle:title message:message tag:tag delegate:delegate buttonTitles:NSLocalizedString(buttonTitle, nil), nil];
 }

@@ -29,15 +29,15 @@ UIAlertViewDelegate
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"You Offer";
+    self.title = NSLocalizedString(@"You Offer", nil);
     [self setUpView];
 }
 
 - (void)setUpView{
     self.navigationItem.rightBarButtonItem = [self rightNavigationButtonSubmit];
-    self.labelDetail.text = [NSString stringWithFormat:@"%@ is selling it for $%@", self.product.user.fullname, self.product.price];
+    self.labelDetail.text = [NSString stringWithFormat:NSLocalizedString(@"%@ is selling it for %@ VND", nil), self.product.user.fullname, self.product.price];
     
-    self.labelPriceOffer.text = [NSString stringWithFormat:@"$%@",self.product.price];
+    self.labelPriceOffer.text = [NSString stringWithFormat:@"%@ VND",self.product.price];
     [self.labelPriceOffer sizeToFitKeepHeight];
     [self.labelPriceOffer alignHorizontalCenterToView:self.view];
     
@@ -95,7 +95,7 @@ UIAlertViewDelegate
 - (void)onCancelButton:(id)sender {
     [self dismissKeyboard];
     
-    self.labelPriceOffer.text = [NSString stringWithFormat:@"$%@", self.product.price];
+    self.labelPriceOffer.text = [NSString stringWithFormat:@"%@ VND", self.product.price];
     self.txtPrice.text = @"";
     [self sizeToKeepLabelPriceHeightAlignCenter];
 }
@@ -103,7 +103,7 @@ UIAlertViewDelegate
 - (void)onDoneButton:(id)sender {
     if (![self invalidateOfferPrice]) {
         self.txtPrice.text = @"";
-        self.labelPriceOffer.text = [@"$" stringByAppendingString:[self.product.price stringValue]];
+        self.labelPriceOffer.text = [NSString stringWithFormat:@"%@ VND", self.product.price];
         [self sizeToKeepLabelPriceHeightAlignCenter];
     }
     [self.view findAndResignFirstResponder];
@@ -140,10 +140,10 @@ UIAlertViewDelegate
         price = [price stringByReplacingCharactersInRange:range withString:@""];
     }
     
-    price = [NSString stringWithFormat:@"$%@", price];
+    price = [NSString stringWithFormat:@"%@ VND", price];
     
     if (price.length >= 12) {
-        price = @"$99999999999";
+        price = NSLocalizedString(@"$99999999999", nil);
         self.labelPriceOffer.text = price;
         [self sizeToKeepLabelPriceHeightAlignCenter];
         return NO;
@@ -181,11 +181,11 @@ UIAlertViewDelegate
 }
 
 - (void)showSubmitAlert{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm Offer"
-                                                    message:@"Do you want to offer with original price?"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirm", nil)
+                                                    message:NSLocalizedString(@"Do you want to offer with original price?", nil)
                                                    delegate:self
-                                          cancelButtonTitle:@"No"
-                                          otherButtonTitles:@"Yes", nil];
+                                          cancelButtonTitle:NSLocalizedString(@"No", nil)
+                                          otherButtonTitles:NSLocalizedString(@"Yes", nil), nil];
     [alert show];
 }
 

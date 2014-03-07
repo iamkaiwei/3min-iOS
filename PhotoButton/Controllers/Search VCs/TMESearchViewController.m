@@ -24,7 +24,7 @@ UISearchBarDelegate
     // Do any additional setup after loading the view from its nib.
     self.dataArray = [@[] mutableCopy];
     
-    self.navigationController.navigationBar.topItem.title = @"Search Product";
+    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Search Product", nil);
     self.shouldHandleKeyboardNotification = NO;
 }
 
@@ -75,7 +75,7 @@ UISearchBarDelegate
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
     [self addNavigationItems];
     self.navigationItem.rightBarButtonItem = nil;
-    self.navigationController.navigationBar.topItem.title = @"Search Product";
+    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Search Product", nil);
     
     return YES;
 }

@@ -54,7 +54,7 @@ UITextViewDelegate
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"";
-    self.txtProductDescription.placeholder = @"Enter product description";
+    self.txtProductDescription.placeholder = NSLocalizedString(@"Enter product description", nil);
     
     self.txtProductName.delegate = self;
     self.txtProductPrice.delegate = self;
@@ -63,7 +63,6 @@ UITextViewDelegate
         [self.txtProductName setTintColor:[UIColor orangeMainColor]];
         [self.txtProductPrice setTintColor:[UIColor orangeMainColor]];
     }
-    //    self.navigationController.navigationBar.topItem.title = @"Publish Product";
     
     for (TMEPhotoButton *button in self.view.subviews) {
         if ([button isKindOfClass:[TMEPhotoButton class]]) {
@@ -114,7 +113,7 @@ UITextViewDelegate
      }
                                                   failureBlock:^(NSInteger statusCode, id obj)
      {
-         [SVProgressHUD showErrorWithStatus:@"Failure to load categories"];
+         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Failure to load categories", nil)];
      }];
 }
 
@@ -168,7 +167,7 @@ UITextViewDelegate
     TMECategory *category = [self.arrayCategories objectAtIndex:pickerIndex];
     
     // create product
-    TMEProduct *product;
+    TMEProduct *product = [TMEProduct MR_createEntity];
     product.name = self.txtProductName.text;
     product.id = @1;
     product.price = @([self.txtProductPrice.text doubleValue]);
@@ -210,25 +209,25 @@ UITextViewDelegate
 - (BOOL)validateInputs
 {
     if (![self hasChoseCategory]){
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You haven't chose any category yet" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"You haven't chose any category yet", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
         [alertView show];
         return NO;
     }
     
     if (![self hasProductName]){
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You haven't chose any name yet" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"You haven't chose any name yet", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
         [alertView show];
         return NO;
     }
     
     if (![self hasProductPrice]){
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You haven't chose any price yet" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"You haven't chose any price yet", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
         [alertView show];
         return NO;
     }
     
     if ([self hasNoImages]) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There is no images in your product, try to add one" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"There is no images in your product, try to add one", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
         [alertView show];
         return NO;
     }
@@ -313,13 +312,13 @@ UITextViewDelegate
                  [((TMEBrowserCollectionViewController *)containerVC.currentViewController) loadProductsWithPage:1];
              }
          }
-         [TSMessage showNotificationWithTitle:@"Your product has been uploaded successfully." type:TSMessageNotificationTypeSuccess];
+         [TSMessage showNotificationWithTitle:NSLocalizedString(@"Your product has been uploaded successfully.", nil) type:TSMessageNotificationTypeSuccess];
          
          [((TMENavigationViewController *)self.tabBarController.selectedViewController) finishSGProgress];
          
      } failure:^(NSError *error) {
          
-         [SVProgressHUD showErrorWithStatus:@"Fail to upload, try again later"];
+         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Fail to upload, try again later", nil)];
          [((TMENavigationViewController *)self.tabBarController.selectedViewController) finishSGProgress];
          
      } progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
@@ -384,7 +383,7 @@ UITextViewDelegate
 }
 
 - (void)prepareMyBatchRequest{
-    NSString *message = [NSString stringWithFormat:@"Hi! I want to sell %@ for $%@. Let's take a look!", [self.product.name capitalizedString], self.product.price];
+    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Hi! I want to sell %@ for %@ VND. Let's take a look!", nil), [self.product.name capitalizedString], self.product.price];
     
     NSString *jsonRequestsArray = @"[";
     NSString *jsonRequest = @"";
@@ -456,7 +455,7 @@ UITextViewDelegate
         if ([button isKindOfClass:[TMEPhotoButton class]])
             [button resetAttributes];
     
-    self.pickerCategoryButton.titleLabel.text = @"Choose one";
+    self.pickerCategoryButton.titleLabel.text = NSLocalizedString(@"Choose one", nil);
     self.txtProductName.text = @"";
     self.txtProductPrice.text = @"";
 }
@@ -466,13 +465,13 @@ UITextViewDelegate
     if ([self hasProductName])
         return;
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You haven't choice any name yet" delegate:nil cancelButtonTitle:@"Okie" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"You haven't chose any name yet", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
     [alertView show];
 }
 
 - (BOOL)hasChoseCategory
 {
-    if ([self.pickerCategoryButton.titleLabel.text isEqualToString:@"Choose one"]) {
+    if ([self.pickerCategoryButton.titleLabel.text isEqualToString:NSLocalizedString(@"Choose one", nil)]) {
         return NO;
     }
     return YES;
@@ -495,7 +494,7 @@ UITextViewDelegate
 }
 
 - (void)showAlertViewOnCancel{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Do you want to save this item for later?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirm", nil) message:NSLocalizedString(@"Do you want to save this item for later?", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"No", nil) otherButtonTitles:NSLocalizedString(@"Yes", nil), nil];
     [alert show];
 }
 

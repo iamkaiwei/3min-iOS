@@ -39,7 +39,7 @@ cellRightIdentifier:(NSString *)aCellRightIdentifier
     if (self.paging && indexPath.row == 0) {
         TMELoadMoreTableViewCell *cellLoadMore = [tableView dequeueReusableCellWithIdentifier:[TMELoadMoreTableViewCell kind]];
         
-        cellLoadMore.labelLoading.text = @"View previous message..";
+        cellLoadMore.labelLoading.text = NSLocalizedString(@"View previous message..", nil);
         [cellLoadMore.labelLoading setWidth:200];
         [cellLoadMore.labelLoading alignHorizontalCenterToView:tableView];
         

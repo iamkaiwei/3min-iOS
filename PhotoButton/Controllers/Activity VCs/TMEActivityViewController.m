@@ -21,7 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.navigationBar.topItem.title = @"Activity";
+    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Activity", nil);
     // remember to avoid retain cycles!
     [self enablePullToRefresh];
     [self paddingScrollWithTop];

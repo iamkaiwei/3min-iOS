@@ -69,13 +69,13 @@ FacebookManagerDelegate
     
     // Crittercism
     [Crittercism enableWithAppID: @"51f8bef646b7c2316f000007"];
-
+    
     // Version checker
-//    [self initVersionChecker];
-
+    //    [self initVersionChecker];
+    
     // start MR
     [MagicalRecord setupCoreDataStack];
-
+    
     // start foursquare
     [self initFourSquare];
     
@@ -86,11 +86,11 @@ FacebookManagerDelegate
     // Make the color of Navigation bar no more effects the status bar
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque
                                                 animated:NO];
-  
-  if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigation_background"] forBarMetrics:UIBarMetricsDefault];
-  }
-  
+    
+    if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigation_background"] forBarMetrics:UIBarMetricsDefault];
+    }
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     if (![TMETutorialViewController hasBeenPresented]) {
@@ -98,7 +98,7 @@ FacebookManagerDelegate
         [self.window makeKeyAndVisible];
         return YES;
     }
-  
+    
     [self checkFacebookSessionAtTheAppLaunch];
     [self.window makeKeyAndVisible];
     
@@ -128,73 +128,73 @@ FacebookManagerDelegate
     NSString *alert = userInfo[@"aps"][@"alert"];
     NSString *productID = userInfo[@"aps"][@"other"][@"product_id"];
     NSString *conversationID = userInfo[@"aps"][@"other"][@"conversation_id"];
-  
+    
     IIViewDeckController __block *deckController = (IIViewDeckController *)self.window.rootViewController;
     UITabBarController __block *homeController = (UITabBarController *)deckController.centerController;
     UINavigationController *navController = (UINavigationController *) [homeController selectedViewController];
-  
+    
     if ([navController.topViewController isMemberOfClass:[TMESubmitViewController class]])
     {
-      TMESubmitViewController *submitVC = (TMESubmitViewController *)navController.topViewController;
-      if ([submitVC.conversation.id isEqual:conversationID]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
-        return;
-      }
+        TMESubmitViewController *submitVC = (TMESubmitViewController *)navController.topViewController;
+        if ([submitVC.conversation.id isEqual:conversationID]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
+            return;
+        }
     }
-  
+    
     TMEConversation *notificationConversation = [[TMEConversation MR_findByAttribute:@"id" withValue:conversationID] lastObject];
     TMEProduct *notificationProduct = [[TMEProduct MR_findByAttribute:@"id" withValue:productID] lastObject];
-  
+    
     if (state == UIApplicationStateActive) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
-      
-      if ([alert length] > 40) {
-        alert = [[alert substringToIndex: 40] stringByAppendingString:@"..."];
-      }
-      
-      [TSMessage showNotificationInViewController:homeController
-                                            title:alert
-                                         subtitle:nil
-                                            image:nil
-                                             type:TSMessageNotificationTypeMessage
-                                         duration:4.0f
-                                         callback:^{
-                                           if (notificationConversation && notificationProduct) {
-                                             TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
-                                             submitVC.conversation = notificationConversation;
-                                             submitVC.product = notificationProduct;
-                                             
-                                             [navController pushViewController:submitVC animated:YES];
-                                             return;
+        
+        if ([alert length] > 40) {
+            alert = [[alert substringToIndex: 40] stringByAppendingString:@"..."];
+        }
+        
+        [TSMessage showNotificationInViewController:homeController
+                                              title:alert
+                                           subtitle:nil
+                                              image:nil
+                                               type:TSMessageNotificationTypeMessage
+                                           duration:4.0f
+                                           callback:^{
+                                               if (notificationConversation && notificationProduct) {
+                                                   TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
+                                                   submitVC.conversation = notificationConversation;
+                                                   submitVC.product = notificationProduct;
+                                                   
+                                                   [navController pushViewController:submitVC animated:YES];
+                                                   return;
+                                               }
+                                               
+                                               [self showHomeViewController];
+                                               deckController = (IIViewDeckController *)self.window.rootViewController;
+                                               homeController = (UITabBarController *)deckController.centerController;
+                                               [homeController setSelectedIndex:3];
+                                               
                                            }
-                                           
-                                           [self showHomeViewController];
-                                           deckController = (IIViewDeckController *)self.window.rootViewController;
-                                           homeController = (UITabBarController *)deckController.centerController;
-                                           [homeController setSelectedIndex:3];
-                                           
-                                         }
-                                      buttonTitle:nil
-                                   buttonCallback:nil
-                                       atPosition:TSMessageNotificationPositionTop
-                              canBeDismisedByUser:YES];
+                                        buttonTitle:nil
+                                     buttonCallback:nil
+                                         atPosition:TSMessageNotificationPositionTop
+                                canBeDismisedByUser:YES];
         return;
     }
-  
-    if (notificationConversation && notificationProduct) {
-      TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
-      submitVC.conversation = notificationConversation;
-      submitVC.product = notificationProduct;
     
-      [navController pushViewController:submitVC animated:YES];
-      return;
+    if (notificationConversation && notificationProduct) {
+        TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
+        submitVC.conversation = notificationConversation;
+        submitVC.product = notificationProduct;
+        
+        [navController pushViewController:submitVC animated:YES];
+        return;
     }
-  
+    
     [self showHomeViewController];
     deckController = (IIViewDeckController *)self.window.rootViewController;
     homeController = (UITabBarController *)deckController.centerController;
     [homeController setSelectedIndex:3];
-  
+    
 }
 
 - (void)saveContext
@@ -308,11 +308,11 @@ FacebookManagerDelegate
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     NSString *specifier = [[url resourceSpecifier] lowercaseString];
-
+    
     if ([specifier contains:@"foursquare"]) {
         return [Foursquare2 handleURL:url];
     }
-
+    
     return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
 }
 
@@ -374,26 +374,26 @@ FacebookManagerDelegate
         [self showLoginView];
         return;
     } else if (![[TMEUserManager sharedInstance] loggedUser] && [TMEReachabilityManager isReachable]) {
-        [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
+        [SVProgressHUD showWithStatus:NSLocalizedString(@"Login...", nil) maskType:SVProgressHUDMaskTypeGradient];
         [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
-            [SVProgressHUD showSuccessWithStatus:@"Login successfully"];
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login successfully", nil)];
             [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:nil];
             
             [self switchRootViewController:self.deckController animated:YES completion:nil];
             UITabBarController *tabBarController = (UITabBarController *)self.deckController.centerController;
             tabBarController.selectedIndex = 0;
         } andFailureBlock:^(NSInteger statusCode, id obj) {
-            [SVProgressHUD showErrorWithStatus:@"Login failed"];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Login failed", nil)];
         }];
     } else if (![TMEReachabilityManager isReachable]) {
-      [SVProgressHUD showErrorWithStatus:@"No connection!"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
     } else {
-      [self switchRootViewController:self.deckController animated:YES completion:nil];
+        [self switchRootViewController:self.deckController animated:YES completion:nil];
     }
 }
 
 - (void)handleTapOnNotificationWithConversation:(TMEConversation *)conversation andProduct:(TMEProduct *)product{
-  
+    
 }
 
 - (void)showTutorialController
@@ -409,7 +409,7 @@ FacebookManagerDelegate
                                        serviceBaseUrl:@"https://www.dropbox.com/sh/ijwghminfsqwd0n/s3t44SLYPf/version"
                                          timeInterval:1800
                                           withHandler:^(VENVersionTrackerState state, VENVersion *version) {
-
+                                              
                                               dispatch_sync(dispatch_get_main_queue(), ^{
                                                   switch (state) {
                                                       case VENVersionTrackerStateDeprecated:
@@ -419,9 +419,9 @@ FacebookManagerDelegate
                                                       case VENVersionTrackerStateOutdated:
                                                       {
                                                           // Offer the user the option to update
-                                                          UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Update required" message:@"There is a newer version, please update to get the best experience" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Okie", nil];
+                                                          UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Update required", nil) message:NSLocalizedString(@"There is a newer version, please update to get the best experience", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
                                                           [alertView show];
-
+                                                          
                                                           break;
                                                       }
                                                       default:

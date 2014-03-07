@@ -46,7 +46,7 @@ UIImagePickerControllerDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Main Menu";
+    self.title = NSLocalizedString(@"Main Menu", nil);
 
     self.viewControllers = @[];
 

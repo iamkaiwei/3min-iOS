@@ -178,7 +178,7 @@ IIViewDeckControllerDelegate
   if (self.navigationController == nil)
     return;
   
-  UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"Back")
+  UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", nil)
                                                                     style:UIBarButtonItemStyleBordered
                                                                    target:nil
                                                                    action:nil];
@@ -341,7 +341,7 @@ IIViewDeckControllerDelegate
   self.navigationItem.rightBarButtonItem = [self rightNavigationButtonDone];
   self.title = @"";
   
-  if ([textView.text isEqualToString:@"Type message here to chat..."]) {
+  if ([textView.text isEqualToString:NSLocalizedString(@"Type message here to chat...", nil)]) {
     textView.text = @"";
     textView.textColor = [UIColor blackColor];
   }
@@ -612,13 +612,13 @@ IIViewDeckControllerDelegate
   
   if ([TMEReachabilityManager isReachable]) {
     if (![TMEReachabilityManager sharedInstance].lastState) {
-      [TSMessage showNotificationWithTitle:@"Connected" type:TSMessageNotificationTypeSuccess];
+      [TSMessage showNotificationWithTitle:NSLocalizedString(@"Connected", nil) type:TSMessageNotificationTypeSuccess];
     }
     [TMEReachabilityManager sharedInstance].lastState = 1;
     return;
   }
   if ([TMEReachabilityManager sharedInstance].lastState) {
-    [TSMessage showNotificationWithTitle:@"No connection" type:TSMessageNotificationTypeError];
+    [TSMessage showNotificationWithTitle:NSLocalizedString(@"No connection!", nil) type:TSMessageNotificationTypeError];
     [TMEReachabilityManager sharedInstance].lastState = 0;
   }
 }

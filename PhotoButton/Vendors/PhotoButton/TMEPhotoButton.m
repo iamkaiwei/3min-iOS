@@ -8,9 +8,9 @@
 #import "PBImageHelper.h"
 #import "AFPhotoEditorController.h"
 
-#define DELETE_PHOTO  @"Delete Photo"
-#define CHOOSE_PHOTO  @"Choose Photo"
-#define TAKE_PHOTO    @"Take Photo"
+#define DELETE_PHOTO  NSLocalizedString(@"Delete Photo", nil)
+#define CHOOSE_PHOTO  NSLocalizedString(@"Choose Photo", nil)
+#define TAKE_PHOTO    NSLocalizedString(@"Take Photo", nil)
 
 @implementation TMEPhotoButton
 
@@ -48,7 +48,7 @@
   UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                 initWithTitle:nil
                                 delegate:self
-                                cancelButtonTitle:@"Cancel"
+                                cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
                                 destructiveButtonTitle:destructiveButton
                                 otherButtonTitles:TAKE_PHOTO, CHOOSE_PHOTO, nil];
   actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
@@ -87,7 +87,7 @@
         if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
             picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Oh Snap" delegate:nil cancelButtonTitle:@"Failed to load the camera." otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:NSLocalizedString(@"Oh Snap", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Failed to load the camera.", nil) otherButtonTitles:nil];
             [alert show];
         }
     } else {

@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.title = @"Offer I Made";
+    self.title = NSLocalizedString(@"Offer I Made", nil);
     [self enablePullToRefresh];
     [self paddingScrollWithTop];
     

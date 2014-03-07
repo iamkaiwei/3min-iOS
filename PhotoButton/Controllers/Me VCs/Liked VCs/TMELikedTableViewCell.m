@@ -34,7 +34,7 @@
     
     self.labelProductName.text = product.name;
     self.labelTimestamp.text = [product.created_at relativeDate];
-    self.labelProductPrice.text = [NSString stringWithFormat:@"$%@", product.price];
+    self.labelProductPrice.text = [NSString stringWithFormat:@"%@ VND", product.price];
     [self.labelProductPrice sizeToFitKeepHeight];
 }
 

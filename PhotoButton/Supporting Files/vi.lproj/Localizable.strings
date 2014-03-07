@@ -5,3 +5,74 @@
   Created by Toan Slan on 3/6/14.
 
 */
+
+"Pull to refresh" = "Kéo để tải lại";
+"3 mins loading..." = "3 mins đang tải...";
+
+"Login..." = "Đang đăng nhập...";
+"Login successfully" = "Đăng nhập thành công";
+"Login failed" = "Đăng nhập thất bại";
+
+"Connected" = "Đã kết nối";
+"No connection!" = "Không có mạng!";
+"Loading..." = "Đang tải...";
+
+"Update required" = "Yêu cầu cập nhật";
+"There is a newer version, please update to get the best experience" = "Đã có phiên bản mới, vui lòng cập nhật để có trải nghiệm tốt nhất";
+
+"Browse Products" = "Sản Phẩm Mới";
+"Search Product" = "Tìm Sản Phẩm";
+"Activity" = "Thông Báo";
+"Main Menu" = "Menu Chính";
+"Stuff I Liked" = "Sản Phẩm Đã Thích";
+"List Offers" = "Danh Sách Đặt Giá";
+"My Listings" = "Sản Phẩm Của Tôi";
+"Offer I Made" = "Sản Phẩm Tôi Đã Đặt Giá";
+"You Offer" = "Giao Dịch";
+
+"Something Wrong" = "Đã xảy ra lỗi";
+"Please try again later!" = "Vui lòng thử lại sau!";
+"Confirm" = "Xác nhận";
+"Do you want to save this item for later?" = "Bạn có muốn giữ thông tin sản phẩm này lại?";
+"Do you want to offer with original price?" = "Bạn có muốn đặt giá với giá gốc?";
+"Do you want to Mark as sold your product?" = "Bạn chắc chắn đã bán sản phẩm này?";
+"Are you sure you want to log out?" = "Bạn chắc chắn muốn đăng xuất?";
+"Log out" = "Đăng xuất";
+"Failure to load categories" = "Không thể tải danh mục";
+"Retry" = "Thử lại";
+"Cancel" = "Huỷ";
+"No" = "Không";
+"Yes" = "Có";
+"OK" = "OK";
+"Error" = "Lỗi";
+
+"You haven't chose any category yet" = "Bạn chưa chọn danh mục cho sản phẩm";
+"You haven't chose any name yet" = "Bạn chưa đặt tên cho sản phẩm";
+"You haven't chose any price yet" = "Bạn chưa đặt giá cho sản phẩm";
+"There is no images in your product, try to add one" = "Bạn phải thêm ít nhất 1 hình ảnh cho sản phẩm";
+"Choose one" = "Bấm để chọn";
+"Your product has been uploaded successfully." = "Sản phẩm của bạn đã được tải lên thành công";
+"Fail to upload, try again later" = "Đăng sản phẩm thất bại, vui lòng thử lại sau";
+
+"Back"= "Trở về";
+
+"Type message here to chat..." = "Nhập tin nhắn để chat...";
+"Offers %@ VND" = "Đặt giá %@ VNĐ";
+"$99999999999" = "99999999999 VNĐ";
+"%@ is selling it for %@ VND" = "%@ đăng bán với giá %@ VNĐ";
+
+"Delete Photo" = "Xoá Ảnh";
+"Choose Photo" = "Chọn Ảnh Trong Máy";
+"Take Photo" = "Chụp Ảnh Mới";
+"Oh Snap" = "Đã Xảy Ra Lỗi";
+"Failed to load the camera." = "Không thể kết nối đến camera.";
+
+"View Offers" = "Xem Đặt Giá";
+"Sold" = "Đã Bán";
+"Selling" = "Đang Bán";
+
+"Enter product description" = "Nhập chi tiết sản phẩm";
+"Hi! I want to sell %@ for %@ VND. Let's take a look!" = "Mình muốn bán %@ với giá %@ VNĐ. Cùng nhau xem nào!";
+
+"Pending..." = "Đang gửi...";
+"View previous message.." = "Xem tin nhắn cũ hơn..";

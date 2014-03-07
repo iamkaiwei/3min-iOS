@@ -20,7 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Stuff I Liked";
+    self.title = NSLocalizedString(@"Stuff I Liked", nil);
     [self enablePullToRefresh];
     [self paddingScrollWithTop];
     

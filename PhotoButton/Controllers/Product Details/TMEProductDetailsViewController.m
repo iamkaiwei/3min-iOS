@@ -81,7 +81,7 @@
     [self.viewBottomDetail alignBelowView:arrayImageView[(minCount == 0 ? 0 : minCount - 1)] offsetY:0 sameWidth:NO];
     
     self.lblProductName.text = self.product.name;
-    self.lblProductPrice.text = [NSString stringWithFormat:@"$%@", self.product.price];
+    self.lblProductPrice.text = [NSString stringWithFormat:@"%@ VND", self.product.price];
     
     [self.lblProductPrice sizeToFitKeepHeightAlignRight];
     
@@ -99,12 +99,12 @@
     
     if([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id])
     {
-        self.labelChatToBuy.text = @"View Offers";
+        self.labelChatToBuy.text = NSLocalizedString(@"View Offers", nil);
         return;
     }
     
     if (self.product.sold_outValue) {
-        self.labelChatToBuy.text = @"Sold";
+        self.labelChatToBuy.text = NSLocalizedString(@"Sold", nil);
         self.btnChatToBuy.enabled = NO;
     }
 }
@@ -137,7 +137,7 @@
 
 - (IBAction)chatButtonAction:(id)sender {
     if (![TMEReachabilityManager isReachable]) {
-        [SVProgressHUD showErrorWithStatus:@"No connection!"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
         return;
     }
     if ([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
@@ -214,7 +214,7 @@
 }
 
 - (void)likeProductFailureHandleButtonLike:(UIButton *)sender currentProduct:(TMEProduct *)currentProduct label:(UILabel *)label unlike:(BOOL)flag{
-    [UIAlertView showAlertWithTitle:@"Something Wrong" message:@"Please try again later!"];
+    [UIAlertView showAlertWithTitle:NSLocalizedString(@"Something Wrong", nil) message:NSLocalizedString(@"Please try again later!", nil)];
     sender.selected = !currentProduct.likedValue;
     currentProduct.likedValue = !currentProduct.likedValue;
     

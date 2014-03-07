@@ -32,8 +32,8 @@ UIActionSheetDelegate
     [super viewDidLoad];
     
     // Do any additional setup after loading the view from its nib.
-    self.arrayCellTitleSectionOne = @[@"My Listings", @"Offer I Made", @"Stuff I Liked"];
-    self.arrayCellTitleSectionTwo = @[@"Logout"];
+    self.arrayCellTitleSectionOne = @[NSLocalizedString(@"My Listings", nil), NSLocalizedString(@"Offer I Made", nil), NSLocalizedString(@"Stuff I Liked", nil)];
+    self.arrayCellTitleSectionTwo = @[NSLocalizedString(@"Log out", nil)];
     [self configView];
 }
 
@@ -98,11 +98,11 @@ UIActionSheetDelegate
 }
 
 - (void)showActionSheetLogOut{
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Are you sure you want to log out?"
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Are you sure you want to log out?", nil)
                                                        delegate:self
                                               cancelButtonTitle:nil
-                                         destructiveButtonTitle:@"Log out"
-                                              otherButtonTitles:@"Cancel", nil];
+                                         destructiveButtonTitle:NSLocalizedString(@"Log out", nil)
+                                              otherButtonTitles:NSLocalizedString(@"Cancel", nil), nil];
     [sheet showFromTabBar:self.tabBarController.tabBar];
 }
 

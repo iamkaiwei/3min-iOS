@@ -65,7 +65,6 @@
     [TMECategoryManager getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories)
      {
          self.dataArray = [arrayCategories mutableCopy];
-         self.dataArray = [self.dataArray reverse];
          [self setUpTableView];
      }
                                           failureBlock:^(NSInteger statusCode, NSError *error)

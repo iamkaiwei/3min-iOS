@@ -17,19 +17,19 @@ SINGLETON_MACRO
                             user:(id<FBGraphUser>)user
 {
     if (![TMEReachabilityManager isReachable]) {
-      [SVProgressHUD showErrorWithStatus:@"No connection!"];
+      [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
       [FBSession.activeSession close];
       return;
     }
-    [SVProgressHUD showWithStatus:@"Login..." maskType:SVProgressHUDMaskTypeGradient];
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Login...", nil) maskType:SVProgressHUDMaskTypeGradient];
     [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
-        [SVProgressHUD showSuccessWithStatus:@"Login successfully"];
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login successfully", nil)];
         [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:user];
         
         [[AppDelegate sharedDelegate] showHomeViewController];
         
     } andFailureBlock:^(NSInteger statusCode, id obj) {
-        [SVProgressHUD showErrorWithStatus:@"Login failed"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Login failed", nil)];
     }];
 }
 

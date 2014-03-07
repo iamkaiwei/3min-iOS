@@ -41,7 +41,7 @@ UIAlertViewDelegate
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.title = @"You Offer";
+    self.title = NSLocalizedString(@"You Offer", nil);
     [self registerForKeyboardNotifications];
     [self setEdgeForExtendedLayoutNone];
     self.textViewInputMessage.delegate = self;
@@ -185,13 +185,13 @@ UIAlertViewDelegate
 - (void)handleMarkAsSoldButtonTitle{
     if (self.product.sold_outValue) {
         self.buttonMarkAsSold.enabled = NO;
-        [self.buttonMarkAsSold setTitle:@"Sold" forState:UIControlStateNormal];
+        [self.buttonMarkAsSold setTitle:NSLocalizedString(@"Sold", nil) forState:UIControlStateNormal];
         return;
     }
     
     if (![self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
         self.buttonMarkAsSold.enabled = NO;
-        [self.buttonMarkAsSold setTitle:@"Selling" forState:UIControlStateNormal];
+        [self.buttonMarkAsSold setTitle:NSLocalizedString(@"Selling", nil) forState:UIControlStateNormal];
     }
 }
 
@@ -200,11 +200,11 @@ UIAlertViewDelegate
         [self.textViewInputMessage setTintColor:[UIColor orangeMainColor]];
     }
     self.lblProductName.text = self.product.name;
-    self.lblProductPrice.text = [NSString stringWithFormat:@"$%@",self.product.price];
+    self.lblProductPrice.text = [NSString stringWithFormat:@"%@ VND",self.product.price];
     
     [self.imageViewProduct setImageWithURL:[NSURL URLWithString:[[[self.product.images allObjects] lastObject] thumb]]];
     
-    self.lblPriceOffered.text = [NSString stringWithFormat:@"$%@",self.conversation.offer];
+    self.lblPriceOffered.text = [NSString stringWithFormat:@"%@ VND",self.conversation.offer];
     [self handleMarkAsSoldButtonTitle];
 }
 
@@ -280,11 +280,11 @@ UIAlertViewDelegate
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView{
     [self addNavigationItems];
     self.navigationItem.rightBarButtonItem = nil;
-    self.title = @"Your Offer";
+    self.title = NSLocalizedString(@"You Offer", nil);
     
     if ([textView.text isEqualToString:@""]) {
         textView.textColor = [UIColor lightGrayColor];
-        textView.text = @"Type message here to chat...";
+        textView.text = NSLocalizedString(@"Type message here to chat...", nil);
     }
     
     return YES;
@@ -319,11 +319,11 @@ UIAlertViewDelegate
 }
 
 - (IBAction)btnMarkAsSoldPressed:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm"
-                                                    message:@"Do you want to Mark as sold your product?"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirm", nil)
+                                                    message:NSLocalizedString(@"Do you want to Mark as sold your product?", nil)
                                                    delegate:self
-                                          cancelButtonTitle:@"No"
-                                          otherButtonTitles:@"Yes", nil];
+                                          cancelButtonTitle:NSLocalizedString(@"No", nil)
+                                          otherButtonTitles:NSLocalizedString(@"Yes", nil), nil];
     [alert show];
 }
 
@@ -341,14 +341,14 @@ UIAlertViewDelegate
     
     if ([TMEReachabilityManager isReachable]) {
         if (![TMEReachabilityManager sharedInstance].lastState) {
-            [TSMessage showNotificationWithTitle:@"Connected" type:TSMessageNotificationTypeSuccess];
+            [TSMessage showNotificationWithTitle:NSLocalizedString(@"Connected", nil) type:TSMessageNotificationTypeSuccess];
         }
         [self loadMessageWithReplyIDWithPage:1 showBottom:YES];
         [TMEReachabilityManager sharedInstance].lastState = 1;
         return;
     }
     if ([TMEReachabilityManager sharedInstance].lastState) {
-        [TSMessage showNotificationWithTitle:@"No connection" type:TSMessageNotificationTypeError];
+        [TSMessage showNotificationWithTitle:NSLocalizedString(@"No connection!", nil) type:TSMessageNotificationTypeError];
         [TMEReachabilityManager sharedInstance].lastState = 0;
     }
 }

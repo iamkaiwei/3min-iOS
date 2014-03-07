@@ -37,7 +37,7 @@
   }
   
   self.indicator.hidden = NO;
-  self.lblTime.text = @"Pending...";
+  self.lblTime.text = NSLocalizedString(@"Pending...", nil);
 }
 
 + (CGFloat)getHeight{

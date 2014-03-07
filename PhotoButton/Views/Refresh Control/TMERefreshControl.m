@@ -23,7 +23,7 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         self.refreshLabel = [[MTAnimatedLabel alloc] initWithFrame:CGRectMake(95, 15, 130, 50)];
-        self.refreshLabel.text = @"Pull to refresh";
+        self.refreshLabel.text = NSLocalizedString(@"Pull to refresh", nil);
         self.refreshLabel.textColor = [UIColor darkTextColor];
         self.refreshLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.refreshLabel];
@@ -36,7 +36,7 @@
 }
 
 - (void)refreshingWithDelta:(CGFloat)delta{
-    self.refreshLabel.text = @"3 mins loading...";
+    self.refreshLabel.text = NSLocalizedString(@"3 mins loading...", nil);;
     [self.refreshLabel startAnimating];
     self.tableView.userInteractionEnabled = NO;
 }
@@ -47,7 +47,7 @@
 }
 
 - (void)reset{
-    self.refreshLabel.text = @"Pull to refresh";
+    self.refreshLabel.text = NSLocalizedString(@"Pull to refresh", nil);
     [self.refreshLabel stopAnimating];
     self.tableView.userInteractionEnabled = YES;
 }

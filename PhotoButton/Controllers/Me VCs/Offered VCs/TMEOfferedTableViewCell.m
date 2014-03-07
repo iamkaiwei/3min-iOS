@@ -39,7 +39,7 @@
     self.imageViewClock.frame = frame;
   }
   
-  self.labelOfferPrice.text = [NSString stringWithFormat:@"$%@",conversation.offer];
+  self.labelOfferPrice.text = [NSString stringWithFormat:@"%@ VND",conversation.offer];
   
   [self.labelOfferPrice sizeToFitKeepHeight];
   [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:conversation.user_avatar]];

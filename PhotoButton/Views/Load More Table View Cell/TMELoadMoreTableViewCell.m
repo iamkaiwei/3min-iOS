@@ -12,7 +12,7 @@
 
 - (void)startLoading{
   [self.labelLoading startAnimating];
-  self.labelLoading.text = @"Loading...";
+  self.labelLoading.text = NSLocalizedString(@"Loading...", nil);
 }
 
 + (CGFloat)getHeight{

@@ -28,7 +28,7 @@ TMEBrowserProductsTableCellDelegate
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationController.navigationBar.topItem.title = @"Browse Products";
+    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Browse Products", nil);
     
     [self.labelAnimated startAnimating];
     [self setUpCircleProgressIndicator];
@@ -238,7 +238,7 @@ TMEBrowserProductsTableCellDelegate
 }
 
 - (void)likeProductFailureHandleButtonLike:(UIButton *)sender currentCellProduct:(TMEProduct *)currentCellProduct label:(UILabel *)label unlike:(BOOL)flag{
-    [UIAlertView showAlertWithTitle:@"Something Wrong" message:@"Please try again later!"];
+    [UIAlertView showAlertWithTitle:NSLocalizedString(@"Something Wrong", nil) message:NSLocalizedString(@"Please try again later!", nil)];
     sender.selected = !currentCellProduct.likedValue;
     currentCellProduct.likedValue = !currentCellProduct.likedValue;
     

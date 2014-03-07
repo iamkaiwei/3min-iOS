@@ -55,7 +55,9 @@
         }
         user.name = userData[@"full_name"];
         user.username = userData[@"username"];
-        user.email = userData[@"email"];
+        if (userData[@"email"] && ![userData[@"email"] isEqual:[NSNull null]]) {
+            user.email = userData[@"email"];
+        }
         user.access_token = data[@"access_token"];
         user.fullname = userData[@"full_name"];
         

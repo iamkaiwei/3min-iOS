@@ -185,7 +185,7 @@
 - (BOOL)isReachable{
     if (![TMEReachabilityManager isReachable]) {
         [self.pullToRefreshView endRefreshing];
-        [SVProgressHUD showErrorWithStatus:@"No connection!"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
         return NO;
     }
     return YES;
