@@ -182,7 +182,7 @@
 		B490278618B9232F00B00671 /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025FA18B9232E00B00671 /* TMEUser.m */; };
 		B490278A18B9232F00B00671 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B490260418B9232E00B00671 /* AppDelegate.m */; };
 		B490278C18B9232F00B00671 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B490260718B9232E00B00671 /* main.m */; };
-		B490278D18B9232F00B00671 /* PhotoButton-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B490260818B9232E00B00671 /* PhotoButton-Info.plist */; };
+		B490278D18B9232F00B00671 /* ThreeMin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B490260818B9232E00B00671 /* ThreeMin-Info.plist */; };
 		B490279918B9232F00B00671 /* AFUrbanAirshipClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B490262518B9232E00B00671 /* AFUrbanAirshipClient.m */; };
 		B490279C18B9232F00B00671 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263518B9232E00B00671 /* JRSwizzle.m */; };
 		B490279D18B9232F00B00671 /* UIViewController+YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263718B9232E00B00671 /* UIViewController+YIFullScreenScroll.m */; };
@@ -247,7 +247,7 @@
 		0CBE48BF17D1C0AB00DC7482 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		0CD9CF6017EA10DF00402E91 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		201EFE1E17F6F6BC00DA6BB4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		5976C03F15925D2D007F6FC3 /* PhotoButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5976C03F15925D2D007F6FC3 /* ThreeMin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreeMin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -477,8 +477,8 @@
 		B490260318B9232E00B00671 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "PhotoButton/Supporting Files/AppDelegate.h"; sourceTree = "<group>"; };
 		B490260418B9232E00B00671 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "PhotoButton/Supporting Files/AppDelegate.m"; sourceTree = "<group>"; };
 		B490260718B9232E00B00671 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B490260818B9232E00B00671 /* PhotoButton-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PhotoButton-Info.plist"; sourceTree = "<group>"; };
-		B490260918B9232E00B00671 /* PhotoButton-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PhotoButton-Prefix.pch"; sourceTree = "<group>"; };
+		B490260818B9232E00B00671 /* ThreeMin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ThreeMin-Info.plist"; sourceTree = "<group>"; };
+		B490260918B9232E00B00671 /* ThreeMin-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ThreeMin-Prefix.pch"; sourceTree = "<group>"; };
 		B490262418B9232E00B00671 /* AFUrbanAirshipClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFUrbanAirshipClient.h; sourceTree = "<group>"; };
 		B490262518B9232E00B00671 /* AFUrbanAirshipClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUrbanAirshipClient.m; sourceTree = "<group>"; };
 		B490263418B9232E00B00671 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
@@ -647,7 +647,7 @@
 		5976C04015925D2D007F6FC3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5976C03F15925D2D007F6FC3 /* PhotoButton.app */,
+				5976C03F15925D2D007F6FC3 /* ThreeMin.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1122,8 +1122,8 @@
 				0B87221218C85CE600C32657 /* Localizable.strings */,
 				B49027FB18B9235300B00671 /* TMEModels.xcdatamodeld */,
 				B490260718B9232E00B00671 /* main.m */,
-				B490260818B9232E00B00671 /* PhotoButton-Info.plist */,
-				B490260918B9232E00B00671 /* PhotoButton-Prefix.pch */,
+				B490260818B9232E00B00671 /* ThreeMin-Info.plist */,
+				B490260918B9232E00B00671 /* ThreeMin-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			path = "PhotoButton/Supporting Files";
@@ -1312,9 +1312,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5976C03E15925D2D007F6FC3 /* PhotoButton */ = {
+		5976C03E15925D2D007F6FC3 /* ThreeMin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5976C06015925D2D007F6FC3 /* Build configuration list for PBXNativeTarget "PhotoButton" */;
+			buildConfigurationList = 5976C06015925D2D007F6FC3 /* Build configuration list for PBXNativeTarget "ThreeMin" */;
 			buildPhases = (
 				16888B0968C049BC84E52B4F /* Check Pods Manifest.lock */,
 				5976C03B15925D2D007F6FC3 /* Sources */,
@@ -1326,9 +1326,9 @@
 			);
 			dependencies = (
 			);
-			name = PhotoButton;
+			name = ThreeMin;
 			productName = PhotoButton;
-			productReference = 5976C03F15925D2D007F6FC3 /* PhotoButton.app */;
+			productReference = 5976C03F15925D2D007F6FC3 /* ThreeMin.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1344,7 +1344,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5976C03915925D2D007F6FC3 /* Build configuration list for PBXProject "PhotoButton" */;
+			buildConfigurationList = 5976C03915925D2D007F6FC3 /* Build configuration list for PBXProject "ThreeMin" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1358,7 +1358,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5976C03E15925D2D007F6FC3 /* PhotoButton */,
+				5976C03E15925D2D007F6FC3 /* ThreeMin */,
 				0C5C14F217E6BA89004F30D9 /* TMEModelsGenerator */,
 			);
 		};
@@ -1386,7 +1386,7 @@
 				B490273D18B9232E00B00671 /* TMEBrowserCollectionViewController.xib in Resources */,
 				B4D551F118BB445600745DAC /* AviarySDKResources.bundle in Resources */,
 				B490273418B9232E00B00671 /* TMEBrowserProductsTableCell.xib in Resources */,
-				B490278D18B9232F00B00671 /* PhotoButton-Info.plist in Resources */,
+				B490278D18B9232F00B00671 /* ThreeMin-Info.plist in Resources */,
 				B490275F18B9232E00B00671 /* TMEPublishProductViewController.xib in Resources */,
 				B490273B18B9232E00B00671 /* TMEBrowserCollectionCell.xib in Resources */,
 				B490273118B9232E00B00671 /* TMEActivityViewController.xib in Resources */,
@@ -1702,8 +1702,8 @@
 					"\"$(SRCROOT)/Vendors/\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/PhotoButton-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/PhotoButton/Supporting Files/PhotoButton-Info.plist";
+				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/ThreeMin-Prefix.pch";
+				INFOPLIST_FILE = "PhotoButton/Supporting Files/ThreeMin-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1716,7 +1716,7 @@
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ThreeMin;
 				PROVISIONING_PROFILE = "6DF459DB-C916-408F-8457-B3CFD1B6E640";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6DF459DB-C916-408F-8457-B3CFD1B6E640";
 				SDKROOT = iphoneos7.0;
@@ -1737,8 +1737,8 @@
 					"\"$(SRCROOT)/Vendors/\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/PhotoButton-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/PhotoButton/Supporting Files/PhotoButton-Info.plist";
+				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/ThreeMin-Prefix.pch";
+				INFOPLIST_FILE = "PhotoButton/Supporting Files/ThreeMin-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1751,7 +1751,7 @@
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ThreeMin;
 				PROVISIONING_PROFILE = "6DF459DB-C916-408F-8457-B3CFD1B6E640";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6DF459DB-C916-408F-8457-B3CFD1B6E640";
 				SDKROOT = iphoneos7.0;
@@ -1771,7 +1771,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5976C03915925D2D007F6FC3 /* Build configuration list for PBXProject "PhotoButton" */ = {
+		5976C03915925D2D007F6FC3 /* Build configuration list for PBXProject "ThreeMin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5976C05E15925D2D007F6FC3 /* Debug */,
@@ -1780,7 +1780,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5976C06015925D2D007F6FC3 /* Build configuration list for PBXNativeTarget "PhotoButton" */ = {
+		5976C06015925D2D007F6FC3 /* Build configuration list for PBXNativeTarget "ThreeMin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5976C06115925D2D007F6FC3 /* Debug */,
