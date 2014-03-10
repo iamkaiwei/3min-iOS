@@ -1,6 +1,6 @@
 platform :ios, '6.0'
 
-target :PhotoButton, :exclusive => true do
+target :ThreeMin, :exclusive => true do
 
   pod 'AFNetworking', '1.3.3'
   pod 'Reachability'

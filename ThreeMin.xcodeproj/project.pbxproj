@@ -50,11 +50,11 @@
 		0CBE48BE17D1C0A400DC7482 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48BD17D1C0A400DC7482 /* QuartzCore.framework */; };
 		0CBE48C017D1C0AB00DC7482 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48BF17D1C0AB00DC7482 /* StoreKit.framework */; };
 		0CD9CF6117EA10DF00402E91 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD9CF6017EA10DF00402E91 /* MobileCoreServices.framework */; };
-		195CE077929C4006BA5DF024 /* libPods-PhotoButton.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5F82EBDA924B60AFAB0110 /* libPods-PhotoButton.a */; };
 		201EFE1F17F6F6BC00DA6BB4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 201EFE1E17F6F6BC00DA6BB4 /* SystemConfiguration.framework */; };
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
+		97A9B7D7A9F64B518040876E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 		B4255A5A18B9F2760022B3A5 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A5918B9F2760022B3A5 /* UIPlaceHolderTextView.m */; };
 		B4255A5E18B9FA6A0022B3A5 /* PublishLocationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A5C18B9FA6A0022B3A5 /* PublishLocationPickerViewController.m */; };
 		B4255A5F18B9FA6A0022B3A5 /* PublishLocationPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4255A5D18B9FA6A0022B3A5 /* PublishLocationPickerViewController.xib */; };
@@ -247,6 +247,7 @@
 		0CBE48BF17D1C0AB00DC7482 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		0CD9CF6017EA10DF00402E91 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		201EFE1E17F6F6BC00DA6BB4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		45DA59DE8C0942DC8E406561 /* Pods-ThreeMin.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeMin.xcconfig"; path = "Pods/Pods-ThreeMin.xcconfig"; sourceTree = "<group>"; };
 		5976C03F15925D2D007F6FC3 /* ThreeMin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreeMin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -529,6 +530,7 @@
 		B4D551EC18BB445600745DAC /* AFPhotoEditorSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorSession.h; sourceTree = "<group>"; };
 		B4D551ED18BB445600745DAC /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
 		B4D551EF18BB445600745DAC /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
+		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -558,8 +560,8 @@
 				0CBE48B417D1C04400DC7482 /* CoreText.framework in Frameworks */,
 				0CBE48B217D1C03E00DC7482 /* CoreData.framework in Frameworks */,
 				0CBE48B017D1C03700DC7482 /* AdSupport.framework in Frameworks */,
-				195CE077929C4006BA5DF024 /* libPods-PhotoButton.a in Frameworks */,
 				B4D551E318BB444700745DAC /* libGoogleAnalytics.a in Frameworks */,
+				97A9B7D7A9F64B518040876E /* libPods-ThreeMin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +643,7 @@
 				5976C04215925D2D007F6FC3 /* Frameworks */,
 				5976C04015925D2D007F6FC3 /* Products */,
 				64C3B8A6E8EA4A30A3BD2235 /* Pods-PhotoButton.xcconfig */,
+				45DA59DE8C0942DC8E406561 /* Pods-ThreeMin.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -676,6 +679,7 @@
 				5976C04515925D2D007F6FC3 /* Foundation.framework */,
 				5976C04715925D2D007F6FC3 /* CoreGraphics.framework */,
 				8D5F82EBDA924B60AFAB0110 /* libPods-PhotoButton.a */,
+				D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1454,7 +1458,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-PhotoButton-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-ThreeMin-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1691,16 +1695,13 @@
 		};
 		5976C06115925D2D007F6FC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64C3B8A6E8EA4A30A3BD2235 /* Pods-PhotoButton.xcconfig */;
+			baseConfigurationReference = 45DA59DE8C0942DC8E406561 /* Pods-ThreeMin.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kaiwei Chen (898793SFE7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kaiwei Chen (898793SFE7)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Vendors/\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/ThreeMin-Prefix.pch";
 				INFOPLIST_FILE = "PhotoButton/Supporting Files/ThreeMin-Info.plist";
@@ -1726,16 +1727,13 @@
 		};
 		5976C06215925D2D007F6FC3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64C3B8A6E8EA4A30A3BD2235 /* Pods-PhotoButton.xcconfig */;
+			baseConfigurationReference = 45DA59DE8C0942DC8E406561 /* Pods-ThreeMin.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kaiwei Chen (898793SFE7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kaiwei Chen (898793SFE7)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Vendors/\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/ThreeMin-Prefix.pch";
 				INFOPLIST_FILE = "PhotoButton/Supporting Files/ThreeMin-Info.plist";
