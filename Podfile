@@ -22,5 +22,6 @@ target :ThreeMin, :exclusive => true do
   pod 'CrittercismSDK'
   pod 'GoogleAnalytics-iOS-SDK'
   pod 'AviarySDK'
+  pod 'UrbanAirship-iOS-SDK'
   
 end

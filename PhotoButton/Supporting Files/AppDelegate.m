@@ -12,8 +12,10 @@
 #import "TMEUserManager.h"
 #import "TMEReachabilityManager.h"
 #import "GAI.h"
-#import "AFUrbanAirshipClient.h"
 #import "TMESubmitViewController.h"
+#import "UAirship.h"
+#import "UAConfig.h"
+#import "UAPush.h"
 
 @interface AppDelegate()
 <
@@ -45,15 +47,15 @@ FacebookManagerDelegate
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    AFUrbanAirshipClient *client = [[AFUrbanAirshipClient alloc] initWithApplicationKey:URBAN_AIRSHIP_APP_KEY
-                                                                      applicationSecret:URBAN_AIRSHIP_APP_SECRET];
-    NSNumber *logginUserID = [[[TMEUserManager sharedInstance] loggedUser] id];
-    NSString *alias = [NSString stringWithFormat:@"user-%d", [logginUserID integerValue]];
-    [client registerDeviceToken:deviceToken withAlias:alias success:^{
-        DLog(@"Urban Airship registered device token successfully");
-    } failure:^(NSError *error) {
-        DLog(@"Urban Airship failed to register device token. Error: %@", error);
-    }];
+//    AFUrbanAirshipClient *client = [[AFUrbanAirshipClient alloc] initWithApplicationKey:URBAN_AIRSHIP_APP_KEY
+//                                                                      applicationSecret:URBAN_AIRSHIP_APP_SECRET];
+//    NSNumber *logginUserID = [[[TMEUserManager sharedInstance] loggedUser] id];
+//    NSString *alias = [NSString stringWithFormat:@"user-%d", [logginUserID integerValue]];
+//    [client registerDeviceToken:deviceToken withAlias:alias success:^{
+//        DLog(@"Urban Airship registered device token successfully");
+//    } failure:^(NSError *error) {
+//        DLog(@"Urban Airship failed to register device token. Error: %@", error);
+//    }];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -63,6 +65,31 @@ FacebookManagerDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Populate AirshipConfig.plist with your app's info from https://go.urbanairship.com
+    // or set runtime properties here.
+    UAConfig *config = [UAConfig defaultConfig];
+    
+    // You can also programmatically override the plist values:
+    // config.developmentAppKey = @"YourKey";
+    // etc.
+    
+    config.developmentAppKey = URBAN_AIRSHIP_APP_KEY;
+    config.developmentAppSecret = URBAN_AIRSHIP_APP_SECRET;
+    config.productionAppKey = URBAN_AIRSHIP_APP_KEY;
+    config.productionAppSecret = URBAN_AIRSHIP_APP_SECRET;
+    config.detectProvisioningMode = YES;
+    
+    // Call takeOff (which creates the UAirship singleton)
+    [UAirship takeOff:config];
+    
+    // Request a custom set of notification types
+    [UAPush shared].notificationTypes = (UIRemoteNotificationTypeBadge |
+                                         UIRemoteNotificationTypeSound |
+                                         UIRemoteNotificationTypeAlert);
+    
+    [[UAPush shared] setPushEnabled:YES];
+    
+    
     [TMEReachabilityManager sharedInstance];
     
     self.deckController = [self generateControllerStack];

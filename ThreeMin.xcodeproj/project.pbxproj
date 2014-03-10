@@ -54,7 +54,6 @@
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
-		97A9B7D7A9F64B518040876E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 		B4255A5A18B9F2760022B3A5 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A5918B9F2760022B3A5 /* UIPlaceHolderTextView.m */; };
 		B4255A5E18B9FA6A0022B3A5 /* PublishLocationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A5C18B9FA6A0022B3A5 /* PublishLocationPickerViewController.m */; };
 		B4255A5F18B9FA6A0022B3A5 /* PublishLocationPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4255A5D18B9FA6A0022B3A5 /* PublishLocationPickerViewController.xib */; };
@@ -183,7 +182,6 @@
 		B490278A18B9232F00B00671 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B490260418B9232E00B00671 /* AppDelegate.m */; };
 		B490278C18B9232F00B00671 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B490260718B9232E00B00671 /* main.m */; };
 		B490278D18B9232F00B00671 /* ThreeMin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B490260818B9232E00B00671 /* ThreeMin-Info.plist */; };
-		B490279918B9232F00B00671 /* AFUrbanAirshipClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B490262518B9232E00B00671 /* AFUrbanAirshipClient.m */; };
 		B490279C18B9232F00B00671 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263518B9232E00B00671 /* JRSwizzle.m */; };
 		B490279D18B9232F00B00671 /* UIViewController+YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263718B9232E00B00671 /* UIViewController+YIFullScreenScroll.m */; };
 		B490279E18B9232F00B00671 /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B490263918B9232E00B00671 /* ViewUtils.m */; };
@@ -204,6 +202,7 @@
 		B4D551E318BB444700745DAC /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D551E218BB444700745DAC /* libGoogleAnalytics.a */; };
 		B4D551F018BB445600745DAC /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D551ED18BB445600745DAC /* libAviarySDK.a */; };
 		B4D551F118BB445600745DAC /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B4D551EF18BB445600745DAC /* AviarySDKResources.bundle */; };
+		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -252,7 +251,6 @@
 		5976C04315925D2D007F6FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		64C3B8A6E8EA4A30A3BD2235 /* Pods-PhotoButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoButton.xcconfig"; path = "Pods/Pods-PhotoButton.xcconfig"; sourceTree = "<group>"; };
 		8D5F82EBDA924B60AFAB0110 /* libPods-PhotoButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4255A5818B9F2760022B3A5 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
 		B4255A5918B9F2760022B3A5 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
@@ -480,8 +478,6 @@
 		B490260718B9232E00B00671 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B490260818B9232E00B00671 /* ThreeMin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ThreeMin-Info.plist"; sourceTree = "<group>"; };
 		B490260918B9232E00B00671 /* ThreeMin-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ThreeMin-Prefix.pch"; sourceTree = "<group>"; };
-		B490262418B9232E00B00671 /* AFUrbanAirshipClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFUrbanAirshipClient.h; sourceTree = "<group>"; };
-		B490262518B9232E00B00671 /* AFUrbanAirshipClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUrbanAirshipClient.m; sourceTree = "<group>"; };
 		B490263418B9232E00B00671 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		B490263518B9232E00B00671 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		B490263618B9232E00B00671 /* UIViewController+YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YIFullScreenScroll.h"; sourceTree = "<group>"; };
@@ -561,7 +557,7 @@
 				0CBE48B217D1C03E00DC7482 /* CoreData.framework in Frameworks */,
 				0CBE48B017D1C03700DC7482 /* AdSupport.framework in Frameworks */,
 				B4D551E318BB444700745DAC /* libGoogleAnalytics.a in Frameworks */,
-				97A9B7D7A9F64B518040876E /* libPods-ThreeMin.a in Frameworks */,
+				D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,7 +638,6 @@
 				0C28B28717DC1A1400BD0EC2 /* Resources */,
 				5976C04215925D2D007F6FC3 /* Frameworks */,
 				5976C04015925D2D007F6FC3 /* Products */,
-				64C3B8A6E8EA4A30A3BD2235 /* Pods-PhotoButton.xcconfig */,
 				45DA59DE8C0942DC8E406561 /* Pods-ThreeMin.xcconfig */,
 			);
 			sourceTree = "<group>";
@@ -1138,7 +1133,6 @@
 			children = (
 				0B7F441F18BB2E9A000777BF /* JZRefreshControl */,
 				B490280218B92B4100B00671 /* AFNetworking */,
-				B490262318B9232E00B00671 /* AFUrbanAirshipClient */,
 				B490262618B9232E00B00671 /* AviarySDK */,
 				B490263318B9232E00B00671 /* Classes */,
 				B490263C18B9232E00B00671 /* CrittercismSDK */,
@@ -1148,15 +1142,6 @@
 			);
 			name = Vendors;
 			path = PhotoButton/Vendors;
-			sourceTree = "<group>";
-		};
-		B490262318B9232E00B00671 /* AFUrbanAirshipClient */ = {
-			isa = PBXGroup;
-			children = (
-				B490262418B9232E00B00671 /* AFUrbanAirshipClient.h */,
-				B490262518B9232E00B00671 /* AFUrbanAirshipClient.m */,
-			);
-			path = AFUrbanAirshipClient;
 			sourceTree = "<group>";
 		};
 		B490262618B9232E00B00671 /* AviarySDK */ = {
@@ -1529,7 +1514,6 @@
 				B49027C518B9232F00B00671 /* PBImageHelper.m in Sources */,
 				B490272518B9232E00B00671 /* UILabel+Additions.m in Sources */,
 				B490277518B9232E00B00671 /* TMECategoryManager.m in Sources */,
-				B490279918B9232F00B00671 /* AFUrbanAirshipClient.m in Sources */,
 				B490276318B9232E00B00671 /* TMESubmitTableCell.m in Sources */,
 				B4255A5E18B9FA6A0022B3A5 /* PublishLocationPickerViewController.m in Sources */,
 				B490273E18B9232E00B00671 /* HTKContainerViewController.m in Sources */,
@@ -1655,8 +1639,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "BF4F20B1-4998-4DE6-8255-D13D26D8F0FE";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BF4F20B1-4998-4DE6-8255-D13D26D8F0FE";
+				PROVISIONING_PROFILE = "2A6DB573-527A-45AA-AE70-007128B4412F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2A6DB573-527A-45AA-AE70-007128B4412F";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1673,8 +1657,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kaiwei Chen (898793SFE7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kaiwei Chen (898793SFE7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kaiwei Chen (LZHP3NSA6X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kaiwei Chen (LZHP3NSA6X)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = "";
@@ -1685,8 +1669,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "BF4F20B1-4998-4DE6-8255-D13D26D8F0FE";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BF4F20B1-4998-4DE6-8255-D13D26D8F0FE";
+				PROVISIONING_PROFILE = "B4C45FD9-2E24-493E-A96A-281FDC296869";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B4C45FD9-2E24-493E-A96A-281FDC296869";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -1718,8 +1702,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = ThreeMin;
-				PROVISIONING_PROFILE = "6DF459DB-C916-408F-8457-B3CFD1B6E640";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6DF459DB-C916-408F-8457-B3CFD1B6E640";
+				PROVISIONING_PROFILE = "2A6DB573-527A-45AA-AE70-007128B4412F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2A6DB573-527A-45AA-AE70-007128B4412F";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1731,8 +1715,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kaiwei Chen (898793SFE7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kaiwei Chen (898793SFE7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kaiwei Chen (LZHP3NSA6X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kaiwei Chen (LZHP3NSA6X)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/ThreeMin-Prefix.pch";
@@ -1750,12 +1734,84 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = ThreeMin;
-				PROVISIONING_PROFILE = "6DF459DB-C916-408F-8457-B3CFD1B6E640";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6DF459DB-C916-408F-8457-B3CFD1B6E640";
+				PROVISIONING_PROFILE = "F65DB06D-8459-489D-937B-B604F16F60B6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F65DB06D-8459-489D-937B-B604F16F60B6";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
+		};
+		7130F10F18CDE32400EE9A3F /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kaiwei Chen (LZHP3NSA6X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kaiwei Chen (LZHP3NSA6X)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "F65DB06D-8459-489D-937B-B604F16F60B6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F65DB06D-8459-489D-937B-B604F16F60B6";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Adhoc;
+		};
+		7130F11018CDE32400EE9A3F /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45DA59DE8C0942DC8E406561 /* Pods-ThreeMin.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kaiwei Chen (LZHP3NSA6X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kaiwei Chen (LZHP3NSA6X)";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/ThreeMin-Prefix.pch";
+				INFOPLIST_FILE = "PhotoButton/Supporting Files/ThreeMin-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PhotoButton/Vendors/\"",
+					"\"$(SRCROOT)/PhotoButton/Vendors/CrittercismSDK/\"",
+					"\"$(SRCROOT)/PhotoButton/Vendors/AviarySDK/\"",
+					"\"$(SRCROOT)/PhotoButton/Vendors/Google\\ Analytics/\"",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = ThreeMin;
+				PROVISIONING_PROFILE = "F65DB06D-8459-489D-937B-B604F16F60B6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F65DB06D-8459-489D-937B-B604F16F60B6";
+				SDKROOT = iphoneos7.0;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Adhoc;
+		};
+		7130F11118CDE32400EE9A3F /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_VERSION = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos6.1;
+			};
+			name = Adhoc;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1765,6 +1821,7 @@
 			buildConfigurations = (
 				0C5C14F417E6BA89004F30D9 /* Debug */,
 				0C5C14F517E6BA89004F30D9 /* Release */,
+				7130F11118CDE32400EE9A3F /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1774,6 +1831,7 @@
 			buildConfigurations = (
 				5976C05E15925D2D007F6FC3 /* Debug */,
 				5976C05F15925D2D007F6FC3 /* Release */,
+				7130F10F18CDE32400EE9A3F /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1783,6 +1841,7 @@
 			buildConfigurations = (
 				5976C06115925D2D007F6FC3 /* Debug */,
 				5976C06215925D2D007F6FC3 /* Release */,
+				7130F11018CDE32400EE9A3F /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
