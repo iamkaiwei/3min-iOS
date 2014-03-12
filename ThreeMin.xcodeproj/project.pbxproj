@@ -1576,6 +1576,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "B4C45FD9-2E24-493E-A96A-281FDC296869";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B4C45FD9-2E24-493E-A96A-281FDC296869";
@@ -1601,17 +1602,14 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/PhotoButton/Vendors/\"",
-					"\"$(SRCROOT)/PhotoButton/Vendors/CrittercismSDK/\"",
-					"\"$(SRCROOT)/PhotoButton/Vendors/AviarySDK/\"",
-					"\"$(SRCROOT)/PhotoButton/Vendors/Google\\ Analytics/\"",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = ThreeMin;
-				PROVISIONING_PROFILE = "2A6DB573-527A-45AA-AE70-007128B4412F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2A6DB573-527A-45AA-AE70-007128B4412F";
+				PROVISIONING_PROFILE = "5A8922BB-740A-46E4-9795-170336142FBB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5A8922BB-740A-46E4-9795-170336142FBB";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1633,9 +1631,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/PhotoButton/Vendors/\"",
-					"\"$(SRCROOT)/PhotoButton/Vendors/CrittercismSDK/\"",
-					"\"$(SRCROOT)/PhotoButton/Vendors/AviarySDK/\"",
-					"\"$(SRCROOT)/PhotoButton/Vendors/Google\\ Analytics/\"",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1671,9 +1666,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "F65DB06D-8459-489D-937B-B604F16F60B6";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F65DB06D-8459-489D-937B-B604F16F60B6";
+				PROVISIONING_PROFILE = "CD1E8C9C-24FE-404C-9EA4-521383A535E3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CD1E8C9C-24FE-404C-9EA4-521383A535E3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -1696,17 +1692,14 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/PhotoButton/Vendors/\"",
-					"\"$(SRCROOT)/PhotoButton/Vendors/CrittercismSDK/\"",
-					"\"$(SRCROOT)/PhotoButton/Vendors/AviarySDK/\"",
-					"\"$(SRCROOT)/PhotoButton/Vendors/Google\\ Analytics/\"",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = ThreeMin;
-				PROVISIONING_PROFILE = "F65DB06D-8459-489D-937B-B604F16F60B6";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F65DB06D-8459-489D-937B-B604F16F60B6";
+				PROVISIONING_PROFILE = "CD1E8C9C-24FE-404C-9EA4-521383A535E3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CD1E8C9C-24FE-404C-9EA4-521383A535E3";
 				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};

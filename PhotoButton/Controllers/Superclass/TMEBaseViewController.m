@@ -92,8 +92,8 @@ IIViewDeckControllerDelegate
   [super viewWillAppear:animated];
   
   // Google Analytics
-  self.trackedViewName = self.title;
-  
+//  self.trackedViewName = self.title;
+
   if (self.shouldAvoidKeyboard && self.shouldHandleKeyboardNotification) {
     [self registerForKeyboardNotifications];
   }
