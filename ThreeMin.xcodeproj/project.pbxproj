@@ -1599,10 +1599,7 @@
 				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/ThreeMin-Prefix.pch";
 				INFOPLIST_FILE = "PhotoButton/Supporting Files/ThreeMin-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/PhotoButton/Vendors/\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
@@ -1610,7 +1607,8 @@
 				PRODUCT_NAME = ThreeMin;
 				PROVISIONING_PROFILE = "5A8922BB-740A-46E4-9795-170336142FBB";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5A8922BB-740A-46E4-9795-170336142FBB";
-				SDKROOT = iphoneos7.0;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1628,10 +1626,7 @@
 				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/ThreeMin-Prefix.pch";
 				INFOPLIST_FILE = "PhotoButton/Supporting Files/ThreeMin-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/PhotoButton/Vendors/\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
@@ -1639,7 +1634,8 @@
 				PRODUCT_NAME = ThreeMin;
 				PROVISIONING_PROFILE = "B4C45FD9-2E24-493E-A96A-281FDC296869";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B4C45FD9-2E24-493E-A96A-281FDC296869";
-				SDKROOT = iphoneos7.0;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1689,10 +1685,7 @@
 				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/ThreeMin-Prefix.pch";
 				INFOPLIST_FILE = "PhotoButton/Supporting Files/ThreeMin-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/PhotoButton/Vendors/\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
@@ -1700,7 +1693,8 @@
 				PRODUCT_NAME = ThreeMin;
 				PROVISIONING_PROFILE = "CD1E8C9C-24FE-404C-9EA4-521383A535E3";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CD1E8C9C-24FE-404C-9EA4-521383A535E3";
-				SDKROOT = iphoneos7.0;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Adhoc;
