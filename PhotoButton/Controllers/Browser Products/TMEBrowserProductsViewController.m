@@ -165,7 +165,7 @@ TMEBrowserProductsTableCellDelegate
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         scrollViewTopInset += 20;
     }
-    self.tableView.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 22, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(scrollViewTopInset, 0, 40, 0);
 }
 
 #pragma mark - Notifications
