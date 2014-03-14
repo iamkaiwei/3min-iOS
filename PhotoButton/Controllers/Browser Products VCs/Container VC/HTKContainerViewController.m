@@ -58,7 +58,7 @@
     [viewController didMoveToParentViewController:self];
     self.currentViewController = viewController;
  
-    [self assignFullScreenScrollViewWithViewController:viewController];
+//    [self assignFullScreenScrollViewWithViewController:viewController];
     [self configNavigationRightButton];
 }
 

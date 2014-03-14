@@ -35,7 +35,7 @@ TMEBrowserProductsTableCellDelegate
     [self enablePullToRefresh];
     [self setUpTableView];
     [self loadProductsWithPage:1];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onCategoryChangeNotification:)
                                                  name:CATEGORY_CHANGE_NOTIFICATION

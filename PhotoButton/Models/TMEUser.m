@@ -13,12 +13,17 @@
 // Custom logic goes here.
 
 + (TMEUser *)userWithData:(id)data{
+
     TMEUser *user = [[TMEUser MR_findByAttribute:@"id" withValue:data[@"id"]] lastObject];
+
     if (!user) {
         user = [TMEUser MR_createEntity];
         user.id = data[@"id"];
         user.facebook_id = data[@"facebook_id"];
-        user.udid = data[@"udid"];
+
+        if (data[@"udid"] && ![data[@"udid"] isEqual:[NSNull null]]) {
+            user.udid = data[@"udid"];
+        }
     }
     
     if (data[@"facebook_avatar"] && ![data[@"facebook_avatar"] isEqual:[NSNull null]]){
