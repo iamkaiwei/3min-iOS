@@ -149,7 +149,7 @@
 
 // Vendors
 #import "CoreData+MagicalRecord.h"
-#import <Crittercism.h>
+#import "Crittercism.h"
 #import "SVProgressHUD.h"
 #import "AFNetworking.h"
 #import "OpenUDID.h"

@@ -18,9 +18,6 @@ target :ThreeMin, :exclusive => true do
   pod 'FontAwesome-iOS'
   pod 'Foursquare-API-v2'
   pod 'Facebook-iOS-SDK'
-  pod 'CrittercismSDK'
-  pod 'GoogleAnalytics-iOS-SDK'
-  pod 'AviarySDK'
   pod 'UrbanAirship-iOS-SDK'
   
 end
