@@ -64,6 +64,7 @@ FacebookManagerDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [TMEReachabilityManager sharedInstance];
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge];
     
     self.deckController = [self generateControllerStack];
     

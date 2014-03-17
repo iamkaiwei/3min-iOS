@@ -18,7 +18,9 @@
         user = [TMEUser MR_createEntity];
         user.id = data[@"id"];
         user.facebook_id = data[@"facebook_id"];
-        user.udid = data[@"udid"];
+        if (![data[@"udid"] isEqual:[NSNull null]]) {
+            user.udid = data[@"udid"];
+        }
     }
     
     if (data[@"facebook_avatar"] && ![data[@"facebook_avatar"] isEqual:[NSNull null]]){
@@ -51,7 +53,9 @@
             user = [TMEUser MR_createEntity];
             user.facebook_id = userData[@"facebook_id"];
             user.id = userData[@"id"];
-            user.udid = userData[@"udid"];
+            if (![userData[@"udid"] isEqual:[NSNull null]]) {
+                user.udid = userData[@"udid"];
+            }
         }
         user.name = userData[@"full_name"];
         user.username = userData[@"username"];

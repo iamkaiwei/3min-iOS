@@ -149,7 +149,7 @@ UICollectionViewDelegate
 - (void)successBlockHandleWithResponseArray:(NSArray *)responseArray page:(NSInteger)page{
     [self handlePagingWithResponseArray:responseArray currentPage:page];
     [self.arrayProducts addObjectsFromArray:responseArray];
-    [self.collectionProductsView reloadData];
+    [self setUpCollectionView];
     [self.pullToRefreshView endRefreshing];
 }
 
