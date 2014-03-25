@@ -145,6 +145,7 @@ UIAlertViewDelegate
                                        failureBlock:^(NSInteger statusCode, NSError *error)
      {
          [self.dataArray removeLastObject];
+         [self reloadTableViewConversationShowBottom:NO];
          [self failureBlockHandleWithError:error];
      }];
 }
