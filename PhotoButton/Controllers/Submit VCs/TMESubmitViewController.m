@@ -22,15 +22,16 @@ UITextViewDelegate,
 UIAlertViewDelegate
 >
 
-@property (strong, nonatomic) IBOutlet   UIScrollView                           * scrollViewContent;
-@property (weak, nonatomic)   IBOutlet   UIImageView                            * imageViewProduct;
-@property (weak, nonatomic)   IBOutlet   UILabel                                * lblProductName;
-@property (weak, nonatomic)   IBOutlet   UILabel                                * lblProductPrice;
-@property (weak, nonatomic)   IBOutlet   UILabel                                * lblPriceOffered;
-@property (weak, nonatomic)   IBOutlet   UILabel                                * lblDealLocation;
-@property (weak, nonatomic)   IBOutlet   UITextView                             * textViewInputMessage;
-@property (strong, nonatomic) TMESubmitViewControllerArrayDataSource            * repliesArrayDataSource;
-@property (weak, nonatomic) IBOutlet UIButton *buttonMarkAsSold;
+@property (strong, nonatomic) IBOutlet   UIScrollView                * scrollViewContent;
+@property (weak, nonatomic)   IBOutlet   UIImageView                 * imageViewProduct;
+@property (weak, nonatomic)   IBOutlet   UILabel                     * lblProductName;
+@property (weak, nonatomic)   IBOutlet   UILabel                     * lblProductPrice;
+@property (weak, nonatomic)   IBOutlet   UILabel                     * lblPriceOffered;
+@property (weak, nonatomic)   IBOutlet   UILabel                     * lblDealLocation;
+@property (weak, nonatomic)   IBOutlet   UITextView                  * textViewInputMessage;
+@property (strong, nonatomic) TMESubmitViewControllerArrayDataSource * repliesArrayDataSource;
+@property (weak, nonatomic)   IBOutlet   UIButton                    * buttonMarkAsSold;
+@property (strong, nonatomic) PTPusherPresenceChannel                * presenceChannel;
 
 
 @end
@@ -63,6 +64,13 @@ UIAlertViewDelegate
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         self.tabBarController.tabBar.translucent = YES;
     }
+}
+
+- (void)subscribeChannel{
+    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:[NSString stringWithFormat:@"channel-%@", self.conversation.user_id]];
+    [self.presenceChannel bindToEventNamed:@"client-chat" handleWithBlock:^(PTPusherEvent *channelEvent) {
+        [UIAlertView showAlertWithTitle:@"BCA" message:@"BCA"];
+    }];
 }
 
 - (void)setUpTableView{
@@ -113,7 +121,11 @@ UIAlertViewDelegate
     if ([self.textViewInputMessage.text isEqual: @""]) {
         return;
     }
-    
+    NSDictionary *data = @{@"message": self.textViewInputMessage.text,
+                           @"name" : @"This is name"};
+
+    [self.presenceChannel triggerEventNamed:@"client-chat" data:data];
+
     TMEReply *reply = [TMEReply replyPendingWithContent:self.textViewInputMessage.text];
     [self.dataArray addObject:reply];
     [self reloadTableViewConversationShowBottom:YES];

@@ -56,7 +56,9 @@
             user = [TMEUser MR_createEntity];
             user.facebook_id = userData[@"facebook_id"];
             user.id = userData[@"id"];
-            user.udid = userData[@"udid"];
+            if (data[@"udid"] && ![data[@"udid"] isEqual:[NSNull null]]) {
+                user.udid = userData[@"udid"];
+            }
         }
         user.name = userData[@"full_name"];
         user.username = userData[@"username"];

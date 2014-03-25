@@ -3,6 +3,7 @@
 //------------------------------------------------------------------------------------------------------
 
 //Use this "3 mins Production" scheme to upload to app store
+#define PUSHER_APP_KEY                              @"ce3898cbc04d99f952cd"
 #ifdef PRODUCTION
 
 #define API_SERVER_HOST                             @"https://threemins-server.herokuapp.com"      //production url
@@ -24,7 +25,7 @@
 #ifdef DEBUG
 
 #define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
-#define API_SERVER_HOST                             @"https://threemins-server.herokuapp.com"
+#define API_SERVER_HOST                             @"http://threemins-server-staging.herokuapp.com"
 #define API_CLIENT_ID                               @"36d9b0cae1fb797b3095ebd8c50ef4b58df47f16d5aa18f96704f4c484136869"
 #define API_GRANT_TYPE                              @"password"
 #define URBAN_AIRSHIP_APP_KEY                       @"tyVT4cw2TFi529WyWJswXA"
@@ -89,6 +90,8 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <QuartzCore/QuartzCore.h>
+#import <Pusher/PTPusher.h>
+#import <PTPusherChannel.h>
 
 // Categories
 #import "ISO8601DateFormatter.h"
@@ -138,6 +141,7 @@
 #import "BaseNetworkManager.h"
 #import "TMEConversationManager.h"
 #import "TMEReachabilityManager.h"
+#import "TMEPusherManager.h"
 
 // Models
 #import "TMEProduct.h"
@@ -177,6 +181,7 @@
 #import "TMEHomeViewController.h"
 #import "TMESubmitViewController.h"
 #import "TMEProductDetailsViewController.h"
+#import "AppDelegate.h"
 
 // Views
 #import "TMEBaseTableViewCell.h"

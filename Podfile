@@ -19,5 +19,6 @@ target :ThreeMin, :exclusive => true do
   pod 'Foursquare-API-v2'
   pod 'Facebook-iOS-SDK'
   pod 'UrbanAirship-iOS-SDK'
+  pod 'libPusher', '~> 1.4'
   
 end

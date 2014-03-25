@@ -48,6 +48,9 @@ UIImagePickerControllerDelegate
     [super viewDidLoad];
     self.title = NSLocalizedString(@"Main Menu", nil);
 
+    [TMEPusherManager connectWithDelegate:nil];
+    [TMEPusherManager authenticateUser];
+
     self.viewControllers = @[];
 
     [self addBrowserProductTab];
@@ -59,6 +62,8 @@ UIImagePickerControllerDelegate
 
     [self.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbar-background"]];
     [self.tabBar setSelectionIndicatorImage:[[UIImage alloc] init]];
+
+    [self subscribePusherChannel];
 }
 
 #pragma marks - UI helper
@@ -76,6 +81,13 @@ UIImagePickerControllerDelegate
   
   NSInteger index = [self.viewControllers indexOfObject:viewController];
   [self createTabbarButtonWithIconName:iconName atIndex:index];
+}
+
+- (void)subscribePusherChannel{
+    PTPusherPresenceChannel *presence = [TMEPusherManager subscribeToPresenceChannelNamed:[NSString stringWithFormat:@"channel-%@", [TMEUserManager sharedInstance].loggedUser.id]];
+    [presence bindToEventNamed:@"client-chat" handleWithBlock:^(PTPusherEvent *channelEvent){
+        [UIAlertView showAlertWithTitle:@"ABC" message:@"abc"];
+    }];
 }
 
 - (void)createTabbarButtonWithIconName:(NSString *)iconName

@@ -47,15 +47,15 @@ FacebookManagerDelegate
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-//    AFUrbanAirshipClient *client = [[AFUrbanAirshipClient alloc] initWithApplicationKey:URBAN_AIRSHIP_APP_KEY
-//                                                                      applicationSecret:URBAN_AIRSHIP_APP_SECRET];
-//    NSNumber *logginUserID = [[[TMEUserManager sharedInstance] loggedUser] id];
-//    NSString *alias = [NSString stringWithFormat:@"user-%d", [logginUserID integerValue]];
-//    [client registerDeviceToken:deviceToken withAlias:alias success:^{
-//        DLog(@"Urban Airship registered device token successfully");
-//    } failure:^(NSError *error) {
-//        DLog(@"Urban Airship failed to register device token. Error: %@", error);
-//    }];
+    AFUrbanAirshipClient *client = [[AFUrbanAirshipClient alloc] initWithApplicationKey:URBAN_AIRSHIP_APP_KEY
+                                                                      applicationSecret:URBAN_AIRSHIP_APP_SECRET];
+    NSNumber *logginUserID = [[[TMEUserManager sharedInstance] loggedUser] id];
+    NSString *alias = [NSString stringWithFormat:@"user-%d", [logginUserID integerValue]];
+    [client registerDeviceToken:deviceToken withAlias:alias success:^{
+        DLog(@"Urban Airship registered device token successfully");
+    } failure:^(NSError *error) {
+        DLog(@"Urban Airship failed to register device token. Error: %@", error);
+    }];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -78,7 +78,7 @@ FacebookManagerDelegate
     config.productionAppKey = URBAN_AIRSHIP_APP_KEY;
     config.productionAppSecret = URBAN_AIRSHIP_APP_SECRET;
     config.detectProvisioningMode = YES;
-    
+
     // Call takeOff (which creates the UAirship singleton)
     [UAirship takeOff:config];
     
