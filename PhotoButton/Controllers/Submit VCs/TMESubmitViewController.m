@@ -21,15 +21,15 @@ UIAlertViewDelegate,
 PTPusherDelegate
 >
 
-@property (strong, nonatomic) IBOutlet   UIScrollView                * scrollViewContent;
 @property (weak, nonatomic)   IBOutlet   UIImageView                 * imageViewProduct;
 @property (weak, nonatomic)   IBOutlet   UILabel                     * lblProductName;
 @property (weak, nonatomic)   IBOutlet   UILabel                     * lblProductPrice;
 @property (weak, nonatomic)   IBOutlet   UILabel                     * lblPriceOffered;
 @property (weak, nonatomic)   IBOutlet   UILabel                     * lblDealLocation;
 @property (weak, nonatomic)   IBOutlet   UITextView                  * textViewInputMessage;
-@property (strong, nonatomic) TMESubmitViewControllerArrayDataSource * repliesArrayDataSource;
 @property (weak, nonatomic)   IBOutlet   UIButton                    * buttonMarkAsSold;
+@property (strong, nonatomic) IBOutlet   UIScrollView                * scrollViewContent;
+@property (strong, nonatomic) TMESubmitViewControllerArrayDataSource * repliesArrayDataSource;
 @property (strong, nonatomic) PTPusherPresenceChannel                * presenceChannel;
 
 
@@ -41,8 +41,6 @@ PTPusherDelegate
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [TMEPusherManager connectWithDelegate:self];
-    [TMEPusherManager authenticateUser];
     self.title = NSLocalizedString(@"You Offer", nil);
     [self registerForKeyboardNotifications];
     [self setEdgeForExtendedLayoutNone];
@@ -65,10 +63,11 @@ PTPusherDelegate
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         self.tabBarController.tabBar.translucent = YES;
     }
+    [self.presenceChannel unsubscribe];
 }
 
 - (void)subscribeChannel{
-    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:@"channel" delegate:nil];
+    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:[NSString stringWithFormat:@"channel-%@", self.conversation.user_id] delegate:nil];
     [self.presenceChannel bindToEventNamed:@"client-chat" handleWithBlock:^(PTPusherEvent *channelEvent) {
         NSDictionary *dictionary = channelEvent.data;
         NSString *name = dictionary[@"name"];
