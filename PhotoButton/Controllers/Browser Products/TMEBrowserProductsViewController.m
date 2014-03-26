@@ -40,12 +40,21 @@ TMEBrowserProductsTableCellDelegate
                                              selector:@selector(onCategoryChangeNotification:)
                                                  name:CATEGORY_CHANGE_NOTIFICATION
                                                object:nil];
+
+//    [self subscribePusherChannel];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setUpTableView];
 }
+
+//- (void)subscribePusherChannel{
+//    PTPusherPresenceChannel *presence = [TMEPusherManager subscribeToPresenceChannelNamed:[NSString stringWithFormat:@"channel-%@", [TMEUserManager sharedInstance].loggedUser.id]];
+//    [presence bindToEventNamed:@"client-chat" handleWithBlock:^(PTPusherEvent *channelEvent){
+//        [UIAlertView showAlertWithTitle:@"ABC" message:@"abc"];
+//    }];
+//}
 
 - (void)registerNibForTableView{
     [self.tableView registerNib:[TMEBrowserProductTableViewHeader defaultNib] forHeaderFooterViewReuseIdentifier:[TMEBrowserProductTableViewHeader kind]];

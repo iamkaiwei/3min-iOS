@@ -11,7 +11,6 @@
 #import <PTPusherChannel.h>
 
 @interface TMEPusherManager()
-<PTPusherDelegate>
 
 @end
 
@@ -25,14 +24,16 @@ SINGLETON_MACRO
 
 + (void)connectWithDelegate:(id)delegate{
     [TMEPusherManager sharedInstance].client = [PTPusher pusherWithKey:PUSHER_APP_KEY delegate:delegate encrypted:YES];
+    [[TMEPusherManager getClient] connect];
 }
 
 + (void)authenticateUser{
-    [TMEPusherManager getClient].authorizationURL = [NSURL URLWithString:API_SERVER_HOST];
+    NSURL *authorizationURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@", API_SERVER_HOST, API_PREFIX, URL_PUSHER_ENDPOINT]];
+    [TMEPusherManager getClient].authorizationURL = authorizationURL;
 }
 
-+ (PTPusherPresenceChannel *)subscribeToPresenceChannelNamed:(NSString *)name{
-    return [[TMEPusherManager getClient] subscribeToPresenceChannelNamed:name];
++ (PTPusherPresenceChannel *)subscribeToPresenceChannelNamed:(NSString *)name delegate:(id)delegate{
+    return [[TMEPusherManager getClient] subscribeToPresenceChannelNamed:name delegate:delegate];
 }
 
 + (PTPusherPrivateChannel *)subscribeToPrivateChannelNamed:(NSString *)name{
@@ -41,10 +42,6 @@ SINGLETON_MACRO
 
 + (PTPusherChannel *)subscribeToChannelNamed:(NSString *)name{
     return [[TMEPusherManager getClient] subscribeToChannelNamed:name];
-}
-
-- (void)pusher:(PTPusher *)pusher willAuthorizeChannel:(PTPusherChannel *)channel withRequest:(NSMutableURLRequest *)request{
-    [request setValue:[[TMEUserManager sharedInstance] getAccessToken] forHTTPHeaderField:@"Authorization: Bearer"];
 }
 
 @end

@@ -13,13 +13,12 @@
 #import "HTKContainerViewController.h"
 #import "TMESubmitViewControllerArrayDataSource.h"
 
-static CGFloat const kLabelContentDefaultHeight = 26;
-
 @interface TMESubmitViewController()
 <
 UIApplicationDelegate,
 UITextViewDelegate,
-UIAlertViewDelegate
+UIAlertViewDelegate,
+PTPusherDelegate
 >
 
 @property (strong, nonatomic) IBOutlet   UIScrollView                * scrollViewContent;
@@ -42,6 +41,8 @@ UIAlertViewDelegate
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    [TMEPusherManager connectWithDelegate:self];
+    [TMEPusherManager authenticateUser];
     self.title = NSLocalizedString(@"You Offer", nil);
     [self registerForKeyboardNotifications];
     [self setEdgeForExtendedLayoutNone];
@@ -56,7 +57,7 @@ UIAlertViewDelegate
                                              selector:@selector(reloadMessageNotification:)
                                                  name:NOTIFICATION_RELOAD_CONVERSATION
                                                object:nil];
-    
+    [self subscribeChannel];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -67,9 +68,12 @@ UIAlertViewDelegate
 }
 
 - (void)subscribeChannel{
-    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:[NSString stringWithFormat:@"channel-%@", self.conversation.user_id]];
+    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:@"channel" delegate:nil];
     [self.presenceChannel bindToEventNamed:@"client-chat" handleWithBlock:^(PTPusherEvent *channelEvent) {
-        [UIAlertView showAlertWithTitle:@"BCA" message:@"BCA"];
+        NSDictionary *dictionary = channelEvent.data;
+        NSString *name = dictionary[@"name"];
+        NSString *message = dictionary[@"message"];
+        [UIAlertView showAlertWithTitle:name message:message];
     }];
 }
 
@@ -121,10 +125,9 @@ UIAlertViewDelegate
     if ([self.textViewInputMessage.text isEqual: @""]) {
         return;
     }
-    NSDictionary *data = @{@"message": self.textViewInputMessage.text,
-                           @"name" : @"This is name"};
 
-    [self.presenceChannel triggerEventNamed:@"client-chat" data:data];
+    [self.presenceChannel triggerEventNamed:@"client-chat" data:@{@"name": [TMEUserManager sharedInstance].loggedUser.fullname,
+                                                                  @"message" : self.textViewInputMessage.text}];
 
     TMEReply *reply = [TMEReply replyPendingWithContent:self.textViewInputMessage.text];
     [self.dataArray addObject:reply];
@@ -346,6 +349,10 @@ UIAlertViewDelegate
                                      onSuccessBlock:nil
                                        failureBlock:nil];
     }
+}
+
+- (void)pusher:(PTPusher *)pusher willAuthorizeChannel:(PTPusherChannel *)channel withRequest:(NSMutableURLRequest *)request{
+    [request setValue:[NSString stringWithFormat:@"Bearer %@",[[TMEUserManager sharedInstance] getAccessToken]] forHTTPHeaderField:@"Authorization"];
 }
 
 #pragma mark - Handle changing reachability
