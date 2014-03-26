@@ -83,9 +83,6 @@
         TMEUser *user = [TMEUser userWithData:userData];
         product.user = user;
     }
-    else{
-        product.user = [[TMEUserManager sharedInstance] loggedUser];
-    }
     
     if (![data[@"likes"] isEqual:[NSNull null]] && data[@"likes"])
         product.likes = @([data[@"likes"] floatValue]);

@@ -66,7 +66,7 @@
 }
 
 - (void)getCachedLikedProduct{
-    NSArray *arrayProductCached = [TMEProduct MR_findByAttribute:@"liked" withValue:@YES andOrderBy:@"created_at" ascending:NO];
+    NSArray *arrayProductCached = [TMEProduct MR_findByAttribute:@"liked" withValue:@1 andOrderBy:@"created_at" ascending:NO];
     
     for (TMEProduct *product in arrayProductCached) {
         [self.dataArray addObject:product];

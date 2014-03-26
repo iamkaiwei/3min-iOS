@@ -23,7 +23,7 @@
     // Do any additional setup after loading the view from its nib.
     [self enablePullToRefresh];
     self.title = NSLocalizedString(@"List Offers", nil);
-    
+    [self paddingScrollWithTop];
     [self.pullToRefreshView beginRefreshing];
     [self loadListOffer];
 }
