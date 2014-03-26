@@ -24,6 +24,7 @@ SINGLETON_MACRO
 
 + (void)connectWithDelegate:(id)delegate{
     [TMEPusherManager sharedInstance].client = [PTPusher pusherWithKey:PUSHER_APP_KEY delegate:delegate encrypted:YES];
+    [TMEPusherManager authenticateUser];
     [[TMEPusherManager getClient] connect];
 }
 
@@ -32,8 +33,22 @@ SINGLETON_MACRO
     [TMEPusherManager getClient].authorizationURL = authorizationURL;
 }
 
++ (void)bindingWithChannel:(PTPusherChannel *)channel{
+    [channel bindToEventNamed:PUSHER_CHAT_EVENT_NAME handleWithBlock:^(PTPusherEvent *channelEvent) {
+        [TSMessage showNotificationWithTitle:channelEvent.data[@"name"] subtitle:channelEvent.data[@"message"] type:TSMessageNotificationTypeMessage];
+    }];
+}
+
++ (void)disconnect{
+    [[TMEPusherManager getClient] disconnect];
+}
+
 + (PTPusherPresenceChannel *)subscribeToPresenceChannelNamed:(NSString *)name delegate:(id)delegate{
     return [[TMEPusherManager getClient] subscribeToPresenceChannelNamed:name delegate:delegate];
+}
+
++ (PTPusherPresenceChannel *)subscribeToSelfPresenceChannel{
+    return [[TMEPusherManager getClient] subscribeToPresenceChannelNamed:[NSString stringWithFormat:@"channel-%@", [TMEUserManager sharedInstance].loggedUser.id] delegate:nil];
 }
 
 + (PTPusherPrivateChannel *)subscribeToPrivateChannelNamed:(NSString *)name{

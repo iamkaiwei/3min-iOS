@@ -19,10 +19,12 @@
 
 @interface AppDelegate()
 <
-FacebookManagerDelegate
+FacebookManagerDelegate,
+PTPusherDelegate
 >
 
 @property (strong, nonatomic) TMENavigationViewController               * navController;
+@property (strong, nonatomic) PTPusherPresenceChannel                   * presenceChannel;
 @property (retain, nonatomic) UIViewController                          * centerController;
 @property (retain, nonatomic) UIViewController                          * leftController;
 @property (retain, nonatomic) IIViewDeckController                      * deckController;
@@ -415,8 +417,15 @@ FacebookManagerDelegate
     } else if (![TMEReachabilityManager isReachable]) {
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
     } else {
+        [TMEPusherManager connectWithDelegate:self];
+        self.presenceChannel = [TMEPusherManager subscribeToSelfPresenceChannel];
+        [TMEPusherManager bindingWithChannel:self.presenceChannel];
         [self switchRootViewController:self.deckController animated:YES completion:nil];
     }
+}
+
+- (void)pusher:(PTPusher *)pusher willAuthorizeChannel:(PTPusherChannel *)channel withRequest:(NSMutableURLRequest *)request{
+    [request setValue:[NSString stringWithFormat:@"Bearer %@",[[TMEUserManager sharedInstance] getAccessToken]] forHTTPHeaderField:@"Authorization"];
 }
 
 - (void)handleTapOnNotificationWithConversation:(TMEConversation *)conversation andProduct:(TMEProduct *)product{

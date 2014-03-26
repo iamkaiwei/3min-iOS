@@ -15,7 +15,10 @@
 + (PTPusher *)getClient;
 + (void)connectWithDelegate:(id)delegate;
 + (void)authenticateUser;
++ (void)bindingWithChannel:(PTPusherChannel *)channel;
++ (void)disconnect;
 + (PTPusherPresenceChannel *)subscribeToPresenceChannelNamed:(NSString *)name delegate:(id)delegate;
++ (PTPusherPresenceChannel *)subscribeToSelfPresenceChannel;
 + (PTPusherPrivateChannel *)subscribeToPrivateChannelNamed:(NSString *)name;
 + (PTPusherChannel *)subscribeToChannelNamed:(NSString *)name;
 
