@@ -12,29 +12,28 @@
 
 @interface TMEProductDetailsViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton     * btnFollow;
-@property (weak, nonatomic) IBOutlet UIButton     * btnShare;
-@property (weak, nonatomic) IBOutlet UIImageView  * imgUserAvatar;
-@property (weak, nonatomic) IBOutlet UILabel      * lblUserName;
-@property (weak, nonatomic) IBOutlet UILabel      * lblTimestamp;
-@property (weak, nonatomic) IBOutlet UIImageView  * imgProductImage1;
-@property (weak, nonatomic) IBOutlet UIImageView  * imgProductImage2;
-@property (weak, nonatomic) IBOutlet UIImageView  * imgProductImage3;
-@property (weak, nonatomic) IBOutlet UIImageView  * imgProductImage4;
-@property (weak, nonatomic) IBOutlet UILabel      * lblProductName;
-@property (weak, nonatomic) IBOutlet UILabel      * lblProductPrice;
-@property (weak, nonatomic) IBOutlet UIView       * viewChatToBuyWrapper;
-@property (weak, nonatomic) IBOutlet UIScrollView * scrollViewProductDetail;
-@property (weak, nonatomic) IBOutlet UIView       * viewBottomDetail;
-@property (strong, nonatomic) TMEConversation     * conversation;
-@property (weak, nonatomic) IBOutlet UILabel *lblProductDescription;
-@property (weak, nonatomic) IBOutlet UILabel *lblProductLocation;
-
-@property (assign, nonatomic) BOOL                  firstTimeOffer;
-@property (weak, nonatomic) IBOutlet UILabel *labelLikes;
-@property (weak, nonatomic) IBOutlet UILabel *labelBottom;
-@property (weak, nonatomic) IBOutlet UIButton *btnChatToBuy;
-@property (weak, nonatomic) IBOutlet MTAnimatedLabel *labelChatToBuy;
+@property (weak, nonatomic) IBOutlet UIButton        * btnFollow;
+@property (weak, nonatomic) IBOutlet UIButton        * btnShare;
+@property (weak, nonatomic) IBOutlet UIImageView     * imgUserAvatar;
+@property (weak, nonatomic) IBOutlet UILabel         * lblUserName;
+@property (weak, nonatomic) IBOutlet UILabel         * lblTimestamp;
+@property (weak, nonatomic) IBOutlet UIImageView     * imgProductImage1;
+@property (weak, nonatomic) IBOutlet UIImageView     * imgProductImage2;
+@property (weak, nonatomic) IBOutlet UIImageView     * imgProductImage3;
+@property (weak, nonatomic) IBOutlet UIImageView     * imgProductImage4;
+@property (weak, nonatomic) IBOutlet UILabel         * lblProductName;
+@property (weak, nonatomic) IBOutlet UILabel         * lblProductPrice;
+@property (weak, nonatomic) IBOutlet UIView          * viewChatToBuyWrapper;
+@property (weak, nonatomic) IBOutlet UIScrollView    * scrollViewProductDetail;
+@property (weak, nonatomic) IBOutlet UIView          * viewBottomDetail;
+@property (weak, nonatomic) IBOutlet UILabel         * lblProductDescription;
+@property (weak, nonatomic) IBOutlet UILabel         * lblProductLocation;
+@property (weak, nonatomic) IBOutlet UILabel         * labelLikes;
+@property (weak, nonatomic) IBOutlet UILabel         * labelBottom;
+@property (weak, nonatomic) IBOutlet UIButton        * btnChatToBuy;
+@property (weak, nonatomic) IBOutlet MTAnimatedLabel * labelChatToBuy;
+@property (strong, nonatomic) TMEConversation        * conversation;
+@property (assign, nonatomic) BOOL                   firstTimeOffer;
 
 @end
 

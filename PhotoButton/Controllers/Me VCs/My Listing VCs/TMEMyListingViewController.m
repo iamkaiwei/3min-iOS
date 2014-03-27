@@ -75,9 +75,7 @@
         }
     }
     
-    self.currentPage = 0;
     if (self.dataArray.count) {
-        self.currentPage = (self.dataArray.count / 10) + 1;
         [self reloadTableViewMyListing];
     }
 }
