@@ -145,10 +145,42 @@ SINGLETON_MACRO
      }];
 };
 
++ (void)checkConversationExistWithProductID:(NSNumber *)productID
+                                   toUserID:(NSNumber *)userID
+                             onSuccessBlock:(void (^)(TMEConversation *))successBlock
+                               failureBlock:(TMEJSONRequestFailureBlock)failureBlock
+{
+    NSDictionary *params = @{@"product_id" : productID,
+                             @"to" : userID};
+    NSString *path = [NSString stringWithFormat:@"%@%@", API_CONVERSATIONS, API_CONVERSATIONS_EXIST];
+
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:params
+                                                     method:GET_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
+     {
+         if (successBlock) {
+             if (responseObject) {
+                 TMEConversation *conversation = [TMEConversation aConversationFromData:responseObject];
+                 successBlock(conversation);
+                 return;
+             }
+             successBlock(nil);
+         }
+     }
+                                                    failure:^(NSError *error)
+     {
+         if (failureBlock) {
+             failureBlock(error.code, error);
+         }
+     }];
+}
+
 + (void)createConversationWithProductID:(NSNumber *)productID
                                toUserID:(NSNumber *)userID
                          onSuccessBlock:(void (^)(TMEConversation *))successBlock
-                           failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
+                           failureBlock:(TMEJSONRequestFailureBlock)failureBlock
+{
     NSDictionary *params = @{@"product_id" : productID,
                              @"to" : userID};
     

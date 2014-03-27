@@ -153,26 +153,24 @@
 {
     self.labelChatToBuy.textColor = [UIColor darkGrayColor];
     [self.labelChatToBuy startAnimating];
-    [TMEConversationManager createConversationWithProductID:self.product.id
-                                                   toUserID:self.product.user.id
-                                             onSuccessBlock:^(TMEConversation *conversation)
-     {
-         [self.labelChatToBuy stopAnimating];
-         self.conversation = conversation;
-         self.firstTimeOffer = NO;
-         
-         if([conversation.offer isEqualToNumber:@0])
-             self.firstTimeOffer = YES;
-         
-         UIViewController *viewController = [self controllerForNextStep];
-         self.hidesBottomBarWhenPushed = NO;
-         [self.navigationController pushViewController:viewController animated:YES];
-     }
-                                               failureBlock:^(NSInteger statusCode, id obj)
-     {
-         [self.labelChatToBuy stopAnimating];
-         self.firstTimeOffer = NO;
-     }];
+    [TMEConversationManager checkConversationExistWithProductID:self.product.id
+                                                       toUserID:self.product.user.id
+                                                 onSuccessBlock:^(TMEConversation *conversation)
+    {
+        self.firstTimeOffer = YES;
+        if (conversation.id) {
+            self.firstTimeOffer = NO;
+            self.conversation = conversation;
+        }
+
+        UIViewController *viewController = [self controllerForNextStep];
+        self.hidesBottomBarWhenPushed = NO;
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+                                                   failureBlock:^(NSInteger statusCode, id obj)
+    {
+        [self.labelChatToBuy stopAnimating];
+    }];
 }
 
 - (IBAction)onBtnLike:(id)sender {

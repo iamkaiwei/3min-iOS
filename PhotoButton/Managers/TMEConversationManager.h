@@ -35,6 +35,11 @@
                         onSuccessBlock:(void (^)(NSArray *))successBlock
                           failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
++ (void)checkConversationExistWithProductID:(NSNumber *)productID
+                                   toUserID:(NSNumber *)userID
+                             onSuccessBlock:(void (^)(TMEConversation *))successBlock
+                               failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+
 + (void)createConversationWithProductID:(NSNumber *)productID
                                toUserID:(NSNumber *)userID
                          onSuccessBlock:(void (^)(TMEConversation *))successBlock

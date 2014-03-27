@@ -35,10 +35,16 @@
         conversation.id = data[@"id"];
         
         conversation.user_id = data[@"user"][@"id"];
-        
-        NSDictionary *dataProduct = data[@"product"];
-        TMEProduct *product = [TMEProduct productWithDictionary:dataProduct];
-        conversation.product = product;
+
+        if (data[@"product"] && ![data[@"product"] isKindOfClass:[NSNull class]]) {
+            NSDictionary *dataProduct = data[@"product"];
+            TMEProduct *product = [TMEProduct productWithDictionary:dataProduct];
+            conversation.product = product;
+        }
+        else{
+            TMEProduct *product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"product_id"]] lastObject];
+            conversation.product = product;
+        }
     }
     
     conversation.user_full_name = data[@"user"][@"full_name"];
