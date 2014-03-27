@@ -132,6 +132,7 @@
 #import "SDWebImageManager.h"
 #import "IIViewDeckController.h"
 #import "CAAnimation+EasingEquations.h"
+#import "AppDelegate+Logic.h"
 
 // Managers
 #import "BaseManager.h"

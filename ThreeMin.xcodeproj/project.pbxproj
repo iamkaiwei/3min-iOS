@@ -51,6 +51,7 @@
 		0CBE48C017D1C0AB00DC7482 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBE48BF17D1C0AB00DC7482 /* StoreKit.framework */; };
 		0CD9CF6117EA10DF00402E91 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD9CF6017EA10DF00402E91 /* MobileCoreServices.framework */; };
 		201EFE1F17F6F6BC00DA6BB4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 201EFE1E17F6F6BC00DA6BB4 /* SystemConfiguration.framework */; };
+		50217E6718E3D78C006D5B02 /* AppDelegate+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 50217E6618E3D78C006D5B02 /* AppDelegate+Logic.m */; };
 		50408A0018E00E57009E29B9 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 504089FF18E00E57009E29B9 /* libicucore.dylib */; };
 		509C1C2D18E01F5F009F25D2 /* TMEPusherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 509C1C2C18E01F5F009F25D2 /* TMEPusherManager.m */; };
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
@@ -249,6 +250,8 @@
 		0CD9CF6017EA10DF00402E91 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		201EFE1E17F6F6BC00DA6BB4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		45DA59DE8C0942DC8E406561 /* Pods-ThreeMin.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeMin.xcconfig"; path = "Pods/Pods-ThreeMin.xcconfig"; sourceTree = "<group>"; };
+		50217E6518E3D78C006D5B02 /* AppDelegate+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+Logic.h"; path = "PhotoButton/Supporting Files/AppDelegate+Logic.h"; sourceTree = "<group>"; };
+		50217E6618E3D78C006D5B02 /* AppDelegate+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+Logic.m"; path = "PhotoButton/Supporting Files/AppDelegate+Logic.m"; sourceTree = "<group>"; };
 		504089FF18E00E57009E29B9 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		509C1C2B18E01F5F009F25D2 /* TMEPusherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPusherManager.h; sourceTree = "<group>"; };
 		509C1C2C18E01F5F009F25D2 /* TMEPusherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPusherManager.m; sourceTree = "<group>"; };
@@ -632,6 +635,8 @@
 		5976C03415925D2D007F6FC3 = {
 			isa = PBXGroup;
 			children = (
+				50217E6518E3D78C006D5B02 /* AppDelegate+Logic.h */,
+				50217E6618E3D78C006D5B02 /* AppDelegate+Logic.m */,
 				B490260318B9232E00B00671 /* AppDelegate.h */,
 				B490260418B9232E00B00671 /* AppDelegate.m */,
 				B4255A5718B9F2760022B3A5 /* Class */,
@@ -1495,6 +1500,7 @@
 				B490277C18B9232E00B00671 /* _TMEConversation.m in Sources */,
 				B490271C18B9232E00B00671 /* UIBarButtonItem+Custom.m in Sources */,
 				B4255A6418B9FBFC0022B3A5 /* FSConverter.m in Sources */,
+				50217E6718E3D78C006D5B02 /* AppDelegate+Logic.m in Sources */,
 				B490275A18B9232E00B00671 /* TMEOfferViewController.m in Sources */,
 				B490276A18B9232E00B00671 /* TMEBaseArrayDataSource.m in Sources */,
 				B490274818B9232E00B00671 /* TMELikedTableViewCell.m in Sources */,

@@ -15,13 +15,6 @@
 @property (strong, nonatomic) UIWindow * window;
 
 + (AppDelegate *)sharedDelegate;
-
 - (void)showHomeViewController;
-- (void)showLoginView;
-
-// Facebook stuff
-- (void)openSession;
-- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
 
 @end
