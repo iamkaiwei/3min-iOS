@@ -23,20 +23,15 @@ FacebookManagerDelegate,
 PTPusherDelegate
 >
 
-@property (strong, nonatomic) TMENavigationViewController * navController;
-@property (retain, nonatomic) UIViewController            * centerController;
-@property (retain, nonatomic) UIViewController            * leftController;
+//@property (strong, nonatomic) TMENavigationViewController * navController;
+//@property (retain, nonatomic) UIViewController            * centerController;
+//@property (retain, nonatomic) UIViewController            * leftController;
 @property (strong, nonatomic) IIViewDeckController        * deckController;
-@property (strong, nonatomic) PTPusherPresenceChannel      * presenceChannel;
+//@property (strong, nonatomic) PTPusherPresenceChannel      * presenceChannel;
 
 @end
 
 @implementation AppDelegate
-
-//@synthesize managedObjectContext = _managedObjectContext;
-//@synthesize managedObjectModel = _managedObjectModel;
-//@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-//@synthesize window = _window;
 
 + (AppDelegate *)sharedDelegate
 {
@@ -79,7 +74,7 @@ PTPusherDelegate
 
     // Call takeOff (which creates the UAirship singleton)
     [UAirship takeOff:config];
-    
+
     // Request a custom set of notification types
     [UAPush shared].notificationTypes = (UIRemoteNotificationTypeBadge |
                                          UIRemoteNotificationTypeSound |
@@ -230,9 +225,8 @@ PTPusherDelegate
     } else if (![[TMEUserManager sharedInstance] loggedUser] && [TMEReachabilityManager isReachable]) {
         [SVProgressHUD showWithStatus:NSLocalizedString(@"Login...", nil) maskType:SVProgressHUDMaskTypeGradient];
         [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
-            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login successfully", nil)];
             [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:nil];
-
+            [self updateUAAlias];
             [self switchRootViewController:self.deckController animated:YES completion:nil];
             UITabBarController *tabBarController = (UITabBarController *)self.deckController.centerController;
             tabBarController.selectedIndex = 0;
@@ -242,9 +236,7 @@ PTPusherDelegate
     } else if (![TMEReachabilityManager isReachable]) {
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
     } else {
-        [TMEPusherManager connectWithDelegate:self];
-        self.presenceChannel = [TMEPusherManager subscribeToSelfPresenceChannel];
-        [TMEPusherManager bindingWithChannel:self.presenceChannel];
+        [self updateUAAlias];
         [self switchRootViewController:self.deckController animated:YES completion:nil];
     }
 }

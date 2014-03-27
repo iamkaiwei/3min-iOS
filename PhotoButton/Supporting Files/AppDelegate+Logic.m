@@ -231,4 +231,9 @@
     [self switchRootViewController:[[TMETutorialViewController alloc] init] animated:YES completion:nil];
 }
 
+- (void)updateUAAlias{
+    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedInstance].loggedUser.id integerValue]];
+    [[UAPush shared] updateRegistration];
+}
+
 @end

@@ -25,6 +25,7 @@
 - (void)initFourSquare;
 - (void)showTutorialController;
 - (void)setUpGoogleAnalytics;
+- (void)updateUAAlias;
 
 - (void)switchRootViewController:(UIViewController *)viewController animated:(BOOL)animated completion:(void (^)())completion;
 
