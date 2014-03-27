@@ -60,20 +60,22 @@ UIAlertViewDelegate
 
 
 - (void)setOfferPriceToConversation{
-    [TMEConversationManager putOfferPriceToConversationID:self.conversation.id
-                                               offerPrice:@([self.txtPrice.text integerValue])
-                                           onSuccessBlock:^(NSNumber *priceOffer)
+    [TMEConversationManager createConversationWithProductID:self.product.id
+                                                   toUserID:self.product.user.id
+                                             withOfferPrice:@([self.txtPrice.text integerValue])
+                                             onSuccessBlock:^(TMEConversation *conversation)
      {
-         self.conversation.offer = priceOffer;
-         TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
-         submitController.product = self.product;
-         submitController.conversation = self.conversation;
-         [self.navigationController pushViewController:submitController animated:YES];
-     }
-                                             failureBlock:^(NSInteger statusCode, NSError *error)
-     {
-         [self failureBlockHandleWithError:error];
-     }];
+         if (conversation.id) {
+             self.conversation = conversation;
+             TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
+             submitController.product = self.product;
+             submitController.conversation = self.conversation;
+             [self.navigationController pushViewController:submitController animated:YES];
+         }
+    }
+                                               failureBlock:^(NSInteger statusCode, id obj) {
+        [self failureBlockHandleWithError:obj];
+    }];
 }
 
 - (UIBarButtonItem *)rightNavigationButtonSubmit

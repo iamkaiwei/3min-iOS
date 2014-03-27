@@ -42,6 +42,7 @@
 
 + (void)createConversationWithProductID:(NSNumber *)productID
                                toUserID:(NSNumber *)userID
+                         withOfferPrice:(NSNumber *)offer
                          onSuccessBlock:(void (^)(TMEConversation *))successBlock
                            failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 

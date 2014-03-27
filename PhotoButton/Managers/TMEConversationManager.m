@@ -178,10 +178,12 @@ SINGLETON_MACRO
 
 + (void)createConversationWithProductID:(NSNumber *)productID
                                toUserID:(NSNumber *)userID
+                         withOfferPrice:(NSNumber *)offer
                          onSuccessBlock:(void (^)(TMEConversation *))successBlock
                            failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
     NSDictionary *params = @{@"product_id" : productID,
+                             @"offer" : offer,
                              @"to" : userID};
     
     [[BaseNetworkManager sharedInstance] sendRequestForPath:API_CONVERSATIONS
