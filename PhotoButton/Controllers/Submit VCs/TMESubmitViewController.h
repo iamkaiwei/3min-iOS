@@ -10,6 +10,11 @@
 
 @interface TMESubmitViewController : TMEBaseTableViewController
 
+enum TMEChatMode {
+    TMEChatModeOnline,
+    TMEChatModeOffline
+};
+
 @property (strong, nonatomic) TMEProduct *product;
 @property (assign, nonatomic) TMEConversation * conversation;
 

@@ -76,4 +76,18 @@
     return nil;
 }
 
++ (TMEUser *)userWithID:(NSNumber *)ID fullName:(NSString *)fullName avatarURL:(NSString *)avatarURL
+{
+    TMEUser *user = [[TMEUser MR_findByAttribute:@"id" withValue:ID] lastObject];
+    if (!user) {
+        user = [TMEUser MR_createEntity];
+        user.id = ID;
+    }
+
+    user.name = fullName;
+    user.photo_url = avatarURL;
+
+    return user;
+}
+
 @end

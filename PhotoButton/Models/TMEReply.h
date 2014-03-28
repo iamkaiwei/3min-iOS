@@ -11,4 +11,6 @@
 
 + (TMEReply *)replyPendingWithContent:(NSString *)content;
 
++ (TMEReply *)replyWithContent:(NSString *)content sender:(TMEUser *)sender timeStamp:(NSNumber *)timeStamp;
+
 @end

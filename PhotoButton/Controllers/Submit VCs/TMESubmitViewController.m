@@ -32,7 +32,7 @@ PTPusherPresenceChannelDelegate
 @property (strong, nonatomic) IBOutlet   UIScrollView                * scrollViewContent;
 @property (strong, nonatomic) TMESubmitViewControllerArrayDataSource * repliesArrayDataSource;
 @property (strong, nonatomic) PTPusherPresenceChannel                * presenceChannel;
-
+@property (assign, nonatomic) enum TMEChatMode                         currentChatMode;
 
 @end
 
@@ -62,6 +62,7 @@ PTPusherPresenceChannelDelegate
     [super viewWillAppear:animated];
     [TMEPusherManager connectWithDelegate:self];
     [self subscribeChannel];
+    self.currentChatMode = TMEChatModeOffline;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -75,10 +76,16 @@ PTPusherPresenceChannelDelegate
 
 - (void)subscribeChannel{
     self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:self.conversation.channel_name delegate:self];
-    [self.presenceChannel bindToEventNamed:@"client-chat"
-                           handleWithBlock:^(PTPusherEvent *channelEvent) {
-        [UIAlertView showAlertWithTitle:channelEvent.data[@"name"]
-                                message:channelEvent.data[@"message"]];
+    [self.presenceChannel bindToEventNamed:PUSHER_CHAT_EVENT_NAME                           handleWithBlock:^(PTPusherEvent *channelEvent) {
+        TMEUser *user = [TMEUser userWithID:self.conversation.user_id
+                                   fullName:self.conversation.user_full_name
+                                  avatarURL:self.conversation.user_avatar];
+
+        TMEReply *reply = [TMEReply replyWithContent:channelEvent.data[@"message"]
+                                              sender:user
+                                           timeStamp:channelEvent.data[@"timestamp"]];
+        [self.dataArray addObject:reply];
+        [self reloadTableViewConversationShowBottom:YES];
     }];
 }
 
@@ -130,10 +137,19 @@ PTPusherPresenceChannelDelegate
     if ([self.textViewInputMessage.text isEqual: @""]) {
         return;
     }
-sou
-    [self.presenceChannel triggerEventNamed:@"client-chat"
-                                       data:@{@"name": [TMEUserManager sharedInstance].loggedUser.fullname,
-                                              @"message" : self.textViewInputMessage.text}];
+
+    if (self.currentChatMode == TMEChatModeOnline) {
+        double currentTimeStamp = [[NSDate date] timeIntervalSince1970];
+        [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_NAME                                           data:@{@"name": [TMEUserManager sharedInstance].loggedUser.fullname,
+                                                  @"message" : self.textViewInputMessage.text,
+                                                  @"timestamp" : @(currentTimeStamp)}];
+        TMEReply *reply = [TMEReply replyWithContent:self.textViewInputMessage.text
+                                              sender:[TMEUserManager sharedInstance].loggedUser
+                                           timeStamp:@(currentTimeStamp)];
+        [self.dataArray addObject:reply];
+        [self reloadTableViewConversationShowBottom:YES];
+        return;
+    }
 
     TMEReply *reply = [TMEReply replyPendingWithContent:self.textViewInputMessage.text];
     [self.dataArray addObject:reply];
@@ -362,15 +378,17 @@ sou
 }
 
 - (void)presenceChannelDidSubscribe:(PTPusherPresenceChannel *)channel{
-
+    if (channel.members.count == 2) {
+        self.currentChatMode = TMEChatModeOnline;
+    };
 }
 
 - (void)presenceChannel:(PTPusherPresenceChannel *)channel memberAdded:(PTPusherChannelMember *)member{
-
+    self.currentChatMode = TMEChatModeOnline;
 }
 
 - (void)presenceChannel:(PTPusherPresenceChannel *)channel memberRemoved:(PTPusherChannelMember *)member{
-
+    self.currentChatMode = TMEChatModeOffline;
 }
 
 #pragma mark - Handle changing reachability
