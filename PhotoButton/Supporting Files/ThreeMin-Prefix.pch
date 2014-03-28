@@ -28,7 +28,7 @@
 #ifdef DEBUG
 
 #define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
-#define API_SERVER_HOST                             @"http://192.168.1.35:3000"
+#define API_SERVER_HOST                             @"http://tungphan.ngrok.com"
 #define API_CLIENT_ID                               @"36d9b0cae1fb797b3095ebd8c50ef4b58df47f16d5aa18f96704f4c484136869"
 #define API_GRANT_TYPE                              @"password"
 #define SETTINGS_CRITERCISM_TOKEN_DEFAULT           @""
@@ -68,6 +68,7 @@
 #define API_CONVERSATIONS                           @"conversations"
 #define API_CONVERSATIONS_EXIST                     @"/exist"
 #define API_CONVERSATION_REPLIES                    @"/conversation_replies"
+#define API_CREATE_BULK                             @"/bulk_create"
 #define API_OFFER                                   @"/offer"
 #define API_SHOW_OFFER                              @"/show_offer"
 #define API_LIKES                                   @"/likes"

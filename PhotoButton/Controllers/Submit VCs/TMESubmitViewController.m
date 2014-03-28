@@ -29,17 +29,25 @@ PTPusherPresenceChannelDelegate
 @property (weak, nonatomic)   IBOutlet   UILabel                     * lblDealLocation;
 @property (weak, nonatomic)   IBOutlet   UITextView                  * textViewInputMessage;
 @property (weak, nonatomic)   IBOutlet   UIButton                    * buttonMarkAsSold;
-@property (weak, nonatomic)   IBOutlet   UILabel                   * labelTyping;
+@property (weak, nonatomic)   IBOutlet   UILabel                     * labelTyping;
 
 @property (strong, nonatomic) IBOutlet   UIScrollView                * scrollViewContent;
 @property (strong, nonatomic) TMESubmitViewControllerArrayDataSource * repliesArrayDataSource;
 @property (strong, nonatomic) PTPusherPresenceChannel                * presenceChannel;
+@property (strong, nonatomic) NSMutableArray                         * arrayClientReplies;
 @property (assign, nonatomic) enum TMEChatMode                       currentChatMode;
 @property (assign, nonatomic) BOOL                                   isTyping;
 
 @end
 
 @implementation TMESubmitViewController
+
+- (NSMutableArray *)arrayClientReplies{
+    if (!_arrayClientReplies) {
+        _arrayClientReplies = [[NSMutableArray alloc] init];
+    }
+    return _arrayClientReplies;
+}
 
 #pragma mark - View controller life cycle
 
@@ -76,6 +84,9 @@ PTPusherPresenceChannelDelegate
     }
     [self.presenceChannel unsubscribe];
     [TMEPusherManager disconnect];
+    if (self.arrayClientReplies.count) {
+        [self postMessagesToServer];
+    }
 }
 
 - (void)subscribeChannel{
@@ -153,13 +164,19 @@ PTPusherPresenceChannelDelegate
 
     if (self.currentChatMode == TMEChatModeOnline) {
         double currentTimeStamp = [[NSDate date] timeIntervalSince1970];
-        [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_NAME                                           data:@{@"name": [TMEUserManager sharedInstance].loggedUser.fullname,
+        [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_NAME
+                                           data:@{@"name": [TMEUserManager sharedInstance].loggedUser.fullname,
                                                   @"message" : self.textViewInputMessage.text,
                                                   @"timestamp" : @(currentTimeStamp)}];
         TMEReply *reply = [TMEReply replyWithContent:self.textViewInputMessage.text
                                               sender:[TMEUserManager sharedInstance].loggedUser
                                            timeStamp:@(currentTimeStamp)];
         [self.dataArray addObject:reply];
+        [self.arrayClientReplies addObject:@{ @"reply": self.textViewInputMessage.text,
+                                              @"created_at": @(currentTimeStamp) }];
+        if (self.arrayClientReplies.count == 20) {
+            [self postMessagesToServer];
+        }
         [self reloadTableViewConversationShowBottom:YES];
         return;
     }
@@ -210,7 +227,7 @@ PTPusherPresenceChannelDelegate
          self.dataArray = [[conversation.repliesSet allObjects] mutableCopy];
          if (self.dataArray.count % 10 == 0 && self.dataArray.count)
              self.paging = YES;
-         self.dataArray = [[self.dataArray sortByAttribute:@"id" ascending:YES] mutableCopy];
+         self.dataArray = [[self.dataArray sortByAttribute:@"time_stamp" ascending:YES] mutableCopy];
          [self reloadTableViewConversationShowBottom:showBottom];
      }
                                           failureBlock:^(NSInteger statusCode, NSError *error)
@@ -229,8 +246,7 @@ PTPusherPresenceChannelDelegate
 #pragma mark - Helper method
 
 - (NSInteger)getLastestReplyID{
-    TMEReply *reply = (TMEReply *)[self.dataArray lastObject];
-    return [reply.id integerValue];
+    return [[self.dataArray valueForKeyPath:@"@max.id"] integerValue];
 }
 
 - (void)handleMarkAsSoldButtonTitle{
@@ -285,9 +301,26 @@ PTPusherPresenceChannelDelegate
     self.conversation = [[TMEConversation MR_findByAttribute:@"id" withValue:self.conversation.id] lastObject];
     self.dataArray = [[self.conversation.repliesSet allObjects] mutableCopy];
     if (self.dataArray.count) {
-        self.dataArray = [[self.dataArray sortByAttribute:@"id" ascending:YES] mutableCopy];
+        self.dataArray = [[self.dataArray sortByAttribute:@"time_stamp" ascending:YES] mutableCopy];
         [self reloadTableViewConversationShowBottom:NO];
     }
+}
+
+- (void)postMessagesToServer{
+    if (![self isReachable]) {
+        return;
+    }
+
+    [TMEConversationManager createBulkWithConversationID:self.conversation.id
+                                           arrayMessages:self.arrayClientReplies
+                                          onSuccessBlock:^()
+    {
+        [self.arrayClientReplies removeAllObjects];
+    }
+                                            failureBlock:^(NSInteger statusCode, id obj)
+    {
+        DLog(@"%@", obj);
+    }];
 }
 
 #pragma mark - Remote Notification
@@ -409,6 +442,9 @@ PTPusherPresenceChannelDelegate
 
 - (void)presenceChannel:(PTPusherPresenceChannel *)channel memberRemoved:(PTPusherChannelMember *)member{
     self.currentChatMode = TMEChatModeOffline;
+    if (self.arrayClientReplies.count) {
+        [self postMessagesToServer];
+    }
 }
 
 #pragma mark - Handle changing reachability

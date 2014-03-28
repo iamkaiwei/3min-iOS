@@ -204,6 +204,31 @@ SINGLETON_MACRO
      }];
 }
 
++ (void)createBulkWithConversationID:(NSNumber *)conversationID
+                       arrayMessages:(NSArray *)messages
+                      onSuccessBlock:(void(^)())successBlock
+                        failureBlock:(TMEJSONRequestFailureBlock)failureBlock
+{
+    NSDictionary *param = @{@"messages" : messages};
+    NSString *path = [NSString stringWithFormat:@"%@/%@%@%@", API_CONVERSATIONS, conversationID, API_CONVERSATION_REPLIES, API_CREATE_BULK];
+
+    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
+                                                 parameters:param
+                                                     method:POST_METHOD
+                                                    success:^(NSHTTPURLResponse *response, id responseObject)
+    {
+        if (successBlock) {
+            successBlock();
+        }
+    }
+                                                    failure:^(NSError *error)
+    {
+        if (failureBlock) {
+            failureBlock(error.code, error);
+        }
+    }];
+}
+
 + (void)putOfferPriceToConversationID:(NSNumber *)conversationID
                            offerPrice:(NSNumber *)offerPrice
                        onSuccessBlock:(void (^)(NSNumber *))successBlock

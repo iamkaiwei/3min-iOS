@@ -46,6 +46,11 @@
                          onSuccessBlock:(void (^)(TMEConversation *))successBlock
                            failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
 
++ (void)createBulkWithConversationID:(NSNumber *)conversationID
+                       arrayMessages:(NSArray *)messages
+                      onSuccessBlock:(void(^)())successBlock
+                        failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+
 + (void)putOfferPriceToConversationID:(NSNumber *)conversationID
                            offerPrice:(NSNumber *)offerPrice
                        onSuccessBlock:(void (^)(NSNumber *))successBlock

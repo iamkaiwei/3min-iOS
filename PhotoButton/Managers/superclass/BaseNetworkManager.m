@@ -75,20 +75,11 @@ SINGLETON_MACRO
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     
     //access_token
-    NSString *facebook_token = [[TMEUserManager sharedInstance] getFacebookToken];
     NSString *access_token = [[TMEUserManager sharedInstance] getAccessToken];
-    NSString *facebook_id = [[TMEUserManager sharedInstance] getFacebookID];
-    
-    if ([facebook_token length] > 0 && [access_token length] > 0)
-        [dict setObject:facebook_token forKey:@"fb_token"];
-    
+
     if ([access_token length] > 0) {
         [dict setObject:access_token forKey:@"access_token"];
     }
-    if ([facebook_id length] > 0) {
-        [dict setObject:facebook_id forKey:@"fb_id"];
-    }
-    
     return dict;
 }
 
