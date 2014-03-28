@@ -80,6 +80,8 @@
 
 
 #define PUSHER_CHAT_EVENT_NAME                      @"client-chat"
+#define PUSHER_CHAT_EVENT_TYPING                    @"client-typing"
+#define PUSHER_CHAT_EVENT_UNTYPING                  @"client-untyping"
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 

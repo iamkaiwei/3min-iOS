@@ -29,10 +29,13 @@ PTPusherPresenceChannelDelegate
 @property (weak, nonatomic)   IBOutlet   UILabel                     * lblDealLocation;
 @property (weak, nonatomic)   IBOutlet   UITextView                  * textViewInputMessage;
 @property (weak, nonatomic)   IBOutlet   UIButton                    * buttonMarkAsSold;
+@property (weak, nonatomic)   IBOutlet   UILabel                   * labelTyping;
+
 @property (strong, nonatomic) IBOutlet   UIScrollView                * scrollViewContent;
 @property (strong, nonatomic) TMESubmitViewControllerArrayDataSource * repliesArrayDataSource;
 @property (strong, nonatomic) PTPusherPresenceChannel                * presenceChannel;
-@property (assign, nonatomic) enum TMEChatMode                         currentChatMode;
+@property (assign, nonatomic) enum TMEChatMode                       currentChatMode;
+@property (assign, nonatomic) BOOL                                   isTyping;
 
 @end
 
@@ -63,6 +66,7 @@ PTPusherPresenceChannelDelegate
     [TMEPusherManager connectWithDelegate:self];
     [self subscribeChannel];
     self.currentChatMode = TMEChatModeOffline;
+    self.isTyping = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -77,6 +81,7 @@ PTPusherPresenceChannelDelegate
 - (void)subscribeChannel{
     self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:self.conversation.channel_name delegate:self];
     [self.presenceChannel bindToEventNamed:PUSHER_CHAT_EVENT_NAME                           handleWithBlock:^(PTPusherEvent *channelEvent) {
+        self.labelTyping.text = @"";
         TMEUser *user = [TMEUser userWithID:self.conversation.user_id
                                    fullName:self.conversation.user_full_name
                                   avatarURL:self.conversation.user_avatar];
@@ -86,6 +91,13 @@ PTPusherPresenceChannelDelegate
                                            timeStamp:channelEvent.data[@"timestamp"]];
         [self.dataArray addObject:reply];
         [self reloadTableViewConversationShowBottom:YES];
+    }];
+
+    [self.presenceChannel bindToEventNamed:PUSHER_CHAT_EVENT_TYPING handleWithBlock:^(PTPusherEvent *channelEvent) {
+        self.labelTyping.text = channelEvent.data[@"text"];
+        [self.labelTyping performSelector:@selector(setText:)
+                               withObject:@""
+                               afterDelay:15.0f];
     }];
 }
 
@@ -137,6 +149,7 @@ PTPusherPresenceChannelDelegate
     if ([self.textViewInputMessage.text isEqual: @""]) {
         return;
     }
+    self.isTyping = NO;
 
     if (self.currentChatMode == TMEChatModeOnline) {
         double currentTimeStamp = [[NSDate date] timeIntervalSince1970];
@@ -249,7 +262,8 @@ PTPusherPresenceChannelDelegate
 - (void)reloadTableViewConversationShowBottom:(BOOL)showBottom{
     [self setUpTableView];
     self.tableView.height = self.tableView.contentSize.height;
-    [self.textViewInputMessage alignBelowView:self.tableView offsetY:10 sameWidth:YES];
+    [self.labelTyping alignBelowView:self.tableView offsetY:10 sameWidth:YES];
+    [self.textViewInputMessage alignBelowView:self.labelTyping offsetY:10 sameWidth:YES];
     [self.textViewInputMessage setHeight:35.5];
     [self.scrollViewContent autoAdjustScrollViewContentSize];
     
@@ -297,7 +311,13 @@ PTPusherPresenceChannelDelegate
     CGRect newFrame = textView.frame;
     newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
     textView.frame = newFrame;
-    
+
+    if (textView.text.length > 0 && !self.isTyping && self.currentChatMode == TMEChatModeOnline) {
+        [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_TYPING
+                                           data:@{@"text" : [NSString stringWithFormat:@"%@ is typing...", [TMEUserManager sharedInstance].loggedUser.fullname]}];
+        self.isTyping = YES;
+    }
+
     [self.scrollViewContent autoAdjustScrollViewContentSize];
     [self.scrollViewContent scrollSubviewToCenter:textView animated:NO];
 }
