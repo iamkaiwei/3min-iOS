@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="TMECategory" representedClassName="TMECategory" syncable="YES">
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -8,6 +8,7 @@
         <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="category" inverseEntity="TMEProduct" syncable="YES"/>
     </entity>
     <entity name="TMEConversation" representedClassName="TMEConversation" syncable="YES">
+        <attribute name="channel_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="latest_message" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latest_update" optional="YES" attributeType="Date" syncable="YES"/>
@@ -73,7 +74,7 @@
     </entity>
     <elements>
         <element name="TMECategory" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="TMEConversation" positionX="0" positionY="0" width="128" height="180"/>
+        <element name="TMEConversation" positionX="0" positionY="0" width="128" height="195"/>
         <element name="TMEProduct" positionX="223" positionY="-396" width="128" height="343"/>
         <element name="TMEProductImages" positionX="81" positionY="-261" width="128" height="150"/>
         <element name="TMEReply" positionX="241" positionY="75" width="128" height="150"/>

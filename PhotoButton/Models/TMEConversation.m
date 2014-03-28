@@ -46,9 +46,13 @@
             conversation.product = product;
         }
     }
-    
+
     conversation.user_full_name = data[@"user"][@"full_name"];
-    
+
+    if (data[@"channel_name"] && ![data[@"channel_name"] isKindOfClass:[NSNull class]]) {
+        conversation.channel_name = data[@"channel_name"];
+    }
+
     if (![data[@"user"][@"facebook_avatar"] isKindOfClass:[NSNull class]]) {
         conversation.user_avatar = data[@"user"][@"facebook_avatar"];
     }
@@ -121,7 +125,11 @@
     if (data[@"offer"] && ![data[@"offer"] isKindOfClass:[NSNull class]]) {
         conversation.offer = data[@"offer"];
     }
-    
+
+    if (data[@"channel_name"] && ![data[@"channel_name"] isKindOfClass:[NSNull class]]) {
+        conversation.channel_name = data[@"channel_name"];
+    }
+
     return conversation;
 }
 

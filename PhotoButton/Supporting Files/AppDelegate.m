@@ -19,8 +19,7 @@
 
 @interface AppDelegate()
 <
-FacebookManagerDelegate,
-PTPusherDelegate
+FacebookManagerDelegate
 >
 
 //@property (strong, nonatomic) TMENavigationViewController * navController;
@@ -178,29 +177,30 @@ PTPusherDelegate
                                               image:nil
                                                type:TSMessageNotificationTypeMessage
                                            duration:4.0f
-                                           callback:^{
-                                               if (notificationConversation && notificationProduct) {
-                                                   TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
-                                                   submitVC.conversation = notificationConversation;
-                                                   submitVC.product = notificationProduct;
-                                                   
-                                                   [navController pushViewController:submitVC animated:YES];
-                                                   return;
-                                               }
-                                               
-                                               [self showHomeViewController];
-                                               deckController = (IIViewDeckController *)self.window.rootViewController;
-                                               homeController = (UITabBarController *)deckController.centerController;
-                                               [homeController setSelectedIndex:3];
-                                               
-                                           }
+                                           callback:^
+         {
+             if (notificationConversation && notificationProduct) {
+                 TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
+                 submitVC.conversation = notificationConversation;
+                 submitVC.product = notificationProduct;
+
+                 [navController pushViewController:submitVC animated:YES];
+                 return;
+             }
+
+             [self showHomeViewController];
+             deckController = (IIViewDeckController *)self.window.rootViewController;
+             homeController = (UITabBarController *)deckController.centerController;
+             [homeController setSelectedIndex:3];
+
+         }
                                         buttonTitle:nil
                                      buttonCallback:nil
                                          atPosition:TSMessageNotificationPositionTop
                                 canBeDismisedByUser:YES];
         return;
     }
-    
+
     if (notificationConversation && notificationProduct) {
         TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
         submitVC.conversation = notificationConversation;
@@ -237,6 +237,7 @@ PTPusherDelegate
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
     } else {
         [self updateUAAlias];
+
         [self switchRootViewController:self.deckController animated:YES completion:nil];
     }
 }

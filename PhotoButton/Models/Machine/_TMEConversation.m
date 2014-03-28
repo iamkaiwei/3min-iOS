@@ -4,6 +4,7 @@
 #import "_TMEConversation.h"
 
 const struct TMEConversationAttributes TMEConversationAttributes = {
+	.channel_name = @"channel_name",
 	.id = @"id",
 	.latest_message = @"latest_message",
 	.latest_update = @"latest_update",
@@ -65,6 +66,13 @@ const struct TMEConversationFetchedProperties TMEConversationFetchedProperties =
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic channel_name;
+
+
 
 
 

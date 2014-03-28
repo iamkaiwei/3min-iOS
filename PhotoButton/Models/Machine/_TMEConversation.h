@@ -5,6 +5,7 @@
 
 
 extern const struct TMEConversationAttributes {
+	__unsafe_unretained NSString *channel_name;
 	__unsafe_unretained NSString *id;
 	__unsafe_unretained NSString *latest_message;
 	__unsafe_unretained NSString *latest_update;
@@ -33,6 +34,7 @@ extern const struct TMEConversationFetchedProperties {
 
 
 
+
 @interface TMEConversationID : NSManagedObjectID {}
 @end
 
@@ -41,6 +43,16 @@ extern const struct TMEConversationFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (TMEConversationID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSString* channel_name;
+
+
+
+//- (BOOL)validateChannel_name:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -155,6 +167,12 @@ extern const struct TMEConversationFetchedProperties {
 @end
 
 @interface _TMEConversation (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSString*)primitiveChannel_name;
+- (void)setPrimitiveChannel_name:(NSString*)value;
+
+
 
 
 - (NSNumber*)primitiveId;

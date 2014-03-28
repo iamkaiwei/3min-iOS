@@ -18,7 +18,8 @@
 UIApplicationDelegate,
 UITextViewDelegate,
 UIAlertViewDelegate,
-PTPusherDelegate
+PTPusherDelegate,
+PTPusherPresenceChannelDelegate
 >
 
 @property (weak, nonatomic)   IBOutlet   UIImageView                 * imageViewProduct;
@@ -55,6 +56,11 @@ PTPusherDelegate
                                              selector:@selector(reloadMessageNotification:)
                                                  name:NOTIFICATION_RELOAD_CONVERSATION
                                                object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [TMEPusherManager connectWithDelegate:self];
     [self subscribeChannel];
 }
 
@@ -64,15 +70,15 @@ PTPusherDelegate
         self.tabBarController.tabBar.translucent = YES;
     }
     [self.presenceChannel unsubscribe];
+    [TMEPusherManager disconnect];
 }
 
 - (void)subscribeChannel{
-    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:[NSString stringWithFormat:@"channel-%@", self.conversation.user_id] delegate:nil];
-    [self.presenceChannel bindToEventNamed:@"client-chat" handleWithBlock:^(PTPusherEvent *channelEvent) {
-        NSDictionary *dictionary = channelEvent.data;
-        NSString *name = dictionary[@"name"];
-        NSString *message = dictionary[@"message"];
-        [UIAlertView showAlertWithTitle:name message:message];
+    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:self.conversation.channel_name delegate:self];
+    [self.presenceChannel bindToEventNamed:@"client-chat"
+                           handleWithBlock:^(PTPusherEvent *channelEvent) {
+        [UIAlertView showAlertWithTitle:channelEvent.data[@"name"]
+                                message:channelEvent.data[@"message"]];
     }];
 }
 
@@ -124,9 +130,10 @@ PTPusherDelegate
     if ([self.textViewInputMessage.text isEqual: @""]) {
         return;
     }
-
-    [self.presenceChannel triggerEventNamed:@"client-chat" data:@{@"name": [TMEUserManager sharedInstance].loggedUser.fullname,
-                                                                  @"message" : self.textViewInputMessage.text}];
+sou
+    [self.presenceChannel triggerEventNamed:@"client-chat"
+                                       data:@{@"name": [TMEUserManager sharedInstance].loggedUser.fullname,
+                                              @"message" : self.textViewInputMessage.text}];
 
     TMEReply *reply = [TMEReply replyPendingWithContent:self.textViewInputMessage.text];
     [self.dataArray addObject:reply];
@@ -352,6 +359,18 @@ PTPusherDelegate
 
 - (void)pusher:(PTPusher *)pusher willAuthorizeChannel:(PTPusherChannel *)channel withRequest:(NSMutableURLRequest *)request{
     [request setValue:[NSString stringWithFormat:@"Bearer %@",[[TMEUserManager sharedInstance] getAccessToken]] forHTTPHeaderField:@"Authorization"];
+}
+
+- (void)presenceChannelDidSubscribe:(PTPusherPresenceChannel *)channel{
+
+}
+
+- (void)presenceChannel:(PTPusherPresenceChannel *)channel memberAdded:(PTPusherChannelMember *)member{
+
+}
+
+- (void)presenceChannel:(PTPusherPresenceChannel *)channel memberRemoved:(PTPusherChannelMember *)member{
+
 }
 
 #pragma mark - Handle changing reachability

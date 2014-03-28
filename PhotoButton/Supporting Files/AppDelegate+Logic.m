@@ -218,10 +218,6 @@
 
 #pragma mark - Switch View Controllers
 
-- (void)pusher:(PTPusher *)pusher willAuthorizeChannel:(PTPusherChannel *)channel withRequest:(NSMutableURLRequest *)request{
-    [request setValue:[NSString stringWithFormat:@"Bearer %@",[[TMEUserManager sharedInstance] getAccessToken]] forHTTPHeaderField:@"Authorization"];
-}
-
 - (void)handleTapOnNotificationWithConversation:(TMEConversation *)conversation andProduct:(TMEProduct *)product{
 
 }
