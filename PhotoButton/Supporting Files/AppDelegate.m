@@ -19,7 +19,8 @@
 
 @interface AppDelegate()
 <
-FacebookManagerDelegate
+FacebookManagerDelegate,
+UAPushNotificationDelegate
 >
 
 //@property (strong, nonatomic) TMENavigationViewController * navController;
@@ -80,6 +81,7 @@ FacebookManagerDelegate
                                          UIRemoteNotificationTypeAlert);
 
     [[UAPush shared] setPushEnabled:YES];
+    [UAPush shared].pushNotificationDelegate = self;
 
     
     [TMEReachabilityManager sharedInstance];
@@ -167,6 +169,8 @@ FacebookManagerDelegate
     if (state == UIApplicationStateActive) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
         
+        [TSMessage dismissActiveNotification];
+        
         if ([alert length] > 40) {
             alert = [[alert substringToIndex: 40] stringByAppendingString:@"..."];
         }
@@ -240,6 +244,10 @@ FacebookManagerDelegate
 
         [self switchRootViewController:self.deckController animated:YES completion:nil];
     }
+}
+
+- (void)displayNotificationAlert:(NSString *)alertMessage{
+    return;
 }
 
 @end

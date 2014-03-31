@@ -438,6 +438,7 @@ PTPusherPresenceChannelDelegate
 
 - (void)presenceChannel:(PTPusherPresenceChannel *)channel memberAdded:(PTPusherChannelMember *)member{
     self.currentChatMode = TMEChatModeOnline;
+    [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"%@ is online!", member.userInfo[@"name"]] type:TSMessageNotificationTypeSuccess];
 }
 
 - (void)presenceChannel:(PTPusherPresenceChannel *)channel memberRemoved:(PTPusherChannelMember *)member{
@@ -445,6 +446,7 @@ PTPusherPresenceChannelDelegate
     if (self.arrayClientReplies.count) {
         [self postMessagesToServer];
     }
+    [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"%@ is offline!", self.conversation.user_full_name] type:TSMessageNotificationTypeError];
 }
 
 #pragma mark - Handle changing reachability
