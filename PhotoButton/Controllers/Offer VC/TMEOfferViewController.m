@@ -144,8 +144,8 @@ UIAlertViewDelegate
     
     price = [NSString stringWithFormat:@"%@ VND", price];
     
-    if (price.length >= 12) {
-        price = NSLocalizedString(@"$99999999999", nil);
+    if (price.length >= 16) {
+        price = NSLocalizedString(@"99999999999 VND", nil);
         self.labelPriceOffer.text = price;
         [self sizeToKeepLabelPriceHeightAlignCenter];
         return NO;
