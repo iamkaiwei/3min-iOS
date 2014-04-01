@@ -62,6 +62,7 @@ UITextViewDelegate
     if ([self.txtProductName respondsToSelector:@selector(setTintColor:)]) {
         [self.txtProductName setTintColor:[UIColor orangeMainColor]];
         [self.txtProductPrice setTintColor:[UIColor orangeMainColor]];
+        [self.txtProductDescription setTintColor:[UIColor orangeMainColor]];
     }
     
     for (TMEPhotoButton *button in self.view.subviews) {
