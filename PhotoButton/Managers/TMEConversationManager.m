@@ -111,6 +111,7 @@ SINGLETON_MACRO
      {
          if (successBlock) {
              NSArray *arrayConversation = [TMEConversation arrayConversationFromOfferArrayData:responseObject];
+             arrayConversation = [arrayConversation sortByAttribute:@"latest_update" ascending:NO];
              successBlock(arrayConversation);
          }
      }
