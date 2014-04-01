@@ -455,9 +455,11 @@ UITextViewDelegate
         if ([button isKindOfClass:[TMEPhotoButton class]])
             [button resetAttributes];
     
-    self.pickerCategoryButton.titleLabel.text = NSLocalizedString(@"Choose one", nil);
+    [self.pickerCategoryButton setTitle:NSLocalizedString(@"Choose one", nil) forState:UIControlStateNormal];
+    [self.pickerCategoryButton.titleLabel sizeToFitKeepHeight];
     self.txtProductName.text = @"";
     self.txtProductPrice.text = @"";
+    self.txtProductDescription.text = @"";
 }
 
 - (void)checkProductName
