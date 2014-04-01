@@ -70,6 +70,12 @@
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
     product.created_at = date;
     
+    if (![data[@"update_time"] isEqual:[NSNull null]] && data[@"update_time"]){
+        NSInteger timeStamp = [data[@"update_time"] integerValue];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
+        product.updated_at = date;
+    }
+    
     NSSet *setImages = [[NSSet alloc] init];
     if ([data[@"images"] isKindOfClass:[NSArray class]])
         setImages = [TMEProductImages productImagesSetFromArray:data[@"images"]];
@@ -91,16 +97,23 @@
         product.liked = data[@"liked"];
     
     product.sold_out = data[@"sold_out"];
-    product.updated_at = data[@"update_at"];
     
     return product;
 }
 
 + (NSArray *)arrayProductsFromArray:(NSArray *)arrData
 {
+    return [TMEProduct arrayProductsFromArray:arrData liked:NO];
+}
+
++ (NSArray *)arrayProductsFromArray:(NSArray *)arrData liked:(BOOL)liked
+{
     NSMutableArray *arrProducts = [@[] mutableCopy];
     for (NSDictionary *data in arrData) {
         TMEProduct *product = [TMEProduct productWithDictionary:data];
+        if (liked) {
+            product.likedValue = YES;
+        }
         [arrProducts addObject:product];
     }
     NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];

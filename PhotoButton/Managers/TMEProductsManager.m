@@ -145,7 +145,7 @@ SINGLETON_MACRO
                                                     success:^(NSHTTPURLResponse *response, id responseObject)
      {
          if(successBlock){
-             NSArray *arrayProduct = [TMEProduct arrayProductsFromArray:responseObject];
+             NSArray *arrayProduct = [TMEProduct arrayProductsFromArray:responseObject liked:YES];
              successBlock(arrayProduct);
          }
      }

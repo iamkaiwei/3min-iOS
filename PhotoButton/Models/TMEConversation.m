@@ -16,7 +16,9 @@
     NSMutableArray *arrayConversation = [@[] mutableCopy];
     for (NSDictionary *data in arrayData) {
         TMEConversation *conversation = [TMEConversation conversationFromData:data];
-        [arrayConversation addObject:conversation];
+        if (conversation) {
+            [arrayConversation addObject:conversation];
+        }
     }
     
     NSManagedObjectContext *mainContext  = [NSManagedObjectContext MR_defaultContext];
@@ -73,6 +75,10 @@
     conversation.offer = @0;
     if (data[@"offer"] && ![data[@"offer"] isKindOfClass:[NSNull class]]) {
         conversation.offer = data[@"offer"];
+    }
+    
+    if (!conversation.user_full_name && !conversation.user_avatar && !conversation.product) {
+        return nil;
     }
     
     return conversation;
