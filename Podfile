@@ -1,5 +1,8 @@
 platform :ios, '6.0'
 
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
 target :ThreeMin, :exclusive => true do
 
   pod 'AFNetworking', '1.3.3'
