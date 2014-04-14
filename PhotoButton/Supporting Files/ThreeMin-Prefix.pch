@@ -4,6 +4,7 @@
 
 //Use this "3 mins Production" scheme to upload to app store
 #define PUSHER_APP_KEY                              @"ce3898cbc04d99f952cd"
+#define FLURRY_API_KEY                              @"76DX6MC5DYNGYYNSYX3F"
 #define URBAN_AIRSHIP_APP_KEY_DEVELOPMENT           @"-IT-qB3pRBiec3liyxk4cQ"
 #define URBAN_AIRSHIP_APP_SECRET_DEVELOPMENT        @"rp9clmV1RzGi0GfPUiO0iA"
 #define URBAN_AIRSHIP_APP_KEY_PRODUCTION            @"tyVT4cw2TFi529WyWJswXA"

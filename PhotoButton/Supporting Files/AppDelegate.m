@@ -16,6 +16,7 @@
 #import "UAirship.h"
 #import "UAConfig.h"
 #import "UAPush.h"
+#import "Flurry.h"
 
 @interface AppDelegate()
 <
@@ -102,6 +103,8 @@ UAPushNotificationDelegate
     
     // Google analytics
     [self setUpGoogleAnalytics];
+    [Flurry setCrashReportingEnabled:YES];
+    [Flurry startSession:FLURRY_API_KEY];
     
     // VCs stuff
     // Make the color of Navigation bar no more effects the status bar

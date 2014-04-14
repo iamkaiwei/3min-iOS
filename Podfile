@@ -20,5 +20,6 @@ target :ThreeMin, :exclusive => true do
   pod 'Facebook-iOS-SDK'
   pod 'UrbanAirship-iOS-SDK'
   pod 'libPusher', '~> 1.5'
+  pod 'FlurrySDK'
   
 end
