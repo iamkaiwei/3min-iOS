@@ -400,8 +400,8 @@
 		B490259818B9232D00B00671 /* TMEMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEMeViewController.h; sourceTree = "<group>"; };
 		B490259918B9232D00B00671 /* TMEMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMeViewController.m; sourceTree = "<group>"; };
 		B490259A18B9232D00B00671 /* TMEMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEMeViewController.xib; sourceTree = "<group>"; };
-		B490259C18B9232D00B00671 /* TMENavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMENavigationViewController.h; sourceTree = "<group>"; };
-		B490259D18B9232D00B00671 /* TMENavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMENavigationViewController.m; sourceTree = "<group>"; };
+		B490259C18B9232D00B00671 /* TMENavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMENavigationViewController.h; path = "../Navigation Controller/TMENavigationViewController.h"; sourceTree = "<group>"; };
+		B490259D18B9232D00B00671 /* TMENavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMENavigationViewController.m; path = "../Navigation Controller/TMENavigationViewController.m"; sourceTree = "<group>"; };
 		B490259F18B9232D00B00671 /* TMEOfferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEOfferViewController.h; sourceTree = "<group>"; };
 		B49025A018B9232D00B00671 /* TMEOfferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEOfferViewController.m; sourceTree = "<group>"; };
 		B49025A118B9232D00B00671 /* TMEOfferViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEOfferViewController.xib; sourceTree = "<group>"; };
@@ -788,6 +788,7 @@
 		B490254C18B9232D00B00671 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B49025BC18B9232D00B00671 /* Superclass */,
 				B490254D18B9232D00B00671 /* Activity VCs */,
 				B490255618B9232D00B00671 /* Browser Products */,
 				B490256218B9232D00B00671 /* Browser Products Grid View */,
@@ -795,13 +796,11 @@
 				B490256E18B9232D00B00671 /* Left Menu  */,
 				B490257918B9232D00B00671 /* Main Controller */,
 				B490257D18B9232D00B00671 /* Me VCs */,
-				B490259B18B9232D00B00671 /* Navigation Controller */,
 				B490259E18B9232D00B00671 /* Offer VC */,
 				B49025A218B9232D00B00671 /* Product Details */,
 				B49025A618B9232D00B00671 /* Publish Products */,
 				B49025AA18B9232D00B00671 /* Search VCs */,
 				B49025B018B9232D00B00671 /* Submit VCs */,
-				B49025BC18B9232D00B00671 /* Superclass */,
 				B49025C718B9232D00B00671 /* Tutorial */,
 			);
 			name = Controllers;
@@ -950,15 +949,6 @@
 			path = "Offered VCs";
 			sourceTree = "<group>";
 		};
-		B490259B18B9232D00B00671 /* Navigation Controller */ = {
-			isa = PBXGroup;
-			children = (
-				B490259C18B9232D00B00671 /* TMENavigationViewController.h */,
-				B490259D18B9232D00B00671 /* TMENavigationViewController.m */,
-			);
-			path = "Navigation Controller";
-			sourceTree = "<group>";
-		};
 		B490259E18B9232D00B00671 /* Offer VC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1027,6 +1017,8 @@
 		B49025BC18B9232D00B00671 /* Superclass */ = {
 			isa = PBXGroup;
 			children = (
+				B490259C18B9232D00B00671 /* TMENavigationViewController.h */,
+				B490259D18B9232D00B00671 /* TMENavigationViewController.m */,
 				B49025BD18B9232D00B00671 /* TMEBaseArrayDataSource.h */,
 				B49025BE18B9232D00B00671 /* TMEBaseArrayDataSource.m */,
 				B49025BF18B9232D00B00671 /* TMEBasePhotoEditorViewController.h */,
