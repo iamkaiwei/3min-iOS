@@ -17,6 +17,7 @@ const struct TMEUserAttributes TMEUserAttributes = {
 };
 
 const struct TMEUserRelationships TMEUserRelationships = {
+	.activities = @"activities",
 	.products = @"products",
 };
 
@@ -149,6 +150,19 @@ const struct TMEUserFetchedProperties TMEUserFetchedProperties = {
 
 
 
+
+@dynamic activities;
+
+	
+- (NSMutableSet*)activitiesSet {
+	[self willAccessValueForKey:@"activities"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"activities"];
+  
+	[self didAccessValueForKey:@"activities"];
+	return result;
+}
+	
 
 @dynamic products;
 

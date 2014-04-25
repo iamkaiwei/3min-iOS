@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="GHActivity" representedClassName="GHActivity" syncable="YES">
+    <entity name="TMEActivity" representedClassName="TMEActivity" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="subject_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -78,7 +78,7 @@
         <attribute name="photo_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="udid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GHActivity" inverseName="user" inverseEntity="GHActivity" syncable="YES"/>
+        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEActivity" inverseName="user" inverseEntity="TMEActivity" syncable="YES"/>
         <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="user" inverseEntity="TMEProduct" syncable="YES"/>
     </entity>
     <elements>
@@ -88,6 +88,6 @@
         <element name="TMEProductImages" positionX="27" positionY="-414" width="128" height="150"/>
         <element name="TMEReply" positionX="241" positionY="75" width="128" height="150"/>
         <element name="TMEUser" positionX="430" positionY="-210" width="128" height="223"/>
-        <element name="GHActivity" positionX="493" positionY="90" width="128" height="133"/>
+        <element name="TMEActivity" positionX="493" positionY="90" width="128" height="133"/>
     </elements>
 </model>

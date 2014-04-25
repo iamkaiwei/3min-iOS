@@ -24,5 +24,6 @@ target :ThreeMin, :exclusive => true do
   pod 'UrbanAirship-iOS-SDK'
   pod 'libPusher', '~> 1.5'
   pod 'FlurrySDK'
+  pod 'KZPropertyMapper'
   
 end

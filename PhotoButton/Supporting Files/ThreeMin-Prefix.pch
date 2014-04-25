@@ -158,6 +158,7 @@
 #import "TMEUser.h"
 #import "TMEReply.h"
 #import "TMEConversation.h"
+#import "TMEActivity.h"
 
 // Vendors
 #import "CoreData+MagicalRecord.h"
@@ -183,6 +184,7 @@
 #import <UAConfig.h>
 #import <UAPush.h>
 #import <VENVersionTracker.h>
+#import <KZPropertyMapper.h>
 
 // Common VCs
 #import "TMENavigationViewController.h"

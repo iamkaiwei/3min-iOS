@@ -7,4 +7,6 @@
 + (TMEUser *)userByFacebookDictionary:(NSDictionary *)data;
 + (TMEUser *)userWithID:(NSNumber *)ID fullName:(NSString *)fullName avatarURL:(NSString *)avatarURL;
 
+- (BOOL)userFromDictionary:(NSDictionary *)dict;
+
 @end

@@ -37,6 +37,22 @@
     return user;
 }
 
+
+- (BOOL)userFromDictionary:(NSDictionary *)dict {
+    BOOL result = [KZPropertyMapper mapValuesFrom:dict
+                         toInstance:self
+                       usingMapping:@{
+                                      @"id": KZProperty(id),
+                                      @"full_name": KZProperty(fullname),
+                                      @"facebook_id": KZProperty(facebook_id),
+                                      @"facebook_avatar": KZProperty(photo_url),
+                                      @"email": KZProperty(email),
+                                      @"username": KZProperty(username),
+                                      @"udid": KZProperty(udid)
+                                      }];
+    return result;
+}
+
 + (TMEUser *)userByFacebookUser:(id<FBGraphUser>)facebookUser{
     TMEUser *user = [[TMEUser MR_findByAttribute:@"facebook_id" withValue:facebookUser.id] lastObject];
     if (!user) {
