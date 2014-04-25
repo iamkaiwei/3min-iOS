@@ -179,6 +179,7 @@
 #import "FSVenue.h"
 #import "FSConverter.h"
 #import <UAirship.h>
+#import <Flurry.h>
 #import <UAConfig.h>
 #import <UAPush.h>
 #import <VENVersionTracker.h>
