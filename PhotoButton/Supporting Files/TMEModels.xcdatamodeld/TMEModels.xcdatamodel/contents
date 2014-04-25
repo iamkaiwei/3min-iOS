@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="GHActivity" representedClassName="GHActivity" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="subject_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="subject_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="update_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TMEUser" inverseName="activities" inverseEntity="TMEUser" syncable="YES"/>
+    </entity>
     <entity name="TMECategory" representedClassName="TMECategory" syncable="YES">
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -70,14 +78,16 @@
         <attribute name="photo_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="udid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GHActivity" inverseName="user" inverseEntity="GHActivity" syncable="YES"/>
         <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TMEProduct" inverseName="user" inverseEntity="TMEProduct" syncable="YES"/>
     </entity>
     <elements>
         <element name="TMECategory" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="TMEConversation" positionX="0" positionY="0" width="128" height="195"/>
-        <element name="TMEProduct" positionX="223" positionY="-396" width="128" height="343"/>
-        <element name="TMEProductImages" positionX="81" positionY="-261" width="128" height="150"/>
+        <element name="TMEConversation" positionX="0" positionY="-249" width="128" height="195"/>
+        <element name="TMEProduct" positionX="241" positionY="-450" width="128" height="343"/>
+        <element name="TMEProductImages" positionX="27" positionY="-414" width="128" height="150"/>
         <element name="TMEReply" positionX="241" positionY="75" width="128" height="150"/>
-        <element name="TMEUser" positionX="360" positionY="-246" width="128" height="210"/>
+        <element name="TMEUser" positionX="430" positionY="-210" width="128" height="223"/>
+        <element name="GHActivity" positionX="493" positionY="90" width="128" height="133"/>
     </elements>
 </model>
