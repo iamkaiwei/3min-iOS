@@ -5,7 +5,7 @@ inhibit_all_warnings!
 
 target :ThreeMin, :exclusive => true do
 
-  pod 'AFNetworking', '1.3.3'
+  pod 'AFNetworking', '2.2.3'
   pod 'Reachability'
   pod 'SVProgressHUD'
   pod 'VENVersionTracker', '0.1.0'

@@ -12,7 +12,26 @@
 
 + (void)getActivitySuccess:(void(^)(NSArray *arrActivities))successBlock failure:(void(^)(NSError *error))failureBlock {
 
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:API_ACTIVITY parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
+        NSMutableArray *arrResult = [@[] mutableCopy];
+
+        for (NSDictionary *dict in responseObject) {
+            TMEActivity *activity = [TMEActivity MR_createEntity];
+            [activity activityFromDictionary:dict];
+            [arrResult addObject:activity];
+        }
+
+        if (successBlock) {
+            successBlock(arrResult);
+        }
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (failureBlock) {
+            failureBlock(error);
+        }
+    }];
 
 }
 

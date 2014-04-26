@@ -57,6 +57,8 @@
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
+		B410C1E6190BB8930041896A /* AFHTTPRequestOperationManager+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B410C1E5190BB8930041896A /* AFHTTPRequestOperationManager+Additions.m */; };
+		B410C1E9190BB98C0041896A /* TMECategory+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410C1E8190BB98C0041896A /* TMECategory+Manager.m */; };
 		B4255A5A18B9F2760022B3A5 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A5918B9F2760022B3A5 /* UIPlaceHolderTextView.m */; };
 		B4255A5E18B9FA6A0022B3A5 /* PublishLocationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A5C18B9FA6A0022B3A5 /* PublishLocationPickerViewController.m */; };
 		B4255A5F18B9FA6A0022B3A5 /* PublishLocationPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4255A5D18B9FA6A0022B3A5 /* PublishLocationPickerViewController.xib */; };
@@ -263,6 +265,10 @@
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8D5F82EBDA924B60AFAB0110 /* libPods-PhotoButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B410C1E4190BB8930041896A /* AFHTTPRequestOperationManager+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPRequestOperationManager+Additions.h"; sourceTree = "<group>"; };
+		B410C1E5190BB8930041896A /* AFHTTPRequestOperationManager+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPRequestOperationManager+Additions.m"; sourceTree = "<group>"; };
+		B410C1E7190BB98C0041896A /* TMECategory+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMECategory+Manager.h"; sourceTree = "<group>"; };
+		B410C1E8190BB98C0041896A /* TMECategory+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMECategory+Manager.m"; sourceTree = "<group>"; };
 		B4255A5818B9F2760022B3A5 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
 		B4255A5918B9F2760022B3A5 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		B4255A5B18B9FA6A0022B3A5 /* PublishLocationPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishLocationPickerViewController.h; sourceTree = "<group>"; };
@@ -1094,6 +1100,10 @@
 				509C1C2C18E01F5F009F25D2 /* TMEPusherManager.m */,
 				B48485AE190ABD470015675A /* TMEActivity+Manager.h */,
 				B48485AF190ABD470015675A /* TMEActivity+Manager.m */,
+				B410C1E4190BB8930041896A /* AFHTTPRequestOperationManager+Additions.h */,
+				B410C1E5190BB8930041896A /* AFHTTPRequestOperationManager+Additions.m */,
+				B410C1E7190BB98C0041896A /* TMECategory+Manager.h */,
+				B410C1E8190BB98C0041896A /* TMECategory+Manager.m */,
 			);
 			name = Managers;
 			path = PhotoButton/Managers;
@@ -1500,6 +1510,7 @@
 				B490275C18B9232E00B00671 /* TMEProductDetailsViewController.m in Sources */,
 				B490277318B9232E00B00671 /* FacebookManager.m in Sources */,
 				B490270E18B9232E00B00671 /* NSCalendar+Additions.m in Sources */,
+				B410C1E9190BB98C0041896A /* TMECategory+Manager.m in Sources */,
 				B490277918B9232E00B00671 /* TMEProductsManager.m in Sources */,
 				B490279F18B9232F00B00671 /* YIFullScreenScroll.m in Sources */,
 				B490273518B9232E00B00671 /* TMEBrowserProductsViewController.m in Sources */,
@@ -1576,6 +1587,7 @@
 				B490277218B9232E00B00671 /* BaseNetworkManager.m in Sources */,
 				B4255A5A18B9F2760022B3A5 /* UIPlaceHolderTextView.m in Sources */,
 				B4785C42190A6557008EF4DA /* TMEProductImages.m in Sources */,
+				B410C1E6190BB8930041896A /* AFHTTPRequestOperationManager+Additions.m in Sources */,
 				0BAACBCF18BB47F700162311 /* TMESearchTableViewCell.m in Sources */,
 				B490272C18B9232E00B00671 /* UIViewController+Additions.m in Sources */,
 				B4785C39190A6557008EF4DA /* _TMEConversation.m in Sources */,

@@ -6,8 +6,6 @@
 //
 //
 
-#import "AFHTTPClient.h"
-
 typedef void (^TMEJSONRequestSuccessBlock) (NSInteger statusCode, id obj);
 typedef void (^TMEJSONRequestFailureBlock) (NSInteger statusCode, id obj);
 

@@ -77,6 +77,7 @@
 #define API_CATEGORY                                @"categories"
 #define API_CATEGORY_TAGGABLE                       @"/taggable"
 #define API_USER_LOGIN                              @"/oauth/token"
+#define API_ACTIVITY                                @"/activities"
 #define URL_PUSHER_ENDPOINT                         @"/pushers/auth"
 
 
@@ -149,6 +150,7 @@
 #import "TMEConversationManager.h"
 #import "TMEReachabilityManager.h"
 #import "TMEPusherManager.h"
+#import "AFHTTPRequestOperationManager+Additions.h"
 
 // Models
 #import "TMEProduct.h"
@@ -184,6 +186,7 @@
 #import <UAPush.h>
 #import <VENVersionTracker.h>
 #import <KZPropertyMapper.h>
+#import <AFNetworking/AFNetworking.h>
 
 // Common VCs
 #import "TMENavigationViewController.h"

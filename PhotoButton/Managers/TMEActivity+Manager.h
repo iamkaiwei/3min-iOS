@@ -10,4 +10,6 @@
 
 @interface TMEActivity (Manager)
 
++ (void)getActivitySuccess:(void(^)(NSArray *arrActivities))successBlock failure:(void(^)(NSError *error))failureBlock;
+
 @end
