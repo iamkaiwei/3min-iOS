@@ -178,13 +178,10 @@
 		B490276E18B9232E00B00671 /* TMEBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025C618B9232D00B00671 /* TMEBaseViewController.m */; };
 		B490276F18B9232E00B00671 /* TMETutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025C918B9232D00B00671 /* TMETutorialViewController.m */; };
 		B490277118B9232E00B00671 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025CE18B9232D00B00671 /* BaseManager.m */; };
-		B490277218B9232E00B00671 /* BaseNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025D018B9232D00B00671 /* BaseNetworkManager.m */; };
 		B490277318B9232E00B00671 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025D218B9232D00B00671 /* FacebookManager.m */; };
 		B490277418B9232E00B00671 /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025D418B9232D00B00671 /* TMEUserManager.m */; };
-		B490277518B9232E00B00671 /* TMECategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025D618B9232D00B00671 /* TMECategoryManager.m */; };
 		B490277618B9232E00B00671 /* TMEConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025D818B9232D00B00671 /* TMEConversationManager.m */; };
 		B490277718B9232E00B00671 /* TMEFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025DA18B9232D00B00671 /* TMEFacebookManager.m */; };
-		B490277818B9232E00B00671 /* TMEHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025DC18B9232D00B00671 /* TMEHTTPClient.m */; };
 		B490277918B9232E00B00671 /* TMEProductsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025DE18B9232D00B00671 /* TMEProductsManager.m */; };
 		B490277A18B9232E00B00671 /* TMEReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B49025E018B9232D00B00671 /* TMEReachabilityManager.m */; };
 		B490278A18B9232F00B00671 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B490260418B9232E00B00671 /* AppDelegate.m */; };
@@ -204,7 +201,6 @@
 		B49027FA18B9232F00B00671 /* TMEBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B490270218B9232E00B00671 /* TMEBaseTableViewCell.m */; };
 		B49027FD18B9235300B00671 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B49027FB18B9235300B00671 /* TMEModels.xcdatamodeld */; };
 		B490280118B92A5500B00671 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B490280018B92A5500B00671 /* Images.xcassets */; };
-		B490281818B92B4100B00671 /* AFDownloadRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B490280418B92B4100B00671 /* AFDownloadRequestOperation.m */; };
 		B4BF632318D361C900794F19 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = B4BF632118D361C900794F19 /* dsym_upload.sh */; };
 		B4BF632418D361C900794F19 /* libCrittercism_v4_3_2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BF632218D361C900794F19 /* libCrittercism_v4_3_2.a */; };
 		B4BF638418D3624600794F19 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BF638318D3624600794F19 /* libGoogleAnalyticsServices.a */; };
@@ -478,20 +474,14 @@
 		B49025C918B9232D00B00671 /* TMETutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETutorialViewController.m; sourceTree = "<group>"; };
 		B49025CD18B9232D00B00671 /* BaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
 		B49025CE18B9232D00B00671 /* BaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManager.m; sourceTree = "<group>"; };
-		B49025CF18B9232D00B00671 /* BaseNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetworkManager.h; sourceTree = "<group>"; };
-		B49025D018B9232D00B00671 /* BaseNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetworkManager.m; sourceTree = "<group>"; };
 		B49025D118B9232D00B00671 /* FacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookManager.h; sourceTree = "<group>"; };
 		B49025D218B9232D00B00671 /* FacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookManager.m; sourceTree = "<group>"; };
 		B49025D318B9232D00B00671 /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManager.h; sourceTree = "<group>"; };
 		B49025D418B9232D00B00671 /* TMEUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserManager.m; sourceTree = "<group>"; };
-		B49025D518B9232D00B00671 /* TMECategoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECategoryManager.h; sourceTree = "<group>"; };
-		B49025D618B9232D00B00671 /* TMECategoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECategoryManager.m; sourceTree = "<group>"; };
 		B49025D718B9232D00B00671 /* TMEConversationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEConversationManager.h; sourceTree = "<group>"; };
 		B49025D818B9232D00B00671 /* TMEConversationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEConversationManager.m; sourceTree = "<group>"; };
 		B49025D918B9232D00B00671 /* TMEFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFacebookManager.h; sourceTree = "<group>"; };
 		B49025DA18B9232D00B00671 /* TMEFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFacebookManager.m; sourceTree = "<group>"; };
-		B49025DB18B9232D00B00671 /* TMEHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHTTPClient.h; sourceTree = "<group>"; };
-		B49025DC18B9232D00B00671 /* TMEHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEHTTPClient.m; sourceTree = "<group>"; };
 		B49025DD18B9232D00B00671 /* TMEProductsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductsManager.h; sourceTree = "<group>"; };
 		B49025DE18B9232D00B00671 /* TMEProductsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductsManager.m; sourceTree = "<group>"; };
 		B49025DF18B9232D00B00671 /* TMEReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEReachabilityManager.h; sourceTree = "<group>"; };
@@ -526,8 +516,6 @@
 		B490270218B9232E00B00671 /* TMEBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseTableViewCell.m; sourceTree = "<group>"; };
 		B49027FC18B9235300B00671 /* TMEModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMEModels.xcdatamodel; sourceTree = "<group>"; };
 		B490280018B92A5500B00671 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PhotoButton/Resources/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		B490280318B92B4100B00671 /* AFDownloadRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFDownloadRequestOperation.h; sourceTree = "<group>"; };
-		B490280418B92B4100B00671 /* AFDownloadRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFDownloadRequestOperation.m; sourceTree = "<group>"; };
 		B4BF631E18D361C900794F19 /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
 		B4BF631F18D361C900794F19 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
 		B4BF632018D361C900794F19 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
@@ -1084,14 +1072,10 @@
 			isa = PBXGroup;
 			children = (
 				B49025CC18B9232D00B00671 /* superclass */,
-				B49025D518B9232D00B00671 /* TMECategoryManager.h */,
-				B49025D618B9232D00B00671 /* TMECategoryManager.m */,
 				B49025D718B9232D00B00671 /* TMEConversationManager.h */,
 				B49025D818B9232D00B00671 /* TMEConversationManager.m */,
 				B49025D918B9232D00B00671 /* TMEFacebookManager.h */,
 				B49025DA18B9232D00B00671 /* TMEFacebookManager.m */,
-				B49025DB18B9232D00B00671 /* TMEHTTPClient.h */,
-				B49025DC18B9232D00B00671 /* TMEHTTPClient.m */,
 				B49025DD18B9232D00B00671 /* TMEProductsManager.h */,
 				B49025DE18B9232D00B00671 /* TMEProductsManager.m */,
 				B49025DF18B9232D00B00671 /* TMEReachabilityManager.h */,
@@ -1114,8 +1098,6 @@
 			children = (
 				B49025CD18B9232D00B00671 /* BaseManager.h */,
 				B49025CE18B9232D00B00671 /* BaseManager.m */,
-				B49025CF18B9232D00B00671 /* BaseNetworkManager.h */,
-				B49025D018B9232D00B00671 /* BaseNetworkManager.m */,
 				B49025D118B9232D00B00671 /* FacebookManager.h */,
 				B49025D218B9232D00B00671 /* FacebookManager.m */,
 				B49025D318B9232D00B00671 /* TMEUserManager.h */,
@@ -1167,7 +1149,6 @@
 				B4BF637C18D3624600794F19 /* GoogleAnalytics */,
 				B4BF631D18D361C900794F19 /* CrittercismSDK */,
 				0B7F441F18BB2E9A000777BF /* JZRefreshControl */,
-				B490280218B92B4100B00671 /* AFNetworking */,
 				B490263318B9232E00B00671 /* Classes */,
 				B490269618B9232E00B00671 /* PhotoButton */,
 				B49026E418B9232E00B00671 /* UINavigationController+SGProgress */,
@@ -1261,15 +1242,6 @@
 				B490270218B9232E00B00671 /* TMEBaseTableViewCell.m */,
 			);
 			path = superclass;
-			sourceTree = "<group>";
-		};
-		B490280218B92B4100B00671 /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				B490280318B92B4100B00671 /* AFDownloadRequestOperation.h */,
-				B490280418B92B4100B00671 /* AFDownloadRequestOperation.m */,
-			);
-			path = AFNetworking;
 			sourceTree = "<group>";
 		};
 		B4BF631D18D361C900794F19 /* CrittercismSDK */ = {
@@ -1492,7 +1464,6 @@
 				B490276718B9232E00B00671 /* TMESubmitViewController.m in Sources */,
 				B490279C18B9232F00B00671 /* JRSwizzle.m in Sources */,
 				B490272818B9232E00B00671 /* UITextView+Additions.m in Sources */,
-				B490281818B92B4100B00671 /* AFDownloadRequestOperation.m in Sources */,
 				B490273818B9232E00B00671 /* TMEBrowserProductTableViewHeader.m in Sources */,
 				B490275418B9232E00B00671 /* TMEMeTableViewCell.m in Sources */,
 				B4785C40190A6557008EF4DA /* TMEConversation.m in Sources */,
@@ -1557,7 +1528,6 @@
 				B49027C518B9232F00B00671 /* PBImageHelper.m in Sources */,
 				B4785C3A190A6557008EF4DA /* _TMEProduct.m in Sources */,
 				B490272518B9232E00B00671 /* UILabel+Additions.m in Sources */,
-				B490277518B9232E00B00671 /* TMECategoryManager.m in Sources */,
 				B490276318B9232E00B00671 /* TMESubmitTableCell.m in Sources */,
 				B4255A5E18B9FA6A0022B3A5 /* PublishLocationPickerViewController.m in Sources */,
 				B490273E18B9232E00B00671 /* HTKContainerViewController.m in Sources */,
@@ -1574,7 +1544,6 @@
 				B490272118B9232E00B00671 /* UIFont+Additions.m in Sources */,
 				B490270F18B9232E00B00671 /* NSData+Base64.m in Sources */,
 				B490271718B9232E00B00671 /* NSString+Validation.m in Sources */,
-				B490277818B9232E00B00671 /* TMEHTTPClient.m in Sources */,
 				0B1E89F018BDCABB007D5D16 /* TMELoadMoreCollectionViewCell.m in Sources */,
 				B490276C18B9232E00B00671 /* TMEBaseTabBarViewController.m in Sources */,
 				B490271E18B9232E00B00671 /* UIButton+Additions.m in Sources */,
@@ -1584,7 +1553,6 @@
 				B490270D18B9232E00B00671 /* NSArray+Additions.m in Sources */,
 				B49027FA18B9232F00B00671 /* TMEBaseTableViewCell.m in Sources */,
 				B490272A18B9232E00B00671 /* UIView+Glow.m in Sources */,
-				B490277218B9232E00B00671 /* BaseNetworkManager.m in Sources */,
 				B4255A5A18B9F2760022B3A5 /* UIPlaceHolderTextView.m in Sources */,
 				B4785C42190A6557008EF4DA /* TMEProductImages.m in Sources */,
 				B410C1E6190BB8930041896A /* AFHTTPRequestOperationManager+Additions.m in Sources */,

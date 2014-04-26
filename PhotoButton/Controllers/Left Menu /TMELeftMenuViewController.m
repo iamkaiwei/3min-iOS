@@ -62,7 +62,7 @@
         return;
     }
     
-    [TMECategoryManager getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories)
+    [TMECategory getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories)
      {
          self.dataArray = [arrayCategories mutableCopy];
          [self setUpTableView];

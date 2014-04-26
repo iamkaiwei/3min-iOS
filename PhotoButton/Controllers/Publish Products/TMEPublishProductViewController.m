@@ -107,7 +107,7 @@ UITextViewDelegate
 }
 
 - (void)getListCategory{
-    [TMECategoryManager getAllCategoriesTaggableOnSuccessBlock:^(NSArray *arrayCategories)
+    [TMECategory getAllCategoriesTaggableOnSuccessBlock:^(NSArray *arrayCategories)
      {
          self.arrayCategories = arrayCategories;
          [self.pickerCategories reloadAllComponents];
@@ -267,69 +267,71 @@ UITextViewDelegate
     }
     
     __block NSNumber *percent = @(0.0f);
+
+#warning THIS PART HASN'T COMPLETED YET AFTER UPDATE AFNETWORKING 2.0
     
-    [[BaseNetworkManager sharedInstance] sendMultipartFormRequestForPath:API_PRODUCTS
-                                                              parameters:params
-                                                                  method:POST_METHOD
-                                               constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
-     {
-         for (TMEPhotoButton *photoButton in self.photoButtons) {
-             if ([photoButton hasPhoto]) {
-                 NSData *imageData = UIImageJPEGRepresentation([photoButton backgroundImageForState:UIControlStateNormal], 0.5);
-                 NSString *imageName = [@([[NSDate date] timeIntervalSince1970]) stringValue];
-                 [formData appendPartWithFileData:imageData name:@"images[]" fileName:imageName mimeType:@"image/jpeg"];
-             }
-         }
-         
-     } success:^(NSHTTPURLResponse *response, id responseObject) {
-         [SVProgressHUD dismiss];
-         
-         NSError* error;
-         
-         NSDictionary* json = responseObject;
-         
-         if ([responseObject isKindOfClass:[NSData class]]) {
-             json = [NSJSONSerialization
-                     JSONObjectWithData:responseObject
-                     
-                     options:kNilOptions
-                     error:&error];
-         }
-         // reset the form
-         if ([self.switchFacebookShare isOn]) {
-             [self prepareMyBatchRequest];
-         }
-         
-         [self resetAllForms];
-         
-         if ([((TMENavigationViewController *)self.tabBarController.selectedViewController).topViewController isKindOfClass:[HTKContainerViewController class]]) {
-             HTKContainerViewController *containerVC = (HTKContainerViewController *)((TMENavigationViewController *)self.tabBarController.selectedViewController).topViewController;
-             
-             if ([containerVC.currentViewController isKindOfClass:[TMEBrowserProductsViewController class]]) {
-                 [((TMEBrowserProductsViewController *)containerVC.currentViewController) loadProductsWithPage:1];
-             }
-             
-             if ([containerVC.currentViewController isKindOfClass:[TMEBrowserCollectionViewController class]]) {
-                 [((TMEBrowserCollectionViewController *)containerVC.currentViewController) loadProductsWithPage:1];
-             }
-         }
-         [TSMessage showNotificationWithTitle:NSLocalizedString(@"Your product has been uploaded successfully.", nil) type:TSMessageNotificationTypeSuccess];
-         
-         [((TMENavigationViewController *)self.tabBarController.selectedViewController) finishSGProgress];
-         
-     } failure:^(NSError *error) {
-         
-         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Fail to upload, try again later", nil)];
-         [((TMENavigationViewController *)self.tabBarController.selectedViewController) finishSGProgress];
-         
-     } progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-         
-         // save last 30% for response
-         percent = @(((float)totalBytesWritten)/totalBytesExpectedToWrite * 0.7);
-         float percentage = [percent floatValue];
-         percentage *= 100;
-         [((TMENavigationViewController *)self.tabBarController.selectedViewController) setSGProgressPercentage:percentage];
-     }];
+//    [[BaseNetworkManager sharedInstance] sendMultipartFormRequestForPath:API_PRODUCTS
+//                                                              parameters:params
+//                                                                  method:POST_METHOD
+//                                               constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+//     {
+//         for (TMEPhotoButton *photoButton in self.photoButtons) {
+//             if ([photoButton hasPhoto]) {
+//                 NSData *imageData = UIImageJPEGRepresentation([photoButton backgroundImageForState:UIControlStateNormal], 0.5);
+//                 NSString *imageName = [@([[NSDate date] timeIntervalSince1970]) stringValue];
+//                 [formData appendPartWithFileData:imageData name:@"images[]" fileName:imageName mimeType:@"image/jpeg"];
+//             }
+//         }
+//         
+//     } success:^(NSHTTPURLResponse *response, id responseObject) {
+//         [SVProgressHUD dismiss];
+//         
+//         NSError* error;
+//         
+//         NSDictionary* json = responseObject;
+//         
+//         if ([responseObject isKindOfClass:[NSData class]]) {
+//             json = [NSJSONSerialization
+//                     JSONObjectWithData:responseObject
+//                     
+//                     options:kNilOptions
+//                     error:&error];
+//         }
+//         // reset the form
+//         if ([self.switchFacebookShare isOn]) {
+//             [self prepareMyBatchRequest];
+//         }
+//         
+//         [self resetAllForms];
+//         
+//         if ([((TMENavigationViewController *)self.tabBarController.selectedViewController).topViewController isKindOfClass:[HTKContainerViewController class]]) {
+//             HTKContainerViewController *containerVC = (HTKContainerViewController *)((TMENavigationViewController *)self.tabBarController.selectedViewController).topViewController;
+//             
+//             if ([containerVC.currentViewController isKindOfClass:[TMEBrowserProductsViewController class]]) {
+//                 [((TMEBrowserProductsViewController *)containerVC.currentViewController) loadProductsWithPage:1];
+//             }
+//             
+//             if ([containerVC.currentViewController isKindOfClass:[TMEBrowserCollectionViewController class]]) {
+//                 [((TMEBrowserCollectionViewController *)containerVC.currentViewController) loadProductsWithPage:1];
+//             }
+//         }
+//         [TSMessage showNotificationWithTitle:NSLocalizedString(@"Your product has been uploaded successfully.", nil) type:TSMessageNotificationTypeSuccess];
+//         
+//         [((TMENavigationViewController *)self.tabBarController.selectedViewController) finishSGProgress];
+//         
+//     } failure:^(NSError *error) {
+//         
+//         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Fail to upload, try again later", nil)];
+//         [((TMENavigationViewController *)self.tabBarController.selectedViewController) finishSGProgress];
+//         
+//     } progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+//         
+//         // save last 30% for response
+//         percent = @(((float)totalBytesWritten)/totalBytesExpectedToWrite * 0.7);
+//         float percentage = [percent floatValue];
+//         percentage *= 100;
+//         [((TMENavigationViewController *)self.tabBarController.selectedViewController) setSGProgressPercentage:percentage];
+//     }];
 }
 
 #pragma mark - UIPickerView

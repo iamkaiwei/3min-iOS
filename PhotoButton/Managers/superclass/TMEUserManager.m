@@ -107,20 +107,14 @@ SINGLETON_MACRO
     NSDictionary *params = @{@"access_token": [self getAccessTokenFromStore]};
     
     NSString *path = [NSString stringWithFormat:@"%@%@%@/%@",API_SERVER_HOST,API_PREFIX,API_USER,userID];
-    
-    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
-                                                 parameters:params
-                                                     method:GET_METHOD
-                                                    success:^(NSHTTPURLResponse *response, id responseObject)
-    {
+
+    [[AFHTTPRequestOperationManager tme_manager] GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         TMEUser *user = [TMEUser userWithData:responseObject];
         
         if (successBlock) {
             successBlock(user);
         }
-    }
-                                                    failure:^(NSError *error)
-    {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failureBlock)
             failureBlock(error.code, error);
     }];
@@ -137,12 +131,8 @@ SINGLETON_MACRO
                              @"grant_type": API_GRANT_TYPE};
     
     NSString *path = [NSString stringWithFormat:@"%@%@", API_SERVER_HOST, API_USER_LOGIN];
-    
-    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
-                                                 parameters:params
-                                                     method:POST_METHOD
-                                                    success:^(NSHTTPURLResponse *response, id responseObject)
-    {
+
+    [[AFHTTPRequestOperationManager tme_manager] POST:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         TMEUser *user;
         if (responseObject){
             user = [TMEUser userByFacebookDictionary:responseObject];
@@ -151,14 +141,6 @@ SINGLETON_MACRO
                                            userID:user.id];
             [self setLoggedUser:user andFacebookUser:nil];
         }
-        
-        // Push notification
-//        if ([URBAN_AIRSHIP_APP_KEY length] > 0) {
-//            UIApplication *application = [UIApplication sharedApplication];
-//            [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert |
-//             UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-//        }
-
         // broadcast
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_FINISH_LOGIN object:user];
         
@@ -166,13 +148,11 @@ SINGLETON_MACRO
             successBlock(user);
         
         self.isLogging = NO;
-        
-    } failure:^(NSError *error) {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failureBlock)
             failureBlock(error.code, error);
       [[TMEFacebookManager sharedInstance] logout];
         self.isLogging = NO;
-        
     }];
 }
 

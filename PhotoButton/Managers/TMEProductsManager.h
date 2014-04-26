@@ -6,7 +6,8 @@
 //
 //
 
-#import "TMEHTTPClient.h"
+typedef void (^TMEJSONRequestFailureBlock)(NSInteger code, NSError *error);
+
 #import "TMECategory.h"
 
 @interface TMEProductsManager : BaseManager
