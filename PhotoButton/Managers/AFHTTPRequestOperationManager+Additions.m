@@ -23,7 +23,7 @@
                          forHTTPHeaderField:@"Authorization"];
     }
 
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"test/plain", @"test/json", nil];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"test/plain", @"test/json", @"application/json", nil];
     return manager;
 }
 

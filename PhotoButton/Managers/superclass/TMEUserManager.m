@@ -151,7 +151,7 @@ SINGLETON_MACRO
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failureBlock)
             failureBlock(error.code, error);
-      [[TMEFacebookManager sharedInstance] logout];
+        [[TMEFacebookManager sharedInstance] logout];
         self.isLogging = NO;
     }];
 }
