@@ -23,7 +23,6 @@
 #define ENABLE_TRIPPLE_TAP_PREFILL                  NO
 #define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
 
-
 //Normal development environment
 #else
 #ifdef DEBUG

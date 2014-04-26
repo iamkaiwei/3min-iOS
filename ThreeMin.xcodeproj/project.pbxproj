@@ -77,6 +77,7 @@
 		B4785C42190A6557008EF4DA /* TMEProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C30190A6557008EF4DA /* TMEProductImages.m */; };
 		B4785C43190A6557008EF4DA /* TMEReply.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C32190A6557008EF4DA /* TMEReply.m */; };
 		B4785C44190A6557008EF4DA /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C34190A6557008EF4DA /* TMEUser.m */; };
+		B48485B0190ABD470015675A /* TMEActivity+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = B48485AF190ABD470015675A /* TMEActivity+Manager.m */; };
 		B490270818B9232E00B00671 /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = B490250218B9232D00B00671 /* ActiveSupportInflector.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B490270918B9232E00B00671 /* ActiveSupportInflector.plist in Resources */ = {isa = PBXBuildFile; fileRef = B490250318B9232D00B00671 /* ActiveSupportInflector.plist */; };
 		B490270A18B9232E00B00671 /* CAAnimation+EasingEquations.m in Sources */ = {isa = PBXBuildFile; fileRef = B490250518B9232D00B00671 /* CAAnimation+EasingEquations.m */; };
@@ -300,6 +301,8 @@
 		B4785C32190A6557008EF4DA /* TMEReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEReply.m; sourceTree = "<group>"; };
 		B4785C33190A6557008EF4DA /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
 		B4785C34190A6557008EF4DA /* TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUser.m; sourceTree = "<group>"; };
+		B48485AE190ABD470015675A /* TMEActivity+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEActivity+Manager.h"; sourceTree = "<group>"; };
+		B48485AF190ABD470015675A /* TMEActivity+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEActivity+Manager.m"; sourceTree = "<group>"; };
 		B490250118B9232D00B00671 /* ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveSupportInflector.h; sourceTree = "<group>"; };
 		B490250218B9232D00B00671 /* ActiveSupportInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveSupportInflector.m; sourceTree = "<group>"; };
 		B490250318B9232D00B00671 /* ActiveSupportInflector.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = ActiveSupportInflector.plist; sourceTree = "<group>"; };
@@ -1089,6 +1092,8 @@
 				B49025E018B9232D00B00671 /* TMEReachabilityManager.m */,
 				509C1C2B18E01F5F009F25D2 /* TMEPusherManager.h */,
 				509C1C2C18E01F5F009F25D2 /* TMEPusherManager.m */,
+				B48485AE190ABD470015675A /* TMEActivity+Manager.h */,
+				B48485AF190ABD470015675A /* TMEActivity+Manager.m */,
 			);
 			name = Managers;
 			path = PhotoButton/Managers;
@@ -1507,6 +1512,7 @@
 				B4255A6418B9FBFC0022B3A5 /* FSConverter.m in Sources */,
 				50217E6718E3D78C006D5B02 /* AppDelegate+Logic.m in Sources */,
 				B490275A18B9232E00B00671 /* TMEOfferViewController.m in Sources */,
+				B48485B0190ABD470015675A /* TMEActivity+Manager.m in Sources */,
 				B4785C3E190A6557008EF4DA /* TMEActivity.m in Sources */,
 				B490276A18B9232E00B00671 /* TMEBaseArrayDataSource.m in Sources */,
 				B490274818B9232E00B00671 /* TMELikedTableViewCell.m in Sources */,
