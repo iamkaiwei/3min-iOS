@@ -13,7 +13,7 @@ static char kTMEImageProgressIndicatorKey;
 
 @interface UIImageView (_CircleProgress)
 
-@property (readwrite, nonatomic, strong, setter = af_setImageRequestOperation:) AFImageRequestOperation *af_imageRequestOperation;
+@property (readwrite, nonatomic, strong, setter = af_setImageRequestOperation:) AFHTTPRequestOperation *af_imageRequestOperation;
 @property (readwrite, nonatomic, strong, setter = tme_setProgressIndicatorView:) TMECircleProgressIndicator *tme_progressIndicatorView;
 
 @end
@@ -73,7 +73,7 @@ static char kTMEImageProgressIndicatorKey;
             self.image = placeholderImage;
         }
         
-        AFImageRequestOperation *requestOperation = [[AFImageRequestOperation alloc] initWithRequest:urlRequest];
+        AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
 		
 #ifdef _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_
 		requestOperation.allowsInvalidSSLCertificate = YES;

@@ -29,23 +29,21 @@ SINGLETON_MACRO
     }
     
     NSString *path = [NSString stringWithFormat:@"%@/%d", API_CONVERSATIONS, conversationID];
-    
-    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
-                                                 parameters:params
-                                                     method:GET_METHOD
-                                                    success:^(NSHTTPURLResponse *response, id responseObject)
-     {
+
+    [[AFHTTPRequestOperationManager tme_manager] GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
          if (successBlock) {
              TMEConversation *conversation = [TMEConversation aConversationFromData:responseObject];
              successBlock(conversation);
          }
-     }
-                                                    failure:^(NSError *error)
-     {
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
          if (failureBlock) {
              failureBlock(error.code, error);
          }
-     }];
+
+    }];
 }
 
 + (void)postReplyToConversation:(NSInteger)conversationID
@@ -56,22 +54,20 @@ SINGLETON_MACRO
     NSDictionary *params = @{@"message" : messageContent};
     
     NSString *path = [NSString stringWithFormat:@"%@/%d%@", API_CONVERSATIONS, conversationID, API_CONVERSATION_REPLIES];
-    
-    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
-                                                 parameters:params
-                                                     method:POST_METHOD
-                                                    success:^(NSHTTPURLResponse *response, id responseObject)
-     {
+
+    [[AFHTTPRequestOperationManager tme_manager] POST:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
          if (successBlock) {
              successBlock(responseObject[@"status"]);
          }
-     }
-                                                    failure:^(NSError *error)
-     {
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
          if (failureBlock) {
              failureBlock(error.code, error);
          }
-     }];
+
+    }];
 }
 
 + (void)getListConversationWithPage:(NSInteger)page
@@ -79,23 +75,19 @@ SINGLETON_MACRO
                        failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
     NSDictionary *params = @{@"page" : @(page)};
-    [[BaseNetworkManager sharedInstance] getServerListForModelClass:[TMEConversation class]
-                                                         withParams:params
-                                                          methodAPI:GET_METHOD
-                                                           parentId:nil
-                                                    withParentClass:nil
-                                                            success:^(NSMutableArray *objectsArray)
-     {
+    [[AFHTTPRequestOperationManager tme_manager] GET:API_CONVERSATIONS parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
          if (successBlock) {
-             NSArray *arrayConversation = [TMEConversation arrayConversationFromArrayData:objectsArray];
+             NSArray *arrayConversation = [TMEConversation arrayConversationFromArrayData:responseObject];
              successBlock(arrayConversation);
          }
-     }
-                                                            failure:^(NSError *error)
-     {
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
          if (failureBlock)
              failureBlock(error.code ,error);
-     }];
+
+    }];
 }
 
 + (void)getOfferedConversationWithPage:(NSInteger)page
@@ -103,47 +95,42 @@ SINGLETON_MACRO
                           failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
     NSDictionary *params = @{@"page" : @(page)};
     NSString *path = [NSString stringWithFormat:@"%@%@", API_PRODUCTS, API_OFFER];
-    
-    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
-                                                 parameters:params
-                                                     method:GET_METHOD
-                                                    success:^(NSHTTPURLResponse *response, id responseObject)
-     {
+
+    [[AFHTTPRequestOperationManager tme_manager] GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
          if (successBlock) {
              NSArray *arrayConversation = [TMEConversation arrayConversationFromOfferArrayData:responseObject];
              arrayConversation = [arrayConversation sortByAttribute:@"latest_update" ascending:NO];
              successBlock(arrayConversation);
          }
-     }
-                                                    failure:^(NSError *error)
-     {
-         if (failureBlock) {
-             failureBlock(error.code, error);
-         }
-     }];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+         if (failureBlock)
+             failureBlock(error.code ,error);
+
+    }];
 };
 
 + (void)getListOffersOfProduct:(TMEProduct *)product
                 onSuccessBlock:(void (^)(NSArray *))successBlock
                   failureBlock:(TMEJSONRequestFailureBlock)failureBlock{
     NSString *path = [NSString stringWithFormat:@"%@/%@%@", API_PRODUCTS, product.id, API_SHOW_OFFER];
-    
-    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
-                                                 parameters:nil
-                                                     method:GET_METHOD
-                                                    success:^(NSHTTPURLResponse *response, id responseObject)
-     {
+
+    [[AFHTTPRequestOperationManager tme_manager] GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
          if (successBlock) {
              NSArray *arrayConversation = [TMEConversation arrayConversationFromArrayData:responseObject];
              successBlock(arrayConversation);
          }
-     }
-                                                    failure:^(NSError *error)
-     {
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
          if (failureBlock) {
              failureBlock(error.code, error);
          }
-     }];
+
+    }];
 };
 
 + (void)checkConversationExistWithProductID:(NSNumber *)productID
@@ -155,11 +142,8 @@ SINGLETON_MACRO
                              @"to" : userID};
     NSString *path = [NSString stringWithFormat:@"%@%@", API_CONVERSATIONS, API_CONVERSATIONS_EXIST];
 
-    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
-                                                 parameters:params
-                                                     method:GET_METHOD
-                                                    success:^(NSHTTPURLResponse *response, id responseObject)
-     {
+    [[AFHTTPRequestOperationManager tme_manager] GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
          if (successBlock) {
              if (responseObject) {
                  TMEConversation *conversation = [TMEConversation aConversationFromData:responseObject];
@@ -168,13 +152,14 @@ SINGLETON_MACRO
              }
              successBlock(nil);
          }
-     }
-                                                    failure:^(NSError *error)
-     {
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
          if (failureBlock) {
              failureBlock(error.code, error);
          }
-     }];
+
+    }];
 }
 
 + (void)createConversationWithProductID:(NSNumber *)productID
@@ -186,23 +171,21 @@ SINGLETON_MACRO
     NSDictionary *params = @{@"product_id" : productID,
                              @"offer" : offer,
                              @"to" : userID};
-    
-    [[BaseNetworkManager sharedInstance] sendRequestForPath:API_CONVERSATIONS
-                                                 parameters:params
-                                                     method:POST_METHOD
-                                                    success:^(NSHTTPURLResponse *response, id responseObject)
-     {
+
+    [[AFHTTPRequestOperationManager tme_manager] POST:API_CONVERSATIONS parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
          if (successBlock) {
              TMEConversation *conversation = [TMEConversation aConversationFromData:responseObject];
              successBlock(conversation);
          }
-     }
-                                                    failure:^(NSError *error)
-     {
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
          if (failureBlock) {
              failureBlock(error.code, error);
          }
-     }];
+
+    }];
 }
 
 + (void)createBulkWithConversationID:(NSNumber *)conversationID
@@ -213,20 +196,18 @@ SINGLETON_MACRO
     NSDictionary *param = @{@"messages" : messages};
     NSString *path = [NSString stringWithFormat:@"%@/%@%@%@", API_CONVERSATIONS, conversationID, API_CONVERSATION_REPLIES, API_CREATE_BULK];
 
-    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
-                                                 parameters:param
-                                                     method:POST_METHOD
-                                                    success:^(NSHTTPURLResponse *response, id responseObject)
-    {
+    [[AFHTTPRequestOperationManager tme_manager] POST:path parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
         if (successBlock) {
             successBlock();
         }
-    }
-                                                    failure:^(NSError *error)
-    {
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
         if (failureBlock) {
             failureBlock(error.code, error);
         }
+
     }];
 }
 
@@ -237,24 +218,22 @@ SINGLETON_MACRO
 {
     NSDictionary *param = @{@"offer" : offerPrice};
     NSString *path = [NSString stringWithFormat:@"%@/%@%@", API_CONVERSATIONS, conversationID, API_OFFER];
-    
-    [[BaseNetworkManager sharedInstance] sendRequestForPath:path
-                                                 parameters:param
-                                                     method:PUT_METHOD
-                                                    success:^(NSHTTPURLResponse *response, id responseObject)
-     {
+
+    [[AFHTTPRequestOperationManager tme_manager] PUT:path parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
          if ([responseObject[@"status"] isEqualToString:@"success"]){
              if (successBlock) {
                  successBlock(offerPrice);
              }
          }
-     }
-                                                    failure:^(NSError *error)
-     {
-         if (failureBlock) {
-             failureBlock(error.code, error);
-         }
-     }];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        if (failureBlock) {
+            failureBlock(error.code, error);
+        }
+
+    }];
 }
 
 @end
