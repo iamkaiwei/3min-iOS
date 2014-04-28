@@ -18,12 +18,12 @@
 
     NSString *access_token = [[TMEUserManager sharedInstance] getAccessToken];
     if (access_token) {
-        NSString *authHeader = [NSString stringWithFormat:@"OAuth2 access_token='%@'", access_token];
+        NSString *authHeader = [NSString stringWithFormat:@"Bearer '%@'", access_token];
         [manager.requestSerializer setValue:authHeader
                          forHTTPHeaderField:@"Authorization"];
     }
 
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"test/plain", @"test/json", @"application/json", nil];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
     return manager;
 }
 

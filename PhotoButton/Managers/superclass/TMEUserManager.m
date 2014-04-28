@@ -130,7 +130,7 @@ SINGLETON_MACRO
                              @"client_id": API_CLIENT_ID,
                              @"grant_type": API_GRANT_TYPE};
     
-    NSString *path = [NSString stringWithFormat:@"%@%@", API_SERVER_HOST, API_USER_LOGIN];
+    NSString *path = [NSString stringWithFormat:@"%@%@", API_BASE_URL, API_USER_LOGIN];
 
     [[AFHTTPRequestOperationManager tme_manager] POST:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         TMEUser *user;
