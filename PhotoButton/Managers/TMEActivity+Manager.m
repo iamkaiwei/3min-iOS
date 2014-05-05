@@ -12,7 +12,7 @@
 
 + (void)getActivitySuccess:(void(^)(NSArray *arrActivities))successBlock failure:(void(^)(NSError *error))failureBlock {
 
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager tme_manager];
     [manager GET:API_ACTIVITY parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
         NSMutableArray *arrResult = [@[] mutableCopy];

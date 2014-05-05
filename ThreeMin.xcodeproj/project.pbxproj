@@ -206,6 +206,7 @@
 		B4BF638418D3624600794F19 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BF638318D3624600794F19 /* libGoogleAnalyticsServices.a */; };
 		B4BF639218D3626800794F19 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BF638F18D3626800794F19 /* libAviarySDK.a */; };
 		B4BF639318D3626800794F19 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B4BF639118D3626800794F19 /* AviarySDKResources.bundle */; };
+		B4E233891917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E233881917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.m */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
@@ -538,6 +539,8 @@
 		B4BF638E18D3626800794F19 /* AFPhotoEditorSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorSession.h; sourceTree = "<group>"; };
 		B4BF638F18D3626800794F19 /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
 		B4BF639118D3626800794F19 /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
+		B4E233871917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KZPropertyMapper+DateBoxing.h"; sourceTree = "<group>"; };
+		B4E233881917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KZPropertyMapper+DateBoxing.m"; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -804,6 +807,8 @@
 				B490254B18B9232D00B00671 /* UIWebView+Additions.m */,
 				0B7F441C18BB1581000777BF /* UIImageView+CircleProgress.h */,
 				0B7F441D18BB1581000777BF /* UIImageView+CircleProgress.m */,
+				B4E233871917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.h */,
+				B4E233881917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.m */,
 			);
 			name = Categories;
 			path = PhotoButton/Categories;
@@ -1525,6 +1530,7 @@
 				B490271518B9232E00B00671 /* NSString+ActiveSupportInflector.m in Sources */,
 				B490272618B9232E00B00671 /* UINavigationController+Additions.m in Sources */,
 				B49027F618B9232F00B00671 /* TMESwitch.m in Sources */,
+				B4E233891917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.m in Sources */,
 				B49027C518B9232F00B00671 /* PBImageHelper.m in Sources */,
 				B4785C3A190A6557008EF4DA /* _TMEProduct.m in Sources */,
 				B490272518B9232E00B00671 /* UILabel+Additions.m in Sources */,

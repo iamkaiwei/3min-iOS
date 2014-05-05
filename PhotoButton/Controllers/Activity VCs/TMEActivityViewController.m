@@ -28,6 +28,12 @@
     [self.lblInstruction alignVerticallyCenterToView:self.view];
     [self getCachedActivity];
     [self.pullToRefreshView beginRefreshing];
+
+    [TMEActivity getActivitySuccess:^(NSArray *arrActivities) {
+
+    } failure:^(NSError *error) {
+
+    }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadActivity:)

@@ -64,7 +64,7 @@
     self.lblTimestamp.text = [self.product.created_at relativeDate];
     
     NSArray *arrayImageOfProduct = [self.product.images allObjects];
-    
+
     self.imgProductImage1.hidden = NO;
     
     NSInteger minCount = MIN(arrayImageOfProduct.count, 3);

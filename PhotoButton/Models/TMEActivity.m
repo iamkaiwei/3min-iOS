@@ -19,7 +19,7 @@
                                       @"content": KZProperty(content),
                                       @"subject_id": KZProperty(subject_id),
                                       @"subject_type": KZProperty(subject_type),
-                                      @"update_time": KZProperty(update_time)
+                                      @"update_time": KZBox(DateSince1970, update_time)
                                       }];
     return result;
 }
