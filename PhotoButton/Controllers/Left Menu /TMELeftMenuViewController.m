@@ -67,7 +67,7 @@
          self.dataArray = [arrayCategories mutableCopy];
          [self setUpTableView];
      }
-                                          failureBlock:^(NSInteger statusCode, NSError *error)
+                                   failureBlock:^(NSInteger statusCode, NSError *error)
      {
          [self failureBlockHandleWithError:error];
      }];

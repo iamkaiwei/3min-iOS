@@ -25,7 +25,8 @@
   if (images.count > 0) {
     TMEProductImages *image = [images objectAtIndex:0];
     NSURL *imageUrl = [NSURL URLWithString:(NSString *)image.medium];
-    [self.imgProduct setImageWithProgressIndicatorAndURL:imageUrl placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
+    [self.imgProduct setImageWithURL:imageUrl
+                          placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
   }
   
   self.lblProductName.text = product.name;

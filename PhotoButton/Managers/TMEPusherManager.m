@@ -29,7 +29,7 @@ SINGLETON_MACRO
 }
 
 + (void)authenticateUser{
-    NSURL *authorizationURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@", API_SERVER_HOST, API_PREFIX, URL_PUSHER_ENDPOINT]];
+    NSURL *authorizationURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", API_SERVER_HOST,  URL_PUSHER_ENDPOINT]];
     [TMEPusherManager getClient].authorizationURL = authorizationURL;
 }
 

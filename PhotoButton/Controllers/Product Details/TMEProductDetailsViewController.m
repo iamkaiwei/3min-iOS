@@ -64,8 +64,7 @@
     self.lblTimestamp.text = [self.product.created_at relativeDate];
     
     NSArray *arrayImageOfProduct = [self.product.images allObjects];
-    [self.imgProductImage1 setImageWithProgressIndicatorAndURL:nil
-                                              placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
+    
     self.imgProductImage1.hidden = NO;
     
     NSInteger minCount = MIN(arrayImageOfProduct.count, 3);
@@ -73,8 +72,8 @@
     for (int i = 0; i < minCount; i++) {
         TMEProductImages *img = arrayImageOfProduct[i];
         [arrayImageView[i] setHidden:NO];
-        [arrayImageView[i] setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.origin]
-                                              placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
+        [arrayImageView[i] setImageWithURL:[NSURL URLWithString:img.origin]
+                              placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
     }
     
     [self.viewBottomDetail alignBelowView:arrayImageView[(minCount == 0 ? 0 : minCount - 1)] offsetY:0 sameWidth:NO];

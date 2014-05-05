@@ -106,7 +106,7 @@ SINGLETON_MACRO
 {
     NSDictionary *params = @{@"access_token": [self getAccessTokenFromStore]};
     
-    NSString *path = [NSString stringWithFormat:@"%@%@%@/%@",API_SERVER_HOST,API_PREFIX,API_USER,userID];
+    NSString *path = [NSString stringWithFormat:@"%@/%@/%@",API_SERVER_HOST,API_USER,userID];
 
     [[AFHTTPRequestOperationManager tme_manager] GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         TMEUser *user = [TMEUser userWithData:responseObject];

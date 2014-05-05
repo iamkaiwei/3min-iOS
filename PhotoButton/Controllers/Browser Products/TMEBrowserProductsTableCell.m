@@ -34,10 +34,13 @@
     self.btnFollow.selected = product.likedValue;
     
     TMEProductImages *img = [product.images anyObject];
+
+    [self.imageViewProduct setImageWithURL:[NSURL URLWithString:img.medium]
+                          placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
     
-    [self.imageViewProduct setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.medium]
-                                              placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
-    
+//    [self.imageViewProduct setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.medium]
+//                                              placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
+
     self.lblProductName.text = product.name;
     self.lblProductPrice.text = [NSString stringWithFormat:@"%@ VND", product.price];
     
