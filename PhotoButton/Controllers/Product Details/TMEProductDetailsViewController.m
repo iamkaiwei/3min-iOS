@@ -12,217 +12,215 @@
 
 @interface TMEProductDetailsViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton        * btnFollow;
-@property (weak, nonatomic) IBOutlet UIButton        * btnShare;
-@property (weak, nonatomic) IBOutlet UIImageView     * imgUserAvatar;
-@property (weak, nonatomic) IBOutlet UILabel         * lblUserName;
-@property (weak, nonatomic) IBOutlet UILabel         * lblTimestamp;
-@property (weak, nonatomic) IBOutlet UIImageView     * imgProductImage1;
-@property (weak, nonatomic) IBOutlet UIImageView     * imgProductImage2;
-@property (weak, nonatomic) IBOutlet UIImageView     * imgProductImage3;
-@property (weak, nonatomic) IBOutlet UIImageView     * imgProductImage4;
-@property (weak, nonatomic) IBOutlet UILabel         * lblProductName;
-@property (weak, nonatomic) IBOutlet UILabel         * lblProductPrice;
-@property (weak, nonatomic) IBOutlet UIView          * viewChatToBuyWrapper;
-@property (weak, nonatomic) IBOutlet UIScrollView    * scrollViewProductDetail;
-@property (weak, nonatomic) IBOutlet UIView          * viewBottomDetail;
-@property (weak, nonatomic) IBOutlet UILabel         * lblProductDescription;
-@property (weak, nonatomic) IBOutlet UILabel         * lblProductLocation;
-@property (weak, nonatomic) IBOutlet UILabel         * labelLikes;
-@property (weak, nonatomic) IBOutlet UILabel         * labelBottom;
-@property (weak, nonatomic) IBOutlet UIButton        * btnChatToBuy;
-@property (weak, nonatomic) IBOutlet MTAnimatedLabel * labelChatToBuy;
-@property (strong, nonatomic) TMEConversation        * conversation;
-@property (assign, nonatomic) BOOL                   firstTimeOffer;
+@property (weak, nonatomic) IBOutlet UIButton *btnFollow;
+@property (weak, nonatomic) IBOutlet UIButton *btnShare;
+@property (weak, nonatomic) IBOutlet UIImageView *imgUserAvatar;
+@property (weak, nonatomic) IBOutlet UILabel *lblUserName;
+@property (weak, nonatomic) IBOutlet UILabel *lblTimestamp;
+@property (weak, nonatomic) IBOutlet UIImageView *imgProductImage1;
+@property (weak, nonatomic) IBOutlet UIImageView *imgProductImage2;
+@property (weak, nonatomic) IBOutlet UIImageView *imgProductImage3;
+@property (weak, nonatomic) IBOutlet UIImageView *imgProductImage4;
+@property (weak, nonatomic) IBOutlet UILabel *lblProductName;
+@property (weak, nonatomic) IBOutlet UILabel *lblProductPrice;
+@property (weak, nonatomic) IBOutlet UIView *viewChatToBuyWrapper;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewProductDetail;
+@property (weak, nonatomic) IBOutlet UIView *viewBottomDetail;
+@property (weak, nonatomic) IBOutlet UILabel *lblProductDescription;
+@property (weak, nonatomic) IBOutlet UILabel *lblProductLocation;
+@property (weak, nonatomic) IBOutlet UILabel *labelLikes;
+@property (weak, nonatomic) IBOutlet UILabel *labelBottom;
+@property (weak, nonatomic) IBOutlet UIButton *btnChatToBuy;
+@property (weak, nonatomic) IBOutlet MTAnimatedLabel *labelChatToBuy;
+@property (strong, nonatomic) TMEConversation *conversation;
+@property (assign, nonatomic) BOOL firstTimeOffer;
 
 @end
 
 @implementation TMEProductDetailsViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    self.title = self.product.name;
-    
-    [self loadProductDetail];
-    [self setUpView];
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	// Do any additional setup after loading the view from its nib.
+
+	self.title = self.product.name;
+
+	[self loadProductDetail];
+	[self setUpView];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self setUpView];
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	[self setUpView];
 }
 
-- (void)loadProductDetail{
-    NSArray *arrayImageView = @[self.imgProductImage1, self.imgProductImage2, self.imgProductImage3, self.imgProductImage4];
-    
-    // user
-    [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:self.product.user.photo_url]];
-    self.lblUserName.text = self.product.user.fullname;
-    self.lblTimestamp.text = [self.product.created_at relativeDate];
-    
-    NSArray *arrayImageOfProduct = [self.product.images allObjects];
+- (void)loadProductDetail {
+	NSArray *arrayImageView = @[self.imgProductImage1, self.imgProductImage2, self.imgProductImage3, self.imgProductImage4];
 
-    self.imgProductImage1.hidden = NO;
-    
-    NSInteger minCount = MIN(arrayImageOfProduct.count, 3);
-    
-    for (int i = 0; i < minCount; i++) {
-        TMEProductImages *img = arrayImageOfProduct[i];
-        [arrayImageView[i] setHidden:NO];
-        [arrayImageView[i] setImageWithURL:[NSURL URLWithString:img.origin]
-                              placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
-    }
-    
-    [self.viewBottomDetail alignBelowView:arrayImageView[(minCount == 0 ? 0 : minCount - 1)] offsetY:0 sameWidth:NO];
-    
-    self.lblProductName.text = self.product.name;
-    self.lblProductPrice.text = [NSString stringWithFormat:@"%@ VND", self.product.price];
-    
-    [self.lblProductPrice sizeToFitKeepHeightAlignRight];
-    
-    self.labelBottom.text = self.lblProductPrice.text;
-    self.labelLikes.text = self.product.likes.stringValue;
-    self.btnFollow.selected = self.product.likedValue;
-    
-    self.lblProductLocation.text = self.product.venue_name;
-    self.lblProductDescription.text = self.product.details;
-    [self.lblProductDescription sizeToFitKeepWidth];
-    self.viewBottomDetail.height = CGRectGetMaxY(self.lblProductDescription.frame);
-    [self.labelBottom sizeToFitKeepHeight];
+	// user
+	[self.imgUserAvatar sd_setImageWithURL:[NSURL URLWithString:self.product.user.photo_url]];
+	self.lblUserName.text = self.product.user.fullname;
+	self.lblTimestamp.text = [self.product.createAt relativeDate];
 
-    [self.scrollViewProductDetail autoAdjustScrollViewContentSize];
-    
-    if([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id])
-    {
-        self.labelChatToBuy.text = NSLocalizedString(@"View Offers", nil);
-        return;
-    }
-    
-    if (self.product.sold_outValue) {
-        self.labelChatToBuy.text = NSLocalizedString(@"Sold", nil);
-        self.btnChatToBuy.enabled = NO;
-    }
+	NSArray *arrayImageOfProduct = [self.product.images firstObject];
+
+	self.imgProductImage1.hidden = NO;
+
+	NSInteger minCount = MIN(arrayImageOfProduct.count, 3);
+
+	for (int i = 0; i < minCount; i++) {
+		TMEProductImage *img = arrayImageOfProduct[i];
+		[arrayImageView[i] setHidden:NO];
+		[arrayImageView[i] sd_setImageWithURL:[NSURL URLWithString:img.originURL]
+		                     placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
+	}
+
+	[self.viewBottomDetail alignBelowView:arrayImageView[(minCount == 0 ? 0 : minCount - 1)] offsetY:0 sameWidth:NO];
+
+	self.lblProductName.text = self.product.name;
+	self.lblProductPrice.text = [NSString stringWithFormat:@"%@ VND", self.product.price];
+
+	[self.lblProductPrice sizeToFitKeepHeightAlignRight];
+
+	self.labelBottom.text = self.lblProductPrice.text;
+	self.labelLikes.text = self.product.likes.stringValue;
+	self.btnFollow.selected = self.product.liked;
+
+	self.lblProductLocation.text = self.product.venueID;
+	self.lblProductDescription.text = self.product.details;
+	[self.lblProductDescription sizeToFitKeepWidth];
+	self.viewBottomDetail.height = CGRectGetMaxY(self.lblProductDescription.frame);
+	[self.labelBottom sizeToFitKeepHeight];
+
+	[self.scrollViewProductDetail autoAdjustScrollViewContentSize];
+
+	if ([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
+		self.labelChatToBuy.text = NSLocalizedString(@"View Offers", nil);
+		return;
+	}
+
+	if (self.product.soldOut) {
+		self.labelChatToBuy.text = NSLocalizedString(@"Sold", nil);
+		self.btnChatToBuy.enabled = NO;
+	}
 }
 
-- (void)setUpView
-{
-    UIScrollView *scrollView = (UIScrollView *)self.view.subviews[0];
-    scrollView.bounces = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    
-    if ([self respondsToSelector:@selector(setExtendedLayoutIncludesOpaqueBars:)]) {
-        [self setExtendedLayoutIncludesOpaqueBars:YES];
-    }
+- (void)setUpView {
+	UIScrollView *scrollView = (UIScrollView *)self.view.subviews[0];
+	scrollView.bounces = NO;
+	scrollView.showsVerticalScrollIndicator = NO;
+
+	if ([self respondsToSelector:@selector(setExtendedLayoutIncludesOpaqueBars:)]) {
+		[self setExtendedLayoutIncludesOpaqueBars:YES];
+	}
 }
 
-- (UIViewController *)controllerForNextStep
-{
-    if (self.firstTimeOffer) {
-        TMEOfferViewController *offerController = [[TMEOfferViewController alloc] init];
-        offerController.product = self.product;
-        offerController.conversation = self.conversation;
-        return offerController;
-    }else{
-        TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
-        submitController.product = self.product;
-        submitController.conversation = self.conversation;
-        return submitController;
-    }
+- (UIViewController *)controllerForNextStep {
+	if (self.firstTimeOffer) {
+		TMEOfferViewController *offerController = [[TMEOfferViewController alloc] init];
+		offerController.product = self.product;
+		offerController.conversation = self.conversation;
+		return offerController;
+	}
+	else {
+		TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
+		submitController.product = self.product;
+		submitController.conversation = self.conversation;
+		return submitController;
+	}
 }
 
 - (IBAction)chatButtonAction:(id)sender {
-    if (![TMEReachabilityManager isReachable]) {
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
-        return;
-    }
-    if ([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
-        TMEListOffersTableViewController *listOfferTableViewController = [[TMEListOffersTableViewController alloc] init];
-        listOfferTableViewController.product = self.product;
-        [self.navigationController pushViewController:listOfferTableViewController animated:YES];
-        return;
-    }
-    
-    [self checkFirstTimeOffer];
+	if (![TMEReachabilityManager isReachable]) {
+		[SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
+		return;
+	}
+	if ([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
+		TMEListOffersTableViewController *listOfferTableViewController = [[TMEListOffersTableViewController alloc] init];
+		listOfferTableViewController.product = self.product;
+		[self.navigationController pushViewController:listOfferTableViewController animated:YES];
+		return;
+	}
+
+	[self checkFirstTimeOffer];
 }
 
-- (void)checkFirstTimeOffer
-{
-    self.labelChatToBuy.textColor = [UIColor darkGrayColor];
-    [self.labelChatToBuy startAnimating];
-    [TMEConversationManager checkConversationExistWithProductID:self.product.id
-                                                       toUserID:self.product.user.id
-                                                 onSuccessBlock:^(TMEConversation *conversation)
-    {
-        self.firstTimeOffer = YES;
-        if (conversation.id) {
-            self.firstTimeOffer = NO;
-            self.conversation = conversation;
-        }
+- (void)checkFirstTimeOffer {
+	self.labelChatToBuy.textColor = [UIColor darkGrayColor];
+	[self.labelChatToBuy startAnimating];
+	[TMEConversationManager checkConversationExistWithProductID:self.product.productID
+	                                                   toUserID:self.product.user.id
+	                                             onSuccessBlock: ^(TMEConversation *conversation)
+	{
+	    self.firstTimeOffer = YES;
+	    if (conversation.id) {
+	        self.firstTimeOffer = NO;
+	        self.conversation = conversation;
+		}
 
-        UIViewController *viewController = [self controllerForNextStep];
-        self.hidesBottomBarWhenPushed = NO;
-        [self.navigationController pushViewController:viewController animated:YES];
-    }
-                                                   failureBlock:^(NSInteger statusCode, id obj)
-    {
-        [self.labelChatToBuy stopAnimating];
-    }];
+	    UIViewController *viewController = [self controllerForNextStep];
+	    self.hidesBottomBarWhenPushed = NO;
+	    [self.navigationController pushViewController:viewController animated:YES];
+	}
+
+	                                               failureBlock: ^(NSInteger statusCode, id obj)
+	{
+	    [self.labelChatToBuy stopAnimating];
+	}];
 }
 
 - (IBAction)onBtnLike:(id)sender {
-    self.btnFollow.selected = !self.product.likedValue;
-    
-    if (!self.product.likedValue) {
-        [TMEProductsManager likeProductWithProductID:self.product.id
-                                      onSuccessBlock:^(NSString *status)
-         {
-             if (![status isEqualToString:@"success"]) {
-                 [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:NO];
-             }
-             self.product.likedValue = YES;
-             self.product.likesValue++;
-             self.labelLikes.text = [@(self.labelLikes.text.integerValue + 1) stringValue];
-         }
-                                        failureBlock:^(NSInteger statusCode, NSError *error)
-         {
-             [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:NO];
-         }];
-        return;
-    }
-    
-    [TMEProductsManager unlikeProductWithProductID:self.product.id
-                                    onSuccessBlock:^(NSString *status)
-     {
-         if (![status isEqualToString:@"success"]) {
-             [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:YES];
-         }
-         self.product.likedValue = NO;
-         self.product.likesValue--;
-         self.labelLikes.text = [@(self.labelLikes.text.integerValue - 1) stringValue];
-     }
-                                      failureBlock:^(NSInteger statusCode, NSError *error)
-     {
-         [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:YES];
-     }];
+	self.btnFollow.selected = !self.product.liked;
+
+	if (!self.product.liked) {
+		[TMEProductsManager likeProductWithProductID:self.product.productID
+		                              onSuccessBlock: ^(NSString *status)
+		{
+		    if (![status isEqualToString:@"success"]) {
+		        [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:NO];
+			}
+		    self.product.liked = YES;
+		    self.product.likes = @([self.product.likes integerValue] + 1);
+		    self.labelLikes.text = [@(self.labelLikes.text.integerValue + 1)stringValue];
+		}
+
+		                                failureBlock: ^(NSInteger statusCode, NSError *error)
+		{
+		    [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:NO];
+		}];
+		return;
+	}
+
+	[TMEProductsManager unlikeProductWithProductID:self.product.productID
+	                                onSuccessBlock: ^(NSString *status)
+	{
+	    if (![status isEqualToString:@"success"]) {
+	        [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:YES];
+		}
+	    self.product.liked = NO;
+	    self.product.likes = @([self.product.likes integerValue] - 1);
+	    self.labelLikes.text = [@(self.labelLikes.text.integerValue - 1)stringValue];
+	}
+
+	                                  failureBlock: ^(NSInteger statusCode, NSError *error)
+	{
+	    [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:YES];
+	}];
 }
 
-- (void)likeProductFailureHandleButtonLike:(UIButton *)sender currentProduct:(TMEProduct *)currentProduct label:(UILabel *)label unlike:(BOOL)flag{
-    [UIAlertView showAlertWithTitle:NSLocalizedString(@"Something Wrong", nil) message:NSLocalizedString(@"Please try again later!", nil)];
-    sender.selected = !currentProduct.likedValue;
-    currentProduct.likedValue = !currentProduct.likedValue;
-    
-    if (flag) {
-        currentProduct.likesValue++;
-        label.text = [@(label.text.integerValue + 1) stringValue];
-        return;
-    }
-    
-    currentProduct.likesValue--;
-    label.text = [@(label.text.integerValue - 1) stringValue];
-}
+- (void)likeProductFailureHandleButtonLike:(UIButton *)sender currentProduct:(TMEProduct *)currentProduct label:(UILabel *)label unlike:(BOOL)flag {
+	[UIAlertView showAlertWithTitle:NSLocalizedString(@"Something Wrong", nil) message:NSLocalizedString(@"Please try again later!", nil)];
+	sender.selected = !currentProduct.liked;
+	currentProduct.liked = !currentProduct.liked;
 
+	if (flag) {
+	    self.product.likes = @([self.product.likes integerValue] + 1);
+		label.text = [@(label.text.integerValue + 1)stringValue];
+		return;
+	}
+
+	self.product.likes = @([self.product.likes integerValue] - 1);
+	label.text = [@(label.text.integerValue - 1)stringValue];
+}
 
 @end

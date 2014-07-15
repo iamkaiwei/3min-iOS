@@ -92,18 +92,20 @@ UISearchBarDelegate
 
 - (NSMutableArray *)arrProductsForSearchText:(NSString *)searchText
 {
-    NSMutableArray *arrResultProduct = [[NSMutableArray alloc] init];
-    NSArray *arrProduct = [TMEProduct MR_findAllSortedBy:@"name" ascending:YES];
-    
-    for (TMEProduct *product in arrProduct) {
-        NSString *productNameWithoutUnicode = [[NSString alloc] initWithData:[product.name dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES] encoding:NSASCIIStringEncoding];
-        NSRange nameRange = [productNameWithoutUnicode rangeOfString:searchText options:NSCaseInsensitiveSearch];
-        if (nameRange.location != NSNotFound && product.images.count) {
-            [arrResultProduct addObject:product];
-        }
-    }
-    
-    return arrResultProduct;
+#warning NEED HANDLE THIS PART LATER
+    return [NSMutableArray array];
+//    NSMutableArray *arrResultProduct = [[NSMutableArray alloc] init];
+//    NSArray *arrProduct = [TMEProduct MR_findAllSortedBy:@"name" ascending:YES];
+//    
+//    for (TMEProduct *product in arrProduct) {
+//        NSString *productNameWithoutUnicode = [[NSString alloc] initWithData:[product.name dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES] encoding:NSASCIIStringEncoding];
+//        NSRange nameRange = [productNameWithoutUnicode rangeOfString:searchText options:NSCaseInsensitiveSearch];
+//        if (nameRange.location != NSNotFound && product.images.count) {
+//            [arrResultProduct addObject:product];
+//        }
+//    }
+//    
+//    return arrResultProduct;
 }
 
 - (void)viewWillLayoutSubviews

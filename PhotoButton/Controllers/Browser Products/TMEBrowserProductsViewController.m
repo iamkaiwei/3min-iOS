@@ -209,7 +209,7 @@ TMEBrowserProductsTableCellDelegate
                  [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:NO];
              }
              currentCellProduct.likedValue = YES;
-             currentCellProduct.likesValue++;
+             [currentCellProduct likesIncrease];
              label.text = [@(label.text.integerValue + 1) stringValue];
              [self.tableView reloadData];
          }
@@ -228,7 +228,7 @@ TMEBrowserProductsTableCellDelegate
              [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:YES];
          }
          currentCellProduct.likedValue = NO;
-         currentCellProduct.likesValue--;
+         [currentCellProduct likesIncrease];
          label.text = [@(label.text.integerValue - 1) stringValue];
          [self.tableView reloadData];
      }
@@ -244,12 +244,12 @@ TMEBrowserProductsTableCellDelegate
     currentCellProduct.likedValue = !currentCellProduct.likedValue;
     
     if (flag) {
-        currentCellProduct.likesValue++;
+        [currentCellProduct likesIncrease];
         label.text = [@(label.text.integerValue + 1) stringValue];
         return;
     }
     
-    currentCellProduct.likesValue--;
+    [currentCellProduct likesDescrease];
     label.text = [@(label.text.integerValue - 1) stringValue];
 }
 

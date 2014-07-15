@@ -10,52 +10,51 @@
 #import "PBImageHelper.h"
 #import "SDWebImageOperation.h"
 
-@interface TMEBrowserProductsTableCell()
+@interface TMEBrowserProductsTableCell ()
 
 // product
-@property (weak, nonatomic) IBOutlet UILabel         * lblProductName;
-@property (weak, nonatomic) IBOutlet UILabel         * lblProductPrice;
-@property (weak, nonatomic) IBOutlet UIImageView     * imageViewProduct;
+@property (weak, nonatomic) IBOutlet UILabel *lblProductName;
+@property (weak, nonatomic) IBOutlet UILabel *lblProductPrice;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewProduct;
 @property (weak, nonatomic) IBOutlet UILabel *labelLikes;
 
 // social
-@property (weak, nonatomic) IBOutlet UIButton       * btnFollow;
-@property (weak, nonatomic) IBOutlet UIButton       * btnShare;
+@property (weak, nonatomic) IBOutlet UIButton *btnFollow;
+@property (weak, nonatomic) IBOutlet UIButton *btnShare;
 
 
 @end
 
 @implementation TMEBrowserProductsTableCell
 
-- (void)configCellWithData:(TMEProduct *)product{
-    self.labelLikes.text = product.likes.stringValue;
-    [self.labelLikes sizeToFitKeepHeight];
-    
-    self.btnFollow.selected = product.likedValue;
-    
-    TMEProductImages *img = [product.images anyObject];
+- (void)configCellWithData:(TMEProduct *)product {
+	self.labelLikes.text = product.likes.stringValue;
+	[self.labelLikes sizeToFitKeepHeight];
 
-    [self.imageViewProduct setImageWithURL:[NSURL URLWithString:img.medium]
-                          placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
-    
+	self.btnFollow.selected = product.likedValue;
+
+	TMEProductImage *img = [product.images firstObject];
+
+	[self.imageViewProduct sd_setImageWithURL:img.mediumURL
+	                         placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
+
 //    [self.imageViewProduct setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.medium]
 //                                              placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
 
-    self.lblProductName.text = product.name;
-    self.lblProductPrice.text = [NSString stringWithFormat:@"%@ VND", product.price];
-    
-    [self.lblProductPrice sizeToFitKeepHeightAlignRight];
-    
+	self.lblProductName.text = product.name;
+	self.lblProductPrice.text = [NSString stringWithFormat:@"%@ VND", product.price];
+
+	[self.lblProductPrice sizeToFitKeepHeightAlignRight];
 }
 
 - (IBAction)onBtnLike:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(onBtnLike:label:)]) {
-        [self.delegate performSelector:@selector(onBtnLike:label:) withObject:sender withObject:self.labelLikes];
-    }
+	if ([self.delegate respondsToSelector:@selector(onBtnLike:label:)]) {
+		[self.delegate performSelector:@selector(onBtnLike:label:) withObject:sender withObject:self.labelLikes];
+	}
 }
 
-+ (CGFloat)getHeight{
-    return 408;
++ (CGFloat)getHeight {
+	return 408;
 }
 
 @end

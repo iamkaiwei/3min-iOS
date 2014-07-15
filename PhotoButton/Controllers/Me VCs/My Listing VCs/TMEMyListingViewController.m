@@ -67,17 +67,18 @@
 }
 
 - (void)getCachedMyListing{
-    NSArray *arrayProductCached = [TMEProduct MR_findByAttribute:@"user" withValue:[[TMEUserManager sharedInstance] loggedUser] andOrderBy:@"created_at" ascending:NO];
-    
-    for (TMEProduct *product in arrayProductCached) {
-        if (product.created_at) {
-            [self.dataArray addObject:product];
-        }
-    }
-    
-    if (self.dataArray.count) {
-        [self reloadTableViewMyListing];
-    }
+#warning HANDLE THIS PART LATER
+//    NSArray *arrayProductCached = [TMEProduct MR_findByAttribute:@"user" withValue:[[TMEUserManager sharedInstance] loggedUser] andOrderBy:@"created_at" ascending:NO];
+//    
+//    for (TMEProduct *product in arrayProductCached) {
+//        if (product.created_at) {
+//            [self.dataArray addObject:product];
+//        }
+//    }
+//    
+//    if (self.dataArray.count) {
+//        [self reloadTableViewMyListing];
+//    }
 }
 
 - (void)loadMyListWithPage:(NSInteger)page{
