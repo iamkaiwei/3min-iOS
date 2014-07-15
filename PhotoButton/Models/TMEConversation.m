@@ -40,12 +40,13 @@
 
         if (data[@"product"] && ![data[@"product"] isKindOfClass:[NSNull class]]) {
             NSDictionary *dataProduct = data[@"product"];
-            TMEProduct *product = [TMEProduct productWithDictionary:dataProduct];
+            TMEProduct *product = [TMEProduct modelWithDictionary:dataProduct error:nil];
             conversation.product = product;
         }
         else{
-            TMEProduct *product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"product_id"]] lastObject];
-            conversation.product = product;
+#warning NEED CHECKOUT HERE
+//            TMEProduct *product = [[TMEProduct MR_findByAttribute:@"id" withValue:data[@"product_id"]] lastObject];
+//            conversation.product = product;
         }
     }
 
@@ -118,7 +119,7 @@
         conversation.id = data[@"conversation_id"];
         
         conversation.user_id = data[@"owner"][@"id"];
-        TMEProduct *product = [TMEProduct productWithDictionary:data];
+        TMEProduct *product = [TMEProduct modelWithDictionary:data error:nil];
         conversation.product = product;
     }
     
