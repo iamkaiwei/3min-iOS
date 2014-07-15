@@ -57,6 +57,13 @@
 		5976C04415925D2D007F6FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04315925D2D007F6FC3 /* UIKit.framework */; };
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
+		99939AE41975A9200028ED9A /* TMERootAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99939AE31975A9200028ED9A /* TMERootAppDelegateService.m */; };
+		99939AE71975A92E0028ED9A /* TMEPushNotificationAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99939AE61975A92E0028ED9A /* TMEPushNotificationAppDelegateService.m */; };
+		99939AEA1975A93D0028ED9A /* TMEFacebookAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99939AE91975A93D0028ED9A /* TMEFacebookAppDelegateService.m */; };
+		99939AED1975A9530028ED9A /* TMECrittercismAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99939AEC1975A9530028ED9A /* TMECrittercismAppDelegateService.m */; };
+		99939AF01975A95E0028ED9A /* TMECoreDataAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99939AEF1975A95E0028ED9A /* TMECoreDataAppDelegateService.m */; };
+		99939AF31975A97C0028ED9A /* TMEFoursquareAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99939AF21975A97C0028ED9A /* TMEFoursquareAppDelegateService.m */; };
+		99939AF61975A9870028ED9A /* TMEGoogleAnalyticsAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99939AF51975A9870028ED9A /* TMEGoogleAnalyticsAppDelegateService.m */; };
 		B410C1E6190BB8930041896A /* AFHTTPRequestOperationManager+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B410C1E5190BB8930041896A /* AFHTTPRequestOperationManager+Additions.m */; };
 		B410C1E9190BB98C0041896A /* TMECategory+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410C1E8190BB98C0041896A /* TMECategory+Manager.m */; };
 		B4255A5A18B9F2760022B3A5 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A5918B9F2760022B3A5 /* UIPlaceHolderTextView.m */; };
@@ -262,6 +269,20 @@
 		5976C04515925D2D007F6FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5976C04715925D2D007F6FC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8D5F82EBDA924B60AFAB0110 /* libPods-PhotoButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		99939AE21975A9200028ED9A /* TMERootAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMERootAppDelegateService.h; sourceTree = "<group>"; };
+		99939AE31975A9200028ED9A /* TMERootAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMERootAppDelegateService.m; sourceTree = "<group>"; };
+		99939AE51975A92E0028ED9A /* TMEPushNotificationAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPushNotificationAppDelegateService.h; sourceTree = "<group>"; };
+		99939AE61975A92E0028ED9A /* TMEPushNotificationAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPushNotificationAppDelegateService.m; sourceTree = "<group>"; };
+		99939AE81975A93D0028ED9A /* TMEFacebookAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFacebookAppDelegateService.h; sourceTree = "<group>"; };
+		99939AE91975A93D0028ED9A /* TMEFacebookAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFacebookAppDelegateService.m; sourceTree = "<group>"; };
+		99939AEB1975A9530028ED9A /* TMECrittercismAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECrittercismAppDelegateService.h; sourceTree = "<group>"; };
+		99939AEC1975A9530028ED9A /* TMECrittercismAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECrittercismAppDelegateService.m; sourceTree = "<group>"; };
+		99939AEE1975A95E0028ED9A /* TMECoreDataAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECoreDataAppDelegateService.h; sourceTree = "<group>"; };
+		99939AEF1975A95E0028ED9A /* TMECoreDataAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECoreDataAppDelegateService.m; sourceTree = "<group>"; };
+		99939AF11975A97C0028ED9A /* TMEFoursquareAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFoursquareAppDelegateService.h; sourceTree = "<group>"; };
+		99939AF21975A97C0028ED9A /* TMEFoursquareAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFoursquareAppDelegateService.m; sourceTree = "<group>"; };
+		99939AF41975A9870028ED9A /* TMEGoogleAnalyticsAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEGoogleAnalyticsAppDelegateService.h; sourceTree = "<group>"; };
+		99939AF51975A9870028ED9A /* TMEGoogleAnalyticsAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEGoogleAnalyticsAppDelegateService.m; sourceTree = "<group>"; };
 		B410C1E4190BB8930041896A /* AFHTTPRequestOperationManager+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPRequestOperationManager+Additions.h"; sourceTree = "<group>"; };
 		B410C1E5190BB8930041896A /* AFHTTPRequestOperationManager+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPRequestOperationManager+Additions.m"; sourceTree = "<group>"; };
 		B410C1E7190BB98C0041896A /* TMECategory+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMECategory+Manager.h"; sourceTree = "<group>"; };
@@ -641,6 +662,7 @@
 		5976C03415925D2D007F6FC3 = {
 			isa = PBXGroup;
 			children = (
+				99939AE11975A7760028ED9A /* AppDelegateService */,
 				50217E6518E3D78C006D5B02 /* AppDelegate+Logic.h */,
 				50217E6618E3D78C006D5B02 /* AppDelegate+Logic.m */,
 				B490260318B9232E00B00671 /* AppDelegate.h */,
@@ -696,6 +718,28 @@
 				D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		99939AE11975A7760028ED9A /* AppDelegateService */ = {
+			isa = PBXGroup;
+			children = (
+				99939AE21975A9200028ED9A /* TMERootAppDelegateService.h */,
+				99939AE31975A9200028ED9A /* TMERootAppDelegateService.m */,
+				99939AE51975A92E0028ED9A /* TMEPushNotificationAppDelegateService.h */,
+				99939AE61975A92E0028ED9A /* TMEPushNotificationAppDelegateService.m */,
+				99939AE81975A93D0028ED9A /* TMEFacebookAppDelegateService.h */,
+				99939AE91975A93D0028ED9A /* TMEFacebookAppDelegateService.m */,
+				99939AEB1975A9530028ED9A /* TMECrittercismAppDelegateService.h */,
+				99939AEC1975A9530028ED9A /* TMECrittercismAppDelegateService.m */,
+				99939AEE1975A95E0028ED9A /* TMECoreDataAppDelegateService.h */,
+				99939AEF1975A95E0028ED9A /* TMECoreDataAppDelegateService.m */,
+				99939AF11975A97C0028ED9A /* TMEFoursquareAppDelegateService.h */,
+				99939AF21975A97C0028ED9A /* TMEFoursquareAppDelegateService.m */,
+				99939AF41975A9870028ED9A /* TMEGoogleAnalyticsAppDelegateService.h */,
+				99939AF51975A9870028ED9A /* TMEGoogleAnalyticsAppDelegateService.m */,
+			);
+			name = AppDelegateService;
+			path = PhotoButton/AppDelegateService;
 			sourceTree = "<group>";
 		};
 		B4255A5718B9F2760022B3A5 /* Class */ = {
@@ -1336,7 +1380,9 @@
 		5976C03615925D2D007F6FC3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = TME;
 				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = 3min;
 				TargetAttributes = {
 					5976C03E15925D2D007F6FC3 = {
 						DevelopmentTeam = LZHP3NSA6X;
@@ -1492,6 +1538,7 @@
 				B490273518B9232E00B00671 /* TMEBrowserProductsViewController.m in Sources */,
 				B490276D18B9232E00B00671 /* TMEBaseTableViewController.m in Sources */,
 				B4785C41190A6557008EF4DA /* TMEProduct.m in Sources */,
+				99939AED1975A9530028ED9A /* TMECrittercismAppDelegateService.m in Sources */,
 				B490273318B9232E00B00671 /* TMEBrowserProductsTableCell.m in Sources */,
 				0B7F441B18BB126F000777BF /* TMECircleProgressIndicator.m in Sources */,
 				B490278A18B9232F00B00671 /* AppDelegate.m in Sources */,
@@ -1516,6 +1563,7 @@
 				B490276918B9232E00B00671 /* TMESubmitViewControllerArrayDataSource.m in Sources */,
 				B490271118B9232E00B00671 /* NSDictionary+Additions.m in Sources */,
 				B49027C618B9232F00B00671 /* TMEPhotoButton.m in Sources */,
+				99939AF31975A97C0028ED9A /* TMEFoursquareAppDelegateService.m in Sources */,
 				B490274218B9232E00B00671 /* TMELeftMenuViewController.m in Sources */,
 				B490275718B9232E00B00671 /* TMEMeViewController.m in Sources */,
 				B490271318B9232E00B00671 /* NSNumber+Additions.m in Sources */,
@@ -1541,10 +1589,12 @@
 				B490273A18B9232E00B00671 /* TMEBrowserCollectionCell.m in Sources */,
 				B490279E18B9232F00B00671 /* ViewUtils.m in Sources */,
 				B49027F718B9232F00B00671 /* TMELoadMoreTableViewCell.m in Sources */,
+				99939AE71975A92E0028ED9A /* TMEPushNotificationAppDelegateService.m in Sources */,
 				B490277118B9232E00B00671 /* BaseManager.m in Sources */,
 				B490277418B9232E00B00671 /* TMEUserManager.m in Sources */,
 				B490270818B9232E00B00671 /* ActiveSupportInflector.m in Sources */,
 				B490272418B9232E00B00671 /* UIImageView+Additions.m in Sources */,
+				99939AEA1975A93D0028ED9A /* TMEFacebookAppDelegateService.m in Sources */,
 				B490275018B9232E00B00671 /* TMEOfferedTableViewCell.m in Sources */,
 				B490276518B9232E00B00671 /* TMESubmitTableCellRight.m in Sources */,
 				B490272118B9232E00B00671 /* UIFont+Additions.m in Sources */,
@@ -1562,9 +1612,11 @@
 				B4255A5A18B9F2760022B3A5 /* UIPlaceHolderTextView.m in Sources */,
 				B4785C42190A6557008EF4DA /* TMEProductImages.m in Sources */,
 				B410C1E6190BB8930041896A /* AFHTTPRequestOperationManager+Additions.m in Sources */,
+				99939AE41975A9200028ED9A /* TMERootAppDelegateService.m in Sources */,
 				0BAACBCF18BB47F700162311 /* TMESearchTableViewCell.m in Sources */,
 				B490272C18B9232E00B00671 /* UIViewController+Additions.m in Sources */,
 				B4785C39190A6557008EF4DA /* _TMEConversation.m in Sources */,
+				99939AF61975A9870028ED9A /* TMEGoogleAnalyticsAppDelegateService.m in Sources */,
 				B490272D18B9232E00B00671 /* UIWebView+Additions.m in Sources */,
 				B490273718B9232E00B00671 /* TMEBrowserProductsViewControllerArrayDataSource.m in Sources */,
 				B49027F918B9232F00B00671 /* TMESearchBar.m in Sources */,
@@ -1573,6 +1625,7 @@
 				B490276118B9232E00B00671 /* TMESearchViewController.m in Sources */,
 				B490272718B9232E00B00671 /* UIScrollView+Additions.m in Sources */,
 				0B7F441E18BB1581000777BF /* UIImageView+CircleProgress.m in Sources */,
+				99939AF01975A95E0028ED9A /* TMECoreDataAppDelegateService.m in Sources */,
 				B490277718B9232E00B00671 /* TMEFacebookManager.m in Sources */,
 				B4785C3F190A6557008EF4DA /* TMECategory.m in Sources */,
 				B490273C18B9232E00B00671 /* TMEBrowserCollectionViewController.m in Sources */,
