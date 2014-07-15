@@ -24,7 +24,7 @@
 - (void)configHeaderWithData:(TMEProduct *)product{
   [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:product.user.photo_url] placeholderImage:nil];
   self.lblUserName.text = product.user.fullname;
-  self.lblTimestamp.text = [product.created_at relativeDate];
+  self.lblTimestamp.text = [product.createAt relativeDate];
 }
 
 - (void)layoutSubviews
