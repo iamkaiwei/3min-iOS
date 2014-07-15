@@ -18,6 +18,7 @@
 			   @"price": @"price",
 			   @"soldOut": @"sold_out",
 			   @"likes": @"likes",
+			   @"liked": @"liked",
 			   @"dislikes": @"dislikes",
 			   @"venueID": @"venue_name",
 			   @"venueLong": @"venue_long",
@@ -68,6 +69,10 @@
 }
 
 + (NSValueTransformer *)soldOutJSONTranformer {
+    return [NSValueTransformer valueTransformerForName:MTLBooleanValueTransformerName];
+}
+
++ (NSValueTransformer *)likedJSONTranformer {
     return [NSValueTransformer valueTransformerForName:MTLBooleanValueTransformerName];
 }
 

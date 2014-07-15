@@ -20,7 +20,7 @@ typedef NS_ENUM (NSUInteger, TMEProductStatus) {
 
 @interface TMEProduct : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic, strong) NSNumber *productID;
+@property (nonatomic, copy) NSNumber *productID;
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *productDescription;
@@ -33,6 +33,7 @@ typedef NS_ENUM (NSUInteger, TMEProductStatus) {
 
 @property (nonatomic, copy) NSNumber *dislikes;
 @property (nonatomic, copy) NSNumber *likes;
+@property (nonatomic, assign) BOOL liked;
 
 @property (nonatomic, copy) NSNumber *price;
 @property (nonatomic, assign) BOOL soldOut;
