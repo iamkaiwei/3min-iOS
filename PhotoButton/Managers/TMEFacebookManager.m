@@ -36,8 +36,9 @@ SINGLETON_MACRO
 
 - (void)openSession
 {
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate openSession];
+    // FIXME: loop call
+    //AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    //[appDelegate openSession];
 }
 
 - (void)loginFailed
@@ -48,7 +49,8 @@ SINGLETON_MACRO
 
 - (void)showLoginView
 {
-    [[AppDelegate sharedDelegate] showLoginView];
+    [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowLoginViewControllerNotification
+                                                        object:nil];
 }
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView

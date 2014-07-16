@@ -57,7 +57,6 @@
 		5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04515925D2D007F6FC3 /* Foundation.framework */; };
 		5976C04815925D2D007F6FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976C04715925D2D007F6FC3 /* CoreGraphics.framework */; };
 		995715821976D22D00802D64 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9957157E1976D22D00802D64 /* AppDelegate.m */; };
-		995715831976D22D00802D64 /* AppDelegate+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 995715811976D22D00802D64 /* AppDelegate+Logic.m */; };
 		995715861976D2BB00802D64 /* TMEFlurryAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 995715851976D2BB00802D64 /* TMEFlurryAppDelegateService.m */; };
 		995715891976D55500802D64 /* TMEReachabilityAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 995715881976D55500802D64 /* TMEReachabilityAppDelegateService.m */; };
 		9957158C1976D5BC00802D64 /* TMEVersionCheckerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9957158B1976D5BC00802D64 /* TMEVersionCheckerAppDelegateService.m */; };
@@ -274,8 +273,6 @@
 		8D5F82EBDA924B60AFAB0110 /* libPods-PhotoButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9957157E1976D22D00802D64 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9957157F1976D22D00802D64 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		995715801976D22D00802D64 /* AppDelegate+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Logic.h"; sourceTree = "<group>"; };
-		995715811976D22D00802D64 /* AppDelegate+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Logic.m"; sourceTree = "<group>"; };
 		995715841976D2BB00802D64 /* TMEFlurryAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFlurryAppDelegateService.h; sourceTree = "<group>"; };
 		995715851976D2BB00802D64 /* TMEFlurryAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFlurryAppDelegateService.m; sourceTree = "<group>"; };
 		995715871976D55500802D64 /* TMEReachabilityAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEReachabilityAppDelegateService.h; sourceTree = "<group>"; };
@@ -748,8 +745,6 @@
 			children = (
 				9957157F1976D22D00802D64 /* AppDelegate.h */,
 				9957157E1976D22D00802D64 /* AppDelegate.m */,
-				995715801976D22D00802D64 /* AppDelegate+Logic.h */,
-				995715811976D22D00802D64 /* AppDelegate+Logic.m */,
 			);
 			name = AppDelegate;
 			path = PhotoButton/AppDelegate;
@@ -1703,7 +1698,6 @@
 				B490271B18B9232E00B00671 /* UIAlertView+Additions.m in Sources */,
 				995715821976D22D00802D64 /* AppDelegate.m in Sources */,
 				B490271218B9232E00B00671 /* NSMutableArray+Additions.m in Sources */,
-				995715831976D22D00802D64 /* AppDelegate+Logic.m in Sources */,
 				B490271618B9232E00B00671 /* NSString+Additions.m in Sources */,
 				B490275218B9232E00B00671 /* TMEOfferedViewController.m in Sources */,
 				B4255A6518B9FBFC0022B3A5 /* FSVenue.m in Sources */,

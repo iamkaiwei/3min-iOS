@@ -22,6 +22,7 @@
     [FacebookManager sharedInstance].delegate = (id) self;
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
 
+        // ASK: What is openSession ?
         [self openSession];
 
         [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowHomeViewControllerNotification
@@ -47,7 +48,8 @@
 
 - (void)openSession
 {
-    [[FacebookManager sharedInstance] openSession];
+    // FIXME: loop call
+    //[[FacebookManager sharedInstance] openSession];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
