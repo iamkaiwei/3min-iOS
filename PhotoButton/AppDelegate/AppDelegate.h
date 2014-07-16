@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class TMEHomeViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow * window;
 
 + (AppDelegate *)sharedDelegate;
-- (void)showHomeViewController;
 
 @end

@@ -7,7 +7,19 @@
 //
 
 #import "TMEGoogleAnalyticsAppDelegateService.h"
+#import "GAI.h"
 
 @implementation TMEGoogleAnalyticsAppDelegateService
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [GAI sharedInstance].dispatchInterval = 20;
+    //    [GAI sharedInstance].debug = YES;
+    [[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_APP_KEY];
+    //    [GAI sharedInstance].debug = YES;
+
+    return YES;
+}
 
 @end

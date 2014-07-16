@@ -26,7 +26,8 @@ SINGLETON_MACRO
         [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login successfully", nil)];
         [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:user];
         
-        [[AppDelegate sharedDelegate] showHomeViewController];
+        [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowHomeViewControllerNotification
+                                                            object:nil];
         
     } andFailureBlock:^(NSInteger statusCode, id obj) {
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Login failed", nil)];

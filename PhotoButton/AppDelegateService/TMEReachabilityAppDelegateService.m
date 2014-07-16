@@ -1,18 +1,19 @@
 //
-//  TMECrittercismAppDelegateService.m
+//  TMEReachabilityAppDelegateService.m
 //  ThreeMin
 //
 //  Created by Khoa Pham on 7/16/14.
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
-#import "TMECrittercismAppDelegateService.h"
+#import "TMEReachabilityAppDelegateService.h"
+#import "TMEReachabilityManager.h"
 
-@implementation TMECrittercismAppDelegateService
+@implementation TMEReachabilityAppDelegateService
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Crittercism enableWithAppID: @"51f8bef646b7c2316f000007"];
+    [TMEReachabilityManager sharedInstance];
 
     return YES;
 }
