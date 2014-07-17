@@ -7,7 +7,10 @@
 //
 
 #import "TMEProduct.h"
-#import "TMEProductImages.h"
+#import "TMEProduct+BackwardSupport.h"
+#import "TMEProduct+ParseArrayProducts.h"
+
+#import "TMEProductImage.h"
 #import "TMECategory.h"
 #import "TMEUser.h"
 #import "TMEReply.h"
