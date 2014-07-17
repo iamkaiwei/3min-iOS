@@ -80,20 +80,19 @@
 		99EA0F0B1978492D00872EE4 /* TMEReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DB81978492C00872EE4 /* TMEReply.m */; };
 		99EA0F0C1978492D00872EE4 /* TMEUser+BackwardSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DBA1978492C00872EE4 /* TMEUser+BackwardSupport.m */; };
 		99EA0F0D1978492D00872EE4 /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DBC1978492C00872EE4 /* TMEUser.m */; };
-		99EA0F0E1978492D00872EE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DBE1978492C00872EE4 /* AppDelegate.m */; };
 		99EA0F0F1978492D00872EE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99EA0DBF1978492C00872EE4 /* Localizable.strings */; };
 		99EA0F101978492D00872EE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DC11978492C00872EE4 /* main.m */; };
 		99EA0F111978492D00872EE4 /* ThreeMin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99EA0DC21978492C00872EE4 /* ThreeMin-Info.plist */; };
 		99EA0F121978492D00872EE4 /* TMEModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DC41978492C00872EE4 /* TMEModels.xcdatamodeld */; };
-		99EA0F131978492D00872EE4 /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DC91978492C00872EE4 /* ActiveSupportInflector.m */; };
+		99EA0F131978492D00872EE4 /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DC91978492C00872EE4 /* ActiveSupportInflector.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		99EA0F141978492D00872EE4 /* ActiveSupportInflector.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99EA0DCA1978492C00872EE4 /* ActiveSupportInflector.plist */; };
 		99EA0F151978492D00872EE4 /* CAAnimation+EasingEquations.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DCC1978492C00872EE4 /* CAAnimation+EasingEquations.m */; };
-		99EA0F161978492D00872EE4 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DCE1978492C00872EE4 /* ISO8601DateFormatter.m */; };
+		99EA0F161978492D00872EE4 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DCE1978492C00872EE4 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		99EA0F171978492D00872EE4 /* KZPropertyMapper+DateBoxing.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DD01978492C00872EE4 /* KZPropertyMapper+DateBoxing.m */; };
 		99EA0F181978492D00872EE4 /* MKMapView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DD21978492C00872EE4 /* MKMapView+Additions.m */; };
 		99EA0F191978492D00872EE4 /* NSArray+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DD41978492C00872EE4 /* NSArray+Additions.m */; };
 		99EA0F1A1978492D00872EE4 /* NSCalendar+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DD61978492C00872EE4 /* NSCalendar+Additions.m */; };
-		99EA0F1B1978492D00872EE4 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DD81978492C00872EE4 /* NSData+Base64.m */; };
+		99EA0F1B1978492D00872EE4 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DD81978492C00872EE4 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		99EA0F1C1978492D00872EE4 /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DDA1978492C00872EE4 /* NSDate+Additions.m */; };
 		99EA0F1D1978492D00872EE4 /* NSDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DDC1978492C00872EE4 /* NSDictionary+Additions.m */; };
 		99EA0F1E1978492D00872EE4 /* NSMutableArray+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DDE1978492C00872EE4 /* NSMutableArray+Additions.m */; };
@@ -203,8 +202,6 @@
 		99EA0F861978492D00872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EB11978492D00872EE4 /* UIViewController+YIFullScreenScroll.m */; };
 		99EA0F871978492D00872EE4 /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EB31978492D00872EE4 /* ViewUtils.m */; };
 		99EA0F881978492D00872EE4 /* YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EB51978492D00872EE4 /* YIFullScreenScroll.m */; };
-		99EA0F891978492D00872EE4 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 99EA0EBA1978492D00872EE4 /* dsym_upload.sh */; };
-		99EA0F8A1978492D00872EE4 /* libCrittercism_v4_3_2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99EA0EBB1978492D00872EE4 /* libCrittercism_v4_3_2.a */; };
 		99EA0F8B1978492D00872EE4 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99EA0EC31978492D00872EE4 /* libGoogleAnalyticsServices.a */; };
 		99EA0F8C1978492D00872EE4 /* JZRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EC61978492D00872EE4 /* JZRefreshControl.m */; };
 		99EA0F8D1978492D00872EE4 /* PBImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EC91978492D00872EE4 /* PBImageHelper.m */; };
@@ -335,7 +332,6 @@
 		99EA0DBA1978492C00872EE4 /* TMEUser+BackwardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEUser+BackwardSupport.m"; sourceTree = "<group>"; };
 		99EA0DBB1978492C00872EE4 /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
 		99EA0DBC1978492C00872EE4 /* TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUser.m; sourceTree = "<group>"; };
-		99EA0DBE1978492C00872EE4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		99EA0DC01978492C00872EE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		99EA0DC11978492C00872EE4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		99EA0DC21978492C00872EE4 /* ThreeMin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ThreeMin-Info.plist"; sourceTree = "<group>"; };
@@ -552,11 +548,6 @@
 		99EA0EB31978492D00872EE4 /* ViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtils.m; sourceTree = "<group>"; };
 		99EA0EB41978492D00872EE4 /* YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YIFullScreenScroll.h; sourceTree = "<group>"; };
 		99EA0EB51978492D00872EE4 /* YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YIFullScreenScroll.m; sourceTree = "<group>"; };
-		99EA0EB71978492D00872EE4 /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
-		99EA0EB81978492D00872EE4 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
-		99EA0EB91978492D00872EE4 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
-		99EA0EBA1978492D00872EE4 /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
-		99EA0EBB1978492D00872EE4 /* libCrittercism_v4_3_2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v4_3_2.a; sourceTree = "<group>"; };
 		99EA0EBD1978492D00872EE4 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		99EA0EBE1978492D00872EE4 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		99EA0EBF1978492D00872EE4 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
@@ -616,7 +607,6 @@
 				99EA0F831978492D00872EE4 /* libAviarySDK.a in Frameworks */,
 				0CBE48BC17D1C0A100DC7482 /* OpenGLES.framework in Frameworks */,
 				0CBE48BA17D1C09B00DC7482 /* MessageUI.framework in Frameworks */,
-				99EA0F8A1978492D00872EE4 /* libCrittercism_v4_3_2.a in Frameworks */,
 				0CBE48B617D1C08900DC7482 /* libsqlite3.0.dylib in Frameworks */,
 				0CBE48B417D1C04400DC7482 /* CoreText.framework in Frameworks */,
 				0CBE48B217D1C03E00DC7482 /* CoreData.framework in Frameworks */,
@@ -834,7 +824,6 @@
 		99EA0DBD1978492C00872EE4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				99EA0DBE1978492C00872EE4 /* AppDelegate.m */,
 				99EA0DBF1978492C00872EE4 /* Localizable.strings */,
 				99EA0DC11978492C00872EE4 /* main.m */,
 				99EA0DC21978492C00872EE4 /* ThreeMin-Info.plist */,
@@ -1234,7 +1223,6 @@
 			children = (
 				99EA0EA01978492D00872EE4 /* AviarySDK */,
 				99EA0EAD1978492D00872EE4 /* Classes */,
-				99EA0EB61978492D00872EE4 /* CrittercismSDK */,
 				99EA0EBC1978492D00872EE4 /* GoogleAnalytics */,
 				99EA0EC41978492D00872EE4 /* JZRefreshControl */,
 				99EA0EC71978492D00872EE4 /* PhotoButton */,
@@ -1290,18 +1278,6 @@
 				99EA0EB51978492D00872EE4 /* YIFullScreenScroll.m */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		99EA0EB61978492D00872EE4 /* CrittercismSDK */ = {
-			isa = PBXGroup;
-			children = (
-				99EA0EB71978492D00872EE4 /* CRFilter.h */,
-				99EA0EB81978492D00872EE4 /* Crittercism.h */,
-				99EA0EB91978492D00872EE4 /* CrittercismDelegate.h */,
-				99EA0EBA1978492D00872EE4 /* dsym_upload.sh */,
-				99EA0EBB1978492D00872EE4 /* libCrittercism_v4_3_2.a */,
-			);
-			path = CrittercismSDK;
 			sourceTree = "<group>";
 		};
 		99EA0EBC1978492D00872EE4 /* GoogleAnalytics */ = {
@@ -1439,6 +1415,7 @@
 				5976C03D15925D2D007F6FC3 /* Resources */,
 				5976C03C15925D2D007F6FC3 /* Frameworks */,
 				F17406CC31064371936F82AD /* Copy Pods Resources */,
+				99EA0F9919784ADF00872EE4 /* Crittercism dSYM Upload */,
 			);
 			buildRules = (
 			);
@@ -1489,7 +1466,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99EA0F891978492D00872EE4 /* dsym_upload.sh in Resources */,
 				99EA0F6C1978492D00872EE4 /* TMEProductDetailsViewController.xib in Resources */,
 				99EA0F111978492D00872EE4 /* ThreeMin-Info.plist in Resources */,
 				99EA0F841978492D00872EE4 /* AviarySDKResources.bundle in Resources */,
@@ -1562,6 +1538,20 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		99EA0F9919784ADF00872EE4 /* Crittercism dSYM Upload */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Crittercism dSYM Upload";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_ID=\"53c7ff2abb94753c13000001\"\nAPI_KEY=\"5ZNciqaxEakAeir3nharvOH8C6JfG0az\"\nUPLOAD_SIMULATOR_SYMBOLS=0\nsource ${SRCROOT}/Pods/CrittercismSDK/CrittercismSDK/dsym_upload.sh";
+		};
 		F17406CC31064371936F82AD /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1609,7 +1599,6 @@
 				99EA0F1C1978492D00872EE4 /* NSDate+Additions.m in Sources */,
 				99EA0F851978492D00872EE4 /* JRSwizzle.m in Sources */,
 				99EA0F031978492D00872EE4 /* _TMEReply.m in Sources */,
-				99EA0F0E1978492D00872EE4 /* AppDelegate.m in Sources */,
 				99EA0EF61978492D00872EE4 /* FacebookManager.m in Sources */,
 				99EA0EFA1978492D00872EE4 /* TMEConversationManager.m in Sources */,
 				99EA0F801978492D00872EE4 /* TMEBaseViewController.m in Sources */,
@@ -1827,16 +1816,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kaiwei Chen (LZHP3NSA6X)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/ThreeMin-Prefix.pch";
-				INFOPLIST_FILE = "PhotoButton/Supporting Files/ThreeMin-Info.plist";
+				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
+				INFOPLIST_FILE = "3min-IOS/Supporting Files/ThreeMin-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/PhotoButton/Vendors/CrittercismSDK",
-					"$(PROJECT_DIR)/PhotoButton/Vendors/GoogleAnalytics",
-					"$(PROJECT_DIR)/PhotoButton/Vendors/AviarySDK",
 					"$(PROJECT_DIR)/3min-iOS/Vendors/AviarySDK",
-					"$(PROJECT_DIR)/3min-iOS/Vendors/CrittercismSDK",
 					"$(PROJECT_DIR)/3min-iOS/Vendors/GoogleAnalytics",
 				);
 				PRODUCT_NAME = ThreeMin;
@@ -1856,16 +1841,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kaiwei Chen (LZHP3NSA6X)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/ThreeMin-Prefix.pch";
-				INFOPLIST_FILE = "PhotoButton/Supporting Files/ThreeMin-Info.plist";
+				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
+				INFOPLIST_FILE = "3min-IOS/Supporting Files/ThreeMin-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/PhotoButton/Vendors/CrittercismSDK",
-					"$(PROJECT_DIR)/PhotoButton/Vendors/GoogleAnalytics",
-					"$(PROJECT_DIR)/PhotoButton/Vendors/AviarySDK",
 					"$(PROJECT_DIR)/3min-iOS/Vendors/AviarySDK",
-					"$(PROJECT_DIR)/3min-iOS/Vendors/CrittercismSDK",
 					"$(PROJECT_DIR)/3min-iOS/Vendors/GoogleAnalytics",
 				);
 				PRODUCT_NAME = ThreeMin;
@@ -1913,16 +1894,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kaiwei Chen (LZHP3NSA6X)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PhotoButton/Supporting Files/ThreeMin-Prefix.pch";
-				INFOPLIST_FILE = "PhotoButton/Supporting Files/ThreeMin-Info.plist";
+				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
+				INFOPLIST_FILE = "3min-IOS/Supporting Files/ThreeMin-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/PhotoButton/Vendors/CrittercismSDK",
-					"$(PROJECT_DIR)/PhotoButton/Vendors/GoogleAnalytics",
-					"$(PROJECT_DIR)/PhotoButton/Vendors/AviarySDK",
 					"$(PROJECT_DIR)/3min-iOS/Vendors/AviarySDK",
-					"$(PROJECT_DIR)/3min-iOS/Vendors/CrittercismSDK",
 					"$(PROJECT_DIR)/3min-iOS/Vendors/GoogleAnalytics",
 				);
 				PRODUCT_NAME = ThreeMin;

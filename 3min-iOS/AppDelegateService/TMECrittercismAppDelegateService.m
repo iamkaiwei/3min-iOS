@@ -12,7 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Crittercism enableWithAppID: @"51f8bef646b7c2316f000007"];
+    [Crittercism enableWithAppID: @"53c7ff2abb94753c13000001"];
 
     return YES;
 }
