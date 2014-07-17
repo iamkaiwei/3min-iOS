@@ -23,14 +23,24 @@
              @"photoURL" : @"facebook_avatar",
              @"UDID" : @"udid",
              @"username" : @"username",
-             @"activities" : @"",
-             @"products" : @""
+             @"activities" : @"activities",
+             @"products" : @"products"
              };
 }
 
 + (NSValueTransformer *)photoURLJSONTransformer
 {
     return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
+}
+
++ (NSValueTransformer *)productsJSONTransformer
+{
+    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[TMEProduct class]];
+}
+
++ (NSValueTransformer *)activitiesJSONTransformer
+{
+    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[TMEActivity class]];
 }
 
 @end
