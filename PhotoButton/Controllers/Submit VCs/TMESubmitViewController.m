@@ -95,7 +95,7 @@ PTPusherPresenceChannelDelegate
         self.labelTyping.text = @"";
         TMEUser *user = [TMEUser userWithID:self.conversation.user_id
                                    fullName:self.conversation.user_full_name
-                                  avatarURL:self.conversation.user_avatar];
+                                  photoURL:self.conversation.user_avatar];
 
         TMEReply *reply = [TMEReply replyWithContent:channelEvent.data[@"message"]
                                               sender:user

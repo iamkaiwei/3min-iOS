@@ -11,10 +11,7 @@
 @interface TMEUser (BackwardSupport)
 
 + (TMEUser *)userWithData:(id)data;
-+ (TMEUser *)userByFacebookUser:(id<FBGraphUser>)facebookUser;
 + (TMEUser *)userByFacebookDictionary:(NSDictionary *)data;
-+ (TMEUser *)userWithID:(NSNumber *)ID fullName:(NSString *)fullName avatarURL:(NSString *)avatarURL;
-
-- (BOOL)userFromDictionary:(NSDictionary *)dict;
++ (TMEUser *)userWithID:(NSNumber *)ID fullName:(NSString *)fullName photoURL:(NSString *)photoURL;
 
 @end
