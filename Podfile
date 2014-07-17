@@ -26,6 +26,5 @@ target :ThreeMin, :exclusive => true do
   pod 'libPusher', '~> 1.5'
   pod 'FlurrySDK'
   pod 'KZPropertyMapper'
-  pod 'RXCollections'
 
 end
