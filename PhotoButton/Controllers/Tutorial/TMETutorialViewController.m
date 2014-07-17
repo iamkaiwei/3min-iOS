@@ -134,7 +134,9 @@ NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
 - (void)closeTutorial
 {
     [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:TUTORIAL_HAS_BEEN_PRESENTED];
-    [[AppDelegate sharedDelegate] showLoginView];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowLoginViewControllerNotification
+                                                        object:nil];
 }
 
 #pragma mark iCarousel methods

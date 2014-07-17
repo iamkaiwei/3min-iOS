@@ -19,7 +19,11 @@
     if (!user) {
         user = [TMEUser MR_createEntity];
         user.id = data[@"id"];
-        user.facebook_id = data[@"facebook_id"];
+
+        //FIXME: facebook_id is NULL
+        if ([data[@"facebook_id"] isMemberOfClass:[NSString class]]) {
+            user.facebook_id = data[@"facebook_id"];
+        }
 
         if (data[@"udid"] && ![data[@"udid"] isEqual:[NSNull null]]) {
             user.udid = data[@"udid"];
@@ -29,7 +33,12 @@
     if (data[@"facebook_avatar"] && ![data[@"facebook_avatar"] isEqual:[NSNull null]]){
         user.photo_url = data[@"facebook_avatar"];
     }
-    user.username = data[@"username"];
+
+    // FIXME: username is NULL
+    if ([data[@"username"] isMemberOfClass:[NSString class]]) {
+        user.username = data[@"username"];
+    }
+
     user.email = data[@"email"];
     user.fullname = data[@"full_name"];
     user.name = data[@"full_name"];
@@ -77,7 +86,12 @@
             }
         }
         user.name = userData[@"full_name"];
-        user.username = userData[@"username"];
+
+        // FIXME: username is NULL
+        if ([userData[@"username"] isMemberOfClass:[NSString class]]) {
+            user.username = userData[@"username"];
+        }
+
         if (userData[@"email"] && ![userData[@"email"] isEqual:[NSNull null]]) {
             user.email = userData[@"email"];
         }

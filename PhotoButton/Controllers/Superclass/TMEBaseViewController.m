@@ -49,36 +49,37 @@ IIViewDeckControllerDelegate
 
 - (void)viewDidLoad
 {
-  [super viewDidLoad];
-  // notification
-  self.deckController = (IIViewDeckController *)[AppDelegate sharedDelegate].window.rootViewController;
-  self.viewDeckController.delegate = self;
-  if ([self respondsToSelector:@selector(onFinishLogin:)]) {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onFinishLogin:) name:NOTIFICATION_FINISH_LOGIN object:nil];
-  }
-  
-  //Tap to dismiss keyboard
-  self.shouldHandleKeyboardNotification = YES;
-  self.isKeyboardShowing = NO;
-  self.tapToDismissKeyboardGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGesture:)];
-  self.tapToDismissKeyboardGestureRecognizer.cancelsTouchesInView = NO;
-  self.tapToDismissKeyboardGestureRecognizer.delegate = self;
-  self.tapToDismissKeyboardGestureRecognizer.numberOfTapsRequired = 1;
-  self.tapToDismissKeyboardGestureRecognizer.numberOfTouchesRequired = 1;
-  [[self getScrollableView] addGestureRecognizer:self.tapToDismissKeyboardGestureRecognizer];
-  
-  
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(reachabilityDidChange:)
-                                               name:kReachabilityChangedNotification
-                                             object:nil];
-  
-  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")){
-    self.edgesForExtendedLayout = UIRectEdgeAll;
-    [self setExtendedLayoutIncludesOpaqueBars:YES];
-    self.tabBarController.tabBar.translucent = YES;
-  }
-  [self addNavigationItems];
+    [super viewDidLoad];
+ 
+    // TODO: Refactor
+    self.deckController = (IIViewDeckController *)[AppDelegate sharedDelegate].window.rootViewController;
+    self.viewDeckController.delegate = self;
+    if ([self respondsToSelector:@selector(onFinishLogin:)]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onFinishLogin:) name:NOTIFICATION_FINISH_LOGIN object:nil];
+    }
+
+    //Tap to dismiss keyboard
+    self.shouldHandleKeyboardNotification = YES;
+    self.isKeyboardShowing = NO;
+    self.tapToDismissKeyboardGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGesture:)];
+    self.tapToDismissKeyboardGestureRecognizer.cancelsTouchesInView = NO;
+    self.tapToDismissKeyboardGestureRecognizer.delegate = self;
+    self.tapToDismissKeyboardGestureRecognizer.numberOfTapsRequired = 1;
+    self.tapToDismissKeyboardGestureRecognizer.numberOfTouchesRequired = 1;
+    [[self getScrollableView] addGestureRecognizer:self.tapToDismissKeyboardGestureRecognizer];
+
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityDidChange:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")){
+        self.edgesForExtendedLayout = UIRectEdgeAll;
+        [self setExtendedLayoutIncludesOpaqueBars:YES];
+        self.tabBarController.tabBar.translucent = YES;
+    }
+    [self addNavigationItems];
 }
 
 - (void)viewDidUnload
