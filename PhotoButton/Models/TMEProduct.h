@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <Mantle/Mantle.h>
-
-@class TMECategory;
-@class TMEUser;
+#import "TMECategory.h"
+#import "TMEUser.h"
 
 @interface TMEProduct : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, strong) NSNumber *productID;
-
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *productDescription;
@@ -23,19 +21,19 @@
 
 @property (nonatomic, copy) NSString *comments;
 
-@property (nonatomic, copy) NSDate *createAt;
-@property (nonatomic, copy) NSDate *updateAt;
+@property (nonatomic, strong) NSDate *createAt;
+@property (nonatomic, strong) NSDate *updateAt;
 
-@property (nonatomic, copy) NSNumber *dislikes;
-@property (nonatomic, copy) NSNumber *likes;
+@property (nonatomic, strong) NSNumber *dislikes;
+@property (nonatomic, strong) NSNumber *likes;
 @property (nonatomic, assign) BOOL liked;
 
-@property (nonatomic, copy) NSNumber *price;
+@property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, assign) BOOL soldOut;
 
 @property (nonatomic, copy) NSString *venueID;
-@property (nonatomic, copy) NSNumber *venueLong;
-@property (nonatomic, copy) NSNumber *venueLat;
+@property (nonatomic, strong) NSNumber *venueLong;
+@property (nonatomic, strong) NSNumber *venueLat;
 
 @property (nonatomic, strong) TMECategory *category;
 

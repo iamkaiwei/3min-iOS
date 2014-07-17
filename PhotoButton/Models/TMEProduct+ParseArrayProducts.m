@@ -11,9 +11,8 @@
 @implementation TMEProduct (ParseArrayProducts)
 
 + (NSArray *)arrayProductsFromArray:(NSArray *)responseObject {
-    return [responseObject rx_mapWithBlock:^TMEProduct *(NSDictionary *info) {
-        return [TMEProduct modelWithDictionary:info error:nil];
-    }];
+
+    return [MTLJSONAdapter modelsOfClass:[TMEProduct class] fromJSONArray:responseObject error:NULL];
 }
 
 @end
