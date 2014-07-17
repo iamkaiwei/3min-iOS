@@ -15,11 +15,12 @@
 @property (nonatomic, copy) NSString *facebookID;
 @property (nonatomic, copy) NSString *fullName;
 @property (nonatomic, strong) NSNumber *userID;
-@property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, copy) NSURL *photoURL;
 @property (nonatomic, copy) NSString *UDID;
 @property (nonatomic, copy) NSString *username;
+@property (nonatomic, strong) NSDate *birthday;
+@property (nonatomic, copy) NSString *googleID;
 
 @property (nonatomic, strong) NSArray *activities;
 @property (nonatomic, strong) NSArray *products;
