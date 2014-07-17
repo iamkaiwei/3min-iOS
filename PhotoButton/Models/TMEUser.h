@@ -1,12 +1,28 @@
-#import "_TMEUser.h"
+//
+//  TMEUser.h
+//  ThreeMin
+//
+//  Created by iSlan on 7/17/14.
+//  Copyright (c) 2014 3min. All rights reserved.
+//
 
-@interface TMEUser : _TMEUser {}
-// Custom logic goes here.
-+ (TMEUser *)userWithData:(id)data;
-+ (TMEUser *)userByFacebookUser:(id<FBGraphUser>)facebookUser;
-+ (TMEUser *)userByFacebookDictionary:(NSDictionary *)data;
-+ (TMEUser *)userWithID:(NSNumber *)ID fullName:(NSString *)fullName avatarURL:(NSString *)avatarURL;
+#import "MTLModel.h"
 
-- (BOOL)userFromDictionary:(NSDictionary *)dict;
+@interface TMEUser : MTLModel <MTLJSONSerializing>
+
+@property (nonatomic, copy) NSString *accessToken;
+@property (nonatomic, copy) NSString *email;
+@property (nonatomic, copy) NSString *facebookID;
+@property (nonatomic, copy) NSString *fullName;
+@property (nonatomic, strong) NSNumber *userID;
+@property (nonatomic, copy) NSString *password;
+@property (nonatomic, copy) NSURL *photoURL;
+@property (nonatomic, copy) NSString *UDID;
+@property (nonatomic, copy) NSString *username;
+@property (nonatomic, strong) NSDate *birthday;
+@property (nonatomic, copy) NSString *googleID;
+
+@property (nonatomic, strong) NSArray *activities;
+@property (nonatomic, strong) NSArray *products;
 
 @end

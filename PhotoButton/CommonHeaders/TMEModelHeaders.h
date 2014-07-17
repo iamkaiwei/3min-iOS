@@ -12,7 +12,10 @@
 
 #import "TMEProductImage.h"
 #import "TMECategory.h"
+
 #import "TMEUser.h"
+#import "TMEUser+BackwardSupport.h"
+
 #import "TMEReply.h"
 #import "TMEConversation.h"
 #import "TMEActivity.h"

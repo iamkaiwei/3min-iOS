@@ -31,16 +31,6 @@
 	};
 }
 
-+ (NSDateFormatter *)dateTimeFormatter {
-	static NSDateFormatter *dateTimeFormatter = nil;
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-	    dateTimeFormatter = [[NSDateFormatter alloc] init];
-	    [dateTimeFormatter setDateFormat:@"dd-MM-yyyy"];
-	});
-
-    return dateTimeFormatter;
-}
 
 + (NSValueTransformer *)createAtJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSNumber *timestamp) {
