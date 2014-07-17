@@ -12,15 +12,10 @@
 @class TMECategory;
 @class TMEUser;
 
-typedef NS_ENUM (NSUInteger, TMEProductStatus) {
-	TMEProductStatusSoldOut,
-	TMEProductStatusSelling,
-	TMEProductStatusUnknow
-};
-
 @interface TMEProduct : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic, copy) NSNumber *productID;
+@property (nonatomic, strong) NSNumber *productID;
+
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *productDescription;
