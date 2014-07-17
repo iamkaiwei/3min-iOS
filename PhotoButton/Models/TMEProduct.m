@@ -42,7 +42,7 @@
     return dateTimeFormatter;
 }
 
-+ (NSValueTransformer *)createAtJSONTranformer {
++ (NSValueTransformer *)createAtJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSNumber *timestamp) {
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timestamp integerValue]];
         return date;
@@ -51,7 +51,7 @@
     }];
 }
 
-+ (NSValueTransformer *)updateAtJSONTranformer {
++ (NSValueTransformer *)updateAtJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSNumber *timestamp) {
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timestamp integerValue]];
         return date;
@@ -60,19 +60,19 @@
     }];
 }
 
-+ (NSValueTransformer *)ownerJSONTranformer {
-    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[TMEUser class]];
++ (NSValueTransformer *)ownerJSONTransformer {
+    return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[TMEUser class]];
 }
 
-+ (NSValueTransformer *)imagesJSONTranformer {
++ (NSValueTransformer *)imagesJSONTransformer {
     return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[TMEProductImage class]];
 }
 
-+ (NSValueTransformer *)soldOutJSONTranformer {
++ (NSValueTransformer *)soldOutJSONTransformer {
     return [NSValueTransformer valueTransformerForName:MTLBooleanValueTransformerName];
 }
 
-+ (NSValueTransformer *)likedJSONTranformer {
++ (NSValueTransformer *)likedJSONTransformer {
     return [NSValueTransformer valueTransformerForName:MTLBooleanValueTransformerName];
 }
 
