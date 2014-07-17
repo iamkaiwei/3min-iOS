@@ -168,11 +168,13 @@ SINGLETON_MACRO
 #pragma marks - Helper metholds
 - (NSInteger)getTheLargestUserID
 {
-    TMEUser *user = [[TMEUser MR_findAll] lastObject];
-    if (user) {
-        return [user.id intValue] + 1;
-    }
-    return 1;
+#warning THIS PART NEED IMPROVE - HARD CODE SINCE NOW
+    return 1000;
+//    TMEUser *user = [[TMEUser MR_findAll] lastObject];
+//    if (user) {
+//        return [user.id intValue] + 1;
+//    }
+//    return 1;
 }
 
 #pragma mark - Improve login flow
