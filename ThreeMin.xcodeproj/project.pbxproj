@@ -202,7 +202,6 @@
 		99EA0F861978492D00872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EB11978492D00872EE4 /* UIViewController+YIFullScreenScroll.m */; };
 		99EA0F871978492D00872EE4 /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EB31978492D00872EE4 /* ViewUtils.m */; };
 		99EA0F881978492D00872EE4 /* YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EB51978492D00872EE4 /* YIFullScreenScroll.m */; };
-		99EA0F8B1978492D00872EE4 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99EA0EC31978492D00872EE4 /* libGoogleAnalyticsServices.a */; };
 		99EA0F8C1978492D00872EE4 /* JZRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EC61978492D00872EE4 /* JZRefreshControl.m */; };
 		99EA0F8D1978492D00872EE4 /* PBImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EC91978492D00872EE4 /* PBImageHelper.m */; };
 		99EA0F8E1978492D00872EE4 /* TMEPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0ECB1978492D00872EE4 /* TMEPhotoButton.m */; };
@@ -548,13 +547,6 @@
 		99EA0EB31978492D00872EE4 /* ViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtils.m; sourceTree = "<group>"; };
 		99EA0EB41978492D00872EE4 /* YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YIFullScreenScroll.h; sourceTree = "<group>"; };
 		99EA0EB51978492D00872EE4 /* YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YIFullScreenScroll.m; sourceTree = "<group>"; };
-		99EA0EBD1978492D00872EE4 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		99EA0EBE1978492D00872EE4 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		99EA0EBF1978492D00872EE4 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		99EA0EC01978492D00872EE4 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		99EA0EC11978492D00872EE4 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		99EA0EC21978492D00872EE4 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		99EA0EC31978492D00872EE4 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		99EA0EC51978492D00872EE4 /* JZRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZRefreshControl.h; sourceTree = "<group>"; };
 		99EA0EC61978492D00872EE4 /* JZRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZRefreshControl.m; sourceTree = "<group>"; };
 		99EA0EC81978492D00872EE4 /* PBImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBImageHelper.h; sourceTree = "<group>"; };
@@ -601,7 +593,6 @@
 				0CBE48AE17D1C02E00DC7482 /* Accelerate.framework in Frameworks */,
 				5976C04615925D2D007F6FC3 /* Foundation.framework in Frameworks */,
 				0CBE48BE17D1C0A400DC7482 /* QuartzCore.framework in Frameworks */,
-				99EA0F8B1978492D00872EE4 /* libGoogleAnalyticsServices.a in Frameworks */,
 				0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */,
 				0CBE48C017D1C0AB00DC7482 /* StoreKit.framework in Frameworks */,
 				99EA0F831978492D00872EE4 /* libAviarySDK.a in Frameworks */,
@@ -1223,7 +1214,6 @@
 			children = (
 				99EA0EA01978492D00872EE4 /* AviarySDK */,
 				99EA0EAD1978492D00872EE4 /* Classes */,
-				99EA0EBC1978492D00872EE4 /* GoogleAnalytics */,
 				99EA0EC41978492D00872EE4 /* JZRefreshControl */,
 				99EA0EC71978492D00872EE4 /* PhotoButton */,
 				99EA0ECC1978492D00872EE4 /* UINavigationController+SGProgress */,
@@ -1278,20 +1268,6 @@
 				99EA0EB51978492D00872EE4 /* YIFullScreenScroll.m */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		99EA0EBC1978492D00872EE4 /* GoogleAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				99EA0EBD1978492D00872EE4 /* GAI.h */,
-				99EA0EBE1978492D00872EE4 /* GAIDictionaryBuilder.h */,
-				99EA0EBF1978492D00872EE4 /* GAIFields.h */,
-				99EA0EC01978492D00872EE4 /* GAILogger.h */,
-				99EA0EC11978492D00872EE4 /* GAITrackedViewController.h */,
-				99EA0EC21978492D00872EE4 /* GAITracker.h */,
-				99EA0EC31978492D00872EE4 /* libGoogleAnalyticsServices.a */,
-			);
-			path = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
 		99EA0EC41978492D00872EE4 /* JZRefreshControl */ = {
