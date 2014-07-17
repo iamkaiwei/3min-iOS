@@ -250,7 +250,7 @@ PTPusherPresenceChannelDelegate
 }
 
 - (void)handleMarkAsSoldButtonTitle{
-    if (self.product.sold_outValue) {
+    if (self.product.soldOut) {
         self.buttonMarkAsSold.enabled = NO;
         [self.buttonMarkAsSold setTitle:NSLocalizedString(@"Sold", nil) forState:UIControlStateNormal];
         return;
@@ -269,7 +269,7 @@ PTPusherPresenceChannelDelegate
     self.lblProductName.text = self.product.name;
     self.lblProductPrice.text = [NSString stringWithFormat:@"%@ VND",self.product.price];
     
-    [self.imageViewProduct setImageWithURL:[NSURL URLWithString:[[[self.product.images allObjects] lastObject] thumb]]];
+    [self.imageViewProduct sd_setImageWithURL:[[self.product.images lastObject] thumbURL]];
     
     self.lblPriceOffered.text = [NSString stringWithFormat:@"%@ VND",self.conversation.offer];
     [self handleMarkAsSoldButtonTitle];
@@ -420,7 +420,7 @@ PTPusherPresenceChannelDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex) {
-        [TMEProductsManager putSoldOutWithProductID:self.product.id
+        [TMEProductsManager putSoldOutWithProductID:self.product.productID
                                      onSuccessBlock:nil
                                        failureBlock:nil];
     }

@@ -5,7 +5,8 @@ inhibit_all_warnings!
 
 target :ThreeMin, :exclusive => true do
 
-  pod 'AFNetworking', '2.2.3'
+  pod 'AFNetworking'
+  pod 'Mantle'
   pod 'Reachability'
   pod 'SVProgressHUD'
   pod 'VENVersionTracker', '0.1.0'
@@ -25,5 +26,6 @@ target :ThreeMin, :exclusive => true do
   pod 'libPusher', '~> 1.5'
   pod 'FlurrySDK'
   pod 'KZPropertyMapper'
-  
+  pod 'RXCollections'
+
 end

@@ -168,9 +168,9 @@ UITextViewDelegate
     TMECategory *category = [self.arrayCategories objectAtIndex:pickerIndex];
     
     // create product
-    TMEProduct *product = [TMEProduct MR_createEntity];
+    TMEProduct *product = [[TMEProduct alloc] init];
     product.name = self.txtProductName.text;
-    product.id = @1;
+    product.productID = @1;
     product.price = @([self.txtProductPrice.text doubleValue]);
     product.category = category;
     product.user = user;

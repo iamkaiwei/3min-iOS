@@ -77,6 +77,7 @@
 		B4255A6418B9FBFC0022B3A5 /* FSConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A6118B9FBFC0022B3A5 /* FSConverter.m */; };
 		B4255A6518B9FBFC0022B3A5 /* FSVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = B4255A6318B9FBFC0022B3A5 /* FSVenue.m */; };
 		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
+		B43FB26F1974E0EA00B69CF1 /* TMEProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = B43FB26E1974E0EA00B69CF1 /* TMEProduct.m */; };
 		B4785C37190A6557008EF4DA /* _TMEActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C1A190A6557008EF4DA /* _TMEActivity.m */; };
 		B4785C38190A6557008EF4DA /* _TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C1C190A6557008EF4DA /* _TMECategory.m */; };
 		B4785C39190A6557008EF4DA /* _TMEConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C1E190A6557008EF4DA /* _TMEConversation.m */; };
@@ -87,8 +88,6 @@
 		B4785C3E190A6557008EF4DA /* TMEActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C28190A6557008EF4DA /* TMEActivity.m */; };
 		B4785C3F190A6557008EF4DA /* TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C2A190A6557008EF4DA /* TMECategory.m */; };
 		B4785C40190A6557008EF4DA /* TMEConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C2C190A6557008EF4DA /* TMEConversation.m */; };
-		B4785C41190A6557008EF4DA /* TMEProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C2E190A6557008EF4DA /* TMEProduct.m */; };
-		B4785C42190A6557008EF4DA /* TMEProductImages.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C30190A6557008EF4DA /* TMEProductImages.m */; };
 		B4785C43190A6557008EF4DA /* TMEReply.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C32190A6557008EF4DA /* TMEReply.m */; };
 		B4785C44190A6557008EF4DA /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C34190A6557008EF4DA /* TMEUser.m */; };
 		B48485B0190ABD470015675A /* TMEActivity+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = B48485AF190ABD470015675A /* TMEActivity+Manager.m */; };
@@ -217,6 +216,9 @@
 		B4BF638418D3624600794F19 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BF638318D3624600794F19 /* libGoogleAnalyticsServices.a */; };
 		B4BF639218D3626800794F19 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BF638F18D3626800794F19 /* libAviarySDK.a */; };
 		B4BF639318D3626800794F19 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B4BF639118D3626800794F19 /* AviarySDKResources.bundle */; };
+		B4D532D119757B8F0017730C /* TMEProductImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D532D019757B8F0017730C /* TMEProductImage.m */; };
+		B4D532D41975829F0017730C /* TMEProduct+ParseArrayProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D532D31975829F0017730C /* TMEProduct+ParseArrayProducts.m */; };
+		B4D532D7197583550017730C /* TMEProduct+BackwardSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D532D6197583550017730C /* TMEProduct+BackwardSupport.m */; };
 		B4E233891917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E233881917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.m */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
@@ -321,6 +323,8 @@
 		B4255A6218B9FBFC0022B3A5 /* FSVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVenue.h; sourceTree = "<group>"; };
 		B4255A6318B9FBFC0022B3A5 /* FSVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVenue.m; sourceTree = "<group>"; };
 		B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B43FB26D1974E0EA00B69CF1 /* TMEProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProduct.h; sourceTree = "<group>"; };
+		B43FB26E1974E0EA00B69CF1 /* TMEProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProduct.m; sourceTree = "<group>"; };
 		B4785C19190A6557008EF4DA /* _TMEActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEActivity.h; sourceTree = "<group>"; };
 		B4785C1A190A6557008EF4DA /* _TMEActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEActivity.m; sourceTree = "<group>"; };
 		B4785C1B190A6557008EF4DA /* _TMECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMECategory.h; sourceTree = "<group>"; };
@@ -341,10 +345,6 @@
 		B4785C2A190A6557008EF4DA /* TMECategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECategory.m; sourceTree = "<group>"; };
 		B4785C2B190A6557008EF4DA /* TMEConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEConversation.h; sourceTree = "<group>"; };
 		B4785C2C190A6557008EF4DA /* TMEConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEConversation.m; sourceTree = "<group>"; };
-		B4785C2D190A6557008EF4DA /* TMEProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProduct.h; sourceTree = "<group>"; };
-		B4785C2E190A6557008EF4DA /* TMEProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProduct.m; sourceTree = "<group>"; };
-		B4785C2F190A6557008EF4DA /* TMEProductImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductImages.h; sourceTree = "<group>"; };
-		B4785C30190A6557008EF4DA /* TMEProductImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductImages.m; sourceTree = "<group>"; };
 		B4785C31190A6557008EF4DA /* TMEReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEReply.h; sourceTree = "<group>"; };
 		B4785C32190A6557008EF4DA /* TMEReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEReply.m; sourceTree = "<group>"; };
 		B4785C33190A6557008EF4DA /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
@@ -582,6 +582,12 @@
 		B4BF638E18D3626800794F19 /* AFPhotoEditorSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorSession.h; sourceTree = "<group>"; };
 		B4BF638F18D3626800794F19 /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
 		B4BF639118D3626800794F19 /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
+		B4D532CF19757B8F0017730C /* TMEProductImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductImage.h; sourceTree = "<group>"; };
+		B4D532D019757B8F0017730C /* TMEProductImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductImage.m; sourceTree = "<group>"; };
+		B4D532D21975829F0017730C /* TMEProduct+ParseArrayProducts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEProduct+ParseArrayProducts.h"; sourceTree = "<group>"; };
+		B4D532D31975829F0017730C /* TMEProduct+ParseArrayProducts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEProduct+ParseArrayProducts.m"; sourceTree = "<group>"; };
+		B4D532D5197583550017730C /* TMEProduct+BackwardSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEProduct+BackwardSupport.h"; sourceTree = "<group>"; };
+		B4D532D6197583550017730C /* TMEProduct+BackwardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEProduct+BackwardSupport.m"; sourceTree = "<group>"; };
 		B4E233871917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KZPropertyMapper+DateBoxing.h"; sourceTree = "<group>"; };
 		B4E233881917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KZPropertyMapper+DateBoxing.m"; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1223,14 +1229,18 @@
 				B4785C2A190A6557008EF4DA /* TMECategory.m */,
 				B4785C2B190A6557008EF4DA /* TMEConversation.h */,
 				B4785C2C190A6557008EF4DA /* TMEConversation.m */,
-				B4785C2D190A6557008EF4DA /* TMEProduct.h */,
-				B4785C2E190A6557008EF4DA /* TMEProduct.m */,
-				B4785C2F190A6557008EF4DA /* TMEProductImages.h */,
-				B4785C30190A6557008EF4DA /* TMEProductImages.m */,
 				B4785C31190A6557008EF4DA /* TMEReply.h */,
 				B4785C32190A6557008EF4DA /* TMEReply.m */,
 				B4785C33190A6557008EF4DA /* TMEUser.h */,
 				B4785C34190A6557008EF4DA /* TMEUser.m */,
+				B43FB26D1974E0EA00B69CF1 /* TMEProduct.h */,
+				B43FB26E1974E0EA00B69CF1 /* TMEProduct.m */,
+				B4D532CF19757B8F0017730C /* TMEProductImage.h */,
+				B4D532D019757B8F0017730C /* TMEProductImage.m */,
+				B4D532D21975829F0017730C /* TMEProduct+ParseArrayProducts.h */,
+				B4D532D31975829F0017730C /* TMEProduct+ParseArrayProducts.m */,
+				B4D532D5197583550017730C /* TMEProduct+BackwardSupport.h */,
+				B4D532D6197583550017730C /* TMEProduct+BackwardSupport.m */,
 			);
 			name = Models;
 			path = PhotoButton/Models;
@@ -1612,11 +1622,13 @@
 				B490279D18B9232F00B00671 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				B490272218B9232E00B00671 /* UIImage+Additions.m in Sources */,
 				B490277A18B9232E00B00671 /* TMEReachabilityManager.m in Sources */,
+				B4D532D7197583550017730C /* TMEProduct+BackwardSupport.m in Sources */,
 				B490274E18B9232E00B00671 /* TMEMyListingViewController.m in Sources */,
 				B490271D18B9232E00B00671 /* UIBezierPath-Points.m in Sources */,
 				B49027FD18B9235300B00671 /* TMEModels.xcdatamodeld in Sources */,
 				B4785C44190A6557008EF4DA /* TMEUser.m in Sources */,
 				B490276918B9232E00B00671 /* TMESubmitViewControllerArrayDataSource.m in Sources */,
+				B43FB26F1974E0EA00B69CF1 /* TMEProduct.m in Sources */,
 				B490271118B9232E00B00671 /* NSDictionary+Additions.m in Sources */,
 				B49027C618B9232F00B00671 /* TMEPhotoButton.m in Sources */,
 				99939AF31975A97C0028ED9A /* TMEFoursquareAppDelegateService.m in Sources */,
@@ -1627,6 +1639,7 @@
 				9957158C1976D5BC00802D64 /* TMEVersionCheckerAppDelegateService.m in Sources */,
 				B490270C18B9232E00B00671 /* MKMapView+Additions.m in Sources */,
 				B490278C18B9232F00B00671 /* main.m in Sources */,
+				B4D532D119757B8F0017730C /* TMEProductImage.m in Sources */,
 				B490272B18B9232E00B00671 /* UIView+Nib.m in Sources */,
 				B4785C37190A6557008EF4DA /* _TMEActivity.m in Sources */,
 				B490275918B9232E00B00671 /* TMENavigationViewController.m in Sources */,
@@ -1667,6 +1680,7 @@
 				B490270D18B9232E00B00671 /* NSArray+Additions.m in Sources */,
 				B49027FA18B9232F00B00671 /* TMEBaseTableViewCell.m in Sources */,
 				B490272A18B9232E00B00671 /* UIView+Glow.m in Sources */,
+				B4D532D41975829F0017730C /* TMEProduct+ParseArrayProducts.m in Sources */,
 				B4255A5A18B9F2760022B3A5 /* UIPlaceHolderTextView.m in Sources */,
 				995715861976D2BB00802D64 /* TMEFlurryAppDelegateService.m in Sources */,
 				B4785C42190A6557008EF4DA /* TMEProductImages.m in Sources */,

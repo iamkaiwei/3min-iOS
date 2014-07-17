@@ -66,15 +66,15 @@
 }
 
 - (void)getCachedLikedProduct{
-    NSArray *arrayProductCached = [TMEProduct MR_findByAttribute:@"liked" withValue:@1 andOrderBy:@"created_at" ascending:NO];
-    
-    for (TMEProduct *product in arrayProductCached) {
-        [self.dataArray addObject:product];
-    }
-    
-    if (self.dataArray.count) {
-        [self reloadTableViewLikedProduct];
-    }
+//    NSArray *arrayProductCached = [TMEProduct MR_findByAttribute:@"liked" withValue:@1 andOrderBy:@"created_at" ascending:NO];
+//    
+//    for (TMEProduct *product in arrayProductCached) {
+//        [self.dataArray addObject:product];
+//    }
+//    
+//    if (self.dataArray.count) {
+//        [self reloadTableViewLikedProduct];
+//    }
 }
 
 - (void)loadLikedProductWithPage:(NSInteger)page{

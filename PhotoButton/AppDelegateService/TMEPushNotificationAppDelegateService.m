@@ -82,61 +82,62 @@
         }
     }
 
-    TMEConversation *notificationConversation = [[TMEConversation MR_findByAttribute:@"id" withValue:conversationID] lastObject];
-    TMEProduct *notificationProduct = [[TMEProduct MR_findByAttribute:@"id" withValue:productID] lastObject];
-
-    if (state == UIApplicationStateActive) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
-
-        [TSMessage dismissActiveNotification];
-
-        if ([alert length] > 40) {
-            alert = [[alert substringToIndex: 40] stringByAppendingString:@"..."];
-        }
-
-        [TSMessage showNotificationInViewController:homeController
-                                              title:alert
-                                           subtitle:nil
-                                              image:nil
-                                               type:TSMessageNotificationTypeMessage
-                                           duration:4.0f
-                                           callback:^
-         {
-             if (notificationConversation && notificationProduct) {
-                 TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
-                 submitVC.conversation = notificationConversation;
-                 submitVC.product = notificationProduct;
-
-                 [navController pushViewController:submitVC animated:YES];
-                 return;
-             }
-
-             [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowHomeViewControllerNotification
-                                                                 object:nil
-                                                               userInfo:@{@"index": @(3)
-                                                                          }];
-
-         }
-                                        buttonTitle:nil
-                                     buttonCallback:nil
-                                         atPosition:TSMessageNotificationPositionTop
-                                canBeDismisedByUser:YES];
-        return;
-    }
-
-    if (notificationConversation && notificationProduct) {
-        TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
-        submitVC.conversation = notificationConversation;
-        submitVC.product = notificationProduct;
-
-        [navController pushViewController:submitVC animated:YES];
-        return;
-    }
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowHomeViewControllerNotification
-                                                        object:nil
-                                                      userInfo:@{@"index": @(3)
-                                                                 }];
+#warning THIS PART NEED TO BE CHECKED LATER
+//    TMEConversation *notificationConversation = [[TMEConversation MR_findByAttribute:@"id" withValue:conversationID] lastObject];
+//    TMEProduct *notificationProduct = [[TMEProduct MR_findByAttribute:@"id" withValue:productID] lastObject];
+//
+//    if (state == UIApplicationStateActive) {
+//        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
+//
+//        [TSMessage dismissActiveNotification];
+//
+//        if ([alert length] > 40) {
+//            alert = [[alert substringToIndex: 40] stringByAppendingString:@"..."];
+//        }
+//
+//        [TSMessage showNotificationInViewController:homeController
+//                                              title:alert
+//                                           subtitle:nil
+//                                              image:nil
+//                                               type:TSMessageNotificationTypeMessage
+//                                           duration:4.0f
+//                                           callback:^
+//         {
+//             if (notificationConversation && notificationProduct) {
+//                 TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
+//                 submitVC.conversation = notificationConversation;
+//                 submitVC.product = notificationProduct;
+//
+//                 [navController pushViewController:submitVC animated:YES];
+//                 return;
+//             }
+//
+//             [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowHomeViewControllerNotification
+//                                                                 object:nil
+//                                                               userInfo:@{@"index": @(3)
+//                                                                          }];
+//
+//         }
+//                                        buttonTitle:nil
+//                                     buttonCallback:nil
+//                                         atPosition:TSMessageNotificationPositionTop
+//                                canBeDismisedByUser:YES];
+//        return;
+//    }
+//
+//    if (notificationConversation && notificationProduct) {
+//        TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
+//        submitVC.conversation = notificationConversation;
+//        submitVC.product = notificationProduct;
+//
+//        [navController pushViewController:submitVC animated:YES];
+//        return;
+//    }
+//
+//    [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowHomeViewControllerNotification
+//                                                        object:nil
+//                                                      userInfo:@{@"index": @(3)
+//                                                                 }];
 
 }
 
