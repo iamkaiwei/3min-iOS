@@ -196,8 +196,6 @@
 		99EA0F801978492D00872EE4 /* TMEBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0E991978492D00872EE4 /* TMEBaseViewController.m */; };
 		99EA0F811978492D00872EE4 /* TMETutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0E9C1978492D00872EE4 /* TMETutorialViewController.m */; };
 		99EA0F821978492D00872EE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99EA0E9E1978492D00872EE4 /* Images.xcassets */; };
-		99EA0F831978492D00872EE4 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99EA0EAA1978492D00872EE4 /* libAviarySDK.a */; };
-		99EA0F841978492D00872EE4 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 99EA0EAC1978492D00872EE4 /* AviarySDKResources.bundle */; };
 		99EA0F851978492D00872EE4 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EAF1978492D00872EE4 /* JRSwizzle.m */; };
 		99EA0F861978492D00872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EB11978492D00872EE4 /* UIViewController+YIFullScreenScroll.m */; };
 		99EA0F871978492D00872EE4 /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EB31978492D00872EE4 /* ViewUtils.m */; };
@@ -529,16 +527,6 @@
 		99EA0E9B1978492D00872EE4 /* TMETutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETutorialViewController.h; sourceTree = "<group>"; };
 		99EA0E9C1978492D00872EE4 /* TMETutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETutorialViewController.m; sourceTree = "<group>"; };
 		99EA0E9E1978492D00872EE4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		99EA0EA21978492D00872EE4 /* AFOpenGLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenGLManager.h; sourceTree = "<group>"; };
-		99EA0EA31978492D00872EE4 /* AFPhotoEditorContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorContext.h; sourceTree = "<group>"; };
-		99EA0EA41978492D00872EE4 /* AFPhotoEditorController+InAppPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFPhotoEditorController+InAppPurchase.h"; sourceTree = "<group>"; };
-		99EA0EA51978492D00872EE4 /* AFPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorController.h; sourceTree = "<group>"; };
-		99EA0EA61978492D00872EE4 /* AFPhotoEditorControllerOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorControllerOptions.h; sourceTree = "<group>"; };
-		99EA0EA71978492D00872EE4 /* AFPhotoEditorCustomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorCustomization.h; sourceTree = "<group>"; };
-		99EA0EA81978492D00872EE4 /* AFPhotoEditorProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorProduct.h; sourceTree = "<group>"; };
-		99EA0EA91978492D00872EE4 /* AFPhotoEditorSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorSession.h; sourceTree = "<group>"; };
-		99EA0EAA1978492D00872EE4 /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
-		99EA0EAC1978492D00872EE4 /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
 		99EA0EAE1978492D00872EE4 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		99EA0EAF1978492D00872EE4 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		99EA0EB01978492D00872EE4 /* UIViewController+YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YIFullScreenScroll.h"; sourceTree = "<group>"; };
@@ -595,7 +583,6 @@
 				0CBE48BE17D1C0A400DC7482 /* QuartzCore.framework in Frameworks */,
 				0C6E068A17E0CA850003F104 /* libz.1.2.5.dylib in Frameworks */,
 				0CBE48C017D1C0AB00DC7482 /* StoreKit.framework in Frameworks */,
-				99EA0F831978492D00872EE4 /* libAviarySDK.a in Frameworks */,
 				0CBE48BC17D1C0A100DC7482 /* OpenGLES.framework in Frameworks */,
 				0CBE48BA17D1C09B00DC7482 /* MessageUI.framework in Frameworks */,
 				0CBE48B617D1C08900DC7482 /* libsqlite3.0.dylib in Frameworks */,
@@ -1212,7 +1199,6 @@
 		99EA0E9F1978492D00872EE4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				99EA0EA01978492D00872EE4 /* AviarySDK */,
 				99EA0EAD1978492D00872EE4 /* Classes */,
 				99EA0EC41978492D00872EE4 /* JZRefreshControl */,
 				99EA0EC71978492D00872EE4 /* PhotoButton */,
@@ -1220,39 +1206,6 @@
 			);
 			name = Vendors;
 			path = "3min-iOS/Vendors";
-			sourceTree = "<group>";
-		};
-		99EA0EA01978492D00872EE4 /* AviarySDK */ = {
-			isa = PBXGroup;
-			children = (
-				99EA0EA11978492D00872EE4 /* Headers */,
-				99EA0EAA1978492D00872EE4 /* libAviarySDK.a */,
-				99EA0EAB1978492D00872EE4 /* Resources */,
-			);
-			path = AviarySDK;
-			sourceTree = "<group>";
-		};
-		99EA0EA11978492D00872EE4 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				99EA0EA21978492D00872EE4 /* AFOpenGLManager.h */,
-				99EA0EA31978492D00872EE4 /* AFPhotoEditorContext.h */,
-				99EA0EA41978492D00872EE4 /* AFPhotoEditorController+InAppPurchase.h */,
-				99EA0EA51978492D00872EE4 /* AFPhotoEditorController.h */,
-				99EA0EA61978492D00872EE4 /* AFPhotoEditorControllerOptions.h */,
-				99EA0EA71978492D00872EE4 /* AFPhotoEditorCustomization.h */,
-				99EA0EA81978492D00872EE4 /* AFPhotoEditorProduct.h */,
-				99EA0EA91978492D00872EE4 /* AFPhotoEditorSession.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		99EA0EAB1978492D00872EE4 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				99EA0EAC1978492D00872EE4 /* AviarySDKResources.bundle */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		99EA0EAD1978492D00872EE4 /* Classes */ = {
@@ -1444,7 +1397,6 @@
 			files = (
 				99EA0F6C1978492D00872EE4 /* TMEProductDetailsViewController.xib in Resources */,
 				99EA0F111978492D00872EE4 /* ThreeMin-Info.plist in Resources */,
-				99EA0F841978492D00872EE4 /* AviarySDKResources.bundle in Resources */,
 				99EA0F0F1978492D00872EE4 /* Localizable.strings in Resources */,
 				99EA0F6A1978492D00872EE4 /* TMEListOffersTableViewCell.xib in Resources */,
 				99EA0F7A1978492D00872EE4 /* TMESubmitViewController.xib in Resources */,

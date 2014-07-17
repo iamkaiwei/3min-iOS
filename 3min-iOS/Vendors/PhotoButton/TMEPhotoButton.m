@@ -6,7 +6,6 @@
 
 #import "TMEPhotoButton.h"
 #import "PBImageHelper.h"
-#import "AFPhotoEditorController.h"
 
 #define DELETE_PHOTO  NSLocalizedString(@"Delete Photo", nil)
 #define CHOOSE_PHOTO  NSLocalizedString(@"Choose Photo", nil)

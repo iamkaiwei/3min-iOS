@@ -28,5 +28,6 @@ target :ThreeMin, :exclusive => true do
   pod 'KZPropertyMapper'
   pod 'CrittercismSDK', '~> 4.3'
   pod 'GoogleAnalytics-iOS-SDK', '~> 3.0'
+  pod 'AviarySDK', '~> 4.0'
 
 end

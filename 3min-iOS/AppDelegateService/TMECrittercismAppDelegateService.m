@@ -7,6 +7,7 @@
 //
 
 #import "TMECrittercismAppDelegateService.h"
+#import <CrittercismSDK/Crittercism.h>
 
 @implementation TMECrittercismAppDelegateService
 

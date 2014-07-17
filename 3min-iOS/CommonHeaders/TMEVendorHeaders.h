@@ -34,3 +34,4 @@
 #import <Pusher/Pusher.h>
 #import <Pusher/PTPusherChannel.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <AviarySDK/AviarySDK.h>

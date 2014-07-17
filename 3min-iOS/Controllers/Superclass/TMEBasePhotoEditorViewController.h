@@ -6,8 +6,6 @@
 //
 //
 
-#import "AFPhotoEditorController.h"
-
 @interface TMEBasePhotoEditorViewController : AFPhotoEditorController
 
 @end

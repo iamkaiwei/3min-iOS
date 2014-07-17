@@ -7,7 +7,7 @@
 //
 
 #import "TMEGoogleAnalyticsAppDelegateService.h"
-#import "GAI.h"
+#import <GoogleAnalytics-iOS-SDK/GAI.h>
 
 @implementation TMEGoogleAnalyticsAppDelegateService
 
