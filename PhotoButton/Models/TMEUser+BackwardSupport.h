@@ -14,4 +14,19 @@
 + (TMEUser *)userByFacebookDictionary:(NSDictionary *)data;
 + (TMEUser *)userWithID:(NSNumber *)ID fullName:(NSString *)fullName photoURL:(NSString *)photoURL;
 
+// Backward support properties
+- (NSNumber *)id;
+- (void)setId:(NSNumber *)ID;
+
+- (NSString *)fullname;
+- (NSString *)photo_url;
+
+- (void)setAccess_token:(NSString *)accessToken;
+- (NSString *)access_token;
+
+- (NSString *)facebook_id;
+
+- (NSString *)name;
+- (void)setName:(NSString *)name;
+
 @end

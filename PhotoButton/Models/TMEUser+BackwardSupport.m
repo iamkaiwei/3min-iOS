@@ -28,4 +28,40 @@
     return user;
 }
 
+- (NSNumber *)id {
+    return self.userID;
+}
+
+- (void)setId:(NSNumber *)ID {
+    self.userID = ID;
+}
+
+- (NSString *)fullname {
+    return self.fullName;
+}
+
+- (NSString *)photo_url {
+    return [self.photoURL absoluteString];
+}
+
+- (NSString *)access_token {
+    return self.accessToken;
+}
+
+- (void)setAccess_token:(NSString *)accessToken {
+    self.accessToken = accessToken;
+}
+
+- (NSString *)facebook_id {
+    return self.facebookID;
+}
+
+- (NSString *)name {
+    return self.fullName;
+}
+
+- (void)setName:(NSString *)name {
+    self.fullName = name;
+}
+
 @end
