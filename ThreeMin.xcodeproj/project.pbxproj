@@ -196,10 +196,6 @@
 		99EA0F801978492D00872EE4 /* TMEBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0E991978492D00872EE4 /* TMEBaseViewController.m */; };
 		99EA0F811978492D00872EE4 /* TMETutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0E9C1978492D00872EE4 /* TMETutorialViewController.m */; };
 		99EA0F821978492D00872EE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99EA0E9E1978492D00872EE4 /* Images.xcassets */; };
-		99EA0F851978492D00872EE4 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EAF1978492D00872EE4 /* JRSwizzle.m */; };
-		99EA0F861978492D00872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EB11978492D00872EE4 /* UIViewController+YIFullScreenScroll.m */; };
-		99EA0F871978492D00872EE4 /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EB31978492D00872EE4 /* ViewUtils.m */; };
-		99EA0F881978492D00872EE4 /* YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EB51978492D00872EE4 /* YIFullScreenScroll.m */; };
 		99EA0F8C1978492D00872EE4 /* JZRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EC61978492D00872EE4 /* JZRefreshControl.m */; };
 		99EA0F8D1978492D00872EE4 /* PBImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EC91978492D00872EE4 /* PBImageHelper.m */; };
 		99EA0F8E1978492D00872EE4 /* TMEPhotoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0ECB1978492D00872EE4 /* TMEPhotoButton.m */; };
@@ -213,6 +209,8 @@
 		99EA0F961978492D00872EE4 /* TMERefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EE01978492D00872EE4 /* TMERefreshControl.m */; };
 		99EA0F971978492D00872EE4 /* TMESearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EE31978492D00872EE4 /* TMESearchBar.m */; };
 		99EA0F981978492D00872EE4 /* TMEBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EE61978492D00872EE4 /* TMEBaseTableViewCell.m */; };
+		99EA0F9F1978574000872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0F9C1978574000872EE4 /* UIViewController+YIFullScreenScroll.m */; };
+		99EA0FA01978574000872EE4 /* YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0F9E1978574000872EE4 /* YIFullScreenScroll.m */; };
 		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
@@ -527,14 +525,6 @@
 		99EA0E9B1978492D00872EE4 /* TMETutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETutorialViewController.h; sourceTree = "<group>"; };
 		99EA0E9C1978492D00872EE4 /* TMETutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETutorialViewController.m; sourceTree = "<group>"; };
 		99EA0E9E1978492D00872EE4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		99EA0EAE1978492D00872EE4 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
-		99EA0EAF1978492D00872EE4 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
-		99EA0EB01978492D00872EE4 /* UIViewController+YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YIFullScreenScroll.h"; sourceTree = "<group>"; };
-		99EA0EB11978492D00872EE4 /* UIViewController+YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YIFullScreenScroll.m"; sourceTree = "<group>"; };
-		99EA0EB21978492D00872EE4 /* ViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewUtils.h; sourceTree = "<group>"; };
-		99EA0EB31978492D00872EE4 /* ViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtils.m; sourceTree = "<group>"; };
-		99EA0EB41978492D00872EE4 /* YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YIFullScreenScroll.h; sourceTree = "<group>"; };
-		99EA0EB51978492D00872EE4 /* YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YIFullScreenScroll.m; sourceTree = "<group>"; };
 		99EA0EC51978492D00872EE4 /* JZRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZRefreshControl.h; sourceTree = "<group>"; };
 		99EA0EC61978492D00872EE4 /* JZRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZRefreshControl.m; sourceTree = "<group>"; };
 		99EA0EC81978492D00872EE4 /* PBImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBImageHelper.h; sourceTree = "<group>"; };
@@ -559,6 +549,10 @@
 		99EA0EE31978492D00872EE4 /* TMESearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESearchBar.m; sourceTree = "<group>"; };
 		99EA0EE51978492D00872EE4 /* TMEBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseTableViewCell.h; sourceTree = "<group>"; };
 		99EA0EE61978492D00872EE4 /* TMEBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseTableViewCell.m; sourceTree = "<group>"; };
+		99EA0F9B1978574000872EE4 /* UIViewController+YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YIFullScreenScroll.h"; sourceTree = "<group>"; };
+		99EA0F9C1978574000872EE4 /* UIViewController+YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YIFullScreenScroll.m"; sourceTree = "<group>"; };
+		99EA0F9D1978574000872EE4 /* YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YIFullScreenScroll.h; sourceTree = "<group>"; };
+		99EA0F9E1978574000872EE4 /* YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YIFullScreenScroll.m; sourceTree = "<group>"; };
 		B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1199,28 +1193,13 @@
 		99EA0E9F1978492D00872EE4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				99EA0EAD1978492D00872EE4 /* Classes */,
+				99EA0F9A1978574000872EE4 /* YIFullScreenScroll */,
 				99EA0EC41978492D00872EE4 /* JZRefreshControl */,
 				99EA0EC71978492D00872EE4 /* PhotoButton */,
 				99EA0ECC1978492D00872EE4 /* UINavigationController+SGProgress */,
 			);
 			name = Vendors;
 			path = "3min-iOS/Vendors";
-			sourceTree = "<group>";
-		};
-		99EA0EAD1978492D00872EE4 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				99EA0EAE1978492D00872EE4 /* JRSwizzle.h */,
-				99EA0EAF1978492D00872EE4 /* JRSwizzle.m */,
-				99EA0EB01978492D00872EE4 /* UIViewController+YIFullScreenScroll.h */,
-				99EA0EB11978492D00872EE4 /* UIViewController+YIFullScreenScroll.m */,
-				99EA0EB21978492D00872EE4 /* ViewUtils.h */,
-				99EA0EB31978492D00872EE4 /* ViewUtils.m */,
-				99EA0EB41978492D00872EE4 /* YIFullScreenScroll.h */,
-				99EA0EB51978492D00872EE4 /* YIFullScreenScroll.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		99EA0EC41978492D00872EE4 /* JZRefreshControl */ = {
@@ -1330,6 +1309,17 @@
 				99EA0EE61978492D00872EE4 /* TMEBaseTableViewCell.m */,
 			);
 			path = superclass;
+			sourceTree = "<group>";
+		};
+		99EA0F9A1978574000872EE4 /* YIFullScreenScroll */ = {
+			isa = PBXGroup;
+			children = (
+				99EA0F9B1978574000872EE4 /* UIViewController+YIFullScreenScroll.h */,
+				99EA0F9C1978574000872EE4 /* UIViewController+YIFullScreenScroll.m */,
+				99EA0F9D1978574000872EE4 /* YIFullScreenScroll.h */,
+				99EA0F9E1978574000872EE4 /* YIFullScreenScroll.m */,
+			);
+			path = YIFullScreenScroll;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1525,7 +1515,6 @@
 				99EA0F381978492D00872EE4 /* FSConverter.m in Sources */,
 				99EA0F731978492D00872EE4 /* TMESearchViewController.m in Sources */,
 				99EA0F1C1978492D00872EE4 /* NSDate+Additions.m in Sources */,
-				99EA0F851978492D00872EE4 /* JRSwizzle.m in Sources */,
 				99EA0F031978492D00872EE4 /* _TMEReply.m in Sources */,
 				99EA0EF61978492D00872EE4 /* FacebookManager.m in Sources */,
 				99EA0EFA1978492D00872EE4 /* TMEConversationManager.m in Sources */,
@@ -1533,7 +1522,6 @@
 				99EA0F041978492D00872EE4 /* TMEActivity.m in Sources */,
 				99EA0EEE1978492D00872EE4 /* TMEGoogleAnalyticsAppDelegateService.m in Sources */,
 				99EA0F5A1978492D00872EE4 /* TMEMyListingViewController.m in Sources */,
-				99EA0F861978492D00872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				99EA0EFE1978492D00872EE4 /* TMEReachabilityManager.m in Sources */,
 				99EA0F641978492D00872EE4 /* TMENavigationViewController.m in Sources */,
 				99EA0F261978492D00872EE4 /* UIBezierPath-Points.m in Sources */,
@@ -1548,6 +1536,7 @@
 				99EA0F051978492D00872EE4 /* TMECategory.m in Sources */,
 				99EA0EF21978492D00872EE4 /* TMEVersionCheckerAppDelegateService.m in Sources */,
 				99EA0F271978492D00872EE4 /* UIButton+Additions.m in Sources */,
+				99EA0F9F1978574000872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				99EA0F211978492D00872EE4 /* NSString+ActiveSupportInflector.m in Sources */,
 				99EA0F1E1978492D00872EE4 /* NSMutableArray+Additions.m in Sources */,
 				99EA0F241978492D00872EE4 /* UIAlertView+Additions.m in Sources */,
@@ -1562,7 +1551,6 @@
 				99EA0F1A1978492D00872EE4 /* NSCalendar+Additions.m in Sources */,
 				99EA0F771978492D00872EE4 /* TMESubmitTableCellRight.m in Sources */,
 				99EA0F911978492D00872EE4 /* TMELoadMoreCollectionViewCell.m in Sources */,
-				99EA0F871978492D00872EE4 /* ViewUtils.m in Sources */,
 				99EA0F061978492D00872EE4 /* TMEConversation.m in Sources */,
 				99EA0F081978492D00872EE4 /* TMEProduct+ParseArrayProducts.m in Sources */,
 				99EA0F2C1978492D00872EE4 /* UIImage+ImageEffects.m in Sources */,
@@ -1588,7 +1576,6 @@
 				99EA0F0B1978492D00872EE4 /* TMEReply.m in Sources */,
 				99EA0EEC1978492D00872EE4 /* TMEFlurryAppDelegateService.m in Sources */,
 				99EA0EFD1978492D00872EE4 /* TMEPusherManager.m in Sources */,
-				99EA0F881978492D00872EE4 /* YIFullScreenScroll.m in Sources */,
 				99EA0F001978492D00872EE4 /* _TMECategory.m in Sources */,
 				99EA0F291978492D00872EE4 /* UIColor+Custom.m in Sources */,
 				99EA0F961978492D00872EE4 /* TMERefreshControl.m in Sources */,
@@ -1620,6 +1607,7 @@
 				99EA0F3F1978492D00872EE4 /* TMEBaseArrayDataSourceWithLoadMore.m in Sources */,
 				99EA0EF01978492D00872EE4 /* TMEReachabilityAppDelegateService.m in Sources */,
 				99EA0F8C1978492D00872EE4 /* JZRefreshControl.m in Sources */,
+				99EA0FA01978574000872EE4 /* YIFullScreenScroll.m in Sources */,
 				99EA0F7E1978492D00872EE4 /* TMEBaseTabBarViewController.m in Sources */,
 				99EA0F091978492D00872EE4 /* TMEProduct.m in Sources */,
 				99EA0F811978492D00872EE4 /* TMETutorialViewController.m in Sources */,

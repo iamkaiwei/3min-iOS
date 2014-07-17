@@ -7,7 +7,6 @@
 //
 
 #import "CoreData+MagicalRecord.h"
-#import "Crittercism.h"
 #import "SVProgressHUD.h"
 #import "AFNetworking.h"
 #import "OpenUDID.h"
@@ -35,3 +34,4 @@
 #import <Pusher/PTPusherChannel.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <AviarySDK/AviarySDK.h>
+#import <CrittercismSDK/Crittercism.h>
