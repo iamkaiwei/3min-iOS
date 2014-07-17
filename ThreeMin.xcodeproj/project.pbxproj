@@ -87,7 +87,6 @@
 		B4785C3F190A6557008EF4DA /* TMECategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C2A190A6557008EF4DA /* TMECategory.m */; };
 		B4785C40190A6557008EF4DA /* TMEConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C2C190A6557008EF4DA /* TMEConversation.m */; };
 		B4785C43190A6557008EF4DA /* TMEReply.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C32190A6557008EF4DA /* TMEReply.m */; };
-		B4785C44190A6557008EF4DA /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B4785C34190A6557008EF4DA /* TMEUser.m */; };
 		B48485B0190ABD470015675A /* TMEActivity+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = B48485AF190ABD470015675A /* TMEActivity+Manager.m */; };
 		B490270818B9232E00B00671 /* ActiveSupportInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = B490250218B9232D00B00671 /* ActiveSupportInflector.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B490270918B9232E00B00671 /* ActiveSupportInflector.plist in Resources */ = {isa = PBXBuildFile; fileRef = B490250318B9232D00B00671 /* ActiveSupportInflector.plist */; };
@@ -218,6 +217,8 @@
 		B4D532D41975829F0017730C /* TMEProduct+ParseArrayProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D532D31975829F0017730C /* TMEProduct+ParseArrayProducts.m */; };
 		B4D532D7197583550017730C /* TMEProduct+BackwardSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D532D6197583550017730C /* TMEProduct+BackwardSupport.m */; };
 		B4E233891917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E233881917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.m */; };
+		B6178F671977C14F00DA70D9 /* TMEUser+BackwardSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = B6178F661977C14F00DA70D9 /* TMEUser+BackwardSupport.m */; };
+		B6178F6A1977C1EB00DA70D9 /* TMEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B6178F691977C1EB00DA70D9 /* TMEUser.m */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
@@ -341,8 +342,6 @@
 		B4785C2C190A6557008EF4DA /* TMEConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEConversation.m; sourceTree = "<group>"; };
 		B4785C31190A6557008EF4DA /* TMEReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEReply.h; sourceTree = "<group>"; };
 		B4785C32190A6557008EF4DA /* TMEReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEReply.m; sourceTree = "<group>"; };
-		B4785C33190A6557008EF4DA /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
-		B4785C34190A6557008EF4DA /* TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUser.m; sourceTree = "<group>"; };
 		B48485AE190ABD470015675A /* TMEActivity+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEActivity+Manager.h"; sourceTree = "<group>"; };
 		B48485AF190ABD470015675A /* TMEActivity+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEActivity+Manager.m"; sourceTree = "<group>"; };
 		B490250118B9232D00B00671 /* ActiveSupportInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveSupportInflector.h; sourceTree = "<group>"; };
@@ -584,6 +583,10 @@
 		B4D532D6197583550017730C /* TMEProduct+BackwardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEProduct+BackwardSupport.m"; sourceTree = "<group>"; };
 		B4E233871917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KZPropertyMapper+DateBoxing.h"; sourceTree = "<group>"; };
 		B4E233881917ACA6009CEEBA /* KZPropertyMapper+DateBoxing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KZPropertyMapper+DateBoxing.m"; sourceTree = "<group>"; };
+		B6178F651977C14F00DA70D9 /* TMEUser+BackwardSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEUser+BackwardSupport.h"; sourceTree = "<group>"; };
+		B6178F661977C14F00DA70D9 /* TMEUser+BackwardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEUser+BackwardSupport.m"; sourceTree = "<group>"; };
+		B6178F681977C1EB00DA70D9 /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
+		B6178F691977C1EB00DA70D9 /* TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUser.m; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1216,13 +1219,13 @@
 				B4785C27190A6557008EF4DA /* TMEActivity.h */,
 				B4785C28190A6557008EF4DA /* TMEActivity.m */,
 				B4785C29190A6557008EF4DA /* TMECategory.h */,
+				B6178F681977C1EB00DA70D9 /* TMEUser.h */,
+				B6178F691977C1EB00DA70D9 /* TMEUser.m */,
 				B4785C2A190A6557008EF4DA /* TMECategory.m */,
 				B4785C2B190A6557008EF4DA /* TMEConversation.h */,
 				B4785C2C190A6557008EF4DA /* TMEConversation.m */,
 				B4785C31190A6557008EF4DA /* TMEReply.h */,
 				B4785C32190A6557008EF4DA /* TMEReply.m */,
-				B4785C33190A6557008EF4DA /* TMEUser.h */,
-				B4785C34190A6557008EF4DA /* TMEUser.m */,
 				B43FB26D1974E0EA00B69CF1 /* TMEProduct.h */,
 				B43FB26E1974E0EA00B69CF1 /* TMEProduct.m */,
 				B4D532CF19757B8F0017730C /* TMEProductImage.h */,
@@ -1231,6 +1234,8 @@
 				B4D532D31975829F0017730C /* TMEProduct+ParseArrayProducts.m */,
 				B4D532D5197583550017730C /* TMEProduct+BackwardSupport.h */,
 				B4D532D6197583550017730C /* TMEProduct+BackwardSupport.m */,
+				B6178F651977C14F00DA70D9 /* TMEUser+BackwardSupport.h */,
+				B6178F661977C14F00DA70D9 /* TMEUser+BackwardSupport.m */,
 			);
 			name = Models;
 			path = PhotoButton/Models;
@@ -1600,6 +1605,7 @@
 				0B7F441B18BB126F000777BF /* TMECircleProgressIndicator.m in Sources */,
 				B490271C18B9232E00B00671 /* UIBarButtonItem+Custom.m in Sources */,
 				B4255A6418B9FBFC0022B3A5 /* FSConverter.m in Sources */,
+				B6178F6A1977C1EB00DA70D9 /* TMEUser.m in Sources */,
 				B490275A18B9232E00B00671 /* TMEOfferViewController.m in Sources */,
 				B48485B0190ABD470015675A /* TMEActivity+Manager.m in Sources */,
 				B4785C3E190A6557008EF4DA /* TMEActivity.m in Sources */,
@@ -1614,7 +1620,7 @@
 				B490274E18B9232E00B00671 /* TMEMyListingViewController.m in Sources */,
 				B490271D18B9232E00B00671 /* UIBezierPath-Points.m in Sources */,
 				B49027FD18B9235300B00671 /* TMEModels.xcdatamodeld in Sources */,
-				B4785C44190A6557008EF4DA /* TMEUser.m in Sources */,
+				B6178F671977C14F00DA70D9 /* TMEUser+BackwardSupport.m in Sources */,
 				B490276918B9232E00B00671 /* TMESubmitViewControllerArrayDataSource.m in Sources */,
 				B43FB26F1974E0EA00B69CF1 /* TMEProduct.m in Sources */,
 				B490271118B9232E00B00671 /* NSDictionary+Additions.m in Sources */,
