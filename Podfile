@@ -26,5 +26,11 @@ target :ThreeMin, :exclusive => true do
   pod 'libPusher', '~> 1.5'
   pod 'FlurrySDK'
   pod 'KZPropertyMapper'
+  pod 'CrittercismSDK', '~> 4.3'
+  pod 'GoogleAnalytics-iOS-SDK', '~> 3.0'
+  pod 'AviarySDK', '~> 4.0'
+  pod 'JRSwizzle', '~> 1.0'
+  pod 'ViewUtils', '~> 1.1'
+  pod 'ObjectiveSugar', '~> 1.1'
 
 end
