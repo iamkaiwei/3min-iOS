@@ -7,10 +7,11 @@
 //
 
 #import "MTLModel.h"
+#import <Mantle/Mantle.h>
 
 @interface TMEProductImage : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic, copy) NSNumber *ID;
+@property (nonatomic, strong) NSNumber *ID;
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *description;
