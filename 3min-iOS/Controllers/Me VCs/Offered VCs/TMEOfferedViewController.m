@@ -88,17 +88,17 @@
 }
 
 - (void)getCachedOfferedConversation{
-    NSArray *arrayOfferedConversationCached = [TMEConversation MR_findAllSortedBy:@"latest_update" ascending:NO];
-    
-    for (TMEConversation *conversation in arrayOfferedConversationCached) {
-        if (![conversation.offer isEqualToNumber:@0] && ![conversation.offer isEqual:[NSNull null]] && ![conversation.product.user isEqual:[[TMEUserManager sharedInstance] loggedUser]]) {
-            [self.dataArray addObject:conversation];
-        }
-    }
-    
-    if (self.dataArray.count) {
-        [self reloadTableViewOfferedConversation];
-    }
+//    NSArray *arrayOfferedConversationCached = [TMEConversation MR_findAllSortedBy:@"latest_update" ascending:NO];
+//    
+//    for (TMEConversation *conversation in arrayOfferedConversationCached) {
+//        if (![conversation.offer isEqualToNumber:@0] && ![conversation.offer isEqual:[NSNull null]] && ![conversation.product.user isEqual:[[TMEUserManager sharedInstance] loggedUser]]) {
+//            [self.dataArray addObject:conversation];
+//        }
+//    }
+//    
+//    if (self.dataArray.count) {
+//        [self reloadTableViewOfferedConversation];
+//    }
 }
 
 - (void)reloadTableViewOfferedConversation{

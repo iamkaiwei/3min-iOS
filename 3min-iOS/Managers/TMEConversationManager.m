@@ -33,7 +33,7 @@ SINGLETON_MACRO
     [[AFHTTPRequestOperationManager tme_manager] GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
          if (successBlock) {
-             TMEConversation *conversation = [TMEConversation aConversationFromData:responseObject];
+             TMEConversation *conversation = [TMEConversation conversationFromData:responseObject];
              successBlock(conversation);
          }
 
@@ -146,7 +146,7 @@ SINGLETON_MACRO
 
          if (successBlock) {
              if (responseObject) {
-                 TMEConversation *conversation = [TMEConversation aConversationFromData:responseObject];
+                 TMEConversation *conversation = [TMEConversation conversationFromData:responseObject];
                  successBlock(conversation);
                  return;
              }
@@ -175,7 +175,7 @@ SINGLETON_MACRO
     [[AFHTTPRequestOperationManager tme_manager] POST:API_CONVERSATIONS parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
          if (successBlock) {
-             TMEConversation *conversation = [TMEConversation aConversationFromData:responseObject];
+             TMEConversation *conversation = [TMEConversation conversationFromData:responseObject];
              successBlock(conversation);
          }
 

@@ -90,12 +90,12 @@ PTPusherPresenceChannelDelegate
 }
 
 - (void)subscribeChannel{
-    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:self.conversation.channel_name delegate:self];
+    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:self.conversation.channelName delegate:self];
     [self.presenceChannel bindToEventNamed:PUSHER_CHAT_EVENT_NAME                           handleWithBlock:^(PTPusherEvent *channelEvent) {
         self.labelTyping.text = @"";
-        TMEUser *user = [TMEUser userWithID:self.conversation.user_id
-                                   fullName:self.conversation.user_full_name
-                                  photoURL:self.conversation.user_avatar];
+        TMEUser *user = [TMEUser userWithID:self.conversation.userID
+                                   fullName:self.conversation.userFullname
+                                  photoURL:self.conversation.userAvatar];
 
         TMEReply *reply = [TMEReply replyWithContent:channelEvent.data[@"message"]
                                               sender:user
@@ -224,7 +224,7 @@ PTPusherPresenceChannelDelegate
      {
          self.paging = NO;
          self.conversation = conversation;
-         self.dataArray = [[conversation.repliesSet allObjects] mutableCopy];
+         self.dataArray = [conversation.replies mutableCopy];
          if (self.dataArray.count % 10 == 0 && self.dataArray.count)
              self.paging = YES;
          self.dataArray = [[self.dataArray sortByAttribute:@"time_stamp" ascending:YES] mutableCopy];
@@ -298,12 +298,12 @@ PTPusherPresenceChannelDelegate
 }
 
 - (void)getCacheMessage{
-    self.conversation = [[TMEConversation MR_findByAttribute:@"id" withValue:self.conversation.id] lastObject];
-    self.dataArray = [[self.conversation.repliesSet allObjects] mutableCopy];
-    if (self.dataArray.count) {
-        self.dataArray = [[self.dataArray sortByAttribute:@"time_stamp" ascending:YES] mutableCopy];
-        [self reloadTableViewConversationShowBottom:NO];
-    }
+//    self.conversation = [[TMEConversation MR_findByAttribute:@"id" withValue:self.conversation.id] lastObject];
+//    self.dataArray = [self.conversation.replies mutableCopy];
+//    if (self.dataArray.count) {
+//        self.dataArray = [[self.dataArray sortByAttribute:@"time_stamp" ascending:YES] mutableCopy];
+//        [self reloadTableViewConversationShowBottom:NO];
+//    }
 }
 
 - (void)postMessagesToServer{
@@ -446,7 +446,7 @@ PTPusherPresenceChannelDelegate
     if (self.arrayClientReplies.count) {
         [self postMessagesToServer];
     }
-    [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"%@ is offline!", self.conversation.user_full_name] type:TSMessageNotificationTypeError];
+    [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"%@ is offline!", self.conversation.userFullname] type:TSMessageNotificationTypeError];
 }
 
 #pragma mark - Handle changing reachability

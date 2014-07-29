@@ -87,14 +87,14 @@
 #pragma mark - Caching stuffs
 
 - (void)getCachedActivity{
-    NSArray *arrayActivityCached = [TMEConversation MR_findAllSortedBy:@"latest_update" ascending:NO];
-    
-    for (TMEConversation *conversation in arrayActivityCached) {
-        [self.dataArray addObject:conversation];
-    }
-    if (self.dataArray.count) {
-        [self reloadTableViewActivity];
-    }
+//    NSArray *arrayActivityCached = [TMEConversation MR_findAllSortedBy:@"latest_update" ascending:NO];
+//    
+//    for (TMEConversation *conversation in arrayActivityCached) {
+//        [self.dataArray addObject:conversation];
+//    }
+//    if (self.dataArray.count) {
+//        [self reloadTableViewActivity];
+//    }
 }
 
 #pragma mark - Handle notification

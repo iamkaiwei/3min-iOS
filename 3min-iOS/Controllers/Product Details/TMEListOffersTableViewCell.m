@@ -20,9 +20,9 @@
 @implementation TMEListOffersTableViewCell
 
 - (void)configCellWithData:(TMEConversation *)conversation{
-    self.labelUserName.text = conversation.user_full_name;
+    self.labelUserName.text = conversation.userFullname;
     self.labelContent.text = [NSString stringWithFormat:NSLocalizedString(@"Offers %@ VND", nil),[conversation.offer stringValue]];
-    [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:conversation.user_avatar]];
+    [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:conversation.userAvatar]];
     [self.avatarIndicator startAnimating];
 }
 
