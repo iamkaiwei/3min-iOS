@@ -75,8 +75,7 @@ SINGLETON_MACRO
     
     if (![self isAccessTokenExpired]) {
         NSNumber *userID = [self getUserIDFromStore];
-        
-        
+
         [self getUserWithID:userID
                   onSuccess:^(TMEUser *userRes)
          {
@@ -96,7 +95,7 @@ SINGLETON_MACRO
       
         return;
     }
-    
+
     [self sendNewLoginRequestWithSuccessBlock:successBlock
                               andFailureBlock:failureBlock];
     
@@ -187,7 +186,9 @@ SINGLETON_MACRO
     [defaults setObject:accessToken forKey:LAST_LOGIN_ACCESS_TOKEN];
     [defaults setObject:userID forKey:LAST_LOGIN_USER_ID];
     [self storeTheLastLoginTimeStampWithtTimeIntervalSinceNow];
-    return YES;
+    BOOL result = [defaults synchronize];
+    NSAssert(result, @"Can't store the cached user");
+    return result;
 }
 - (BOOL)isAccessTokenExpired
 {
@@ -243,7 +244,7 @@ SINGLETON_MACRO
 - (NSNumber *)getUserIDFromStore
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
+
     NSNumber *userID = [defaults objectForKey:LAST_LOGIN_USER_ID];
     return userID;
 }

@@ -15,7 +15,13 @@
 }
 
 + (TMEUser *)userByFacebookDictionary:(NSDictionary *)data{
-    return [MTLJSONAdapter modelOfClass:[TMEUser class] fromJSONDictionary:data error:NULL];
+    // The dictionary is fagmented so we have to merge before parsing it
+    NSMutableDictionary *userDict = [data[@"user"] mutableCopy];
+    userDict[@"access_token"] = data[@"access_token"];
+    
+    NSError *error;
+    TMEUser *user = [MTLJSONAdapter modelOfClass:[TMEUser class] fromJSONDictionary:userDict error:&error];
+    return user;
 }
 
 + (TMEUser *)userWithID:(NSNumber *)ID fullName:(NSString *)fullName photoURL:(NSString *)photoURL
