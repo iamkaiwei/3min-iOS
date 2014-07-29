@@ -28,8 +28,8 @@ cellRightIdentifier:(NSString *)aCellRightIdentifier
              paging:(BOOL)flag{
     self = [super initWithItems:anItems cellIdentifier:aCellIdentifier paging:flag handleCellBlock:nil];
     if (self) {;
-        self.cellRightIdentifier = aCellRightIdentifier;
-        self.conversation = aConversation;
+        _cellRightIdentifier = aCellRightIdentifier;
+        _conversation = aConversation;
     }
     return self;
 }
@@ -62,8 +62,8 @@ cellRightIdentifier:(NSString *)aCellRightIdentifier
         return cell;
     }
     
-    item.user_full_name = self.conversation.user_full_name;
-    item.user_avatar = self.conversation.user_avatar;
+    item.user_full_name = self.conversation.userFullname;
+    item.user_avatar = self.conversation.userAvatar;
     TMESubmitTableCellRight *cell = [tableView dequeueReusableCellWithIdentifier:self.cellRightIdentifier
                                                                     forIndexPath:indexPath];
     [cell configCellWithMessage:item];

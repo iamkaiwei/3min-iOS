@@ -1,10 +1,25 @@
-#import "_TMEConversation.h"
+//
+//  TMEConversation.h
+//  ThreeMin
+//
+//  Created by Triệu Khang on 20/7/14.
+//  Copyright (c) 2014 3min. All rights reserved.
+//
 
-@interface TMEConversation : _TMEConversation {}
-// Custom logic goes here.
+#import "MTLModel.h"
 
-+ (NSArray *)arrayConversationFromArrayData:(NSArray *)arrayData;
-+ (NSArray *)arrayConversationFromOfferArrayData:(NSArray *)arrayData;
-+ (TMEConversation *)aConversationFromData:(NSDictionary *)data;
+@interface TMEConversation : MTLModel <MTLJSONSerializing>
+
+@property (nonatomic, copy  ) NSString   *channelName;
+@property (nonatomic, strong) NSNumber   *id;
+@property (nonatomic, copy  ) NSString   *latestMessage;
+@property (nonatomic, strong) NSDate     *latestUpdate;
+@property (nonatomic, strong) NSNumber   *offer;
+@property (nonatomic, copy  ) NSString   *userAvatar;
+@property (nonatomic, copy  ) NSString   *userFullname;
+@property (nonatomic, strong) NSNumber   *userID;
+
+@property (nonatomic, strong) NSArray    *replies;
+@property (nonatomic, weak  ) TMEProduct *product;
 
 @end

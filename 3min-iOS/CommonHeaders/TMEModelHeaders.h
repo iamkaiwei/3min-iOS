@@ -17,5 +17,8 @@
 #import "TMEUser+BackwardSupport.h"
 
 #import "TMEReply.h"
+
 #import "TMEConversation.h"
+#import "TMEConversation+BackwardSupport.h"
+
 #import "TMEActivity.h"

@@ -24,16 +24,16 @@
 @implementation TMEActivityTableViewCell
 
 - (void)configCellWithData:(TMEConversation *)conversation {
-	self.labelUserName.text = conversation.user_full_name;
-	self.labelTimestamp.text = [conversation.latest_update relativeDate];
+	self.labelUserName.text = conversation.userFullname;
+	self.labelTimestamp.text = [conversation.latestUpdate relativeDate];
 	[self.labelTimestamp sizeToFit];
 
 	CGRect frame = self.imageViewClock.frame;
 	frame.origin.x = CGRectGetMaxX(self.labelTimestamp.frame) + 3;
 	self.imageViewClock.frame = frame;
 
-	self.labelContent.text = conversation.latest_message;
-	[self.imageViewAvatar sd_setImageWithURL:[NSURL URLWithString:conversation.user_avatar]];
+	self.labelContent.text = conversation.latestMessage;
+	[self.imageViewAvatar sd_setImageWithURL:[NSURL URLWithString:conversation.userAvatar]];
 
 	NSURL *imageURL = [[conversation.product.images lastObject] thumbURL];
 

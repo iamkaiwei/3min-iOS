@@ -26,12 +26,12 @@
 - (void)configCellWithData:(TMEConversation *)conversation {
 	[self.productIndicator startAnimating];
 	[self.avatarIndicator startAnimating];
-	self.labelUserName.text = conversation.user_full_name;
+	self.labelUserName.text = conversation.userFullname;
 
-	if (conversation.latest_update) {
+	if (conversation.latestUpdate) {
 		self.labelTimestamp.hidden = NO;
 		self.imageViewClock.hidden = NO;
-		self.labelTimestamp.text = [conversation.latest_update relativeDate];
+		self.labelTimestamp.text = [conversation.latestUpdate relativeDate];
 		[self.labelTimestamp sizeToFit];
 
 		CGRect frame = self.imageViewClock.frame;
@@ -42,7 +42,7 @@
 	self.labelOfferPrice.text = [NSString stringWithFormat:@"%@ VND", conversation.offer];
 
 	[self.labelOfferPrice sizeToFitKeepHeight];
-	[self.imageViewAvatar sd_setImageWithURL:[NSURL URLWithString:conversation.user_avatar]];
+	[self.imageViewAvatar sd_setImageWithURL:[NSURL URLWithString:conversation.userAvatar]];
 
 	NSURL *imageURL = [[conversation.product.images lastObject] thumbURL];
 	if (imageURL) {

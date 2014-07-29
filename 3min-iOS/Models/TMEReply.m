@@ -14,7 +14,7 @@
 
 + (NSArray *)arrayRepliesFromArrayData:(NSArray *)arrData ofConversation:(TMEConversation *)conversation{
     NSMutableArray *arrReplies = [@[] mutableCopy];
-    NSNumber *largestID = [conversation.repliesSet valueForKeyPath:@"@max.id"];
+    NSNumber *largestID = [conversation.replies valueForKeyPath:@"@max.id"];
     for (NSDictionary *data in arrData) {
         TMEReply *reply = [TMEReply replyWithData:data ofConversation:conversation];
         if (!largestID) {
