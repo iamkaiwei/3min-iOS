@@ -214,6 +214,7 @@
 		B40522451987562D00A148AD /* TMEConversation+BackwardSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = B40522441987562D00A148AD /* TMEConversation+BackwardSupport.m */; };
 		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
 		B4AE17D3198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */; };
+		B4AE17D6198E4A3200F6D601 /* KHRoundAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
@@ -559,6 +560,8 @@
 		B40522441987562D00A148AD /* TMEConversation+BackwardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEConversation+BackwardSupport.m"; sourceTree = "<group>"; };
 		B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPDFUIKitMainThreadGuard.m; sourceTree = "<group>"; };
+		B4AE17D4198E4A3200F6D601 /* KHRoundAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRoundAvatar.h; sourceTree = "<group>"; };
+		B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHRoundAvatar.m; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -904,6 +907,8 @@
 				99EA0E161978492C00872EE4 /* UIPlaceHolderTextView.h */,
 				99EA0E171978492C00872EE4 /* UIPlaceHolderTextView.m */,
 				B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */,
+				B4AE17D4198E4A3200F6D601 /* KHRoundAvatar.h */,
+				B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */,
 			);
 			name = Class;
 			path = "3min-iOS/Class";
@@ -1591,6 +1596,7 @@
 				99EA0F251978492D00872EE4 /* UIBarButtonItem+Custom.m in Sources */,
 				B4AE17D3198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m in Sources */,
 				99EA0F371978492D00872EE4 /* UIWebView+Additions.m in Sources */,
+				B4AE17D6198E4A3200F6D601 /* KHRoundAvatar.m in Sources */,
 				99EA0F151978492D00872EE4 /* CAAnimation+EasingEquations.m in Sources */,
 				99EA0F4E1978492D00872EE4 /* TMELeftMenuTableViewCell.m in Sources */,
 				99EA0F711978492D00872EE4 /* TMESearchTableViewCell.m in Sources */,
