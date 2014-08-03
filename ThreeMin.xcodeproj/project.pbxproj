@@ -557,28 +557,6 @@
 		B40522431987562D00A148AD /* TMEConversation+BackwardSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEConversation+BackwardSupport.h"; sourceTree = "<group>"; };
 		B40522441987562D00A148AD /* TMEConversation+BackwardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEConversation+BackwardSupport.m"; sourceTree = "<group>"; };
 		B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		B43FB26D1974E0EA00B69CF1 /* TMEProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProduct.h; sourceTree = "<group>"; };
-		B43FB26E1974E0EA00B69CF1 /* TMEProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProduct.m; sourceTree = "<group>"; };
-		B4785C27190A6557008EF4DA /* TMEActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEActivity.h; sourceTree = "<group>"; };
-		B4785C28190A6557008EF4DA /* TMEActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEActivity.m; sourceTree = "<group>"; };
-		B4785C29190A6557008EF4DA /* TMECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECategory.h; sourceTree = "<group>"; };
-		B4785C2A190A6557008EF4DA /* TMECategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECategory.m; sourceTree = "<group>"; };
-		B4785C31190A6557008EF4DA /* TMEReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEReply.h; sourceTree = "<group>"; };
-		B4785C32190A6557008EF4DA /* TMEReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEReply.m; sourceTree = "<group>"; };
-		B4D40309197BB73A009F2637 /* TMEConversation+BackwardSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEConversation+BackwardSupport.h"; sourceTree = "<group>"; };
-		B4D4030A197BB73A009F2637 /* TMEConversation+BackwardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEConversation+BackwardSupport.m"; sourceTree = "<group>"; };
-		B4D4030C197BB7A5009F2637 /* TMEConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEConversation.h; sourceTree = "<group>"; };
-		B4D4030D197BB7A5009F2637 /* TMEConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEConversation.m; sourceTree = "<group>"; };
-		B4D532CF19757B8F0017730C /* TMEProductImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductImage.h; sourceTree = "<group>"; };
-		B4D532D019757B8F0017730C /* TMEProductImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductImage.m; sourceTree = "<group>"; };
-		B4D532D21975829F0017730C /* TMEProduct+ParseArrayProducts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEProduct+ParseArrayProducts.h"; sourceTree = "<group>"; };
-		B4D532D31975829F0017730C /* TMEProduct+ParseArrayProducts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEProduct+ParseArrayProducts.m"; sourceTree = "<group>"; };
-		B4D532D5197583550017730C /* TMEProduct+BackwardSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEProduct+BackwardSupport.h"; sourceTree = "<group>"; };
-		B4D532D6197583550017730C /* TMEProduct+BackwardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEProduct+BackwardSupport.m"; sourceTree = "<group>"; };
-		B6178F651977C14F00DA70D9 /* TMEUser+BackwardSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEUser+BackwardSupport.h"; sourceTree = "<group>"; };
-		B6178F661977C14F00DA70D9 /* TMEUser+BackwardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEUser+BackwardSupport.m"; sourceTree = "<group>"; };
-		B6178F681977C1EB00DA70D9 /* TMEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUser.h; sourceTree = "<group>"; };
-		B6178F691977C1EB00DA70D9 /* TMEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUser.m; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1204,28 +1182,6 @@
 			children = (
 				99EA0E9B1978492D00872EE4 /* TMETutorialViewController.h */,
 				99EA0E9C1978492D00872EE4 /* TMETutorialViewController.m */,
-				B4785C27190A6557008EF4DA /* TMEActivity.h */,
-				B4785C28190A6557008EF4DA /* TMEActivity.m */,
-				B6178F681977C1EB00DA70D9 /* TMEUser.h */,
-				B6178F691977C1EB00DA70D9 /* TMEUser.m */,
-				B4785C29190A6557008EF4DA /* TMECategory.h */,
-				B4785C2A190A6557008EF4DA /* TMECategory.m */,
-				B4785C31190A6557008EF4DA /* TMEReply.h */,
-				B4785C32190A6557008EF4DA /* TMEReply.m */,
-				B43FB26D1974E0EA00B69CF1 /* TMEProduct.h */,
-				B43FB26E1974E0EA00B69CF1 /* TMEProduct.m */,
-				B4D532CF19757B8F0017730C /* TMEProductImage.h */,
-				B4D532D019757B8F0017730C /* TMEProductImage.m */,
-				B4D532D21975829F0017730C /* TMEProduct+ParseArrayProducts.h */,
-				B4D532D31975829F0017730C /* TMEProduct+ParseArrayProducts.m */,
-				B4D532D5197583550017730C /* TMEProduct+BackwardSupport.h */,
-				B4D532D6197583550017730C /* TMEProduct+BackwardSupport.m */,
-				B6178F651977C14F00DA70D9 /* TMEUser+BackwardSupport.h */,
-				B6178F661977C14F00DA70D9 /* TMEUser+BackwardSupport.m */,
-				B4D40309197BB73A009F2637 /* TMEConversation+BackwardSupport.h */,
-				B4D4030A197BB73A009F2637 /* TMEConversation+BackwardSupport.m */,
-				B4D4030C197BB7A5009F2637 /* TMEConversation.h */,
-				B4D4030D197BB7A5009F2637 /* TMEConversation.m */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";

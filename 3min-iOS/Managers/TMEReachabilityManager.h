@@ -20,5 +20,7 @@
 + (BOOL)isReachableViaWWAN;
 + (BOOL)isReachableViaWiFi;
 
+- (void)setup;
+
 
 @end
