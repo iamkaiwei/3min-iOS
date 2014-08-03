@@ -13,7 +13,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [TMEReachabilityManager sharedInstance];
+    [[TMEReachabilityManager sharedInstance] setup];
 
     return YES;
 }

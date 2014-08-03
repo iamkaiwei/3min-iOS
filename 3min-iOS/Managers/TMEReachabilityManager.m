@@ -30,16 +30,21 @@ SINGLETON_MACRO
 
 - (id)init {
     self = [super init];
-    
     if (self) {
-        // Initialize Reachability
-        self.reachability = [Reachability reachabilityWithHostname:@"www.google.com"];
-        self.lastState = 1;
-        // Start Monitoring
-        [self.reachability startNotifier];
+
     }
     
     return self;
+}
+
+- (void)setup
+{
+    // Initialize Reachability
+    self.reachability = [Reachability reachabilityWithHostname:@"www.google.com"];
+    self.lastState = 1;
+    
+    // Start Monitoring
+    [self.reachability startNotifier];
 }
 
 
