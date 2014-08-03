@@ -213,6 +213,13 @@
 		D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224260F19A2061C009DB3AC /* TMEDeviceManager.m */; };
 		D224261319A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */; };
 		D224261619A2070A009DB3AC /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261519A2070A009DB3AC /* TMEUserManager.m */; };
+		B4AE17DD198EAE1F00F6D601 /* TMEHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17DC198EAE1F00F6D601 /* TMEHomePageViewController.m */; };
+		B4AE17E7198EAF1400F6D601 /* TMESearchPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17E5198EAF1400F6D601 /* TMESearchPageContentViewController.m */; };
+		B4AE17E8198EAF1400F6D601 /* TMESearchPageContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AE17E6198EAF1400F6D601 /* TMESearchPageContentViewController.xib */; };
+		B4AE17EE198EAF9500F6D601 /* TMEBrowserPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17EC198EAF9500F6D601 /* TMEBrowserPageContentViewController.m */; };
+		B4AE17EF198EAF9500F6D601 /* TMEBrowserPageContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AE17ED198EAF9500F6D601 /* TMEBrowserPageContentViewController.xib */; };
+		B4AE17F3198EAFAD00F6D601 /* TMEProfilePageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17F1198EAFAD00F6D601 /* TMEProfilePageContentViewController.m */; };
+		B4AE17F4198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AE17F2198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
@@ -584,6 +591,17 @@
 		D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEDeviceManagerAppDelegateService.m; sourceTree = "<group>"; };
 		D224261419A2070A009DB3AC /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManager.h; sourceTree = "<group>"; };
 		D224261519A2070A009DB3AC /* TMEUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserManager.m; sourceTree = "<group>"; };
+		B4AE17DB198EAE1F00F6D601 /* TMEHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHomePageViewController.h; sourceTree = "<group>"; };
+		B4AE17DC198EAE1F00F6D601 /* TMEHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEHomePageViewController.m; sourceTree = "<group>"; };
+		B4AE17E4198EAF1400F6D601 /* TMESearchPageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESearchPageContentViewController.h; sourceTree = "<group>"; };
+		B4AE17E5198EAF1400F6D601 /* TMESearchPageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESearchPageContentViewController.m; sourceTree = "<group>"; };
+		B4AE17E6198EAF1400F6D601 /* TMESearchPageContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMESearchPageContentViewController.xib; sourceTree = "<group>"; };
+		B4AE17EB198EAF9500F6D601 /* TMEBrowserPageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserPageContentViewController.h; sourceTree = "<group>"; };
+		B4AE17EC198EAF9500F6D601 /* TMEBrowserPageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserPageContentViewController.m; sourceTree = "<group>"; };
+		B4AE17ED198EAF9500F6D601 /* TMEBrowserPageContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEBrowserPageContentViewController.xib; sourceTree = "<group>"; };
+		B4AE17F0198EAFAD00F6D601 /* TMEProfilePageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProfilePageContentViewController.h; sourceTree = "<group>"; };
+		B4AE17F1198EAFAD00F6D601 /* TMEProfilePageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProfilePageContentViewController.m; sourceTree = "<group>"; };
+		B4AE17F2198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEProfilePageContentViewController.xib; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -978,6 +996,7 @@
 				99EA0E831978492D00872EE4 /* Submit VCs */,
 				99EA0E8F1978492D00872EE4 /* Superclass */,
 				99EA0E9A1978492D00872EE4 /* Tutorial */,
+				B4AE17DA198EAE1F00F6D601 /* Home Page VC */,
 			);
 			name = Controllers;
 			path = "3min-iOS/Controllers";
@@ -1382,6 +1401,48 @@
 			path = YIFullScreenScroll;
 			sourceTree = "<group>";
 		};
+		B4AE17DA198EAE1F00F6D601 /* Home Page VC */ = {
+			isa = PBXGroup;
+			children = (
+				B4AE17EA198EAF8600F6D601 /* Profile */,
+				B4AE17E9198EAF7B00F6D601 /* Browser */,
+				B4AE17E3198EAF1400F6D601 /* Search */,
+				B4AE17DB198EAE1F00F6D601 /* TMEHomePageViewController.h */,
+				B4AE17DC198EAE1F00F6D601 /* TMEHomePageViewController.m */,
+			);
+			path = "Home Page VC";
+			sourceTree = "<group>";
+		};
+		B4AE17E3198EAF1400F6D601 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B4AE17E4198EAF1400F6D601 /* TMESearchPageContentViewController.h */,
+				B4AE17E5198EAF1400F6D601 /* TMESearchPageContentViewController.m */,
+				B4AE17E6198EAF1400F6D601 /* TMESearchPageContentViewController.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		B4AE17E9198EAF7B00F6D601 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				B4AE17EB198EAF9500F6D601 /* TMEBrowserPageContentViewController.h */,
+				B4AE17EC198EAF9500F6D601 /* TMEBrowserPageContentViewController.m */,
+				B4AE17ED198EAF9500F6D601 /* TMEBrowserPageContentViewController.xib */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
+		B4AE17EA198EAF8600F6D601 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B4AE17F0198EAFAD00F6D601 /* TMEProfilePageContentViewController.h */,
+				B4AE17F1198EAFAD00F6D601 /* TMEProfilePageContentViewController.m */,
+				B4AE17F2198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1450,6 +1511,7 @@
 				99EA0F6A1978492D00872EE4 /* TMEListOffersTableViewCell.xib in Resources */,
 				99EA0F7A1978492D00872EE4 /* TMESubmitViewController.xib in Resources */,
 				99EA0F4F1978492D00872EE4 /* TMELeftMenuTableViewCell.xib in Resources */,
+				B4AE17F4198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib in Resources */,
 				99EA0F6E1978492D00872EE4 /* PublishLocationPickerViewController.xib in Resources */,
 				99EA0F681978492D00872EE4 /* TMEListOffersTableViewController.xib in Resources */,
 				99EA0F611978492D00872EE4 /* TMEMeTableViewCell.xib in Resources */,
@@ -1464,9 +1526,11 @@
 				99EA0F781978492D00872EE4 /* TMESubmitTableCellRight.xib in Resources */,
 				99EA0F4A1978492D00872EE4 /* TMEBrowserCollectionViewController.xib in Resources */,
 				99EA0F411978492D00872EE4 /* TMEBrowserProductsTableCell.xib in Resources */,
+				B4AE17E8198EAF1400F6D601 /* TMESearchPageContentViewController.xib in Resources */,
 				99EA0F481978492D00872EE4 /* TMEBrowserCollectionCell.xib in Resources */,
 				99EA0F591978492D00872EE4 /* TMEMyListingTableViewCell.xib in Resources */,
 				99EA0F3E1978492D00872EE4 /* TMEActivityViewController.xib in Resources */,
+				B4AE17EF198EAF9500F6D601 /* TMEBrowserPageContentViewController.xib in Resources */,
 				99EA0F531978492D00872EE4 /* TMEHomeViewController.xib in Resources */,
 				99EA0F571978492D00872EE4 /* TMELikedViewController.xib in Resources */,
 				99EA0F701978492D00872EE4 /* TMEPublishProductViewController.xib in Resources */,
@@ -1539,6 +1603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99EA0F6D1978492D00872EE4 /* PublishLocationPickerViewController.m in Sources */,
+				B4AE17EE198EAF9500F6D601 /* TMEBrowserPageContentViewController.m in Sources */,
 				99EA0EEB1978492D00872EE4 /* TMEFacebookAppDelegateService.m in Sources */,
 				99EA0F6F1978492D00872EE4 /* TMEPublishProductViewController.m in Sources */,
 				99AA4B2219A26F0600268345 /* NSObject+TMENotification.m in Sources */,
@@ -1547,6 +1612,7 @@
 				99EA0F0A1978492D00872EE4 /* TMEProductImage.m in Sources */,
 				990014E6198E392300AF1553 /* TMENetworkManager.m in Sources */,
 				99EA0F181978492D00872EE4 /* MKMapView+Additions.m in Sources */,
+				B4AE17E7198EAF1400F6D601 /* TMESearchPageContentViewController.m in Sources */,
 				99EA0F541978492D00872EE4 /* TMELikedTableViewCell.m in Sources */,
 				99EA0F131978492D00872EE4 /* ActiveSupportInflector.m in Sources */,
 				99EA0F651978492D00872EE4 /* TMEOfferViewController.m in Sources */,
@@ -1555,6 +1621,7 @@
 				99EA0F441978492D00872EE4 /* TMEBrowserProductsViewControllerArrayDataSource.m in Sources */,
 				D224261319A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m in Sources */,
 				99EA0F3D1978492D00872EE4 /* TMEActivityViewController.m in Sources */,
+				B4AE17F3198EAFAD00F6D601 /* TMEProfilePageContentViewController.m in Sources */,
 				99EA0F201978492D00872EE4 /* NSObject+Additions.m in Sources */,
 				99EA0F161978492D00872EE4 /* ISO8601DateFormatter.m in Sources */,
 				99EA0F901978492D00872EE4 /* TMESwitch.m in Sources */,
@@ -1674,6 +1741,7 @@
 				990014E9198FE51B00AF1553 /* TMEActivityManager.m in Sources */,
 				99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */,
 				99EA0EF31978492D00872EE4 /* TMEConstants.m in Sources */,
+				B4AE17DD198EAE1F00F6D601 /* TMEHomePageViewController.m in Sources */,
 				99EA0F791978492D00872EE4 /* TMESubmitViewController.m in Sources */,
 				99EA0F401978492D00872EE4 /* TMEBrowserProductsTableCell.m in Sources */,
 				99EA0F7C1978492D00872EE4 /* TMEBaseArrayDataSource.m in Sources */,

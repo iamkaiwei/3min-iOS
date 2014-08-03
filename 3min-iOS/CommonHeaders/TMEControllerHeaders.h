@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
+#import "TMEHomePageViewController.h"
+#import "TMESearchPageContentViewController.h"
+#import "TMEProfilePageContentViewController.h"
+#import "TMEBrowserPageContentViewController.h"
 #import "TMENavigationViewController.h"
 #import "TMEBaseViewController.h"
 #import "TMEBaseTableViewController.h"
