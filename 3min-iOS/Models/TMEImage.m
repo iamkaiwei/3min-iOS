@@ -14,7 +14,6 @@
 {
     return @{
              @"imageId" : @"id",
-             @"specificType": @"specific_type",
              @"urlString": @"url",
              };
 }
