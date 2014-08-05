@@ -63,7 +63,7 @@
         self.dataArray = [arrayConversation mutableCopy];
         [self reloadTableViewListOffer];
     }
-                                      failureBlock:^(NSInteger statusCode, NSError *error)
+                                      failureBlock:^(NSError *error)
      {
          [self failureBlockHandleWithError:error];
          [self finishLoading];

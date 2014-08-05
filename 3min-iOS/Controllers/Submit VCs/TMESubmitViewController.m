@@ -197,7 +197,7 @@ PTPusherPresenceChannelDelegate
                                        showBottom:YES];
          }
      }
-                                       failureBlock:^(NSInteger statusCode, NSError *error)
+                                       failureBlock:^(NSError *error)
      {
          [self.dataArray removeLastObject];
          [self reloadTableViewConversationShowBottom:NO];
@@ -230,7 +230,7 @@ PTPusherPresenceChannelDelegate
          self.dataArray = [[self.dataArray sortByAttribute:@"time_stamp" ascending:YES] mutableCopy];
          [self reloadTableViewConversationShowBottom:showBottom];
      }
-                                          failureBlock:^(NSInteger statusCode, NSError *error)
+                                          failureBlock:^(NSError *error)
      {
          [self failureBlockHandleWithError:error];
      }];
@@ -317,9 +317,9 @@ PTPusherPresenceChannelDelegate
     {
         [self.arrayClientReplies removeAllObjects];
     }
-                                            failureBlock:^(NSInteger statusCode, id obj)
+                                            failureBlock:^(NSError *error)
     {
-        DLog(@"%@", obj);
+        DLog(@"%@", error);
     }];
 }
 

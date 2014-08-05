@@ -62,14 +62,12 @@
 	self.lblUserName.text = self.product.user.fullname;
 	self.lblTimestamp.text = [self.product.createAt relativeDate];
 
-	NSArray *arrayImageOfProduct = [self.product.images firstObject];
-
 	self.imgProductImage1.hidden = NO;
 
-	NSInteger minCount = MIN(arrayImageOfProduct.count, 3);
+	NSInteger minCount = MIN(self.product.images.count, 3);
 
 	for (int i = 0; i < minCount; i++) {
-		TMEProductImage *img = arrayImageOfProduct[i];
+		TMEProductImage *img = self.product.images[i];
 		[arrayImageView[i] setHidden:NO];
 		[arrayImageView[i] sd_setImageWithURL:[NSURL URLWithString:img.originURL]
 		                     placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
@@ -163,7 +161,7 @@
 	    [self.navigationController pushViewController:viewController animated:YES];
 	}
 
-	                                               failureBlock: ^(NSInteger statusCode, id obj)
+	                                               failureBlock: ^(NSError *error)
 	{
 	    [self.labelChatToBuy stopAnimating];
 	}];

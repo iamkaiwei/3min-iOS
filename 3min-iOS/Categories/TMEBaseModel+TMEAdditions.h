@@ -11,5 +11,6 @@
 @interface TMEBaseModel (TMEAdditions)
 
 + (NSArray *)tme_modelsFromJSONResponse:(id)JSONResponse;
++ (instancetype)tme_modelFromJSONResponse:(id)JSONResponse;
 
 @end

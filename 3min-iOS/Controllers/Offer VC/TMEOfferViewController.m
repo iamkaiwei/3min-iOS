@@ -73,8 +73,8 @@ UIAlertViewDelegate
              [self.navigationController pushViewController:submitController animated:YES];
          }
     }
-                                               failureBlock:^(NSInteger statusCode, id obj) {
-        [self failureBlockHandleWithError:obj];
+                                               failureBlock:^(NSError *error) {
+        [self failureBlockHandleWithError:error];
     }];
 }
 

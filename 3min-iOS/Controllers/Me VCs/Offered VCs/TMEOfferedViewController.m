@@ -80,7 +80,7 @@
          [self.dataArray addObjectsFromArray:arrayOfferedConversation];
          [self reloadTableViewOfferedConversation];
      }
-                                              failureBlock:^(NSInteger statusCode, NSError *error)
+                                              failureBlock:^(NSError *error)
      {
          [self failureBlockHandleWithError:error];
          [self finishLoading];

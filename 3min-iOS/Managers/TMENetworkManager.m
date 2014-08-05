@@ -62,6 +62,44 @@ OMNIA_SINGLETON_M(sharedManager)
     }];
 }
 
+- (void)post:(NSString *)path
+     params:(NSDictionary *)params
+    success:(TMENetworkManagerJSONResponseSuccessBlock)success
+    failure:(TMENetworkManagerFailureBlock)failure
+{
+    [self.requestManager POST:path
+                  parameters:params
+                     success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         if (success) {
+             success(responseObject);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
+- (void)put:(NSString *)path
+     params:(NSDictionary *)params
+    success:(TMENetworkManagerJSONResponseSuccessBlock)success
+    failure:(TMENetworkManagerFailureBlock)failure
+{
+    [self.requestManager PUT:path
+                  parameters:params
+                     success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         if (success) {
+             success(responseObject);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
 - (void)getModels:(Class)modelClass
              path:(NSString *)path
            params:(NSDictionary *)params success:(TMENetworkManagerArraySuccessBlock)success
@@ -75,6 +113,30 @@ OMNIA_SINGLETON_M(sharedManager)
          if (success) {
              dispatch_async(dispatch_get_main_queue(), ^{
                  success(models);
+             });
+         }
+     } failure:^(NSError *error) {
+         if (failure) {
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 failure(error);
+             });
+         }
+     }];
+}
+
+- (void)getModel:(Class)modelClass
+             path:(NSString *)path
+           params:(NSDictionary *)params success:(TMENetworkManagerModelSuccessBlock)success
+          failure:(TMENetworkManagerFailureBlock)failure
+{
+    [[TMENetworkManager sharedManager] get:path
+                                    params:params
+                                   success:^(id responseObject)
+     {
+         id model = [modelClass tme_modelFromJSONResponse:responseObject];
+         if (success) {
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 success(model);
              });
          }
      } failure:^(NSError *error) {

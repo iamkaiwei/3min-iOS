@@ -17,7 +17,8 @@
 	    NSString *url = [NSString stringWithFormat:@"%@%@", API_BASE_URL, API_PREFIX];
 	    manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:url]];
 	    dispatch_queue_t completionQueue = dispatch_queue_create("AFNetworkingParsingResponseQueue", DISPATCH_QUEUE_CONCURRENT);
-	    manager.completionQueue = completionQueue;
+        // FIXME: Disable for now
+	    //manager.completionQueue = completionQueue;
 
 	    manager.responseSerializer = [AFJSONResponseSerializer serializer];
 	    manager.requestSerializer = [AFJSONRequestSerializer serializer];

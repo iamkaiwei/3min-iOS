@@ -81,7 +81,9 @@ SINGLETON_MACRO
          {
              userRes.access_token = [self getAccessTokenFromStore];
              if (successBlock) {
-                 successBlock(userRes);
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     successBlock(userRes);
+                 });
              }
          }
                  andFailure:^(NSInteger statusCode, NSError *error)
@@ -144,8 +146,9 @@ SINGLETON_MACRO
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_FINISH_LOGIN object:user];
         
         if (successBlock)
-            successBlock(user);
-        
+            dispatch_async(dispatch_get_main_queue(), ^{
+                successBlock(user);
+            });
         self.isLogging = NO;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failureBlock)
