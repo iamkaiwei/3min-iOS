@@ -25,7 +25,7 @@
 - (void)configCellWithData:(TMECategory *)category
 {
     self.lblCategoryName.text = category.name;
-    [self.imageViewCategoryAvatar setImageWithURL:[NSURL URLWithString:category.image.urlString]];
+    [self.imageViewCategoryAvatar sd_setImageWithURL:[NSURL URLWithString:category.image.urlString]];
 }
 
 @end
