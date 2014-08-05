@@ -21,4 +21,9 @@ OMNIA_SINGLETON_H(sharedManager)
     success:(TMENetworkManagerJSONResponseSuccessBlock)success
     failure:(TMENetworkManagerFailureBlock)failure;
 
+- (void)getModels:(Class)modelClass
+             path:(NSString *)path
+           params:(NSDictionary *)params success:(TMENetworkManagerArraySuccessBlock)success
+          failure:(TMENetworkManagerFailureBlock)failure;
+
 @end

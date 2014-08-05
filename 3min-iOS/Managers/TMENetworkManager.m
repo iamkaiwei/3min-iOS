@@ -62,4 +62,28 @@ OMNIA_SINGLETON_M(sharedManager)
     }];
 }
 
+- (void)getModels:(Class)modelClass
+             path:(NSString *)path
+           params:(NSDictionary *)params success:(TMENetworkManagerArraySuccessBlock)success
+          failure:(TMENetworkManagerFailureBlock)failure
+{
+    [[TMENetworkManager sharedManager] get:path
+                                    params:params
+                                   success:^(id responseObject)
+     {
+         NSArray *models = [modelClass tme_modelsFromJSONResponse:responseObject];
+         if (success) {
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 success(models);
+             });
+         }
+     } failure:^(NSError *error) {
+         if (failure) {
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 failure(error);
+             });
+         }
+     }];
+}
+
 @end
