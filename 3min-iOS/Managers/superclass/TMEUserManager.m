@@ -18,7 +18,7 @@ static double const AVAIABLE_TOKEN_TIME_TO_EXPIRED           = 7200;
 
 @implementation TMEUserManager
 
-SINGLETON_MACRO
+OMNIA_SINGLETON_M(sharedManager)
 
 #pragma marks - Login/logout
 - (BOOL)isLoggedUser
@@ -39,7 +39,7 @@ SINGLETON_MACRO
 {
     self.loggedUser = nil;
     self.loggedFacebookUser = nil;
-  [[TMEFacebookManager sharedInstance] logout];
+  [[TMEFacebookManager sharedManager] logout];
 }
 
 - (NSString *)getFacebookToken
@@ -61,7 +61,7 @@ SINGLETON_MACRO
     return self.loggedUser.facebook_id;
 }
 
-- (void)loginBySendingFacebookWithSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock andFailureBlock:(TMEJSONLoginFailureSuccessBlock)failureBlock{
+- (void)loginBySendingFacebookWithSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock andFailureBlock:(TMENetworkManagerFailureBlock)failureBlock{
     
     // prevent login but dont needed
     if (self.loggedUser && successBlock) {
@@ -86,15 +86,15 @@ SINGLETON_MACRO
                  });
              }
          }
-                 andFailure:^(NSInteger statusCode, NSError *error)
-        {
-            if (failureBlock) {
-                failureBlock(statusCode, error);
-            }
-            [[TMEFacebookManager sharedInstance] logout];
-            self.isLogging = NO;
-        }];
-      
+                 andFailure:^(NSError *error)
+         {
+             if (failureBlock) {
+                 failureBlock(error);
+             }
+             [[TMEFacebookManager sharedManager] logout];
+             self.isLogging = NO;
+         }];
+
         return;
     }
 
@@ -103,37 +103,34 @@ SINGLETON_MACRO
     
 }
 
-- (void)getUserWithID:(NSNumber *)userID onSuccess:(void (^)(TMEUser *user))successBlock andFailure:(TMEJSONRequestFailureBlock)failureBlock
+- (void)getUserWithID:(NSNumber *)userID onSuccess:(void (^)(TMEUser *user))successBlock andFailure:(TMENetworkManagerFailureBlock)failureBlock
 {
     NSDictionary *params = @{@"access_token": [self getAccessTokenFromStore]};
     
     NSString *path = [NSString stringWithFormat:@"%@/%@/%@",API_SERVER_HOST,API_USER,userID];
 
-    [[AFHTTPRequestOperationManager tme_manager] GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        TMEUser *user = [TMEUser userWithData:responseObject];
-        
-        if (successBlock) {
-            successBlock(user);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (failureBlock)
-            failureBlock(error.code, error);
-    }];
+    [[TMENetworkManager sharedManager] getModel:[TMEUser class] path:path
+                                         params:params
+                                        success:successBlock
+                                        failure:failureBlock];
 }
 
 - (void)sendNewLoginRequestWithSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock
-                            andFailureBlock:(TMEJSONRequestFailureBlock)failureBlock
+                            andFailureBlock:(TMENetworkManagerFailureBlock)failureBlock
 {
     NSDictionary *params = @{
-                             @"fb_token": [[TMEUserManager sharedInstance] getFacebookToken],
-                             @"udid": [[TMEUserManager sharedInstance] getUDID],
+                             @"fb_token": [[TMEUserManager sharedManager] getFacebookToken],
+                             @"udid": [[TMEUserManager sharedManager] getUDID],
                              @"client_secret": API_CLIENT_SERCET,
                              @"client_id": API_CLIENT_ID,
                              @"grant_type": API_GRANT_TYPE};
     
     NSString *path = [NSString stringWithFormat:@"%@%@", API_BASE_URL, API_USER_LOGIN];
 
-    [[AFHTTPRequestOperationManager tme_manager] POST:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[TMENetworkManager sharedManager] post:path
+                                     params:params
+                                    success:^(id responseObject)
+    {
         TMEUser *user;
         if (responseObject){
             user = [TMEUser userByFacebookDictionary:responseObject];
@@ -144,17 +141,23 @@ SINGLETON_MACRO
         }
         // broadcast
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_FINISH_LOGIN object:user];
-        
+
+        [[TMENetworkManager sharedManager] updateAuthorizationHeader];
+
         if (successBlock)
             dispatch_async(dispatch_get_main_queue(), ^{
                 successBlock(user);
             });
         self.isLogging = NO;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (failureBlock)
-            failureBlock(error.code, error);
-        [[TMEFacebookManager sharedInstance] logout];
+    } failure:^(NSError *error) {
+        if (failureBlock) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                failureBlock(error);
+            });
+        }
+        [[TMEFacebookManager sharedManager] logout];
         self.isLogging = NO;
+
     }];
 }
 
@@ -163,7 +166,7 @@ SINGLETON_MACRO
 {
     TMEUser *user;
     user.name = dicData[@"name"];
-    user.id = @([[TMEUserManager sharedInstance] getTheLargestUserID]);
+    user.id = @([[TMEUserManager sharedManager] getTheLargestUserID]);
     return user;
 }
 

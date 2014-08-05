@@ -9,7 +9,6 @@
 #import "TMEBaseManager.h"
 #import "TMENetworkManager.h"
 
-#import "BaseManager.h"
 #import "TMEProductsManager.h"
 #import "TMEUserManager.h"
 #import "TMEFacebookManager.h"
@@ -17,7 +16,7 @@
 #import "TMEConversationManager.h"
 #import "TMEReachabilityManager.h"
 #import "TMEPusherManager.h"
-#import "AFHTTPRequestOperationManager+Additions.h"
+
 
 #import "TMEActivityManager.h"
 #import "TMECategoryManager.h"

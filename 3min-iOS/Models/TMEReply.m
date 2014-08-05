@@ -50,9 +50,9 @@
 {
     TMEReply *reply = [TMEReply MR_createEntity];
     reply.reply = content;
-    reply.user_avatar = [[[TMEUserManager sharedInstance] loggedUser] photo_url];
-    reply.user_full_name = [[[TMEUserManager sharedInstance] loggedUser] fullname];
-    reply.user_id = [[[TMEUserManager sharedInstance] loggedUser] id];
+    reply.user_avatar = [[[TMEUserManager sharedManager] loggedUser] photo_url];
+    reply.user_full_name = [[[TMEUserManager sharedManager] loggedUser] fullname];
+    reply.user_id = [[[TMEUserManager sharedManager] loggedUser] id];
     
     return reply;
 }

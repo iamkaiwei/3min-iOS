@@ -93,7 +93,7 @@
          [self.dataArray addObjectsFromArray:arrayProduct];
          [self reloadTableViewMyListing];
      }
-                                                 failureBlock:^(NSInteger statusCode, NSError *error)
+                                                 failureBlock:^(NSError *error)
      {
          [self failureBlockHandleWithError:error];
          [self finishLoading];

@@ -30,17 +30,21 @@ OMNIA_SINGLETON_M(sharedManager)
         _requestManager.completionQueue = dispatch_queue_create("AFNetworkingCallbackQueue", DISPATCH_QUEUE_CONCURRENT);
         _requestManager.responseSerializer = [AFJSONResponseSerializer serializer];
 
-        // Authorization
-        NSString *access_token = [[TMEUserManager sharedInstance] getAccessToken];
-        if (access_token) {
-            NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", access_token];
-            [_requestManager.requestSerializer setValue:authHeader
-                                     forHTTPHeaderField:@"Authorization"];
-        }
-
+        [self updateAuthorizationHeader];
     }
 
     return self;
+}
+
+- (void)updateAuthorizationHeader
+{
+    // Authorization
+    NSString *access_token = [[TMEUserManager sharedManager] getAccessToken];
+    if (access_token) {
+        NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", access_token];
+        [_requestManager.requestSerializer setValue:authHeader
+                                 forHTTPHeaderField:@"Authorization"];
+    }
 }
 
 - (void)get:(NSString *)path

@@ -17,6 +17,8 @@ typedef void (^TMENetworkManagerFailureBlock)(NSError *error);
 
 OMNIA_SINGLETON_H(sharedManager)
 
+- (void)updateAuthorizationHeader;
+
 - (void)get:(NSString *)path
      params:(NSDictionary *)params
     success:(TMENetworkManagerJSONResponseSuccessBlock)success

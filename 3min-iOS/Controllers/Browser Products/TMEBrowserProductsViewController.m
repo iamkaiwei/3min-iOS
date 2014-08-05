@@ -117,7 +117,7 @@ TMEBrowserProductsTableCellDelegate
              {
                  [self loadSuccessHandleWithResponseArray:arrProducts page:page];
              }
-                                              failureBlock:^(NSInteger statusCode, NSError *error)
+                                              failureBlock:^(NSError *error)
              {
                  [self failureBlockHandleWithError:error];
                  [self finishLoading];
@@ -129,7 +129,7 @@ TMEBrowserProductsTableCellDelegate
                                    onSuccessBlock:^(NSArray *arrProducts)
          {
              [self loadSuccessHandleWithResponseArray:arrProducts page:page];
-         } failureBlock:^(NSInteger statusCode, NSError *error) {
+         } failureBlock:^(NSError *error) {
              [self failureBlockHandleWithError:error];
              [self finishLoading];
          }];
@@ -141,7 +141,7 @@ TMEBrowserProductsTableCellDelegate
      {
          [self loadSuccessHandleWithResponseArray:arrProducts page:page];
      }
-                                 failureBlock:^(NSInteger statusCode, NSError *error)
+                                 failureBlock:^(NSError *error)
      {
          [self failureBlockHandleWithError:error];
          [self finishLoading];
@@ -213,7 +213,7 @@ TMEBrowserProductsTableCellDelegate
              label.text = [@(label.text.integerValue + 1) stringValue];
              [self.tableView reloadData];
          }
-                                        failureBlock:^(NSInteger statusCode, NSError *error)
+                                        failureBlock:^(NSError *error)
          {
              [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:NO];
          }];
@@ -232,7 +232,7 @@ TMEBrowserProductsTableCellDelegate
          label.text = [@(label.text.integerValue - 1) stringValue];
          [self.tableView reloadData];
      }
-                                                  failureBlock:^(NSInteger statusCode, NSError *error)
+                                                  failureBlock:^(NSError *error)
      {
          [self likeProductFailureHandleButtonLike:sender currentCellProduct:currentCellProduct label:label unlike:YES];
      }];

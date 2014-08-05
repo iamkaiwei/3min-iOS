@@ -11,7 +11,7 @@
 #import "TMECategory.h"
 #import "TMEUser.h"
 
-@interface TMEProduct : MTLModel <MTLJSONSerializing>
+@interface TMEProduct : TMEBaseModel <MTLJSONSerializing>
 
 @property (nonatomic, strong) NSNumber *productID;
 

@@ -102,7 +102,7 @@ UICollectionViewDelegate
              {
                  [self successBlockHandleWithResponseArray:arrProducts page:page];
              }
-                                              failureBlock:^(NSInteger statusCode, NSError *error)
+                                              failureBlock:^(NSError *error)
              {
                  [self failureBlockHandleWithError:error];
                  [self.pullToRefreshView endRefreshing];
@@ -116,7 +116,7 @@ UICollectionViewDelegate
          {
              [self successBlockHandleWithResponseArray:arrProducts page:page];
          }
-                                     failureBlock:^(NSInteger statusCode, NSError *error)
+                                     failureBlock:^(NSError *error)
          {
              [self failureBlockHandleWithError:error];
              [self.pullToRefreshView endRefreshing];
@@ -128,7 +128,7 @@ UICollectionViewDelegate
      {
          [self successBlockHandleWithResponseArray:arrProducts page:page];
      }
-                                 failureBlock:^(NSInteger statusCode, NSError *error)
+                                 failureBlock:^(NSError *error)
      {
          [self failureBlockHandleWithError:error];
          [self.pullToRefreshView endRefreshing];

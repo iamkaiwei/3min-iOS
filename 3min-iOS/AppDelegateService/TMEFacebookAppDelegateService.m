@@ -19,7 +19,7 @@
 {
     // Facebook Stuffs
     [FBLoginView class];
-    [FacebookManager sharedInstance].delegate = (id) self;
+    [FacebookManager sharedManager].delegate = (id) self;
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
 
         // ASK: What is openSession ?

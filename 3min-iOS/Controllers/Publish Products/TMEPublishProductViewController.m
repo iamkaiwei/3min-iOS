@@ -158,7 +158,7 @@ UITextViewDelegate
 - (TMEProduct *)getTheInputProductFromForm
 {
     // create dummy user
-    TMEUser *user = [[TMEUserManager sharedInstance] loggedUser];
+    TMEUser *user = [[TMEUserManager sharedManager] loggedUser];
     
     // category
     NSInteger pickerIndex = [self.pickerCategories selectedRowInComponent:0];

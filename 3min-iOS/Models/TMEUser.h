@@ -8,7 +8,7 @@
 
 #import "MTLModel.h"
 
-@interface TMEUser : MTLModel <MTLJSONSerializing>
+@interface TMEUser : TMEBaseModel <MTLJSONSerializing>
 
 @property (nonatomic, copy) NSString *accessToken;
 @property (nonatomic, copy) NSString *email;

@@ -6,7 +6,6 @@
 //
 //
 
-#import "BaseManager.h"
 #import "TMECOnversation.h"
 
 @interface TMEConversationManager : TMEBaseManager

@@ -6,10 +6,11 @@
 //
 //
 
-#import "BaseManager.h"
 #import "FacebookManager.h"
 
 @interface TMEFacebookManager : FacebookManager
+
+OMNIA_SINGLETON_H(sharedManager)
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user;

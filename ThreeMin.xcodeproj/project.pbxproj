@@ -63,8 +63,6 @@
 		99EA0EF11978492D00872EE4 /* TMERootAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D751978492C00872EE4 /* TMERootAppDelegateService.m */; };
 		99EA0EF21978492D00872EE4 /* TMEVersionCheckerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D771978492C00872EE4 /* TMEVersionCheckerAppDelegateService.m */; };
 		99EA0EF31978492D00872EE4 /* TMEConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D7D1978492C00872EE4 /* TMEConstants.m */; };
-		99EA0EF41978492D00872EE4 /* AFHTTPRequestOperationManager+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D871978492C00872EE4 /* AFHTTPRequestOperationManager+Additions.m */; };
-		99EA0EF51978492D00872EE4 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D8A1978492C00872EE4 /* BaseManager.m */; };
 		99EA0EF61978492D00872EE4 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D8C1978492C00872EE4 /* FacebookManager.m */; };
 		99EA0EF71978492D00872EE4 /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D8E1978492C00872EE4 /* TMEUserManager.m */; };
 		99EA0EFA1978492D00872EE4 /* TMEConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D941978492C00872EE4 /* TMEConversationManager.m */; };
@@ -301,10 +299,6 @@
 		99EA0D821978492C00872EE4 /* TMEUsefulMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUsefulMacros.h; sourceTree = "<group>"; };
 		99EA0D831978492C00872EE4 /* TMEVendorHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEVendorHeaders.h; sourceTree = "<group>"; };
 		99EA0D841978492C00872EE4 /* TMEViewHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEViewHeaders.h; sourceTree = "<group>"; };
-		99EA0D861978492C00872EE4 /* AFHTTPRequestOperationManager+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPRequestOperationManager+Additions.h"; sourceTree = "<group>"; };
-		99EA0D871978492C00872EE4 /* AFHTTPRequestOperationManager+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPRequestOperationManager+Additions.m"; sourceTree = "<group>"; };
-		99EA0D891978492C00872EE4 /* BaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
-		99EA0D8A1978492C00872EE4 /* BaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManager.m; sourceTree = "<group>"; };
 		99EA0D8B1978492C00872EE4 /* FacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookManager.h; sourceTree = "<group>"; };
 		99EA0D8C1978492C00872EE4 /* FacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookManager.m; sourceTree = "<group>"; };
 		99EA0D8D1978492C00872EE4 /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManager.h; sourceTree = "<group>"; };
@@ -735,8 +729,6 @@
 		99EA0D851978492C00872EE4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				99EA0D861978492C00872EE4 /* AFHTTPRequestOperationManager+Additions.h */,
-				99EA0D871978492C00872EE4 /* AFHTTPRequestOperationManager+Additions.m */,
 				99EA0D881978492C00872EE4 /* superclass */,
 				99EA0D931978492C00872EE4 /* TMEConversationManager.h */,
 				99EA0D941978492C00872EE4 /* TMEConversationManager.m */,
@@ -764,8 +756,6 @@
 		99EA0D881978492C00872EE4 /* superclass */ = {
 			isa = PBXGroup;
 			children = (
-				99EA0D891978492C00872EE4 /* BaseManager.h */,
-				99EA0D8A1978492C00872EE4 /* BaseManager.m */,
 				99EA0D8B1978492C00872EE4 /* FacebookManager.h */,
 				99EA0D8C1978492C00872EE4 /* FacebookManager.m */,
 				99EA0D8D1978492C00872EE4 /* TMEUserManager.h */,
@@ -1574,7 +1564,6 @@
 				990014EC198FE60C00AF1553 /* TMECategoryManager.m in Sources */,
 				990014E3198E391500AF1553 /* TMEBaseManager.m in Sources */,
 				99EA0F6B1978492D00872EE4 /* TMEProductDetailsViewController.m in Sources */,
-				99EA0EF41978492D00872EE4 /* AFHTTPRequestOperationManager+Additions.m in Sources */,
 				99EA0F3B1978492D00872EE4 /* TMEActivityTableViewCell.m in Sources */,
 				99EA0EF21978492D00872EE4 /* TMEVersionCheckerAppDelegateService.m in Sources */,
 				99EA0F271978492D00872EE4 /* UIButton+Additions.m in Sources */,
@@ -1633,7 +1622,6 @@
 				99EA0F1F1978492D00872EE4 /* NSNumber+Additions.m in Sources */,
 				99EA0F7B1978492D00872EE4 /* TMESubmitViewControllerArrayDataSource.m in Sources */,
 				99EA0F0D1978492D00872EE4 /* TMEUser.m in Sources */,
-				99EA0EF51978492D00872EE4 /* BaseManager.m in Sources */,
 				990014EF19905ACA00AF1553 /* TMEActivity.m in Sources */,
 				99EA0F301978492D00872EE4 /* UINavigationController+Additions.m in Sources */,
 				99EA0F2E1978492D00872EE4 /* UIImageView+CircleProgress.m in Sources */,

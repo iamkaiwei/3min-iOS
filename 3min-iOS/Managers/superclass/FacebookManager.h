@@ -16,7 +16,9 @@
 - (void)facebookLoginFailed:(FacebookManager *)facebookManager;
 @end
 
-@interface FacebookManager : BaseManager
+@interface FacebookManager : TMEBaseManager
+
+OMNIA_SINGLETON_H(sharedManager)
 
 @property (nonatomic, weak) id<FacebookManagerDelegate> delegate;
 

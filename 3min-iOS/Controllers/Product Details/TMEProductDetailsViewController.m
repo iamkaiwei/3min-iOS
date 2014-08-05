@@ -92,7 +92,7 @@
 
 	[self.scrollViewProductDetail autoAdjustScrollViewContentSize];
 
-	if ([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
+	if ([self.product.user.id isEqual:[[TMEUserManager sharedManager] loggedUser].id]) {
 		self.labelChatToBuy.text = NSLocalizedString(@"View Offers", nil);
 		return;
 	}
@@ -133,7 +133,7 @@
 		[SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
 		return;
 	}
-	if ([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
+	if ([self.product.user.id isEqual:[[TMEUserManager sharedManager] loggedUser].id]) {
 		TMEListOffersTableViewController *listOfferTableViewController = [[TMEListOffersTableViewController alloc] init];
 		listOfferTableViewController.product = self.product;
 		[self.navigationController pushViewController:listOfferTableViewController animated:YES];
@@ -182,7 +182,7 @@
 		    self.labelLikes.text = [@(self.labelLikes.text.integerValue + 1)stringValue];
 		}
 
-		                                failureBlock: ^(NSInteger statusCode, NSError *error)
+		                                failureBlock: ^(NSError *error)
 		{
 		    [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:NO];
 		}];
@@ -200,7 +200,7 @@
 	    self.labelLikes.text = [@(self.labelLikes.text.integerValue - 1)stringValue];
 	}
 
-	                                  failureBlock: ^(NSInteger statusCode, NSError *error)
+	                                  failureBlock: ^(NSError *error)
 	{
 	    [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:YES];
 	}];
