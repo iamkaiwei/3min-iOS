@@ -6,12 +6,16 @@
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
+#import "TMEBaseModel.h"
+
 #import "TMEProduct.h"
 #import "TMEProduct+BackwardSupport.h"
 #import "TMEProduct+ParseArrayProducts.h"
 
 #import "TMEProductImage.h"
 #import "TMECategory.h"
+
+#import "TMEImage.h"
 
 #import "TMEUser.h"
 #import "TMEUser+BackwardSupport.h"

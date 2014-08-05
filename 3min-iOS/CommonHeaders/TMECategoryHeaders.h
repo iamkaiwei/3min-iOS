@@ -41,5 +41,5 @@
 #import "SDWebImageManager.h"
 #import "IIViewDeckController.h"
 #import "CAAnimation+EasingEquations.h"
-#import "TMEActivity+Manager.h"
 #import "KZPropertyMapper+DateBoxing.h"
+#import "TMEBaseModel+TMEAdditions.h"

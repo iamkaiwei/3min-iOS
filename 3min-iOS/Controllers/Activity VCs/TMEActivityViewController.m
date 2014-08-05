@@ -29,7 +29,8 @@
     [self getCachedActivity];
     [self.pullToRefreshView beginRefreshing];
 
-    [TMEActivity getActivitySuccess:^(NSArray *arrActivities) {
+    // FIXME: Why just request network and do nothing ?
+    [[TMEActivityManager sharedManager] getActivitiesWithSuccess:^(NSArray *activities) {
 
     } failure:^(NSError *error) {
 

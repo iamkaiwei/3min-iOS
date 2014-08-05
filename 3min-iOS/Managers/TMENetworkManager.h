@@ -8,8 +8,17 @@
 
 #import "TMEBaseManager.h"
 
+typedef void (^TMENetworkManagerJSONResponseSuccessBlock)(id responseObject);
+typedef void (^TMENetworkManagerArraySuccessBlock)(NSArray *models);
+typedef void (^TMENetworkManagerFailureBlock)(NSError *error);
+
 @interface TMENetworkManager : TMEBaseManager
 
 OMNIA_SINGLETON_H(sharedManager)
+
+- (void)get:(NSString *)path
+     params:(NSDictionary *)params
+    success:(TMENetworkManagerJSONResponseSuccessBlock)success
+    failure:(TMENetworkManagerFailureBlock)failure;
 
 @end

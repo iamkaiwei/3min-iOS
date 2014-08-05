@@ -17,8 +17,10 @@
 #import "TMEVendorHeaders.h"
 
 #import "TMEModelHeaders.h"
+#import "TMECategoryHeaders.h"
+
 #import "TMEViewHeaders.h"
 #import "TMEControllerHeaders.h"
 #import "TMEManagerHeaders.h"
-#import "TMECategoryHeaders.h"
+
 

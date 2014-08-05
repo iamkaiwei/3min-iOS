@@ -96,7 +96,7 @@ UICollectionViewDelegate
     
     if (self.currentCategory) {
         self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
-        if ([self.currentCategory.id isEqualToNumber:@8]) {
+        if ([self.currentCategory.categoryId isEqualToNumber:@8]) {
             [TMEProductsManager getPopularProductsWithPage:page
                                             onSuccessBlock:^(NSArray *arrProducts)
              {

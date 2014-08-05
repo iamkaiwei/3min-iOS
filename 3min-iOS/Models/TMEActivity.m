@@ -1,27 +1,26 @@
+//
+//  TMEActivity.m
+//  ThreeMin
+//
+//  Created by Khoa Pham on 8/5/14.
+//  Copyright (c) 2014 3min. All rights reserved.
+//
+
 #import "TMEActivity.h"
-
-
-@interface TMEActivity ()
-
-// Private interface goes here.
-
-@end
-
+#import "TMEUser.h"
 
 @implementation TMEActivity
 
-// Custom logic goes here.
-- (BOOL)activityFromDictionary:(NSDictionary *)dict {
-    BOOL result = [KZPropertyMapper mapValuesFrom:dict
-                         toInstance:self
-                       usingMapping:@{
-                                      @"id": KZProperty(id),
-                                      @"content": KZProperty(content),
-                                      @"subject_id": KZProperty(subject_id),
-                                      @"subject_type": KZProperty(subject_type),
-                                      @"update_time": KZBox(DateSince1970, update_time)
-                                      }];
-    return result;
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{
+             @"activityId" : @"id",
+             };
+}
+
++ (NSValueTransformer *)userJSONTransformer
+{
+    return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[TMEUser class]];
 }
 
 @end

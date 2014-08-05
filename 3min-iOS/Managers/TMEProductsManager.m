@@ -35,7 +35,7 @@ SINGLETON_MACRO
                  failureBlock:(TMEJSONRequestFailureBlock)failureBlock
 {
     NSDictionary *params = @{@"page" : @(page),
-                             @"category_id" : category.id};
+                             @"category_id" : category.categoryId};
 
     [[AFHTTPRequestOperationManager tme_manager] GET:API_PRODUCTS parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
          if (successBlock){
