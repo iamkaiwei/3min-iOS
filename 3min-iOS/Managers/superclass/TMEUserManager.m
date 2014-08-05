@@ -33,6 +33,8 @@ OMNIA_SINGLETON_M(sharedManager)
 {
     self.loggedUser = loggedUser;
     self.loggedFacebookUser = user;
+
+    [[TMENetworkManager sharedManager] updateAuthorizationHeader];
 }
 
 - (void)logOut
@@ -81,13 +83,9 @@ OMNIA_SINGLETON_M(sharedManager)
          {
              userRes.access_token = [self getAccessTokenFromStore];
              if (successBlock) {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     successBlock(userRes);
-                 });
+                 successBlock(userRes);
              }
-         }
-                 andFailure:^(NSError *error)
-         {
+         } andFailure:^(NSError *error) {
              if (failureBlock) {
                  failureBlock(error);
              }
@@ -141,8 +139,6 @@ OMNIA_SINGLETON_M(sharedManager)
         }
         // broadcast
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_FINISH_LOGIN object:user];
-
-        [[TMENetworkManager sharedManager] updateAuthorizationHeader];
 
         if (successBlock)
             dispatch_async(dispatch_get_main_queue(), ^{

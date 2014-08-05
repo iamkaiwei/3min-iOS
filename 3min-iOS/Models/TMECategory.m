@@ -16,12 +16,13 @@
     return @{
              @"categoryId" : @"id",
              @"specificType": @"specific_type",
+             @"image": @"image",
              };
 }
 
 + (NSValueTransformer *)imageJSONTransformer
 {
-    return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[TMEImage class]];
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[TMEImage class]];
 }
 
 @end
