@@ -10,4 +10,6 @@
 
 @interface TMEProductCollectionViewCell : UICollectionViewCell
 
+- (void)configWithData:(TMEProduct *)product;
+
 @end
