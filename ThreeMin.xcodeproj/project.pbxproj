@@ -213,6 +213,8 @@
 		B410F76219961A7C000AE5B7 /* TMECategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F75E19961A7C000AE5B7 /* TMECategoryManager.m */; };
 		B410F76419961A84000AE5B7 /* TMENetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76319961A84000AE5B7 /* TMENetworkManager.m */; };
 		B410F76719961AA5000AE5B7 /* TMEBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76619961AA5000AE5B7 /* TMEBaseManager.m */; };
+		B410F76B1996231C000AE5B7 /* TMEProductCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76A1996231C000AE5B7 /* TMEProductCollectionViewCell.m */; };
+		B410F76D1996232F000AE5B7 /* TMEProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B410F76C1996232F000AE5B7 /* TMEProductCollectionViewCell.xib */; };
 		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
 		B4AE17D3198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */; };
 		B4AE17D6198E4A3200F6D601 /* KHRoundAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */; };
@@ -602,6 +604,9 @@
 		B410F76319961A84000AE5B7 /* TMENetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMENetworkManager.m; sourceTree = "<group>"; };
 		B410F76519961AA5000AE5B7 /* TMEBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseManager.h; sourceTree = "<group>"; };
 		B410F76619961AA5000AE5B7 /* TMEBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseManager.m; sourceTree = "<group>"; };
+		B410F7691996231C000AE5B7 /* TMEProductCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductCollectionViewCell.h; sourceTree = "<group>"; };
+		B410F76A1996231C000AE5B7 /* TMEProductCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductCollectionViewCell.m; sourceTree = "<group>"; };
+		B410F76C1996232F000AE5B7 /* TMEProductCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPDFUIKitMainThreadGuard.m; sourceTree = "<group>"; };
 		B4AE17D4198E4A3200F6D601 /* KHRoundAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRoundAvatar.h; sourceTree = "<group>"; };
@@ -1467,6 +1472,9 @@
 				B4AE17EB198EAF9500F6D601 /* TMEBrowserPageContentViewController.h */,
 				B4AE17EC198EAF9500F6D601 /* TMEBrowserPageContentViewController.m */,
 				B4AE17ED198EAF9500F6D601 /* TMEBrowserPageContentViewController.xib */,
+				B410F7691996231C000AE5B7 /* TMEProductCollectionViewCell.h */,
+				B410F76A1996231C000AE5B7 /* TMEProductCollectionViewCell.m */,
+				B410F76C1996232F000AE5B7 /* TMEProductCollectionViewCell.xib */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -1557,6 +1565,7 @@
 				99EA0F661978492D00872EE4 /* TMEOfferViewController.xib in Resources */,
 				99EA0F4D1978492D00872EE4 /* HTKContainerViewController.xib in Resources */,
 				99EA0F821978492D00872EE4 /* Images.xcassets in Resources */,
+				B410F76D1996232F000AE5B7 /* TMEProductCollectionViewCell.xib in Resources */,
 				99EA0F761978492D00872EE4 /* TMESubmitTableCell.xib in Resources */,
 				990CB7D6199A75D400AEA179 /* TMETutorialViewController.xib in Resources */,
 				99EA0F721978492D00872EE4 /* TMESearchTableViewCell.xib in Resources */,
@@ -1684,6 +1693,7 @@
 				99EA0F261978492D00872EE4 /* UIBezierPath-Points.m in Sources */,
 				99EA0F751978492D00872EE4 /* TMESubmitTableCell.m in Sources */,
 				99EA0F4B1978492D00872EE4 /* TMEBrowserCollectionViewDataSource.m in Sources */,
+				B410F76B1996231C000AE5B7 /* TMEProductCollectionViewCell.m in Sources */,
 				99EA0F491978492D00872EE4 /* TMEBrowserCollectionViewController.m in Sources */,
 				99EA0F471978492D00872EE4 /* TMEBrowserCollectionCell.m in Sources */,
 				99EA0F451978492D00872EE4 /* TMEBrowserProductTableViewHeader.m in Sources */,
