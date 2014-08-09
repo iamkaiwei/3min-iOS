@@ -215,6 +215,7 @@
 		B410F76719961AA5000AE5B7 /* TMEBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76619961AA5000AE5B7 /* TMEBaseManager.m */; };
 		B410F76B1996231C000AE5B7 /* TMEProductCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76A1996231C000AE5B7 /* TMEProductCollectionViewCell.m */; };
 		B410F76D1996232F000AE5B7 /* TMEProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B410F76C1996232F000AE5B7 /* TMEProductCollectionViewCell.xib */; };
+		B410F77019963703000AE5B7 /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76F19963703000AE5B7 /* WaterFlowLayout.m */; };
 		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
 		B4AE17D3198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */; };
 		B4AE17D6198E4A3200F6D601 /* KHRoundAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */; };
@@ -607,6 +608,8 @@
 		B410F7691996231C000AE5B7 /* TMEProductCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductCollectionViewCell.h; sourceTree = "<group>"; };
 		B410F76A1996231C000AE5B7 /* TMEProductCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductCollectionViewCell.m; sourceTree = "<group>"; };
 		B410F76C1996232F000AE5B7 /* TMEProductCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		B410F76E19963703000AE5B7 /* WaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
+		B410F76F19963703000AE5B7 /* WaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowLayout.m; sourceTree = "<group>"; };
 		B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPDFUIKitMainThreadGuard.m; sourceTree = "<group>"; };
 		B4AE17D4198E4A3200F6D601 /* KHRoundAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRoundAvatar.h; sourceTree = "<group>"; };
@@ -1005,6 +1008,8 @@
 		99EA0E111978492C00872EE4 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				B410F76E19963703000AE5B7 /* WaterFlowLayout.h */,
+				B410F76F19963703000AE5B7 /* WaterFlowLayout.m */,
 				99EA0E121978492C00872EE4 /* FSConverter.h */,
 				99EA0E131978492C00872EE4 /* FSConverter.m */,
 				99EA0E141978492C00872EE4 /* FSVenue.h */,
@@ -1698,6 +1703,7 @@
 				99EA0F471978492D00872EE4 /* TMEBrowserCollectionCell.m in Sources */,
 				99EA0F451978492D00872EE4 /* TMEBrowserProductTableViewHeader.m in Sources */,
 				99EA0F6B1978492D00872EE4 /* TMEProductDetailsViewController.m in Sources */,
+				B410F77019963703000AE5B7 /* WaterFlowLayout.m in Sources */,
 				99EA0F3B1978492D00872EE4 /* TMEActivityTableViewCell.m in Sources */,
 				99EA0F051978492D00872EE4 /* TMECategory.m in Sources */,
 				99EA0EF21978492D00872EE4 /* TMEVersionCheckerAppDelegateService.m in Sources */,
