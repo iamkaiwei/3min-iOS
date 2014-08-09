@@ -1,49 +1,52 @@
 //
-//  TMEHomeViewController.m
+//  TMEHomePageViewController.m
 //  ThreeMin
 //
 //  Created by Triệu Khang on 4/8/14.
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
-#import "TMEHomeViewController.h"
+#import "TMEHomePageViewController.h"
 
-@interface TMEHomeViewController ()
+@interface TMEHomePageViewController ()
 
 @end
 
-@implementation TMEHomeViewController
+@implementation TMEHomePageViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	// Do any additional setup after loading the view.
+    [self addPageViewControllerAndDisplay];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (void)addPageViewControllerAndDisplay {
+
+	[self addChildViewController:self.pageViewController];
+	[self.view addSubview:self.pageViewController.view];
+
+	CGRect pageViewRect = self.view.bounds;
+	self.pageViewController.view.frame = pageViewRect;
+
+	[self.pageViewController didMoveToParentViewController:self];
+
+	self.view.gestureRecognizers = self.pageViewController.gestureRecognizers;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+- (UIPageViewController *)pageViewController {
+	if (!_pageViewController) {
+		_pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
+		                                                          navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
+		                                                                        options:nil];
+		_pageViewDataSource = [[TMEHomePageViewDatasource alloc] init];
+		_pageViewController.dataSource = self.pageViewDataSource;
 
-/*
-#pragma mark - Navigation
+		UIViewController *startingViewController = self.pageViewDataSource.browserVC;
+		NSArray *viewControllers = @[startingViewController];
+		[_pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+	}
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+	return _pageViewController;
 }
-*/
 
 @end

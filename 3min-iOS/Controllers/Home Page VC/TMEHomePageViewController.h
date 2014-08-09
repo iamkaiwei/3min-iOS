@@ -1,5 +1,5 @@
 //
-//  TMEHomeViewController.h
+//  TMEHomePageViewController.h
 //  ThreeMin
 //
 //  Created by Triệu Khang on 4/8/14.
@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TMEHomePageViewDatasource.h"
 
-@interface TMEHomeViewController : UIPageViewController
+@interface TMEHomePageViewController : UIViewController
+
+@property (nonatomic, strong) UIPageViewController *pageViewController;
+@property (nonatomic, strong) TMEHomePageViewDatasource *pageViewDataSource;
 
 @end
