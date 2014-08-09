@@ -7,32 +7,54 @@
 //
 
 #import "TMEBrowserPageContentViewController.h"
+#import "TMEProductCollectionViewCell.h"
+#import "WaterFlowLayout.h"
 
 @interface TMEBrowserPageContentViewController ()
+<
+    UICollecitonViewDelegateWaterFlowLayout,
+    UICollectionViewDataSourceWaterFlowLayout
+>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionViewProducts;
 
 @end
 
 @implementation TMEBrowserPageContentViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	// Do any additional setup after loading the view from its nib.
+
+	[self.collectionViewProducts registerClass:[TMEProductCollectionViewCell class]
+	                forCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class])];
+
+    WaterFlowLayout *cvLayout = [[WaterFlowLayout alloc] init];
+    cvLayout.flowdatasource = self;
+    cvLayout.flowdelegate = self;
+    self.collectionViewProducts.collectionViewLayout = cvLayout;
+
+    self.collectionViewProducts.delegate = self;
+    self.collectionViewProducts.dataSource = self;
 }
 
-- (void)viewDidLoad
+- (NSInteger)numberOfColumnsInFlowLayout:(WaterFlowLayout *)flowlayout
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    return 2;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 100;
+}
+
+- (TMEProductCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    TMEProductCollectionViewCell *cell = (TMEProductCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class]) forIndexPath:indexPath];
+    [cell configWithData:[[TMEProduct alloc] init]];
+    return cell;
+}
+
+- (CGFloat)flowLayout:(WaterFlowLayout *)flowView heightForRowAtIndex:(int)i {
+    return 300.0f;
 }
 
 @end
