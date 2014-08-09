@@ -41,7 +41,7 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
 
     NSDictionary *controllers = @{
-                                  NSStringFromClass([TMESearchPageContentViewController class]): [NSNull null],
+                                  NSStringFromClass([TMESearchPageContentViewController class]): self.profileVC,
                                   NSStringFromClass([TMEBrowserPageContentViewController class]): self.searchVC,
                                   NSStringFromClass([TMEProfilePageContentViewController class]): self.browserVC,
                                   };
@@ -54,7 +54,7 @@
     NSDictionary *controllers = @{
                                   NSStringFromClass([TMESearchPageContentViewController class]): self.browserVC,
                                   NSStringFromClass([TMEBrowserPageContentViewController class]): self.profileVC,
-                                  NSStringFromClass([TMEProfilePageContentViewController class]): [NSNull null],
+                                  NSStringFromClass([TMEProfilePageContentViewController class]): sel,
                                   };
 
     return controllers[NSStringFromClass([viewController class])] ?: nil;
