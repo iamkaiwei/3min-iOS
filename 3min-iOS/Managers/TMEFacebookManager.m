@@ -11,7 +11,7 @@
 
 @implementation TMEFacebookManager
 
-SINGLETON_MACRO
+OMNIA_SINGLETON_M(sharedManager)
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user
@@ -22,14 +22,14 @@ SINGLETON_MACRO
       return;
     }
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Login...", nil) maskType:SVProgressHUDMaskTypeGradient];
-    [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
+    [[TMEUserManager sharedManager] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
         [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login successfully", nil)];
-        [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:user];
+        [[TMEUserManager sharedManager] setLoggedUser:tmeUser andFacebookUser:user];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowHomeViewControllerNotification
                                                             object:nil];
         
-    } andFailureBlock:^(NSInteger statusCode, id obj) {
+    } andFailureBlock:^(id obj) {
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Login failed", nil)];
     }];
 }

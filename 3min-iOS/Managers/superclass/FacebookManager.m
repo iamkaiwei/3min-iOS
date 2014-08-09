@@ -13,7 +13,7 @@
 
 @implementation FacebookManager
 
-SINGLETON_MACRO
+OMNIA_SINGLETON_M(sharedManager)
 
 #pragma mark -
 

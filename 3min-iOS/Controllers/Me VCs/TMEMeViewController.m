@@ -40,11 +40,11 @@ UIActionSheetDelegate
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setEdgeForExtendedLayoutAll];
-    self.navigationController.navigationBar.topItem.title = [[TMEUserManager sharedInstance] loggedUser].fullname;
+    self.navigationController.navigationBar.topItem.title = [[TMEUserManager sharedManager] loggedUser].fullname;
 }
 
 - (void)configView{
-    TMEUser *loggedUser = [[TMEUserManager sharedInstance] loggedUser];
+    TMEUser *loggedUser = [[TMEUserManager sharedManager] loggedUser];
     
     [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:loggedUser.photo_url]];
     self.imageViewAvatar.layer.cornerRadius = 70;
@@ -111,8 +111,8 @@ UIActionSheetDelegate
         if (![self isReachable]) {
             return;
         }
-        [[TMEUserManager sharedInstance] logOut];
-        [[TMEFacebookManager sharedInstance] showLoginView];
+        [[TMEUserManager sharedManager] logOut];
+        [[TMEFacebookManager sharedManager] showLoginView];
         UITabBarController *tabBarController = (UITabBarController *)self.deckController.centerController;
         tabBarController.selectedIndex = 0;
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:LAST_LOGIN_TIMESTAMP_STORED_KEY];

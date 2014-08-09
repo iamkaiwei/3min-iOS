@@ -165,11 +165,11 @@ PTPusherPresenceChannelDelegate
     if (self.currentChatMode == TMEChatModeOnline) {
         double currentTimeStamp = [[NSDate date] timeIntervalSince1970];
         [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_NAME
-                                           data:@{@"name": [TMEUserManager sharedInstance].loggedUser.fullname,
+                                           data:@{@"name": [TMEUserManager sharedManager].loggedUser.fullname,
                                                   @"message" : self.textViewInputMessage.text,
                                                   @"timestamp" : @(currentTimeStamp)}];
         TMEReply *reply = [TMEReply replyWithContent:self.textViewInputMessage.text
-                                              sender:[TMEUserManager sharedInstance].loggedUser
+                                              sender:[TMEUserManager sharedManager].loggedUser
                                            timeStamp:@(currentTimeStamp)];
         [self.dataArray addObject:reply];
         [self.arrayClientReplies addObject:@{ @"reply": self.textViewInputMessage.text,
@@ -197,7 +197,7 @@ PTPusherPresenceChannelDelegate
                                        showBottom:YES];
          }
      }
-                                       failureBlock:^(NSInteger statusCode, NSError *error)
+                                       failureBlock:^(NSError *error)
      {
          [self.dataArray removeLastObject];
          [self reloadTableViewConversationShowBottom:NO];
@@ -230,7 +230,7 @@ PTPusherPresenceChannelDelegate
          self.dataArray = [[self.dataArray sortByAttribute:@"time_stamp" ascending:YES] mutableCopy];
          [self reloadTableViewConversationShowBottom:showBottom];
      }
-                                          failureBlock:^(NSInteger statusCode, NSError *error)
+                                          failureBlock:^(NSError *error)
      {
          [self failureBlockHandleWithError:error];
      }];
@@ -256,7 +256,7 @@ PTPusherPresenceChannelDelegate
         return;
     }
     
-    if (![self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
+    if (![self.product.user.id isEqual:[[TMEUserManager sharedManager] loggedUser].id]) {
         self.buttonMarkAsSold.enabled = NO;
         [self.buttonMarkAsSold setTitle:NSLocalizedString(@"Selling", nil) forState:UIControlStateNormal];
     }
@@ -317,9 +317,9 @@ PTPusherPresenceChannelDelegate
     {
         [self.arrayClientReplies removeAllObjects];
     }
-                                            failureBlock:^(NSInteger statusCode, id obj)
+                                            failureBlock:^(NSError *error)
     {
-        DLog(@"%@", obj);
+        DLog(@"%@", error);
     }];
 }
 
@@ -347,7 +347,7 @@ PTPusherPresenceChannelDelegate
 
     if (textView.text.length > 0 && !self.isTyping && self.currentChatMode == TMEChatModeOnline) {
         [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_TYPING
-                                           data:@{@"text" : [NSString stringWithFormat:@"%@ is typing...", [TMEUserManager sharedInstance].loggedUser.fullname]}];
+                                           data:@{@"text" : [NSString stringWithFormat:@"%@ is typing...", [TMEUserManager sharedManager].loggedUser.fullname]}];
         self.isTyping = YES;
     }
 
@@ -427,7 +427,7 @@ PTPusherPresenceChannelDelegate
 }
 
 - (void)pusher:(PTPusher *)pusher willAuthorizeChannel:(PTPusherChannel *)channel withRequest:(NSMutableURLRequest *)request{
-    [request setValue:[NSString stringWithFormat:@"Bearer %@",[[TMEUserManager sharedInstance] getAccessToken]] forHTTPHeaderField:@"Authorization"];
+    [request setValue:[NSString stringWithFormat:@"Bearer %@",[[TMEUserManager sharedManager] getAccessToken]] forHTTPHeaderField:@"Authorization"];
 }
 
 - (void)presenceChannelDidSubscribe:(PTPusherPresenceChannel *)channel{

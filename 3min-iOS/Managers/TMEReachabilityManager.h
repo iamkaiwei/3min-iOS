@@ -6,10 +6,11 @@
 //
 //
 
-#import "BaseManager.h"
 #import "Reachability.h"
 
-@interface TMEReachabilityManager : BaseManager
+@interface TMEReachabilityManager : TMEBaseManager
+
+OMNIA_SINGLETON_H(sharedInstance)
 
 @property (strong, nonatomic) Reachability *reachability;
 @property (assign, nonatomic) NSInteger lastState;

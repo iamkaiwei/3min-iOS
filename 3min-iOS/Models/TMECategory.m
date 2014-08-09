@@ -1,50 +1,28 @@
+//
+//  TMECategory.m
+//  ThreeMin
+//
+//  Created by Khoa Pham on 8/5/14.
+//  Copyright (c) 2014 3min. All rights reserved.
+//
+
 #import "TMECategory.h"
-
-
-@interface TMECategory ()
-
-// Private interface goes here.
-
-@end
-
+#import "TMEImage.h"
 
 @implementation TMECategory
 
-// Custom logic goes here.
-+ (NSArray *)arrayCategoriesFromArray:(NSArray *)arrData
++ (NSDictionary *)JSONKeyPathsByPropertyKey
 {
-    NSMutableArray *arrProducts = [@[] mutableCopy];
-    for (NSDictionary *data in arrData) {
-        TMECategory *cat = [TMECategory categoryWithDictionary:data];
-        [arrProducts addObject:cat];
-    }
-    
-    return arrProducts;
+    return @{
+             @"categoryId" : @"id",
+             @"specificType": @"specific_type",
+             @"image": @"image",
+             };
 }
 
-+ (TMECategory *)categoryWithDictionary:(NSDictionary *)data
++ (NSValueTransformer *)imageJSONTransformer
 {
-    TMECategory *cat = [[TMECategory MR_findByAttribute:@"id" withValue:data[@"id"]] lastObject];
-    if (!cat) {
-        cat = [TMECategory MR_createEntity];
-        cat.id = data[@"id"];
-    }
-    
-    if ([data[@"name"] isEqual:[NSNull null]])
-        cat.name = @"";
-    else cat.name = data[@"name"];
-    
-    if ([data[@"description"] isEqual:[NSNull null]])
-        cat.details = @"";
-    else cat.details = data[@"description"];
-    
-    // category
-    if (data[@"image"]) {
-        NSDictionary *image = data[@"image"];
-        cat.photo_url = image[@"url"];
-    }
-    
-    return cat;
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[TMEImage class]];
 }
 
 @end

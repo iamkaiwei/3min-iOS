@@ -119,16 +119,16 @@
         return;
     }
 
-    if (![[TMEUserManager sharedInstance] loggedUser] && [TMEReachabilityManager isReachable]) {
+    if (![[TMEUserManager sharedManager] loggedUser] && [TMEReachabilityManager isReachable]) {
         [SVProgressHUD showWithStatus:NSLocalizedString(@"Login...", nil) maskType:SVProgressHUDMaskTypeGradient];
-        [[TMEUserManager sharedInstance] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
-            [[TMEUserManager sharedInstance] setLoggedUser:tmeUser andFacebookUser:nil];
+        [[TMEUserManager sharedManager] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
+            [[TMEUserManager sharedManager] setLoggedUser:tmeUser andFacebookUser:nil];
             [self updateUAAlias];
 
             [self switchRootViewController:self.deckController animated:YES completion:nil];
             UITabBarController *tabBarController = (UITabBarController *)self.deckController.centerController;
             tabBarController.selectedIndex = 0;
-        } andFailureBlock:^(NSInteger statusCode, id obj) {
+        } andFailureBlock:^(id obj) {
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Login failed", nil)];
         }];
 
@@ -179,7 +179,7 @@
 // TODO: Refactor
 - (void)updateUAAlias
 {
-    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedInstance].loggedUser.id integerValue]];
+    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedManager].loggedUser.id integerValue]];
     [[UAPush shared] updateRegistration];
 
 }

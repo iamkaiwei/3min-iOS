@@ -16,7 +16,7 @@
 
 @implementation TMEPusherManager
 
-SINGLETON_MACRO
+OMNIA_SINGLETON_M(sharedInstance)
 
 + (PTPusher *)getClient{
     return [TMEPusherManager sharedInstance].client;

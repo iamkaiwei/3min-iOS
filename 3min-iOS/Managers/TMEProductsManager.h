@@ -6,43 +6,41 @@
 //
 //
 
-typedef void (^TMEJSONRequestFailureBlock)(NSInteger code, NSError *error);
-
 #import "TMECategory.h"
 
-@interface TMEProductsManager : BaseManager
+@interface TMEProductsManager : TMEBaseManager
 
 + (void)getAllProductsWihPage:(NSInteger)page
                onSuccessBlock:(void (^)(NSArray *))successBlock
-                 failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                 failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
 
 + (void)getProductsOfCategory:(TMECategory *)category
                      withPage:(NSInteger)page
                onSuccessBlock:(void (^) (NSArray *))successBlock
-                 failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                 failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
 
 + (void)getPopularProductsWithPage:(NSInteger)page
                     onSuccessBlock:(void (^) (NSArray *))successBlock
-                      failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                      failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
 
 + (void)getSellingProductsOfCurrentUserOnPage:(NSInteger)page
                                  successBlock:(void (^) (NSArray *))successBlock
-                                 failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                                 failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
 
 + (void)putSoldOutWithProductID:(NSNumber *)productID
                  onSuccessBlock:(void (^) (NSArray *))successBlock
-                   failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                   failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
 
 + (void)getLikedProductOnPage:(NSInteger)page
                  successBlock:(void (^) (NSArray *))successBlock
-                 failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                 failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
 
 + (void)likeProductWithProductID:(NSNumber *)productID
                   onSuccessBlock:(void (^) (NSString *))successBlock
-                    failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                    failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
 
 + (void)unlikeProductWithProductID:(NSNumber *)productID
                     onSuccessBlock:(void (^) (NSString *))successBlock
-                      failureBlock:(TMEJSONRequestFailureBlock)failureBlock;
+                      failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
 
 @end

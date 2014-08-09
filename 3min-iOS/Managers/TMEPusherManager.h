@@ -6,9 +6,11 @@
 //
 //
 
-#import "BaseManager.h"
 
-@interface TMEPusherManager : BaseManager
+@interface TMEPusherManager : TMEBaseManager
+
+OMNIA_SINGLETON_H(sharedInstance)
+
 
 @property (strong, nonatomic) PTPusher * client;
 

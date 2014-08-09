@@ -61,16 +61,13 @@
     if (![self isReachable]) {
         return;
     }
-    
-    [TMECategory getAllCategoriesOnSuccessBlock:^(NSArray *arrayCategories)
-     {
-         self.dataArray = [arrayCategories mutableCopy];
-         [self setUpTableView];
-     }
-                                   failureBlock:^(NSInteger statusCode, NSError *error)
-     {
-         [self failureBlockHandleWithError:error];
-     }];
+
+    [[TMECategoryManager sharedManager] getAllCategoriesWithSuccess:^(NSArray *categories) {
+        self.dataArray = [categories mutableCopy];
+        [self setUpTableView];
+    } failure:^(NSError *error) {
+        [self failureBlockHandleWithError:error];
+    }];
 }
 
 - (void)handleStatusBarAnimation{

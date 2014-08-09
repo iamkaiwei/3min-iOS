@@ -6,7 +6,6 @@
 //
 //
 
-#import "BaseManager.h"
 #import "TMEUser.h"
 
 static NSString * const LAST_LOGIN_TIMESTAMP_STORED_KEY     = @"LAST_LOGIN_TIMESTAMP_STORED_KEY";
@@ -14,10 +13,13 @@ static NSString * const LAST_LOGIN_FACEBOOK_TOKEN           = @"LAST_LOGIN_FACEB
 static NSString * const LAST_LOGIN_ACCESS_TOKEN             = @"LAST_LOGIN_ACCESS_TOKEN";
 static NSString * const LAST_LOGIN_USER_ID                  = @"LAST_LOGIN_USER_ID";
 
+typedef void (^TMEJSONRequestFailureBlock)(NSInteger code, NSError *error);
 typedef void (^TMEJSONLoginRequestSuccessBlock) (TMEUser *user);
 typedef void (^TMEJSONLoginFailureSuccessBlock) (NSInteger statusCode, id obj);
 
-@interface TMEUserManager : BaseManager
+@interface TMEUserManager : TMEBaseManager
+
+OMNIA_SINGLETON_H(sharedManager)
 
 @property (assign, nonatomic) id<FBGraphUser>             loggedFacebookUser;
 @property (strong, nonatomic) TMEUser                   * loggedUser;
@@ -28,10 +30,10 @@ typedef void (^TMEJSONLoginFailureSuccessBlock) (NSInteger statusCode, id obj);
 - (NSString *)getUDID;
 
 
-- (void)getUserWithID:(NSNumber *)userID onSuccess:(void (^)(TMEUser *user))successBlock andFailure:(TMEJSONRequestFailureBlock)failureBlock;
+- (void)getUserWithID:(NSNumber *)userID onSuccess:(void (^)(TMEUser *user))successBlock andFailure:(TMENetworkManagerFailureBlock)failureBlock;
 // login
 - (void)loginBySendingFacebookWithSuccessBlock:(TMEJSONLoginRequestSuccessBlock)successBlock
-                               andFailureBlock:(TMEJSONLoginFailureSuccessBlock)failureBlock;
+                               andFailureBlock:(TMENetworkManagerFailureBlock)failureBlock;
 
 - (void)setLoggedUser:(TMEUser *)loggedUser andFacebookUser:(id<FBGraphUser>)user;
 - (void)logOut;

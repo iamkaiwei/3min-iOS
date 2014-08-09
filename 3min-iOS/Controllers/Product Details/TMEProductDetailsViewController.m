@@ -62,14 +62,12 @@
 	self.lblUserName.text = self.product.user.fullname;
 	self.lblTimestamp.text = [self.product.createAt relativeDate];
 
-	NSArray *arrayImageOfProduct = [self.product.images firstObject];
-
 	self.imgProductImage1.hidden = NO;
 
-	NSInteger minCount = MIN(arrayImageOfProduct.count, 3);
+	NSInteger minCount = MIN(self.product.images.count, 3);
 
 	for (int i = 0; i < minCount; i++) {
-		TMEProductImage *img = arrayImageOfProduct[i];
+		TMEProductImage *img = self.product.images[i];
 		[arrayImageView[i] setHidden:NO];
 		[arrayImageView[i] sd_setImageWithURL:[NSURL URLWithString:img.originURL]
 		                     placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
@@ -94,7 +92,7 @@
 
 	[self.scrollViewProductDetail autoAdjustScrollViewContentSize];
 
-	if ([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
+	if ([self.product.user.id isEqual:[[TMEUserManager sharedManager] loggedUser].id]) {
 		self.labelChatToBuy.text = NSLocalizedString(@"View Offers", nil);
 		return;
 	}
@@ -135,7 +133,7 @@
 		[SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
 		return;
 	}
-	if ([self.product.user.id isEqual:[[TMEUserManager sharedInstance] loggedUser].id]) {
+	if ([self.product.user.id isEqual:[[TMEUserManager sharedManager] loggedUser].id]) {
 		TMEListOffersTableViewController *listOfferTableViewController = [[TMEListOffersTableViewController alloc] init];
 		listOfferTableViewController.product = self.product;
 		[self.navigationController pushViewController:listOfferTableViewController animated:YES];
@@ -163,7 +161,7 @@
 	    [self.navigationController pushViewController:viewController animated:YES];
 	}
 
-	                                               failureBlock: ^(NSInteger statusCode, id obj)
+	                                               failureBlock: ^(NSError *error)
 	{
 	    [self.labelChatToBuy stopAnimating];
 	}];
@@ -184,7 +182,7 @@
 		    self.labelLikes.text = [@(self.labelLikes.text.integerValue + 1)stringValue];
 		}
 
-		                                failureBlock: ^(NSInteger statusCode, NSError *error)
+		                                failureBlock: ^(NSError *error)
 		{
 		    [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:NO];
 		}];
@@ -202,7 +200,7 @@
 	    self.labelLikes.text = [@(self.labelLikes.text.integerValue - 1)stringValue];
 	}
 
-	                                  failureBlock: ^(NSInteger statusCode, NSError *error)
+	                                  failureBlock: ^(NSError *error)
 	{
 	    [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:YES];
 	}];

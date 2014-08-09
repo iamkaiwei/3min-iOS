@@ -107,15 +107,12 @@ UITextViewDelegate
 }
 
 - (void)getListCategory{
-    [TMECategory getAllCategoriesTaggableOnSuccessBlock:^(NSArray *arrayCategories)
-     {
-         self.arrayCategories = arrayCategories;
-         [self.pickerCategories reloadAllComponents];
-     }
-                                                  failureBlock:^(NSInteger statusCode, id obj)
-     {
-         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Failure to load categories", nil)];
-     }];
+    [[TMECategoryManager sharedManager] getAllCategoriesWithSuccess:^(NSArray *categories) {
+        self.arrayCategories = categories;
+        [self.pickerCategories reloadAllComponents];
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Failure to load categories", nil)];
+    }];
 }
 
 - (UIBarButtonItem *)rightNavigationButton
@@ -161,7 +158,7 @@ UITextViewDelegate
 - (TMEProduct *)getTheInputProductFromForm
 {
     // create dummy user
-    TMEUser *user = [[TMEUserManager sharedInstance] loggedUser];
+    TMEUser *user = [[TMEUserManager sharedManager] loggedUser];
     
     // category
     NSInteger pickerIndex = [self.pickerCategories selectedRowInComponent:0];
@@ -251,7 +248,7 @@ UITextViewDelegate
     
     NSMutableDictionary *params = [@{@"user_id": self.product.user.id,
                                      @"name": self.product.name,
-                                     @"category_id": self.product.category.id,
+                                     @"category_id": self.product.category.categoryId,
                                      @"price": self.product.price,
                                      @"sold_out": @NO} mutableCopy];
     

@@ -147,7 +147,7 @@
 }
 
 - (void)updateUAAlias{
-    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedInstance].loggedUser.id integerValue]];
+    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedManager].loggedUser.id integerValue]];
     [[UAPush shared] updateRegistration];
 }
 

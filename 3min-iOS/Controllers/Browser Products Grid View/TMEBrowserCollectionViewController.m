@@ -96,13 +96,13 @@ UICollectionViewDelegate
     
     if (self.currentCategory) {
         self.navigationController.navigationBar.topItem.title = self.currentCategory.name;
-        if ([self.currentCategory.id isEqualToNumber:@8]) {
+        if ([self.currentCategory.categoryId isEqualToNumber:@8]) {
             [TMEProductsManager getPopularProductsWithPage:page
                                             onSuccessBlock:^(NSArray *arrProducts)
              {
                  [self successBlockHandleWithResponseArray:arrProducts page:page];
              }
-                                              failureBlock:^(NSInteger statusCode, NSError *error)
+                                              failureBlock:^(NSError *error)
              {
                  [self failureBlockHandleWithError:error];
                  [self.pullToRefreshView endRefreshing];
@@ -116,7 +116,7 @@ UICollectionViewDelegate
          {
              [self successBlockHandleWithResponseArray:arrProducts page:page];
          }
-                                     failureBlock:^(NSInteger statusCode, NSError *error)
+                                     failureBlock:^(NSError *error)
          {
              [self failureBlockHandleWithError:error];
              [self.pullToRefreshView endRefreshing];
@@ -128,7 +128,7 @@ UICollectionViewDelegate
      {
          [self successBlockHandleWithResponseArray:arrProducts page:page];
      }
-                                 failureBlock:^(NSInteger statusCode, NSError *error)
+                                 failureBlock:^(NSError *error)
      {
          [self failureBlockHandleWithError:error];
          [self.pullToRefreshView endRefreshing];

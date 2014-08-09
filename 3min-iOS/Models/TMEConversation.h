@@ -8,7 +8,7 @@
 
 #import "MTLModel.h"
 
-@interface TMEConversation : MTLModel <MTLJSONSerializing>
+@interface TMEConversation : TMEBaseModel <MTLJSONSerializing>
 
 @property (nonatomic, copy  ) NSString   *channelName;
 @property (nonatomic, strong) NSNumber   *id;

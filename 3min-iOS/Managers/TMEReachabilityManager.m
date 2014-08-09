@@ -10,7 +10,7 @@
 
 @implementation TMEReachabilityManager
 
-SINGLETON_MACRO
+OMNIA_SINGLETON_M(sharedInstance)
 
 + (BOOL)isReachable {
     return [[[TMEReachabilityManager sharedInstance] reachability] isReachable];

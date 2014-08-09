@@ -68,3 +68,8 @@
 #else
 #define DLog(...) do {} while (0)
 #endif
+
+#define LS(string) NSLocalizedString(string, nil)
+
+#define OMNIA_SINGLETON_H(name)     + (instancetype)name;
+#define OMNIA_SINGLETON_M(name)     + (instancetype)name { static dispatch_once_t onceToken; static id instance = nil; dispatch_once(&onceToken, ^{ instance = [[self alloc] init]; }); return instance; }

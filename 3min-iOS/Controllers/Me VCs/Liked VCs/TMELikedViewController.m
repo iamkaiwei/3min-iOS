@@ -90,7 +90,7 @@
          self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
          [self reloadTableViewLikedProduct];
      }
-                                 failureBlock:^(NSInteger statusCode, NSError *error)
+                                 failureBlock:^(NSError *error)
      {
          [self failureBlockHandleWithError:error];
          [self finishLoading];

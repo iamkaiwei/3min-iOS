@@ -1,7 +1,22 @@
-#import "_TMECategory.h"
+//
+//  TMECategory.h
+//  ThreeMin
+//
+//  Created by Khoa Pham on 8/5/14.
+//  Copyright (c) 2014 3min. All rights reserved.
+//
 
-@interface TMECategory : _TMECategory {}
-// Custom logic goes here.
+#import "MTLModel.h"
 
-+ (NSArray *)arrayCategoriesFromArray:(NSArray *)arrData;
+@class TMEImage;
+
+@interface TMECategory : TMEBaseModel <MTLJSONSerializing>
+
+@property (nonatomic, strong) NSNumber *categoryId;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *specificType;
+
+@property (nonatomic, strong) TMEImage *image;
+
 @end

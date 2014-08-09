@@ -7,6 +7,7 @@
 //
 
 #import "TMEUser.h"
+#import "TMEActivity.h"
 
 @implementation TMEUser
 
