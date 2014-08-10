@@ -35,5 +35,6 @@ target :ThreeMin, :exclusive => true do
   pod 'JazzHands', '~> 0.1'
   pod 'CrashlyticsFramework', '~> 2.2'
   pod 'Orbiter', '~> 2.0'
+  pod 'CHTCollectionViewWaterfallLayout'
 
 end
