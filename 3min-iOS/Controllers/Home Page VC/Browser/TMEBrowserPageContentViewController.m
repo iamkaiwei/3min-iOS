@@ -8,15 +8,17 @@
 
 #import "TMEBrowserPageContentViewController.h"
 #import "TMEProductCollectionViewCell.h"
-#import "WaterFlowLayout.h"
+#import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
 @interface TMEBrowserPageContentViewController ()
 <
-    UICollecitonViewDelegateWaterFlowLayout,
-    UICollectionViewDataSourceWaterFlowLayout
+    UICollectionViewDataSource,
+    UICollectionViewDelegate,
+    CHTCollectionViewDelegateWaterfallLayout
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewProducts;
+@property (strong, nonatomic) NSArray *arrProducts;
 
 @end
 
@@ -26,35 +28,49 @@
 	[super viewDidLoad];
 	// Do any additional setup after loading the view from its nib.
 
-	[self.collectionViewProducts registerClass:[TMEProductCollectionViewCell class]
-	                forCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class])];
+	[self.collectionViewProducts registerNib:[TMEProductCollectionViewCell defaultNib]
+	              forCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class])];
 
-    WaterFlowLayout *cvLayout = [[WaterFlowLayout alloc] init];
-    cvLayout.flowdatasource = self;
-    cvLayout.flowdelegate = self;
-    self.collectionViewProducts.collectionViewLayout = cvLayout;
+	CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
+	layout.columnCount = 2;
+	layout.minimumColumnSpacing = 5;
+	layout.minimumInteritemSpacing = 6;
+	self.collectionViewProducts.collectionViewLayout = layout;
 
-    self.collectionViewProducts.delegate = self;
-    self.collectionViewProducts.dataSource = self;
+	self.collectionViewProducts.delegate = self;
+	self.collectionViewProducts.dataSource = self;
+
+	self.arrProducts = @[];
 }
 
-- (NSInteger)numberOfColumnsInFlowLayout:(WaterFlowLayout *)flowlayout
-{
-    return 2;
+- (IBAction)reload:(id)sender {
+	[TMEProductsManager getAllProductsWihPage:1
+	                           onSuccessBlock: ^(NSArray *arrProducts) {
+	    self.arrProducts = arrProducts;
+	    [self.collectionViewProducts reloadData];
+	} failureBlock: ^(NSError *error) {
+	}];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 100;
+	return self.arrProducts.count;
 }
 
 - (TMEProductCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    TMEProductCollectionViewCell *cell = (TMEProductCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class]) forIndexPath:indexPath];
-    [cell configWithData:[[TMEProduct alloc] init]];
-    return cell;
+	TMEProductCollectionViewCell *cell = (TMEProductCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class]) forIndexPath:indexPath];
+	TMEProduct *product = self.arrProducts[indexPath.row];
+	[cell configWithData:product];
+
+//	cell.layer.cornerRadius = 4.0f;
+//	cell.layer.masksToBounds = YES;
+//	cell.layer.shadowColor = [UIColor colorWithHexString:@"#333"].CGColor;
+//	cell.layer.shadowRadius = 4.0f;
+
+	return cell;
 }
 
-- (CGFloat)flowLayout:(WaterFlowLayout *)flowView heightForRowAtIndex:(int)i {
-    return 300.0f;
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+	return CGSizeMake(152, 330);
 }
 
 @end
