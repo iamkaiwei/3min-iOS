@@ -11,6 +11,8 @@
 
 @interface TMEProductCollectionViewCell ()
 
+@property (weak, nonatomic) IBOutlet UIView *borderRadiusView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imgProduct;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblProductName;
@@ -57,11 +59,17 @@
 	NSCParameterAssert(product);
 	NSAssert([product isKindOfClass:[TMEProduct class]], @"Need product to config product cell");
 
+	self.borderRadiusView.layer.cornerRadius = 3.0f;
+	self.borderRadiusView.layer.masksToBounds = YES;
+	self.layer.shadowColor = [UIColor colorWithHexString:@"#aaa"].CGColor;
+	self.layer.shadowRadius = 0;
+    self.layer.shadowOffset = CGSizeMake(0.0f, 1.5f);
+    self.layer.shadowOpacity = .3f;
+
 	TMEProductImage *firstImage = [product.images firstObject];
 	[self.imgProduct sd_setImageWithURL:firstImage.mediumURL];
 
 	self.lblProductName.text = product.name;
-//    self.lblProductPrice.text = [product.price stringValue];
 
 	self.lblLikeCount.text = [product.likes stringValue];
 
@@ -70,11 +78,6 @@
 }
 
 - (void)resetContent {
-	self.layer.cornerRadius = 4.0f;
-	self.layer.masksToBounds = YES;
-	self.layer.shadowColor = [UIColor colorWithHexString:@"#333"].CGColor;
-	self.layer.shadowRadius = 4.0f;
-
 	self.imgProduct.image = nil;
 
 	self.lblProductName.text = @"";
