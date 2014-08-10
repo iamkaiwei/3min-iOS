@@ -50,6 +50,7 @@
 		990014F51990604000AF1553 /* TMEImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 990014F41990604000AF1553 /* TMEImage.m */; };
 		990014F81990623700AF1553 /* TMEBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 990014F71990623700AF1553 /* TMEBaseModel.m */; };
 		990014FB1990629400AF1553 /* TMEBaseModel+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 990014FA1990629400AF1553 /* TMEBaseModel+TMEAdditions.m */; };
+		9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */; };
 		99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D601978492C00872EE4 /* AppDelegate.m */; };
 		99EA0EE81978492D00872EE4 /* TMEApperanceAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D631978492C00872EE4 /* TMEApperanceAppDelegateService.m */; };
 		99EA0EE91978492D00872EE4 /* TMECoreDataAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D651978492C00872EE4 /* TMECoreDataAppDelegateService.m */; };
@@ -263,6 +264,8 @@
 		990014F71990623700AF1553 /* TMEBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseModel.m; sourceTree = "<group>"; };
 		990014F91990629400AF1553 /* TMEBaseModel+TMEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEBaseModel+TMEAdditions.h"; sourceTree = "<group>"; };
 		990014FA1990629400AF1553 /* TMEBaseModel+TMEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEBaseModel+TMEAdditions.m"; sourceTree = "<group>"; };
+		9990E4271997CBD9008B603F /* TMELoggerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoggerAppDelegateService.h; sourceTree = "<group>"; };
+		9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoggerAppDelegateService.m; sourceTree = "<group>"; };
 		99EA0D5F1978492C00872EE4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		99EA0D601978492C00872EE4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		99EA0D621978492C00872EE4 /* TMEApperanceAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEApperanceAppDelegateService.h; sourceTree = "<group>"; };
@@ -701,6 +704,8 @@
 				99EA0D751978492C00872EE4 /* TMERootAppDelegateService.m */,
 				99EA0D761978492C00872EE4 /* TMEVersionCheckerAppDelegateService.h */,
 				99EA0D771978492C00872EE4 /* TMEVersionCheckerAppDelegateService.m */,
+				9990E4271997CBD9008B603F /* TMELoggerAppDelegateService.h */,
+				9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */,
 			);
 			name = AppDelegateService;
 			path = "3min-iOS/AppDelegateService";
@@ -1571,6 +1576,7 @@
 				99EA0F211978492D00872EE4 /* NSString+ActiveSupportInflector.m in Sources */,
 				99EA0F1E1978492D00872EE4 /* NSMutableArray+Additions.m in Sources */,
 				99EA0F241978492D00872EE4 /* UIAlertView+Additions.m in Sources */,
+				9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */,
 				99EA0EFF1978492D00872EE4 /* _TMEActivity.m in Sources */,
 				99EA0F121978492D00872EE4 /* TMEModels.xcdatamodeld in Sources */,
 				99EA0F231978492D00872EE4 /* NSString+Validation.m in Sources */,

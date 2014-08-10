@@ -18,6 +18,7 @@
 #import "TMEReachabilityAppDelegateService.h"
 #import "TMEVersionCheckerAppDelegateService.h"
 #import "TMEApperanceAppDelegateService.h"
+#import "TMELoggerAppDelegateService.h"
 
 
 @interface AppDelegate()
@@ -44,6 +45,7 @@
                                  [TMEReachabilityAppDelegateService new],
                                  [TMEVersionCheckerAppDelegateService new],
                                  [TMEApperanceAppDelegateService new],
+                                 [TMELoggerAppDelegateService new],
                                  ];
     }
 

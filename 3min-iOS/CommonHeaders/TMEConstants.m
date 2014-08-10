@@ -10,3 +10,11 @@
 
 NSString *const TMEShowLoginViewControllerNotification = @"TMEShowLoginViewControllerNotification";
 NSString *const TMEShowHomeViewControllerNotification = @"TMEShowHomeViewControllerNotification";
+
+// CocoaLumberJack
+#import <CocoaLumberjack/DDLog.h>
+#ifdef DEBUG
+    int const ddLogLevel = LOG_LEVEL_VERBOSE;
+#else
+    int const ddLogLevel = LOG_LEVEL_WARN;
+#endif

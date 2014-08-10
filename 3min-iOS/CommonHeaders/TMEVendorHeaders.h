@@ -36,3 +36,4 @@
 #import <AviarySDK/AviarySDK.h>
 #import <CrittercismSDK/Crittercism.h>
 #import <Mantle/Mantle.h>
+#import <CocoaLumberjack/DDLog.h>

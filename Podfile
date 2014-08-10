@@ -32,5 +32,6 @@ target :ThreeMin, :exclusive => true do
   pod 'JRSwizzle', '~> 1.0'
   pod 'ViewUtils', '~> 1.1'
   pod 'ObjectiveSugar', '~> 1.1'
+  pod 'CocoaLumberjack', '~> 1.9'
 
 end
