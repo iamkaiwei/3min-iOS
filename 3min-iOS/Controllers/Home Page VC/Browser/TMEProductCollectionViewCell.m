@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "TMEProductCollectionViewCell.h"
 
-@interface TMEProductCollectionViewCell()
+@interface TMEProductCollectionViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgProduct;
 
@@ -25,54 +26,65 @@
 
 @implementation TMEProductCollectionViewCell
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code
-        [self resetContent];
-    }
-    return self;
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	self = [super initWithCoder:aDecoder];
+	if (self) {
+		// Initialization code
+		[self resetContent];
+	}
+	return self;
 }
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-        [self resetContent];
-    }
-    return self;
+- (id)init {
+	self = [super init];
+	if (self) {
+		// Initialization code
+		[self resetContent];
+	}
+	return self;
+}
+
+- (id)initWithFrame:(CGRect)frame {
+	self = [super initWithFrame:frame];
+	if (self) {
+		// Initialization code
+		[self resetContent];
+	}
+	return self;
 }
 
 - (void)configWithData:(TMEProduct *)product {
-    NSCParameterAssert(product);
-    NSAssert([product isKindOfClass:[TMEProduct class]], @"Need product to config product cell");
+	NSCParameterAssert(product);
+	NSAssert([product isKindOfClass:[TMEProduct class]], @"Need product to config product cell");
 
-    TMEProductImage *firstImage = [product.images firstObject];
-    [self.imgProduct sd_setImageWithURL:firstImage.mediumURL];
+	TMEProductImage *firstImage = [product.images firstObject];
+	[self.imgProduct sd_setImageWithURL:firstImage.mediumURL];
 
-    self.lblProductName.text = product.name;
-    self.lblProductPrice.text = [product.price stringValue];
+	self.lblProductName.text = product.name;
+//    self.lblProductPrice.text = [product.price stringValue];
 
-    self.lblLikeCount.text = [product.likes stringValue];
+	self.lblLikeCount.text = [product.likes stringValue];
 
-    self.lblUsername.text = product.user.name;
-    self.lblUsername.text = [product.createAt relativeDate];
+	self.lblUsername.text = product.user.name;
+	self.lblUsername.text = [product.createAt relativeDate];
 }
 
 - (void)resetContent {
+	self.layer.cornerRadius = 4.0f;
+	self.layer.masksToBounds = YES;
+	self.layer.shadowColor = [UIColor colorWithHexString:@"#333"].CGColor;
+	self.layer.shadowRadius = 4.0f;
 
-    self.imgProduct.image = nil;
+	self.imgProduct.image = nil;
 
-    self.lblProductName.text = @"";
-    self.lblProductPrice.text = @"";
+	self.lblProductName.text = @"";
+	self.lblProductPrice.text = @"";
 
-    self.lblLikeCount.text = @"";
-    self.lblCommentCount.text = @"";
+	self.lblLikeCount.text = @"";
+	self.lblCommentCount.text = @"";
 
-    self.lblDatetime.text = @"";
-    self.lblUsername.text = @"";
+	self.lblDatetime.text = @"";
+	self.lblUsername.text = @"";
 }
 
 @end
