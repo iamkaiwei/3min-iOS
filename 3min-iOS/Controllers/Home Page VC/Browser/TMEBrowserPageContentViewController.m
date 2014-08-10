@@ -40,6 +40,8 @@
 	self.collectionViewProducts.delegate = self;
 	self.collectionViewProducts.dataSource = self;
 
+    [self.collectionViewProducts setContentInset:UIEdgeInsetsMake(10, 0, 10, 0)];
+
 	self.arrProducts = @[];
 }
 
