@@ -24,25 +24,37 @@
 
 @implementation TMEBrowserPageContentViewController
 
+#pragma mark - VC cycle
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view from its nib.
 
+    [self configCollectionProducts];
+
+	self.arrProducts = @[];
+}
+
+#pragma mark -
+
+- (void)configCollectionProducts {
 	[self.collectionViewProducts registerNib:[TMEProductCollectionViewCell defaultNib]
 	              forCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class])];
 
+	self.collectionViewProducts.collectionViewLayout = [self waterFlowLayout];
+	self.collectionViewProducts.delegate = self;
+	self.collectionViewProducts.dataSource = self;
+    [self.collectionViewProducts setContentInset:UIEdgeInsetsMake(10, 0, 10, 0)];
+}
+
+#pragma mark -
+
+- (UICollectionViewLayout *)waterFlowLayout {
 	CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
 	layout.columnCount = 2;
 	layout.minimumColumnSpacing = 5;
 	layout.minimumInteritemSpacing = 6;
-	self.collectionViewProducts.collectionViewLayout = layout;
-
-	self.collectionViewProducts.delegate = self;
-	self.collectionViewProducts.dataSource = self;
-
-    [self.collectionViewProducts setContentInset:UIEdgeInsetsMake(10, 0, 10, 0)];
-
-	self.arrProducts = @[];
+    return layout;
 }
 
 - (IBAction)reload:(id)sender {
@@ -54,6 +66,8 @@
 	}];
 }
 
+#pragma mark - Collection datasource
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 	return self.arrProducts.count;
 }
@@ -62,11 +76,6 @@
 	TMEProductCollectionViewCell *cell = (TMEProductCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class]) forIndexPath:indexPath];
 	TMEProduct *product = self.arrProducts[indexPath.row];
 	[cell configWithData:product];
-
-//	cell.layer.cornerRadius = 4.0f;
-//	cell.layer.masksToBounds = YES;
-//	cell.layer.shadowColor = [UIColor colorWithHexString:@"#333"].CGColor;
-//	cell.layer.shadowRadius = 4.0f;
 
 	return cell;
 }
