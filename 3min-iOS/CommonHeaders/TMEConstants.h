@@ -9,3 +9,6 @@
 
 extern NSString *const TMEShowLoginViewControllerNotification;
 extern NSString *const TMEShowHomeViewControllerNotification;
+
+// CocoaLumberJack
+extern int const ddLogLevel;
