@@ -28,6 +28,8 @@
 
 @implementation TMEProductCollectionViewCell
 
+#pragma mark - Inits
+
 - (id)initWithCoder:(NSCoder *)aDecoder {
 	self = [super initWithCoder:aDecoder];
 	if (self) {
@@ -55,16 +57,24 @@
 	return self;
 }
 
-- (void)configWithData:(TMEProduct *)product {
-	NSCParameterAssert(product);
-	NSAssert([product isKindOfClass:[TMEProduct class]], @"Need product to config product cell");
+#pragma mark -
 
+- (void)addShadowAndBorderRadius {
 	self.borderRadiusView.layer.cornerRadius = 3.0f;
 	self.borderRadiusView.layer.masksToBounds = YES;
 	self.layer.shadowColor = [UIColor colorWithHexString:@"#aaa"].CGColor;
 	self.layer.shadowRadius = 0;
     self.layer.shadowOffset = CGSizeMake(0.0f, 1.5f);
     self.layer.shadowOpacity = .3f;
+}
+
+#pragma mark -
+
+- (void)configWithData:(TMEProduct *)product {
+	NSCParameterAssert(product);
+	NSAssert([product isKindOfClass:[TMEProduct class]], @"Need product to config product cell");
+
+    [self addShadowAndBorderRadius];
 
 	TMEProductImage *firstImage = [product.images firstObject];
 	[self.imgProduct sd_setImageWithURL:firstImage.mediumURL];
@@ -76,6 +86,8 @@
 	self.lblUsername.text = product.user.name;
 	self.lblUsername.text = [product.createAt relativeDate];
 }
+
+#pragma mark - Reset
 
 - (void)resetContent {
 	self.imgProduct.image = nil;
