@@ -37,6 +37,16 @@
 				<string>fb580806171975545</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.hasBrain.threeMins</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.hasBrain.threeMins</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>3</string>

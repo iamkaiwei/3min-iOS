@@ -50,6 +50,8 @@
 		990014F51990604000AF1553 /* TMEImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 990014F41990604000AF1553 /* TMEImage.m */; };
 		990014F81990623700AF1553 /* TMEBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 990014F71990623700AF1553 /* TMEBaseModel.m */; };
 		990014FB1990629400AF1553 /* TMEBaseModel+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 990014FA1990629400AF1553 /* TMEBaseModel+TMEAdditions.m */; };
+		990CB7D1199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB7D0199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m */; };
+		990CB7D4199A631F00AEA179 /* TMEGooglePlusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB7D3199A631F00AEA179 /* TMEGooglePlusManager.m */; };
 		9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */; };
 		99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D601978492C00872EE4 /* AppDelegate.m */; };
 		99EA0EE81978492D00872EE4 /* TMEApperanceAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D631978492C00872EE4 /* TMEApperanceAppDelegateService.m */; };
@@ -264,6 +266,10 @@
 		990014F71990623700AF1553 /* TMEBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseModel.m; sourceTree = "<group>"; };
 		990014F91990629400AF1553 /* TMEBaseModel+TMEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEBaseModel+TMEAdditions.h"; sourceTree = "<group>"; };
 		990014FA1990629400AF1553 /* TMEBaseModel+TMEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEBaseModel+TMEAdditions.m"; sourceTree = "<group>"; };
+		990CB7CF199A61B200AEA179 /* TMEGooglePlusAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEGooglePlusAppDelegateService.h; sourceTree = "<group>"; };
+		990CB7D0199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEGooglePlusAppDelegateService.m; sourceTree = "<group>"; };
+		990CB7D2199A631F00AEA179 /* TMEGooglePlusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEGooglePlusManager.h; sourceTree = "<group>"; };
+		990CB7D3199A631F00AEA179 /* TMEGooglePlusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEGooglePlusManager.m; sourceTree = "<group>"; };
 		9990E4271997CBD9008B603F /* TMELoggerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoggerAppDelegateService.h; sourceTree = "<group>"; };
 		9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoggerAppDelegateService.m; sourceTree = "<group>"; };
 		99EA0D5F1978492C00872EE4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -706,6 +712,8 @@
 				99EA0D771978492C00872EE4 /* TMEVersionCheckerAppDelegateService.m */,
 				9990E4271997CBD9008B603F /* TMELoggerAppDelegateService.h */,
 				9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */,
+				990CB7CF199A61B200AEA179 /* TMEGooglePlusAppDelegateService.h */,
+				990CB7D0199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m */,
 			);
 			name = AppDelegateService;
 			path = "3min-iOS/AppDelegateService";
@@ -753,6 +761,8 @@
 				990014E8198FE51B00AF1553 /* TMEActivityManager.m */,
 				990014EA198FE60C00AF1553 /* TMECategoryManager.h */,
 				990014EB198FE60C00AF1553 /* TMECategoryManager.m */,
+				990CB7D2199A631F00AEA179 /* TMEGooglePlusManager.h */,
+				990CB7D3199A631F00AEA179 /* TMEGooglePlusManager.m */,
 			);
 			name = Managers;
 			path = "3min-iOS/Managers";
@@ -1555,6 +1565,7 @@
 				990014F51990604000AF1553 /* TMEImage.m in Sources */,
 				99EA0F801978492D00872EE4 /* TMEBaseViewController.m in Sources */,
 				99EA0EEE1978492D00872EE4 /* TMEGoogleAnalyticsAppDelegateService.m in Sources */,
+				990CB7D1199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m in Sources */,
 				99EA0F5A1978492D00872EE4 /* TMEMyListingViewController.m in Sources */,
 				99EA0EFE1978492D00872EE4 /* TMEReachabilityManager.m in Sources */,
 				99EA0F641978492D00872EE4 /* TMENavigationViewController.m in Sources */,
@@ -1641,6 +1652,7 @@
 				99EA0F321978492D00872EE4 /* UITextView+Additions.m in Sources */,
 				99EA0F351978492D00872EE4 /* UIView+Nib.m in Sources */,
 				99EA0F021978492D00872EE4 /* _TMEProductImages.m in Sources */,
+				990CB7D4199A631F00AEA179 /* TMEGooglePlusManager.m in Sources */,
 				99EA0F3A1978492D00872EE4 /* UIPlaceHolderTextView.m in Sources */,
 				990014F219905ECD00AF1553 /* TMECategory.m in Sources */,
 				99EA0F3F1978492D00872EE4 /* TMEBaseArrayDataSourceWithLoadMore.m in Sources */,

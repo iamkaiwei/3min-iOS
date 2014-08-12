@@ -33,5 +33,6 @@ target :ThreeMin, :exclusive => true do
   pod 'ViewUtils', '~> 1.1'
   pod 'ObjectiveSugar', '~> 1.1'
   pod 'CocoaLumberjack', '~> 1.9'
+  pod 'google-plus-ios-sdk', '~> 1.7'
 
 end

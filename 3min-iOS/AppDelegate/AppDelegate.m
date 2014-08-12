@@ -19,6 +19,7 @@
 #import "TMEVersionCheckerAppDelegateService.h"
 #import "TMEApperanceAppDelegateService.h"
 #import "TMELoggerAppDelegateService.h"
+#import "TMEGooglePlusAppDelegateService.h"
 
 
 @interface AppDelegate()
@@ -46,6 +47,7 @@
                                  [TMEVersionCheckerAppDelegateService new],
                                  [TMEApperanceAppDelegateService new],
                                  [TMELoggerAppDelegateService new],
+                                 [TMEGooglePlusAppDelegateService new],
                                  ];
     }
 
@@ -151,11 +153,13 @@
 {
     for (id<UIApplicationDelegate> service in self.appDelegateServices) {
         if ([service respondsToSelector:@selector(application:openURL:sourceApplication:annotation:)]) {
-            [service application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+            if ([service application:application openURL:url sourceApplication:sourceApplication annotation:annotation]) {
+                return YES;
+            }
         }
     }
 
-    return YES;
+    return NO;
 }
 
 #pragma mark - Helper
