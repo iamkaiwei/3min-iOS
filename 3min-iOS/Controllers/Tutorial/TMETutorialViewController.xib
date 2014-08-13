@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMETutorialViewController">
+            <connections>
+                <outlet property="facebookButton" destination="zq0-Vv-8bU" id="mbR-Ga-9yL"/>
+                <outlet property="googleButton" destination="jOe-5c-Awz" id="S2u-9y-sgi"/>
+                <outlet property="pageControl" destination="wX4-do-IgH" id="wEc-o9-Yk0"/>
+                <outlet property="scrollView" destination="v4j-bF-H1o" id="jSZ-3P-xDn"/>
+                <outlet property="scrollViewContentView" destination="rHS-pG-JeT" id="ZTj-La-gje"/>
+                <outlet property="view" destination="SKv-HT-Pfc" id="OsB-Ov-a2a"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="SKv-HT-Pfc">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v4j-bF-H1o">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="568" translatesAutoresizingMaskIntoConstraints="NO" id="rHS-pG-JeT" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.87284726820000003" blue="0.097687077250000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="rHS-pG-JeT" secondAttribute="bottom" id="0XE-jB-CwH"/>
+                        <constraint firstItem="rHS-pG-JeT" firstAttribute="top" secondItem="v4j-bF-H1o" secondAttribute="top" id="OBi-5F-qlE"/>
+                        <constraint firstAttribute="trailing" secondItem="rHS-pG-JeT" secondAttribute="trailing" id="jVn-tN-fIJ"/>
+                        <constraint firstItem="rHS-pG-JeT" firstAttribute="leading" secondItem="v4j-bF-H1o" secondAttribute="leading" id="nWf-b1-dZm"/>
+                    </constraints>
+                </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="wX4-do-IgH">
+                    <rect key="frame" x="140" y="395" width="39" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </pageControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOe-5c-Awz" userLabel="Google">
+                    <rect key="frame" x="65" y="432" width="189" height="42"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="bt_login_google+">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="googleButtonAction:" destination="-1" eventType="touchUpInside" id="Ulz-14-JO9"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zq0-Vv-8bU" userLabel="Facebook">
+                    <rect key="frame" x="65" y="484" width="189" height="42"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="bt_login_facebook">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="facebookButtonAction:" destination="-1" eventType="touchUpInside" id="f3Z-mx-umX"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="jOe-5c-Awz" secondAttribute="centerX" constant="0.5" id="3Gi-gE-aPm"/>
+                <constraint firstItem="zq0-Vv-8bU" firstAttribute="top" secondItem="jOe-5c-Awz" secondAttribute="bottom" constant="10" id="6PR-gh-BFO"/>
+                <constraint firstAttribute="bottom" secondItem="zq0-Vv-8bU" secondAttribute="bottom" constant="42" id="6hz-qM-k4c"/>
+                <constraint firstAttribute="centerX" secondItem="zq0-Vv-8bU" secondAttribute="centerX" constant="0.5" id="Ghk-lV-Gf8"/>
+                <constraint firstAttribute="centerX" secondItem="wX4-do-IgH" secondAttribute="centerX" constant="0.5" id="Q1L-vG-2XN"/>
+                <constraint firstAttribute="trailing" secondItem="v4j-bF-H1o" secondAttribute="trailing" id="Rls-rN-vul"/>
+                <constraint firstAttribute="bottom" secondItem="v4j-bF-H1o" secondAttribute="bottom" id="TGS-PW-5Yb"/>
+                <constraint firstItem="v4j-bF-H1o" firstAttribute="top" secondItem="SKv-HT-Pfc" secondAttribute="top" id="gtT-9h-StM"/>
+                <constraint firstItem="v4j-bF-H1o" firstAttribute="leading" secondItem="SKv-HT-Pfc" secondAttribute="leading" id="lrN-ja-RnQ"/>
+                <constraint firstItem="jOe-5c-Awz" firstAttribute="top" secondItem="wX4-do-IgH" secondAttribute="bottom" id="mwd-g6-TAi"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bt_login_facebook" width="189" height="42"/>
+        <image name="bt_login_google+" width="189" height="42"/>
+    </resources>
+</document>

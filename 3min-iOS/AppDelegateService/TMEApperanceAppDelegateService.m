@@ -20,10 +20,10 @@
 #pragma mark - Helper
 - (void)configureStatusBar
 {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque
-                                                animated:NO];
-
-    if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault
+                                                    animated:NO];
+    } else {
         [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigation_background"] forBarMetrics:UIBarMetricsDefault];
     }
 }

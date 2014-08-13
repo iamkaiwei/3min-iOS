@@ -34,5 +34,7 @@ target :ThreeMin, :exclusive => true do
   pod 'ObjectiveSugar', '~> 1.1'
   pod 'CocoaLumberjack', '~> 1.9'
   pod 'google-plus-ios-sdk', '~> 1.7'
+  pod 'Masonry', '~> 0.5'
+  pod 'JazzHands', '~> 0.1'
 
 end

@@ -52,6 +52,7 @@
 		990014FB1990629400AF1553 /* TMEBaseModel+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 990014FA1990629400AF1553 /* TMEBaseModel+TMEAdditions.m */; };
 		990CB7D1199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB7D0199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m */; };
 		990CB7D4199A631F00AEA179 /* TMEGooglePlusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB7D3199A631F00AEA179 /* TMEGooglePlusManager.m */; };
+		990CB7D6199A75D400AEA179 /* TMETutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990CB7D5199A75D400AEA179 /* TMETutorialViewController.xib */; };
 		9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */; };
 		99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D601978492C00872EE4 /* AppDelegate.m */; };
 		99EA0EE81978492D00872EE4 /* TMEApperanceAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D631978492C00872EE4 /* TMEApperanceAppDelegateService.m */; };
@@ -270,6 +271,7 @@
 		990CB7D0199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEGooglePlusAppDelegateService.m; sourceTree = "<group>"; };
 		990CB7D2199A631F00AEA179 /* TMEGooglePlusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEGooglePlusManager.h; sourceTree = "<group>"; };
 		990CB7D3199A631F00AEA179 /* TMEGooglePlusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEGooglePlusManager.m; sourceTree = "<group>"; };
+		990CB7D5199A75D400AEA179 /* TMETutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMETutorialViewController.xib; sourceTree = "<group>"; };
 		9990E4271997CBD9008B603F /* TMELoggerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoggerAppDelegateService.h; sourceTree = "<group>"; };
 		9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoggerAppDelegateService.m; sourceTree = "<group>"; };
 		99EA0D5F1978492C00872EE4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1220,6 +1222,7 @@
 			children = (
 				99EA0E9B1978492D00872EE4 /* TMETutorialViewController.h */,
 				99EA0E9C1978492D00872EE4 /* TMETutorialViewController.m */,
+				990CB7D5199A75D400AEA179 /* TMETutorialViewController.xib */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -1442,6 +1445,7 @@
 				99EA0F4D1978492D00872EE4 /* HTKContainerViewController.xib in Resources */,
 				99EA0F821978492D00872EE4 /* Images.xcassets in Resources */,
 				99EA0F761978492D00872EE4 /* TMESubmitTableCell.xib in Resources */,
+				990CB7D6199A75D400AEA179 /* TMETutorialViewController.xib in Resources */,
 				99EA0F721978492D00872EE4 /* TMESearchTableViewCell.xib in Resources */,
 				99EA0F941978492D00872EE4 /* TMELoadMoreTableViewCell.xib in Resources */,
 				99EA0F781978492D00872EE4 /* TMESubmitTableCellRight.xib in Resources */,

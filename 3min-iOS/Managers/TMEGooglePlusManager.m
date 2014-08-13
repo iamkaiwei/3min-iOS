@@ -44,7 +44,11 @@ OMNIA_SINGLETON_M(sharedManager)
 #pragma mark - GPPSignInDelegate
 - (void)finishedWithAuth:(GTMOAuth2Authentication *)auth error:(NSError *)error
 {
-
+    if (!error) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowHomeViewControllerNotification
+                                                            object:nil
+                                                          userInfo:nil];
+    }
 }
 
 - (void)didDisconnectWithError:(NSError *)error
