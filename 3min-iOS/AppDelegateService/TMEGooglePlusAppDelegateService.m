@@ -19,18 +19,6 @@
     return YES;
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-
-}
-
-
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-
-}
-
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication

@@ -113,11 +113,15 @@
 #pragma mark - Home
 - (void)showHomeViewController
 {
-    if ([FBSession.activeSession isOpen] == NO) {
-        [self showLoginViewController];
+//    if ([FBSession.activeSession isOpen] == NO) {
+//        [self showLoginViewController];
+//
+//        return;
+//    }
 
-        return;
-    }
+    // FIXME: Leave it for now
+     [self switchRootViewController:self.deckController animated:YES completion:nil];
+    return;
 
     if (![[TMEUserManager sharedManager] loggedUser] && [TMEReachabilityManager isReachable]) {
         [SVProgressHUD showWithStatus:NSLocalizedString(@"Login...", nil) maskType:SVProgressHUDMaskTypeGradient];

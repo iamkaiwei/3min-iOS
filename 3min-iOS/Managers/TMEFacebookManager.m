@@ -63,4 +63,16 @@ OMNIA_SINGLETON_M(sharedManager)
     
 }
 
+
+#pragma mark - Refactor
+- (void)signIn
+{
+
+}
+
+- (void)signOut
+{
+    
+}
+
 @end

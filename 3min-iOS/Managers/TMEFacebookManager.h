@@ -16,4 +16,5 @@ OMNIA_SINGLETON_H(sharedManager)
                             user:(id<FBGraphUser>)user;
 - (void)showLoginView;
 
+
 @end
