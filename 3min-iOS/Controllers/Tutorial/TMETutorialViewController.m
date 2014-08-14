@@ -11,23 +11,15 @@
 #import "TMEGooglePlusManager.h"
 #import "TMEFacebookManager.h"
 
-#define PAGE_CONTROL_HEIGHT       44
 
 NSString *const TUTORIAL_HAS_BEEN_PRESENTED = @"tutorial_has_been_presented";
 NSUInteger const kNumberOfPages = 3;
 
 @interface TMETutorialViewController () <UIScrollViewDelegate>
 
-
-@property (strong, nonatomic) UIPageControl * tutorialPageControl;
-
-@property (strong, nonatomic) FBLoginView   * loginView;
-
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *scrollViewContentView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-@property (weak, nonatomic) IBOutlet UIButton *googleButton;
-@property (weak, nonatomic) IBOutlet UIButton *facebookButton;
 
 
 @end

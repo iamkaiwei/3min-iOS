@@ -7,8 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMETutorialViewController">
             <connections>
-                <outlet property="facebookButton" destination="zq0-Vv-8bU" id="mbR-Ga-9yL"/>
-                <outlet property="googleButton" destination="jOe-5c-Awz" id="S2u-9y-sgi"/>
                 <outlet property="pageControl" destination="wX4-do-IgH" id="wEc-o9-Yk0"/>
                 <outlet property="scrollView" destination="v4j-bF-H1o" id="jSZ-3P-xDn"/>
                 <outlet property="scrollViewContentView" destination="rHS-pG-JeT" id="ZTj-La-gje"/>
