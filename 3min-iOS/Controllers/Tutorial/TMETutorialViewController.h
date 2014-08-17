@@ -10,6 +10,4 @@
 
 @interface TMETutorialViewController : TMEBaseViewController
 
-+ (id)hasBeenPresented;
-
 @end

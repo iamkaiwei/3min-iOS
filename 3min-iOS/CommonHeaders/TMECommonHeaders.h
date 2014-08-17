@@ -22,5 +22,6 @@
 #import "TMEViewHeaders.h"
 #import "TMEControllerHeaders.h"
 #import "TMEManagerHeaders.h"
+#import "TMENetworkHeaders.h"
 
 

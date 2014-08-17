@@ -14,6 +14,9 @@ static NSString *const clientID = @"349583123438-pjv0gppnups9vi6qjet02tdl19qhcrn
 
 @interface TMEGooglePlusManager () <GPPSignInDelegate>
 
+@property (nonatomic, copy) TMEGooglePlusManagerSuccessBlock succcessBlock;
+@property (nonatomic, copy) TMEFailureBlock failureBlock;
+
 @end
 
 @implementation TMEGooglePlusManager
@@ -41,13 +44,27 @@ OMNIA_SINGLETON_M(sharedManager)
     [[GPPSignIn sharedInstance] signOut];
 }
 
+#pragma mark - Public Interface
+- (void)signInWithSuccess:(TMEGooglePlusManagerSuccessBlock)success
+                  failure:(TMEFailureBlock)failure
+{
+    self.succcessBlock = success;
+    self.failureBlock = failure;
+
+    [self signIn];
+}
+
 #pragma mark - GPPSignInDelegate
 - (void)finishedWithAuth:(GTMOAuth2Authentication *)auth error:(NSError *)error
 {
-    if (!error) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowHomeViewControllerNotification
-                                                            object:nil
-                                                          userInfo:nil];
+    if (error) {
+        if (self.failureBlock) {
+            self.failureBlock(error);
+        }
+    } else {
+        if (self.succcessBlock) {
+            self.succcessBlock(auth.accessToken);
+        }
     }
 }
 

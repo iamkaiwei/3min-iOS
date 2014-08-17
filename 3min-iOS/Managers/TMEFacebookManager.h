@@ -8,6 +8,8 @@
 
 #import "FacebookManager.h"
 
+typedef void (^TMEFacebookManagerSuccessBlock)(NSString *facebookToken);
+
 @interface TMEFacebookManager : FacebookManager
 
 OMNIA_SINGLETON_H(sharedManager)
@@ -16,5 +18,9 @@ OMNIA_SINGLETON_H(sharedManager)
                             user:(id<FBGraphUser>)user;
 - (void)showLoginView;
 
+
+// ========
+- (void)signInWithSuccess:(TMEFacebookManagerSuccessBlock)success
+                  failure:(TMEFailureBlock)failure;
 
 @end

@@ -9,6 +9,13 @@
 #import "AppDelegate.h"
 #import "TMEFacebookManager.h"
 
+@interface TMEFacebookManager ()
+
+@property (nonatomic, copy) TMEFacebookManagerSuccessBlock succcessBlock;
+@property (nonatomic, copy) TMEFailureBlock failureBlock;
+
+@end
+
 @implementation TMEFacebookManager
 
 OMNIA_SINGLETON_M(sharedManager)
@@ -67,12 +74,19 @@ OMNIA_SINGLETON_M(sharedManager)
 #pragma mark - Refactor
 - (void)signIn
 {
-
+    
 }
 
 - (void)signOut
 {
     
 }
+
+- (void)signInWithSuccess:(TMEFacebookManagerSuccessBlock)success
+                  failure:(TMEFailureBlock)failure
+{
+
+}
+
 
 @end

@@ -53,6 +53,7 @@
 		990CB7D1199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB7D0199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m */; };
 		990CB7D4199A631F00AEA179 /* TMEGooglePlusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB7D3199A631F00AEA179 /* TMEGooglePlusManager.m */; };
 		990CB7D6199A75D400AEA179 /* TMETutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990CB7D5199A75D400AEA179 /* TMETutorialViewController.xib */; };
+		9966434819A1085E008960DB /* TMEUserNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9966434719A1085E008960DB /* TMEUserNetworkClient.m */; };
 		9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */; };
 		99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D601978492C00872EE4 /* AppDelegate.m */; };
 		99EA0EE81978492D00872EE4 /* TMEApperanceAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D631978492C00872EE4 /* TMEApperanceAppDelegateService.m */; };
@@ -272,6 +273,9 @@
 		990CB7D2199A631F00AEA179 /* TMEGooglePlusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEGooglePlusManager.h; sourceTree = "<group>"; };
 		990CB7D3199A631F00AEA179 /* TMEGooglePlusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEGooglePlusManager.m; sourceTree = "<group>"; };
 		990CB7D5199A75D400AEA179 /* TMETutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMETutorialViewController.xib; sourceTree = "<group>"; };
+		9966434619A1085E008960DB /* TMEUserNetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserNetworkClient.h; sourceTree = "<group>"; };
+		9966434719A1085E008960DB /* TMEUserNetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserNetworkClient.m; sourceTree = "<group>"; };
+		9966434919A1087D008960DB /* TMENetworkHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMENetworkHeaders.h; sourceTree = "<group>"; };
 		9990E4271997CBD9008B603F /* TMELoggerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoggerAppDelegateService.h; sourceTree = "<group>"; };
 		9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoggerAppDelegateService.m; sourceTree = "<group>"; };
 		99EA0D5F1978492C00872EE4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -621,6 +625,7 @@
 		5976C03415925D2D007F6FC3 = {
 			isa = PBXGroup;
 			children = (
+				9966434519A10835008960DB /* Network */,
 				99EA0D5E1978492C00872EE4 /* AppDelegate */,
 				99EA0D611978492C00872EE4 /* AppDelegateService */,
 				99EA0D781978492C00872EE4 /* CommonHeaders */,
@@ -675,6 +680,16 @@
 				D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9966434519A10835008960DB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9966434619A1085E008960DB /* TMEUserNetworkClient.h */,
+				9966434719A1085E008960DB /* TMEUserNetworkClient.m */,
+			);
+			name = Network;
+			path = "3min-iOS/Network";
 			sourceTree = "<group>";
 		};
 		99EA0D5E1978492C00872EE4 /* AppDelegate */ = {
@@ -736,6 +751,7 @@
 				99EA0D821978492C00872EE4 /* TMEUsefulMacros.h */,
 				99EA0D831978492C00872EE4 /* TMEVendorHeaders.h */,
 				99EA0D841978492C00872EE4 /* TMEViewHeaders.h */,
+				9966434919A1087D008960DB /* TMENetworkHeaders.h */,
 			);
 			name = CommonHeaders;
 			path = "3min-iOS/CommonHeaders";
@@ -1666,6 +1682,7 @@
 				99EA0F7E1978492D00872EE4 /* TMEBaseTabBarViewController.m in Sources */,
 				99EA0F091978492D00872EE4 /* TMEProduct.m in Sources */,
 				99EA0F811978492D00872EE4 /* TMETutorialViewController.m in Sources */,
+				9966434819A1085E008960DB /* TMEUserNetworkClient.m in Sources */,
 				99EA0F8F1978492D00872EE4 /* UINavigationController+SGProgress.m in Sources */,
 				990014E9198FE51B00AF1553 /* TMEActivityManager.m in Sources */,
 				99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */,

@@ -26,19 +26,6 @@ NSUInteger const kNumberOfPages = 3;
 
 @implementation TMETutorialViewController
 
-+ (id)hasBeenPresented
-{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:TUTORIAL_HAS_BEEN_PRESENTED];
-}
-
-- (void)closeTutorial
-{
-    [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:TUTORIAL_HAS_BEEN_PRESENTED];
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowLoginViewControllerNotification
-                                                        object:nil];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -84,12 +71,28 @@ NSUInteger const kNumberOfPages = 3;
 #pragma mark - Action
 - (IBAction)googleButtonAction:(id)sender
 {
-    [[TMEGooglePlusManager sharedManager] signIn];
+    TMEUserNetworkClient *client = [[TMEUserNetworkClient alloc] init];
+    [client loginWithGooglePlusWithSuccess:^(NSError *error) {
+        [self notifyUserDidLogin];
+    } failure:^(NSError *error) {
+
+    }];
 }
 
 - (IBAction)facebookButtonAction:(id)sender
 {
+    TMEUserNetworkClient *client = [[TMEUserNetworkClient alloc] init];
+    [client loginWithFacebookWithSuccess:^(NSError *error) {
+        [self notifyUserDidLogin];
+    } failure:^(NSError *error) {
 
+    }];
+}
+
+#pragma mark - Helper
+- (void)notifyUserDidLogin
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:TMEUserDidLoginNotification object:nil];
 }
 
 

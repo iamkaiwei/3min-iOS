@@ -17,6 +17,8 @@ typedef void (^TMEJSONRequestFailureBlock)(NSInteger code, NSError *error);
 typedef void (^TMEJSONLoginRequestSuccessBlock) (TMEUser *user);
 typedef void (^TMEJSONLoginFailureSuccessBlock) (NSInteger statusCode, id obj);
 
+typedef void (^TMEUserManagerSuccessBlock)(TMEUser *user);
+
 @interface TMEUserManager : TMEBaseManager
 
 OMNIA_SINGLETON_H(sharedManager)
@@ -38,5 +40,11 @@ OMNIA_SINGLETON_H(sharedManager)
 - (void)setLoggedUser:(TMEUser *)loggedUser andFacebookUser:(id<FBGraphUser>)user;
 - (void)logOut;
 - (BOOL)isLoggedUser;
+
+
+// ===================================================
+@property (nonatomic, strong) TMEUser *user;
+- (void)save;
+- (void)load;
 
 @end

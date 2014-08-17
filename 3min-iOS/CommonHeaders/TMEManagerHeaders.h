@@ -9,6 +9,8 @@
 #import "TMEBaseManager.h"
 #import "TMENetworkManager.h"
 
+#import "TMEGooglePlusManager.h"
+
 #import "TMEProductsManager.h"
 #import "TMEUserManager.h"
 #import "TMEFacebookManager.h"

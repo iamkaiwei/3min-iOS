@@ -8,13 +8,15 @@
 
 #import "TMEBaseManager.h"
 
+typedef void (^TMEGooglePlusManagerSuccessBlock)(NSString *googlePlusToken);
+
 @interface TMEGooglePlusManager : TMEBaseManager
 
 OMNIA_SINGLETON_H(sharedManager)
 
 - (void)setup;
-- (void)signIn;
-- (void)signOut;
 
+- (void)signInWithSuccess:(TMEGooglePlusManagerSuccessBlock)success
+                  failure:(TMEFailureBlock)failure;
 
 @end

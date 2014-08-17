@@ -37,10 +37,8 @@
 
     [self setupViewDeckController];
 
-    if (![TMETutorialViewController hasBeenPresented]) {
-        [self showTutorialViewController];
-        [window makeKeyAndVisible];
-        return YES;
+    if (![TMEUserManager sharedManager].user) {
+        [self showLoginViewController];
     }
 
     [window makeKeyAndVisible];
@@ -94,20 +92,13 @@
     }
 }
 
-#pragma mark - Tutorial
-- (void)showTutorialViewController
-{
-    [self switchRootViewController:[[TMETutorialViewController alloc] init] animated:YES completion:nil];
-}
+
 
 #pragma mark - Login
 - (void)showLoginViewController
 {
-    UIWindow *window = self.appDelegate.window;
-
     TMETutorialViewController *loginViewController = [[TMETutorialViewController alloc] init];
     [self switchRootViewController:loginViewController animated:YES completion:nil];
-    [window makeKeyAndVisible];
 }
 
 #pragma mark - Home
@@ -153,17 +144,12 @@
 - (void)registerNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleShowHomeViewControllerNotification:)
-                                                 name:TMEShowHomeViewControllerNotification
-                                               object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleShowLoginViewControllerNotification:)
-                                                 name:TMEShowLoginViewControllerNotification
+                                             selector:@selector(handleUserDidLoginNotification:)
+                                                 name:TMEUserDidLoginNotification
                                                object:nil];
 }
 
-- (void)handleShowHomeViewControllerNotification:(NSNotification *)note
+- (void)handleUserDidLoginNotification:(NSNotification *)note
 {
     [self showHomeViewController];
 
@@ -173,11 +159,6 @@
         UITabBarController *homeController = (UITabBarController *)self.deckController.centerController;
         [homeController setSelectedIndex:[index integerValue]];
     }
-}
-
-- (void)handleShowLoginViewControllerNotification:(NSNotification *)note
-{
-
 }
 
 // TODO: Refactor
