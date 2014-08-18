@@ -104,12 +104,6 @@
 #pragma mark - Home
 - (void)showHomeViewController
 {
-//    if ([FBSession.activeSession isOpen] == NO) {
-//        [self showLoginViewController];
-//
-//        return;
-//    }
-
     // FIXME: Leave it for now
      [self switchRootViewController:self.deckController animated:YES completion:nil];
     return;
@@ -147,16 +141,17 @@
 #pragma mark - Notification
 - (void)registerNotifications
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleUserDidLoginNotification:)
-                                                 name:TMEUserDidLoginNotification
-                                               object:nil];
+    [self tme_registerNotifications:@{TMEUserDidLoginNotification:
+                                          NSStringFromSelector(@selector(handleUserDidLoginNotification:)),
+
+                                      }];
 }
 
 - (void)handleUserDidLoginNotification:(NSNotification *)note
 {
     [self showHomeViewController];
 
+    // FIXME: This is for push notification
     if (note.userInfo && [note.userInfo objectForKey:@"index"]) {
         NSNumber *index = [note.userInfo objectForKey:@"index"];
 

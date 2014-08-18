@@ -36,6 +36,8 @@ OMNIA_SINGLETON_M(sharedManager)
                                           [self sessionStateChanged:session state:state error:error];
                                       }];
     }
+
+    [self registerNotifications];
 }
 
 - (BOOL)handleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
@@ -155,6 +157,19 @@ OMNIA_SINGLETON_M(sharedManager)
 
 - (void)showMessage:(NSString *)message withTitle:(NSString *)title {
 
+}
+
+#pragma mark - Notification
+- (void)registerNotifications
+{
+    [self tme_registerNotifications:@{TMEUserDidLogoutNotification:
+                                          NSStringFromSelector(@selector(handleUserDidLogoutNotification:)),
+                                      }];
+}
+
+- (void)handleUserDidLogoutNotification:(NSNotification *)note
+{
+    // TODO:
 }
 
 @end

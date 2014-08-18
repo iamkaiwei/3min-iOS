@@ -32,6 +32,8 @@ OMNIA_SINGLETON_M(sharedManager)
     signIn.scopes = @[ kGTLAuthScopePlusLogin ];
 
     signIn.delegate = self;
+
+    [self registerNotifications];
 }
 
 - (void)signIn
@@ -72,5 +74,18 @@ OMNIA_SINGLETON_M(sharedManager)
 {
     DDLogVerbose(@"didDisconnectWithError %@", error);
 }
+
+- (void)registerNotifications
+{
+    [self tme_registerNotifications:@{TMEUserDidLogoutNotification:
+                                          NSStringFromSelector(@selector(handleUserDidLogoutNotification:)),
+                                      }];
+}
+
+- (void)handleUserDidLogoutNotification:(NSNotification *)note
+{
+    // TODO:
+}
+
 
 @end

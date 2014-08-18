@@ -55,6 +55,7 @@
 		990CB7D6199A75D400AEA179 /* TMETutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990CB7D5199A75D400AEA179 /* TMETutorialViewController.xib */; };
 		9966434819A1085E008960DB /* TMEUserNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9966434719A1085E008960DB /* TMEUserNetworkClient.m */; };
 		9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */; };
+		99AA4B2219A26F0600268345 /* NSObject+TMENotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AA4B2119A26F0600268345 /* NSObject+TMENotification.m */; };
 		99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D601978492C00872EE4 /* AppDelegate.m */; };
 		99EA0EE81978492D00872EE4 /* TMEApperanceAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D631978492C00872EE4 /* TMEApperanceAppDelegateService.m */; };
 		99EA0EE91978492D00872EE4 /* TMECoreDataAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D651978492C00872EE4 /* TMECoreDataAppDelegateService.m */; };
@@ -279,6 +280,8 @@
 		9966434919A1087D008960DB /* TMENetworkHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMENetworkHeaders.h; sourceTree = "<group>"; };
 		9990E4271997CBD9008B603F /* TMELoggerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoggerAppDelegateService.h; sourceTree = "<group>"; };
 		9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoggerAppDelegateService.m; sourceTree = "<group>"; };
+		99AA4B2019A26F0600268345 /* NSObject+TMENotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TMENotification.h"; sourceTree = "<group>"; };
+		99AA4B2119A26F0600268345 /* NSObject+TMENotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TMENotification.m"; sourceTree = "<group>"; };
 		99EA0D5F1978492C00872EE4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		99EA0D601978492C00872EE4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		99EA0D621978492C00872EE4 /* TMEApperanceAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEApperanceAppDelegateService.h; sourceTree = "<group>"; };
@@ -937,6 +940,8 @@
 				99EA0E101978492C00872EE4 /* UIWebView+Additions.m */,
 				990014F91990629400AF1553 /* TMEBaseModel+TMEAdditions.h */,
 				990014FA1990629400AF1553 /* TMEBaseModel+TMEAdditions.m */,
+				99AA4B2019A26F0600268345 /* NSObject+TMENotification.h */,
+				99AA4B2119A26F0600268345 /* NSObject+TMENotification.m */,
 			);
 			name = Categories;
 			path = "3min-iOS/Categories";
@@ -1555,6 +1560,7 @@
 				99EA0F6D1978492D00872EE4 /* PublishLocationPickerViewController.m in Sources */,
 				99EA0EEB1978492D00872EE4 /* TMEFacebookAppDelegateService.m in Sources */,
 				99EA0F6F1978492D00872EE4 /* TMEPublishProductViewController.m in Sources */,
+				99AA4B2219A26F0600268345 /* NSObject+TMENotification.m in Sources */,
 				99EA0F931978492D00872EE4 /* TMELoadMoreTableViewCell.m in Sources */,
 				99EA0F7D1978492D00872EE4 /* TMEBasePhotoEditorViewController.m in Sources */,
 				99EA0F0A1978492D00872EE4 /* TMEProductImage.m in Sources */,

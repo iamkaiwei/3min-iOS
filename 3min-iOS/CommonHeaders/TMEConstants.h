@@ -11,8 +11,9 @@ typedef void(^TMESuccessBlock)();
 
 extern NSString *const TMEShowLoginViewControllerNotification;
 extern NSString *const TMEShowHomeViewControllerNotification;
-extern NSString *const TMEUserDidLoginNotification;
 
+extern NSString *const TMEUserDidLoginNotification;
+extern NSString *const TMEUserDidLogoutNotification;
 
 // CocoaLumberJack
 extern int const ddLogLevel;

@@ -12,6 +12,7 @@ NSString *const TMEShowLoginViewControllerNotification = @"TMEShowLoginViewContr
 NSString *const TMEShowHomeViewControllerNotification = @"TMEShowHomeViewControllerNotification";
 
 NSString *const TMEUserDidLoginNotification = @"TMEUserDidLoginNotification";
+NSString *const TMEUserDidLogoutNotification = @"TMEUserDidLogoutNotification";
 
 // CocoaLumberJack
 #import <CocoaLumberjack/DDLog.h>
