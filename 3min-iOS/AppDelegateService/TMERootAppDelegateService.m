@@ -37,7 +37,7 @@
 
     [self setupViewDeckController];
 
-    if (![TMEUserManager sharedManager].user) {
+    if (![TMEUserManager sharedManager].loggedUser) {
         [self showLoginViewController];
     }
 
@@ -168,7 +168,7 @@
 // TODO: Refactor
 - (void)updateUAAlias
 {
-    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedManager].loggedUser.id integerValue]];
+    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedManager].loggedUser.userID integerValue]];
     [[UAPush shared] updateRegistration];
 
 }

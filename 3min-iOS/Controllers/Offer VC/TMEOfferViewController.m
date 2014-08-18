@@ -35,7 +35,7 @@ UIAlertViewDelegate
 
 - (void)setUpView{
     self.navigationItem.rightBarButtonItem = [self rightNavigationButtonSubmit];
-    self.labelDetail.text = [NSString stringWithFormat:NSLocalizedString(@"%@ is selling it for %@ VND", nil), self.product.user.fullname, self.product.price];
+    self.labelDetail.text = [NSString stringWithFormat:NSLocalizedString(@"%@ is selling it for %@ VND", nil), self.product.user.fullName, self.product.price];
     
     self.labelPriceOffer.text = [NSString stringWithFormat:@"%@ VND",self.product.price];
     [self.labelPriceOffer sizeToFitKeepHeight];
@@ -61,7 +61,7 @@ UIAlertViewDelegate
 
 - (void)setOfferPriceToConversation{
     [TMEConversationManager createConversationWithProductID:self.product.id
-                                                   toUserID:self.product.user.id
+                                                   toUserID:self.product.user.userID
                                              withOfferPrice:@([self.txtPrice.text integerValue])
                                              onSuccessBlock:^(TMEConversation *conversation)
      {

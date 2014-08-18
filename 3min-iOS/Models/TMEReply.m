@@ -50,9 +50,9 @@
 {
     TMEReply *reply = [TMEReply MR_createEntity];
     reply.reply = content;
-    reply.user_avatar = [[[TMEUserManager sharedManager] loggedUser] photo_url];
-    reply.user_full_name = [[[TMEUserManager sharedManager] loggedUser] fullname];
-    reply.user_id = [[[TMEUserManager sharedManager] loggedUser] id];
+    reply.user_avatar = [[[TMEUserManager sharedManager] loggedUser] avatar];
+    reply.user_full_name = [[[TMEUserManager sharedManager] loggedUser] fullName];
+    reply.user_id = [[[TMEUserManager sharedManager] loggedUser] userID];
     
     return reply;
 }
@@ -61,9 +61,9 @@
 {
     TMEReply *reply = [TMEReply MR_createEntity];
     reply.reply = content;
-    reply.user_avatar = sender.photo_url;
-    reply.user_full_name = sender.fullname;
-    reply.user_id = sender.id;
+    reply.user_avatar = sender.avatar;
+    reply.user_full_name = sender.fullName;
+    reply.user_id = sender.userID;
     reply.time_stamp = [NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]];
 
     return reply;

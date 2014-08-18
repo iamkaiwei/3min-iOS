@@ -71,21 +71,27 @@ NSUInteger const kNumberOfPages = 3;
 #pragma mark - Action
 - (IBAction)googleButtonAction:(id)sender
 {
+    [SVProgressHUD showWithStatus:LS(@"Logging in")];
+
     TMEUserNetworkClient *client = [[TMEUserNetworkClient alloc] init];
     [client loginWithGooglePlusWithSuccess:^(NSError *error) {
         [self notifyUserDidLogin];
+        [SVProgressHUD dismiss];
     } failure:^(NSError *error) {
-
+        [SVProgressHUD dismiss];
     }];
 }
 
 - (IBAction)facebookButtonAction:(id)sender
 {
+    [SVProgressHUD showWithStatus:LS(@"Logging in")];
+
     TMEUserNetworkClient *client = [[TMEUserNetworkClient alloc] init];
     [client loginWithFacebookWithSuccess:^(NSError *error) {
         [self notifyUserDidLogin];
+        [SVProgressHUD dismiss];
     } failure:^(NSError *error) {
-
+        [SVProgressHUD dismiss];
     }];
 }
 

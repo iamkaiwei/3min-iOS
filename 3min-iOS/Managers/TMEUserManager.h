@@ -14,8 +14,7 @@ typedef void (^TMEUserManagerSuccessBlock)(TMEUser *user);
 
 OMNIA_SINGLETON_H(sharedManager)
 
-@property (strong, nonatomic) TMEUser                   * loggedUser;
-@property (nonatomic, strong) TMEUser *user;
+@property (strong, nonatomic) TMEUser *loggedUser;
 
 - (void)save;
 - (void)load;

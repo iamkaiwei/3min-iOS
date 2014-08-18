@@ -20,7 +20,7 @@ OMNIA_SINGLETON_M(sharedManager)
 
 - (void)save
 {
-    NSData *archived = [NSKeyedArchiver archivedDataWithRootObject:self.user];
+    NSData *archived = [NSKeyedArchiver archivedDataWithRootObject:self.loggedUser];
     [[NSUserDefaults standardUserDefaults] setObject:archived forKey:kUserKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -28,7 +28,7 @@ OMNIA_SINGLETON_M(sharedManager)
 - (void)load
 {
     NSData *archived = [[NSUserDefaults standardUserDefaults] objectForKey:kUserKey];
-    self.user = [NSKeyedUnarchiver unarchiveObjectWithData:archived];
+    self.loggedUser = [NSKeyedUnarchiver unarchiveObjectWithData:archived];
 
     [self validateAccessTokenExpiration];
 }

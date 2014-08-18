@@ -54,9 +54,9 @@ cellRightIdentifier:(NSString *)aCellRightIdentifier
         item = [self itemAtIndexPath:indexPath];
     }
     
-    if ([item.user_id isEqual:[[[TMEUserManager sharedManager] loggedUser] id]]) {
-        item.user_full_name = [[[TMEUserManager sharedManager] loggedUser] fullname];
-        item.user_avatar = [[[TMEUserManager sharedManager] loggedUser] photo_url];
+    if ([item.user_id isEqual:[[[TMEUserManager sharedManager] loggedUser] userID]]) {
+        item.user_full_name = [[[TMEUserManager sharedManager] loggedUser] fullName];
+        item.user_avatar = [[[TMEUserManager sharedManager] loggedUser] avatar];
         TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
         [cell configCellWithMessage:item];
         return cell;

@@ -40,16 +40,16 @@ UIActionSheetDelegate
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setEdgeForExtendedLayoutAll];
-    self.navigationController.navigationBar.topItem.title = [[TMEUserManager sharedManager] loggedUser].fullname;
+    self.navigationController.navigationBar.topItem.title = [[TMEUserManager sharedManager] loggedUser].fullName;
 }
 
 - (void)configView{
     TMEUser *loggedUser = [[TMEUserManager sharedManager] loggedUser];
     
-    [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:loggedUser.photo_url]];
+    [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:loggedUser.avatar]];
     self.imageViewAvatar.layer.cornerRadius = 70;
     
-    self.labelUsername.text = loggedUser.fullname;
+    self.labelUsername.text = loggedUser.fullName;
     [self.labelUsername sizeToFitKeepHeight];
     [self.labelUsername alignHorizontalCenterToView:self.view];
     

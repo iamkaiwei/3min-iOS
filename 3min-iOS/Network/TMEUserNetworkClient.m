@@ -81,8 +81,9 @@
                                     success:^(id responseObject)
     {
         TMEUser *user = [TMEUser tme_modelFromJSONResponse:responseObject];
+        user.accessTokenReceivedAt = [NSDate date];
 
-        [TMEUserManager sharedManager].user = user;
+        [TMEUserManager sharedManager].loggedUser = user;
         [[TMEUserManager sharedManager] save];
 
         if (success) {
