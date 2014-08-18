@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
+#if DEBUG
+#import "FLEXManager.h"
+#endif
+
 #import "CoreData+MagicalRecord.h"
 #import "SVProgressHUD.h"
 #import "AFNetworking.h"
@@ -37,3 +41,4 @@
 #import <CocoaLumberjack/DDLog.h>
 #import <Masonry/Masonry.h>
 #import <CrashlyticsFramework/Crashlytics.h>
+#import <KVOController/FBKVOController.h>
