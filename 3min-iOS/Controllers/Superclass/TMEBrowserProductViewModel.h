@@ -13,5 +13,6 @@
 @property (copy, nonatomic, readonly) NSArray *arrayItems;
 
 - (void)getProducts:(void (^)(NSArray *arrProducts))success failure:(void (^)(NSError *error))failure;
+- (void)getProducts:(void (^)(NSArray *arrProducts))success failure:(void (^)(NSError *error))failure withPage:(NSUInteger)page;
 
 @end
