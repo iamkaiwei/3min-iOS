@@ -13,6 +13,7 @@
 #import "TMENavigationViewController.h"
 #import "TMEBaseViewController.h"
 #import "TMEBaseTableViewController.h"
+#import "TMEBaseCollectionViewController.h"
 #import "TMELeftMenuViewController.h"
 #import "TMEBaseTabBarViewController.h"
 #import "TMEHomeViewController.h"
