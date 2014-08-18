@@ -12,8 +12,7 @@ static NSUInteger const kNumberOfLoadMoreCell = 1;
 #import "TMEPaginationCollectionViewDataSource.h"
 #import "TMEProductCollectionViewCell.h"
 #import "TMELoadMoreCollectionCell.h"
-
-#import "TMETestCell.h"
+#import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
 @interface TMEPaginationCollectionViewDataSource ()
 <
@@ -39,10 +38,11 @@ static NSUInteger const kNumberOfLoadMoreCell = 1;
 #pragma mark -
 
 - (void)setClassAndFooterClasses:(UICollectionView *)collectionView {
-	[collectionView  registerClass:[TMETestCell class]
-	    forCellWithReuseIdentifier:NSStringFromClass([TMETestCell class])];
-	[collectionView  registerClass:[TMELoadMoreCollectionCell class]
-	    forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionCell class])];
+	[collectionView  registerNib:[TMEProductCollectionViewCell defaultNib]
+	    forCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class])];
+	[collectionView  registerNib:[TMELoadMoreCollectionCell defaultNib]
+	    forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter
+               withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionCell class])];
 }
 
 #pragma mark -
@@ -50,7 +50,7 @@ static NSUInteger const kNumberOfLoadMoreCell = 1;
 - (IdentifierParserBlock)identifierParserBlock {
 	IdentifierParserBlock identifierParserBlock = ^NSString *(id item)
 	{
-		return NSStringFromClass([TMETestCell class]);
+		return NSStringFromClass([TMEProductCollectionViewCell class]);
 	};
 	return identifierParserBlock;
 }
@@ -63,8 +63,8 @@ static NSUInteger const kNumberOfLoadMoreCell = 1;
 }
 
 - (void)configNormalCell:(id)cell item:(id)item {
-//    TMEProductCollectionViewCell *productCell = (TMEProductCollectionViewCell *)cell;
-//    [productCell configWithData:item];
+    TMEProductCollectionViewCell *productCell = (TMEProductCollectionViewCell *)cell;
+    [productCell configWithData:item];
 }
 
 - (void)configLoadMoreCell:(id)cell item:(id)item {
@@ -84,10 +84,10 @@ static NSUInteger const kNumberOfLoadMoreCell = 1;
 	return cell;
 }
 
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-//    TMELoadMoreCollectionCell *footer = (TMELoadMoreCollectionCell *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionCell class]) forIndexPath:indexPath];
-//    return footer;
-//}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    TMELoadMoreCollectionCell *footer = (TMELoadMoreCollectionCell *)[collectionView dequeueReusableSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionCell class]) forIndexPath:indexPath];
+    return footer;
+}
 
 #pragma mark -
 

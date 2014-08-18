@@ -10,8 +10,8 @@
 
 @interface FPCollectionArrayDataSource()
 
-@property (strong, nonatomic) IdentifierParserBlock identifierParserBlock;
-@property (strong, nonatomic) CollectionViewCellConfigureBlock configureCellBlock;
+@property (copy, nonatomic) IdentifierParserBlock identifierParserBlock;
+@property (copy, nonatomic) CollectionViewCellConfigureBlock configureCellBlock;
 
 @end
 
@@ -24,8 +24,8 @@ identifierParserBlock:(IdentifierParserBlock)parserBlock
     self = [super init];
     if (self) {
         _items = items;
-        _identifierParserBlock = [parserBlock copy];
-        _configureCellBlock = [configureCellBlock copy];
+        _identifierParserBlock = parserBlock;
+        _configureCellBlock = configureCellBlock;
     }
     return self;
 }
