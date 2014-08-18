@@ -7,9 +7,9 @@
 //
 
 #import "TMEFacebookAppDelegateService.h"
-#import <FacebookSDK/FacebookSDK.h>
+#import "TMEFacebookManager.h"
 
-@interface TMEFacebookAppDelegateService () <FacebookManagerDelegate>
+@interface TMEFacebookAppDelegateService ()
 
 @end
 
@@ -17,52 +17,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Facebook Stuffs
-    [FBLoginView class];
-    [FacebookManager sharedManager].delegate = (id) self;
-    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-
-        // ASK: What is openSession ?
-        [self openSession];
-
-        [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowHomeViewControllerNotification
-                                                            object:nil];
-
-    } else {
-        // No, display the login page.
-        [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowLoginViewControllerNotification
-                                                            object:nil];
-    }
+    [[TMEFacebookManager sharedManager] setup];
 
     return YES;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [FBSession.activeSession handleDidBecomeActive];
-    [FBAppEvents activateApp];
-    [FBAppCall handleDidBecomeActive];
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
+    [[TMEFacebookManager sharedManager] handleDidBecomeActive];
 }
 
-- (void)openSession
-{
-    // FIXME: loop call
-    //[[FacebookManager sharedInstance] openSession];
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    [FBSession.activeSession close];
-}
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    return [[TMEFacebookManager sharedManager] handleOpenURL:url sourceApplication:sourceApplication];
 }
 
 @end

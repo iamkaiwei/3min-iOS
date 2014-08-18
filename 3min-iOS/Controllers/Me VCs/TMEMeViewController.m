@@ -112,7 +112,7 @@ UIActionSheetDelegate
             return;
         }
         [[TMEUserManager sharedManager] logOut];
-        [[TMEFacebookManager sharedManager] showLoginView];
+        // FIXME: Show login View
         UITabBarController *tabBarController = (UITabBarController *)self.deckController.centerController;
         tabBarController.selectedIndex = 0;
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:LAST_LOGIN_TIMESTAMP_STORED_KEY];

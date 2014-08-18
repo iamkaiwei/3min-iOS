@@ -43,7 +43,8 @@ OMNIA_SINGLETON_M(sharedManager)
 {
     self.loggedUser = nil;
     self.loggedFacebookUser = nil;
-  [[TMEFacebookManager sharedManager] logout];
+
+    // FIXME: Post log out notification
 }
 
 - (NSString *)getFacebookToken
@@ -91,7 +92,9 @@ OMNIA_SINGLETON_M(sharedManager)
              if (failureBlock) {
                  failureBlock(error);
              }
-             [[TMEFacebookManager sharedManager] logout];
+
+             // FIXME: Post logout notification
+
              self.isLogging = NO;
          }];
 
@@ -153,7 +156,9 @@ OMNIA_SINGLETON_M(sharedManager)
                 failureBlock(error);
             });
         }
-        [[TMEFacebookManager sharedManager] logout];
+
+        // FIXME: Post log out notification
+
         self.isLogging = NO;
 
     }];

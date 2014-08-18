@@ -6,21 +6,18 @@
 //
 //
 
-#import "FacebookManager.h"
-
 typedef void (^TMEFacebookManagerSuccessBlock)(NSString *facebookToken);
 
-@interface TMEFacebookManager : FacebookManager
+@interface TMEFacebookManager : TMEBaseManager
 
 OMNIA_SINGLETON_H(sharedManager)
 
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user;
-- (void)showLoginView;
-
-
-// ========
+- (void)setup;
 - (void)signInWithSuccess:(TMEFacebookManagerSuccessBlock)success
                   failure:(TMEFailureBlock)failure;
+
+- (void)sessionStateChanged:(FBSession *)session state:(FBSessionState)state error:(NSError *)error;
+- (BOOL)handleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication;
+- (void)handleDidBecomeActive;
 
 @end
