@@ -20,6 +20,7 @@
 #import "TMEApperanceAppDelegateService.h"
 #import "TMELoggerAppDelegateService.h"
 #import "TMEGooglePlusAppDelegateService.h"
+#import "TMEDeviceManagerAppDelegateService.h"
 
 
 @interface AppDelegate()
@@ -48,6 +49,7 @@
                                  [TMEApperanceAppDelegateService new],
                                  [TMELoggerAppDelegateService new],
                                  [TMEGooglePlusAppDelegateService new],
+                                 [TMEDeviceManagerAppDelegateService new],
                                  ];
     }
 

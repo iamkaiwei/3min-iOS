@@ -68,7 +68,6 @@
 		99EA0EF11978492D00872EE4 /* TMERootAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D751978492C00872EE4 /* TMERootAppDelegateService.m */; };
 		99EA0EF21978492D00872EE4 /* TMEVersionCheckerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D771978492C00872EE4 /* TMEVersionCheckerAppDelegateService.m */; };
 		99EA0EF31978492D00872EE4 /* TMEConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D7D1978492C00872EE4 /* TMEConstants.m */; };
-		99EA0EF71978492D00872EE4 /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D8E1978492C00872EE4 /* TMEUserManager.m */; };
 		99EA0EFA1978492D00872EE4 /* TMEConversationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D941978492C00872EE4 /* TMEConversationManager.m */; };
 		99EA0EFB1978492D00872EE4 /* TMEFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D961978492C00872EE4 /* TMEFacebookManager.m */; };
 		99EA0EFC1978492D00872EE4 /* TMEProductsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D981978492C00872EE4 /* TMEProductsManager.m */; };
@@ -222,6 +221,9 @@
 		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
 		B4AE17D3198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */; };
 		B4AE17D6198E4A3200F6D601 /* KHRoundAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */; };
+		D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224260F19A2061C009DB3AC /* TMEDeviceManager.m */; };
+		D224261319A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */; };
+		D224261619A2070A009DB3AC /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261519A2070A009DB3AC /* TMEUserManager.m */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
@@ -313,8 +315,6 @@
 		99EA0D821978492C00872EE4 /* TMEUsefulMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUsefulMacros.h; sourceTree = "<group>"; };
 		99EA0D831978492C00872EE4 /* TMEVendorHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEVendorHeaders.h; sourceTree = "<group>"; };
 		99EA0D841978492C00872EE4 /* TMEViewHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEViewHeaders.h; sourceTree = "<group>"; };
-		99EA0D8D1978492C00872EE4 /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManager.h; sourceTree = "<group>"; };
-		99EA0D8E1978492C00872EE4 /* TMEUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserManager.m; sourceTree = "<group>"; };
 		99EA0D931978492C00872EE4 /* TMEConversationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEConversationManager.h; sourceTree = "<group>"; };
 		99EA0D941978492C00872EE4 /* TMEConversationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEConversationManager.m; sourceTree = "<group>"; };
 		99EA0D951978492C00872EE4 /* TMEFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFacebookManager.h; sourceTree = "<group>"; };
@@ -583,6 +583,12 @@
 		B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPDFUIKitMainThreadGuard.m; sourceTree = "<group>"; };
 		B4AE17D4198E4A3200F6D601 /* KHRoundAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRoundAvatar.h; sourceTree = "<group>"; };
 		B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHRoundAvatar.m; sourceTree = "<group>"; };
+		D224260E19A2061C009DB3AC /* TMEDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEDeviceManager.h; sourceTree = "<group>"; };
+		D224260F19A2061C009DB3AC /* TMEDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEDeviceManager.m; sourceTree = "<group>"; };
+		D224261119A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEDeviceManagerAppDelegateService.h; sourceTree = "<group>"; };
+		D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEDeviceManagerAppDelegateService.m; sourceTree = "<group>"; };
+		D224261419A2070A009DB3AC /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManager.h; sourceTree = "<group>"; };
+		D224261519A2070A009DB3AC /* TMEUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserManager.m; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -728,6 +734,8 @@
 				9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */,
 				990CB7CF199A61B200AEA179 /* TMEGooglePlusAppDelegateService.h */,
 				990CB7D0199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m */,
+				D224261119A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.h */,
+				D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */,
 			);
 			name = AppDelegateService;
 			path = "3min-iOS/AppDelegateService";
@@ -757,7 +765,8 @@
 		99EA0D851978492C00872EE4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				99EA0D881978492C00872EE4 /* superclass */,
+				D224261419A2070A009DB3AC /* TMEUserManager.h */,
+				D224261519A2070A009DB3AC /* TMEUserManager.m */,
 				99EA0D931978492C00872EE4 /* TMEConversationManager.h */,
 				99EA0D941978492C00872EE4 /* TMEConversationManager.m */,
 				99EA0D951978492C00872EE4 /* TMEFacebookManager.h */,
@@ -778,18 +787,11 @@
 				990014EB198FE60C00AF1553 /* TMECategoryManager.m */,
 				990CB7D2199A631F00AEA179 /* TMEGooglePlusManager.h */,
 				990CB7D3199A631F00AEA179 /* TMEGooglePlusManager.m */,
+				D224260E19A2061C009DB3AC /* TMEDeviceManager.h */,
+				D224260F19A2061C009DB3AC /* TMEDeviceManager.m */,
 			);
 			name = Managers;
 			path = "3min-iOS/Managers";
-			sourceTree = "<group>";
-		};
-		99EA0D881978492C00872EE4 /* superclass */ = {
-			isa = PBXGroup;
-			children = (
-				99EA0D8D1978492C00872EE4 /* TMEUserManager.h */,
-				99EA0D8E1978492C00872EE4 /* TMEUserManager.m */,
-			);
-			path = superclass;
 			sourceTree = "<group>";
 		};
 		99EA0D9D1978492C00872EE4 /* Models */ = {
@@ -1561,8 +1563,10 @@
 				99EA0F541978492D00872EE4 /* TMELikedTableViewCell.m in Sources */,
 				99EA0F131978492D00872EE4 /* ActiveSupportInflector.m in Sources */,
 				99EA0F651978492D00872EE4 /* TMEOfferViewController.m in Sources */,
+				D224261619A2070A009DB3AC /* TMEUserManager.m in Sources */,
 				99EA0F8E1978492D00872EE4 /* TMEPhotoButton.m in Sources */,
 				99EA0F441978492D00872EE4 /* TMEBrowserProductsViewControllerArrayDataSource.m in Sources */,
+				D224261319A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m in Sources */,
 				99EA0F3D1978492D00872EE4 /* TMEActivityViewController.m in Sources */,
 				99EA0F201978492D00872EE4 /* NSObject+Additions.m in Sources */,
 				99EA0F161978492D00872EE4 /* ISO8601DateFormatter.m in Sources */,
@@ -1616,6 +1620,7 @@
 				99EA0F081978492D00872EE4 /* TMEProduct+ParseArrayProducts.m in Sources */,
 				99EA0F2C1978492D00872EE4 /* UIImage+ImageEffects.m in Sources */,
 				99EA0F4C1978492D00872EE4 /* HTKContainerViewController.m in Sources */,
+				D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */,
 				99EA0F2D1978492D00872EE4 /* UIImageView+Additions.m in Sources */,
 				99EA0EE91978492D00872EE4 /* TMECoreDataAppDelegateService.m in Sources */,
 				99EA0F671978492D00872EE4 /* TMEListOffersTableViewController.m in Sources */,
@@ -1659,7 +1664,6 @@
 				99EA0EE81978492D00872EE4 /* TMEApperanceAppDelegateService.m in Sources */,
 				99EA0F501978492D00872EE4 /* TMELeftMenuViewController.m in Sources */,
 				99EA0F691978492D00872EE4 /* TMEListOffersTableViewCell.m in Sources */,
-				99EA0EF71978492D00872EE4 /* TMEUserManager.m in Sources */,
 				99EA0F391978492D00872EE4 /* FSVenue.m in Sources */,
 				99EA0F311978492D00872EE4 /* UIScrollView+Additions.m in Sources */,
 				99EA0F191978492D00872EE4 /* NSArray+Additions.m in Sources */,
