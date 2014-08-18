@@ -53,7 +53,7 @@
                          success:(TMESuccessBlock)success
                          failure:(TMEFailureBlock)failure
 {
-    NSDictionary *params = @{@"google_token": googlePlusToken
+    NSDictionary *params = @{@"gg_token": googlePlusToken
                              };
 
     [self loginWithParams:params success:success failure:failure];

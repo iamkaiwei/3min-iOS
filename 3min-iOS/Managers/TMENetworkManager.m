@@ -23,7 +23,7 @@ OMNIA_SINGLETON_M(sharedManager)
 {
     self = [super init];
     if (self) {
-        NSString *baseURLString = [NSString stringWithFormat:@"%@%@", API_BASE_URL, API_PREFIX];
+        NSString *baseURLString = [NSString stringWithFormat:@"%@", API_BASE_URL];
         NSURL *baseURL = [NSURL URLWithString:baseURLString];
         _requestManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
 
