@@ -116,6 +116,9 @@
 
     if (![[TMEUserManager sharedManager] loggedUser] && [TMEReachabilityManager isReachable]) {
         [SVProgressHUD showWithStatus:NSLocalizedString(@"Login...", nil) maskType:SVProgressHUDMaskTypeGradient];
+
+        // FIXME: fix this stuff
+        /*
         [[TMEUserManager sharedManager] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
             [[TMEUserManager sharedManager] setLoggedUser:tmeUser andFacebookUser:nil];
             [self updateUAAlias];
@@ -126,6 +129,7 @@
         } andFailureBlock:^(id obj) {
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Login failed", nil)];
         }];
+         */
 
         return;
     }

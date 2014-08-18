@@ -427,7 +427,7 @@ PTPusherPresenceChannelDelegate
 }
 
 - (void)pusher:(PTPusher *)pusher willAuthorizeChannel:(PTPusherChannel *)channel withRequest:(NSMutableURLRequest *)request{
-    [request setValue:[NSString stringWithFormat:@"Bearer %@",[[TMEUserManager sharedManager] getAccessToken]] forHTTPHeaderField:@"Authorization"];
+    [request setValue:[NSString stringWithFormat:@"Bearer %@",[TMEUserManager sharedManager].user.accessToken] forHTTPHeaderField:@"Authorization"];
 }
 
 - (void)presenceChannelDidSubscribe:(PTPusherPresenceChannel *)channel{

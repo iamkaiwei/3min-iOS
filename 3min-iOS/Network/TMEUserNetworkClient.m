@@ -8,6 +8,7 @@
 
 #import "TMEUserNetworkClient.h"
 #import "TMEUserManager.h"
+#import "TMEDeviceManager.h"
 
 @implementation TMEUserNetworkClient
 
@@ -64,7 +65,7 @@
                 failure:(TMEFailureBlock)failure
 {
     NSDictionary *identityParams = @{
-                                     @"udid": [[TMEUserManager sharedManager] getUDID],
+                                     @"udid": [TMEDeviceManager sharedManager].UDID,
                                      @"client_secret": API_CLIENT_SERCET,
                                      @"client_id": API_CLIENT_ID,
                                      @"grant_type": API_GRANT_TYPE
@@ -74,20 +75,20 @@
     [combinedParams addEntriesFromDictionary:params];
 
     NSString *path = [NSString stringWithFormat:@"%@%@", API_BASE_URL, API_USER_LOGIN];
-    [[TMENetworkManager sharedManager] getModel:TMEUser.class
-                                           path:path
-                                         params:combinedParams
-                                        success:^(TMEUser *user)
+
+    [[TMENetworkManager sharedManager] post:path
+                                     params:combinedParams
+                                    success:^(id responseObject)
     {
+        TMEUser *user = [TMEUser tme_modelFromJSONResponse:responseObject];
+
         [TMEUserManager sharedManager].user = user;
         [[TMEUserManager sharedManager] save];
 
         if (success) {
             success();
         }
-
     } failure:^(NSError *error) {
-
         if (failure) {
             failure(error);
         }

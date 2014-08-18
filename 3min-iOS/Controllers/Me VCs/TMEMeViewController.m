@@ -111,11 +111,14 @@ UIActionSheetDelegate
         if (![self isReachable]) {
             return;
         }
+
+        //FIXME: Fix this stuff
+        /*
         [[TMEUserManager sharedManager] logOut];
-        // FIXME: Show login View
         UITabBarController *tabBarController = (UITabBarController *)self.deckController.centerController;
         tabBarController.selectedIndex = 0;
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:LAST_LOGIN_TIMESTAMP_STORED_KEY];
+         */
     }
 }
 

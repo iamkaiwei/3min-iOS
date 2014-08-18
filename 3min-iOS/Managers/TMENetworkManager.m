@@ -39,7 +39,7 @@ OMNIA_SINGLETON_M(sharedManager)
 - (void)updateAuthorizationHeader
 {
     // Authorization
-    NSString *access_token = [[TMEUserManager sharedManager] getAccessToken];
+    NSString *access_token = [TMEUserManager sharedManager].user.accessToken;
     if (access_token) {
         NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", access_token];
         [_requestManager.requestSerializer setValue:authHeader
