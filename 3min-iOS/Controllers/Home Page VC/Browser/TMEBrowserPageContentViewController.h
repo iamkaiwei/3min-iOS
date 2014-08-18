@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TMEBaseCollectionViewController.h"
 
 @interface TMEBrowserPageContentViewController : UIViewController
 

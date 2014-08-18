@@ -8,17 +8,22 @@
 
 #import "TMEBrowserPageContentViewController.h"
 #import "TMEProductCollectionViewCell.h"
+#import "TMEPaginationCollectionViewDataSource.h"
+#import "TMEBrowserProductViewModel.h"
+#import "TMELoadMoreCollectionCell.h"
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
 @interface TMEBrowserPageContentViewController ()
 <
-    UICollectionViewDataSource,
-    UICollectionViewDelegate,
+    UICollectionViewDelegateFlowLayout,
     CHTCollectionViewDelegateWaterfallLayout
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewProducts;
-@property (strong, nonatomic) NSArray *arrProducts;
+@property (strong, nonatomic) CHTCollectionViewWaterfallLayout *layout;
+@property (strong, nonatomic) TMEPaginationCollectionViewDataSource *datasource;
+@property (strong, nonatomic) TMEBrowserProductViewModel *viewModel;
+@property (strong, nonatomic) FBKVOController *kvoController;
 
 @end
 
@@ -27,29 +32,52 @@
 #pragma mark - VC cycle
 
 - (void)viewDidLoad {
+
 	[super viewDidLoad];
 	// Do any additional setup after loading the view from its nib.
 
     [self configCollectionProducts];
 
-	self.arrProducts = @[];
+    self.kvoController = [FBKVOController controllerWithObserver:self];
+    [self.kvoController observe:self.viewModel keyPath:@"arrayItems" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+        typeof(self) innerSelf = observer;
+        innerSelf.datasource.items = change[NSKeyValueChangeNewKey];
+        [innerSelf.collectionViewProducts reloadData];
+    }];
+
+    [self.viewModel getProducts:nil failure:nil];
+}
+
+- (TMEPaginationCollectionViewDataSource *)datasource {
+    if (!_datasource) {
+        _datasource = [[TMEPaginationCollectionViewDataSource alloc] initWithItems:self.viewModel.arrayItems identifierParserBlock:nil configureCellBlock:nil];
+        [_datasource setClassAndFooterClasses:self.collectionViewProducts];
+    }
+
+    return _datasource;
+}
+
+- (TMEBrowserProductViewModel *)viewModel {
+    if (!_viewModel) {
+        _viewModel = [[TMEBrowserProductViewModel alloc] init];
+    }
+
+    return _viewModel;
 }
 
 #pragma mark -
 
 - (void)configCollectionProducts {
-	[self.collectionViewProducts registerNib:[TMEProductCollectionViewCell defaultNib]
-	              forCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class])];
-
-	self.collectionViewProducts.collectionViewLayout = [self waterFlowLayout];
+    self.layout = [self waterFlowLayout];
 	self.collectionViewProducts.delegate = self;
-	self.collectionViewProducts.dataSource = self;
+	self.collectionViewProducts.dataSource = self.datasource;
+	self.collectionViewProducts.collectionViewLayout = self.layout;
     [self.collectionViewProducts setContentInset:UIEdgeInsetsMake(10, 0, 10, 0)];
 }
 
 #pragma mark -
 
-- (UICollectionViewLayout *)waterFlowLayout {
+- (CHTCollectionViewWaterfallLayout *)waterFlowLayout {
 	CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
 	layout.columnCount = 2;
 	layout.minimumColumnSpacing = 5;
@@ -58,30 +86,17 @@
 }
 
 - (IBAction)reload:(id)sender {
-	[TMEProductsManager getAllProductsWihPage:1
-	                           onSuccessBlock: ^(NSArray *arrProducts) {
-	    self.arrProducts = arrProducts;
-	    [self.collectionViewProducts reloadData];
-	} failureBlock: ^(NSError *error) {
-	}];
+    [self.viewModel getProducts:nil failure:nil];
 }
 
 #pragma mark - Collection datasource
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-	return self.arrProducts.count;
-}
-
-- (TMEProductCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-	TMEProductCollectionViewCell *cell = (TMEProductCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class]) forIndexPath:indexPath];
-	TMEProduct *product = self.arrProducts[indexPath.row];
-	[cell configWithData:product];
-
-	return cell;
-}
-
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 	return CGSizeMake(152, 330);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForFooterInSection:(NSInteger)section {
+    return 50;
 }
 
 @end
