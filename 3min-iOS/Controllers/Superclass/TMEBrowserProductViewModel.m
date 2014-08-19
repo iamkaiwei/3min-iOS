@@ -25,10 +25,8 @@
 @implementation TMEBrowserProductViewModel
 
 - (id)init {
-	self = [super init];
+	self = [self initWithCollectionView:nil];
 	if (self) {
-		_page = 1;
-		self.state = TMEViewModelStateLoading;
 	}
 
 	return self;
@@ -36,19 +34,21 @@
 
 - (id)initWithCollectionView:(UICollectionView *)collection {
 	self = [super init];
+
+	NSAssert(collection, @"Collection shouldn't be nil");
+
 	if (self) {
 		_page = 1;
 		self.state = TMEViewModelStateLoading;
 		_kvoController = [FBKVOController controllerWithObserver:self];
 
-        __weak UICollectionView *weakCollection = collection;
+		__weak UICollectionView *weakCollection = collection;
 
 		[_kvoController observe:collection keyPath:@"contentOffset" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
-
-            UICollectionView *collectionView = weakCollection;
+		    UICollectionView *collectionView = weakCollection;
 		    CGSize contentSize = collectionView.contentSize;
 
-            CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+		    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
 		    CGFloat btm = (contentSize.height - collectionView.contentOffset.y - screenHeight);
 		    BOOL shouldLoadMore = btm < 50;
 
@@ -73,7 +73,7 @@
 
 - (void)setState:(TMEViewModelState)state {
 	_state = state;
-	self.datasource = [self dataSourceFactory:state];
+	self.datasource = (id)[self dataSourceFactory : state];
 }
 
 - (NSArray *)arrayItems {
