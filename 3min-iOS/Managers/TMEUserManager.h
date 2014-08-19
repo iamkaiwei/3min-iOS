@@ -18,5 +18,6 @@ OMNIA_SINGLETON_H(sharedManager)
 
 - (void)save;
 - (void)load;
+- (void)logout;
 
 @end

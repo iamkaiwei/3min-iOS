@@ -44,7 +44,13 @@ OMNIA_SINGLETON_M(sharedManager)
     return [accessTokenExpireDate compare:[NSDate date]] == NSOrderedDescending;
 }
 
+- (void)logout
+{
+    self.loggedUser = nil;
+    [self save];
 
+    [[NSNotificationCenter defaultCenter] postNotificationName:TMEUserDidLogoutNotification object:nil];
+}
 
 
 @end
