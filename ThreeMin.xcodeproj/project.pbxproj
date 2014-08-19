@@ -222,6 +222,7 @@
 		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
 		B4AE17D3198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */; };
 		B4AE17D6198E4A3200F6D601 /* KHRoundAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */; };
+		D21698A119A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */; };
 		D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224260F19A2061C009DB3AC /* TMEDeviceManager.m */; };
 		D224261319A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */; };
 		D224261619A2070A009DB3AC /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261519A2070A009DB3AC /* TMEUserManager.m */; };
@@ -586,6 +587,8 @@
 		B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPDFUIKitMainThreadGuard.m; sourceTree = "<group>"; };
 		B4AE17D4198E4A3200F6D601 /* KHRoundAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRoundAvatar.h; sourceTree = "<group>"; };
 		B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHRoundAvatar.m; sourceTree = "<group>"; };
+		D216989F19A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManagerAppDelegateService.h; sourceTree = "<group>"; };
+		D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserManagerAppDelegateService.m; sourceTree = "<group>"; };
 		D224260E19A2061C009DB3AC /* TMEDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEDeviceManager.h; sourceTree = "<group>"; };
 		D224260F19A2061C009DB3AC /* TMEDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEDeviceManager.m; sourceTree = "<group>"; };
 		D224261119A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEDeviceManagerAppDelegateService.h; sourceTree = "<group>"; };
@@ -739,6 +742,8 @@
 				990CB7D0199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m */,
 				D224261119A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.h */,
 				D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */,
+				D216989F19A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.h */,
+				D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */,
 			);
 			name = AppDelegateService;
 			path = "3min-iOS/AppDelegateService";
@@ -1674,6 +1679,7 @@
 				99EA0F311978492D00872EE4 /* UIScrollView+Additions.m in Sources */,
 				99EA0F191978492D00872EE4 /* NSArray+Additions.m in Sources */,
 				99EA0F321978492D00872EE4 /* UITextView+Additions.m in Sources */,
+				D21698A119A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m in Sources */,
 				99EA0F351978492D00872EE4 /* UIView+Nib.m in Sources */,
 				99EA0F021978492D00872EE4 /* _TMEProductImages.m in Sources */,
 				990CB7D4199A631F00AEA179 /* TMEGooglePlusManager.m in Sources */,

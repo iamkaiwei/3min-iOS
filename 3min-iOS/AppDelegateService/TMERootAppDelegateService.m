@@ -35,9 +35,9 @@
 
     UIWindow *window = self.appDelegate.window;
 
-    [self setupViewDeckController];
-
-    if (![TMEUserManager sharedManager].loggedUser) {
+    if ([TMEUserManager sharedManager].loggedUser) {
+        [self showHomeViewController];
+    } else {
         [self showLoginViewController];
     }
 
@@ -45,20 +45,6 @@
     return YES;
 }
 
-- (void)setupViewDeckController
-{
-    TMELeftMenuViewController* leftController = [[TMELeftMenuViewController alloc] init];
-
-    TMEHomeViewController *rootVC = [[TMEHomeViewController alloc] init];
-
-    IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:rootVC leftViewController:leftController];
-
-    [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
-    [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
-
-
-    self.deckController = deckController;
-}
 
 
 #pragma mark - Login
@@ -72,7 +58,7 @@
 - (void)showHomeViewController
 {
     // FIXME: Leave it for now
-     [self switchRootViewController:self.deckController animated:YES completion:nil];
+    [self switchRootViewController:self.deckController animated:YES completion:nil];
     return;
 
     if (![[TMEUserManager sharedManager] loggedUser] && [TMEReachabilityManager isReachable]) {
@@ -109,6 +95,24 @@
 - (AppDelegate *)appDelegate
 {
     return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
+- (IIViewDeckController *)deckController
+{
+    if (!_deckController) {
+        TMELeftMenuViewController* leftController = [[TMELeftMenuViewController alloc] init];
+
+        TMEHomeViewController *rootVC = [[TMEHomeViewController alloc] init];
+
+        IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:rootVC leftViewController:leftController];
+
+        [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
+        [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
+
+        _deckController = deckController;
+    }
+    
+    return _deckController;
 }
 
 - (void)switchRootViewController:(UIViewController *)viewController

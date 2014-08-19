@@ -21,6 +21,7 @@
 #import "TMELoggerAppDelegateService.h"
 #import "TMEGooglePlusAppDelegateService.h"
 #import "TMEDeviceManagerAppDelegateService.h"
+#import "TMEUserManagerAppDelegateService.h"
 
 
 @interface AppDelegate()
@@ -36,7 +37,8 @@
 {
     // NOTE: Order matters
     if (!_appDelegateServices) {
-        _appDelegateServices = @[[TMERootAppDelegateService new],
+        _appDelegateServices = @[[TMEUserManagerAppDelegateService new],
+                                 [TMERootAppDelegateService new],
                                  [TMEPushNotificationAppDelegateService new],
                                  [TMEFacebookAppDelegateService new],
                                  [TMECrittercismAppDelegateService new],
