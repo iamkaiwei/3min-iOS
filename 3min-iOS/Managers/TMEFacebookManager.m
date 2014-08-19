@@ -169,7 +169,7 @@ OMNIA_SINGLETON_M(sharedManager)
 
 - (void)handleUserDidLogoutNotification:(NSNotification *)note
 {
-    // TODO:
+    [[FBSession activeSession] closeAndClearTokenInformation];
 }
 
 @end

@@ -33,6 +33,8 @@ OMNIA_SINGLETON_M(sharedManager)
 
     signIn.delegate = self;
 
+    [signIn trySilentAuthentication];
+
     [self registerNotifications];
 }
 
@@ -84,7 +86,7 @@ OMNIA_SINGLETON_M(sharedManager)
 
 - (void)handleUserDidLogoutNotification:(NSNotification *)note
 {
-    // TODO:
+    [[GPPSignIn sharedInstance] signOut];
 }
 
 
