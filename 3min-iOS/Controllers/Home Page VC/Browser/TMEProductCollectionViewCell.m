@@ -83,7 +83,7 @@
 
 	self.lblLikeCount.text = [product.likes stringValue];
 
-	self.lblUsername.text = product.user.name;
+	self.lblUsername.text = product.user.fullName;
 	self.lblUsername.text = [product.createAt relativeDate];
 }
 
