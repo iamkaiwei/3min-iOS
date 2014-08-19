@@ -10,8 +10,6 @@
 
 @interface TMEUserNetworkClient : NSObject
 
-OMNIA_SINGLETON_H(sharedClient)
-
 - (void)loginWithFacebookWithSuccess:(TMESuccessBlock)success
                              failure:(TMEFailureBlock)failure;
 

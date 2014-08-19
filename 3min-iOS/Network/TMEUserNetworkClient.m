@@ -12,8 +12,6 @@
 
 @implementation TMEUserNetworkClient
 
-OMNIA_SINGLETON_M(sharedClient)
-
 #pragma mark - Public Interface
 - (void)loginWithFacebookWithSuccess:(TMESuccessBlock)success
                              failure:(TMEFailureBlock)failure
