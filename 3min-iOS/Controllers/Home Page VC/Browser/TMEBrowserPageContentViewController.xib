@@ -28,9 +28,6 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                     <cells/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="Eyx-Dn-hs9"/>
-                    </connections>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afu-18-s4v">
                     <rect key="frame" x="137" y="23" width="46" height="32"/>

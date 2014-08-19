@@ -16,6 +16,8 @@
 
 @property (nonatomic, readwrite) TMEPaginationCollectionViewDataSource *datasource;
 
+@property (strong, nonatomic) FBKVOController *kvoController;
+
 @property (assign, nonatomic) NSUInteger page;
 
 @end
@@ -33,12 +35,30 @@
 }
 
 - (id)initWithCollectionView:(UICollectionView *)collection {
-    self = [super init];
-    if (self) {
+	self = [super init];
+	if (self) {
 		_page = 1;
 		self.state = TMEViewModelStateLoading;
-    }
-    return self;
+		_kvoController = [FBKVOController controllerWithObserver:self];
+
+        __weak UICollectionView *weakCollection = collection;
+
+		[_kvoController observe:collection keyPath:@"contentOffset" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
+
+            UICollectionView *collectionView = weakCollection;
+		    CGSize contentSize = collectionView.contentSize;
+
+            CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+		    CGFloat btm = (contentSize.height - collectionView.contentOffset.y - screenHeight);
+		    BOOL shouldLoadMore = btm < 50;
+
+		    if (shouldLoadMore) {
+		        DLog(@"Shoud load more");
+		        [self getProducts:nil failure:nil];
+			}
+		}];
+	}
+	return self;
 }
 
 - (id <UICollectionViewDataSource> )dataSourceFactory:(TMEViewModelState)state {

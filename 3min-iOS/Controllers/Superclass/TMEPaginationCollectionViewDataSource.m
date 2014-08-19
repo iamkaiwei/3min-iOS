@@ -38,11 +38,11 @@ static NSUInteger const kNumberOfLoadMoreCell = 1;
 #pragma mark -
 
 - (void)setClassAndFooterClasses:(UICollectionView *)collectionView {
-	[collectionView  registerNib:[TMEProductCollectionViewCell defaultNib]
+	[collectionView    registerNib:[TMEProductCollectionViewCell defaultNib]
 	    forCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class])];
-	[collectionView  registerNib:[TMELoadMoreCollectionCell defaultNib]
+	[collectionView    registerNib:[TMELoadMoreCollectionCell defaultNib]
 	    forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter
-               withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionCell class])];
+	           withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionCell class])];
 }
 
 #pragma mark -
@@ -63,8 +63,8 @@ static NSUInteger const kNumberOfLoadMoreCell = 1;
 }
 
 - (void)configNormalCell:(id)cell item:(id)item {
-    TMEProductCollectionViewCell *productCell = (TMEProductCollectionViewCell *)cell;
-    [productCell configWithData:item];
+	TMEProductCollectionViewCell *productCell = (TMEProductCollectionViewCell *)cell;
+	[productCell configWithData:item];
 }
 
 - (void)configLoadMoreCell:(id)cell item:(id)item {
@@ -80,13 +80,13 @@ static NSUInteger const kNumberOfLoadMoreCell = 1;
 	id item = [self itemAtIndex:indexPath.row];
 	NSString *identifier = self.identifierParserBlock(item);
 	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    self.configureCellBlock(cell, item);
+	self.configureCellBlock(cell, item);
 	return cell;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    TMELoadMoreCollectionCell *footer = (TMELoadMoreCollectionCell *)[collectionView dequeueReusableSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionCell class]) forIndexPath:indexPath];
-    return footer;
+	TMELoadMoreCollectionCell *footer = (TMELoadMoreCollectionCell *)[collectionView dequeueReusableSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionCell class]) forIndexPath:indexPath];
+	return footer;
 }
 
 #pragma mark -
@@ -97,6 +97,16 @@ static NSUInteger const kNumberOfLoadMoreCell = 1;
 	}
 
 	return self.items[index];
+}
+
+#pragma mark - Collection datasource
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+	return CGSizeMake(152, 330);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForFooterInSection:(NSInteger)section {
+	return 50;
 }
 
 @end
