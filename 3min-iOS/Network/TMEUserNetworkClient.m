@@ -88,6 +88,8 @@ OMNIA_SINGLETON_M(sharedClient)
         [TMEUserManager sharedManager].loggedUser = user;
         [[TMEUserManager sharedManager] save];
 
+        [[TMENetworkManager sharedManager] updateAuthorizationHeader];
+
         if (success) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 success();
