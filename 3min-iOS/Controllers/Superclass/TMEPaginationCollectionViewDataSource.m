@@ -27,7 +27,7 @@ static NSUInteger const kNumberOfLoadMoreCell = 1;
 
 @implementation TMEPaginationCollectionViewDataSource
 
-- (id)init {
+- (id)initWithViewModel:(id)viewModel {
 	self = [super init];
 	if (self) {
 	}

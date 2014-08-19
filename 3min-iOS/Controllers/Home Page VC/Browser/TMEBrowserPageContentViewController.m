@@ -21,7 +21,6 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewProducts;
 @property (strong, nonatomic) CHTCollectionViewWaterfallLayout *layout;
-@property (strong, nonatomic) TMEPaginationCollectionViewDataSource *datasource;
 @property (strong, nonatomic) TMEBrowserProductViewModel *viewModel;
 @property (strong, nonatomic) FBKVOController *kvoController;
 
@@ -32,47 +31,40 @@
 #pragma mark - VC cycle
 
 - (void)viewDidLoad {
-
 	[super viewDidLoad];
 	// Do any additional setup after loading the view from its nib.
 
-    [self configCollectionProducts];
+	[self.collectionViewProducts registerNib:[TMELoadMoreCollectionCell defaultNib] forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionCell class])];
+	[self.collectionViewProducts registerNib:[TMEProductCollectionViewCell defaultNib]
+	              forCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class])];
 
-    self.kvoController = [FBKVOController controllerWithObserver:self];
-    [self.kvoController observe:self.viewModel keyPath:@"arrayItems" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
-        typeof(self) innerSelf = observer;
-        innerSelf.datasource.items = change[NSKeyValueChangeNewKey];
-        [innerSelf.collectionViewProducts reloadData];
-    }];
+	[self configCollectionProducts];
 
-    [self.viewModel getProducts:nil failure:nil];
-}
+	self.kvoController = [FBKVOController controllerWithObserver:self];
 
-- (TMEPaginationCollectionViewDataSource *)datasource {
-    if (!_datasource) {
-        _datasource = [[TMEPaginationCollectionViewDataSource alloc] initWithItems:self.viewModel.arrayItems identifierParserBlock:nil configureCellBlock:nil];
-        [_datasource setClassAndFooterClasses:self.collectionViewProducts];
-    }
-
-    return _datasource;
+	[self.kvoController observe:self.viewModel keyPath:@"state" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
+	    typeof(self) innerSelf = observer;
+	    innerSelf.collectionViewProducts.dataSource = innerSelf.viewModel.datasource;
+	    [innerSelf.collectionViewProducts reloadData];
+	}];
 }
 
 - (TMEBrowserProductViewModel *)viewModel {
-    if (!_viewModel) {
-        _viewModel = [[TMEBrowserProductViewModel alloc] init];
-    }
+	if (!_viewModel) {
+		_viewModel = [[TMEBrowserProductViewModel alloc] initWithCollectionView:self.collectionViewProducts];
+	}
 
-    return _viewModel;
+	return _viewModel;
 }
 
 #pragma mark -
 
 - (void)configCollectionProducts {
-    self.layout = [self waterFlowLayout];
+	self.layout = [self waterFlowLayout];
 	self.collectionViewProducts.delegate = self;
-	self.collectionViewProducts.dataSource = self.datasource;
+	self.collectionViewProducts.dataSource = self.viewModel.datasource;
 	self.collectionViewProducts.collectionViewLayout = self.layout;
-    [self.collectionViewProducts setContentInset:UIEdgeInsetsMake(10, 0, 10, 0)];
+	[self.collectionViewProducts setContentInset:UIEdgeInsetsMake(10, 0, 10, 0)];
 }
 
 #pragma mark -
@@ -82,25 +74,25 @@
 	layout.columnCount = 2;
 	layout.minimumColumnSpacing = 5;
 	layout.minimumInteritemSpacing = 6;
-    return layout;
+	return layout;
 }
 
 - (IBAction)reload:(id)sender {
-    [self.viewModel getProducts:nil failure:nil];
+	[self.viewModel getProducts:nil failure:nil];
 }
 
 #pragma mark - Collection datasource
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    CGSize contentSize = scrollView.contentSize;
+	CGSize contentSize = scrollView.contentSize;
 
-    CGFloat btm = ( contentSize.height - targetContentOffset->y - scrollView.height );
-    BOOL shouldLoadMore = btm < 50;
+	CGFloat btm = (contentSize.height - targetContentOffset->y - scrollView.height);
+	BOOL shouldLoadMore = btm < 50;
 
-    if (shouldLoadMore) {
-        DLog(@"Shoud load more");
-        [self.viewModel getProducts:nil failure:nil];
-    }
+	if (shouldLoadMore) {
+		DLog(@"Shoud load more");
+		[self.viewModel getProducts:nil failure:nil];
+	}
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -108,7 +100,7 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForFooterInSection:(NSInteger)section {
-    return 50;
+	return 50;
 }
 
 @end
