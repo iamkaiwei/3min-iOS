@@ -246,7 +246,7 @@ UITextViewDelegate
         [self.tabBarController setSelectedIndex:0];
     }
     
-    NSMutableDictionary *params = [@{@"user_id": self.product.user.id,
+    NSMutableDictionary *params = [@{@"user_id": self.product.user.userID.stringValue,
                                      @"name": self.product.name,
                                      @"category_id": self.product.category.categoryId,
                                      @"price": self.product.price,

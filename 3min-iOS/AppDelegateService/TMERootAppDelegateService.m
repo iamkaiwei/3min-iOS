@@ -35,92 +35,37 @@
 
     UIWindow *window = self.appDelegate.window;
 
-    [self setupViewDeckController];
-
-    if (![TMETutorialViewController hasBeenPresented]) {
-        [self showTutorialViewController];
-        [window makeKeyAndVisible];
-        return YES;
+    if ([TMEUserManager sharedManager].loggedUser) {
+        [self showHomeViewController];
+    } else {
+        [self showLoginViewController];
     }
 
     [window makeKeyAndVisible];
     return YES;
 }
 
-- (void)setupViewDeckController
-{
-    TMELeftMenuViewController* leftController = [[TMELeftMenuViewController alloc] init];
 
-    TMEHomeViewController *rootVC = [[TMEHomeViewController alloc] init];
-
-    IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:rootVC leftViewController:leftController];
-
-    [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
-    [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
-
-
-    self.deckController = deckController;
-}
-
-
-#pragma mark - Helper
-- (AppDelegate *)appDelegate
-{
-    return (AppDelegate *)[UIApplication sharedApplication].delegate;
-}
-
-- (void)switchRootViewController:(UIViewController *)viewController
-                        animated:(BOOL)animated
-                      completion:(void (^)())completion
-{
-    UIWindow *window = self.appDelegate.window;
-
-    if (animated) {
-        [UIView transitionWithView:window
-                          duration:0.3
-                           options:UIViewAnimationOptionTransitionCrossDissolve
-                        animations:^
-        {
-            BOOL oldState = [UIView areAnimationsEnabled];
-            [UIView setAnimationsEnabled:NO];
-            window.rootViewController = viewController;
-            [UIView setAnimationsEnabled:oldState];
-        } completion:^(BOOL finished) {
-            if (completion) completion();
-        }];
-    } else {
-        window.rootViewController = viewController;
-        if (completion) completion();
-    }
-}
-
-#pragma mark - Tutorial
-- (void)showTutorialViewController
-{
-    [self switchRootViewController:[[TMETutorialViewController alloc] init] animated:YES completion:nil];
-}
 
 #pragma mark - Login
 - (void)showLoginViewController
 {
-    UIWindow *window = self.appDelegate.window;
-
     TMETutorialViewController *loginViewController = [[TMETutorialViewController alloc] init];
     [self switchRootViewController:loginViewController animated:YES completion:nil];
-    [window makeKeyAndVisible];
 }
 
 #pragma mark - Home
 - (void)showHomeViewController
 {
-    if ([FBSession.activeSession isOpen] == NO) {
-        [self showLoginViewController];
-
-        return;
-    }
+    // FIXME: Leave it for now
+    [self switchRootViewController:self.deckController animated:YES completion:nil];
+    return;
 
     if (![[TMEUserManager sharedManager] loggedUser] && [TMEReachabilityManager isReachable]) {
         [SVProgressHUD showWithStatus:NSLocalizedString(@"Login...", nil) maskType:SVProgressHUDMaskTypeGradient];
+
+        // FIXME: fix this stuff
+        /*
         [[TMEUserManager sharedManager] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
             [[TMEUserManager sharedManager] setLoggedUser:tmeUser andFacebookUser:nil];
             [self updateUAAlias];
@@ -131,6 +76,7 @@
         } andFailureBlock:^(id obj) {
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Login failed", nil)];
         }];
+         */
 
         return;
     }
@@ -145,24 +91,69 @@
     [self switchRootViewController:self.deckController animated:YES completion:nil];
 }
 
+#pragma mark - Helper
+- (AppDelegate *)appDelegate
+{
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
+- (IIViewDeckController *)deckController
+{
+    if (!_deckController) {
+        TMELeftMenuViewController* leftController = [[TMELeftMenuViewController alloc] init];
+
+        TMEHomeViewController *rootVC = [[TMEHomeViewController alloc] init];
+
+        IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:rootVC leftViewController:leftController];
+
+        [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
+        [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
+
+        _deckController = deckController;
+    }
+    
+    return _deckController;
+}
+
+- (void)switchRootViewController:(UIViewController *)viewController
+                        animated:(BOOL)animated
+                      completion:(void (^)())completion
+{
+    UIWindow *window = self.appDelegate.window;
+
+    if (animated) {
+        [UIView transitionWithView:window
+                          duration:0.3
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^
+         {
+             BOOL oldState = [UIView areAnimationsEnabled];
+             [UIView setAnimationsEnabled:NO];
+             window.rootViewController = viewController;
+             [UIView setAnimationsEnabled:oldState];
+         } completion:^(BOOL finished) {
+             if (completion) completion();
+         }];
+    } else {
+        window.rootViewController = viewController;
+        if (completion) completion();
+    }
+}
+
 #pragma mark - Notification
 - (void)registerNotifications
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleShowHomeViewControllerNotification:)
-                                                 name:TMEShowHomeViewControllerNotification
-                                               object:nil];
+    [self tme_registerNotifications:@{TMEUserDidLoginNotification:
+                                          NSStringFromSelector(@selector(handleUserDidLoginNotification:)),
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleShowLoginViewControllerNotification:)
-                                                 name:TMEShowLoginViewControllerNotification
-                                               object:nil];
+                                      }];
 }
 
-- (void)handleShowHomeViewControllerNotification:(NSNotification *)note
+- (void)handleUserDidLoginNotification:(NSNotification *)note
 {
     [self showHomeViewController];
 
+    // FIXME: This is for push notification
     if (note.userInfo && [note.userInfo objectForKey:@"index"]) {
         NSNumber *index = [note.userInfo objectForKey:@"index"];
 
@@ -171,15 +162,10 @@
     }
 }
 
-- (void)handleShowLoginViewControllerNotification:(NSNotification *)note
-{
-
-}
-
 // TODO: Refactor
 - (void)updateUAAlias
 {
-    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedManager].loggedUser.id integerValue]];
+    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedManager].loggedUser.userID integerValue]];
     [[UAPush shared] updateRegistration];
 
 }

@@ -2,13 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "Login1.png"
-    },
-    {
-      "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Login1@2x.png"
+      "filename" : "bg_login_1@2x.png"
     }
   ],
   "info" : {

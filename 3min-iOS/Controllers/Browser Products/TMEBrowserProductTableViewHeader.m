@@ -22,8 +22,8 @@
 @implementation TMEBrowserProductTableViewHeader
 
 - (void)configHeaderWithData:(TMEProduct *)product{
-  [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:product.user.photo_url] placeholderImage:nil];
-  self.lblUserName.text = product.user.fullname;
+  [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:product.user.avatar] placeholderImage:nil];
+  self.lblUserName.text = product.user.fullName;
   self.lblTimestamp.text = [product.createAt relativeDate];
 }
 

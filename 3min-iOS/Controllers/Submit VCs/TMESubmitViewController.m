@@ -165,7 +165,7 @@ PTPusherPresenceChannelDelegate
     if (self.currentChatMode == TMEChatModeOnline) {
         double currentTimeStamp = [[NSDate date] timeIntervalSince1970];
         [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_NAME
-                                           data:@{@"name": [TMEUserManager sharedManager].loggedUser.fullname,
+                                           data:@{@"name": [TMEUserManager sharedManager].loggedUser.fullName,
                                                   @"message" : self.textViewInputMessage.text,
                                                   @"timestamp" : @(currentTimeStamp)}];
         TMEReply *reply = [TMEReply replyWithContent:self.textViewInputMessage.text
@@ -256,7 +256,7 @@ PTPusherPresenceChannelDelegate
         return;
     }
     
-    if (![self.product.user.id isEqual:[[TMEUserManager sharedManager] loggedUser].id]) {
+    if (![self.product.user.userID isEqual:[TMEUserManager sharedManager].loggedUser.userID]) {
         self.buttonMarkAsSold.enabled = NO;
         [self.buttonMarkAsSold setTitle:NSLocalizedString(@"Selling", nil) forState:UIControlStateNormal];
     }
@@ -347,7 +347,7 @@ PTPusherPresenceChannelDelegate
 
     if (textView.text.length > 0 && !self.isTyping && self.currentChatMode == TMEChatModeOnline) {
         [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_TYPING
-                                           data:@{@"text" : [NSString stringWithFormat:@"%@ is typing...", [TMEUserManager sharedManager].loggedUser.fullname]}];
+                                           data:@{@"text" : [NSString stringWithFormat:@"%@ is typing...", [TMEUserManager sharedManager].loggedUser.fullName]}];
         self.isTyping = YES;
     }
 
@@ -427,7 +427,7 @@ PTPusherPresenceChannelDelegate
 }
 
 - (void)pusher:(PTPusher *)pusher willAuthorizeChannel:(PTPusherChannel *)channel withRequest:(NSMutableURLRequest *)request{
-    [request setValue:[NSString stringWithFormat:@"Bearer %@",[[TMEUserManager sharedManager] getAccessToken]] forHTTPHeaderField:@"Authorization"];
+    [request setValue:[NSString stringWithFormat:@"Bearer %@",[TMEUserManager sharedManager].loggedUser.accessToken] forHTTPHeaderField:@"Authorization"];
 }
 
 - (void)presenceChannelDidSubscribe:(PTPusherPresenceChannel *)channel{

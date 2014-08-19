@@ -58,8 +58,8 @@
 	NSArray *arrayImageView = @[self.imgProductImage1, self.imgProductImage2, self.imgProductImage3, self.imgProductImage4];
 
 	// user
-	[self.imgUserAvatar sd_setImageWithURL:[NSURL URLWithString:self.product.user.photo_url]];
-	self.lblUserName.text = self.product.user.fullname;
+	[self.imgUserAvatar sd_setImageWithURL:[NSURL URLWithString:self.product.user.avatar]];
+	self.lblUserName.text = self.product.user.fullName;
 	self.lblTimestamp.text = [self.product.createAt relativeDate];
 
 	self.imgProductImage1.hidden = NO;
@@ -69,7 +69,7 @@
 	for (int i = 0; i < minCount; i++) {
 		TMEProductImage *img = self.product.images[i];
 		[arrayImageView[i] setHidden:NO];
-		[arrayImageView[i] sd_setImageWithURL:[NSURL URLWithString:img.originURL]
+		[arrayImageView[i] sd_setImageWithURL:img.originURL
 		                     placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
 	}
 
@@ -92,7 +92,7 @@
 
 	[self.scrollViewProductDetail autoAdjustScrollViewContentSize];
 
-	if ([self.product.user.id isEqual:[[TMEUserManager sharedManager] loggedUser].id]) {
+	if ([self.product.user.userID isEqual:[TMEUserManager sharedManager].loggedUser.userID]) {
 		self.labelChatToBuy.text = NSLocalizedString(@"View Offers", nil);
 		return;
 	}
@@ -133,7 +133,7 @@
 		[SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
 		return;
 	}
-	if ([self.product.user.id isEqual:[[TMEUserManager sharedManager] loggedUser].id]) {
+	if ([self.product.user.userID isEqual:[TMEUserManager sharedManager].loggedUser.userID]) {
 		TMEListOffersTableViewController *listOfferTableViewController = [[TMEListOffersTableViewController alloc] init];
 		listOfferTableViewController.product = self.product;
 		[self.navigationController pushViewController:listOfferTableViewController animated:YES];
@@ -147,7 +147,7 @@
 	self.labelChatToBuy.textColor = [UIColor darkGrayColor];
 	[self.labelChatToBuy startAnimating];
 	[TMEConversationManager checkConversationExistWithProductID:self.product.productID
-	                                                   toUserID:self.product.user.id
+	                                                   toUserID:self.product.user.userID
 	                                             onSuccessBlock: ^(TMEConversation *conversation)
 	{
 	    self.firstTimeOffer = YES;

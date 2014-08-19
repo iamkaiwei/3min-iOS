@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TMETutorialViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
-
-+ (id)hasBeenPresented;
+@interface TMETutorialViewController : TMEBaseViewController
 
 @end

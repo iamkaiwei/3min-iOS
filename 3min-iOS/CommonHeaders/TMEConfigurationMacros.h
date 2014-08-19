@@ -41,7 +41,7 @@
 #ifdef DEBUG
 
 #define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
-#define API_BASE_URL                             @"http://threemins-server-staging.herokuapp.com"
+#define API_BASE_URL                                @"http://threemins-server-staging.herokuapp.com"
 #define API_CLIENT_ID                               @"36d9b0cae1fb797b3095ebd8c50ef4b58df47f16d5aa18f96704f4c484136869"
 #define API_GRANT_TYPE                              @"password"
 #define SETTINGS_CRITERCISM_TOKEN_DEFAULT           @""
@@ -54,7 +54,7 @@
 //Staging, archive to app manager
 #else
 
-#define API_BASE_URL                             @"https://threemins-server.herokuapp.com"      //production url
+#define API_BASE_URL                                @"https://threemins-server.herokuapp.com"      //production url
 #define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
 #define API_CLIENT_ID                               @"36d9b0cae1fb797b3095ebd8c50ef4b58df47f16d5aa18f96704f4c484136869"
 #define API_GRANT_TYPE                              @"password"
@@ -74,26 +74,24 @@
 #define NOTIFICATION_FINISH_LOGIN                   @"NotificationFinishLogin"
 #define API_CLIENT_SERCET                           @"8eb597435160bcef09084a9bbd32c9d2a309b97b33f2e7284d2ac8c3840a0834"
 
-#define CLASS_PREFIX_LENGTH                         3
-
 #define API_PREFIX                                  @"/api/v1"
-#define API_PRODUCTS                                @"products"
-#define API_USER                                    @"users"
-#define API_POPULAR                                 @"popular"
-#define API_CONVERSATIONS                           @"conversations"
-#define API_CONVERSATIONS_EXIST                     @"exist"
-#define API_CONVERSATION_REPLIES                    @"conversation_replies"
-#define API_CREATE_BULK                             @"bulk_create"
-#define API_OFFER                                   @"offer"
-#define API_SHOW_OFFER                              @"show_offer"
-#define API_LIKES                                   @"/likes"
-#define API_LIKED                                   @"/liked"
-#define API_ME                                      @"me"
-#define API_CATEGORY                                @"categories"
-#define API_CATEGORY_TAGGABLE                       @"taggable"
+#define API_PRODUCTS                                @"/api/v1/products"
+#define API_USER                                    @"/api/v1/users"
+#define API_POPULAR                                 @"/api/v1/popular"
+#define API_CONVERSATIONS                           @"/api/v1/conversations"
+#define API_CONVERSATIONS_EXIST                     @"/api/v1/exist"
+#define API_CONVERSATION_REPLIES                    @"/api/v1/conversation_replies"
+#define API_CREATE_BULK                             @"/api/v1/bulk_create"
+#define API_OFFER                                   @"/api/v1/offer"
+#define API_SHOW_OFFER                              @"/api/v1/show_offer"
+#define API_LIKES                                   @"/api/v1/likes"
+#define API_LIKED                                   @"/api/v1/liked"
+#define API_ME                                      @"/api/v1/me"
+#define API_CATEGORY                                @"/api/v1/categories"
+#define API_CATEGORY_TAGGABLE                       @"/api/v1/taggable"
 #define API_USER_LOGIN                              @"/oauth/token"
-#define API_ACTIVITY                                @"activities"
-#define URL_PUSHER_ENDPOINT                         @"pushers/auth"
+#define API_ACTIVITY                                @"/api/v1/activities"
+#define URL_PUSHER_ENDPOINT                         @"/api/v1/pushers/auth"
 
 
 #define PUSHER_CHAT_EVENT_NAME                      @"client-chat"

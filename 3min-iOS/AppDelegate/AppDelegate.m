@@ -19,6 +19,9 @@
 #import "TMEVersionCheckerAppDelegateService.h"
 #import "TMEApperanceAppDelegateService.h"
 #import "TMELoggerAppDelegateService.h"
+#import "TMEGooglePlusAppDelegateService.h"
+#import "TMEDeviceManagerAppDelegateService.h"
+#import "TMEUserManagerAppDelegateService.h"
 
 
 @interface AppDelegate()
@@ -34,7 +37,8 @@
 {
     // NOTE: Order matters
     if (!_appDelegateServices) {
-        _appDelegateServices = @[[TMERootAppDelegateService new],
+        _appDelegateServices = @[[TMEUserManagerAppDelegateService new],
+                                 [TMERootAppDelegateService new],
                                  [TMEPushNotificationAppDelegateService new],
                                  [TMEFacebookAppDelegateService new],
                                  [TMECrittercismAppDelegateService new],
@@ -46,6 +50,8 @@
                                  [TMEVersionCheckerAppDelegateService new],
                                  [TMEApperanceAppDelegateService new],
                                  [TMELoggerAppDelegateService new],
+                                 [TMEGooglePlusAppDelegateService new],
+                                 [TMEDeviceManagerAppDelegateService new],
                                  ];
     }
 
@@ -151,11 +157,13 @@
 {
     for (id<UIApplicationDelegate> service in self.appDelegateServices) {
         if ([service respondsToSelector:@selector(application:openURL:sourceApplication:annotation:)]) {
-            [service application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+            if ([service application:application openURL:url sourceApplication:sourceApplication annotation:annotation]) {
+                return YES;
+            }
         }
     }
 
-    return YES;
+    return NO;
 }
 
 #pragma mark - Helper

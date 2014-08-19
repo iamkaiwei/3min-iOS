@@ -31,7 +31,7 @@
         return [Foursquare2 handleURL:url];
     }
 
-    return YES;
+    return NO;
 }
 
 @end

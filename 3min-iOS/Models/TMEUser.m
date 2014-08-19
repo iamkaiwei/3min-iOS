@@ -15,21 +15,38 @@
 {
     return @{
              @"accessToken" : @"access_token",
-             @"email" : @"email",
-             @"facebookID" : @"facebook_id",
-             @"fullName" : @"full_name",
-             @"userID" : @"id",
-             @"password" : @"encrypted_password",
-             @"photoURL" : @"avatar",
-             @"UDID" : @"udid",
-             @"username" : @"username",
-             @"birthday" : @"birthday",
-             @"googleID" : @"google_id",
-             @"activities" : @"activities",
-             @"products" : @"products"
+             @"expiresIn" : @"expires_in",
+             @"tokenType" : @"token_type",
+             @"facebookID" : @"user.facebook_id",
+             @"facebookAvatar" : @"user.facebook_avatar",
+             @"googleID" : @"user.google_id",
+             @"userID" : @"user.id",
+             @"userUDID" : @"user.udid",
+             @"username" : @"user.username",
+             @"avatar" : @"user.avatar",
+             @"birthday" : @"user.birthday",
+             @"email" : @"user.email",
+             @"firstName" : @"user.first_name",
+             @"fullName" : @"user.full_name",
+             @"lastName" : @"user.last_name",
+             @"middleName" : @"user.middle_name",
+             @"gender" : @"user.gender",
+             @"role" : @"user.role",
+             @"accessTokenReceivedAt": NSNull.null,
              };
 }
 
++ (NSValueTransformer *)birthdayJSONTransformer
+{
+    // FIXME: birthday is still nil
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *birthdayString) {
+        return [[self dateTimeFormatter] dateFromString:birthdayString];
+    } reverseBlock:^(NSDate *birthday) {
+        return [[self dateTimeFormatter] stringFromDate:birthday];
+    }];
+}
+
+#pragma mark - Helper
 + (NSDateFormatter *)dateTimeFormatter {
 	static NSDateFormatter *dateTimeFormatter = nil;
 	static dispatch_once_t onceToken;
@@ -41,28 +58,5 @@
     return dateTimeFormatter;
 }
 
-+ (NSValueTransformer *)photoURLJSONTransformer
-{
-    return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
-}
-
-+ (NSValueTransformer *)productsJSONTransformer
-{
-    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[TMEProduct class]];
-}
-
-+ (NSValueTransformer *)activitiesJSONTransformer
-{
-    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[TMEActivity class]];
-}
-
-+ (NSValueTransformer *)birthdayJSONTransformer
-{
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *birthdayString) {
-        return [[self dateTimeFormatter] dateFromString:birthdayString];
-    } reverseBlock:^(NSDate *birthday) {
-        return [[self dateTimeFormatter] stringFromDate:birthday];
-    }];
-}
 
 @end
