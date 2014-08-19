@@ -15,8 +15,7 @@
 
 @interface TMEBrowserPageContentViewController ()
 <
-    UICollectionViewDelegateFlowLayout,
-    CHTCollectionViewDelegateWaterfallLayout
+    UICollectionViewDelegateFlowLayout
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewProducts;
@@ -45,6 +44,7 @@
 	[self.kvoController observe:self.viewModel keyPath:@"state" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
 	    typeof(self) innerSelf = observer;
 	    innerSelf.collectionViewProducts.dataSource = innerSelf.viewModel.datasource;
+	    innerSelf.collectionViewProducts.delegate = innerSelf.viewModel.datasource;
 	    [innerSelf.collectionViewProducts reloadData];
 	}];
 }
@@ -61,7 +61,7 @@
 
 - (void)configCollectionProducts {
 	self.layout = [self waterFlowLayout];
-	self.collectionViewProducts.delegate = self;
+	self.collectionViewProducts.delegate = self.viewModel.datasource;
 	self.collectionViewProducts.dataSource = self.viewModel.datasource;
 	self.collectionViewProducts.collectionViewLayout = self.layout;
 	[self.collectionViewProducts setContentInset:UIEdgeInsetsMake(10, 0, 10, 0)];
@@ -83,24 +83,16 @@
 
 #pragma mark - Collection datasource
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-	CGSize contentSize = scrollView.contentSize;
-
-	CGFloat btm = (contentSize.height - targetContentOffset->y - scrollView.height);
-	BOOL shouldLoadMore = btm < 50;
-
-	if (shouldLoadMore) {
-		DLog(@"Shoud load more");
-		[self.viewModel getProducts:nil failure:nil];
-	}
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return CGSizeMake(152, 330);
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForFooterInSection:(NSInteger)section {
-	return 50;
-}
+//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+//	CGSize contentSize = scrollView.contentSize;
+//
+//	CGFloat btm = (contentSize.height - targetContentOffset->y - scrollView.height);
+//	BOOL shouldLoadMore = btm < 50;
+//
+//	if (shouldLoadMore) {
+//		DLog(@"Shoud load more");
+//		[self.viewModel getProducts:nil failure:nil];
+//	}
+//}
 
 @end

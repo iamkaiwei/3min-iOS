@@ -7,8 +7,12 @@
 //
 
 #import "FPCollectionArrayDataSource.h"
+#import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
 @interface TMEPaginationCollectionViewDataSource : FPCollectionArrayDataSource
+<
+    CHTCollectionViewDelegateWaterfallLayout
+>
 
 - (void)setClassAndFooterClasses:(UICollectionView *)collectionView;
 
