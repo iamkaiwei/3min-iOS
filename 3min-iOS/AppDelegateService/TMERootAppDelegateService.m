@@ -145,7 +145,8 @@
 {
     [self tme_registerNotifications:@{TMEUserDidLoginNotification:
                                           NSStringFromSelector(@selector(handleUserDidLoginNotification:)),
-
+                                      TMEUserDidLogoutNotification:
+                                          NSStringFromSelector(@selector(handleUserDidLogoutNotification:)),
                                       }];
 }
 
@@ -160,6 +161,11 @@
         UITabBarController *homeController = (UITabBarController *)self.deckController.centerController;
         [homeController setSelectedIndex:[index integerValue]];
     }
+}
+
+- (void)handleUserDidLogoutNotification:(NSNotification *)note
+{
+    [self showLoginViewController];
 }
 
 // TODO: Refactor

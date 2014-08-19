@@ -73,7 +73,9 @@ NSUInteger const kNumberOfPages = 3;
     [SVProgressHUD showWithStatus:LS(@"Logging in")];
     self.view.userInteractionEnabled = NO;
 
-    [[TMEUserNetworkClient sharedClient] loginWithGooglePlusWithSuccess:^ {
+    TMEUserNetworkClient *client = [[TMEUserNetworkClient alloc] init];
+
+    [client loginWithGooglePlusWithSuccess:^{
         [self notifyUserDidLogin];
         [SVProgressHUD dismiss];
         self.view.userInteractionEnabled = YES;
@@ -88,10 +90,13 @@ NSUInteger const kNumberOfPages = 3;
     [SVProgressHUD showWithStatus:LS(@"Logging in")];
     self.view.userInteractionEnabled = NO;
 
-    [[TMEUserNetworkClient sharedClient] loginWithFacebookWithSuccess:^{
+    TMEUserNetworkClient *client = [[TMEUserNetworkClient alloc] init];
+
+    [client loginWithFacebookWithSuccess:^{
         [self notifyUserDidLogin];
         [SVProgressHUD dismiss];
         self.view.userInteractionEnabled = YES;
+
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
         self.view.userInteractionEnabled = YES;

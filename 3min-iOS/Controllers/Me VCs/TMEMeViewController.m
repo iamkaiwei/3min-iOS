@@ -106,19 +106,18 @@ UIActionSheetDelegate
     [sheet showFromTabBar:self.tabBarController.tabBar];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (!buttonIndex) {
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
         if (![self isReachable]) {
             return;
         }
 
-        //FIXME: Fix this stuff
-        /*
-        [[TMEUserManager sharedManager] logOut];
+        [[TMEUserManager sharedManager] logout];
+
+        // TODO: Refactor this
         UITabBarController *tabBarController = (UITabBarController *)self.deckController.centerController;
         tabBarController.selectedIndex = 0;
-        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:LAST_LOGIN_TIMESTAMP_STORED_KEY];
-         */
     }
 }
 
