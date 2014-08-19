@@ -35,6 +35,8 @@
 - (id)initWithCollectionView:(UICollectionView *)collection {
     self = [super init];
     if (self) {
+		_page = 1;
+		self.state = TMEViewModelStateLoading;
     }
     return self;
 }
