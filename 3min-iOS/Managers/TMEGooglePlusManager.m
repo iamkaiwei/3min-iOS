@@ -64,10 +64,12 @@ OMNIA_SINGLETON_M(sharedManager)
     if (error) {
         if (self.failureBlock) {
             self.failureBlock(error);
+            self.failureBlock = nil;
         }
     } else {
         if (self.succcessBlock) {
             self.succcessBlock(auth.accessToken);
+            self.succcessBlock = nil;
         }
     }
 }

@@ -12,6 +12,8 @@
 
 @implementation TMEUserNetworkClient
 
+OMNIA_SINGLETON_M(sharedClient)
+
 #pragma mark - Public Interface
 - (void)loginWithFacebookWithSuccess:(TMESuccessBlock)success
                              failure:(TMEFailureBlock)failure
@@ -87,11 +89,15 @@
         [[TMEUserManager sharedManager] save];
 
         if (success) {
-            success();
+            dispatch_async(dispatch_get_main_queue(), ^{
+                success();
+            });
         }
     } failure:^(NSError *error) {
         if (failure) {
-            failure(error);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                failure(error);
+            });
         }
     }];
 }

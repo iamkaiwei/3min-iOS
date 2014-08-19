@@ -21,7 +21,6 @@ NSUInteger const kNumberOfPages = 3;
 @property (weak, nonatomic) IBOutlet UIView *scrollViewContentView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
-
 @end
 
 @implementation TMETutorialViewController
@@ -72,26 +71,30 @@ NSUInteger const kNumberOfPages = 3;
 - (IBAction)googleButtonAction:(id)sender
 {
     [SVProgressHUD showWithStatus:LS(@"Logging in")];
+    self.view.userInteractionEnabled = NO;
 
-    TMEUserNetworkClient *client = [[TMEUserNetworkClient alloc] init];
-    [client loginWithGooglePlusWithSuccess:^(NSError *error) {
+    [[TMEUserNetworkClient sharedClient] loginWithGooglePlusWithSuccess:^(NSError *error) {
         [self notifyUserDidLogin];
         [SVProgressHUD dismiss];
+        self.view.userInteractionEnabled = YES;
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
+        self.view.userInteractionEnabled = YES;
     }];
 }
 
 - (IBAction)facebookButtonAction:(id)sender
 {
     [SVProgressHUD showWithStatus:LS(@"Logging in")];
+    self.view.userInteractionEnabled = NO;
 
-    TMEUserNetworkClient *client = [[TMEUserNetworkClient alloc] init];
-    [client loginWithFacebookWithSuccess:^(NSError *error) {
+    [[TMEUserNetworkClient sharedClient] loginWithFacebookWithSuccess:^{
         [self notifyUserDidLogin];
         [SVProgressHUD dismiss];
+        self.view.userInteractionEnabled = YES;
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
+        self.view.userInteractionEnabled = YES;
     }];
 }
 

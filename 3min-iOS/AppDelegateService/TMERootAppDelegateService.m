@@ -61,39 +61,6 @@
 }
 
 
-#pragma mark - Helper
-- (AppDelegate *)appDelegate
-{
-    return (AppDelegate *)[UIApplication sharedApplication].delegate;
-}
-
-- (void)switchRootViewController:(UIViewController *)viewController
-                        animated:(BOOL)animated
-                      completion:(void (^)())completion
-{
-    UIWindow *window = self.appDelegate.window;
-
-    if (animated) {
-        [UIView transitionWithView:window
-                          duration:0.3
-                           options:UIViewAnimationOptionTransitionCrossDissolve
-                        animations:^
-        {
-            BOOL oldState = [UIView areAnimationsEnabled];
-            [UIView setAnimationsEnabled:NO];
-            window.rootViewController = viewController;
-            [UIView setAnimationsEnabled:oldState];
-        } completion:^(BOOL finished) {
-            if (completion) completion();
-        }];
-    } else {
-        window.rootViewController = viewController;
-        if (completion) completion();
-    }
-}
-
-
-
 #pragma mark - Login
 - (void)showLoginViewController
 {
@@ -136,6 +103,37 @@
 
     [self updateUAAlias];
     [self switchRootViewController:self.deckController animated:YES completion:nil];
+}
+
+#pragma mark - Helper
+- (AppDelegate *)appDelegate
+{
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
+- (void)switchRootViewController:(UIViewController *)viewController
+                        animated:(BOOL)animated
+                      completion:(void (^)())completion
+{
+    UIWindow *window = self.appDelegate.window;
+
+    if (animated) {
+        [UIView transitionWithView:window
+                          duration:0.3
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^
+         {
+             BOOL oldState = [UIView areAnimationsEnabled];
+             [UIView setAnimationsEnabled:NO];
+             window.rootViewController = viewController;
+             [UIView setAnimationsEnabled:oldState];
+         } completion:^(BOOL finished) {
+             if (completion) completion();
+         }];
+    } else {
+        window.rootViewController = viewController;
+        if (completion) completion();
+    }
 }
 
 #pragma mark - Notification

@@ -28,14 +28,20 @@ OMNIA_SINGLETON_M(sharedManager)
 - (void)load
 {
     NSData *archived = [[NSUserDefaults standardUserDefaults] objectForKey:kUserKey];
-    self.loggedUser = [NSKeyedUnarchiver unarchiveObjectWithData:archived];
 
-    [self validateAccessTokenExpiration];
+    TMEUser *user = [NSKeyedUnarchiver unarchiveObjectWithData:archived];
+
+    if ([self isAccessTokenValid:user]) {
+        self.loggedUser = user;
+    }
 }
 
-- (void)validateAccessTokenExpiration
+- (BOOL)isAccessTokenValid:(TMEUser *)user
 {
-    // If access token expires, set user to nil
+    NSDate *accessTokenExpireDate = [user.accessTokenReceivedAt
+                                     dateByAddingTimeInterval:user.expiresIn.doubleValue];
+
+    return [accessTokenExpireDate compare:[NSDate date]] == NSOrderedDescending;
 }
 
 
