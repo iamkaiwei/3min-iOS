@@ -28,7 +28,7 @@ OMNIA_SINGLETON_M(sharedClient)
 }
 
 
-- (void)loginWithGooglePlusWithSuccess:(TMEFailureBlock)success
+- (void)loginWithGooglePlusWithSuccess:(TMESuccessBlock)success
                                failure:(TMEFailureBlock)failure
 {
     [[TMEGooglePlusManager sharedManager] signInWithSuccess:^(NSString *googlePlusToken)

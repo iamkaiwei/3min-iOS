@@ -15,7 +15,7 @@ OMNIA_SINGLETON_H(sharedClient)
 - (void)loginWithFacebookWithSuccess:(TMESuccessBlock)success
                              failure:(TMEFailureBlock)failure;
 
-- (void)loginWithGooglePlusWithSuccess:(TMEFailureBlock)success
+- (void)loginWithGooglePlusWithSuccess:(TMESuccessBlock)success
                                failure:(TMEFailureBlock)failure;
 
 @end

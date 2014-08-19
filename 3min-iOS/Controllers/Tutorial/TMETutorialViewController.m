@@ -73,7 +73,7 @@ NSUInteger const kNumberOfPages = 3;
     [SVProgressHUD showWithStatus:LS(@"Logging in")];
     self.view.userInteractionEnabled = NO;
 
-    [[TMEUserNetworkClient sharedClient] loginWithGooglePlusWithSuccess:^(NSError *error) {
+    [[TMEUserNetworkClient sharedClient] loginWithGooglePlusWithSuccess:^ {
         [self notifyUserDidLogin];
         [SVProgressHUD dismiss];
         self.view.userInteractionEnabled = YES;
