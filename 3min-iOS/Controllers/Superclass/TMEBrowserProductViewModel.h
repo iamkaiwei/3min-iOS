@@ -25,7 +25,7 @@ typedef NS_ENUM(NSUInteger, TMEViewModelState) {
 
 @property (nonatomic, readonly) TMEViewModelState state;
 
-- (id)initWithCollectionView:(UICollectionView *)collection;
+- (id)initWithCollectionView:(UICollectionView *)collection __attribute__((objc_designated_initializer));
 
 - (void)getProducts:(void (^)(NSArray *arrProducts))success failure:(void (^)(NSError *error))failure;
 - (void)getProducts:(void (^)(NSArray *arrProducts))success failure:(void (^)(NSError *error))failure withPage:(NSUInteger)page;
