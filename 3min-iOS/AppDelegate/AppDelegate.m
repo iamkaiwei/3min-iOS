@@ -10,7 +10,6 @@
 #import "TMERootAppDelegateService.h"
 #import "TMEPushNotificationAppDelegateService.h"
 #import "TMEFacebookAppDelegateService.h"
-#import "TMECrittercismAppDelegateService.h"
 #import "TMECoreDataAppDelegateService.h"
 #import "TMEFoursquareAppDelegateService.h"
 #import "TMEGoogleAnalyticsAppDelegateService.h"
@@ -22,6 +21,7 @@
 #import "TMEGooglePlusAppDelegateService.h"
 #import "TMEDeviceManagerAppDelegateService.h"
 #import "TMEUserManagerAppDelegateService.h"
+#import "TMECrashlyticsAppDelegateService.h"
 
 
 @interface AppDelegate()
@@ -41,7 +41,7 @@
                                  [TMERootAppDelegateService new],
                                  [TMEPushNotificationAppDelegateService new],
                                  [TMEFacebookAppDelegateService new],
-                                 [TMECrittercismAppDelegateService new],
+                                 [TMECrashlyticsAppDelegateService new],
                                  [TMECoreDataAppDelegateService new],
                                  [TMEFoursquareAppDelegateService new],
                                  [TMEGoogleAnalyticsAppDelegateService new],

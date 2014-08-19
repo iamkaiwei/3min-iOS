@@ -59,7 +59,6 @@
 		99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D601978492C00872EE4 /* AppDelegate.m */; };
 		99EA0EE81978492D00872EE4 /* TMEApperanceAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D631978492C00872EE4 /* TMEApperanceAppDelegateService.m */; };
 		99EA0EE91978492D00872EE4 /* TMECoreDataAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D651978492C00872EE4 /* TMECoreDataAppDelegateService.m */; };
-		99EA0EEA1978492D00872EE4 /* TMECrittercismAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D671978492C00872EE4 /* TMECrittercismAppDelegateService.m */; };
 		99EA0EEB1978492D00872EE4 /* TMEFacebookAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D691978492C00872EE4 /* TMEFacebookAppDelegateService.m */; };
 		99EA0EEC1978492D00872EE4 /* TMEFlurryAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D6B1978492C00872EE4 /* TMEFlurryAppDelegateService.m */; };
 		99EA0EED1978492D00872EE4 /* TMEFoursquareAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D6D1978492C00872EE4 /* TMEFoursquareAppDelegateService.m */; };
@@ -222,6 +221,7 @@
 		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
 		B4AE17D3198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */; };
 		B4AE17D6198E4A3200F6D601 /* KHRoundAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */; };
+		D2140D9719A3338E008560B0 /* TMECrashlyticsAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */; };
 		D21698A119A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */; };
 		D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224260F19A2061C009DB3AC /* TMEDeviceManager.m */; };
 		D224261319A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */; };
@@ -289,8 +289,6 @@
 		99EA0D631978492C00872EE4 /* TMEApperanceAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEApperanceAppDelegateService.m; sourceTree = "<group>"; };
 		99EA0D641978492C00872EE4 /* TMECoreDataAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECoreDataAppDelegateService.h; sourceTree = "<group>"; };
 		99EA0D651978492C00872EE4 /* TMECoreDataAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECoreDataAppDelegateService.m; sourceTree = "<group>"; };
-		99EA0D661978492C00872EE4 /* TMECrittercismAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECrittercismAppDelegateService.h; sourceTree = "<group>"; };
-		99EA0D671978492C00872EE4 /* TMECrittercismAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECrittercismAppDelegateService.m; sourceTree = "<group>"; };
 		99EA0D681978492C00872EE4 /* TMEFacebookAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFacebookAppDelegateService.h; sourceTree = "<group>"; };
 		99EA0D691978492C00872EE4 /* TMEFacebookAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFacebookAppDelegateService.m; sourceTree = "<group>"; };
 		99EA0D6A1978492C00872EE4 /* TMEFlurryAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFlurryAppDelegateService.h; sourceTree = "<group>"; };
@@ -587,6 +585,8 @@
 		B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPDFUIKitMainThreadGuard.m; sourceTree = "<group>"; };
 		B4AE17D4198E4A3200F6D601 /* KHRoundAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRoundAvatar.h; sourceTree = "<group>"; };
 		B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHRoundAvatar.m; sourceTree = "<group>"; };
+		D2140D9519A3338E008560B0 /* TMECrashlyticsAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECrashlyticsAppDelegateService.h; sourceTree = "<group>"; };
+		D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECrashlyticsAppDelegateService.m; sourceTree = "<group>"; };
 		D216989F19A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManagerAppDelegateService.h; sourceTree = "<group>"; };
 		D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserManagerAppDelegateService.m; sourceTree = "<group>"; };
 		D224260E19A2061C009DB3AC /* TMEDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEDeviceManager.h; sourceTree = "<group>"; };
@@ -718,8 +718,6 @@
 				99EA0D631978492C00872EE4 /* TMEApperanceAppDelegateService.m */,
 				99EA0D641978492C00872EE4 /* TMECoreDataAppDelegateService.h */,
 				99EA0D651978492C00872EE4 /* TMECoreDataAppDelegateService.m */,
-				99EA0D661978492C00872EE4 /* TMECrittercismAppDelegateService.h */,
-				99EA0D671978492C00872EE4 /* TMECrittercismAppDelegateService.m */,
 				99EA0D681978492C00872EE4 /* TMEFacebookAppDelegateService.h */,
 				99EA0D691978492C00872EE4 /* TMEFacebookAppDelegateService.m */,
 				99EA0D6A1978492C00872EE4 /* TMEFlurryAppDelegateService.h */,
@@ -744,6 +742,8 @@
 				D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */,
 				D216989F19A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.h */,
 				D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */,
+				D2140D9519A3338E008560B0 /* TMECrashlyticsAppDelegateService.h */,
+				D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */,
 			);
 			name = AppDelegateService;
 			path = "3min-iOS/AppDelegateService";
@@ -1403,7 +1403,7 @@
 				5976C03D15925D2D007F6FC3 /* Resources */,
 				5976C03C15925D2D007F6FC3 /* Frameworks */,
 				F17406CC31064371936F82AD /* Copy Pods Resources */,
-				99EA0F9919784ADF00872EE4 /* Crittercism dSYM Upload */,
+				D224424919A3369B00901B1D /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -1526,19 +1526,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		99EA0F9919784ADF00872EE4 /* Crittercism dSYM Upload */ = {
+		D224424919A3369B00901B1D /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Crittercism dSYM Upload";
+			name = Crashlytics;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "APP_ID=\"53c7ff2abb94753c13000001\"\nAPI_KEY=\"5ZNciqaxEakAeir3nharvOH8C6JfG0az\"\nUPLOAD_SIMULATOR_SYMBOLS=0\nsource ${SRCROOT}/Pods/CrittercismSDK/CrittercismSDK/dsym_upload.sh";
+			shellScript = "./Pods/CrashlyticsFramework/Crashlytics.framework/run d64e0062e4657535063ba5de45bd15d45bb451e1 ea81fa9cd4f8960f795a65364ddf8eb73109379db07182ec264d83af399f83fb";
 		};
 		F17406CC31064371936F82AD /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1619,6 +1619,7 @@
 				9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */,
 				99EA0EFF1978492D00872EE4 /* _TMEActivity.m in Sources */,
 				99EA0F121978492D00872EE4 /* TMEModels.xcdatamodeld in Sources */,
+				D2140D9719A3338E008560B0 /* TMECrashlyticsAppDelegateService.m in Sources */,
 				99EA0F231978492D00872EE4 /* NSString+Validation.m in Sources */,
 				99EA0F171978492D00872EE4 /* KZPropertyMapper+DateBoxing.m in Sources */,
 				99EA0F1D1978492D00872EE4 /* NSDictionary+Additions.m in Sources */,
@@ -1643,7 +1644,6 @@
 				99EA0F951978492D00872EE4 /* TMECircleProgressIndicator.m in Sources */,
 				99EA0F1B1978492D00872EE4 /* NSData+Base64.m in Sources */,
 				99EA0F421978492D00872EE4 /* TMEBrowserProductsViewController.m in Sources */,
-				99EA0EEA1978492D00872EE4 /* TMECrittercismAppDelegateService.m in Sources */,
 				99EA0F5C1978492D00872EE4 /* TMEOfferedTableViewCell.m in Sources */,
 				99EA0EFC1978492D00872EE4 /* TMEProductsManager.m in Sources */,
 				99EA0F071978492D00872EE4 /* TMEProduct+BackwardSupport.m in Sources */,
