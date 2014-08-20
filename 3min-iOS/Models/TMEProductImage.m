@@ -15,8 +15,8 @@
 			   @"ID": @"id",
 			   @"name": @"name",
 			   @"description": @"description",
-			   @"thumbURL": @"thumb",
 			   @"dim": @"dimensions",
+			   @"thumbURL": @"thumb",
 			   @"squareURL": @"square",
 			   @"mediumURL": @"medium",
 			   @"originURL": @"origin"

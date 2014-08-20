@@ -108,7 +108,9 @@ static const CGFloat kProductCollectionCellWidth = 152;
     TMEProduct *product = [self itemAtIndex:indexPath.row];
     TMEProductImage *image = [product.images firstObject];
 
-    CGFloat newCellHeight = image.dim.height * cellWidth / image.dim.width + kProductCollectionCellStaticInfoHeight;
+    CGSize imageDim = [image.dim CGSizeValue];
+
+    CGFloat newCellHeight = imageDim.height * cellWidth / imageDim.width + kProductCollectionCellStaticInfoHeight;
 
 	return CGSizeMake(cellWidth, newCellHeight);
 }
