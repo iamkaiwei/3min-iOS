@@ -1,4 +1,4 @@
-//
+
 //  TMEBrowserProductViewModel.m
 //  ThreeMin
 //
@@ -28,7 +28,7 @@
 @implementation TMEBrowserProductViewModel
 
 - (id)init {
-    NSAssert(NO, @"Have to use initWithCollectionView:");
+	NSAssert(NO, @"Have to use initWithCollectionView:");
 	self = [self initWithCollectionView:nil];
 	if (self) {
 	}
@@ -71,7 +71,7 @@
 
 - (void)setState:(TMEViewModelState)state {
 	_state = state;
-	self.datasource = (id)[self dataSourceFactory: state];
+	self.datasource = (id)[self dataSourceFactory : state];
 }
 
 - (NSArray *)arrayItems {
@@ -85,17 +85,18 @@
 #pragma mark -
 
 - (id <UICollectionViewDataSource> )dataSourceFactory:(TMEViewModelState)state {
-
 #warning NEED REFACTOR
-    // if there is loading state, then keep the current datasource
+	// if there is loading state, then keep the current datasource
 	if (self.state == TMEViewModelStateLoading ||
 	    self.state == TMEViewModelStateLoadingMorePage) {
-		return self.datasource;
+		if ([self.datasource isKindOfClass:[TMEPaginationCollectionViewDataSource class]]) {
+			return self.datasource;
+		}
 	}
 
-    if (self.state == TMEViewModelStateError) {
-        return [[TMEErrorCollectionViewDataSource alloc] init];
-    }
+	if (self.state == TMEViewModelStateError) {
+		return [[TMEErrorCollectionViewDataSource alloc] init];
+	}
 
 	return [[TMEPaginationCollectionViewDataSource alloc] initWithItems:self.arrayItems identifierParserBlock:nil configureCellBlock:nil];
 
@@ -114,20 +115,18 @@
 #pragma mark - Get remote products
 
 - (void)getProducts:(void (^)(NSArray *arrProducts))success failure:(void (^)(NSError *error))failure withPage:(NSUInteger)page {
-
 	// prevent mutiple loading
-	if (self.state == TMEViewModelStateLoading ||
-	    self.state == TMEViewModelStateLoadingMorePage) {
+	if (self.state == TMEViewModelStateLoading) {
 		return;
 	}
 
-    // finish loading
+	// finish loading
 	if (self.page == -1) {
 		return;
 	}
 
-    // change state to loading state
-    self.state = TMEViewModelStateLoading;
+	// change state to loading state
+	self.state = TMEViewModelStateLoading;
 
 	[TMEProductsManager getAllProductsWihPage:page
 	                           onSuccessBlock: ^(NSArray *arrProducts) {
