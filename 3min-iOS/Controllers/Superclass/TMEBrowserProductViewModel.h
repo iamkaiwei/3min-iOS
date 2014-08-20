@@ -10,6 +10,8 @@
 #import "TMEPaginationCollectionViewDataSource.h"
 
 typedef NS_ENUM(NSUInteger, TMEViewModelState) {
+    TMEViewModelStateIntial,
+    TMEViewModelStateLoaded,
     TMEViewModelStateLoading,
     TMEViewModelStateLoadingMorePage,
     TMEViewModelStateError,

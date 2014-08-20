@@ -18,6 +18,8 @@
 
 @property (strong, nonatomic) FBKVOController *kvoController;
 
+@property (weak, nonatomic) UICollectionView *collectionView;
+
 @property (assign, nonatomic) NSUInteger page;
 
 @end
@@ -25,6 +27,7 @@
 @implementation TMEBrowserProductViewModel
 
 - (id)init {
+    NSAssert(NO, @"Have to use initWithCollectionView:");
 	self = [self initWithCollectionView:nil];
 	if (self) {
 	}
@@ -39,7 +42,7 @@
 
 	if (self) {
 		_page = 1;
-		self.state = TMEViewModelStateLoading;
+		self.state = TMEViewModelStateIntial;
 		_kvoController = [FBKVOController controllerWithObserver:self];
 
 		__weak UICollectionView *weakCollection = collection;
@@ -57,19 +60,13 @@
 		        [self getProducts:nil failure:nil];
 			}
 		}];
+
+		_collectionView = collection;
 	}
 	return self;
 }
 
-- (id <UICollectionViewDataSource> )dataSourceFactory:(TMEViewModelState)state {
-#warning NEED REFACTOR
-	return [[TMEPaginationCollectionViewDataSource alloc] initWithItems:self.arrayItems identifierParserBlock:nil configureCellBlock:nil];
-//	if (state == TMEViewModelStateLoadingMorePage) {
-//		return [[TMEPaginationCollectionViewDataSource alloc] init];
-//	}
-//
-//	return [[TMEPaginationCollectionViewDataSource alloc] init];
-}
+#pragma mark -
 
 - (void)setState:(TMEViewModelState)state {
 	_state = state;
@@ -84,10 +81,47 @@
 	return _arrayItems;
 }
 
+#pragma mark -
+
+- (id <UICollectionViewDataSource> )dataSourceFactory:(TMEViewModelState)state {
+
+#warning NEED REFACTOR
+	if (self.state == TMEViewModelStateLoading ||
+	    self.state == TMEViewModelStateLoadingMorePage) {
+		return self.datasource;
+	}
+
+	return [[TMEPaginationCollectionViewDataSource alloc] initWithItems:self.arrayItems identifierParserBlock:nil configureCellBlock:nil];
+
+//	if (state == TMEViewModelStateLoadingMorePage) {
+//		return [[TMEPaginationCollectionViewDataSource alloc] init];
+//	}
+//
+//	return [[TMEPaginationCollectionViewDataSource alloc] init];
+}
+
+- (void)setDatasource:(TMEPaginationCollectionViewDataSource *)datasource {
+	_datasource = datasource;
+	[_datasource setCellAndFooterClasses:self.collectionView];
+}
+
+#pragma mark - Get remote products
+
 - (void)getProducts:(void (^)(NSArray *arrProducts))success failure:(void (^)(NSError *error))failure withPage:(NSUInteger)page {
+
+	// prevent mutiple loading
+	if (self.state == TMEViewModelStateLoading ||
+	    self.state == TMEViewModelStateLoadingMorePage) {
+		return;
+	}
+
+    // finish loading
 	if (self.page == -1) {
 		return;
 	}
+
+    // change state to loading state
+    self.state = TMEViewModelStateLoading;
 
 	[TMEProductsManager getAllProductsWihPage:page
 	                           onSuccessBlock: ^(NSArray *arrProducts) {
@@ -101,7 +135,7 @@
 	    self.arrayItems = arr;
 	    self.page++;
 
-	    self.state = TMEViewModelStateLoadingMorePage;
+	    self.state = TMEViewModelStateLoaded;
 	} failureBlock: ^(NSError *error) {
 	    self.state = TMEViewModelStateError;
 	}];
