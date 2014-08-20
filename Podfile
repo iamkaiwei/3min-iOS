@@ -21,7 +21,6 @@ target :ThreeMin, :exclusive => true do
   pod 'FontAwesome-iOS'
   pod 'Foursquare-API-v2'
   pod 'Facebook-iOS-SDK'
-  pod 'UrbanAirship-iOS-SDK'
   pod 'libPusher', '~> 1.5'
   pod 'FlurrySDK'
   pod 'KZPropertyMapper'
