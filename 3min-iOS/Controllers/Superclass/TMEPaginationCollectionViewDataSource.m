@@ -12,6 +12,9 @@
 #import "TMELoadMoreCollectionCell.h"
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
+static const CGFloat kProductCollectionCellStaticInfoHeight = 128;
+static const CGFloat kProductCollectionCellWidth = 152;
+
 @interface TMEPaginationCollectionViewDataSource ()
 <
     UICollectionViewDataSource
@@ -100,7 +103,14 @@
 #pragma mark - Collection datasource
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return CGSizeMake(152, 330);
+
+    CGFloat cellWidth = kProductCollectionCellWidth;
+    TMEProduct *product = [self itemAtIndex:indexPath.row];
+    TMEProductImage *image = [product.images firstObject];
+
+    CGFloat newCellHeight = image.dim.height * cellWidth / image.dim.width + kProductCollectionCellStaticInfoHeight;
+
+	return CGSizeMake(cellWidth, newCellHeight);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForFooterInSection:(NSInteger)section {
