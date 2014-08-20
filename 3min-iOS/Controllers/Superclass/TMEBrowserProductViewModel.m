@@ -110,6 +110,7 @@
 - (void)setDatasource:(TMEPaginationCollectionViewDataSource *)datasource {
 	_datasource = datasource;
 	[_datasource setCellAndFooterClasses:self.collectionView];
+    self.collectionView.dataSource = _datasource;
 }
 
 #pragma mark - Get remote products
