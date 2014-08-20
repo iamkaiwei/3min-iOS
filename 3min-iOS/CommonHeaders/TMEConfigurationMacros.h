@@ -12,23 +12,15 @@
 //------------------------------------------------------------------------------------------------------
 #import "TMECommonHeaders.h"
 
-//Use this "3 mins Production" scheme to upload to app store
-#define PUSHER_APP_KEY                              @"ce3898cbc04d99f952cd"
-#define FLURRY_API_KEY                              @"76DX6MC5DYNGYYNSYX3F"
-#define URBAN_AIRSHIP_APP_KEY_DEVELOPMENT           @"-IT-qB3pRBiec3liyxk4cQ"
-#define URBAN_AIRSHIP_APP_SECRET_DEVELOPMENT        @"rp9clmV1RzGi0GfPUiO0iA"
-#define URBAN_AIRSHIP_APP_KEY_PRODUCTION            @"tyVT4cw2TFi529WyWJswXA"
-#define URBAN_AIRSHIP_APP_SECRET_PRODUCTION         @"pLdhKxkZTdiGmqFmWEGaPg"
+#ifdef TME_PRODUCTION
+// Production
 
-#ifdef PRODUCTION
-
-#define API_BASE_URL                             @"https://threemins-server.herokuapp.com"      //production url
-
-#define APP_VERSION                                 ([[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleVersionKey])
-
-#define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
+#define API_BASE_URL                                @"https://threemins-server.herokuapp.com"
 #define API_CLIENT_ID                               @"36d9b0cae1fb797b3095ebd8c50ef4b58df47f16d5aa18f96704f4c484136869"
 #define API_GRANT_TYPE                              @"password"
+
+#define PUSHER_APP_KEY                              @"ce3898cbc04d99f952cd"
+#define FLURRY_API_KEY                              @"76DX6MC5DYNGYYNSYX3F"
 
 #define SETTINGS_LOCALYTICS_TOKEN_DEFAULT           @"f7e86c8413e50da8f46d1af-130c72d6-0489-11e3-11a5-004a77f8b47f"
 #define SETTINGS_NEW_RELIC_TOKEN_DEFAULT            @""
@@ -36,38 +28,33 @@
 #define ENABLE_TRIPPLE_TAP_PREFILL                  NO
 #define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
 
-//Normal development environment
 #else
-#ifdef DEBUG
+// Staging
 
-#define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
 #define API_BASE_URL                                @"http://threemins-server-staging.herokuapp.com"
 #define API_CLIENT_ID                               @"36d9b0cae1fb797b3095ebd8c50ef4b58df47f16d5aa18f96704f4c484136869"
 #define API_GRANT_TYPE                              @"password"
+
+#define PUSHER_APP_KEY                              @"ce3898cbc04d99f952cd"
+#define FLURRY_API_KEY                              @"76DX6MC5DYNGYYNSYX3F"
 
 #define SETTINGS_LOCALYTICS_TOKEN_DEFAULT           @""
 #define SETTINGS_NEW_RELIC_TOKEN_DEFAULT            @""
 #define SETTINGS_ITUNE_APP_ID                       @""
 #define ENABLE_TRIPPLE_TAP_PREFILL                  YES
-
-
-//Staging, archive to app manager
-#else
-
-#define API_BASE_URL                                @"https://threemins-server.herokuapp.com"      //production url
-#define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
-#define API_CLIENT_ID                               @"36d9b0cae1fb797b3095ebd8c50ef4b58df47f16d5aa18f96704f4c484136869"
-#define API_GRANT_TYPE                              @"password"
-
-#define SETTINGS_LOCALYTICS_TOKEN_DEFAULT           @"f7e86c8413e50da8f46d1af-130c72d6-0489-11e3-11a5-004a77f8b47f"
-#define SETTINGS_NEW_RELIC_TOKEN_DEFAULT            @""
-#define SETTINGS_ITUNE_APP_ID                       @""
-#define ENABLE_TRIPPLE_TAP_PREFILL                  NO
 #define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
 
 #endif
-#endif
 
+// Common
+#define APP_VERSION                                 ([[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleVersionKey])
+#define URBAN_AIRSHIP_APP_KEY                       @"tyVT4cw2TFi529WyWJswXA"
+#define URBAN_AIRSHIP_APP_SECRET                    @"pLdhKxkZTdiGmqFmWEGaPg"
+#define URBAN_AIRSHIP_APP_KEY_STAGING               @"-IT-qB3pRBiec3liyxk4cQ"
+#define URBAN_AIRSHIP_APP_SECRET_STAGING            @"rp9clmV1RzGi0GfPUiO0iA"
+
+
+// API Path
 #define API_SERVER_HOST                             ([NSString stringWithFormat:@"%@%@", API_BASE_URL, API_PREFIX])
 
 #define NOTIFICATION_RELOAD_CONVERSATION            @"updateConversationTableView"
