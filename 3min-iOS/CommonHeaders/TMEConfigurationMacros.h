@@ -29,7 +29,7 @@
 #define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
 #define API_CLIENT_ID                               @"36d9b0cae1fb797b3095ebd8c50ef4b58df47f16d5aa18f96704f4c484136869"
 #define API_GRANT_TYPE                              @"password"
-#define SETTINGS_CRITERCISM_TOKEN_DEFAULT           @"51df74ddc463c2113c000002"
+
 #define SETTINGS_LOCALYTICS_TOKEN_DEFAULT           @"f7e86c8413e50da8f46d1af-130c72d6-0489-11e3-11a5-004a77f8b47f"
 #define SETTINGS_NEW_RELIC_TOKEN_DEFAULT            @""
 #define SETTINGS_ITUNE_APP_ID                       @""
@@ -44,7 +44,7 @@
 #define API_BASE_URL                                @"http://threemins-server-staging.herokuapp.com"
 #define API_CLIENT_ID                               @"36d9b0cae1fb797b3095ebd8c50ef4b58df47f16d5aa18f96704f4c484136869"
 #define API_GRANT_TYPE                              @"password"
-#define SETTINGS_CRITERCISM_TOKEN_DEFAULT           @""
+
 #define SETTINGS_LOCALYTICS_TOKEN_DEFAULT           @""
 #define SETTINGS_NEW_RELIC_TOKEN_DEFAULT            @""
 #define SETTINGS_ITUNE_APP_ID                       @""
@@ -58,7 +58,7 @@
 #define GOOGLE_ANALYTICS_APP_KEY                    @"UA-44232541-1"
 #define API_CLIENT_ID                               @"36d9b0cae1fb797b3095ebd8c50ef4b58df47f16d5aa18f96704f4c484136869"
 #define API_GRANT_TYPE                              @"password"
-#define SETTINGS_CRITERCISM_TOKEN_DEFAULT           @"51df74ddc463c2113c000002"
+
 #define SETTINGS_LOCALYTICS_TOKEN_DEFAULT           @"f7e86c8413e50da8f46d1af-130c72d6-0489-11e3-11a5-004a77f8b47f"
 #define SETTINGS_NEW_RELIC_TOKEN_DEFAULT            @""
 #define SETTINGS_ITUNE_APP_ID                       @""
@@ -97,9 +97,3 @@
 #define PUSHER_CHAT_EVENT_NAME                      @"client-chat"
 #define PUSHER_CHAT_EVENT_TYPING                    @"client-typing"
 #define PUSHER_CHAT_EVENT_UNTYPING                  @"client-untyping"
-//------------------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------------
-
-//Notifications
-#define CATEGORY_CHANGE_NOTIFICATION                @"CategoryChangeNotification"
-

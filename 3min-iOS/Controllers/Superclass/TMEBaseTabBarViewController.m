@@ -51,7 +51,7 @@
 - (void)trackCritercismBreadCrumb:(NSUInteger)lineNumber
 {
     NSString *breadcrumb = [NSString stringWithFormat:@"%@:%d", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], lineNumber];
-    [Crittercism leaveBreadcrumb:breadcrumb];
+    CLS_LOG(@"%@", breadcrumb);
 }
 
 @end

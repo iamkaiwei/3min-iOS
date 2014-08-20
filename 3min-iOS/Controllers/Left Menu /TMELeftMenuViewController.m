@@ -54,13 +54,14 @@
     [(UINavigationController *)tabbarVC.selectedViewController popToRootViewControllerAnimated:NO];
     tabbarVC.selectedIndex = 0;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CATEGORY_CHANGE_NOTIFICATION object:nil userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:TMECategoryDidChangeNotification object:nil userInfo:userInfo];
 }
 
 - (void)getAllCategories{
-    if (![self isReachable]) {
-        return;
-    }
+    // FIXME: This is unreliable
+//    if (![self isReachable]) {
+//        return;
+//    }
 
     [[TMECategoryManager sharedManager] getAllCategoriesWithSuccess:^(NSArray *categories) {
         self.dataArray = [categories mutableCopy];

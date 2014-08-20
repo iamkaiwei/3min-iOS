@@ -72,11 +72,11 @@
 - (void)trackAnalyticsEventName:(NSString*)eventName parameters:(NSDictionary *)params
 {
 #ifndef PRODUCTION
-    [Crittercism setUsername:DEVICE_NAME];
+    [Crashlytics setObjectValue:DEVICE_NAME forKey:@"Username"];
 #endif
 #ifdef PRODUCTION
     if ([EGCUserManager sharedInstance].currentUser)
-        [Crittercism setUsername:[[EGCUserManager sharedInstance].currentUser getDisplayName]];
+        [Crashlytics setObjectValue:[[EGCUserManager sharedInstance].currentUser getDisplayName]] forKey:@"Username"];
 #endif
     
 //    NSMutableDictionary * eventAttributes = [[NSMutableDictionary alloc] init];
@@ -108,7 +108,7 @@
      */
     
     NSString *breadcrumb = [NSString stringWithFormat:@"%@:%d", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], lineNumber];
-    [Crittercism leaveBreadcrumb:breadcrumb];
+    CLS_LOG(@"%@", breadcrumb);
 }
 
 @end

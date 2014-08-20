@@ -9,7 +9,6 @@
 #import "CoreData+MagicalRecord.h"
 #import "SVProgressHUD.h"
 #import "AFNetworking.h"
-#import "OpenUDID.h"
 #import "iCarousel.h"
 #import "UINavigationController+SGProgress.h"
 #import "Reachability.h"
@@ -34,7 +33,7 @@
 #import <Pusher/PTPusherChannel.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <AviarySDK/AviarySDK.h>
-#import <CrittercismSDK/Crittercism.h>
 #import <Mantle/Mantle.h>
 #import <CocoaLumberjack/DDLog.h>
 #import <Masonry/Masonry.h>
+#import <CrashlyticsFramework/Crashlytics.h>
