@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		0C5C14F217E6BA89004F30D9 /* TMEModelsGenerator */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 0C5C14F317E6BA89004F30D9 /* Build configuration list for PBXAggregateTarget "TMEModelsGenerator" */;
-			buildPhases = (
-				0C24C1EF17E71F5E007FAAD4 /* Run Script */,
-			);
-			dependencies = (
-			);
-			name = TMEModelsGenerator;
-			productName = TMEModelsGenerator;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		0C2F789A17F2DD1F00201783 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2F789917F2DD1F00201783 /* ImageIO.framework */; };
 		0C5C936917EA162100ECF9B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5C936817EA162100ECF9B3 /* Security.framework */; };
@@ -1444,7 +1430,6 @@
 			projectRoot = "";
 			targets = (
 				5976C03E15925D2D007F6FC3 /* ThreeMin */,
-				0C5C14F217E6BA89004F30D9 /* TMEModelsGenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -1497,20 +1482,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0C24C1EF17E71F5E007FAAD4 /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "mogenerator -m PhotoButton/Supporting\\ Files/TMEModels.xcdatamodeld/TMEModels.xcdatamodel/ --machine-dir PhotoButton/Models/Machine/ --human-dir PhotoButton/Models/ --template-var arc=true";
-		};
 		16888B0968C049BC84E52B4F /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1727,24 +1698,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0C5C14F417E6BA89004F30D9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_VERSION = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		0C5C14F517E6BA89004F30D9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_VERSION = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-			};
-			name = Release;
-		};
 		5976C05E15925D2D007F6FC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1763,6 +1716,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					TME_PRODUCTION,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = "";
@@ -1791,6 +1745,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = TME_PRODUCTION;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1858,7 +1813,66 @@
 			};
 			name = Release;
 		};
-		7130F10F18CDE32400EE9A3F /* Adhoc */ = {
+		D269B7E519A484FC00C3FE79 /* Debug Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = "Debug Staging";
+		};
+		D269B7E619A484FC00C3FE79 /* Debug Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45DA59DE8C0942DC8E406561 /* Pods-ThreeMin.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
+				INFOPLIST_FILE = "3min-IOS/Supporting Files/ThreeMin-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/3min-iOS/Vendors/AviarySDK",
+					"$(PROJECT_DIR)/3min-iOS/Vendors/GoogleAnalytics",
+				);
+				PRODUCT_NAME = ThreeMin;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Debug Staging";
+		};
+		D269B7E719A4850400C3FE79 /* Release Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1884,9 +1898,9 @@
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Adhoc;
+			name = "Release Staging";
 		};
-		7130F11018CDE32400EE9A3F /* Adhoc */ = {
+		D269B7E819A4850400C3FE79 /* Release Staging */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45DA59DE8C0942DC8E406561 /* Pods-ThreeMin.xcconfig */;
 			buildSettings = {
@@ -1910,36 +1924,18 @@
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
-			name = Adhoc;
-		};
-		7130F11118CDE32400EE9A3F /* Adhoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_VERSION = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-			};
-			name = Adhoc;
+			name = "Release Staging";
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0C5C14F317E6BA89004F30D9 /* Build configuration list for PBXAggregateTarget "TMEModelsGenerator" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0C5C14F417E6BA89004F30D9 /* Debug */,
-				0C5C14F517E6BA89004F30D9 /* Release */,
-				7130F11118CDE32400EE9A3F /* Adhoc */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		5976C03915925D2D007F6FC3 /* Build configuration list for PBXProject "ThreeMin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5976C05E15925D2D007F6FC3 /* Debug */,
+				D269B7E519A484FC00C3FE79 /* Debug Staging */,
 				5976C05F15925D2D007F6FC3 /* Release */,
-				7130F10F18CDE32400EE9A3F /* Adhoc */,
+				D269B7E719A4850400C3FE79 /* Release Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1948,8 +1944,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5976C06115925D2D007F6FC3 /* Debug */,
+				D269B7E619A484FC00C3FE79 /* Debug Staging */,
 				5976C06215925D2D007F6FC3 /* Release */,
-				7130F11018CDE32400EE9A3F /* Adhoc */,
+				D269B7E819A4850400C3FE79 /* Release Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

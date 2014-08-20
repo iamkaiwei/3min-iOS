@@ -24,10 +24,10 @@
     // or set runtime properties here.
     UAConfig *config = [UAConfig defaultConfig];
 
-    config.developmentAppKey = URBAN_AIRSHIP_APP_KEY_DEVELOPMENT;
-    config.developmentAppSecret = URBAN_AIRSHIP_APP_SECRET_DEVELOPMENT;
-    config.productionAppKey = URBAN_AIRSHIP_APP_KEY_PRODUCTION;
-    config.productionAppSecret = URBAN_AIRSHIP_APP_SECRET_PRODUCTION;
+    config.developmentAppKey = URBAN_AIRSHIP_APP_KEY_STAGING;
+    config.developmentAppSecret = URBAN_AIRSHIP_APP_SECRET_STAGING;
+    config.productionAppKey = URBAN_AIRSHIP_APP_KEY;
+    config.productionAppSecret = URBAN_AIRSHIP_APP_SECRET;
     config.detectProvisioningMode = YES;
 
     // Call takeOff (which creates the UAirship singleton)
