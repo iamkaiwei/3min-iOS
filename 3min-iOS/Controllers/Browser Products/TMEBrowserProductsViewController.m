@@ -38,7 +38,7 @@ TMEBrowserProductsTableCellDelegate
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onCategoryChangeNotification:)
-                                                 name:CATEGORY_CHANGE_NOTIFICATION
+                                                 name:TMECategoryDidChangeNotification
                                                object:nil];
 }
 

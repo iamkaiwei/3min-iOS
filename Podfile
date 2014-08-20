@@ -16,7 +16,6 @@ target :ThreeMin, :exclusive => true do
   pod 'ViewDeck', '2.2.11'
   pod 'SSPullToRefresh'
   pod 'RESwitch', '~> 1.0.1'
-  pod 'OpenUDID'
   pod 'MTAnimatedLabel'
   pod 'TSMessages', '0.9.5'
   pod 'FontAwesome-iOS'
@@ -36,5 +35,6 @@ target :ThreeMin, :exclusive => true do
   pod 'Masonry', '~> 0.5'
   pod 'JazzHands', '~> 0.1'
   pod 'CrashlyticsFramework', '~> 2.2'
+  pod 'Orbiter', '~> 2.0'
 
 end

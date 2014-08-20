@@ -12,6 +12,8 @@ typedef void(^TMESuccessBlock)();
 extern NSString *const TMEShowLoginViewControllerNotification;
 extern NSString *const TMEShowHomeViewControllerNotification;
 
+extern NSString *const TMECategoryDidChangeNotification;
+
 extern NSString *const TMEUserDidLoginNotification;
 extern NSString *const TMEUserDidLogoutNotification;
 
