@@ -229,6 +229,8 @@
 		B4AE17F3198EAFAD00F6D601 /* TMEProfilePageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17F1198EAFAD00F6D601 /* TMEProfilePageContentViewController.m */; };
 		B4AE17F4198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AE17F2198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib */; };
 		B4AE17F7198EC20600F6D601 /* TMEHomePageViewDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17F6198EC20600F6D601 /* TMEHomePageViewDatasource.m */; };
+		B4EF43A019A44D92001F010C /* TMEErrorCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF439F19A44D92001F010C /* TMEErrorCollectionViewDataSource.m */; };
+		B4EF43A319A45267001F010C /* TMEErrorReusableCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF43A219A45267001F010C /* TMEErrorReusableCollectionView.m */; };
 		B4F488A819A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F488A719A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.m */; };
 		B4F488AA19A34ED5003F3997 /* TMEErrorReusableCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F488A919A34ED5003F3997 /* TMEErrorReusableCollectionView.xib */; };
 		D21698A119A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */; };
@@ -643,6 +645,10 @@
 		B4AE17F2198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEProfilePageContentViewController.xib; sourceTree = "<group>"; };
 		B4AE17F5198EC20600F6D601 /* TMEHomePageViewDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHomePageViewDatasource.h; sourceTree = "<group>"; };
 		B4AE17F6198EC20600F6D601 /* TMEHomePageViewDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEHomePageViewDatasource.m; sourceTree = "<group>"; };
+		B4EF439E19A44D92001F010C /* TMEErrorCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEErrorCollectionViewDataSource.h; sourceTree = "<group>"; };
+		B4EF439F19A44D92001F010C /* TMEErrorCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEErrorCollectionViewDataSource.m; sourceTree = "<group>"; };
+		B4EF43A119A45267001F010C /* TMEErrorReusableCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEErrorReusableCollectionView.h; sourceTree = "<group>"; };
+		B4EF43A219A45267001F010C /* TMEErrorReusableCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEErrorReusableCollectionView.m; sourceTree = "<group>"; };
 		B4F488A619A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPaginationCollectionViewErrorDataSource.h; sourceTree = "<group>"; };
 		B4F488A719A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPaginationCollectionViewErrorDataSource.m; sourceTree = "<group>"; };
 		B4F488A919A34ED5003F3997 /* TMEErrorReusableCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEErrorReusableCollectionView.xib; sourceTree = "<group>"; };
@@ -1321,7 +1327,11 @@
 				B46D72CE199E0CF40050E046 /* TMEBrowserProductViewModel.m */,
 				B4F488A619A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.h */,
 				B4F488A719A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.m */,
+				B4EF43A119A45267001F010C /* TMEErrorReusableCollectionView.h */,
+				B4EF43A219A45267001F010C /* TMEErrorReusableCollectionView.m */,
 				B4F488A919A34ED5003F3997 /* TMEErrorReusableCollectionView.xib */,
+				B4EF439E19A44D92001F010C /* TMEErrorCollectionViewDataSource.h */,
+				B4EF439F19A44D92001F010C /* TMEErrorCollectionViewDataSource.m */,
 			);
 			path = Superclass;
 			sourceTree = "<group>";
@@ -1713,6 +1723,7 @@
 				99EA0F971978492D00872EE4 /* TMESearchBar.m in Sources */,
 				99EA0F7F1978492D00872EE4 /* TMEBaseTableViewController.m in Sources */,
 				99EA0F381978492D00872EE4 /* FSConverter.m in Sources */,
+				B4EF43A019A44D92001F010C /* TMEErrorCollectionViewDataSource.m in Sources */,
 				B46D72CF199E0CF40050E046 /* TMEBrowserProductViewModel.m in Sources */,
 				99EA0F731978492D00872EE4 /* TMESearchViewController.m in Sources */,
 				99EA0F1C1978492D00872EE4 /* NSDate+Additions.m in Sources */,
@@ -1822,6 +1833,7 @@
 				99EA0F3A1978492D00872EE4 /* UIPlaceHolderTextView.m in Sources */,
 				99EA0F3F1978492D00872EE4 /* TMEBaseArrayDataSourceWithLoadMore.m in Sources */,
 				99EA0EF01978492D00872EE4 /* TMEReachabilityAppDelegateService.m in Sources */,
+				B4EF43A319A45267001F010C /* TMEErrorReusableCollectionView.m in Sources */,
 				99EA0F8C1978492D00872EE4 /* JZRefreshControl.m in Sources */,
 				99EA0FA01978574000872EE4 /* YIFullScreenScroll.m in Sources */,
 				99EA0F7E1978492D00872EE4 /* TMEBaseTabBarViewController.m in Sources */,

@@ -83,16 +83,4 @@
 
 #pragma mark - Collection datasource
 
-//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-//	CGSize contentSize = scrollView.contentSize;
-//
-//	CGFloat btm = (contentSize.height - targetContentOffset->y - scrollView.height);
-//	BOOL shouldLoadMore = btm < 50;
-//
-//	if (shouldLoadMore) {
-//		DLog(@"Shoud load more");
-//		[self.viewModel getProducts:nil failure:nil];
-//	}
-//}
-
 @end
