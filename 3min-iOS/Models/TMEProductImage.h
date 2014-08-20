@@ -16,6 +16,8 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *description;
 
+@property (nonatomic, assign) CGSize dim;
+
 @property (nonatomic, copy) NSURL *thumbURL;
 @property (nonatomic, copy) NSURL *squareURL;
 @property (nonatomic, copy) NSURL *mediumURL;
