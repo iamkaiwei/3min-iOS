@@ -58,9 +58,10 @@
 }
 
 - (void)getAllCategories{
-    if (![self isReachable]) {
-        return;
-    }
+    // FIXME: This is unreliable
+//    if (![self isReachable]) {
+//        return;
+//    }
 
     [[TMECategoryManager sharedManager] getAllCategoriesWithSuccess:^(NSArray *categories) {
         self.dataArray = [categories mutableCopy];
