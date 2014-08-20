@@ -209,6 +209,7 @@
 		B4AE17D6198E4A3200F6D601 /* KHRoundAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */; };
 		D2140D9719A3338E008560B0 /* TMECrashlyticsAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */; };
 		D21698A119A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */; };
+		D22016BD19A49D480071535C /* TMEPushNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D22016BC19A49D480071535C /* TMEPushNotificationManager.m */; };
 		D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224260F19A2061C009DB3AC /* TMEDeviceManager.m */; };
 		D224261319A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */; };
 		D224261619A2070A009DB3AC /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261519A2070A009DB3AC /* TMEUserManager.m */; };
@@ -575,6 +576,8 @@
 		D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECrashlyticsAppDelegateService.m; sourceTree = "<group>"; };
 		D216989F19A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManagerAppDelegateService.h; sourceTree = "<group>"; };
 		D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserManagerAppDelegateService.m; sourceTree = "<group>"; };
+		D22016BB19A49D480071535C /* TMEPushNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPushNotificationManager.h; sourceTree = "<group>"; };
+		D22016BC19A49D480071535C /* TMEPushNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPushNotificationManager.m; sourceTree = "<group>"; };
 		D224260E19A2061C009DB3AC /* TMEDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEDeviceManager.h; sourceTree = "<group>"; };
 		D224260F19A2061C009DB3AC /* TMEDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEDeviceManager.m; sourceTree = "<group>"; };
 		D224261119A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEDeviceManagerAppDelegateService.h; sourceTree = "<group>"; };
@@ -783,6 +786,8 @@
 				990CB7D3199A631F00AEA179 /* TMEGooglePlusManager.m */,
 				D224260E19A2061C009DB3AC /* TMEDeviceManager.h */,
 				D224260F19A2061C009DB3AC /* TMEDeviceManager.m */,
+				D22016BB19A49D480071535C /* TMEPushNotificationManager.h */,
+				D22016BC19A49D480071535C /* TMEPushNotificationManager.m */,
 			);
 			name = Managers;
 			path = "3min-iOS/Managers";
@@ -1572,6 +1577,7 @@
 				99EA0F261978492D00872EE4 /* UIBezierPath-Points.m in Sources */,
 				99EA0F751978492D00872EE4 /* TMESubmitTableCell.m in Sources */,
 				99EA0F4B1978492D00872EE4 /* TMEBrowserCollectionViewDataSource.m in Sources */,
+				D22016BD19A49D480071535C /* TMEPushNotificationManager.m in Sources */,
 				99EA0F491978492D00872EE4 /* TMEBrowserCollectionViewController.m in Sources */,
 				990014F81990623700AF1553 /* TMEBaseModel.m in Sources */,
 				99EA0F471978492D00872EE4 /* TMEBrowserCollectionCell.m in Sources */,

@@ -11,6 +11,7 @@
 #import "UAConfig.h"
 #import "UAPush.h"
 #import <Orbiter/Orbiter.h>
+#import "TMEPushNotificationManager.h"
 
 @interface TMEPushNotificationAppDelegateService () <UAPushNotificationDelegate>
 
@@ -18,43 +19,20 @@
 
 @implementation TMEPushNotificationAppDelegateService
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Populate AirshipConfig.plist with your app's info from https://go.urbanairship.com
-    // or set runtime properties here.
-    UAConfig *config = [UAConfig defaultConfig];
-
-    config.developmentAppKey = URBAN_AIRSHIP_APP_KEY_STAGING;
-    config.developmentAppSecret = URBAN_AIRSHIP_APP_SECRET_STAGING;
-    config.productionAppKey = URBAN_AIRSHIP_APP_KEY;
-    config.productionAppSecret = URBAN_AIRSHIP_APP_SECRET;
-    config.detectProvisioningMode = YES;
-
-    // Call takeOff (which creates the UAirship singleton)
-    [UAirship takeOff:config];
-
-    // Request a custom set of notification types
-    [UAPush shared].notificationTypes = (UIRemoteNotificationTypeBadge |
-                                         UIRemoteNotificationTypeSound |
-                                         UIRemoteNotificationTypeAlert);
-
-    [[UAPush shared] setPushEnabled:YES];
-    [UAPush shared].pushNotificationDelegate = self;
-
-    return YES;
-}
-
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    //    AFUrbanAirshipClient *client = [[AFUrbanAirshipClient alloc] initWithApplicationKey:URBAN_AIRSHIP_APP_KEY
-    //                                                                      applicationSecret:URBAN_AIRSHIP_APP_SECRET];
-    //    NSNumber *logginUserID = [[[TMEUserManager sharedInstance] loggedUser] id];
-    //    NSString *alias = [NSString stringWithFormat:@"user-%d", [logginUserID integerValue]];
-    //    [client registerDeviceToken:deviceToken withAlias:alias success:^{
-    //        DLog(@"Urban Airship registered device token successfully");
-    //    } failure:^(NSError *error) {
-    //        DLog(@"Urban Airship failed to register device token. Error: %@", error);
-    //    }];
+    UrbanAirshipOrbiter *urbanAirshipOrbiter = [UrbanAirshipOrbiter urbanAirshipManagerWithApplicationKey:URBAN_AIRSHIP_APP_KEY
+                                                                                        applicationSecret:URBAN_AIRSHIP_APP_SECRET];
+    NSString *alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedManager].loggedUser.userID integerValue]];
+
+    [urbanAirshipOrbiter registerDeviceToken:deviceToken
+                                   withAlias:alias
+                                     success:^(id responseObject)
+    {
+        DLog(@"Registration Success: %@", responseObject);
+    } failure:^(NSError *error) {
+        DLog(@"Registration Error: %@", error);
+    }];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -64,6 +42,7 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
+    // FIXME: handle push notification
     UIApplicationState state = [[UIApplication sharedApplication] applicationState];
 
     NSString *alert = userInfo[@"aps"][@"alert"];
@@ -140,16 +119,6 @@
 //                                                      userInfo:@{@"index": @(3)
 //                                                                 }];
 
-}
-
-#pragma mark - Helper
-- (void)displayNotificationAlert:(NSString *)alertMessage{
-    return;
-}
-
-- (void)updateUAAlias{
-    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedManager].loggedUser.userID integerValue]];
-    [[UAPush shared] updateRegistration];
 }
 
 

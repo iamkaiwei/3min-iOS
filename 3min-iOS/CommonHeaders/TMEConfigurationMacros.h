@@ -22,6 +22,9 @@
 #define PUSHER_APP_KEY                              @"ce3898cbc04d99f952cd"
 #define FLURRY_API_KEY                              @"76DX6MC5DYNGYYNSYX3F"
 
+#define URBAN_AIRSHIP_APP_KEY                       @"tyVT4cw2TFi529WyWJswXA"
+#define URBAN_AIRSHIP_APP_SECRET                    @"pLdhKxkZTdiGmqFmWEGaPg"
+
 #define SETTINGS_LOCALYTICS_TOKEN_DEFAULT           @"f7e86c8413e50da8f46d1af-130c72d6-0489-11e3-11a5-004a77f8b47f"
 #define SETTINGS_NEW_RELIC_TOKEN_DEFAULT            @""
 #define SETTINGS_ITUNE_APP_ID                       @""
@@ -38,6 +41,9 @@
 #define PUSHER_APP_KEY                              @"ce3898cbc04d99f952cd"
 #define FLURRY_API_KEY                              @"76DX6MC5DYNGYYNSYX3F"
 
+#define URBAN_AIRSHIP_APP_KEY                       @"-IT-qB3pRBiec3liyxk4cQ"
+#define URBAN_AIRSHIP_APP_SECRET                    @"rp9clmV1RzGi0GfPUiO0iA"
+
 #define SETTINGS_LOCALYTICS_TOKEN_DEFAULT           @""
 #define SETTINGS_NEW_RELIC_TOKEN_DEFAULT            @""
 #define SETTINGS_ITUNE_APP_ID                       @""
@@ -48,10 +54,8 @@
 
 // Common
 #define APP_VERSION                                 ([[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleVersionKey])
-#define URBAN_AIRSHIP_APP_KEY                       @"tyVT4cw2TFi529WyWJswXA"
-#define URBAN_AIRSHIP_APP_SECRET                    @"pLdhKxkZTdiGmqFmWEGaPg"
-#define URBAN_AIRSHIP_APP_KEY_STAGING               @"-IT-qB3pRBiec3liyxk4cQ"
-#define URBAN_AIRSHIP_APP_SECRET_STAGING            @"rp9clmV1RzGi0GfPUiO0iA"
+
+
 
 
 // API Path
