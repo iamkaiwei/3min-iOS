@@ -7,6 +7,7 @@
 //
 
 #import "TMEBrowserProductViewModel.h"
+#import "TMEErrorCollectionViewDataSource.h"
 
 @interface TMEBrowserProductViewModel ()
 
@@ -70,7 +71,7 @@
 
 - (void)setState:(TMEViewModelState)state {
 	_state = state;
-	self.datasource = (id)[self dataSourceFactory : state];
+	self.datasource = (id)[self dataSourceFactory: state];
 }
 
 - (NSArray *)arrayItems {
@@ -86,10 +87,15 @@
 - (id <UICollectionViewDataSource> )dataSourceFactory:(TMEViewModelState)state {
 
 #warning NEED REFACTOR
+    // if there is loading state, then keep the current datasource
 	if (self.state == TMEViewModelStateLoading ||
 	    self.state == TMEViewModelStateLoadingMorePage) {
 		return self.datasource;
 	}
+
+    if (self.state == TMEViewModelStateError) {
+        return [[TMEErrorCollectionViewDataSource alloc] init];
+    }
 
 	return [[TMEPaginationCollectionViewDataSource alloc] initWithItems:self.arrayItems identifierParserBlock:nil configureCellBlock:nil];
 
