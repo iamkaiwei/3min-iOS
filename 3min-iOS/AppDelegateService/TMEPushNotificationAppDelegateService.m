@@ -19,6 +19,14 @@
 
 @implementation TMEPushNotificationAppDelegateService
 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+
+    return YES;
+}
+
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     UrbanAirshipOrbiter *urbanAirshipOrbiter = [UrbanAirshipOrbiter urbanAirshipManagerWithApplicationKey:URBAN_AIRSHIP_APP_KEY
