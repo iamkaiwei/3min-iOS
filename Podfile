@@ -29,7 +29,7 @@ target :ThreeMin, :exclusive => true do
   pod 'GoogleAnalytics-iOS-SDK', '~> 3.0'
   pod 'AviarySDK', '~> 4.0'
   pod 'JRSwizzle', '~> 1.0'
-  pod 'ViewUtils', '~> 1.1'
+  pod 'ViewUtils', '~> 1.1' 
   pod 'ObjectiveSugar', '~> 1.1'
   pod 'CocoaLumberjack', '~> 1.9'
   pod 'google-plus-ios-sdk', '~> 1.7'
@@ -39,5 +39,6 @@ target :ThreeMin, :exclusive => true do
   pod 'Orbiter', '~> 2.0'
   pod 'CHTCollectionViewWaterfallLayout'
   pod 'FLEX'
+  pod 'MultiDelegate'
 
 end

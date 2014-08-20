@@ -22,12 +22,22 @@
 @property (strong, nonatomic) CHTCollectionViewWaterfallLayout *layout;
 @property (strong, nonatomic) TMEBrowserProductViewModel *viewModel;
 @property (strong, nonatomic) FBKVOController *kvoController;
+@property (strong, nonatomic) AIMultiDelegate *chainDelegate;
 
 @end
 
 @implementation TMEBrowserPageContentViewController
 
 #pragma mark - VC cycle
+
+- (AIMultiDelegate *)chainDelegate {
+	if (!_chainDelegate) {
+		_chainDelegate = [[AIMultiDelegate alloc] init];
+		[_chainDelegate addDelegate:self.viewModel.datasource];
+		[_chainDelegate addDelegate:self];
+	}
+	return _chainDelegate;
+}
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -44,7 +54,9 @@
 	[self.kvoController observe:self.viewModel keyPath:@"state" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
 	    typeof(self) innerSelf = observer;
 	    innerSelf.collectionViewProducts.dataSource = innerSelf.viewModel.datasource;
-	    innerSelf.collectionViewProducts.delegate = innerSelf.viewModel.datasource;
+
+//	    innerSelf.collectionViewProducts.delegate = innerSelf.viewModel.datasource;
+	    innerSelf.collectionViewProducts.delegate = (id <UICollectionViewDelegate> )innerSelf.chainDelegate;
 	    [innerSelf.collectionViewProducts reloadData];
 	}];
 }
@@ -82,5 +94,9 @@
 }
 
 #pragma mark - Collection datasource
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+}
 
 @end

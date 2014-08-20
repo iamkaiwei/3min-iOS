@@ -42,3 +42,4 @@
 #import <Masonry/Masonry.h>
 #import <CrashlyticsFramework/Crashlytics.h>
 #import <KVOController/FBKVOController.h>
+#import <MultiDelegate/AIMultiDelegate.h>
