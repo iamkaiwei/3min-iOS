@@ -57,6 +57,11 @@
 #pragma mark - Home
 - (void)showHomeViewController
 {
+    TMEHomePageViewController *pageViewController = [[TMEHomePageViewController alloc] init];
+
+ 	IIViewDeckController *deckController =  [[IIViewDeckController alloc] initWithCenterViewController:pageViewController leftViewController:nil];
+
+ 	self.deckController = deckController;
     // FIXME: Leave it for now
     [self switchRootViewController:self.deckController animated:YES completion:nil];
     return;

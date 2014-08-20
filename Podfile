@@ -25,6 +25,8 @@ target :ThreeMin, :exclusive => true do
   pod 'libPusher', '~> 1.5'
   pod 'FlurrySDK'
   pod 'KZPropertyMapper'
+  pod 'KVOController'
+  pod 'CrittercismSDK', '~> 4.3'
   pod 'GoogleAnalytics-iOS-SDK', '~> 3.0'
   pod 'AviarySDK', '~> 4.0'
   pod 'JRSwizzle', '~> 1.0'
@@ -36,5 +38,7 @@ target :ThreeMin, :exclusive => true do
   pod 'JazzHands', '~> 0.1'
   pod 'CrashlyticsFramework', '~> 2.2'
   pod 'Orbiter', '~> 2.0'
+  pod 'CHTCollectionViewWaterfallLayout'
+  pod 'FLEX'
 
 end
