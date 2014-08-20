@@ -9,11 +9,16 @@
 #import "FPCollectionArrayDataSource.h"
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
+@protocol TMECollectionDataSourceProtocol <NSObject>
+
+- (void)setCellAndFooterClasses:(UICollectionView *)collectionView;
+
+@end
+
 @interface TMEPaginationCollectionViewDataSource : FPCollectionArrayDataSource
 <
-    CHTCollectionViewDelegateWaterfallLayout
+    CHTCollectionViewDelegateWaterfallLayout,
+    TMECollectionDataSourceProtocol
 >
-
-- (void)setClassAndFooterClasses:(UICollectionView *)collectionView;
 
 @end

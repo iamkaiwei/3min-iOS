@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
-static NSUInteger const kNumberOfLoadMoreCell = 1;
-
 #import "FPCollectionArrayDataSource.h"
 #import "TMEPaginationCollectionViewDataSource.h"
 #import "TMEProductCollectionViewCell.h"
@@ -37,7 +35,7 @@ static NSUInteger const kNumberOfLoadMoreCell = 1;
 
 #pragma mark -
 
-- (void)setClassAndFooterClasses:(UICollectionView *)collectionView {
+- (void)setCellAndFooterClasses:(UICollectionView *)collectionView {
 	[collectionView    registerNib:[TMEProductCollectionViewCell defaultNib]
 	    forCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class])];
 	[collectionView    registerNib:[TMELoadMoreCollectionCell defaultNib]
