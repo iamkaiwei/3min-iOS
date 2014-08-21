@@ -7,13 +7,10 @@
 //
 
 #import "TMEPushNotificationAppDelegateService.h"
-#import "UAirship.h"
-#import "UAConfig.h"
-#import "UAPush.h"
 #import <Orbiter/Orbiter.h>
 #import "TMEPushNotificationManager.h"
 
-@interface TMEPushNotificationAppDelegateService () <UAPushNotificationDelegate>
+@interface TMEPushNotificationAppDelegateService () 
 
 @end
 

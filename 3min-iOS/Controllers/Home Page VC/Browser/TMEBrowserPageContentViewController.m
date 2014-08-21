@@ -22,22 +22,13 @@
 @property (strong, nonatomic) CHTCollectionViewWaterfallLayout *layout;
 @property (strong, nonatomic) TMEBrowserProductViewModel *viewModel;
 @property (strong, nonatomic) FBKVOController *kvoController;
-@property (strong, nonatomic) AIMultiDelegate *chainDelegate;
+@property (strong, nonatomic) LBDelegateMatrioska *chainDelegate;
 
 @end
 
 @implementation TMEBrowserPageContentViewController
 
 #pragma mark - VC cycle
-
-- (AIMultiDelegate *)chainDelegate {
-	if (!_chainDelegate) {
-		_chainDelegate = [[AIMultiDelegate alloc] init];
-		[_chainDelegate addDelegate:self.viewModel.datasource];
-		[_chainDelegate addDelegate:self];
-	}
-	return _chainDelegate;
-}
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -54,8 +45,7 @@
 	[self.kvoController observe:self.viewModel keyPath:@"state" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
 	    typeof(self) innerSelf = observer;
 	    innerSelf.collectionViewProducts.dataSource = innerSelf.viewModel.datasource;
-
-//	    innerSelf.collectionViewProducts.delegate = innerSelf.viewModel.datasource;
+        innerSelf.chainDelegate = [[LBDelegateMatrioska alloc] initWithDelegates:@[innerSelf.viewModel.datasource, innerSelf]];
 	    innerSelf.collectionViewProducts.delegate = (id <UICollectionViewDelegate> )innerSelf.chainDelegate;
 	    [innerSelf.collectionViewProducts reloadData];
 	}];
@@ -73,7 +63,7 @@
 
 - (void)configCollectionProducts {
 	self.layout = [self waterFlowLayout];
-	self.collectionViewProducts.delegate = self.viewModel.datasource;
+	self.collectionViewProducts.delegate = (id<UICollectionViewDelegate>) self.chainDelegate;
 	self.collectionViewProducts.dataSource = self.viewModel.datasource;
 	self.collectionViewProducts.collectionViewLayout = self.layout;
 	[self.collectionViewProducts setContentInset:UIEdgeInsetsMake(10, 0, 10, 0)];

@@ -92,7 +92,7 @@
         return;
     }
 
-    [self updateUAAlias];
+//    [self updateUAAlias];
     [self switchRootViewController:self.deckController animated:YES completion:nil];
 }
 
@@ -174,11 +174,11 @@
 }
 
 // TODO: Refactor
-- (void)updateUAAlias
-{
-    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedManager].loggedUser.userID integerValue]];
-    [[UAPush shared] updateRegistration];
-
-}
+//- (void)updateUAAlias
+//{
+//    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedManager].loggedUser.userID integerValue]];
+//    [[UAPush shared] updateRegistration];
+//
+//}
 
 @end
