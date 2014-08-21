@@ -57,6 +57,11 @@
 #pragma mark - Home
 - (void)showHomeViewController
 {
+    TMEHomePageViewController *pageViewController = [[TMEHomePageViewController alloc] init];
+
+ 	IIViewDeckController *deckController =  [[IIViewDeckController alloc] initWithCenterViewController:pageViewController leftViewController:nil];
+
+ 	self.deckController = deckController;
     // FIXME: Leave it for now
     [self switchRootViewController:self.deckController animated:YES completion:nil];
     return;
@@ -87,7 +92,7 @@
         return;
     }
 
-    [self updateUAAlias];
+//    [self updateUAAlias];
     [self switchRootViewController:self.deckController animated:YES completion:nil];
 }
 
@@ -169,11 +174,11 @@
 }
 
 // TODO: Refactor
-- (void)updateUAAlias
-{
-    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedManager].loggedUser.userID integerValue]];
-    [[UAPush shared] updateRegistration];
-
-}
+//- (void)updateUAAlias
+//{
+//    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedManager].loggedUser.userID integerValue]];
+//    [[UAPush shared] updateRegistration];
+//
+//}
 
 @end

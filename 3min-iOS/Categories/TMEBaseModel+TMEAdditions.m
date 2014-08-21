@@ -15,7 +15,7 @@
     NSAssert([JSONResponse isKindOfClass:NSArray.class], @"JSONResponse must be an array");
 
     NSError *error = nil;
-    return [MTLJSONAdapter modelsOfClass:self fromJSONArray:JSONResponse error:&error];
+    return [MTLJSONAdapter modelsOfClass:[self class] fromJSONArray:JSONResponse error:&error];
 }
 
 + (instancetype)tme_modelFromJSONResponse:(id)JSONResponse
@@ -23,7 +23,7 @@
     NSAssert([JSONResponse isKindOfClass:NSDictionary.class], @"JSONResponse must be a dictionary");
 
     NSError *error = nil;
-    return [MTLJSONAdapter modelOfClass:self fromJSONDictionary:JSONResponse error:&error];
+    return [MTLJSONAdapter modelOfClass:[self class] fromJSONDictionary:JSONResponse error:&error];
 }
 
 @end

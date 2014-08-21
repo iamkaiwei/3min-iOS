@@ -28,6 +28,7 @@
 #import "UIImage+ImageEffects.h"
 #import "UIImageView+Additions.h"
 #import "UILabel+Additions.h"
+#import "NSValueTransformer+Addition.h"
 #import "UITextView+Additions.h"
 #import "UINavigationController+Additions.h"
 #import "UIView+Additions.h"
