@@ -15,7 +15,7 @@
 
 @property (nonatomic, readwrite) TMEViewModelState state;
 
-@property (nonatomic, readwrite) TMEPaginationCollectionViewDataSource *datasource;
+@property (nonatomic, readwrite, strong) TMEPaginationCollectionViewDataSource *datasource;
 
 @property (strong, nonatomic) FBKVOController *kvoController;
 

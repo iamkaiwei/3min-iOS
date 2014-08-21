@@ -23,7 +23,7 @@ typedef NS_ENUM(NSUInteger, TMEViewModelState) {
 
 @property (copy, nonatomic, readonly) NSArray *arrayItems;
 
-@property (nonatomic, readonly) TMEPaginationCollectionViewDataSource *datasource;
+@property (nonatomic, readonly, strong) TMEPaginationCollectionViewDataSource *datasource;
 
 @property (nonatomic, readonly) TMEViewModelState state;
 

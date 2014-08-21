@@ -39,6 +39,6 @@ target :ThreeMin, :exclusive => true do
   pod 'Orbiter', '~> 2.0'
   pod 'CHTCollectionViewWaterfallLayout'
   pod 'FLEX'
-  pod 'MultiDelegate'
+  pod 'LBDelegateMatrioska'
 
 end
