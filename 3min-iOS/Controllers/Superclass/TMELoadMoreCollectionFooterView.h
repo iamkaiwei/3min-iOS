@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TMELoadMoreCollectionCell : UICollectionReusableView
+@interface TMELoadMoreCollectionFooterView : UICollectionReusableView
 
 @end

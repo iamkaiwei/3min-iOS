@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
-#import "TMELoadMoreCollectionCell.h"
+#import "TMELoadMoreCollectionFooterView.h"
 
-@implementation TMELoadMoreCollectionCell
+@implementation TMELoadMoreCollectionFooterView
 
 - (id)initWithFrame:(CGRect)frame
 {

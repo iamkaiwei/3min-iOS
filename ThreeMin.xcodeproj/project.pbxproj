@@ -209,17 +209,11 @@
 		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
 		B46D72C1199DCC930050E046 /* TMEPaginationCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B46D72C0199DCC930050E046 /* TMEPaginationCollectionViewDataSource.m */; };
 		B46D72C4199DCF1C0050E046 /* FPCollectionArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B46D72C3199DCF1C0050E046 /* FPCollectionArrayDataSource.m */; };
-		B46D72CA199DE54E0050E046 /* TMELoadMoreCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B46D72C9199DE54E0050E046 /* TMELoadMoreCollectionCell.m */; };
-		B46D72CC199DE5600050E046 /* TMELoadMoreCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B46D72CB199DE5600050E046 /* TMELoadMoreCollectionCell.xib */; };
+		B46D72CA199DE54E0050E046 /* TMELoadMoreCollectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B46D72C9199DE54E0050E046 /* TMELoadMoreCollectionFooterView.m */; };
+		B46D72CC199DE5600050E046 /* TMELoadMoreCollectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B46D72CB199DE5600050E046 /* TMELoadMoreCollectionFooterView.xib */; };
 		B46D72CF199E0CF40050E046 /* TMEBrowserProductViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B46D72CE199E0CF40050E046 /* TMEBrowserProductViewModel.m */; };
 		B4AE17D3198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */; };
 		B4AE17D6198E4A3200F6D601 /* KHRoundAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */; };
-		D2140D9719A3338E008560B0 /* TMECrashlyticsAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */; };
-		D21698A119A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */; };
-		D22016BD19A49D480071535C /* TMEPushNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D22016BC19A49D480071535C /* TMEPushNotificationManager.m */; };
-		D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224260F19A2061C009DB3AC /* TMEDeviceManager.m */; };
-		D224261319A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */; };
-		D224261619A2070A009DB3AC /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261519A2070A009DB3AC /* TMEUserManager.m */; };
 		B4AE17DD198EAE1F00F6D601 /* TMEHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17DC198EAE1F00F6D601 /* TMEHomePageViewController.m */; };
 		B4AE17E7198EAF1400F6D601 /* TMESearchPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17E5198EAF1400F6D601 /* TMESearchPageContentViewController.m */; };
 		B4AE17E8198EAF1400F6D601 /* TMESearchPageContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AE17E6198EAF1400F6D601 /* TMESearchPageContentViewController.xib */; };
@@ -233,7 +227,9 @@
 		B4EF43A619A462A7001F010C /* NSValueTransformer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF43A519A462A7001F010C /* NSValueTransformer+Addition.m */; };
 		B4F488A819A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F488A719A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.m */; };
 		B4F488AA19A34ED5003F3997 /* TMEErrorReusableCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F488A919A34ED5003F3997 /* TMEErrorReusableCollectionView.xib */; };
+		D2140D9719A3338E008560B0 /* TMECrashlyticsAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */; };
 		D21698A119A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */; };
+		D22016BD19A49D480071535C /* TMEPushNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D22016BC19A49D480071535C /* TMEPushNotificationManager.m */; };
 		D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224260F19A2061C009DB3AC /* TMEDeviceManager.m */; };
 		D224261319A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */; };
 		D224261619A2070A009DB3AC /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261519A2070A009DB3AC /* TMEUserManager.m */; };
@@ -610,26 +606,14 @@
 		B46D72C2199DCF1C0050E046 /* FPCollectionArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCollectionArrayDataSource.h; sourceTree = "<group>"; };
 		B46D72C3199DCF1C0050E046 /* FPCollectionArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCollectionArrayDataSource.m; sourceTree = "<group>"; };
 		B46D72C6199DCF5C0050E046 /* TMEPaginationCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPaginationCollectionViewDataSource.h; sourceTree = "<group>"; };
-		B46D72C8199DE54E0050E046 /* TMELoadMoreCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoadMoreCollectionCell.h; sourceTree = "<group>"; };
-		B46D72C9199DE54E0050E046 /* TMELoadMoreCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoadMoreCollectionCell.m; sourceTree = "<group>"; };
-		B46D72CB199DE5600050E046 /* TMELoadMoreCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMELoadMoreCollectionCell.xib; sourceTree = "<group>"; };
+		B46D72C8199DE54E0050E046 /* TMELoadMoreCollectionFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoadMoreCollectionFooterView.h; sourceTree = "<group>"; };
+		B46D72C9199DE54E0050E046 /* TMELoadMoreCollectionFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoadMoreCollectionFooterView.m; sourceTree = "<group>"; };
+		B46D72CB199DE5600050E046 /* TMELoadMoreCollectionFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMELoadMoreCollectionFooterView.xib; sourceTree = "<group>"; };
 		B46D72CD199E0CF40050E046 /* TMEBrowserProductViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductViewModel.h; sourceTree = "<group>"; };
 		B46D72CE199E0CF40050E046 /* TMEBrowserProductViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductViewModel.m; sourceTree = "<group>"; };
 		B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPDFUIKitMainThreadGuard.m; sourceTree = "<group>"; };
 		B4AE17D4198E4A3200F6D601 /* KHRoundAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRoundAvatar.h; sourceTree = "<group>"; };
 		B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHRoundAvatar.m; sourceTree = "<group>"; };
-		D2140D9519A3338E008560B0 /* TMECrashlyticsAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECrashlyticsAppDelegateService.h; sourceTree = "<group>"; };
-		D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECrashlyticsAppDelegateService.m; sourceTree = "<group>"; };
-		D216989F19A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManagerAppDelegateService.h; sourceTree = "<group>"; };
-		D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserManagerAppDelegateService.m; sourceTree = "<group>"; };
-		D22016BB19A49D480071535C /* TMEPushNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPushNotificationManager.h; sourceTree = "<group>"; };
-		D22016BC19A49D480071535C /* TMEPushNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPushNotificationManager.m; sourceTree = "<group>"; };
-		D224260E19A2061C009DB3AC /* TMEDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEDeviceManager.h; sourceTree = "<group>"; };
-		D224260F19A2061C009DB3AC /* TMEDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEDeviceManager.m; sourceTree = "<group>"; };
-		D224261119A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEDeviceManagerAppDelegateService.h; sourceTree = "<group>"; };
-		D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEDeviceManagerAppDelegateService.m; sourceTree = "<group>"; };
-		D224261419A2070A009DB3AC /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManager.h; sourceTree = "<group>"; };
-		D224261519A2070A009DB3AC /* TMEUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserManager.m; sourceTree = "<group>"; };
 		B4AE17DB198EAE1F00F6D601 /* TMEHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHomePageViewController.h; sourceTree = "<group>"; };
 		B4AE17DC198EAE1F00F6D601 /* TMEHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEHomePageViewController.m; sourceTree = "<group>"; };
 		B4AE17E4198EAF1400F6D601 /* TMESearchPageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESearchPageContentViewController.h; sourceTree = "<group>"; };
@@ -652,8 +636,12 @@
 		B4F488A619A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPaginationCollectionViewErrorDataSource.h; sourceTree = "<group>"; };
 		B4F488A719A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPaginationCollectionViewErrorDataSource.m; sourceTree = "<group>"; };
 		B4F488A919A34ED5003F3997 /* TMEErrorReusableCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEErrorReusableCollectionView.xib; sourceTree = "<group>"; };
+		D2140D9519A3338E008560B0 /* TMECrashlyticsAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECrashlyticsAppDelegateService.h; sourceTree = "<group>"; };
+		D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECrashlyticsAppDelegateService.m; sourceTree = "<group>"; };
 		D216989F19A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManagerAppDelegateService.h; sourceTree = "<group>"; };
 		D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserManagerAppDelegateService.m; sourceTree = "<group>"; };
+		D22016BB19A49D480071535C /* TMEPushNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPushNotificationManager.h; sourceTree = "<group>"; };
+		D22016BC19A49D480071535C /* TMEPushNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPushNotificationManager.m; sourceTree = "<group>"; };
 		D224260E19A2061C009DB3AC /* TMEDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEDeviceManager.h; sourceTree = "<group>"; };
 		D224260F19A2061C009DB3AC /* TMEDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEDeviceManager.m; sourceTree = "<group>"; };
 		D224261119A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEDeviceManagerAppDelegateService.h; sourceTree = "<group>"; };
@@ -1051,6 +1039,7 @@
 		99EA0E181978492C00872EE4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				99EA0E8F1978492D00872EE4 /* Superclass */,
 				99EA0E191978492C00872EE4 /* Activity VCs */,
 				99EA0E221978492C00872EE4 /* Browser Products */,
 				99EA0E2E1978492C00872EE4 /* Browser Products Grid View */,
@@ -1064,7 +1053,6 @@
 				99EA0E751978492D00872EE4 /* Publish Products */,
 				99EA0E7C1978492D00872EE4 /* Search VCs */,
 				99EA0E831978492D00872EE4 /* Submit VCs */,
-				99EA0E8F1978492D00872EE4 /* Superclass */,
 				99EA0E9A1978492D00872EE4 /* Tutorial */,
 				B4AE17DA198EAE1F00F6D601 /* Home Page VC */,
 			);
@@ -1320,9 +1308,9 @@
 				B46D72C0199DCC930050E046 /* TMEPaginationCollectionViewDataSource.m */,
 				B46D72C2199DCF1C0050E046 /* FPCollectionArrayDataSource.h */,
 				B46D72C3199DCF1C0050E046 /* FPCollectionArrayDataSource.m */,
-				B46D72C8199DE54E0050E046 /* TMELoadMoreCollectionCell.h */,
-				B46D72C9199DE54E0050E046 /* TMELoadMoreCollectionCell.m */,
-				B46D72CB199DE5600050E046 /* TMELoadMoreCollectionCell.xib */,
+				B46D72C8199DE54E0050E046 /* TMELoadMoreCollectionFooterView.h */,
+				B46D72C9199DE54E0050E046 /* TMELoadMoreCollectionFooterView.m */,
+				B46D72CB199DE5600050E046 /* TMELoadMoreCollectionFooterView.xib */,
 				B46D72CD199E0CF40050E046 /* TMEBrowserProductViewModel.h */,
 				B46D72CE199E0CF40050E046 /* TMEBrowserProductViewModel.m */,
 				B4F488A619A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.h */,
@@ -1621,7 +1609,7 @@
 				99EA0F411978492D00872EE4 /* TMEBrowserProductsTableCell.xib in Resources */,
 				B4AE17E8198EAF1400F6D601 /* TMESearchPageContentViewController.xib in Resources */,
 				99EA0F481978492D00872EE4 /* TMEBrowserCollectionCell.xib in Resources */,
-				B46D72CC199DE5600050E046 /* TMELoadMoreCollectionCell.xib in Resources */,
+				B46D72CC199DE5600050E046 /* TMELoadMoreCollectionFooterView.xib in Resources */,
 				99EA0F591978492D00872EE4 /* TMEMyListingTableViewCell.xib in Resources */,
 				99EA0F3E1978492D00872EE4 /* TMEActivityViewController.xib in Resources */,
 				B4AE17EF198EAF9500F6D601 /* TMEBrowserPageContentViewController.xib in Resources */,
@@ -1793,7 +1781,7 @@
 				99EA0EFC1978492D00872EE4 /* TMEProductsManager.m in Sources */,
 				99EA0F071978492D00872EE4 /* TMEProduct+BackwardSupport.m in Sources */,
 				B46D72C4199DCF1C0050E046 /* FPCollectionArrayDataSource.m in Sources */,
-				B46D72CA199DE54E0050E046 /* TMELoadMoreCollectionCell.m in Sources */,
+				B46D72CA199DE54E0050E046 /* TMELoadMoreCollectionFooterView.m in Sources */,
 				99EA0EED1978492D00872EE4 /* TMEFoursquareAppDelegateService.m in Sources */,
 				99EA0F601978492D00872EE4 /* TMEMeTableViewCell.m in Sources */,
 				99EA0F5E1978492D00872EE4 /* TMEOfferedViewController.m in Sources */,

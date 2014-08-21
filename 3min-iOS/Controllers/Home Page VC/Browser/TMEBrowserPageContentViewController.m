@@ -10,7 +10,7 @@
 #import "TMEProductCollectionViewCell.h"
 #import "TMEPaginationCollectionViewDataSource.h"
 #import "TMEBrowserProductViewModel.h"
-#import "TMELoadMoreCollectionCell.h"
+#import "TMELoadMoreCollectionFooterView.h"
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
 @interface TMEBrowserPageContentViewController ()
@@ -43,7 +43,7 @@
 	[super viewDidLoad];
 	// Do any additional setup after loading the view from its nib.
 
-	[self.collectionViewProducts registerNib:[TMELoadMoreCollectionCell defaultNib] forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionCell class])];
+	[self.collectionViewProducts registerNib:[TMELoadMoreCollectionFooterView defaultNib] forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionFooterView class])];
 	[self.collectionViewProducts registerNib:[TMEProductCollectionViewCell defaultNib]
 	              forCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class])];
 

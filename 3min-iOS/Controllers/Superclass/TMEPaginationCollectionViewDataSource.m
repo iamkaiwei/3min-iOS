@@ -9,7 +9,7 @@
 #import "FPCollectionArrayDataSource.h"
 #import "TMEPaginationCollectionViewDataSource.h"
 #import "TMEProductCollectionViewCell.h"
-#import "TMELoadMoreCollectionCell.h"
+#import "TMELoadMoreCollectionFooterView.h"
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
 static const CGFloat kProductCollectionCellStaticInfoHeight = 128;
@@ -41,9 +41,9 @@ static const CGFloat kProductCollectionCellWidth = 152;
 - (void)setCellAndFooterClasses:(UICollectionView *)collectionView {
 	[collectionView    registerNib:[TMEProductCollectionViewCell defaultNib]
 	    forCellWithReuseIdentifier:NSStringFromClass([TMEProductCollectionViewCell class])];
-	[collectionView    registerNib:[TMELoadMoreCollectionCell defaultNib]
+	[collectionView    registerNib:[TMELoadMoreCollectionFooterView defaultNib]
 	    forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter
-	           withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionCell class])];
+	           withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionFooterView class])];
 }
 
 #pragma mark -
@@ -86,7 +86,7 @@ static const CGFloat kProductCollectionCellWidth = 152;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-	TMELoadMoreCollectionCell *footer = (TMELoadMoreCollectionCell *)[collectionView dequeueReusableSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionCell class]) forIndexPath:indexPath];
+	TMELoadMoreCollectionFooterView *footer = (TMELoadMoreCollectionFooterView *)[collectionView dequeueReusableSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionFooterView class]) forIndexPath:indexPath];
 	return footer;
 }
 
