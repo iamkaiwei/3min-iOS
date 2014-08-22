@@ -10,6 +10,8 @@
 
 @interface TMEProductCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *lblProductName;
+
 - (void)configWithData:(TMEProduct *)product;
 
 @end

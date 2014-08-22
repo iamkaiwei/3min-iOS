@@ -15,7 +15,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgProduct;
 
-@property (weak, nonatomic) IBOutlet UILabel *lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel *lblProductPrice;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblLikeCount;
