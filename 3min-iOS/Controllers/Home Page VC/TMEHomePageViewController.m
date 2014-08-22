@@ -17,27 +17,30 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self addPageViewControllerAndDisplay];
+	[self addPageViewControllerAndDisplay];
 }
 
 - (void)addPageViewControllerAndDisplay {
+	UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:self.pageViewController];
 
-	[self addChildViewController:self.pageViewController];
-	[self.view addSubview:self.pageViewController.view];
+	[self addChildViewController:navVC];
+	[self.view addSubview:navVC.view];
 
 	CGRect pageViewRect = self.view.bounds;
-	self.pageViewController.view.frame = pageViewRect;
+	navVC.view.frame = pageViewRect;
 
-	[self.pageViewController didMoveToParentViewController:self];
+	[navVC didMoveToParentViewController:self];
 
-	self.view.gestureRecognizers = self.pageViewController.gestureRecognizers;
+	self.view.gestureRecognizers = navVC.view.gestureRecognizers;
 }
 
 - (UIPageViewController *)pageViewController {
 	if (!_pageViewController) {
 		_pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
-		                                                          navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
-		                                                                        options:nil];
+		                                                      navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
+		                                                                    options:nil];
+		_pageViewController.edgesForExtendedLayout = UIRectEdgeNone;
+
 		_pageViewDataSource = [[TMEHomePageViewDatasource alloc] init];
 		_pageViewController.dataSource = self.pageViewDataSource;
 
