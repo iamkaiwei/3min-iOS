@@ -101,4 +101,6 @@
 	self.lblUsername.text = @"";
 }
 
+#pragma mark - Actions
+
 @end

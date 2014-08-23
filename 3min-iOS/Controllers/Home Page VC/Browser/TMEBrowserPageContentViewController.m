@@ -15,7 +15,8 @@
 
 @interface TMEBrowserPageContentViewController ()
 <
-    UICollectionViewDelegateFlowLayout
+    UICollectionViewDelegateFlowLayout,
+    TMEProductCollectionViewCellDelete
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewProducts;
@@ -54,6 +55,7 @@
 - (TMEBrowserProductViewModel *)viewModel {
 	if (!_viewModel) {
 		_viewModel = [[TMEBrowserProductViewModel alloc] initWithCollectionView:self.collectionViewProducts];
+        _viewModel.datasource.ownerViewController = self;
 	}
 
 	return _viewModel;
