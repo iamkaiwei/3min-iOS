@@ -6,8 +6,11 @@
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
+@class KHRoundAvatar;
+
 #import <QuartzCore/QuartzCore.h>
 #import "TMEProductCollectionViewCell.h"
+#import "KHRoundAvatar.h"
 
 @interface TMEProductCollectionViewCell ()
 
@@ -17,8 +20,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lblProductPrice;
 
-@property (weak, nonatomic) IBOutlet UILabel *lblLikeCount;
-@property (weak, nonatomic) IBOutlet UILabel *lblCommentCount;
+@property (weak, nonatomic) IBOutlet UIButton *btnLike;
+@property (weak, nonatomic) IBOutlet UIButton *btnComment;
+
+@property (weak, nonatomic) IBOutlet KHRoundAvatar *userAvatar;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblUsername;
 @property (weak, nonatomic) IBOutlet UILabel *lblDatetime;
@@ -80,10 +85,18 @@
 
 	self.lblProductName.text = product.name;
 
-	self.lblLikeCount.text = [product.likes stringValue];
+    self.lblProductPrice.text = product.price;
+
+    self.btnLike.titleLabel.text = [product.likes stringValue];
+    self.btnLike.selected = product.liked;
+
+    self.btnComment.titleLabel.text = product.comments;
 
 	self.lblUsername.text = product.user.fullName;
 	self.lblUsername.text = [product.createAt relativeDate];
+
+    NSURL *avatarUrl = [NSURL URLWithString:product.user.avatar];
+    [self.userAvatar sd_setImageWithURL:avatarUrl placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
 }
 
 #pragma mark - Reset
@@ -94,8 +107,8 @@
 	self.lblProductName.text = @"";
 	self.lblProductPrice.text = @"";
 
-	self.lblLikeCount.text = @"";
-	self.lblCommentCount.text = @"";
+	self.btnComment.titleLabel.text = @"";
+	self.btnLike.titleLabel.text = @"";
 
 	self.lblDatetime.text = @"";
 	self.lblUsername.text = @"";

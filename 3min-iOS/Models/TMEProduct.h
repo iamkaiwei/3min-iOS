@@ -28,7 +28,7 @@
 @property (nonatomic, strong) NSNumber *likes;
 @property (nonatomic, assign) BOOL liked;
 
-@property (nonatomic, strong) NSNumber *price;
+@property (nonatomic, copy) NSString *price;
 @property (nonatomic, assign) BOOL soldOut;
 
 @property (nonatomic, copy) NSString *venueID;

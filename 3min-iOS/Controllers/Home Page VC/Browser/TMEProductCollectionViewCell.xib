@@ -62,6 +62,7 @@
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="selected" image="icn_liked"/>
                                         <connections>
                                             <action selector="onBtnLike:" destination="2Xw-Qn-eID" eventType="touchUpInside" id="tuR-Ic-4Cz"/>
                                         </connections>
@@ -196,11 +197,14 @@
             <size key="customSize" width="279" height="495"/>
             <connections>
                 <outlet property="borderRadiusView" destination="rqe-4h-fDY" id="jN6-Up-a8b"/>
+                <outlet property="btnComment" destination="ZOp-E9-3Q3" id="B4t-zm-x9L"/>
+                <outlet property="btnLike" destination="bnH-E0-s1Z" id="u7t-Nv-XpA"/>
                 <outlet property="imgProduct" destination="ZqH-oD-lKq" id="fvp-P7-8ml"/>
                 <outlet property="lblDatetime" destination="v2r-Vq-MBk" id="lA1-J7-oe9"/>
                 <outlet property="lblProductName" destination="nNt-5n-uXW" id="QBf-fA-S4N"/>
                 <outlet property="lblProductPrice" destination="eRx-IP-5cM" id="Or7-uC-WM9"/>
                 <outlet property="lblUsername" destination="EDC-zJ-cVj" id="ear-Hj-t8f"/>
+                <outlet property="userAvatar" destination="D31-f7-Fcl" id="0i2-zX-ifu"/>
             </connections>
         </collectionViewCell>
     </objects>
@@ -209,6 +213,7 @@
         <image name="clock" width="11" height="11"/>
         <image name="icn_coment" width="24" height="24"/>
         <image name="icn_like" width="24" height="24"/>
+        <image name="icn_liked" width="24" height="24"/>
         <image name="icn_share" width="24" height="24"/>
     </resources>
 </document>

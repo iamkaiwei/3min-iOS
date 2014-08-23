@@ -17,9 +17,9 @@ typedef NS_ENUM(NSUInteger, TMEProductCollectionCellAction) {
 /**
  *  Handle behaviour of product collection view cell
  *
- *  @param onViewController <#onViewController description#>
- *  @param product          <#product description#>
- *  @param action           <#action description#>
+ *  @param onViewController which view controller the cell in on
+ *  @param product          which product invoke
+ *  @param action           what the action, TMEProductCollectionCellAction type
  */
 
 void ProductCollectionCellAct(UIViewController *onViewController, TMEProduct *product, TMEProductCollectionCellAction action);

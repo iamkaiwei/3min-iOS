@@ -193,7 +193,7 @@ UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex) {
-        self.txtPrice.text = [self.product.price stringValue];
+        self.txtPrice.text = self.product.price;
         [self setOfferPriceToConversation];
     }
 }
