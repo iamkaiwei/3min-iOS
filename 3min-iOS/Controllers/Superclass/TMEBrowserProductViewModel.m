@@ -151,4 +151,12 @@
 	[self getProducts:success failure:failure withPage:self.page];
 }
 
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath {
+	if (indexPath.row > self.arrayItems.count) {
+		return nil;
+	}
+
+	return self.arrayItems[indexPath.row];
+}
+
 @end

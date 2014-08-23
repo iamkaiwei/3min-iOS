@@ -11,6 +11,7 @@
 #import "TMEProduct.h"
 #import "TMEProduct+BackwardSupport.h"
 #import "TMEProduct+ParseArrayProducts.h"
+#import "TMEProductCollectionCellBehaviors.h"
 
 #import "TMEProductImage.h"
 #import "TMECategory.h"

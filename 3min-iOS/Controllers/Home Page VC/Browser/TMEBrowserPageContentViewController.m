@@ -83,10 +83,11 @@
 	[self.viewModel getProducts:nil failure:nil];
 }
 
-#pragma mark - Collection datasource
+#pragma mark - Collection delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
+    TMEProduct *product = (TMEProduct *)[self.viewModel itemAtIndexPath:indexPath];
+    ProductCollectionCellAct(self, product, TMEProductCollectionCellLike);
 }
 
 @end
