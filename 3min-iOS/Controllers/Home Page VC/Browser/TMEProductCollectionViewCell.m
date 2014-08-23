@@ -103,4 +103,42 @@
 
 #pragma mark - Actions
 
+- (IBAction)onBtnLike:(UIButton *)sender {
+    if (![self.delegate respondsToSelector:@selector(tapOnLikeProductOnCell:)]) {
+        return;
+    }
+    TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
+    [self.delegate tapOnLikeProductOnCell:cell];
+}
+
+- (IBAction)onBtnComment:(UIButton *)sender {
+    if (![self.delegate respondsToSelector:@selector(tapOnCommentProductOnCell:)]) {
+        return;
+    }
+    TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
+    [self.delegate tapOnCommentProductOnCell:cell];
+}
+
+- (IBAction)onBtnShare:(id)sender {
+    if (![self.delegate respondsToSelector:@selector(tapOnShareProductOnCell:)]) {
+        return;
+    }
+    TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
+    [self.delegate tapOnShareProductOnCell:cell];
+}
+
+#pragma mark - Helpers 
+
+- (TMEProductCollectionViewCell *)getCellFromButton:(UIButton *)button {
+    UIView *temp = button;
+    while (!([temp.superview isKindOfClass:[UICollectionViewCell class]]
+           || !temp.superview)) {
+        temp = temp.superview;
+    }
+
+    TMEProductCollectionViewCell *cell = (TMEProductCollectionViewCell *) temp.superview;
+    NSAssert([cell isKindOfClass:[UICollectionViewCell class]], @"Something when wrong, cell not be found");
+    return cell;
+}
+
 @end

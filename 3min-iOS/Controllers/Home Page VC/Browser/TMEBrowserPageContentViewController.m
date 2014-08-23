@@ -46,6 +46,7 @@
 	[self.kvoController observe:self.viewModel keyPath:@"state" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
 	    typeof(self) innerSelf = observer;
 	    innerSelf.collectionViewProducts.dataSource = innerSelf.viewModel.datasource;
+        innerSelf.viewModel.datasource.ownerViewController = self;
         innerSelf.chainDelegate = [[LBDelegateMatrioska alloc] initWithDelegates:@[innerSelf.viewModel.datasource, innerSelf]];
 	    innerSelf.collectionViewProducts.delegate = (id <UICollectionViewDelegate> )innerSelf.chainDelegate;
 	    [innerSelf.collectionViewProducts reloadData];
@@ -89,7 +90,25 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     TMEProduct *product = (TMEProduct *)[self.viewModel itemAtIndexPath:indexPath];
+    ProductCollectionCellAct(self, product, TMEProductCollectionCellGoDetails);
+}
+
+- (void)tapOnLikeProductOnCell:(TMEProductCollectionViewCell *)cell {
+    NSIndexPath *indexPath = [self.collectionViewProducts indexPathForCell:cell];
+    TMEProduct *product = (TMEProduct *)[self.viewModel itemAtIndexPath:indexPath];
     ProductCollectionCellAct(self, product, TMEProductCollectionCellLike);
+}
+
+- (void)tapOnCommentProductOnCell:(TMEProductCollectionViewCell *)cell {
+    NSIndexPath *indexPath = [self.collectionViewProducts indexPathForCell:cell];
+    TMEProduct *product = (TMEProduct *)[self.viewModel itemAtIndexPath:indexPath];
+    ProductCollectionCellAct(self, product, TMEProductCollectionCellComment);
+}
+
+- (void)tapOnShareProductOnCell:(TMEProductCollectionViewCell *)cell {
+    NSIndexPath *indexPath = [self.collectionViewProducts indexPathForCell:cell];
+    TMEProduct *product = (TMEProduct *)[self.viewModel itemAtIndexPath:indexPath];
+    ProductCollectionCellAct(self, product, TMEProductCollectionCellShare);
 }
 
 @end

@@ -13,14 +13,14 @@ void ProductCollectionCellLike(UIViewController *onViewController, TMEProduct *p
 
 }
 void ProductCollectionCellComment(UIViewController *onViewController, TMEProduct *product) {
-    NSLog(@"Like");
+    NSLog(@"Comment");
 }
 void ProductCollectionCellShare(UIViewController *onViewController, TMEProduct *product) {
-    NSLog(@"Like");
+    NSLog(@"Share");
 }
 
 void ProductCollectionCellGoDetails(UIViewController *onViewController, TMEProduct *product) {
-    NSLog(@"Like");
+    NSLog(@"Details");
 }
 
 void ProductCollectionCellAct(UIViewController *onViewController, TMEProduct *product, TMEProductCollectionCellAction action) {
