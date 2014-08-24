@@ -40,6 +40,6 @@
 @property (nonatomic, strong) NSSet *conversation;
 @property (nonatomic, strong) NSArray *images;
 
-@property (nonatomic, weak) TMEUser *user;
+@property (nonatomic, strong) TMEUser *user;
 
 @end

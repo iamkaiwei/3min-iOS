@@ -50,7 +50,7 @@
              @"firstName" : @"first_name",
              @"fullName" : @"full_name",
              @"lastName" : @"last_name",
-             @"middleName" : @".middle_name",
+             @"middleName" : @"middle_name",
              @"gender" : @"gender",
              @"role" : @"role",
              @"accessTokenReceivedAt": NSNull.null,
