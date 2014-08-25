@@ -21,10 +21,7 @@
 }
 
 - (void)addPageViewControllerAndDisplay {
-	UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:self.pageViewController];
-
-    navVC.navigationBar.translucent = NO;
-    navVC.navigationBar.barTintColor = [UIColor colorWithHexString:@"#FF0000"];
+	TMEHomeNavigationViewController *navVC = [[TMEHomeNavigationViewController alloc] initWithRootViewController:self.pageViewController];
 
 	[self addChildViewController:navVC];
 	[self.view addSubview:navVC.view];
@@ -39,17 +36,7 @@
 
 - (UIPageViewController *)pageViewController {
 	if (!_pageViewController) {
-		_pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
-		                                                      navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
-		                                                                    options:nil];
-		_pageViewController.edgesForExtendedLayout = UIRectEdgeNone;
-
-		_pageViewDataSource = [[TMEHomePageViewDatasource alloc] init];
-		_pageViewController.dataSource = self.pageViewDataSource;
-
-		UIViewController *startingViewController = self.pageViewDataSource.browserVC;
-		NSArray *viewControllers = @[startingViewController];
-		[_pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+		_pageViewController = [[TMEPageViewController alloc] init];
 	}
 
 	return _pageViewController;

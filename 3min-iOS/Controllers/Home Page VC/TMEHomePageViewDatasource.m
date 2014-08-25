@@ -10,7 +10,9 @@
 
 @interface TMEHomePageViewDatasource()
 
-@property (strong, nonatomic) TMEHomePageViewController *pageVC;
+@property (nonatomic, strong, readwrite) TMEProfilePageContentViewController *profileVC;
+@property (nonatomic, strong, readwrite) TMEBrowserPageContentViewController *browserVC;
+@property (nonatomic, strong, readwrite) TMESearchPageContentViewController *searchVC;
 
 @end
 

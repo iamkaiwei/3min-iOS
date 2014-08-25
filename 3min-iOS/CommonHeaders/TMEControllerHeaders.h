@@ -17,5 +17,7 @@
 #import "TMEBaseTabBarViewController.h"
 #import "TMEHomeViewController.h"
 #import "TMESubmitViewController.h"
+#import "TMEHomeNavigationViewController.h"
+#import "TMEPageViewController.h"
 #import "TMEProductDetailsViewController.h"
 #import "AppDelegate.h"

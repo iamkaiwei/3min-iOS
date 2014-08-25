@@ -205,6 +205,7 @@
 		B410F76419961A84000AE5B7 /* TMENetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76319961A84000AE5B7 /* TMENetworkManager.m */; };
 		B410F76719961AA5000AE5B7 /* TMEBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76619961AA5000AE5B7 /* TMEBaseManager.m */; };
 		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
+		B470E4D319AAF93500F4FF18 /* TMEHomeNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E4D219AAF93500F4FF18 /* TMEHomeNavigationViewController.m */; };
 		B470E4E719AC320100F4FF18 /* FPCollectionArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E4D619AC320100F4FF18 /* FPCollectionArrayDataSource.m */; };
 		B470E4E819AC320100F4FF18 /* TMEErrorCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E4D819AC320100F4FF18 /* TMEErrorCollectionViewDataSource.m */; };
 		B470E4E919AC320100F4FF18 /* TMEPaginationCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E4DA19AC320100F4FF18 /* TMEPaginationCollectionViewDataSource.m */; };
@@ -218,6 +219,7 @@
 		B470E4F919AC323B00F4FF18 /* TMEProductCollectionViewCell+Template.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E4F419AC323B00F4FF18 /* TMEProductCollectionViewCell+Template.m */; };
 		B470E4FA19AC323B00F4FF18 /* TMEProductCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E4F619AC323B00F4FF18 /* TMEProductCollectionViewCell.m */; };
 		B470E4FB19AC323B00F4FF18 /* TMEProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B470E4F719AC323B00F4FF18 /* TMEProductCollectionViewCell.xib */; };
+		B470E4FE19AC367C00F4FF18 /* TMEPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E4FD19AC367C00F4FF18 /* TMEPageViewController.m */; };
 		B4AE17D3198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */; };
 		B4AE17D6198E4A3200F6D601 /* KHRoundAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */; };
 		B4AE17DD198EAE1F00F6D601 /* TMEHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17DC198EAE1F00F6D601 /* TMEHomePageViewController.m */; };
@@ -601,6 +603,8 @@
 		B410F76519961AA5000AE5B7 /* TMEBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseManager.h; sourceTree = "<group>"; };
 		B410F76619961AA5000AE5B7 /* TMEBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseManager.m; sourceTree = "<group>"; };
 		B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B470E4D119AAF93500F4FF18 /* TMEHomeNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHomeNavigationViewController.h; sourceTree = "<group>"; };
+		B470E4D219AAF93500F4FF18 /* TMEHomeNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEHomeNavigationViewController.m; sourceTree = "<group>"; };
 		B470E4D519AC320100F4FF18 /* FPCollectionArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCollectionArrayDataSource.h; sourceTree = "<group>"; };
 		B470E4D619AC320100F4FF18 /* FPCollectionArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPCollectionArrayDataSource.m; sourceTree = "<group>"; };
 		B470E4D719AC320100F4FF18 /* TMEErrorCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEErrorCollectionViewDataSource.h; sourceTree = "<group>"; };
@@ -624,6 +628,8 @@
 		B470E4F519AC323B00F4FF18 /* TMEProductCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductCollectionViewCell.h; sourceTree = "<group>"; };
 		B470E4F619AC323B00F4FF18 /* TMEProductCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductCollectionViewCell.m; sourceTree = "<group>"; };
 		B470E4F719AC323B00F4FF18 /* TMEProductCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		B470E4FC19AC367C00F4FF18 /* TMEPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPageViewController.h; sourceTree = "<group>"; };
+		B470E4FD19AC367C00F4FF18 /* TMEPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPageViewController.m; sourceTree = "<group>"; };
 		B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPDFUIKitMainThreadGuard.m; sourceTree = "<group>"; };
 		B4AE17D4198E4A3200F6D601 /* KHRoundAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRoundAvatar.h; sourceTree = "<group>"; };
 		B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHRoundAvatar.m; sourceTree = "<group>"; };
@@ -1526,6 +1532,10 @@
 				B4AE17DC198EAE1F00F6D601 /* TMEHomePageViewController.m */,
 				B4AE17F5198EC20600F6D601 /* TMEHomePageViewDatasource.h */,
 				B4AE17F6198EC20600F6D601 /* TMEHomePageViewDatasource.m */,
+				B470E4D119AAF93500F4FF18 /* TMEHomeNavigationViewController.h */,
+				B470E4D219AAF93500F4FF18 /* TMEHomeNavigationViewController.m */,
+				B470E4FC19AC367C00F4FF18 /* TMEPageViewController.h */,
+				B470E4FD19AC367C00F4FF18 /* TMEPageViewController.m */,
 			);
 			path = "Home Page VC";
 			sourceTree = "<group>";
@@ -1741,6 +1751,7 @@
 				99EA0F651978492D00872EE4 /* TMEOfferViewController.m in Sources */,
 				B470E4EE19AC320100F4FF18 /* TMELoadMoreCollectionFooterView.m in Sources */,
 				B470E4E819AC320100F4FF18 /* TMEErrorCollectionViewDataSource.m in Sources */,
+				B470E4D319AAF93500F4FF18 /* TMEHomeNavigationViewController.m in Sources */,
 				D224261619A2070A009DB3AC /* TMEUserManager.m in Sources */,
 				99EA0F8E1978492D00872EE4 /* TMEPhotoButton.m in Sources */,
 				99EA0F441978492D00872EE4 /* TMEBrowserProductsViewControllerArrayDataSource.m in Sources */,
@@ -1811,6 +1822,7 @@
 				99EA0F4C1978492D00872EE4 /* HTKContainerViewController.m in Sources */,
 				D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */,
 				99EA0F2D1978492D00872EE4 /* UIImageView+Additions.m in Sources */,
+				B470E4FE19AC367C00F4FF18 /* TMEPageViewController.m in Sources */,
 				99EA0EE91978492D00872EE4 /* TMECoreDataAppDelegateService.m in Sources */,
 				B410F76219961A7C000AE5B7 /* TMECategoryManager.m in Sources */,
 				99EA0F671978492D00872EE4 /* TMEListOffersTableViewController.m in Sources */,
