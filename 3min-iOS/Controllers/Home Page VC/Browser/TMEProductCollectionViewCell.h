@@ -8,7 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@class TMEProductCollectionViewCell;
+
+@protocol TMEProductCollectionViewCellDelete <NSObject>
+
+- (void)tapOnLikeProductOnCell:(TMEProductCollectionViewCell *)cell;
+- (void)tapOnShareProductOnCell:(TMEProductCollectionViewCell *)cell;
+- (void)tapOnCommentProductOnCell:(TMEProductCollectionViewCell *)cell;
+- (void)tapOnDetailsProductOnCell:(TMEProductCollectionViewCell *)cell;
+
+@end
+
 @interface TMEProductCollectionViewCell : UICollectionViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *lblProductName;
+@property (weak, nonatomic) id<TMEProductCollectionViewCellDelete> delegate;
 
 - (void)configWithData:(TMEProduct *)product;
 

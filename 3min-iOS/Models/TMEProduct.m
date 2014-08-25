@@ -50,7 +50,7 @@
     }];
 }
 
-+ (NSValueTransformer *)ownerJSONTransformer {
++ (NSValueTransformer *)userJSONTransformer {
     return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[TMEUser class]];
 }
 

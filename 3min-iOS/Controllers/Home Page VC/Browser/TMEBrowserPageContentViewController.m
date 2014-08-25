@@ -15,10 +15,12 @@
 
 @interface TMEBrowserPageContentViewController ()
 <
-    UICollectionViewDelegateFlowLayout
+    UICollectionViewDelegateFlowLayout,
+    TMEProductCollectionViewCellDelete
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewProducts;
+@property (strong, nonatomic) UIRefreshControl *refreshView;
 @property (strong, nonatomic) CHTCollectionViewWaterfallLayout *layout;
 @property (strong, nonatomic) TMEBrowserProductViewModel *viewModel;
 @property (strong, nonatomic) FBKVOController *kvoController;
@@ -45,15 +47,25 @@
 	[self.kvoController observe:self.viewModel keyPath:@"state" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
 	    typeof(self) innerSelf = observer;
 	    innerSelf.collectionViewProducts.dataSource = innerSelf.viewModel.datasource;
+        innerSelf.viewModel.datasource.ownerViewController = self;
         innerSelf.chainDelegate = [[LBDelegateMatrioska alloc] initWithDelegates:@[innerSelf.viewModel.datasource, innerSelf]];
 	    innerSelf.collectionViewProducts.delegate = (id <UICollectionViewDelegate> )innerSelf.chainDelegate;
 	    [innerSelf.collectionViewProducts reloadData];
 	}];
+
+    [self addPullToRefresh];
+}
+
+- (void)addPullToRefresh {
+    self.refreshView = [[UIRefreshControl alloc] init];
+    [self.collectionViewProducts addSubview:self.refreshView];
+    [self.refreshView addTarget:self action:@selector(refreshCollectionProducts) forControlEvents:UIControlEventValueChanged];
 }
 
 - (TMEBrowserProductViewModel *)viewModel {
 	if (!_viewModel) {
 		_viewModel = [[TMEBrowserProductViewModel alloc] initWithCollectionView:self.collectionViewProducts];
+        _viewModel.datasource.ownerViewController = self;
 	}
 
 	return _viewModel;
@@ -79,14 +91,38 @@
 	return layout;
 }
 
-- (IBAction)reload:(id)sender {
-	[self.viewModel getProducts:nil failure:nil];
+#pragma mark - Reload
+
+- (void)refreshCollectionProducts {
+    [self.refreshView beginRefreshing];
+    [self.viewModel reloadWithFinishBlock:^(NSError *error) {
+        [self.refreshView endRefreshing];
+    }];
 }
 
-#pragma mark - Collection datasource
+#pragma mark - Collection delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    TMEProduct *product = (TMEProduct *)[self.viewModel itemAtIndexPath:indexPath];
+    ProductCollectionCellAct(self, product, TMEProductCollectionCellGoDetails);
+}
 
+- (void)tapOnLikeProductOnCell:(TMEProductCollectionViewCell *)cell {
+    NSIndexPath *indexPath = [self.collectionViewProducts indexPathForCell:cell];
+    TMEProduct *product = (TMEProduct *)[self.viewModel itemAtIndexPath:indexPath];
+    ProductCollectionCellAct(self, product, TMEProductCollectionCellLike);
+}
+
+- (void)tapOnCommentProductOnCell:(TMEProductCollectionViewCell *)cell {
+    NSIndexPath *indexPath = [self.collectionViewProducts indexPathForCell:cell];
+    TMEProduct *product = (TMEProduct *)[self.viewModel itemAtIndexPath:indexPath];
+    ProductCollectionCellAct(self, product, TMEProductCollectionCellComment);
+}
+
+- (void)tapOnShareProductOnCell:(TMEProductCollectionViewCell *)cell {
+    NSIndexPath *indexPath = [self.collectionViewProducts indexPathForCell:cell];
+    TMEProduct *product = (TMEProduct *)[self.viewModel itemAtIndexPath:indexPath];
+    ProductCollectionCellAct(self, product, TMEProductCollectionCellShare);
 }
 
 @end

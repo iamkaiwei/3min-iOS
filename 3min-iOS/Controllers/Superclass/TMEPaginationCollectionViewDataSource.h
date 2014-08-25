@@ -21,4 +21,6 @@
     TMECollectionDataSourceProtocol
 >
 
+@property (nonatomic, weak) UIViewController *ownerViewController;
+
 @end

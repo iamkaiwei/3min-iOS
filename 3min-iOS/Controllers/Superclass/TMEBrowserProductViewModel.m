@@ -1,4 +1,3 @@
-
 //  TMEBrowserProductViewModel.m
 //  ThreeMin
 //
@@ -110,10 +109,30 @@
 - (void)setDatasource:(TMEPaginationCollectionViewDataSource *)datasource {
 	_datasource = datasource;
 	[_datasource setCellAndFooterClasses:self.collectionView];
-    self.collectionView.dataSource = _datasource;
+	self.collectionView.dataSource = _datasource;
 }
 
 #pragma mark - Get remote products
+
+- (void)reload {
+	[self reloadWithFinishBlock:nil];
+}
+
+- (void)reloadWithFinishBlock:(void (^)(NSError *error))finishBlock {
+	self.page = 1;
+	self.arrayItems = @[].mutableCopy;
+	self.state = TMEViewModelStateIntial;
+
+	[self getProducts: ^(NSArray *arrProducts) {
+	    if (finishBlock) {
+	        finishBlock(nil);
+		}
+	} failure: ^(NSError *error) {
+	    if (finishBlock) {
+	        finishBlock(error);
+		}
+	}];
+}
 
 - (void)getProducts:(void (^)(NSArray *arrProducts))success failure:(void (^)(NSError *error))failure withPage:(NSUInteger)page {
 	// prevent mutiple loading
@@ -142,13 +161,28 @@
 	    self.page++;
 
 	    self.state = TMEViewModelStateLoaded;
+
+	    if (success) {
+	        success(arrProducts);
+		}
 	} failureBlock: ^(NSError *error) {
 	    self.state = TMEViewModelStateError;
+	    if (failure) {
+	        failure(error);
+		}
 	}];
 }
 
 - (void)getProducts:(void (^)(NSArray *arrProducts))success failure:(void (^)(NSError *error))failure {
 	[self getProducts:success failure:failure withPage:self.page];
+}
+
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath {
+	if (indexPath.row > self.arrayItems.count) {
+		return nil;
+	}
+
+	return self.arrayItems[indexPath.row];
 }
 
 @end

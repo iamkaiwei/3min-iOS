@@ -227,6 +227,8 @@
 		B4EF43A619A462A7001F010C /* NSValueTransformer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF43A519A462A7001F010C /* NSValueTransformer+Addition.m */; };
 		B4F488A819A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F488A719A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.m */; };
 		B4F488AA19A34ED5003F3997 /* TMEErrorReusableCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F488A919A34ED5003F3997 /* TMEErrorReusableCollectionView.xib */; };
+		B4FC6C8F19A75EC3003F1422 /* TMEProductCollectionViewCell+Template.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FC6C8E19A75EC3003F1422 /* TMEProductCollectionViewCell+Template.m */; };
+		B4FC6C9519A88D26003F1422 /* TMEProductCollectionCellBehaviors.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FC6C9419A88D26003F1422 /* TMEProductCollectionCellBehaviors.m */; };
 		D2140D9719A3338E008560B0 /* TMECrashlyticsAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */; };
 		D21698A119A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */; };
 		D22016BD19A49D480071535C /* TMEPushNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D22016BC19A49D480071535C /* TMEPushNotificationManager.m */; };
@@ -636,6 +638,10 @@
 		B4F488A619A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPaginationCollectionViewErrorDataSource.h; sourceTree = "<group>"; };
 		B4F488A719A34E3C003F3997 /* TMEPaginationCollectionViewErrorDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPaginationCollectionViewErrorDataSource.m; sourceTree = "<group>"; };
 		B4F488A919A34ED5003F3997 /* TMEErrorReusableCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEErrorReusableCollectionView.xib; sourceTree = "<group>"; };
+		B4FC6C8D19A75EC3003F1422 /* TMEProductCollectionViewCell+Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEProductCollectionViewCell+Template.h"; sourceTree = "<group>"; };
+		B4FC6C8E19A75EC3003F1422 /* TMEProductCollectionViewCell+Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEProductCollectionViewCell+Template.m"; sourceTree = "<group>"; };
+		B4FC6C9319A88D26003F1422 /* TMEProductCollectionCellBehaviors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductCollectionCellBehaviors.h; sourceTree = "<group>"; };
+		B4FC6C9419A88D26003F1422 /* TMEProductCollectionCellBehaviors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductCollectionCellBehaviors.m; sourceTree = "<group>"; };
 		D2140D9519A3338E008560B0 /* TMECrashlyticsAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECrashlyticsAppDelegateService.h; sourceTree = "<group>"; };
 		D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECrashlyticsAppDelegateService.m; sourceTree = "<group>"; };
 		D216989F19A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManagerAppDelegateService.h; sourceTree = "<group>"; };
@@ -1508,6 +1514,10 @@
 				B410F7691996231C000AE5B7 /* TMEProductCollectionViewCell.h */,
 				B410F76A1996231C000AE5B7 /* TMEProductCollectionViewCell.m */,
 				B410F76C1996232F000AE5B7 /* TMEProductCollectionViewCell.xib */,
+				B4FC6C8D19A75EC3003F1422 /* TMEProductCollectionViewCell+Template.h */,
+				B4FC6C8E19A75EC3003F1422 /* TMEProductCollectionViewCell+Template.m */,
+				B4FC6C9319A88D26003F1422 /* TMEProductCollectionCellBehaviors.h */,
+				B4FC6C9419A88D26003F1422 /* TMEProductCollectionCellBehaviors.m */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -1728,6 +1738,7 @@
 				99EA0F5A1978492D00872EE4 /* TMEMyListingViewController.m in Sources */,
 				99EA0EFE1978492D00872EE4 /* TMEReachabilityManager.m in Sources */,
 				99EA0F641978492D00872EE4 /* TMENavigationViewController.m in Sources */,
+				B4FC6C9519A88D26003F1422 /* TMEProductCollectionCellBehaviors.m in Sources */,
 				99EA0F261978492D00872EE4 /* UIBezierPath-Points.m in Sources */,
 				B4EF43A619A462A7001F010C /* NSValueTransformer+Addition.m in Sources */,
 				99EA0F751978492D00872EE4 /* TMESubmitTableCell.m in Sources */,
@@ -1827,6 +1838,7 @@
 				99EA0F7E1978492D00872EE4 /* TMEBaseTabBarViewController.m in Sources */,
 				99EA0F091978492D00872EE4 /* TMEProduct.m in Sources */,
 				99EA0F811978492D00872EE4 /* TMETutorialViewController.m in Sources */,
+				B4FC6C8F19A75EC3003F1422 /* TMEProductCollectionViewCell+Template.m in Sources */,
 				9966434819A1085E008960DB /* TMEUserNetworkClient.m in Sources */,
 				B410F76419961A84000AE5B7 /* TMENetworkManager.m in Sources */,
 				99EA0F8F1978492D00872EE4 /* UINavigationController+SGProgress.m in Sources */,

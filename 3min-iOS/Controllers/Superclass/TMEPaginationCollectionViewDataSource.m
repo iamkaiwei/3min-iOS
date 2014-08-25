@@ -10,6 +10,7 @@
 #import "TMEPaginationCollectionViewDataSource.h"
 #import "TMEProductCollectionViewCell.h"
 #import "TMELoadMoreCollectionFooterView.h"
+#import "TMEProductCollectionViewCell+Template.h"
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
 static const CGFloat kProductCollectionCellStaticInfoHeight = 128;
@@ -66,6 +67,7 @@ static const CGFloat kProductCollectionCellWidth = 152;
 - (void)configNormalCell:(id)cell item:(id)item {
 	TMEProductCollectionViewCell *productCell = (TMEProductCollectionViewCell *)cell;
 	[productCell configWithData:item];
+    productCell.delegate = self.ownerViewController;
 }
 
 - (void)configLoadMoreCell:(id)cell item:(id)item {
@@ -103,14 +105,14 @@ static const CGFloat kProductCollectionCellWidth = 152;
 #pragma mark - Collection datasource
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+	CGFloat cellWidth = kProductCollectionCellWidth;
+	TMEProduct *product = [self itemAtIndex:indexPath.row];
+	TMEProductImage *image = [product.images firstObject];
 
-    CGFloat cellWidth = kProductCollectionCellWidth;
-    TMEProduct *product = [self itemAtIndex:indexPath.row];
-    TMEProductImage *image = [product.images firstObject];
+	CGSize imageDim = [image.dim CGSizeValue];
 
-    CGSize imageDim = [image.dim CGSizeValue];
-
-    CGFloat newCellHeight = imageDim.height * cellWidth / imageDim.width + kProductCollectionCellStaticInfoHeight;
+	CGFloat bottomHeight = [[TMEProductCollectionViewCell sharedTemplate] staticBottomInformationHeightWithProduct:product];
+	CGFloat newCellHeight = imageDim.height * cellWidth / imageDim.width + bottomHeight;
 
 	return CGSizeMake(cellWidth, newCellHeight);
 }

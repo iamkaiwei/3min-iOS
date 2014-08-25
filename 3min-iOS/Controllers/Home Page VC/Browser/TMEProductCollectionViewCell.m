@@ -6,8 +6,11 @@
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
+@class KHRoundAvatar;
+
 #import <QuartzCore/QuartzCore.h>
 #import "TMEProductCollectionViewCell.h"
+#import "KHRoundAvatar.h"
 
 @interface TMEProductCollectionViewCell ()
 
@@ -15,11 +18,12 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgProduct;
 
-@property (weak, nonatomic) IBOutlet UILabel *lblProductName;
 @property (weak, nonatomic) IBOutlet UILabel *lblProductPrice;
 
-@property (weak, nonatomic) IBOutlet UILabel *lblLikeCount;
-@property (weak, nonatomic) IBOutlet UILabel *lblCommentCount;
+@property (weak, nonatomic) IBOutlet UIButton *btnLike;
+@property (weak, nonatomic) IBOutlet UIButton *btnComment;
+
+@property (weak, nonatomic) IBOutlet KHRoundAvatar *userAvatar;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblUsername;
 @property (weak, nonatomic) IBOutlet UILabel *lblDatetime;
@@ -81,10 +85,18 @@
 
 	self.lblProductName.text = product.name;
 
-	self.lblLikeCount.text = [product.likes stringValue];
+    self.lblProductPrice.text = product.price;
+
+    self.btnLike.titleLabel.text = [product.likes stringValue];
+    self.btnLike.selected = product.liked;
+
+    self.btnComment.titleLabel.text = product.comments;
 
 	self.lblUsername.text = product.user.fullName;
 	self.lblUsername.text = [product.createAt relativeDate];
+
+    NSURL *avatarUrl = [NSURL URLWithString:product.user.avatar];
+    [self.userAvatar sd_setImageWithURL:avatarUrl placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
 }
 
 #pragma mark - Reset
@@ -95,11 +107,51 @@
 	self.lblProductName.text = @"";
 	self.lblProductPrice.text = @"";
 
-	self.lblLikeCount.text = @"";
-	self.lblCommentCount.text = @"";
+	self.btnComment.titleLabel.text = @"";
+	self.btnLike.titleLabel.text = @"";
 
 	self.lblDatetime.text = @"";
 	self.lblUsername.text = @"";
+}
+
+#pragma mark - Actions
+
+- (IBAction)onBtnLike:(UIButton *)sender {
+    if (![self.delegate respondsToSelector:@selector(tapOnLikeProductOnCell:)]) {
+        return;
+    }
+    TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
+    [self.delegate tapOnLikeProductOnCell:cell];
+}
+
+- (IBAction)onBtnComment:(UIButton *)sender {
+    if (![self.delegate respondsToSelector:@selector(tapOnCommentProductOnCell:)]) {
+        return;
+    }
+    TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
+    [self.delegate tapOnCommentProductOnCell:cell];
+}
+
+- (IBAction)onBtnShare:(id)sender {
+    if (![self.delegate respondsToSelector:@selector(tapOnShareProductOnCell:)]) {
+        return;
+    }
+    TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
+    [self.delegate tapOnShareProductOnCell:cell];
+}
+
+#pragma mark - Helpers 
+
+- (TMEProductCollectionViewCell *)getCellFromButton:(UIButton *)button {
+    UIView *temp = button;
+    while (!([temp.superview isKindOfClass:[UICollectionViewCell class]]
+           || !temp.superview)) {
+        temp = temp.superview;
+    }
+
+    TMEProductCollectionViewCell *cell = (TMEProductCollectionViewCell *) temp.superview;
+    NSAssert([cell isKindOfClass:[UICollectionViewCell class]], @"Something when wrong, cell not be found");
+    return cell;
 }
 
 @end

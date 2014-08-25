@@ -29,16 +29,6 @@
                     </collectionViewFlowLayout>
                     <cells/>
                 </collectionView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afu-18-s4v">
-                    <rect key="frame" x="137" y="23" width="46" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="reload:" destination="-1" eventType="touchUpInside" id="EOs-U4-Wqo"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="0.89411771297454834" green="0.89411771297454834" blue="0.89411771297454834" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
