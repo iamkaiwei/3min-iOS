@@ -20,6 +20,7 @@
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewProducts;
+@property (strong, nonatomic) UIRefreshControl *refreshView;
 @property (strong, nonatomic) CHTCollectionViewWaterfallLayout *layout;
 @property (strong, nonatomic) TMEBrowserProductViewModel *viewModel;
 @property (strong, nonatomic) FBKVOController *kvoController;
@@ -51,6 +52,14 @@
 	    innerSelf.collectionViewProducts.delegate = (id <UICollectionViewDelegate> )innerSelf.chainDelegate;
 	    [innerSelf.collectionViewProducts reloadData];
 	}];
+
+    [self addPullToRefresh];
+}
+
+- (void)addPullToRefresh {
+    self.refreshView = [[UIRefreshControl alloc] init];
+    [self.collectionViewProducts addSubview:self.refreshView];
+    [self.refreshView addTarget:self action:@selector(refreshCollectionProducts) forControlEvents:UIControlEventValueChanged];
 }
 
 - (TMEBrowserProductViewModel *)viewModel {
@@ -82,8 +91,13 @@
 	return layout;
 }
 
-- (IBAction)reload:(id)sender {
-	[self.viewModel getProducts:nil failure:nil];
+#pragma mark - Reload
+
+- (void)refreshCollectionProducts {
+    [self.refreshView beginRefreshing];
+    [self.viewModel reloadWithFinishBlock:^(NSError *error) {
+        [self.refreshView endRefreshing];
+    }];
 }
 
 #pragma mark - Collection delegate
