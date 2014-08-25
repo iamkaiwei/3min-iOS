@@ -23,6 +23,9 @@
 - (void)addPageViewControllerAndDisplay {
 	UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:self.pageViewController];
 
+    navVC.navigationBar.translucent = NO;
+    navVC.navigationBar.barTintColor = [UIColor colorWithHexString:@"#FF0000"];
+
 	[self addChildViewController:navVC];
 	[self.view addSubview:navVC.view];
 
