@@ -54,6 +54,16 @@
 	}];
 
     [self addPullToRefresh];
+
+    self.parentViewController.navigationItem.titleView = [self titleView];
+}
+
+- (UIView *)titleView {
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(60, 0, 200, 40)];
+    UILabel *label = [[UILabel alloc] initWithFrame:titleView.bounds];
+    label.text = @"Khang";
+    [titleView addSubview:label];
+    return titleView;
 }
 
 - (void)addPullToRefresh {
