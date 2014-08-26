@@ -64,7 +64,7 @@
     UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(60, 0, 200, 40)];
     UIButton *button = [[UIButton alloc] initWithFrame:titleView.bounds];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor colorWithHexString:@"#FF938D"] forState:UIControlStateNormal];
     [button setTitle:@"Controller title" forState:UIControlStateNormal];
     [titleView addSubview:button];
     return titleView;
