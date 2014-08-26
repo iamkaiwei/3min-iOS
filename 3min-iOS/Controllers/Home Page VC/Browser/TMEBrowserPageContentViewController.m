@@ -62,16 +62,19 @@
 
 - (UIView *)titleView {
     UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(60, 0, 200, 40)];
-    UILabel *label = [[UILabel alloc] initWithFrame:titleView.bounds];
-    label.text = @"Khang";
-    [titleView addSubview:label];
+    UIButton *button = [[UIButton alloc] initWithFrame:titleView.bounds];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [button setTitle:@"Controller title" forState:UIControlStateNormal];
+    [titleView addSubview:button];
     return titleView;
 }
 
 - (UIBarButtonItem *)searchIcon {
     UIButton *searchBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 40)];
     [searchBtn setImage:[UIImage imageNamed:@"icn_search_hide"] forState:UIControlStateNormal];
-    [searchBtn setImage:[UIImage imageNamed:@"icn_search"] forState:UIControlStateSelected | UIControlStateHighlighted];
+    [searchBtn setImage:[UIImage imageNamed:@"icn_search"] forState:UIControlStateHighlighted];
+    searchBtn.opaque = YES;
     UIBarButtonItem *searchIcon = [[UIBarButtonItem alloc] initWithCustomView:searchBtn];
     return searchIcon;
 }
@@ -79,7 +82,8 @@
 - (UIBarButtonItem *)profileIcon {
     UIButton *profileBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 40)];
     [profileBtn setImage:[UIImage imageNamed:@"icn_profile_hide"] forState:UIControlStateNormal];
-    [profileBtn setImage:[UIImage imageNamed:@"icn_profile"] forState:UIControlStateSelected | UIControlStateHighlighted];
+    [profileBtn setImage:[UIImage imageNamed:@"icn_profile"] forState:UIControlStateHighlighted];
+    profileBtn.opaque = YES;
     UIBarButtonItem *searchIcon = [[UIBarButtonItem alloc] initWithCustomView:profileBtn];
     return searchIcon;
 }

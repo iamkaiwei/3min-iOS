@@ -221,6 +221,7 @@
 		B470E4FB19AC323B00F4FF18 /* TMEProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B470E4F719AC323B00F4FF18 /* TMEProductCollectionViewCell.xib */; };
 		B470E4FE19AC367C00F4FF18 /* TMEPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E4FD19AC367C00F4FF18 /* TMEPageViewController.m */; };
 		B470E50419AC473D00F4FF18 /* UIBarButtonItem+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E50319AC473D00F4FF18 /* UIBarButtonItem+Additions.m */; };
+		B470E50719AC7A4C00F4FF18 /* UIView+TitleViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E50619AC7A4C00F4FF18 /* UIView+TitleViewUtils.m */; };
 		B4AE17D3198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */; };
 		B4AE17D6198E4A3200F6D601 /* KHRoundAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */; };
 		B4AE17DD198EAE1F00F6D601 /* TMEHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17DC198EAE1F00F6D601 /* TMEHomePageViewController.m */; };
@@ -633,6 +634,8 @@
 		B470E4FD19AC367C00F4FF18 /* TMEPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPageViewController.m; sourceTree = "<group>"; };
 		B470E50219AC473D00F4FF18 /* UIBarButtonItem+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Additions.h"; sourceTree = "<group>"; };
 		B470E50319AC473D00F4FF18 /* UIBarButtonItem+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Additions.m"; sourceTree = "<group>"; };
+		B470E50519AC7A4C00F4FF18 /* UIView+TitleViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TitleViewUtils.h"; sourceTree = "<group>"; };
+		B470E50619AC7A4C00F4FF18 /* UIView+TitleViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TitleViewUtils.m"; sourceTree = "<group>"; };
 		B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPDFUIKitMainThreadGuard.m; sourceTree = "<group>"; };
 		B4AE17D4198E4A3200F6D601 /* KHRoundAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRoundAvatar.h; sourceTree = "<group>"; };
 		B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHRoundAvatar.m; sourceTree = "<group>"; };
@@ -1541,6 +1544,8 @@
 				B470E4FD19AC367C00F4FF18 /* TMEPageViewController.m */,
 				B470E50219AC473D00F4FF18 /* UIBarButtonItem+Additions.h */,
 				B470E50319AC473D00F4FF18 /* UIBarButtonItem+Additions.m */,
+				B470E50519AC7A4C00F4FF18 /* UIView+TitleViewUtils.h */,
+				B470E50619AC7A4C00F4FF18 /* UIView+TitleViewUtils.m */,
 			);
 			path = "Home Page VC";
 			sourceTree = "<group>";
@@ -1857,6 +1862,7 @@
 				99EA0F251978492D00872EE4 /* UIBarButtonItem+Custom.m in Sources */,
 				B4AE17D3198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m in Sources */,
 				99EA0F371978492D00872EE4 /* UIWebView+Additions.m in Sources */,
+				B470E50719AC7A4C00F4FF18 /* UIView+TitleViewUtils.m in Sources */,
 				B4AE17D6198E4A3200F6D601 /* KHRoundAvatar.m in Sources */,
 				99EA0F151978492D00872EE4 /* CAAnimation+EasingEquations.m in Sources */,
 				99EA0F4E1978492D00872EE4 /* TMELeftMenuTableViewCell.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "TMEHomeNavigationViewController.h"
 #import "UIBarButtonItem+Additions.h"
+#import "UIView+TitleViewUtils.h"
 
 @interface TMEHomeNavigationViewController ()
 
@@ -35,15 +36,20 @@
 
 			    UIButton *leftButton = [rootViewController.navigationItem.leftBarButtonItem getButton];
 			    UIButton *rightButton = [rootViewController.navigationItem.rightBarButtonItem getButton];
+			    UIButton *centerButton = [rootViewController.navigationItem.titleView getButton];
 
                 leftButton.highlighted = NO;
                 rightButton.highlighted = NO;
+                centerButton.highlighted = NO;
 
 			    if ([viewController isKindOfClass:[TMESearchPageContentViewController class]]) {
 			        leftButton.highlighted = YES;
 				}
 			    if ([viewController isKindOfClass:[TMEProfilePageContentViewController class]]) {
                     rightButton.highlighted = YES;
+				}
+			    if ([viewController isKindOfClass:[TMEBrowserPageContentViewController class]]) {
+                    centerButton.highlighted = YES;
 				}
 			}];
 		}
@@ -56,16 +62,7 @@
 	[super loadView];
 	self.navigationBar.translucent = NO;
 	self.navigationBar.barTintColor = [UIColor colorWithHexString:@"#FF0000"];
-	self.navigationItem.titleView = self.titleView;
 	[[FLEXManager sharedManager] showExplorer];
-}
-
-- (UIView *)titleView {
-	UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 64)];
-	UILabel *label = [[UILabel alloc] initWithFrame:titleView.frame];
-	label.text = @"Khang";
-	[titleView addSubview:label];
-	return titleView;
 }
 
 @end
