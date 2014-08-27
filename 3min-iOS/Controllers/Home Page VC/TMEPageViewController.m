@@ -7,6 +7,7 @@
 //
 
 #import "TMEPageViewController.h"
+#import "TMEHomeNavigationButtonDelegate.h"
 
 @interface TMEPageViewController()
 <
@@ -15,6 +16,7 @@
 
 @property (nonatomic, strong, readwrite) UIViewController *currentViewController;
 @property (nonatomic, strong) TMEHomePageViewDatasource *pageDataSource;
+@property (nonatomic, strong) TMEHomeNavigationButtonDelegate *buttonsController;
 
 @end
 
@@ -33,9 +35,17 @@
 
 		UIViewController *startingViewController = _pageDataSource.browserVC;
 		NSArray *viewControllers = @[startingViewController];
+        _currentViewController = startingViewController;
 		[self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     }
     return self;
+}
+
+- (TMEHomeNavigationButtonDelegate *)buttonsController {
+    if (!_buttonsController) {
+        _buttonsController = [[TMEHomeNavigationButtonDelegate alloc] initWithPageViewController:self navigationViewController:self.navigationController];
+    }
+    return _buttonsController;
 }
 
 - (void)viewDidLoad {
@@ -54,6 +64,7 @@
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [button setTitleColor:[UIColor colorWithHexString:@"#FF938D"] forState:UIControlStateNormal];
     [button setTitle:@"Controller title" forState:UIControlStateNormal];
+    [button addTarget:self.buttonsController action:@selector(onTapTitleButton:) forControlEvents:UIControlEventTouchUpInside];
     button.highlighted = YES;
     [titleView addSubview:button];
     return titleView;
@@ -63,6 +74,7 @@
     UIButton *searchBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 40)];
     [searchBtn setImage:[UIImage imageNamed:@"icn_search_hide"] forState:UIControlStateNormal];
     [searchBtn setImage:[UIImage imageNamed:@"icn_search"] forState:UIControlStateHighlighted];
+    [searchBtn addTarget:self.buttonsController action:@selector(onTapSearchButton:) forControlEvents:UIControlEventTouchUpInside];
     searchBtn.opaque = YES;
     UIBarButtonItem *searchIcon = [[UIBarButtonItem alloc] initWithCustomView:searchBtn];
     return searchIcon;
@@ -72,6 +84,7 @@
     UIButton *profileBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 40)];
     [profileBtn setImage:[UIImage imageNamed:@"icn_profile_hide"] forState:UIControlStateNormal];
     [profileBtn setImage:[UIImage imageNamed:@"icn_profile"] forState:UIControlStateHighlighted];
+    [profileBtn addTarget:self.buttonsController action:@selector(onTapProfileButton:) forControlEvents:UIControlEventTouchUpInside];
     profileBtn.opaque = YES;
     UIBarButtonItem *searchIcon = [[UIBarButtonItem alloc] initWithCustomView:profileBtn];
     return searchIcon;
@@ -80,6 +93,32 @@
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
     self.currentViewController = pageViewController.viewControllers[0];
+}
+
+- (void)goToSearchViewController {
+    [self pageViewControllerGoesToViewController:self.pageDataSource.searchVC];
+}
+
+- (void)goToProfileViewController {
+    [self pageViewControllerGoesToViewController:self.pageDataSource.profileVC];
+}
+
+- (void)goToBrowserProductViewController {
+    [self pageViewControllerGoesToViewController:self.pageDataSource.browserVC];
+}
+
+- (UIPageViewControllerNavigationDirection)directionToViewController:(UIViewController *)viewController {
+    NSUInteger currentPage = [self.pageDataSource indexOfViewController:self.currentViewController];
+    NSUInteger nextPage = [self.pageDataSource indexOfViewController:viewController];
+    return currentPage > nextPage ? UIPageViewControllerNavigationDirectionReverse : UIPageViewControllerNavigationDirectionForward;
+}
+
+- (void)pageViewControllerGoesToViewController:(UIViewController *)nextViewController {
+    __weak typeof(self)weakSelf = self;
+    UIPageViewControllerNavigationDirection direction = [self directionToViewController:nextViewController];
+    [self setViewControllers:@[nextViewController] direction:direction animated:YES completion:^(BOOL finished) {
+        weakSelf.currentViewController = nextViewController;
+    }];
 }
 
 @end

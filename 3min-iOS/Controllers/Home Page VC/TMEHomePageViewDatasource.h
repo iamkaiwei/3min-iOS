@@ -17,4 +17,6 @@
 @property (nonatomic, strong, readonly) TMEBrowserPageContentViewController *browserVC;
 @property (nonatomic, strong, readonly) TMESearchPageContentViewController *searchVC;
 
+- (NSUInteger)indexOfViewController:(UIViewController *)controller;
+
 @end

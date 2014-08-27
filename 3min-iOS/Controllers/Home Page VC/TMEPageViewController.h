@@ -12,4 +12,8 @@
 
 @property (nonatomic, strong, readonly) UIViewController *currentViewController;
 
+- (void)goToSearchViewController;
+- (void)goToProfileViewController;
+- (void)goToBrowserProductViewController;
+
 @end

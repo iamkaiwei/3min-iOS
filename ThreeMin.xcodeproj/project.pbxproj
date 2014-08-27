@@ -233,6 +233,7 @@
 		B4AE17F4198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AE17F2198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib */; };
 		B4AE17F7198EC20600F6D601 /* TMEHomePageViewDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17F6198EC20600F6D601 /* TMEHomePageViewDatasource.m */; };
 		B4EF43A619A462A7001F010C /* NSValueTransformer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF43A519A462A7001F010C /* NSValueTransformer+Addition.m */; };
+		B4F513D119AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F513D019AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m */; };
 		D2140D9719A3338E008560B0 /* TMECrashlyticsAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */; };
 		D21698A119A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */; };
 		D22016BD19A49D480071535C /* TMEPushNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D22016BC19A49D480071535C /* TMEPushNotificationManager.m */; };
@@ -654,6 +655,8 @@
 		B4AE17F6198EC20600F6D601 /* TMEHomePageViewDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEHomePageViewDatasource.m; sourceTree = "<group>"; };
 		B4EF43A419A462A7001F010C /* NSValueTransformer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+Addition.h"; sourceTree = "<group>"; };
 		B4EF43A519A462A7001F010C /* NSValueTransformer+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValueTransformer+Addition.m"; sourceTree = "<group>"; };
+		B4F513CF19AD8985003DE851 /* TMEHomeNavigationButtonDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHomeNavigationButtonDelegate.h; sourceTree = "<group>"; };
+		B4F513D019AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEHomeNavigationButtonDelegate.m; sourceTree = "<group>"; };
 		D2140D9519A3338E008560B0 /* TMECrashlyticsAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECrashlyticsAppDelegateService.h; sourceTree = "<group>"; };
 		D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECrashlyticsAppDelegateService.m; sourceTree = "<group>"; };
 		D216989F19A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManagerAppDelegateService.h; sourceTree = "<group>"; };
@@ -1546,6 +1549,8 @@
 				B470E50319AC473D00F4FF18 /* UIBarButtonItem+Additions.m */,
 				B470E50519AC7A4C00F4FF18 /* UIView+TitleViewUtils.h */,
 				B470E50619AC7A4C00F4FF18 /* UIView+TitleViewUtils.m */,
+				B4F513CF19AD8985003DE851 /* TMEHomeNavigationButtonDelegate.h */,
+				B4F513D019AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m */,
 			);
 			path = "Home Page VC";
 			sourceTree = "<group>";
@@ -1783,6 +1788,7 @@
 				B4AE17F7198EC20600F6D601 /* TMEHomePageViewDatasource.m in Sources */,
 				B470E4E719AC320100F4FF18 /* FPCollectionArrayDataSource.m in Sources */,
 				B410F76019961A7C000AE5B7 /* TMEActivityManager.m in Sources */,
+				B4F513D119AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m in Sources */,
 				B410F75819961A15000AE5B7 /* TMEBaseModel+TMEAdditions.m in Sources */,
 				B470E4E919AC320100F4FF18 /* TMEPaginationCollectionViewDataSource.m in Sources */,
 				99EA0F801978492D00872EE4 /* TMEBaseViewController.m in Sources */,
