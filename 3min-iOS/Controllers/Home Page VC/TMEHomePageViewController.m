@@ -10,6 +10,10 @@
 
 @interface TMEHomePageViewController ()
 
+@property (nonatomic, strong, readwrite) TMEHomeNavigationViewController *navVC;
+@property (nonatomic, strong) UIPageViewController *pageViewController;
+@property (nonatomic, strong) TMEHomePageViewDatasource *pageViewDataSource;
+
 @end
 
 @implementation TMEHomePageViewController
@@ -18,21 +22,28 @@
 	[super viewDidLoad];
 	// Do any additional setup after loading the view.
 	[self addPageViewControllerAndDisplay];
-    self.view.backgroundColor = [UIColor whiteColor];
+	self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (TMEHomeNavigationViewController *)navVC {
+	if (!_navVC) {
+		_navVC = [[TMEHomeNavigationViewController alloc] initWithRootViewController:self.pageViewController];
+	}
+    return _navVC;
 }
 
 - (void)addPageViewControllerAndDisplay {
-	TMEHomeNavigationViewController *navVC = [[TMEHomeNavigationViewController alloc] initWithRootViewController:self.pageViewController];
+	self.navVC = [[TMEHomeNavigationViewController alloc] initWithRootViewController:self.pageViewController];
 
-	[self addChildViewController:navVC];
-	[self.view addSubview:navVC.view];
+	[self addChildViewController:self.navVC];
+	[self.view addSubview:self.navVC.view];
 
 	CGRect pageViewRect = self.view.bounds;
-	navVC.view.frame = pageViewRect;
+	self.navVC.view.frame = pageViewRect;
 
-	[navVC didMoveToParentViewController:self];
+	[self.navVC didMoveToParentViewController:self];
 
-	self.view.gestureRecognizers = navVC.view.gestureRecognizers;
+	self.view.gestureRecognizers = self.navVC.view.gestureRecognizers;
 }
 
 - (UIPageViewController *)pageViewController {

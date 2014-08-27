@@ -90,7 +90,6 @@
     return searchIcon;
 }
 
-
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
     self.currentViewController = pageViewController.viewControllers[0];
 }

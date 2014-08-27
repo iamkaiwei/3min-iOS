@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "TMEHomePageViewDatasource.h"
+#import "TMEHomeNavigationViewController.h"
 
 @interface TMEHomePageViewController : UIViewController
 
-@property (nonatomic, strong) UIPageViewController *pageViewController;
-@property (nonatomic, strong) TMEHomePageViewDatasource *pageViewDataSource;
+@property (nonatomic, strong, readonly) TMEHomeNavigationViewController *navVC;
 
 @end
