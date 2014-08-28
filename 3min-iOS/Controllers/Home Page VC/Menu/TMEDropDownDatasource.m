@@ -8,25 +8,38 @@
 
 #import "TMEDropDownDatasource.h"
 
+static CGFloat kDropDownMenuCellHeight = 50;
+
 @interface TMEDropDownDatasource()
 
-@property (strong, nonatomic, readwrite) NSArray *arrCategories;
+@property (strong, nonatomic, readwrite) NSMutableArray *arrCategories;
 @property (copy, nonatomic) IdentifierParserBlock identifierParserBlock;
 @property (copy, nonatomic) CollectionViewCellConfigureBlock configureCellBlock;
+
+@property (weak, nonatomic) UICollectionView *collectionView;
 
 @end
 
 @implementation TMEDropDownDatasource
 
-- (id)initWithItems:(NSArray *)items {
-    self = [super initWithItems:items identifierParserBlock:nil configureCellBlock:nil];
+- (id)initWithItems:(NSMutableArray *)items {
+    self = [super init];
     if (self) {
+        _arrCategories = items;
     }
 
     return self;
 }
 
+- (NSArray *)arrCategories {
+    if (!_arrCategories) {
+        _arrCategories = @[].mutableCopy;
+    }
+    return _arrCategories;
+}
+
 - (void)setCellAndFooterClasses:(UICollectionView *)collectionView {
+    self.collectionView = collectionView;
     [collectionView registerNib:[TMEDropDownMenuCell defaultNib] forCellWithReuseIdentifier:NSStringFromClass([TMEDropDownMenuCell class])];
 }
 
@@ -34,7 +47,11 @@
     return 1;
 }
 
-- (CollectionViewCellConfigureBlock)configBlock {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.arrCategories.count;
+}
+
+- (CollectionViewCellConfigureBlock)configureCellBlock {
     CollectionViewCellConfigureBlock configBlock = ^(id item, UICollectionViewCell *cell) {
 
     };
@@ -63,6 +80,10 @@
     }
 
     return self.arrCategories[indexPath.row];
+}
+
+- (CGFloat)totalCellHeight {
+    return [self.collectionView numberOfItemsInSection:0] * kDropDownMenuCellHeight;
 }
 
 @end

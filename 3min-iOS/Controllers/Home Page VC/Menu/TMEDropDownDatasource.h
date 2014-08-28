@@ -17,6 +17,7 @@
     TMECollectionDataSourceProtocol
 >
 
-- (id)initWithItems:(NSArray *)items __attribute__((objc_designated_initializer)); 
+- (id)initWithItems:(NSArray *)items __attribute__((objc_designated_initializer));
+- (CGFloat)totalCellHeight;
 
 @end

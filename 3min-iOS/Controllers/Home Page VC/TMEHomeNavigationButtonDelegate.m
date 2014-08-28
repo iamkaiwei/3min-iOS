@@ -7,6 +7,7 @@
 //
 
 #import "TMEHomeNavigationButtonDelegate.h"
+#import "TMEDropDownMenuViewController.h"
 
 @interface TMEHomeNavigationButtonDelegate ()
 
@@ -73,7 +74,7 @@
 	}
 
 	self.isShowingMenu = YES;
-	self.backgroundVC = [[UIViewController alloc] init];
+	self.backgroundVC = [[TMEDropDownMenuViewController alloc] init];
 
 	self.backgroundVC.view.frame = ({
 	                                    CGRect frame = self.navViewController.view.bounds;

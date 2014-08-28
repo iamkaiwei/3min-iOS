@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TMEDropDownDatasource.h"
 
 @interface TMEDropDownViewModel : NSObject
 
+@property (strong, nonatomic, readonly) NSMutableArray *arrCategories;
+@property (strong, nonatomic, readonly) TMEDropDownDatasource *datasource;
+
+- (id)initWithCollectionView:(UICollectionView *)collectionView __attribute__((objc_designated_initializer));
 - (void)getCategories:(void(^)(NSArray* category, NSError *error))block;
 
 @end
