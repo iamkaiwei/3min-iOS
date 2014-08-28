@@ -39,14 +39,27 @@
 }
 
 - (void)onTapSearchButton:(UIButton *)sender {
+    if (self.isShowingMenu) {
+        [self tongleMenu];
+        return;
+    }
 	[self.pageViewController goToSearchViewController];
 }
 
 - (void)onTapProfileButton:(UIButton *)sender {
+    if (self.isShowingMenu) {
+        [self tongleMenu];
+        return;
+    }
 	[self.pageViewController goToProfileViewController];
 }
 
 - (void)onTapTitleButton:(UIButton *)sender {
+    if (self.isShowingMenu) {
+        [self tongleMenu];
+        return;
+    }
+
 	[self.pageViewController goToBrowserProductViewController];
 	[self tongleMenu];
 }
@@ -72,6 +85,10 @@
 	[self.navViewController addChildViewController:self.backgroundVC];
 	[self.navViewController.view addSubview:self.backgroundVC.view];
 	[self.backgroundVC didMoveToParentViewController:self.navViewController];
+
+    UITapGestureRecognizer *tapToDismiss = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tongleMenu)];
+    tapToDismiss.numberOfTouchesRequired = 1;
+    [self.backgroundVC.view addGestureRecognizer:tapToDismiss];
 }
 
 @end
