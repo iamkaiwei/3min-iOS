@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "TMEHomeNavigationButtonDelegate.h"
 
-@interface TMEDropDownMenuViewController : UIViewController
+@protocol TMEHomeNavigationButtonProtocol;
 
+@interface TMEDropDownMenuViewController : UIViewController
+<
+    UICollectionViewDelegate,
+    UIGestureRecognizerDelegate
+>
+
+@property (nonatomic, strong, readonly) TMECategory *selectedCategory;
 @property (nonatomic, assign) id<TMEHomeNavigationButtonProtocol> delegate;
 
 @end

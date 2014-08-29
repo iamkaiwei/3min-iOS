@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) FBKVOController *kvoController;
 @property (strong, nonatomic) TMEDropDownViewModel *viewModel;
+@property (nonatomic, strong, readwrite) TMECategory *selectedCategory;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintCollectionViewHeight;
@@ -24,6 +25,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.view.backgroundColor = [UIColor colorWithHexString:@"#000" alpha:0.4];
+    self.collectionView.delegate = self;
 	self.collectionView.hidden = YES;
 
 	static dispatch_once_t onceToken;
@@ -43,10 +45,32 @@
 
 	    UITapGestureRecognizer *tapToDismiss = [[UITapGestureRecognizer alloc] initWithTarget:self.delegate action:@selector(tongleMenu:)];
 	    tapToDismiss.numberOfTouchesRequired = 1;
+        tapToDismiss.delegate = self;
 	    [self.view addGestureRecognizer:tapToDismiss];
 	});
-    
+
 	[self.viewModel getCategories:nil];
+}
+
+
+/**
+ *  Weird, i added gesture for the parent view but the child view also response for it
+ */
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if ([touch view] == self.view){
+        return YES;
+    }
+    return NO;
+}
+
+#pragma mark - 
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    TMECategory *category = (TMECategory *)[self.viewModel itemAtIndexPath:indexPath];
+    [[NSNotificationCenter defaultCenter] postNotificationName:TMEHomeCategoryDidChangedNotification object:self];
+    self.selectedCategory = category;
+    [self.delegate tongleMenu:nil];
 }
 
 @end

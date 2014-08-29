@@ -18,6 +18,7 @@
 
 #import "TMEModelHeaders.h"
 #import "TMECategoryHeaders.h"
+#import "TMEProtocolHeaders.h"
 
 #import "TMEViewHeaders.h"
 #import "TMEControllerHeaders.h"

@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TMEDropDownMenuViewController.h"
+
+@class TMEDropDownMenuViewController;
 
 @protocol TMEHomeNavigationButtonProtocol <NSObject>
 
@@ -19,8 +22,11 @@
 
 @interface TMEHomeNavigationButtonDelegate : NSObject
 <
-    TMEHomeNavigationButtonProtocol
+    TMEHomeNavigationButtonProtocol,
+    UIGestureRecognizerDelegate
 >
+
+@property (strong, nonatomic, readonly) TMEDropDownMenuViewController *dropdownVC;
 
 - (instancetype)initWithPageViewController:(UIPageViewController *)pageVC navigationViewController:(UINavigationController *)navVC __attribute__((objc_designated_initializer));
 

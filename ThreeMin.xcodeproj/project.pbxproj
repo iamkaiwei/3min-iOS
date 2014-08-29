@@ -643,6 +643,8 @@
 		B470E50319AC473D00F4FF18 /* UIBarButtonItem+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Additions.m"; sourceTree = "<group>"; };
 		B470E50519AC7A4C00F4FF18 /* UIView+TitleViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TitleViewUtils.h"; sourceTree = "<group>"; };
 		B470E50619AC7A4C00F4FF18 /* UIView+TitleViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TitleViewUtils.m"; sourceTree = "<group>"; };
+		B481670019B1A2B8007C3B57 /* TMEViewModelDataProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMEViewModelDataProtocol.h; sourceTree = "<group>"; };
+		B481670119B1A342007C3B57 /* TMEProtocolHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMEProtocolHeaders.h; sourceTree = "<group>"; };
 		B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPDFUIKitMainThreadGuard.m; sourceTree = "<group>"; };
 		B4AE17D4198E4A3200F6D601 /* KHRoundAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRoundAvatar.h; sourceTree = "<group>"; };
 		B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHRoundAvatar.m; sourceTree = "<group>"; };
@@ -855,6 +857,7 @@
 				99EA0D831978492C00872EE4 /* TMEVendorHeaders.h */,
 				99EA0D841978492C00872EE4 /* TMEViewHeaders.h */,
 				9966434919A1087D008960DB /* TMENetworkHeaders.h */,
+				B481670119B1A342007C3B57 /* TMEProtocolHeaders.h */,
 			);
 			name = CommonHeaders;
 			path = "3min-iOS/CommonHeaders";
@@ -1568,6 +1571,7 @@
 				B470E50619AC7A4C00F4FF18 /* UIView+TitleViewUtils.m */,
 				B4F513CF19AD8985003DE851 /* TMEHomeNavigationButtonDelegate.h */,
 				B4F513D019AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m */,
+				B481670019B1A2B8007C3B57 /* TMEViewModelDataProtocol.h */,
 			);
 			path = "Home Page VC";
 			sourceTree = "<group>";

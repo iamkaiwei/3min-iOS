@@ -7,7 +7,6 @@
 //
 
 #import "TMEHomeNavigationButtonDelegate.h"
-#import "TMEDropDownMenuViewController.h"
 
 @interface TMEHomeNavigationButtonDelegate ()
 
@@ -16,7 +15,7 @@
 
 @property (assign, nonatomic) BOOL isShowingMenu;
 
-@property (strong, nonatomic) TMEDropDownMenuViewController *dropdownVC;
+@property (strong, nonatomic, readwrite) TMEDropDownMenuViewController *dropdownVC;
 
 @end
 

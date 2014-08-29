@@ -17,5 +17,7 @@ extern NSString *const TMECategoryDidChangeNotification;
 extern NSString *const TMEUserDidLoginNotification;
 extern NSString *const TMEUserDidLogoutNotification;
 
+extern NSString *const TMEHomeCategoryDidChangedNotification;
+
 // CocoaLumberJack
 extern int const ddLogLevel;

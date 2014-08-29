@@ -59,4 +59,12 @@
 	}];
 }
 
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row >= self.arrCategories.count) {
+        return nil;
+    }
+
+    return self.arrCategories[indexPath.row];
+}
+
 @end

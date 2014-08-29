@@ -10,6 +10,9 @@
 #import "TMEDropDownDatasource.h"
 
 @interface TMEDropDownViewModel : NSObject
+<
+    TMEViewModelDataProtocol
+>
 
 @property (strong, nonatomic, readonly) NSMutableArray *arrCategories;
 @property (strong, nonatomic, readonly) TMEDropDownDatasource *datasource;
