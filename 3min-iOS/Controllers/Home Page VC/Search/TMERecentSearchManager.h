@@ -17,5 +17,6 @@ OMNIA_SINGLETON_H(sharedManager)
 
 - (NSArray *)recentSearchTexts;
 - (void)addSearchText:(NSString *)text;
+- (void)clear;
 
 @end

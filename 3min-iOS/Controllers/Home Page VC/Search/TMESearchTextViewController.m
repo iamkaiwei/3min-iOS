@@ -13,6 +13,9 @@
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+
 @property (nonatomic, strong) NSArray *recentSearchTexts;
 
 @end
@@ -34,6 +37,7 @@
 
     self.searchBar.delegate = self;
 
+    [self setupTapGestureRecognizer];
     [self setupTableView];
 }
 
@@ -41,6 +45,81 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Gesture
+- (void)setupTapGestureRecognizer
+{
+    self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hanleTapGestureRecognizer:)];
+    [self.view addGestureRecognizer:self.tapGestureRecognizer];
+}
+
+- (void)hanleTapGestureRecognizer:(UITapGestureRecognizer *)tapGestureRecognizer
+{
+    [self.searchBar resignFirstResponder];
+}
+
+#pragma mark - TableView
+- (void)setupTableView
+{
+    self.tableView.hidden = YES;
+
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:UITableViewCell.kind];
+
+    // Footer
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+    button.backgroundColor = [UIColor lightGrayColor];
+    [button setTitle:@"Clear search history" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+
+    [button addTarget:self action:@selector(clearButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+
+
+    self.tableView.tableFooterView = button;
+}
+
+- (void)clearButtonAction:(id)sender
+{
+    [[TMERecentSearchManager sharedManager] clear];
+    self.tableView.hidden = YES;
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.recentSearchTexts.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Recent Search";
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:UITableViewCell.kind];
+
+    cell.textLabel.text = self.recentSearchTexts[indexPath.row];
+
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *selectedText = self.recentSearchTexts[indexPath.row];
+
+    self.searchBar.text = selectedText;
+
+    self.tableView.hidden = YES;
 }
 
 #pragma mark - UISearchBarDelegate
@@ -79,67 +158,6 @@
 {
     self.tableView.hidden = YES;
     [self.searchBar setShowsCancelButton:NO];
-}
-
-#pragma mark - TableView
-- (void)setupTableView
-{
-    self.tableView.hidden = YES;
-
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:UITableViewCell.kind];
-
-    // Footer
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
-    button.backgroundColor = [UIColor lightGrayColor];
-    [button setTitle:@"Clear search history" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-
-    [button addTarget:self action:@selector(clearButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-
-
-    self.tableView.tableFooterView = button;
-}
-
-- (void)clearButtonAction:(id)sender
-{
-    NSLog(@"buttonAction");
-}
-
-#pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.recentSearchTexts.count;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return @"Recent Search";
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:UITableViewCell.kind];
-    cell.textLabel.text = self.recentSearchTexts[indexPath.row];
-
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *selectedText = self.recentSearchTexts[indexPath.row];
-
-    self.searchBar.text = selectedText;
-
-    self.tableView.hidden = YES;
 }
 
 @end

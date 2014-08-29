@@ -23,7 +23,7 @@ OMNIA_SINGLETON_M(sharedManager)
 #pragma mark - Public Interface
 - (NSArray *)recentSearchTexts
 {
-    return [NSArray arrayWithObject:self.mutableRecentSearchTexts];
+    return [NSArray arrayWithArray:self.mutableRecentSearchTexts];
 }
 
 - (void)addSearchText:(NSString *)text
@@ -33,6 +33,11 @@ OMNIA_SINGLETON_M(sharedManager)
     }
 
     [self.mutableRecentSearchTexts insertObject:text atIndex:0];
+}
+
+- (void)clear
+{
+    self.mutableRecentSearchTexts = [NSMutableArray array];
 }
 
 #pragma mark - Persistence
