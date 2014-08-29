@@ -248,6 +248,12 @@
 		D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224260F19A2061C009DB3AC /* TMEDeviceManager.m */; };
 		D224261319A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */; };
 		D224261619A2070A009DB3AC /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261519A2070A009DB3AC /* TMEUserManager.m */; };
+		D27CECA919B01AD600565A5D /* TMESearchFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D27CECA719B01AD600565A5D /* TMESearchFilterViewController.m */; };
+		D27CECAA19B01AD600565A5D /* TMESearchFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D27CECA819B01AD600565A5D /* TMESearchFilterViewController.xib */; };
+		D27CECAD19B01AEB00565A5D /* TMESearchFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D27CECAC19B01AEB00565A5D /* TMESearchFilter.m */; };
+		D27CECB119B028E800565A5D /* TMESearchTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D27CECAF19B028E800565A5D /* TMESearchTextViewController.m */; };
+		D27CECB219B028E800565A5D /* TMESearchTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D27CECB019B028E800565A5D /* TMESearchTextViewController.xib */; };
+		D27CECB519B02E6A00565A5D /* TMESearchNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D27CECB419B02E6A00565A5D /* TMESearchNetworkClient.m */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
@@ -692,6 +698,16 @@
 		D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEDeviceManagerAppDelegateService.m; sourceTree = "<group>"; };
 		D224261419A2070A009DB3AC /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManager.h; sourceTree = "<group>"; };
 		D224261519A2070A009DB3AC /* TMEUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserManager.m; sourceTree = "<group>"; };
+		D27CECA619B01AD600565A5D /* TMESearchFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESearchFilterViewController.h; sourceTree = "<group>"; };
+		D27CECA719B01AD600565A5D /* TMESearchFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESearchFilterViewController.m; sourceTree = "<group>"; };
+		D27CECA819B01AD600565A5D /* TMESearchFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMESearchFilterViewController.xib; sourceTree = "<group>"; };
+		D27CECAB19B01AEB00565A5D /* TMESearchFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESearchFilter.h; sourceTree = "<group>"; };
+		D27CECAC19B01AEB00565A5D /* TMESearchFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESearchFilter.m; sourceTree = "<group>"; };
+		D27CECAE19B028E800565A5D /* TMESearchTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESearchTextViewController.h; sourceTree = "<group>"; };
+		D27CECAF19B028E800565A5D /* TMESearchTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESearchTextViewController.m; sourceTree = "<group>"; };
+		D27CECB019B028E800565A5D /* TMESearchTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMESearchTextViewController.xib; sourceTree = "<group>"; };
+		D27CECB319B02E6A00565A5D /* TMESearchNetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESearchNetworkClient.h; sourceTree = "<group>"; };
+		D27CECB419B02E6A00565A5D /* TMESearchNetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESearchNetworkClient.m; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1598,6 +1614,16 @@
 				B4AE17E4198EAF1400F6D601 /* TMESearchPageContentViewController.h */,
 				B4AE17E5198EAF1400F6D601 /* TMESearchPageContentViewController.m */,
 				B4AE17E6198EAF1400F6D601 /* TMESearchPageContentViewController.xib */,
+				D27CECA619B01AD600565A5D /* TMESearchFilterViewController.h */,
+				D27CECA719B01AD600565A5D /* TMESearchFilterViewController.m */,
+				D27CECA819B01AD600565A5D /* TMESearchFilterViewController.xib */,
+				D27CECAB19B01AEB00565A5D /* TMESearchFilter.h */,
+				D27CECAC19B01AEB00565A5D /* TMESearchFilter.m */,
+				D27CECAE19B028E800565A5D /* TMESearchTextViewController.h */,
+				D27CECAF19B028E800565A5D /* TMESearchTextViewController.m */,
+				D27CECB019B028E800565A5D /* TMESearchTextViewController.xib */,
+				D27CECB319B02E6A00565A5D /* TMESearchNetworkClient.h */,
+				D27CECB419B02E6A00565A5D /* TMESearchNetworkClient.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1733,6 +1759,7 @@
 				99EA0F591978492D00872EE4 /* TMEMyListingTableViewCell.xib in Resources */,
 				99EA0F3E1978492D00872EE4 /* TMEActivityViewController.xib in Resources */,
 				B4AE17EF198EAF9500F6D601 /* TMEBrowserPageContentViewController.xib in Resources */,
+				D27CECB219B028E800565A5D /* TMESearchTextViewController.xib in Resources */,
 				B470E4ED19AC320100F4FF18 /* TMEErrorReusableCollectionView.xib in Resources */,
 				99EA0F531978492D00872EE4 /* TMEHomeViewController.xib in Resources */,
 				B4F513E219AEE5BF003DE851 /* TMEDropDownMenuCell.xib in Resources */,
@@ -1740,6 +1767,7 @@
 				99EA0F701978492D00872EE4 /* TMEPublishProductViewController.xib in Resources */,
 				99EA0F461978492D00872EE4 /* TMEBrowserProductTableViewHeader.xib in Resources */,
 				99EA0F5B1978492D00872EE4 /* TMEMyListingViewController.xib in Resources */,
+				D27CECAA19B01AD600565A5D /* TMESearchFilterViewController.xib in Resources */,
 				99EA0F551978492D00872EE4 /* TMELikedTableViewCell.xib in Resources */,
 				B470E4FB19AC323B00F4FF18 /* TMEProductCollectionViewCell.xib in Resources */,
 				99EA0F5D1978492D00872EE4 /* TMEOfferedTableViewCell.xib in Resources */,
@@ -1820,6 +1848,7 @@
 				B4AE17E7198EAF1400F6D601 /* TMESearchPageContentViewController.m in Sources */,
 				99EA0F541978492D00872EE4 /* TMELikedTableViewCell.m in Sources */,
 				99EA0F131978492D00872EE4 /* ActiveSupportInflector.m in Sources */,
+				D27CECB119B028E800565A5D /* TMESearchTextViewController.m in Sources */,
 				99EA0F651978492D00872EE4 /* TMEOfferViewController.m in Sources */,
 				B470E4EE19AC320100F4FF18 /* TMELoadMoreCollectionFooterView.m in Sources */,
 				B470E4E819AC320100F4FF18 /* TMEErrorCollectionViewDataSource.m in Sources */,
@@ -1952,8 +1981,11 @@
 				99EA0F321978492D00872EE4 /* UITextView+Additions.m in Sources */,
 				D21698A119A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m in Sources */,
 				99EA0F351978492D00872EE4 /* UIView+Nib.m in Sources */,
+				D27CECB519B02E6A00565A5D /* TMESearchNetworkClient.m in Sources */,
 				99EA0F021978492D00872EE4 /* _TMEProductImages.m in Sources */,
+				D27CECA919B01AD600565A5D /* TMESearchFilterViewController.m in Sources */,
 				990CB7D4199A631F00AEA179 /* TMEGooglePlusManager.m in Sources */,
+				D27CECAD19B01AEB00565A5D /* TMESearchFilter.m in Sources */,
 				99EA0F3A1978492D00872EE4 /* UIPlaceHolderTextView.m in Sources */,
 				99EA0F3F1978492D00872EE4 /* TMEBaseArrayDataSourceWithLoadMore.m in Sources */,
 				99EA0EF01978492D00872EE4 /* TMEReachabilityAppDelegateService.m in Sources */,
