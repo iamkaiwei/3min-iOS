@@ -15,9 +15,5 @@
 
 }
 
-- (void)getAutocompleteForSearchText:(NSString *)searchText success:(TMEArraySuccessBlock)success failure:(TMEFailureBlock)failure
-{
-
-}
 
 @end

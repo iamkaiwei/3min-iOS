@@ -8,7 +8,7 @@
 
 typedef void(^TMEFailureBlock)(NSError *error);
 typedef void(^TMESuccessBlock)();
-typedef void(^TMEArraySuccessBlock)();
+typedef void(^TMEArraySuccessBlock)(NSArray *results);
 
 extern NSString *const TMEShowLoginViewControllerNotification;
 extern NSString *const TMEShowHomeViewControllerNotification;

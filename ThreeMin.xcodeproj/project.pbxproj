@@ -254,6 +254,8 @@
 		D27CECB119B028E800565A5D /* TMESearchTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D27CECAF19B028E800565A5D /* TMESearchTextViewController.m */; };
 		D27CECB219B028E800565A5D /* TMESearchTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D27CECB019B028E800565A5D /* TMESearchTextViewController.xib */; };
 		D27CECB519B02E6A00565A5D /* TMESearchNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D27CECB419B02E6A00565A5D /* TMESearchNetworkClient.m */; };
+		D27CECB819B0358300565A5D /* TMERecentSearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D27CECB719B0358300565A5D /* TMERecentSearchManager.m */; };
+		D27CECBB19B0362D00565A5D /* TMERecentSearchAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D27CECBA19B0362D00565A5D /* TMERecentSearchAppDelegateService.m */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
@@ -708,6 +710,10 @@
 		D27CECB019B028E800565A5D /* TMESearchTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMESearchTextViewController.xib; sourceTree = "<group>"; };
 		D27CECB319B02E6A00565A5D /* TMESearchNetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESearchNetworkClient.h; sourceTree = "<group>"; };
 		D27CECB419B02E6A00565A5D /* TMESearchNetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESearchNetworkClient.m; sourceTree = "<group>"; };
+		D27CECB619B0358300565A5D /* TMERecentSearchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMERecentSearchManager.h; sourceTree = "<group>"; };
+		D27CECB719B0358300565A5D /* TMERecentSearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMERecentSearchManager.m; sourceTree = "<group>"; };
+		D27CECB919B0362D00565A5D /* TMERecentSearchAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMERecentSearchAppDelegateService.h; sourceTree = "<group>"; };
+		D27CECBA19B0362D00565A5D /* TMERecentSearchAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMERecentSearchAppDelegateService.m; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1624,6 +1630,10 @@
 				D27CECB019B028E800565A5D /* TMESearchTextViewController.xib */,
 				D27CECB319B02E6A00565A5D /* TMESearchNetworkClient.h */,
 				D27CECB419B02E6A00565A5D /* TMESearchNetworkClient.m */,
+				D27CECB619B0358300565A5D /* TMERecentSearchManager.h */,
+				D27CECB719B0358300565A5D /* TMERecentSearchManager.m */,
+				D27CECB919B0362D00565A5D /* TMERecentSearchAppDelegateService.h */,
+				D27CECBA19B0362D00565A5D /* TMERecentSearchAppDelegateService.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1903,6 +1913,7 @@
 				99EA0F271978492D00872EE4 /* UIButton+Additions.m in Sources */,
 				99EA0F9F1978574000872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				99EA0F211978492D00872EE4 /* NSString+ActiveSupportInflector.m in Sources */,
+				D27CECBB19B0362D00565A5D /* TMERecentSearchAppDelegateService.m in Sources */,
 				99EA0F1E1978492D00872EE4 /* NSMutableArray+Additions.m in Sources */,
 				99EA0F241978492D00872EE4 /* UIAlertView+Additions.m in Sources */,
 				9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */,
@@ -1987,6 +1998,7 @@
 				990CB7D4199A631F00AEA179 /* TMEGooglePlusManager.m in Sources */,
 				D27CECAD19B01AEB00565A5D /* TMESearchFilter.m in Sources */,
 				99EA0F3A1978492D00872EE4 /* UIPlaceHolderTextView.m in Sources */,
+				D27CECB819B0358300565A5D /* TMERecentSearchManager.m in Sources */,
 				99EA0F3F1978492D00872EE4 /* TMEBaseArrayDataSourceWithLoadMore.m in Sources */,
 				99EA0EF01978492D00872EE4 /* TMEReachabilityAppDelegateService.m in Sources */,
 				99EA0F8C1978492D00872EE4 /* JZRefreshControl.m in Sources */,

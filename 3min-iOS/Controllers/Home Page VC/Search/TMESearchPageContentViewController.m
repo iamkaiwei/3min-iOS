@@ -12,6 +12,8 @@
 
 #import "TMESearchFilter.h"
 
+#import "TMESearchNetworkClient.h"
+
 
 @interface TMESearchPageContentViewController () <TMESearchTextViewController>
 
@@ -22,6 +24,8 @@
 @property (nonatomic, strong) UIViewController *searchResultVC;
 
 @property (nonatomic, strong) UIViewController *currentChildVC;
+
+@property (nonatomic, strong) TMESearchNetworkClient *searchNetworkClient;
 
 @end
 
@@ -39,6 +43,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.searchNetworkClient = [[TMESearchNetworkClient alloc] init];
 
     // Add SearchTextVC
     [self addChildVC:self.searchTextVC containerView:self.view];
@@ -102,7 +108,11 @@
 #pragma mark - TMESearchTextVC
 - (void)searchTextVC:(TMESearchTextViewController *)searchTextVC didSelectText:(NSString *)text
 {
+    [self.searchNetworkClient search:text sucess:^(NSArray *results) {
 
+    } failure:^(NSError *error) {
+
+    }];
 }
 
 @end

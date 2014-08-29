@@ -11,6 +11,5 @@
 @interface TMESearchNetworkClient : NSObject
 
 - (void)search:(NSString *)searchText sucess:(TMEArraySuccessBlock)success failure:(TMEFailureBlock)failure;
-- (void)getAutocompleteForSearchText:(NSString *)searchText success:(TMEArraySuccessBlock)success failure:(TMEFailureBlock)failure;
 
 @end
