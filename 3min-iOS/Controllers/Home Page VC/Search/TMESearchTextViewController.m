@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray *recentSearchTexts;
 
 @end
 
@@ -45,7 +46,9 @@
 #pragma mark - UISearchBarDelegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    if ([TMERecentSearchManager sharedManager].recentSearchTexts.count > 0) {
+    self.recentSearchTexts = [[TMERecentSearchManager sharedManager] recentSearchTexts];
+
+    if (self.recentSearchTexts.count > 0) {
         self.tableView.hidden = NO;
         [self.tableView reloadData];
     } else {
@@ -63,7 +66,9 @@
     [self.searchBar setShowsCancelButton:YES];
     [self.searchBar resignFirstResponder];
 
-    [[TMERecentSearchManager sharedManager].recentSearchTexts addObject:searchBar.text];
+    self.tableView.hidden = YES;
+
+    [[TMERecentSearchManager sharedManager] addSearchText:searchBar.text];
 
     if ([self.delegate respondsToSelector:@selector(searchBar:textDidChange:)]) {
         [self.delegate searchTextVC:self didSelectText:self.searchBar.text];
@@ -84,20 +89,23 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:UITableViewCell.kind];
 
-    UIButton *button = [[UIButton alloc] init];
+    // Footer
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+    button.backgroundColor = [UIColor lightGrayColor];
+    [button setTitle:@"Clear search history" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+
+    [button addTarget:self action:@selector(clearButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+
 
     self.tableView.tableFooterView = button;
+}
 
-    [button setTitle:@"Clear search history" forState:UIControlStateNormal];
-
-    button.translatesAutoresizingMaskIntoConstraints = NO;
-
-    [button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(44);
-        make.edges.equalTo(self.tableView);
-    }];
+- (void)clearButtonAction:(id)sender
+{
+    NSLog(@"buttonAction");
 }
 
 #pragma mark - UITableViewDataSource
@@ -108,13 +116,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [TMERecentSearchManager sharedManager].recentSearchTexts.count;
+    return self.recentSearchTexts.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Recent Search";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = [TMERecentSearchManager sharedManager].recentSearchTexts[indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:UITableViewCell.kind];
+    cell.textLabel.text = self.recentSearchTexts[indexPath.row];
 
     return cell;
 }
@@ -122,12 +135,11 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *selectedText = [TMERecentSearchManager sharedManager].recentSearchTexts[indexPath.row];
+    NSString *selectedText = self.recentSearchTexts[indexPath.row];
 
     self.searchBar.text = selectedText;
 
     self.tableView.hidden = YES;
 }
-
 
 @end

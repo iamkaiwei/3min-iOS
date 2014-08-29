@@ -12,7 +12,7 @@ static NSString * const kRecentSearchTextsKey = @"kRecentSearchTextsKey";
 
 @interface TMERecentSearchManager ()
 
-
+@property (nonatomic, strong) NSMutableArray *mutableRecentSearchTexts;
 
 @end
 
@@ -20,17 +20,33 @@ static NSString * const kRecentSearchTextsKey = @"kRecentSearchTextsKey";
 
 OMNIA_SINGLETON_M(sharedManager)
 
+#pragma mark - Public Interface
+- (NSArray *)recentSearchTexts
+{
+    return [NSArray arrayWithObject:self.mutableRecentSearchTexts];
+}
+
+- (void)addSearchText:(NSString *)text
+{
+    if ([self.mutableRecentSearchTexts containsObject:text]) {
+        [self.mutableRecentSearchTexts removeObject:text];
+    }
+
+    [self.mutableRecentSearchTexts insertObject:text atIndex:0];
+}
+
+#pragma mark - Persistence
 - (void)save
 {
-    [[NSUserDefaults standardUserDefaults] setObject:self.recentSearchTexts forKey:kRecentSearchTextsKey];
+    [[NSUserDefaults standardUserDefaults] setObject:self.mutableRecentSearchTexts forKey:kRecentSearchTextsKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)load
 {
-    self.recentSearchTexts = [[NSUserDefaults standardUserDefaults] objectForKey:kRecentSearchTextsKey];
-    if (!self.recentSearchTexts) {
-        self.recentSearchTexts = [NSMutableArray array];
+    self.mutableRecentSearchTexts = [[NSUserDefaults standardUserDefaults] objectForKey:kRecentSearchTextsKey];
+    if (!self.mutableRecentSearchTexts) {
+        self.mutableRecentSearchTexts = [NSMutableArray array];
     }
 }
 

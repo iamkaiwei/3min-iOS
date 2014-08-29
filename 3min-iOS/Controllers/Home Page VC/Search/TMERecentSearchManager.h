@@ -15,6 +15,7 @@ OMNIA_SINGLETON_H(sharedManager)
 - (void)save;
 - (void)load;
 
-@property (nonatomic, strong) NSMutableArray *recentSearchTexts;
+- (NSArray *)recentSearchTexts;
+- (void)addSearchText:(NSString *)text;
 
 @end
