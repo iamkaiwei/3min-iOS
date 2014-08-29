@@ -21,33 +21,34 @@
 
 @implementation TMEDropDownMenuViewController
 
-- (void)viewDidLoad {
-	[super viewDidLoad];
-	// Do any additional setup after loading the view from its nib.
-
-	[self.viewModel.datasource setCellAndFooterClasses:self.collectionView];
-
-	self.collectionView.hidden = YES;
-
-	self.kvoController = [[FBKVOController alloc] initWithObserver:self];
-	[self.kvoController observe:self.viewModel keyPath:@"arrCategories" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
-	    typeof(self) innerSelf = observer;
-	    [innerSelf.collectionView reloadData];
-	    innerSelf.constraintCollectionViewHeight.constant = [innerSelf.viewModel.datasource totalCellHeight];
-	    [innerSelf.collectionView setNeedsLayout];
-	    [innerSelf.collectionView layoutIfNeeded];
-	    innerSelf.collectionView.hidden = NO;
-	}];
-
-	[self.viewModel getCategories:nil];
-}
-
-- (TMEDropDownViewModel *)viewModel {
-	if (!_viewModel) {
-		_viewModel = [[TMEDropDownViewModel alloc] initWithCollectionView:self.collectionView];
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
 	}
 
-	return _viewModel;
+	return self;
+}
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	self.collectionView.hidden = YES;
+
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+	    self.kvoController = [[FBKVOController alloc] initWithObserver:self];
+	    self.viewModel = [[TMEDropDownViewModel alloc] initWithCollectionView:self.collectionView];
+	    [self.viewModel.datasource setCellAndFooterClasses:self.collectionView];
+	    [self.kvoController observe:self.viewModel keyPath:@"arrCategories" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
+	        typeof(self) innerSelf = observer;
+	        innerSelf.collectionView.dataSource = self.viewModel.datasource;
+	        [innerSelf.collectionView reloadData];
+	        innerSelf.constraintCollectionViewHeight.constant = [innerSelf.viewModel.datasource totalCellHeight];
+	        [innerSelf.collectionView setNeedsLayout];
+	        [innerSelf.collectionView layoutIfNeeded];
+	        innerSelf.collectionView.hidden = NO;
+		}];
+	});
+	[self.viewModel getCategories:nil];
 }
 
 @end

@@ -12,7 +12,6 @@
 
 @property (strong, nonatomic, readwrite) TMEDropDownDatasource *datasource;
 @property (strong, nonatomic, readwrite) NSMutableArray *arrCategories;
-@property (weak, nonatomic) UICollectionView *collectionView;
 
 @end
 
@@ -20,19 +19,13 @@
 
 - (id)initWithCollectionView:(UICollectionView *)collectionView {
 	self = [super init];
+    NSParameterAssert(collectionView);
 	if (self) {
         _collectionView = collectionView;
-        _collectionView.dataSource = self.datasource;
+        _datasource = [[TMEDropDownDatasource alloc] initWithItems:self.arrCategories];
+        _collectionView.dataSource = _datasource;
 	}
 	return self;
-}
-
-- (TMEDropDownDatasource *)datasource {
-    if (!_datasource) {
-        _datasource = [[TMEDropDownDatasource alloc] initWithItems:self.arrCategories];
-    }
-
-    return _datasource;
 }
 
 - (NSArray *)arrCategories {
@@ -43,8 +36,16 @@
 }
 
 - (void)getCategories:(void (^)(NSArray *category, NSError *error))block {
+
+    // on memory cache
+    if (self.arrCategories.count > 0) {
+        if (block) {
+            block(self.arrCategories, nil);
+        }
+        return;
+    }
+
 	[[TMECategoryManager sharedManager] getAllCategoriesWithSuccess: ^(NSArray *categories) {
-//        self.arrCategories = [categories mutableCopy];
         [self willChangeValueForKey:@"arrCategories"];
         [self.arrCategories addObjectsFromArray:categories];
         [self didChangeValueForKey:@"arrCategories"];

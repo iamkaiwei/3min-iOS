@@ -83,6 +83,7 @@ static CGFloat kDropDownMenuCellHeight = 50;
 }
 
 - (CGFloat)totalCellHeight {
+    return 300;
     return [self.collectionView numberOfItemsInSection:0] * kDropDownMenuCellHeight;
 }
 

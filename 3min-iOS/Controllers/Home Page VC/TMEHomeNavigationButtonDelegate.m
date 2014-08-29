@@ -14,8 +14,9 @@
 @property (weak, nonatomic) TMEPageViewController *pageViewController;
 @property (weak, nonatomic) TMENavigationViewController *navViewController;
 
-@property (strong, nonatomic) UIViewController *backgroundVC;
 @property (assign, nonatomic) BOOL isShowingMenu;
+
+@property (strong, nonatomic) TMEDropDownMenuViewController *dropdownVC;
 
 @end
 
@@ -65,31 +66,36 @@
 	[self tongleMenu];
 }
 
+- (TMEDropDownMenuViewController *)dropdownVC {
+    if (!_dropdownVC) {
+        _dropdownVC = [[TMEDropDownMenuViewController alloc] init];
+    }
+    return _dropdownVC;
+}
+
 - (void)tongleMenu {
 	if (self.isShowingMenu == YES) {
-		[self.backgroundVC.view removeFromSuperview];
-		[self.backgroundVC removeFromParentViewController];
+		[self.dropdownVC.view removeFromSuperview];
+		[self.dropdownVC removeFromParentViewController];
 		self.isShowingMenu = NO;
 		return;
 	}
 
 	self.isShowingMenu = YES;
-	self.backgroundVC = [[TMEDropDownMenuViewController alloc] init];
 
-	self.backgroundVC.view.frame = ({
+	self.dropdownVC.view.frame = ({
 	                                    CGRect frame = self.navViewController.view.bounds;
 	                                    frame.origin = CGPointMake(0, 64);
 	                                    frame;
 									});
 
-	self.backgroundVC.view.backgroundColor = [UIColor grayColor];
-	[self.navViewController addChildViewController:self.backgroundVC];
-	[self.navViewController.view addSubview:self.backgroundVC.view];
-	[self.backgroundVC didMoveToParentViewController:self.navViewController];
+	[self.navViewController addChildViewController:self.dropdownVC];
+	[self.navViewController.view addSubview:self.dropdownVC.view];
+	[self.dropdownVC didMoveToParentViewController:self.navViewController];
 
     UITapGestureRecognizer *tapToDismiss = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tongleMenu)];
     tapToDismiss.numberOfTouchesRequired = 1;
-    [self.backgroundVC.view addGestureRecognizer:tapToDismiss];
+    [self.dropdownVC.view addGestureRecognizer:tapToDismiss];
 }
 
 @end

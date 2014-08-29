@@ -33,7 +33,7 @@
                     <cells/>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="PfJ-1R-K7x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6ni-ra-Zah"/>
                 <constraint firstAttribute="trailing" secondItem="PfJ-1R-K7x" secondAttribute="trailing" id="bmn-sY-wyh"/>

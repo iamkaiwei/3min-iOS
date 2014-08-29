@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic, readonly) NSMutableArray *arrCategories;
 @property (strong, nonatomic, readonly) TMEDropDownDatasource *datasource;
+@property (weak, nonatomic) UICollectionView *collectionView;
 
 - (id)initWithCollectionView:(UICollectionView *)collectionView __attribute__((objc_designated_initializer));
 - (void)getCategories:(void(^)(NSArray* category, NSError *error))block;
