@@ -8,9 +8,9 @@
 
 #import "TMEDropDownDatasource.h"
 
-static CGFloat kDropDownMenuCellHeight = 50;
+static CGFloat kDropDownMenuCellHeight = 51;
 
-@interface TMEDropDownDatasource()
+@interface TMEDropDownDatasource ()
 
 @property (strong, nonatomic, readwrite) NSMutableArray *arrCategories;
 @property (copy, nonatomic) IdentifierParserBlock identifierParserBlock;
@@ -23,68 +23,69 @@ static CGFloat kDropDownMenuCellHeight = 50;
 @implementation TMEDropDownDatasource
 
 - (id)initWithItems:(NSMutableArray *)items {
-    self = [super init];
-    if (self) {
-        _arrCategories = items;
-    }
+	self = [super init];
+	if (self) {
+		_arrCategories = items;
+	}
 
-    return self;
+	return self;
 }
 
 - (NSArray *)arrCategories {
-    if (!_arrCategories) {
-        _arrCategories = @[].mutableCopy;
-    }
-    return _arrCategories;
+	if (!_arrCategories) {
+		_arrCategories = @[].mutableCopy;
+	}
+	return _arrCategories;
 }
 
 - (void)setCellAndFooterClasses:(UICollectionView *)collectionView {
-    self.collectionView = collectionView;
-    [collectionView registerNib:[TMEDropDownMenuCell defaultNib] forCellWithReuseIdentifier:NSStringFromClass([TMEDropDownMenuCell class])];
+	self.collectionView = collectionView;
+	[collectionView registerNib:[TMEDropDownMenuCell defaultNib] forCellWithReuseIdentifier:NSStringFromClass([TMEDropDownMenuCell class])];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+	return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.arrCategories.count;
+	return self.arrCategories.count;
 }
 
 - (CollectionViewCellConfigureBlock)configureCellBlock {
-    CollectionViewCellConfigureBlock configBlock = ^(id item, UICollectionViewCell *cell) {
-
-    };
-    return configBlock;
+	CollectionViewCellConfigureBlock configBlock = ^(id item, TMEDropDownMenuCell *cell) {
+		if ([item isKindOfClass:[TMECategory class]]) {
+			[cell configWithCategory:item];
+		}
+	};
+	return configBlock;
 }
 
 - (IdentifierParserBlock)identifierParserBlock {
-    IdentifierParserBlock identifierBlock = ^(id item) {
-        return NSStringFromClass([TMEDropDownMenuCell class]);
-    };
-    return identifierBlock;
+	IdentifierParserBlock identifierBlock = ^(id item) {
+		return NSStringFromClass([TMEDropDownMenuCell class]);
+	};
+	return identifierBlock;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-
-    id item = [self itemAtIndexPath:indexPath];
-    NSString *identifier = self.identifierParserBlock(item);
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    self.configureCellBlock(item, cell);
-    return cell;
+	id item = [self itemAtIndexPath:indexPath];
+	NSString *identifier = self.identifierParserBlock(item);
+	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+	self.configureCellBlock(item, cell);
+	return cell;
 }
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row >= self.arrCategories.count) {
-        return nil;
-    }
+	if (indexPath.row >= self.arrCategories.count) {
+		return nil;
+	}
 
-    return self.arrCategories[indexPath.row];
+	return self.arrCategories[indexPath.row];
 }
 
 - (CGFloat)totalCellHeight {
-    return 300;
-    return [self.collectionView numberOfItemsInSection:0] * kDropDownMenuCellHeight;
+//	return 300;
+	return [self.collectionView numberOfItemsInSection:0] * kDropDownMenuCellHeight;
 }
 
 @end

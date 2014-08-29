@@ -10,4 +10,6 @@
 
 @interface TMEDropDownMenuCell : UICollectionViewCell
 
+- (void)configWithCategory:(TMECategory *)category;
+
 @end

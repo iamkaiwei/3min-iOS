@@ -8,24 +8,18 @@
 
 #import "TMEDropDownMenuCell.h"
 
+@interface TMEDropDownMenuCell()
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewCategory;
+@property (weak, nonatomic) IBOutlet UILabel *lblCategoryName;
+
+@end
+
 @implementation TMEDropDownMenuCell
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+- (void)configWithCategory:(TMECategory *)category {
+    self.lblCategoryName.text = category.name;
+    [self.imageViewCategory sd_setImageWithURL:[NSURL URLWithString:[category.image urlString]]];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

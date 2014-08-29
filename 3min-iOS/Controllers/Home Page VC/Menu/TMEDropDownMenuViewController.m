@@ -21,16 +21,9 @@
 
 @implementation TMEDropDownMenuViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-	if (self) {
-	}
-
-	return self;
-}
-
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	self.view.backgroundColor = [UIColor colorWithHexString:@"#000" alpha:0.4];
 	self.collectionView.hidden = YES;
 
 	static dispatch_once_t onceToken;

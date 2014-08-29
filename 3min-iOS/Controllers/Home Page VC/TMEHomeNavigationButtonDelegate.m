@@ -41,36 +41,36 @@
 }
 
 - (void)onTapSearchButton:(UIButton *)sender {
-    if (self.isShowingMenu) {
-        [self tongleMenu];
-        return;
-    }
+	if (self.isShowingMenu) {
+		[self tongleMenu];
+		return;
+	}
 	[self.pageViewController goToSearchViewController];
 }
 
 - (void)onTapProfileButton:(UIButton *)sender {
-    if (self.isShowingMenu) {
-        [self tongleMenu];
-        return;
-    }
+	if (self.isShowingMenu) {
+		[self tongleMenu];
+		return;
+	}
 	[self.pageViewController goToProfileViewController];
 }
 
 - (void)onTapTitleButton:(UIButton *)sender {
-    if (self.isShowingMenu) {
-        [self tongleMenu];
-        return;
-    }
+	if (self.isShowingMenu) {
+		[self tongleMenu];
+		return;
+	}
 
 	[self.pageViewController goToBrowserProductViewController];
 	[self tongleMenu];
 }
 
 - (TMEDropDownMenuViewController *)dropdownVC {
-    if (!_dropdownVC) {
-        _dropdownVC = [[TMEDropDownMenuViewController alloc] init];
-    }
-    return _dropdownVC;
+	if (!_dropdownVC) {
+		_dropdownVC = [[TMEDropDownMenuViewController alloc] init];
+	}
+	return _dropdownVC;
 }
 
 - (void)tongleMenu {
@@ -82,20 +82,18 @@
 	}
 
 	self.isShowingMenu = YES;
-
 	self.dropdownVC.view.frame = ({
-	                                    CGRect frame = self.navViewController.view.bounds;
-	                                    frame.origin = CGPointMake(0, 64);
-	                                    frame;
-									});
-
+	                                  CGRect frame = self.navViewController.view.bounds;
+	                                  frame.origin = CGPointMake(0, 64);
+	                                  frame;
+								  });
 	[self.navViewController addChildViewController:self.dropdownVC];
 	[self.navViewController.view addSubview:self.dropdownVC.view];
 	[self.dropdownVC didMoveToParentViewController:self.navViewController];
 
-    UITapGestureRecognizer *tapToDismiss = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tongleMenu)];
-    tapToDismiss.numberOfTouchesRequired = 1;
-    [self.dropdownVC.view addGestureRecognizer:tapToDismiss];
+	UITapGestureRecognizer *tapToDismiss = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tongleMenu)];
+	tapToDismiss.numberOfTouchesRequired = 1;
+	[self.dropdownVC.view addGestureRecognizer:tapToDismiss];
 }
 
 @end
