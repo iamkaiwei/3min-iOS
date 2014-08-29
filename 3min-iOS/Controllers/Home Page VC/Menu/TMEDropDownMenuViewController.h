@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TMEHomeNavigationButtonDelegate.h"
 
 @interface TMEDropDownMenuViewController : UIViewController
+
+@property (nonatomic, assign) id<TMEHomeNavigationButtonProtocol> delegate;
 
 @end

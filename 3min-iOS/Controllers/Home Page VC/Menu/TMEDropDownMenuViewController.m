@@ -40,7 +40,12 @@
 	        [innerSelf.collectionView layoutIfNeeded];
 	        innerSelf.collectionView.hidden = NO;
 		}];
+
+	    UITapGestureRecognizer *tapToDismiss = [[UITapGestureRecognizer alloc] initWithTarget:self.delegate action:@selector(tongleMenu:)];
+	    tapToDismiss.numberOfTouchesRequired = 1;
+	    [self.view addGestureRecognizer:tapToDismiss];
 	});
+    
 	[self.viewModel getCategories:nil];
 }
 

@@ -13,6 +13,7 @@
 - (void)onTapProfileButton:(UIButton *)sender;
 - (void)onTapSearchButton:(UIButton *)sender;
 - (void)onTapTitleButton:(UIButton *)sender;
+- (void)tongleMenu:(id)sender;
 
 @end
 

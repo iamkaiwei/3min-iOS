@@ -42,7 +42,7 @@
 
 - (void)onTapSearchButton:(UIButton *)sender {
 	if (self.isShowingMenu) {
-		[self tongleMenu];
+		[self tongleMenu:sender];
 		return;
 	}
 	[self.pageViewController goToSearchViewController];
@@ -50,7 +50,7 @@
 
 - (void)onTapProfileButton:(UIButton *)sender {
 	if (self.isShowingMenu) {
-		[self tongleMenu];
+		[self tongleMenu:sender];
 		return;
 	}
 	[self.pageViewController goToProfileViewController];
@@ -58,22 +58,23 @@
 
 - (void)onTapTitleButton:(UIButton *)sender {
 	if (self.isShowingMenu) {
-		[self tongleMenu];
+		[self tongleMenu:sender];
 		return;
 	}
 
 	[self.pageViewController goToBrowserProductViewController];
-	[self tongleMenu];
+	[self tongleMenu:sender];
 }
 
 - (TMEDropDownMenuViewController *)dropdownVC {
 	if (!_dropdownVC) {
 		_dropdownVC = [[TMEDropDownMenuViewController alloc] init];
+        _dropdownVC.delegate = self;
 	}
 	return _dropdownVC;
 }
 
-- (void)tongleMenu {
+- (void)tongleMenu:(id)sender {
 	if (self.isShowingMenu == YES) {
 		[self.dropdownVC.view removeFromSuperview];
 		[self.dropdownVC removeFromParentViewController];
@@ -90,10 +91,7 @@
 	[self.navViewController addChildViewController:self.dropdownVC];
 	[self.navViewController.view addSubview:self.dropdownVC.view];
 	[self.dropdownVC didMoveToParentViewController:self.navViewController];
-
-	UITapGestureRecognizer *tapToDismiss = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tongleMenu)];
-	tapToDismiss.numberOfTouchesRequired = 1;
-	[self.dropdownVC.view addGestureRecognizer:tapToDismiss];
+    self.navViewController.view.gestureRecognizers = self.dropdownVC.view.gestureRecognizers;
 }
 
 @end
