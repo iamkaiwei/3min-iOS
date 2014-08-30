@@ -23,8 +23,6 @@
 
 @property (assign, nonatomic) NSUInteger page;
 
-@property (strong, nonatomic) TMECategory *currentCategory;
-
 @end
 
 @implementation TMEBrowserProductViewModel
@@ -68,13 +66,6 @@
 		}];
 
 		_collectionView = collection;
-
-		__weak typeof(self) weakSelf = self;
-
-		[[NSNotificationCenter defaultCenter] addObserverForName:TMEHomeCategoryDidChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock: ^(NSNotification *note) {
-		    TMEDropDownMenuViewController *vc = note.object;
-		    weakSelf.currentCategory = vc.selectedCategory;
-		}];
 	}
 	return self;
 }

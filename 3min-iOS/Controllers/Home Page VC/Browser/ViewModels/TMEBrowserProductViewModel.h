@@ -27,6 +27,8 @@ typedef NS_ENUM(NSUInteger, TMEViewModelState) {
 
 @property (nonatomic, readonly) TMEViewModelState state;
 
+@property (strong, nonatomic) TMECategory *currentCategory;
+
 /**
  *  Reload product from begining
  */
