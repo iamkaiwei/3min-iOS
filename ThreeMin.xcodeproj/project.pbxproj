@@ -204,6 +204,8 @@
 		B410F76219961A7C000AE5B7 /* TMECategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F75E19961A7C000AE5B7 /* TMECategoryManager.m */; };
 		B410F76419961A84000AE5B7 /* TMENetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76319961A84000AE5B7 /* TMENetworkManager.m */; };
 		B410F76719961AA5000AE5B7 /* TMEBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76619961AA5000AE5B7 /* TMEBaseManager.m */; };
+		B41929E419B1E72C00E50CED /* TMETakePhotoButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41929E219B1E72C00E50CED /* TMETakePhotoButtonViewController.m */; };
+		B41929E519B1E72C00E50CED /* TMETakePhotoButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B41929E319B1E72C00E50CED /* TMETakePhotoButtonViewController.xib */; };
 		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
 		B470E4D319AAF93500F4FF18 /* TMEHomeNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E4D219AAF93500F4FF18 /* TMEHomeNavigationViewController.m */; };
 		B470E4E719AC320100F4FF18 /* FPCollectionArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E4D619AC320100F4FF18 /* FPCollectionArrayDataSource.m */; };
@@ -611,6 +613,9 @@
 		B410F76319961A84000AE5B7 /* TMENetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMENetworkManager.m; sourceTree = "<group>"; };
 		B410F76519961AA5000AE5B7 /* TMEBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseManager.h; sourceTree = "<group>"; };
 		B410F76619961AA5000AE5B7 /* TMEBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseManager.m; sourceTree = "<group>"; };
+		B41929E119B1E72C00E50CED /* TMETakePhotoButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETakePhotoButtonViewController.h; sourceTree = "<group>"; };
+		B41929E219B1E72C00E50CED /* TMETakePhotoButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETakePhotoButtonViewController.m; sourceTree = "<group>"; };
+		B41929E319B1E72C00E50CED /* TMETakePhotoButtonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMETakePhotoButtonViewController.xib; sourceTree = "<group>"; };
 		B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B470E4D119AAF93500F4FF18 /* TMEHomeNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHomeNavigationViewController.h; sourceTree = "<group>"; };
 		B470E4D219AAF93500F4FF18 /* TMEHomeNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEHomeNavigationViewController.m; sourceTree = "<group>"; };
@@ -1499,6 +1504,16 @@
 			path = YIFullScreenScroll;
 			sourceTree = "<group>";
 		};
+		B41929E019B1E71300E50CED /* Take Photo Button */ = {
+			isa = PBXGroup;
+			children = (
+				B41929E119B1E72C00E50CED /* TMETakePhotoButtonViewController.h */,
+				B41929E219B1E72C00E50CED /* TMETakePhotoButtonViewController.m */,
+				B41929E319B1E72C00E50CED /* TMETakePhotoButtonViewController.xib */,
+			);
+			path = "Take Photo Button";
+			sourceTree = "<group>";
+		};
 		B470E4D419AC320100F4FF18 /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1553,6 +1568,7 @@
 		B4AE17DA198EAE1F00F6D601 /* Home Page VC */ = {
 			isa = PBXGroup;
 			children = (
+				B41929E019B1E71300E50CED /* Take Photo Button */,
 				B4F513D219AEDC9E003DE851 /* Menu */,
 				B4AE17EA198EAF8600F6D601 /* Profile */,
 				B4AE17E9198EAF7B00F6D601 /* Browser */,
@@ -1730,6 +1746,7 @@
 				99EA0F741978492D00872EE4 /* TMESearchViewController.xib in Resources */,
 				99EA0F141978492D00872EE4 /* ActiveSupportInflector.plist in Resources */,
 				99EA0F631978492D00872EE4 /* TMEMeViewController.xib in Resources */,
+				B41929E519B1E72C00E50CED /* TMETakePhotoButtonViewController.xib in Resources */,
 				99EA0F431978492D00872EE4 /* TMEBrowserProductsViewController.xib in Resources */,
 				99EA0F5F1978492D00872EE4 /* TMEOfferedViewController.xib in Resources */,
 				99EA0F511978492D00872EE4 /* TMELeftMenuViewController.xib in Resources */,
@@ -1878,6 +1895,7 @@
 				B470E4EC19AC320100F4FF18 /* TMEErrorReusableCollectionView.m in Sources */,
 				99EA0F2C1978492D00872EE4 /* UIImage+ImageEffects.m in Sources */,
 				B410F754199619DF000AE5B7 /* TMEBaseModel.m in Sources */,
+				B41929E419B1E72C00E50CED /* TMETakePhotoButtonViewController.m in Sources */,
 				99EA0F4C1978492D00872EE4 /* HTKContainerViewController.m in Sources */,
 				D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */,
 				99EA0F2D1978492D00872EE4 /* UIImageView+Additions.m in Sources */,
