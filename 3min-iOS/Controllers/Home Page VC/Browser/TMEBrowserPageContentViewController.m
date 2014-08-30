@@ -65,6 +65,10 @@
 	[self addPullToRefresh];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)addPullToRefresh {
 	self.refreshView = [[UIRefreshControl alloc] init];
 	[self.collectionViewProducts addSubview:self.refreshView];

@@ -38,25 +38,18 @@
 			    UIButton *rightButton = [rootViewController.navigationItem.rightBarButtonItem getButton];
 			    UIButton *centerButton = [rootViewController.navigationItem.titleView getButton];
 
-//                leftButton.highlighted = NO;
-//                rightButton.highlighted = NO;
-//                centerButton.highlighted = NO;
-
                 leftButton.selected = NO;
                 rightButton.selected = NO;
                 centerButton.selected = NO;
 
 			    if ([viewController isKindOfClass:[TMESearchPageContentViewController class]]) {
-//			        leftButton.highlighted = YES;
 			        leftButton.selected = YES;
 				}
 			    if ([viewController isKindOfClass:[TMEProfilePageContentViewController class]]) {
-//                    rightButton.highlighted = YES;
 			        rightButton.selected = YES;
 				}
 			    if ([viewController isKindOfClass:[TMEBrowserPageContentViewController class]]) {
-//                    centerButton.highlighted = YES;
-                    centerButton.highlighted = YES;
+                    centerButton.selected = YES;
 				}
 			}];
 		}

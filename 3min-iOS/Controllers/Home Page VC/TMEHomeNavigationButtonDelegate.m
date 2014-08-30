@@ -45,7 +45,7 @@
 		return;
 	}
 	[self.pageViewController goToSearchViewController];
-    [self performSelector:@selector(keepSelected:) withObject:sender afterDelay:0.1];
+    [self keepSelected:sender];
 }
 
 - (void)onTapProfileButton:(UIButton *)sender {
@@ -54,24 +54,26 @@
 		return;
 	}
 	[self.pageViewController goToProfileViewController];
-    [self performSelector:@selector(keepSelected:) withObject:sender afterDelay:0.1];
+	[self keepSelected:sender];
 }
 
 - (void)onTapTitleButton:(UIButton *)sender {
-	if (self.isShowingMenu) {
+    [self keepSelected:sender];
+
+	BOOL isOnBrowserProductPage = [self.pageViewController.currentViewController isKindOfClass:[TMEBrowserPageContentViewController class]];
+
+	if (isOnBrowserProductPage) {
 		[self tongleMenu:sender];
 		return;
 	}
 
 	[self.pageViewController goToBrowserProductViewController];
-    [self performSelector:@selector(keepSelected:) withObject:sender afterDelay:0.1];
-	[self tongleMenu:sender];
 }
 
 - (TMEDropDownMenuViewController *)dropdownVC {
 	if (!_dropdownVC) {
 		_dropdownVC = [[TMEDropDownMenuViewController alloc] init];
-        _dropdownVC.delegate = self;
+		_dropdownVC.delegate = self;
 	}
 	return _dropdownVC;
 }
@@ -93,12 +95,11 @@
 	[self.navViewController addChildViewController:self.dropdownVC];
 	[self.navViewController.view addSubview:self.dropdownVC.view];
 	[self.dropdownVC didMoveToParentViewController:self.navViewController];
-    self.navViewController.view.gestureRecognizers = self.dropdownVC.view.gestureRecognizers;
+	self.navViewController.view.gestureRecognizers = self.dropdownVC.view.gestureRecognizers;
 }
 
 - (void)keepSelected:(UIButton *)button {
-    button.selected = YES;
-//    button.highlighted = YES;
+	button.selected = YES;
 }
 
 @end
