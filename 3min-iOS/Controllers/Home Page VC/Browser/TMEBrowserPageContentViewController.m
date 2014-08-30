@@ -51,6 +51,8 @@
 	[self addPullToRefresh];
 }
 
+#pragma mark -
+
 - (void)reloadCollectionWheneverViewModelStateChanged {
 	self.kvoController = [FBKVOController controllerWithObserver:self];
 

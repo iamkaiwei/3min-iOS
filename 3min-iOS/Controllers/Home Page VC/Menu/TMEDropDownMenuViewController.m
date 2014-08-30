@@ -54,7 +54,7 @@
 
 
 /**
- *  Weird, i added gesture for the parent view but the child view also response for it
+ *  Weird, i added gestures for the parent view but the child view also responses for it
  */
 
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
