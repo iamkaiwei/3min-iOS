@@ -44,6 +44,14 @@
 
 	[self configCollectionProducts];
 
+    [self reloadCollectionWheneverViewModelStateChanged];
+
+    [self listenToTheCategoryDidChangedNofitication];
+
+	[self addPullToRefresh];
+}
+
+- (void)reloadCollectionWheneverViewModelStateChanged {
 	self.kvoController = [FBKVOController controllerWithObserver:self];
 
 	[self.kvoController observe:self.viewModel keyPath:@"state" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
@@ -54,7 +62,9 @@
 	    innerSelf.collectionViewProducts.delegate = (id <UICollectionViewDelegate> )innerSelf.chainDelegate;
 	    [innerSelf.collectionViewProducts reloadData];
 	}];
+}
 
+- (void)listenToTheCategoryDidChangedNofitication {
 	__weak typeof(self) weakSelf = self;
 	[[NSNotificationCenter defaultCenter] addObserverForName:TMEHomeCategoryDidChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock: ^(NSNotification *note) {
 	    TMEDropDownMenuViewController *vc = note.object;
@@ -63,8 +73,6 @@
         [centerBtn setTitle:weakSelf.viewModel.currentCategory.name forState:UIControlStateNormal];
         [centerBtn setTitle:weakSelf.viewModel.currentCategory.name forState:UIControlStateSelected];
 	}];
-
-	[self addPullToRefresh];
 }
 
 - (void)dealloc {

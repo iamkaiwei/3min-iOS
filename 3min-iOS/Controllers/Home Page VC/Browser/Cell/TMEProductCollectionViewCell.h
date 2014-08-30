@@ -12,6 +12,7 @@
 
 @protocol TMEProductCollectionViewCellDelete <NSObject>
 
+@optional
 - (void)tapOnLikeProductOnCell:(TMEProductCollectionViewCell *)cell;
 - (void)tapOnShareProductOnCell:(TMEProductCollectionViewCell *)cell;
 - (void)tapOnCommentProductOnCell:(TMEProductCollectionViewCell *)cell;
