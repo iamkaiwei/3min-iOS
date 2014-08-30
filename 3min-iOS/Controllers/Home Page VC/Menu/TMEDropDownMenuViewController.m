@@ -68,8 +68,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     TMECategory *category = (TMECategory *)[self.viewModel itemAtIndexPath:indexPath];
-    [[NSNotificationCenter defaultCenter] postNotificationName:TMEHomeCategoryDidChangedNotification object:self];
     self.selectedCategory = category;
+    [[NSNotificationCenter defaultCenter] postNotificationName:TMEHomeCategoryDidChangedNotification object:self];
     [self.delegate tongleMenu:nil];
 }
 

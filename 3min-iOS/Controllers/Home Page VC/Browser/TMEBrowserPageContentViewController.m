@@ -12,6 +12,7 @@
 #import "TMEBrowserProductViewModel.h"
 #import "TMELoadMoreCollectionFooterView.h"
 #import "TMEDropDownMenuViewController.h"
+#import "UIView+TitleViewUtils.h"
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
 @interface TMEBrowserPageContentViewController ()
@@ -54,12 +55,13 @@
 	    [innerSelf.collectionViewProducts reloadData];
 	}];
 
-
 	__weak typeof(self) weakSelf = self;
-
 	[[NSNotificationCenter defaultCenter] addObserverForName:TMEHomeCategoryDidChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock: ^(NSNotification *note) {
 	    TMEDropDownMenuViewController *vc = note.object;
 	    weakSelf.viewModel.currentCategory = vc.selectedCategory;
+        UIButton *centerBtn = [weakSelf.parentViewController.navigationItem.titleView getButton];
+        [centerBtn setTitle:weakSelf.viewModel.currentCategory.name forState:UIControlStateNormal];
+        [centerBtn setTitle:weakSelf.viewModel.currentCategory.name forState:UIControlStateSelected];
 	}];
 
 	[self addPullToRefresh];
