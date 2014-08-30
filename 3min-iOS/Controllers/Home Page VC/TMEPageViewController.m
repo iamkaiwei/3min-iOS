@@ -61,7 +61,6 @@
     UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(60, 0, 200, 40)];
     UIButton *button = [[UIButton alloc] initWithFrame:titleView.bounds];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [button setTitleColor:[UIColor colorWithHexString:@"#FF938D"] forState:UIControlStateNormal];
     [button setTitle:@"Controller title" forState:UIControlStateNormal];
     [button addTarget:self.buttonsController action:@selector(onTapTitleButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -73,7 +72,7 @@
 - (UIBarButtonItem *)searchIcon {
     UIButton *searchBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 40)];
     [searchBtn setImage:[UIImage imageNamed:@"icn_search_hide"] forState:UIControlStateNormal];
-    [searchBtn setImage:[UIImage imageNamed:@"icn_search"] forState:UIControlStateHighlighted];
+    [searchBtn setImage:[UIImage imageNamed:@"icn_search"] forState:UIControlStateSelected];
     [searchBtn addTarget:self.buttonsController action:@selector(onTapSearchButton:) forControlEvents:UIControlEventTouchUpInside];
     searchBtn.opaque = YES;
     UIBarButtonItem *searchIcon = [[UIBarButtonItem alloc] initWithCustomView:searchBtn];
@@ -83,7 +82,7 @@
 - (UIBarButtonItem *)profileIcon {
     UIButton *profileBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 40)];
     [profileBtn setImage:[UIImage imageNamed:@"icn_profile_hide"] forState:UIControlStateNormal];
-    [profileBtn setImage:[UIImage imageNamed:@"icn_profile"] forState:UIControlStateHighlighted];
+    [profileBtn setImage:[UIImage imageNamed:@"icn_profile"] forState:UIControlStateSelected];
     [profileBtn addTarget:self.buttonsController action:@selector(onTapProfileButton:) forControlEvents:UIControlEventTouchUpInside];
     profileBtn.opaque = YES;
     UIBarButtonItem *searchIcon = [[UIBarButtonItem alloc] initWithCustomView:profileBtn];

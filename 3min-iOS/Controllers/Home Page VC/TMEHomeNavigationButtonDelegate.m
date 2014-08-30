@@ -45,6 +45,7 @@
 		return;
 	}
 	[self.pageViewController goToSearchViewController];
+    [self performSelector:@selector(keepSelected:) withObject:sender afterDelay:0.1];
 }
 
 - (void)onTapProfileButton:(UIButton *)sender {
@@ -53,6 +54,7 @@
 		return;
 	}
 	[self.pageViewController goToProfileViewController];
+    [self performSelector:@selector(keepSelected:) withObject:sender afterDelay:0.1];
 }
 
 - (void)onTapTitleButton:(UIButton *)sender {
@@ -62,6 +64,7 @@
 	}
 
 	[self.pageViewController goToBrowserProductViewController];
+    [self performSelector:@selector(keepSelected:) withObject:sender afterDelay:0.1];
 	[self tongleMenu:sender];
 }
 
@@ -91,6 +94,11 @@
 	[self.navViewController.view addSubview:self.dropdownVC.view];
 	[self.dropdownVC didMoveToParentViewController:self.navViewController];
     self.navViewController.view.gestureRecognizers = self.dropdownVC.view.gestureRecognizers;
+}
+
+- (void)keepSelected:(UIButton *)button {
+    button.selected = YES;
+//    button.highlighted = YES;
 }
 
 @end
