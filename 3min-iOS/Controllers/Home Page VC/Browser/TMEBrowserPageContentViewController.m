@@ -80,9 +80,6 @@
 	[self.takePhotoButtonVC.view mas_makeConstraints: ^(MASConstraintMaker *make) {
         make.height.equalTo(@70);
 	}];
-//	NSMutableArray *gestures = [self.view.gestureRecognizers mutableCopy];
-//	[gestures arrayByAddingObjectsFromArray:self.takePhotoButtonVC.view.gestureRecognizers];
-//	self.view.gestureRecognizers = gestures;
 }
 
 #pragma mark -
@@ -94,7 +91,7 @@
 	    typeof(self) innerSelf = observer;
 	    innerSelf.collectionViewProducts.dataSource = innerSelf.viewModel.datasource;
 	    innerSelf.viewModel.datasource.ownerViewController = self;
-	    innerSelf.chainDelegate = [[LBDelegateMatrioska alloc] initWithDelegates:@[innerSelf.viewModel.datasource, innerSelf]];
+	    innerSelf.chainDelegate = [[LBDelegateMatrioska alloc] initWithDelegates:@[innerSelf.viewModel.datasource, innerSelf, innerSelf.takePhotoButtonVC]];
 	    innerSelf.collectionViewProducts.delegate = (id <UICollectionViewDelegate> )innerSelf.chainDelegate;
 	    [innerSelf.collectionViewProducts reloadData];
 	}];
