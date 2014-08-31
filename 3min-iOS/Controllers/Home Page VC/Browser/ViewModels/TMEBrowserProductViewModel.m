@@ -9,6 +9,8 @@
 #import "TMEErrorCollectionViewDataSource.h"
 #import "TMEDropDownMenuViewController.h"
 
+static const CGFloat kLoadMoreHeight = 50;
+
 @interface TMEBrowserProductViewModel ()
 
 @property (copy, nonatomic, readwrite) NSArray *arrayItems;
@@ -57,7 +59,7 @@
 
 		    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
 		    CGFloat btm = (contentSize.height - collectionView.contentOffset.y - screenHeight);
-		    BOOL shouldLoadMore = btm < 50;
+		    BOOL shouldLoadMore = btm < kLoadMoreHeight;
 
 		    if (shouldLoadMore) {
 		        DLog(@"Shoud load more");
@@ -107,12 +109,6 @@
 	}
 
 	return [[TMEPaginationCollectionViewDataSource alloc] initWithItems:self.arrayItems identifierParserBlock:nil configureCellBlock:nil];
-
-//	if (state == TMEViewModelStateLoadingMorePage) {
-//		return [[TMEPaginationCollectionViewDataSource alloc] init];
-//	}
-//
-//	return [[TMEPaginationCollectionViewDataSource alloc] init];
 }
 
 - (void)setDatasource:(TMEPaginationCollectionViewDataSource *)datasource {
@@ -144,6 +140,7 @@
 }
 
 - (void)getProducts:(void (^)(NSArray *arrProducts))success failure:(void (^)(NSError *error))failure withPage:(NSUInteger)page {
+
 	// prevent mutiple loading
 	if (self.state == TMEViewModelStateLoading) {
 		return;
@@ -157,57 +154,47 @@
 	// change state to loading state
 	self.state = TMEViewModelStateLoading;
 
-#warning NEED REFACTOR
+	void (^successBlock)(NSArray *) = ^(NSArray *arrProducts) {
+		if (arrProducts.count == 0) {
+			self.page = -1;
+			return;
+		}
+
+		NSMutableArray *arr = [self.arrayItems mutableCopy];
+		[arr addObjectsFromArray:arrProducts];
+		self.arrayItems = arr;
+		self.page++;
+
+		self.state = TMEViewModelStateLoaded;
+
+		if (success) {
+			success(arrProducts);
+		}
+	};
+
+	void (^failureBlock)(NSError *) = ^(NSError *error) {
+		self.state = TMEViewModelStateError;
+		if (failure) {
+			failure(error);
+		}
+	};
+
 	if (self.currentCategory) {
 		[TMEProductsManager getProductsOfCategory:self.currentCategory
 		                                 withPage:page
 		                           onSuccessBlock: ^(NSArray *arrProducts) {
-		    if (arrProducts.count == 0) {
-		        self.page = -1;
-		        return;
-			}
-
-		    NSMutableArray *arr = [self.arrayItems mutableCopy];
-		    [arr addObjectsFromArray:arrProducts];
-		    self.arrayItems = arr;
-		    self.page++;
-
-		    self.state = TMEViewModelStateLoaded;
-
-		    if (success) {
-		        success(arrProducts);
-			}
+		    successBlock(arrProducts);
 		} failureBlock: ^(NSError *error) {
-		    self.state = TMEViewModelStateError;
-		    if (failure) {
-		        failure(error);
-			}
+		    failureBlock(error);
 		}];
 		return;
 	}
 
 	[TMEProductsManager getAllProductsWihPage:page
 	                           onSuccessBlock: ^(NSArray *arrProducts) {
-	    if (arrProducts.count == 0) {
-	        self.page = -1;
-	        return;
-		}
-
-	    NSMutableArray *arr = [self.arrayItems mutableCopy];
-	    [arr addObjectsFromArray:arrProducts];
-	    self.arrayItems = arr;
-	    self.page++;
-
-	    self.state = TMEViewModelStateLoaded;
-
-	    if (success) {
-	        success(arrProducts);
-		}
+	    successBlock(arrProducts);
 	} failureBlock: ^(NSError *error) {
-	    self.state = TMEViewModelStateError;
-	    if (failure) {
-	        failure(error);
-		}
+	    failureBlock(error);
 	}];
 }
 
