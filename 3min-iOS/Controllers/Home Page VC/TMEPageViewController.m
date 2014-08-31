@@ -62,9 +62,9 @@
     UIButton *button = [[UIButton alloc] initWithFrame:titleView.bounds];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [button setTitleColor:[UIColor colorWithHexString:@"#FF938D"] forState:UIControlStateNormal];
-    [button setTitle:@"Controller title" forState:UIControlStateNormal];
+    [button setTitle:@"Everything" forState:UIControlStateNormal];
     [button addTarget:self.buttonsController action:@selector(onTapTitleButton:) forControlEvents:UIControlEventTouchUpInside];
-    button.highlighted = YES;
+    button.selected = YES;
     [titleView addSubview:button];
     return titleView;
 }
