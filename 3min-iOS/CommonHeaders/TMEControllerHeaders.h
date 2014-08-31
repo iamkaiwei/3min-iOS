@@ -19,5 +19,6 @@
 #import "TMESubmitViewController.h"
 #import "TMEHomeNavigationViewController.h"
 #import "TMEPageViewController.h"
+#import "TMETakePhotoButtonViewController.h"
 #import "TMEProductDetailsViewController.h"
 #import "AppDelegate.h"

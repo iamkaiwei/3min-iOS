@@ -28,11 +28,20 @@
 @property (strong, nonatomic) FBKVOController *kvoController;
 @property (strong, nonatomic) LBDelegateMatrioska *chainDelegate;
 
+@property (strong, nonatomic) TMETakePhotoButtonViewController *takePhotoButtonVC;
+
 @end
 
 @implementation TMEBrowserPageContentViewController
 
 #pragma mark - VC cycle
+
+- (id)init {
+	self = [super init];
+	if (self) {
+	}
+	return self;
+}
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -44,11 +53,33 @@
 
 	[self configCollectionProducts];
 
-    [self reloadCollectionWheneverViewModelStateChanged];
+	[self reloadCollectionWheneverViewModelStateChanged];
 
-    [self listenToTheCategoryDidChangedNofitication];
+	[self listenToTheCategoryDidChangedNofitication];
+
+	[self addTakePhotoButton];
 
 	[self addPullToRefresh];
+}
+
+#pragma mark -
+
+- (void)viewDidLayoutSubviews {
+}
+
+- (void)addTakePhotoButton {
+	self.takePhotoButtonVC = [[TMETakePhotoButtonViewController alloc] init];
+	[self.takePhotoButtonVC willMoveToParentViewController:self];
+	self.takePhotoButtonVC.view.frame = ({
+	                                         CGRect screen = self.view.frame;
+	                                         CGFloat y = screen.size.height - 70 - 64;
+	                                         CGRect frame = CGRectMake(0, y, screen.size.width, 70);
+	                                         frame;
+										 });
+	[self.view addSubview:self.takePhotoButtonVC.view];
+	[self.takePhotoButtonVC.view mas_makeConstraints: ^(MASConstraintMaker *make) {
+        make.height.equalTo(@70);
+	}];
 }
 
 #pragma mark -
@@ -60,7 +91,7 @@
 	    typeof(self) innerSelf = observer;
 	    innerSelf.collectionViewProducts.dataSource = innerSelf.viewModel.datasource;
 	    innerSelf.viewModel.datasource.ownerViewController = self;
-	    innerSelf.chainDelegate = [[LBDelegateMatrioska alloc] initWithDelegates:@[innerSelf.viewModel.datasource, innerSelf]];
+	    innerSelf.chainDelegate = [[LBDelegateMatrioska alloc] initWithDelegates:@[innerSelf.viewModel.datasource, innerSelf, innerSelf.takePhotoButtonVC]];
 	    innerSelf.collectionViewProducts.delegate = (id <UICollectionViewDelegate> )innerSelf.chainDelegate;
 	    [innerSelf.collectionViewProducts reloadData];
 	}];
@@ -68,17 +99,18 @@
 
 - (void)listenToTheCategoryDidChangedNofitication {
 	__weak typeof(self) weakSelf = self;
+
 	[[NSNotificationCenter defaultCenter] addObserverForName:TMEHomeCategoryDidChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock: ^(NSNotification *note) {
 	    TMEDropDownMenuViewController *vc = note.object;
 	    weakSelf.viewModel.currentCategory = vc.selectedCategory;
-        UIButton *centerBtn = [weakSelf.parentViewController.navigationItem.titleView getButton];
-        [centerBtn setTitle:weakSelf.viewModel.currentCategory.name forState:UIControlStateNormal];
-        [centerBtn setTitle:weakSelf.viewModel.currentCategory.name forState:UIControlStateSelected];
+	    UIButton *centerBtn = [weakSelf.parentViewController.navigationItem.titleView getButton];
+	    [centerBtn setTitle:weakSelf.viewModel.currentCategory.name forState:UIControlStateNormal];
+	    [centerBtn setTitle:weakSelf.viewModel.currentCategory.name forState:UIControlStateSelected];
 	}];
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)addPullToRefresh {
