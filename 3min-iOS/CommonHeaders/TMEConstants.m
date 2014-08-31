@@ -16,6 +16,8 @@ NSString *const TMECategoryDidChangeNotification = @"TMECategoryDidChangeNotific
 NSString *const TMEUserDidLoginNotification = @"TMEUserDidLoginNotification";
 NSString *const TMEUserDidLogoutNotification = @"TMEUserDidLogoutNotification";
 
+NSString *const TMEHomeCategoryDidChangedNotification = @"TMEHomeCategoryDidChangedNotification";
+
 // CocoaLumberJack
 #import <CocoaLumberjack/DDLog.h>
 #ifdef DEBUG

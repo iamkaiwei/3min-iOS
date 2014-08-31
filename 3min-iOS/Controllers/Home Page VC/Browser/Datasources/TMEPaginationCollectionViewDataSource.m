@@ -67,7 +67,7 @@ static const CGFloat kProductCollectionCellWidth = 152;
 - (void)configNormalCell:(id)cell item:(id)item {
 	TMEProductCollectionViewCell *productCell = (TMEProductCollectionViewCell *)cell;
 	[productCell configWithData:item];
-    productCell.delegate = self.ownerViewController;
+    productCell.delegate = (id) self.ownerViewController;
 }
 
 - (void)configLoadMoreCell:(id)cell item:(id)item {

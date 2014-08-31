@@ -13,8 +13,10 @@
 
 @interface TMEHomePageViewDatasource : NSObject <UIPageViewControllerDataSource>
 
-@property (nonatomic, strong) TMEProfilePageContentViewController *profileVC;
-@property (nonatomic, strong) TMEBrowserPageContentViewController *browserVC;
-@property (nonatomic, strong) TMESearchPageContentViewController *searchVC;
+@property (nonatomic, strong, readonly) TMEProfilePageContentViewController *profileVC;
+@property (nonatomic, strong, readonly) TMEBrowserPageContentViewController *browserVC;
+@property (nonatomic, strong, readonly) TMESearchPageContentViewController *searchVC;
+
+- (NSUInteger)indexOfViewController:(UIViewController *)controller;
 
 @end

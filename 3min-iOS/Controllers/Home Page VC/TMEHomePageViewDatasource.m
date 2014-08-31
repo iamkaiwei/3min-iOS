@@ -10,7 +10,9 @@
 
 @interface TMEHomePageViewDatasource()
 
-@property (strong, nonatomic) TMEHomePageViewController *pageVC;
+@property (nonatomic, strong, readwrite) TMEProfilePageContentViewController *profileVC;
+@property (nonatomic, strong, readwrite) TMEBrowserPageContentViewController *browserVC;
+@property (nonatomic, strong, readwrite) TMESearchPageContentViewController *searchVC;
 
 @end
 
@@ -60,6 +62,14 @@
 
     id vc = controllers[NSStringFromClass([viewController class])];
     return [vc isEqual:[NSNull null]] ? nil : vc;
+}
+
+- (NSUInteger)indexOfViewController:(UIViewController *)controller {
+    NSNumber *page = @{NSStringFromClass([TMESearchPageContentViewController class]): @1,
+      NSStringFromClass([TMEBrowserPageContentViewController class]): @2,
+      NSStringFromClass([TMEProfilePageContentViewController class]): @3}[NSStringFromClass([controller class])];
+    NSAssert(page, @"Index not found");
+    return [page integerValue];
 }
 
 @end

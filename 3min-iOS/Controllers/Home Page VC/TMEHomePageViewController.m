@@ -10,6 +10,10 @@
 
 @interface TMEHomePageViewController ()
 
+@property (nonatomic, strong, readwrite) TMEHomeNavigationViewController *navVC;
+@property (nonatomic, strong) UIPageViewController *pageViewController;
+@property (nonatomic, strong) TMEHomePageViewDatasource *pageViewDataSource;
+
 @end
 
 @implementation TMEHomePageViewController
@@ -18,35 +22,33 @@
 	[super viewDidLoad];
 	// Do any additional setup after loading the view.
 	[self addPageViewControllerAndDisplay];
+	self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (TMEHomeNavigationViewController *)navVC {
+	if (!_navVC) {
+		_navVC = [[TMEHomeNavigationViewController alloc] initWithRootViewController:self.pageViewController];
+	}
+    return _navVC;
 }
 
 - (void)addPageViewControllerAndDisplay {
-	UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:self.pageViewController];
+	self.navVC = [[TMEHomeNavigationViewController alloc] initWithRootViewController:self.pageViewController];
 
-	[self addChildViewController:navVC];
-	[self.view addSubview:navVC.view];
+	[self addChildViewController:self.navVC];
+	[self.view addSubview:self.navVC.view];
 
 	CGRect pageViewRect = self.view.bounds;
-	navVC.view.frame = pageViewRect;
+	self.navVC.view.frame = pageViewRect;
 
-	[navVC didMoveToParentViewController:self];
+	[self.navVC didMoveToParentViewController:self];
 
-	self.view.gestureRecognizers = navVC.view.gestureRecognizers;
+	self.view.gestureRecognizers = self.navVC.view.gestureRecognizers;
 }
 
 - (UIPageViewController *)pageViewController {
 	if (!_pageViewController) {
-		_pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
-		                                                      navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
-		                                                                    options:nil];
-		_pageViewController.edgesForExtendedLayout = UIRectEdgeNone;
-
-		_pageViewDataSource = [[TMEHomePageViewDatasource alloc] init];
-		_pageViewController.dataSource = self.pageViewDataSource;
-
-		UIViewController *startingViewController = self.pageViewDataSource.browserVC;
-		NSArray *viewControllers = @[startingViewController];
-		[_pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+		_pageViewController = [[TMEPageViewController alloc] init];
 	}
 
 	return _pageViewController;

@@ -7,6 +7,7 @@
 
 #import "TMEBrowserProductViewModel.h"
 #import "TMEErrorCollectionViewDataSource.h"
+#import "TMEDropDownMenuViewController.h"
 
 @interface TMEBrowserProductViewModel ()
 
@@ -41,6 +42,9 @@
 	NSAssert(collection, @"Collection shouldn't be nil");
 
 	if (self) {
+		// nil means all
+		_currentCategory = nil;
+
 		_page = 1;
 		self.state = TMEViewModelStateIntial;
 		_kvoController = [FBKVOController controllerWithObserver:self];
@@ -67,6 +71,11 @@
 }
 
 #pragma mark -
+
+- (void)setCurrentCategory:(TMECategory *)currentCategory {
+	_currentCategory = currentCategory;
+	[self reload];
+}
 
 - (void)setState:(TMEViewModelState)state {
 	_state = state;
@@ -147,6 +156,35 @@
 
 	// change state to loading state
 	self.state = TMEViewModelStateLoading;
+
+#warning NEED REFACTOR
+	if (self.currentCategory) {
+		[TMEProductsManager getProductsOfCategory:self.currentCategory
+		                                 withPage:page
+		                           onSuccessBlock: ^(NSArray *arrProducts) {
+		    if (arrProducts.count == 0) {
+		        self.page = -1;
+		        return;
+			}
+
+		    NSMutableArray *arr = [self.arrayItems mutableCopy];
+		    [arr addObjectsFromArray:arrProducts];
+		    self.arrayItems = arr;
+		    self.page++;
+
+		    self.state = TMEViewModelStateLoaded;
+
+		    if (success) {
+		        success(arrProducts);
+			}
+		} failureBlock: ^(NSError *error) {
+		    self.state = TMEViewModelStateError;
+		    if (failure) {
+		        failure(error);
+			}
+		}];
+		return;
+	}
 
 	[TMEProductsManager getAllProductsWihPage:page
 	                           onSuccessBlock: ^(NSArray *arrProducts) {
