@@ -32,25 +32,9 @@
 		if ([rootViewController isKindOfClass:[TMEPageViewController class]]) {
 			_kvoController = [[FBKVOController alloc] initWithObserver:self];
 			[_kvoController observe:rootViewController keyPath:@"currentViewController" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
+                typeof(self) innerSelf = observer;
 			    UIViewController *viewController = change[NSKeyValueChangeNewKey];
-
-			    UIButton *leftButton = [rootViewController.navigationItem.leftBarButtonItem getButton];
-			    UIButton *rightButton = [rootViewController.navigationItem.rightBarButtonItem getButton];
-			    UIButton *centerButton = [rootViewController.navigationItem.titleView getButton];
-
-                leftButton.selected = NO;
-                rightButton.selected = NO;
-                centerButton.selected = NO;
-
-			    if ([viewController isKindOfClass:[TMESearchPageContentViewController class]]) {
-			        leftButton.selected = YES;
-				}
-			    if ([viewController isKindOfClass:[TMEProfilePageContentViewController class]]) {
-			        rightButton.selected = YES;
-				}
-			    if ([viewController isKindOfClass:[TMEBrowserPageContentViewController class]]) {
-                    centerButton.selected = YES;
-				}
+                [innerSelf selectButtonBaseOnViewController:viewController];
 			}];
 		}
 	}
@@ -63,6 +47,30 @@
 	self.navigationBar.translucent = NO;
 	self.navigationBar.barTintColor = [UIColor colorWithHexString:@"#FF0000"];
 	[[FLEXManager sharedManager] showExplorer];
+}
+
+#pragma mark -
+
+- (void)selectButtonBaseOnViewController:(UIViewController *)viewController {
+    UIViewController *rootViewController = self.viewControllers[0];
+	NSArray *buttons = @[rootViewController.navigationItem.leftBarButtonItem,
+	                     rootViewController.navigationItem.rightBarButtonItem,
+	                     rootViewController.navigationItem.titleView];
+
+	NSArray *classes = @[[TMESearchPageContentViewController class],
+	                     [TMEProfilePageContentViewController class],
+	                     [TMEBrowserPageContentViewController class]];
+
+	[buttons enumerateObjectsUsingBlock: ^(UIView *view, NSUInteger idx, BOOL *stop) {
+	    UIButton *button = [view getButton];
+	    BOOL (^isSelected)(UIViewController *) = ^(UIViewController *vc) {
+	        if ([vc isKindOfClass:classes[idx]]) {
+	            return YES;
+			}
+	        return NO;
+		};
+	    button.selected = isSelected(viewController);
+	}];
 }
 
 @end
