@@ -8,6 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, TMESearchFilterCriteria) {
+    TMESearchFilterCriteriaPopular,
+    TMESearchFilterCriteriaRecent,
+    TMESearchFilterCriteriaLowestPrice,
+    TMESearchFilterCriteriaHighestPrice,
+    TMESearchFilterCriteriaNearest,
+};
+
 @interface TMESearchFilter : NSObject
+
+@property (nonatomic, assign) NSInteger price;
+@property (nonatomic, assign) TMESearchFilterCriteria criteria;
+
++ (instancetype)defaultFilter;
 
 @end

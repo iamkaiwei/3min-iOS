@@ -10,4 +10,14 @@
 
 @implementation TMESearchFilter
 
++ (instancetype)defaultFilter
+{
+    TMESearchFilter *filter = [[TMESearchFilter alloc] init];
+
+    filter.price = 0;
+    filter.criteria = TMESearchFilterCriteriaPopular;
+
+    return filter;
+}
+
 @end

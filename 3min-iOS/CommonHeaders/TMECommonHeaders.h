@@ -16,6 +16,8 @@
 
 #import "TMEVendorHeaders.h"
 
+#import "TMEHelperHeaders.h"
+
 #import "TMEModelHeaders.h"
 #import "TMECategoryHeaders.h"
 #import "TMEProtocolHeaders.h"

@@ -41,11 +41,28 @@
     [self setupTableView];
 }
 
+- (void)didMoveToParentViewController:(UIViewController *)parent
+{
+    [self.view mas_makeConstraints:^(MASConstraintMaker *make) {
+
+        make.top.equalTo(self.view.superview.mas_top);
+        make.left.equalTo(self.view.superview.mas_left);
+        make.right.equalTo(self.view.superview.mas_right);
+
+        if (self.tableView.hidden) {
+            make.height.equalTo(self.searchBar.mas_height);
+        } else {
+            make.height.equalTo(self.view.superview.mas_height);
+        }
+    }];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - Gesture
 - (void)setupTapGestureRecognizer
@@ -132,6 +149,7 @@
         [self.tableView reloadData];
     } else {
         self.tableView.hidden = YES;
+
     }
 }
 

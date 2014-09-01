@@ -51,6 +51,9 @@
 
     // Set SearchFilterVC as default
     [self addChildVC:self.searchFilterVC containerView:self.containerView];
+    [self.searchFilterVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.containerView);
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,22 +91,6 @@
     return _searchResultVC;
 }
 
-- (void)addChildVC:(UIViewController *)childVC containerView:(UIView *)containerView
-{
-    [self addChildViewController:childVC];
-    childVC.view.frame = containerView.bounds;
-    [containerView addSubview:childVC.view];
-    [childVC didMoveToParentViewController:self];
-
-    self.currentChildVC = childVC;
-}
-
-- (void)removeChildVC:(UIViewController *)childVC
-{
-    [childVC willMoveToParentViewController:nil];
-    [childVC.view removeFromSuperview];
-    [childVC removeFromParentViewController];
-}
 
 #pragma mark - TMESearchTextVC
 - (void)searchTextVC:(TMESearchTextViewController *)searchTextVC didSelectText:(NSString *)text

@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="EEN-Cv-F1Z">
-                    <rect key="frame" x="0.0" y="44" width="320" height="300"/>
+                    <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </tableView>
                 <searchBar contentMode="redraw" placeholder="Search for products" translatesAutoresizingMaskIntoConstraints="NO" id="KVJ-Dx-HES">
@@ -27,14 +27,14 @@
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.23922961500000001" green="1" blue="0.4710938066" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="KVJ-Dx-HES" secondAttribute="trailing" id="KbG-5h-kDf"/>
                 <constraint firstItem="KVJ-Dx-HES" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OVU-A7-qzs"/>
                 <constraint firstItem="KVJ-Dx-HES" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Xfq-Yj-Lbv"/>
                 <constraint firstItem="EEN-Cv-F1Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b4N-i8-0zb"/>
                 <constraint firstItem="EEN-Cv-F1Z" firstAttribute="top" secondItem="KVJ-Dx-HES" secondAttribute="bottom" id="djb-kL-KaC"/>
-                <constraint firstAttribute="bottom" secondItem="EEN-Cv-F1Z" secondAttribute="bottom" constant="224" id="hRH-Fk-D4W"/>
+                <constraint firstAttribute="bottom" secondItem="EEN-Cv-F1Z" secondAttribute="bottom" id="hRH-Fk-D4W"/>
                 <constraint firstAttribute="trailing" secondItem="EEN-Cv-F1Z" secondAttribute="trailing" id="i0r-MT-6tY"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

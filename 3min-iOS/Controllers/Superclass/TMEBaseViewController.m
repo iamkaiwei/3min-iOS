@@ -50,6 +50,9 @@ IIViewDeckControllerDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    // TODO: Refactor BaseVC
+    return;
  
     // TODO: Refactor
     self.deckController = (IIViewDeckController *)[AppDelegate sharedDelegate].window.rootViewController;
@@ -82,15 +85,12 @@ IIViewDeckControllerDelegate
     [self addNavigationItems];
 }
 
-- (void)viewDidUnload
-{
-  [super viewDidUnload];
-  DLog(@"Warning: Do not put any code in viewDidUnload. Deprecated since iOS 6.0");
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear:animated];
+
+    // TODO: Refactor BaseVC
+    return;
   
   // Google Analytics
 //  self.trackedViewName = self.title;
@@ -103,6 +103,9 @@ IIViewDeckControllerDelegate
 - (void)viewDidAppear:(BOOL)animated
 {
   [super viewDidAppear:animated];
+
+    // TODO: Refactor BaseVC
+    return;
   
   for (NSString *notification in [self listNotificationInterests]) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:notification object:nil];
@@ -628,5 +631,23 @@ IIViewDeckControllerDelegate
 {
   
 }
+
+#pragma mark - ChildVC
+- (void)addChildVC:(UIViewController *)childVC containerView:(UIView *)containerView
+{
+    [self addChildViewController:childVC];
+    childVC.view.frame = containerView.bounds;
+    [containerView addSubview:childVC.view];
+    [childVC didMoveToParentViewController:self];
+}
+
+- (void)removeChildVC:(UIViewController *)childVC
+{
+    [childVC willMoveToParentViewController:nil];
+    [childVC.view removeFromSuperview];
+    [childVC removeFromParentViewController];
+}
+
+
 
 @end
