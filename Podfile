@@ -40,6 +40,5 @@ target :ThreeMin, :exclusive => true do
   pod 'CHTCollectionViewWaterfallLayout'
   pod 'FLEX'
   pod 'LBDelegateMatrioska'
-  pod 'NMRangeSlider', '~> 1.2'
 
 end

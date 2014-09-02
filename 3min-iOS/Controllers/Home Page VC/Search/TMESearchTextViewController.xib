@@ -13,7 +13,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" alpha="0.94999999999999996" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -27,6 +27,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
             </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="KVJ-Dx-HES" secondAttribute="trailing" id="KbG-5h-kDf"/>
                 <constraint firstItem="KVJ-Dx-HES" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OVU-A7-qzs"/>

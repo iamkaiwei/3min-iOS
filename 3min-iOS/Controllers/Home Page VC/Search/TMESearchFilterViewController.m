@@ -46,7 +46,8 @@
 {
     self.searchFilterOnlyTableVC = [TMESearchFilterOnlyTableVC tme_instantiateFromStoryboardNamed:@"Search"];
     self.searchFilterOnlyTableVC.searchFilter = self.searchFilter;
-    [self addChildVC:self.searchFilterOnlyTableVC containerView:self.searchFilterOnlyContainerView];
+    [self addChildVC:self.searchFilterOnlyTableVC
+       containerView:self.searchFilterOnlyContainerView];
 
     [self.searchFilterOnlyTableVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.searchFilterOnlyContainerView);
@@ -56,7 +57,7 @@
 #pragma mark - Action
 - (IBAction)resetFiltersButtonAction:(id)sender
 {
-
+    NSLog(@"resetFiltersButtonAction");
 }
 
 @end
