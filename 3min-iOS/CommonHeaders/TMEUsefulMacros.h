@@ -35,6 +35,8 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([SYSTEM_VERSION compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([SYSTEM_VERSION compare:v options:NSNumericSearch] != NSOrderedDescending)
 
+#define IS_IOS7_OR_ABOVE                            (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
+
 #define DEVICE_NAME                                 ([[UIDevice currentDevice] name])
 
 #define IS_LANDSCAPE                                (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation))

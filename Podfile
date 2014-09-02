@@ -34,7 +34,6 @@ target :ThreeMin, :exclusive => true do
   pod 'CocoaLumberjack', '~> 1.9'
   pod 'google-plus-ios-sdk', '~> 1.7'
   pod 'Masonry', '~> 0.5'
-  pod 'JazzHands', '~> 0.1'
   pod 'CrashlyticsFramework', '~> 2.2'
   pod 'Orbiter', '~> 2.0'
   pod 'CHTCollectionViewWaterfallLayout'

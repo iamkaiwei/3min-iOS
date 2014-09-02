@@ -9,6 +9,8 @@
 #import "TMESearchTextViewController.h"
 #import "TMERecentSearchManager.h"
 #import "TMESingleSectionDataSource.h"
+#import "UISearchBar+TMEAdditions.h"
+#import <ViewUtils/ViewUtils.h>
 
 @interface TMESearchTextViewController () <UISearchBarDelegate, UIGestureRecognizerDelegate>
 
@@ -39,6 +41,7 @@
     [super viewDidLoad];
 
     self.searchBar.delegate = self;
+    [self.searchBar tme_addDoneButton];
 
     [self setupTapGestureRecognizer];
     [self setupTableView];
@@ -139,13 +142,23 @@
 
 }
 
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    [self.view setNeedsUpdateConstraints];
+}
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [self search];
+    [self.searchBar tme_resignFirstResponderWithCancelButtonEnabled];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
+    [self.searchBar setShowsCancelButton:NO animated:YES];
+
+    [self hideSearchChrome];
+
     if ([self.delegate respondsToSelector:@selector(searchTextVCDidCancel:)]) {
         [self.delegate searchTextVCDidCancel:self];
     }
@@ -155,6 +168,8 @@
 - (void)search
 {
     [self hideSearchChrome];
+
+    [self.searchBar setShowsCancelButton:YES animated:YES];
 
     [[TMERecentSearchManager sharedManager] addSearchText:self.searchBar.text];
 
@@ -169,8 +184,7 @@
     self.bottomViewHidden = YES;
     self.tableView.hidden = YES;
 
-    [self.searchBar setShowsCancelButton:NO animated:YES];
-    [self.searchBar resignFirstResponder];
+    [self.searchBar tme_resignFirstResponderWithCancelButtonEnabled];
 
     [self.view setNeedsUpdateConstraints];
 }
@@ -178,8 +192,6 @@
 - (void)showSearchChrome
 {
     self.bottomViewHidden = NO;
-
-    [self.searchBar setShowsCancelButton:YES animated:YES];
 
     [self.view setNeedsUpdateConstraints];
 }
@@ -205,7 +217,16 @@
         if (self.bottomViewHidden) {
             make.height.mas_equalTo(0);
         } else {
-            make.height.mas_equalTo(150);
+            // If keyboard is shown, use smaller height
+            if (self.searchBar.isFirstResponder) {
+                if (IS_IPHONE_5) {
+                    make.height.mas_equalTo(180);
+                } else {
+                    make.height.mas_equalTo(110);
+                }
+            } else {
+                make.height.mas_equalTo(300);
+            }
         }
     }];
 
