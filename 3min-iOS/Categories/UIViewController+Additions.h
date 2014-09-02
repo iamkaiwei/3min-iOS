@@ -26,4 +26,7 @@
 
 - (UIView *)dismissKeyboard;
 
+#pragma mark - Storyboard
++ (instancetype)tme_instantiateFromStoryboardNamed:(NSString *)storyboardName;
+
 @end

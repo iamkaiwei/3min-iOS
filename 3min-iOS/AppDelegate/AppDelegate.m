@@ -22,6 +22,7 @@
 #import "TMEDeviceManagerAppDelegateService.h"
 #import "TMEUserManagerAppDelegateService.h"
 #import "TMECrashlyticsAppDelegateService.h"
+#import "TMERecentSearchAppDelegateService.h"
 
 
 @interface AppDelegate()
@@ -52,6 +53,7 @@
                                  [TMELoggerAppDelegateService new],
                                  [TMEGooglePlusAppDelegateService new],
                                  [TMEDeviceManagerAppDelegateService new],
+                                 [TMERecentSearchAppDelegateService new],
                                  ];
     }
 

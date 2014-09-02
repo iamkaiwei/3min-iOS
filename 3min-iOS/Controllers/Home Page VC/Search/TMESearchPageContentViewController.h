@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TMESearchPageContentViewController : UIViewController
+@interface TMESearchPageContentViewController : TMEBaseViewController
 
 @end

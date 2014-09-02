@@ -141,5 +141,13 @@
     return [self.view findAndResignFirstResponder];
 }
 
+
+#pragma mark - Storyboard
++ (instancetype)tme_instantiateFromStoryboardNamed:(NSString *)storyboardName
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    return [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(self)];
+}
+
 @end
 
