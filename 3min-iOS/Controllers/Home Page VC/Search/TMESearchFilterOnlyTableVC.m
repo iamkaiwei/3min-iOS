@@ -8,6 +8,7 @@
 
 #import "TMESearchFilterOnlyTableVC.h"
 #import "TMESearchFilter.h"
+#import "UITextField+TMEAdditions.h"
 
 typedef NS_ENUM(NSUInteger, TMESearchFilterOnlyTableViewSection) {
     TMESearchFilterOnlyTableViewSectionCriteria,
@@ -40,6 +41,8 @@ typedef NS_ENUM(NSUInteger, TMESearchFilterOnlyTableViewSection) {
 
     self.selectedIndexPath = [NSIndexPath indexPathForRow:TMESearchFilterCriteriaPopular
                                                 inSection:TMESearchFilterOnlyTableViewSectionCriteria];
+
+    [self setupTextFields];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,7 +52,11 @@ typedef NS_ENUM(NSUInteger, TMESearchFilterOnlyTableViewSection) {
 }
 
 #pragma mark - Setup
-
+- (void)setupTextFields
+{
+    [self.minPriceTextField tme_addDoneButton];
+    [self.maxPriceTextField tme_addDoneButton];
+}
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,9 +80,14 @@ typedef NS_ENUM(NSUInteger, TMESearchFilterOnlyTableViewSection) {
     return YES;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    NSLog(@"textFieldDidEndEditing");
+
 }
 
 
