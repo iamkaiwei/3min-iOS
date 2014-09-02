@@ -44,6 +44,7 @@
 
 - (UIButton *)tme_cancelButton
 {
+    // FIXME: This hierarchy holds true for iOS 7 only
     for (UIView *view in self.subviews)
     {
         for (id subview in view.subviews)
