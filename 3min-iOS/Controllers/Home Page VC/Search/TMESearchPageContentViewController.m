@@ -96,10 +96,17 @@
 - (void)searchTextVC:(TMESearchTextViewController *)searchTextVC didSelectText:(NSString *)text
 {
     [self.searchNetworkClient search:text sucess:^(NSArray *results) {
-
+        self.searchFilterVC.view.hidden = YES;
+        self.searchResultVC.view.hidden = NO;
     } failure:^(NSError *error) {
 
     }];
+}
+
+- (void)searchTextVCDidCancel:(TMESearchTextViewController *)searchTextVC
+{
+    self.searchFilterVC.view.hidden = NO;
+    self.searchResultVC.view.hidden = YES;
 }
 
 @end

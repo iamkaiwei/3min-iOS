@@ -18,7 +18,8 @@ typedef NS_ENUM(NSInteger, TMESearchFilterCriteria) {
 
 @interface TMESearchFilter : NSObject
 
-@property (nonatomic, assign) NSInteger price;
+@property (nonatomic, strong) NSNumber *minPrice;
+@property (nonatomic, strong) NSNumber *maxPrice;
 @property (nonatomic, assign) TMESearchFilterCriteria criteria;
 
 + (instancetype)defaultFilter;

@@ -7,7 +7,6 @@
 //
 
 #import "TMESearchFilterViewController.h"
-#import "TMESearchFilter.h"
 #import "TMESearchFilterOnlyTableVC.h"
 
 @interface TMESearchFilterViewController ()
@@ -23,7 +22,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.searchFilter = [[TMESearchFilter alloc] init];
+
     }
     return self;
 }
@@ -54,10 +53,16 @@
     }];
 }
 
+#pragma mark - Filter
+- (TMESearchFilter *)searchFilter
+{
+    return self.searchFilterOnlyTableVC.searchFilter;
+}
+
 #pragma mark - Action
 - (IBAction)resetFiltersButtonAction:(id)sender
 {
-    NSLog(@"resetFiltersButtonAction");
+    [self.searchFilterOnlyTableVC resetFilter];
 }
 
 @end

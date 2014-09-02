@@ -15,12 +15,16 @@ typedef NS_ENUM(NSUInteger, TMESearchFilterOnlyTableViewSection) {
     TMESearchFilterOnlyTableViewSectionPriceRange,
 };
 
+static NSUInteger const kDefaultMinPrice = 0;
+static NSUInteger const kDefaultMaxPrice = 500;
+
 @interface TMESearchFilterOnlyTableVC () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *minPriceTextField;
 @property (weak, nonatomic) IBOutlet UITextField *maxPriceTextField;
 
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+@property (nonatomic, strong) NSNumberFormatter *numberFormatter;
 
 @end
 
@@ -30,7 +34,7 @@ typedef NS_ENUM(NSUInteger, TMESearchFilterOnlyTableViewSection) {
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        self.searchFilter = [TMESearchFilter defaultFilter];
     }
     return self;
 }
@@ -39,10 +43,8 @@ typedef NS_ENUM(NSUInteger, TMESearchFilterOnlyTableViewSection) {
 {
     [super viewDidLoad];
 
-    self.selectedIndexPath = [NSIndexPath indexPathForRow:TMESearchFilterCriteriaPopular
-                                                inSection:TMESearchFilterOnlyTableViewSectionCriteria];
-
     [self setupTextFields];
+    [self resetFilter];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,17 +60,34 @@ typedef NS_ENUM(NSUInteger, TMESearchFilterOnlyTableViewSection) {
     [self.maxPriceTextField tme_addDoneButton];
 }
 
+#pragma mark - UITableViewDataSource
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+
+    if (indexPath.section == TMESearchFilterOnlyTableViewSectionCriteria) {
+        if ([indexPath isEqual:self.selectedIndexPath]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+    }
+
+    return cell;
+}
+
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == TMESearchFilterOnlyTableViewSectionCriteria) {
-        UITableViewCell *previousCell = [tableView cellForRowAtIndexPath:self.selectedIndexPath];
-        previousCell.accessoryType = UITableViewCellAccessoryNone;
 
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    if (indexPath.section == TMESearchFilterOnlyTableViewSectionCriteria) {
         self.selectedIndexPath = indexPath;
+
+        self.searchFilter.criteria = indexPath.row;
+
+        [tableView reloadSections:[NSIndexSet indexSetWithIndex:TMESearchFilterOnlyTableViewSectionCriteria]
+                 withRowAnimation:UITableViewRowAnimationNone];
     }
 }
 
@@ -87,8 +106,78 @@ typedef NS_ENUM(NSUInteger, TMESearchFilterOnlyTableViewSection) {
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    NSNumber *minPrice, *maxPrice;
+
+    minPrice = [self.numberFormatter numberFromString:self.minPriceTextField.text];
+    maxPrice = [self.numberFormatter numberFromString:self.maxPriceTextField.text];
+
+    if ([self validatePriceRangeWithMinPrice:minPrice maxPrice:maxPrice]) {
+        self.searchFilter.minPrice = minPrice;
+        self.searchFilter.maxPrice = maxPrice;
+    }
+}
+
+- (BOOL)validatePriceRangeWithMinPrice:(NSNumber *)minPrice maxPrice:(NSNumber *)maxPrice
+{
+    // TODO: Refactor
+    // Validate
+    if (minPrice.integerValue < kDefaultMinPrice) {
+        NSString *message = [NSString stringWithFormat:@"Minimum price must be greater than %d", kDefaultMinPrice];
+        [TMEAlertView showMessage:message];
+
+        self.searchFilter.minPrice = @(kDefaultMinPrice);
+        self.minPriceTextField.text = [self.numberFormatter stringFromNumber:self.searchFilter.minPrice];
+
+        return NO;
+    }
+
+    if (maxPrice.integerValue > kDefaultMaxPrice) {
+        NSString *message = [NSString stringWithFormat:@"Maximum price must be less than %d", kDefaultMaxPrice];
+        [TMEAlertView showMessage:message];
+
+        self.searchFilter.maxPrice = @(kDefaultMaxPrice);
+        self.maxPriceTextField.text = [self.numberFormatter stringFromNumber:self.searchFilter.maxPrice];
+
+        return NO;
+    }
+
+    if (minPrice.integerValue > maxPrice.integerValue) {
+        NSString *message = [NSString stringWithFormat:@"Minimum price must be less than maximum price"];
+        [TMEAlertView showMessage:message];
+
+        self.minPriceTextField.text = [self.numberFormatter stringFromNumber:self.searchFilter.minPrice];
+        self.maxPriceTextField.text = [self.numberFormatter stringFromNumber:self.searchFilter.maxPrice];
+
+        return NO;
+    }
+
+    return YES;
 
 }
 
+#pragma mark - Filter
+- (void)resetFilter
+{
+    self.searchFilter = [TMESearchFilter defaultFilter];
+
+    self.selectedIndexPath = [NSIndexPath indexPathForRow:self.searchFilter.criteria
+                                                inSection:TMESearchFilterOnlyTableViewSectionCriteria];
+
+    self.minPriceTextField.text = [self.numberFormatter stringFromNumber:self.searchFilter.minPrice];
+    self.maxPriceTextField.text = [self.numberFormatter stringFromNumber:self.searchFilter.maxPrice];
+
+    [self.tableView reloadData];
+}
+
+#pragma mark - NumberFormatter
+- (NSNumberFormatter *)numberFormatter
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _numberFormatter = [[NSNumberFormatter alloc] init];
+    });
+
+    return _numberFormatter;
+}
 
 @end

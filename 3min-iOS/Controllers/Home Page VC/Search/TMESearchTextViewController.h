@@ -13,6 +13,7 @@
 @protocol TMESearchTextViewController <NSObject>
 
 - (void)searchTextVC:(TMESearchTextViewController *)searchTextVC didSelectText:(NSString *)text;
+- (void)searchTextVCDidCancel:(TMESearchTextViewController *)searchTextVC;
 
 @end
 

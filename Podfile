@@ -40,5 +40,6 @@ target :ThreeMin, :exclusive => true do
   pod 'CHTCollectionViewWaterfallLayout'
   pod 'FLEX'
   pod 'LBDelegateMatrioska'
+  pod 'SIAlertView', '~> 1.3'
 
 end

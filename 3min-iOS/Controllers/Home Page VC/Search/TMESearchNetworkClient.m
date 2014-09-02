@@ -12,7 +12,9 @@
 
 - (void)search:(NSString *)searchText sucess:(TMEArraySuccessBlock)success failure:(TMEFailureBlock)failure
 {
-
+    if (success) {
+        success(nil);
+    }
 }
 
 

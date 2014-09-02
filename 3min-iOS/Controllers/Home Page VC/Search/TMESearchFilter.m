@@ -14,7 +14,9 @@
 {
     TMESearchFilter *filter = [[TMESearchFilter alloc] init];
 
-    filter.price = 0;
+    filter.minPrice = @(0);
+    filter.maxPrice = @(500);
+
     filter.criteria = TMESearchFilterCriteriaPopular;
 
     return filter;

@@ -12,6 +12,6 @@
 
 @interface TMESearchFilterViewController : TMEBaseViewController
 
-@property (nonatomic, strong) TMESearchFilter *searchFilter;
+@property (nonatomic, strong,readonly) TMESearchFilter *searchFilter;
 
 @end

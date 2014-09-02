@@ -10,7 +10,7 @@
 #import "TMERecentSearchManager.h"
 #import "TMESingleSectionDataSource.h"
 
-@interface TMESearchTextViewController () <UISearchBarDelegate>
+@interface TMESearchTextViewController () <UISearchBarDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -58,12 +58,22 @@
 {
     self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                         action:@selector(handleTapGestureRecognizer:)];
+    self.tapGestureRecognizer.delegate = self;
     [self.view addGestureRecognizer:self.tapGestureRecognizer];
 }
 
 - (void)handleTapGestureRecognizer:(UITapGestureRecognizer *)tapGestureRecognizer
 {
     [self hideSearchChrome];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if ([touch.view isDescendantOfView:self.tableView]) {
+        return NO;
+    }
+
+    return YES;
 }
 
 #pragma mark - TableView
@@ -87,7 +97,7 @@
     self.tableViewDataSource.actionBlock = ^(NSString *item) {
         weakSelf.searchBar.text = item;
 
-        weakSelf.tableView.hidden = YES;
+        [weakSelf search];
     };
 
     self.tableView.dataSource = self.tableViewDataSource;
@@ -131,18 +141,26 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    [self hideSearchChrome];
-
-    [[TMERecentSearchManager sharedManager] addSearchText:searchBar.text];
-
-    if ([self.delegate respondsToSelector:@selector(searchBar:textDidChange:)]) {
-        [self.delegate searchTextVC:self didSelectText:self.searchBar.text];
-    }
+    [self search];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
+    if ([self.delegate respondsToSelector:@selector(searchTextVCDidCancel:)]) {
+        [self.delegate searchTextVCDidCancel:self];
+    }
+}
+
+#pragma mark - Search
+- (void)search
+{
     [self hideSearchChrome];
+
+    [[TMERecentSearchManager sharedManager] addSearchText:self.searchBar.text];
+
+    if ([self.delegate respondsToSelector:@selector(searchTextVC:didSelectText:)]) {
+        [self.delegate searchTextVC:self didSelectText:self.searchBar.text];
+    }
 }
 
 #pragma mark - Search Chrome
