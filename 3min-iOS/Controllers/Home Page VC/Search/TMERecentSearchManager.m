@@ -8,7 +8,8 @@
 
 #import "TMERecentSearchManager.h"
 
-static NSString * const kRecentSearchTextsKey = @"kRecentSearchTextsKey";
+static NSString * const kRecentSearchTextsKey   = @"kRecentSearchTextsKey";
+static NSInteger const kMaxItemCount            = 5;
 
 @interface TMERecentSearchManager ()
 
@@ -33,6 +34,10 @@ OMNIA_SINGLETON_M(sharedManager)
     }
 
     [self.mutableRecentSearchTexts insertObject:text atIndex:0];
+
+    if (self.mutableRecentSearchTexts.count > kMaxItemCount) {
+        [self.mutableRecentSearchTexts removeLastObject];
+    }
 }
 
 - (void)clear
