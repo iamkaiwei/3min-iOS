@@ -8,7 +8,6 @@
 
 #import "TMEBrowserProductsTableCell.h"
 #import "PBImageHelper.h"
-#import "SDWebImageOperation.h"
 
 @interface TMEBrowserProductsTableCell ()
 
@@ -35,7 +34,7 @@
 
 	TMEProductImage *img = [product.images firstObject];
 
-	[self.imageViewProduct sd_setImageWithURL:img.mediumURL
+	[self.imageViewProduct setImageWithURL:img.mediumURL
 	                         placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
 
 //    [self.imageViewProduct setImageWithProgressIndicatorAndURL:[NSURL URLWithString:img.medium]

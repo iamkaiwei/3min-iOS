@@ -17,8 +17,7 @@
 #import "UINavigationController+SGProgress.h"
 #import "Reachability.h"
 #import "TSMessage.h"
-#import "SDWebImageDownloader.h"
-#import "UIImageView+WebCache.h"
+#import <AFNetworking/AFNetworking.h>
 #import "TMECircleProgressIndicator.h"
 #import "UIImageView+CircleProgress.h"
 #import "UIImageView+AFNetworking.h"
@@ -29,7 +28,6 @@
 #import <Flurry.h>
 #import <VENVersionTracker.h>
 #import <KZPropertyMapper.h>
-#import <AFNetworking/AFNetworking.h>
 #import <Pusher/Pusher.h>
 #import <Pusher/PTPusherChannel.h>
 #import <FacebookSDK/FacebookSDK.h>

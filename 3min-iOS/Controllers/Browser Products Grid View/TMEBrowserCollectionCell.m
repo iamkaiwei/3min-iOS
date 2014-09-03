@@ -24,7 +24,7 @@
 	if (images.count > 0) {
 		TMEProductImage *image = [images firstObject];
 		NSURL *imageUrl = image.mediumURL;
-		[self.imgProduct sd_setImageWithURL:imageUrl
+		[self.imgProduct setImageWithURL:imageUrl
 		                placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
 	}
 

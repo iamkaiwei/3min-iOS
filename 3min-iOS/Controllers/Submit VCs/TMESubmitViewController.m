@@ -269,7 +269,7 @@ PTPusherPresenceChannelDelegate
     self.lblProductName.text = self.product.name;
     self.lblProductPrice.text = [NSString stringWithFormat:@"%@ VND",self.product.price];
     
-    [self.imageViewProduct sd_setImageWithURL:[[self.product.images lastObject] thumbURL]];
+    [self.imageViewProduct setImageWithURL:[[self.product.images lastObject] thumbURL]];
     
     self.lblPriceOffered.text = [NSString stringWithFormat:@"%@ VND",self.conversation.offer];
     [self handleMarkAsSoldButtonTitle];

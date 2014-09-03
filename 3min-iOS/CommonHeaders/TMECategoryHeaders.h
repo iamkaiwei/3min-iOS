@@ -39,7 +39,6 @@
 #import "UIWebView+Additions.h"
 #import "UIButton+Additions.h"
 #import "NSString+FontAwesome.h"
-#import "SDWebImageManager.h"
 #import "IIViewDeckController.h"
 #import "CAAnimation+EasingEquations.h"
 #import "KZPropertyMapper+DateBoxing.h"
