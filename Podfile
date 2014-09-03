@@ -12,7 +12,6 @@ target :ThreeMin, :exclusive => true do
   pod 'VENVersionTracker', '0.1.0'
   pod 'iCarousel'
   pod 'MagicalRecord'
-  pod 'SDWebImage'
   pod 'ViewDeck', '2.2.11'
   pod 'SSPullToRefresh'
   pod 'RESwitch', '~> 1.0.1'

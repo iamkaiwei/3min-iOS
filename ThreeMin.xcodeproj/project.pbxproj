@@ -213,6 +213,7 @@
 		B41394F719B721230080DAA8 /* TMEProduct+ProductCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = B41394F619B721230080DAA8 /* TMEProduct+ProductCellHeight.m */; };
 		B41929E419B1E72C00E50CED /* TMETakePhotoButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41929E219B1E72C00E50CED /* TMETakePhotoButtonViewController.m */; };
 		B41929E519B1E72C00E50CED /* TMETakePhotoButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B41929E319B1E72C00E50CED /* TMETakePhotoButtonViewController.xib */; };
+		B41C80C519B782BA00210878 /* UIImageView+ProductCollectionCellLoadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B41C80C419B782BA00210878 /* UIImageView+ProductCollectionCellLoadImage.m */; };
 		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
 		B470E4D319AAF93500F4FF18 /* TMEHomeNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E4D219AAF93500F4FF18 /* TMEHomeNavigationViewController.m */; };
 		B470E4E719AC320100F4FF18 /* FPCollectionArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E4D619AC320100F4FF18 /* FPCollectionArrayDataSource.m */; };
@@ -644,6 +645,8 @@
 		B41929E119B1E72C00E50CED /* TMETakePhotoButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETakePhotoButtonViewController.h; sourceTree = "<group>"; };
 		B41929E219B1E72C00E50CED /* TMETakePhotoButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETakePhotoButtonViewController.m; sourceTree = "<group>"; };
 		B41929E319B1E72C00E50CED /* TMETakePhotoButtonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMETakePhotoButtonViewController.xib; sourceTree = "<group>"; };
+		B41C80C319B782BA00210878 /* UIImageView+ProductCollectionCellLoadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ProductCollectionCellLoadImage.h"; sourceTree = "<group>"; };
+		B41C80C419B782BA00210878 /* UIImageView+ProductCollectionCellLoadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ProductCollectionCellLoadImage.m"; sourceTree = "<group>"; };
 		B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B470E4D119AAF93500F4FF18 /* TMEHomeNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHomeNavigationViewController.h; sourceTree = "<group>"; };
 		B470E4D219AAF93500F4FF18 /* TMEHomeNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEHomeNavigationViewController.m; sourceTree = "<group>"; };
@@ -1127,6 +1130,8 @@
 				99AA4B2119A26F0600268345 /* NSObject+TMENotification.m */,
 				B4EF43A419A462A7001F010C /* NSValueTransformer+Addition.h */,
 				B4EF43A519A462A7001F010C /* NSValueTransformer+Addition.m */,
+				B41C80C319B782BA00210878 /* UIImageView+ProductCollectionCellLoadImage.h */,
+				B41C80C419B782BA00210878 /* UIImageView+ProductCollectionCellLoadImage.m */,
 			);
 			name = Categories;
 			path = "3min-iOS/Categories";
@@ -1960,6 +1965,7 @@
 				99EA0F451978492D00872EE4 /* TMEBrowserProductTableViewHeader.m in Sources */,
 				99EA0F6B1978492D00872EE4 /* TMEProductDetailsViewController.m in Sources */,
 				99EA0F3B1978492D00872EE4 /* TMEActivityTableViewCell.m in Sources */,
+				B41C80C519B782BA00210878 /* UIImageView+ProductCollectionCellLoadImage.m in Sources */,
 				99EA0F051978492D00872EE4 /* TMECategory.m in Sources */,
 				99EA0EF21978492D00872EE4 /* TMEVersionCheckerAppDelegateService.m in Sources */,
 				B470E4FA19AC323B00F4FF18 /* TMEProductCollectionViewCell.m in Sources */,

@@ -10,6 +10,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "TMEProductCollectionViewCell.h"
+#import "UIImageView+AFNetworking.h"
+#import "UIImageView+ProductCollectionCellLoadImage.h"
 #import "KHRoundAvatar.h"
 
 @interface TMEProductCollectionViewCell ()
@@ -39,6 +41,7 @@
 	if (self) {
 		// Initialization code
 //		[self resetContent];
+		[self addShadowAndBorderRadius];
 	}
 	return self;
 }
@@ -48,6 +51,7 @@
 	if (self) {
 		// Initialization code
 //		[self resetContent];
+		[self addShadowAndBorderRadius];
 	}
 	return self;
 }
@@ -57,14 +61,14 @@
 	if (self) {
 		// Initialization code
 //		[self resetContent];
+		[self addShadowAndBorderRadius];
 	}
 	return self;
 }
 
 - (void)prepareForReuse {
-    [super prepareForReuse];
-    [self addShadowAndBorderRadius];
-    [self resetContent];
+	[super prepareForReuse];
+	[self resetContent];
 }
 
 #pragma mark -
@@ -74,8 +78,8 @@
 	self.borderRadiusView.layer.masksToBounds = YES;
 	self.layer.shadowColor = [UIColor colorWithHexString:@"#aaa"].CGColor;
 	self.layer.shadowRadius = 0;
-    self.layer.shadowOffset = CGSizeMake(0.0f, 1.5f);
-    self.layer.shadowOpacity = .3f;
+	self.layer.shadowOffset = CGSizeMake(0.0f, 1.5f);
+	self.layer.shadowOpacity = .3f;
 }
 
 #pragma mark -
@@ -84,23 +88,49 @@
 	NSCParameterAssert(product);
 	NSAssert([product isKindOfClass:[TMEProduct class]], @"Need product to config product cell");
 
-	TMEProductImage *firstImage = [product.images firstObject];
-	[self.imgProduct sd_setImageWithURL:firstImage.mediumURL];
-
 	self.lblProductName.text = product.name;
 
-    self.lblProductPrice.text = product.price;
+	self.lblProductPrice.text = product.price;
 
-    self.btnLike.titleLabel.text = [product.likes stringValue];
-    self.btnLike.selected = product.liked;
+	self.btnLike.titleLabel.text = [product.likes stringValue];
+	self.btnLike.selected = product.liked;
 
-    self.btnComment.titleLabel.text = product.comments;
+	self.btnComment.titleLabel.text = product.comments;
 
 	self.lblUsername.text = product.user.fullName;
 	self.lblUsername.text = [product.createAt relativeDate];
 
-    NSURL *avatarUrl = [NSURL URLWithString:product.user.avatar];
-    [self.userAvatar sd_setImageWithURL:avatarUrl placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
+//	[self performSelector:@selector(loadImages:) withObject:product afterDelay:0.5];
+    [self loadImages:product];
+}
+
+- (void)loadImages:(TMEProduct *)product {
+//	if ([self isCompletelyVisible]) {
+	TMEProductImage *firstImage = [product.images firstObject];
+	[self.imgProduct tme_setImageWithURL:firstImage.mediumURL placeholderImage:nil];
+
+	NSURL *avatarUrl = [NSURL URLWithString:product.user.avatar];
+	[self.userAvatar tme_setImageWithURL:avatarUrl placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
+//	}
+}
+
+- (BOOL)isCompletelyVisible {
+	UICollectionView *collectionView = (UICollectionView *)[self parents:[UICollectionView class]];
+	UICollectionViewLayoutAttributes *attr = [collectionView layoutAttributesForItemAtIndexPath:[collectionView indexPathForCell:self]];
+	CGRect rect = attr.frame;
+	rect = [collectionView convertRect:rect toView:collectionView.superview];
+	BOOL completelyVisible = CGRectContainsRect(collectionView.frame, rect);
+
+	return completelyVisible;
+}
+
+- (UIView *)parents:(Class)class {
+	UIView *v = self;
+	while (![v.superview isKindOfClass:class]) {
+		v = v.superview;
+	}
+
+	return v.superview;
 }
 
 #pragma mark - Reset
@@ -121,41 +151,41 @@
 #pragma mark - Actions
 
 - (IBAction)onBtnLike:(UIButton *)sender {
-    if (![self.delegate respondsToSelector:@selector(tapOnLikeProductOnCell:)]) {
-        return;
-    }
-    TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
-    [self.delegate tapOnLikeProductOnCell:cell];
+	if (![self.delegate respondsToSelector:@selector(tapOnLikeProductOnCell:)]) {
+		return;
+	}
+	TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
+	[self.delegate tapOnLikeProductOnCell:cell];
 }
 
 - (IBAction)onBtnComment:(UIButton *)sender {
-    if (![self.delegate respondsToSelector:@selector(tapOnCommentProductOnCell:)]) {
-        return;
-    }
-    TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
-    [self.delegate tapOnCommentProductOnCell:cell];
+	if (![self.delegate respondsToSelector:@selector(tapOnCommentProductOnCell:)]) {
+		return;
+	}
+	TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
+	[self.delegate tapOnCommentProductOnCell:cell];
 }
 
 - (IBAction)onBtnShare:(id)sender {
-    if (![self.delegate respondsToSelector:@selector(tapOnShareProductOnCell:)]) {
-        return;
-    }
-    TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
-    [self.delegate tapOnShareProductOnCell:cell];
+	if (![self.delegate respondsToSelector:@selector(tapOnShareProductOnCell:)]) {
+		return;
+	}
+	TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
+	[self.delegate tapOnShareProductOnCell:cell];
 }
 
-#pragma mark - Helpers 
+#pragma mark - Helpers
 
 - (TMEProductCollectionViewCell *)getCellFromButton:(UIButton *)button {
-    UIView *temp = button;
-    while (!([temp.superview isKindOfClass:[UICollectionViewCell class]]
-           || !temp.superview)) {
-        temp = temp.superview;
-    }
+	UIView *temp = button;
+	while (!([temp.superview isKindOfClass:[UICollectionViewCell class]]
+	         || !temp.superview)) {
+		temp = temp.superview;
+	}
 
-    TMEProductCollectionViewCell *cell = (TMEProductCollectionViewCell *) temp.superview;
-    NSAssert([cell isKindOfClass:[UICollectionViewCell class]], @"Something when wrong, cell not be found");
-    return cell;
+	TMEProductCollectionViewCell *cell = (TMEProductCollectionViewCell *)temp.superview;
+	NSAssert([cell isKindOfClass:[UICollectionViewCell class]], @"Something when wrong, cell not be found");
+	return cell;
 }
 
 @end
