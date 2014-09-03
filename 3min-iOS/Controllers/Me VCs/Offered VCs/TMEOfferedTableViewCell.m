@@ -42,17 +42,11 @@
 	self.labelOfferPrice.text = [NSString stringWithFormat:@"%@ VND", conversation.offer];
 
 	[self.labelOfferPrice sizeToFitKeepHeight];
-	[self.imageViewAvatar sd_setImageWithURL:[NSURL URLWithString:conversation.userAvatar]];
+	[self.imageViewAvatar setImageWithURL:[NSURL URLWithString:conversation.userAvatar]];
 
 	NSURL *imageURL = [[conversation.product.images lastObject] thumbURL];
 	if (imageURL) {
-		[self.imageViewProduct sd_setImageWithURL:imageURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-		    if (!cacheType) {
-		        self.imageViewProduct.alpha = 0;
-			}
-		    [self.imageViewProduct fadeInWithDuration:0.5];
-
-        }];
+		[self.imageViewProduct setImageWithURL:imageURL];
 	}
 }
 

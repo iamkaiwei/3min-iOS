@@ -25,14 +25,7 @@
 	TMEProductImage *img = [product.images firstObject];
 
 
-	[self.imageViewProduct sd_setImageWithURL:img.thumbURL completed: ^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-
-	    if (!cacheType) {
-	        self.imageViewProduct.alpha = 0;
-		}
-	    [self.imageViewProduct fadeInWithDuration:0.5];
-        
-	}];
+	[self.imageViewProduct setImageWithURL:img.thumbURL];
 
 	self.labelProductName.text = product.name;
 	self.labelTimestamp.text = [product.createAt relativeDate];

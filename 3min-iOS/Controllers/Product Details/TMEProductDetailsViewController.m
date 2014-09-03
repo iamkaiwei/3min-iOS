@@ -58,7 +58,7 @@
 	NSArray *arrayImageView = @[self.imgProductImage1, self.imgProductImage2, self.imgProductImage3, self.imgProductImage4];
 
 	// user
-	[self.imgUserAvatar sd_setImageWithURL:[NSURL URLWithString:self.product.user.avatar]];
+	[self.imgUserAvatar setImageWithURL:[NSURL URLWithString:self.product.user.avatar]];
 	self.lblUserName.text = self.product.user.fullName;
 	self.lblTimestamp.text = [self.product.createAt relativeDate];
 
@@ -69,7 +69,7 @@
 	for (int i = 0; i < minCount; i++) {
 		TMEProductImage *img = self.product.images[i];
 		[arrayImageView[i] setHidden:NO];
-		[arrayImageView[i] sd_setImageWithURL:img.originURL
+		[arrayImageView[i] setImageWithURL:img.originURL
 		                     placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
 	}
 

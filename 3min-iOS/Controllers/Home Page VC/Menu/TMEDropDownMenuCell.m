@@ -19,7 +19,7 @@
 
 - (void)configWithCategory:(TMECategory *)category {
     self.lblCategoryName.text = category.name;
-    [self.imageViewCategory sd_setImageWithURL:[NSURL URLWithString:[category.image urlString]]];
+    [self.imageViewCategory setImageWithURL:[NSURL URLWithString:[category.image urlString]]];
 }
 
 @end
