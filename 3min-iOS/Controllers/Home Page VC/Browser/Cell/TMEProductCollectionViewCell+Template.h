@@ -13,5 +13,6 @@
 + (instancetype)sharedTemplate;
 
 - (CGFloat)staticBottomInformationHeightWithProduct:(TMEProduct *)product;
++ (CGFloat)staticBottomInformationHeightWithProduct:(TMEProduct *)product;
 
 @end

@@ -8,6 +8,7 @@
 #import "TMEBrowserProductViewModel.h"
 #import "TMEErrorCollectionViewDataSource.h"
 #import "TMEDropDownMenuViewController.h"
+#import "TMEProduct+ProductCellHeight.h"
 
 static const CGFloat kLoadMoreHeight = 50;
 
@@ -140,7 +141,6 @@ static const CGFloat kLoadMoreHeight = 50;
 }
 
 - (void)getProducts:(void (^)(NSArray *arrProducts))success failure:(void (^)(NSError *error))failure withPage:(NSUInteger)page {
-
 	// prevent mutiple loading
 	if (self.state == TMEViewModelStateLoading) {
 		return;
@@ -167,9 +167,17 @@ static const CGFloat kLoadMoreHeight = 50;
 
 		self.state = TMEViewModelStateLoaded;
 
-		if (success) {
-			success(arrProducts);
-		}
+		// caculate the height
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
+		    [arrProducts enumerateObjectsUsingBlock: ^(TMEProduct *product, NSUInteger idx, BOOL *stop) {
+		        [product productCellHeight];
+			}];
+		    dispatch_async(dispatch_get_main_queue(), ^(void) {
+		        if (success) {
+		            success(arrProducts);
+				}
+			});
+		});
 	};
 
 	void (^failureBlock)(NSError *) = ^(NSError *error) {
