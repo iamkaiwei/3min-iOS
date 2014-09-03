@@ -38,7 +38,7 @@
 	self = [super initWithCoder:aDecoder];
 	if (self) {
 		// Initialization code
-		[self resetContent];
+//		[self resetContent];
 	}
 	return self;
 }
@@ -47,7 +47,7 @@
 	self = [super init];
 	if (self) {
 		// Initialization code
-		[self resetContent];
+//		[self resetContent];
 	}
 	return self;
 }
@@ -56,9 +56,15 @@
 	self = [super initWithFrame:frame];
 	if (self) {
 		// Initialization code
-		[self resetContent];
+//		[self resetContent];
 	}
 	return self;
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    [self addShadowAndBorderRadius];
+    [self resetContent];
 }
 
 #pragma mark -
@@ -77,8 +83,6 @@
 - (void)configWithData:(TMEProduct *)product {
 	NSCParameterAssert(product);
 	NSAssert([product isKindOfClass:[TMEProduct class]], @"Need product to config product cell");
-
-    [self addShadowAndBorderRadius];
 
 	TMEProductImage *firstImage = [product.images firstObject];
 	[self.imgProduct sd_setImageWithURL:firstImage.mediumURL];

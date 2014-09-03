@@ -14,22 +14,39 @@
 	static TMEProductCollectionViewCell *cell = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-        UINib *templateNib = [UINib nibWithNibName:@"TMEProductCollectionViewCell" bundle:[NSBundle mainBundle]];
-        cell = [[templateNib instantiateWithOwner:nil options:nil] firstObject];
+	    UINib *templateNib = [UINib nibWithNibName:@"TMEProductCollectionViewCell" bundle:[NSBundle mainBundle]];
+	    cell = [[templateNib instantiateWithOwner:nil options:nil] firstObject];
 	});
 
 	return cell;
 }
 
 - (CGFloat)staticBottomInformationHeightWithProduct:(TMEProduct *)product {
-    CGFloat oneLineHeight = 21;
-    CGFloat bottomStaticHeight = 152;
+	CGFloat oneLineHeight = 21;
+	CGFloat bottomStaticHeight = 152;
 
-    TMEProductCollectionViewCell *cell = [TMEProductCollectionViewCell sharedTemplate];
+	TMEProductCollectionViewCell *cell = [TMEProductCollectionViewCell sharedTemplate];
 	[cell prepareForReuse];
-    cell.lblProductName.preferredMaxLayoutWidth = cell.lblProductName.width;
+	cell.lblProductName.preferredMaxLayoutWidth = cell.lblProductName.width;
 	[cell configWithData:product];
-    [cell layoutIfNeeded];
+	[cell layoutIfNeeded];
+	return cell.lblProductName.height + bottomStaticHeight - oneLineHeight;
+}
+
++ (CGFloat)staticBottomInformationHeightWithProduct:(TMEProduct *)product {
+	CGFloat oneLineHeight = 21;
+	CGFloat bottomStaticHeight = 152;
+    
+	__block TMEProductCollectionViewCell *cell = nil;
+	dispatch_async(dispatch_get_main_queue(), ^{
+	    cell = [TMEProductCollectionViewCell sharedTemplate];
+	});
+
+	[cell prepareForReuse];
+
+	cell.lblProductName.preferredMaxLayoutWidth = cell.lblProductName.width;
+	[cell configWithData:product];
+	[cell layoutIfNeeded];
 	return cell.lblProductName.height + bottomStaticHeight - oneLineHeight;
 }
 

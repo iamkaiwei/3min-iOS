@@ -11,6 +11,7 @@
 #import "TMEProductCollectionViewCell.h"
 #import "TMELoadMoreCollectionFooterView.h"
 #import "TMEProductCollectionViewCell+Template.h"
+#import "TMEProduct+ProductCellHeight.h"
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 
 static const CGFloat kProductCollectionCellStaticInfoHeight = 128;
@@ -107,14 +108,7 @@ static const CGFloat kProductCollectionCellWidth = 152;
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 	CGFloat cellWidth = kProductCollectionCellWidth;
 	TMEProduct *product = [self itemAtIndex:indexPath.row];
-	TMEProductImage *image = [product.images firstObject];
-
-	CGSize imageDim = [image.dim CGSizeValue];
-
-	CGFloat bottomHeight = [[TMEProductCollectionViewCell sharedTemplate] staticBottomInformationHeightWithProduct:product];
-	CGFloat newCellHeight = imageDim.height * cellWidth / imageDim.width + bottomHeight;
-
-	return CGSizeMake(cellWidth, newCellHeight);
+	return CGSizeMake(cellWidth, [product productCellHeight]);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForFooterInSection:(NSInteger)section {

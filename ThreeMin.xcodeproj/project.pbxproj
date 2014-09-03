@@ -204,6 +204,7 @@
 		B410F76219961A7C000AE5B7 /* TMECategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F75E19961A7C000AE5B7 /* TMECategoryManager.m */; };
 		B410F76419961A84000AE5B7 /* TMENetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76319961A84000AE5B7 /* TMENetworkManager.m */; };
 		B410F76719961AA5000AE5B7 /* TMEBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76619961AA5000AE5B7 /* TMEBaseManager.m */; };
+		B41394F719B721230080DAA8 /* TMEProduct+ProductCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = B41394F619B721230080DAA8 /* TMEProduct+ProductCellHeight.m */; };
 		B41929E419B1E72C00E50CED /* TMETakePhotoButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41929E219B1E72C00E50CED /* TMETakePhotoButtonViewController.m */; };
 		B41929E519B1E72C00E50CED /* TMETakePhotoButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B41929E319B1E72C00E50CED /* TMETakePhotoButtonViewController.xib */; };
 		B4255A6718B9FE3A0022B3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4255A6618B9FE3A0022B3A5 /* CoreLocation.framework */; };
@@ -613,6 +614,8 @@
 		B410F76319961A84000AE5B7 /* TMENetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMENetworkManager.m; sourceTree = "<group>"; };
 		B410F76519961AA5000AE5B7 /* TMEBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseManager.h; sourceTree = "<group>"; };
 		B410F76619961AA5000AE5B7 /* TMEBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseManager.m; sourceTree = "<group>"; };
+		B41394F519B721230080DAA8 /* TMEProduct+ProductCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TMEProduct+ProductCellHeight.h"; path = "3min-iOS/Controllers/Home Page VC/Browser/Cell/TMEProduct+ProductCellHeight.h"; sourceTree = SOURCE_ROOT; };
+		B41394F619B721230080DAA8 /* TMEProduct+ProductCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TMEProduct+ProductCellHeight.m"; path = "3min-iOS/Controllers/Home Page VC/Browser/Cell/TMEProduct+ProductCellHeight.m"; sourceTree = SOURCE_ROOT; };
 		B41929E119B1E72C00E50CED /* TMETakePhotoButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETakePhotoButtonViewController.h; sourceTree = "<group>"; };
 		B41929E219B1E72C00E50CED /* TMETakePhotoButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETakePhotoButtonViewController.m; sourceTree = "<group>"; };
 		B41929E319B1E72C00E50CED /* TMETakePhotoButtonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMETakePhotoButtonViewController.xib; sourceTree = "<group>"; };
@@ -1534,6 +1537,8 @@
 			children = (
 				B470E4DE19AC320100F4FF18 /* TMEBrowserProductViewModel.h */,
 				B470E4DF19AC320100F4FF18 /* TMEBrowserProductViewModel.m */,
+				B41394F519B721230080DAA8 /* TMEProduct+ProductCellHeight.h */,
+				B41394F619B721230080DAA8 /* TMEProduct+ProductCellHeight.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1913,6 +1918,7 @@
 				99EA0F1B1978492D00872EE4 /* NSData+Base64.m in Sources */,
 				99EA0F421978492D00872EE4 /* TMEBrowserProductsViewController.m in Sources */,
 				99EA0F5C1978492D00872EE4 /* TMEOfferedTableViewCell.m in Sources */,
+				B41394F719B721230080DAA8 /* TMEProduct+ProductCellHeight.m in Sources */,
 				99EA0EFC1978492D00872EE4 /* TMEProductsManager.m in Sources */,
 				B470E4EA19AC320100F4FF18 /* TMEPaginationCollectionViewErrorDataSource.m in Sources */,
 				99EA0F071978492D00872EE4 /* TMEProduct+BackwardSupport.m in Sources */,

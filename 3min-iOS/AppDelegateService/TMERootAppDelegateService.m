@@ -45,7 +45,9 @@
     return YES;
 }
 
-
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
+}
 
 #pragma mark - Login
 - (void)showLoginViewController
