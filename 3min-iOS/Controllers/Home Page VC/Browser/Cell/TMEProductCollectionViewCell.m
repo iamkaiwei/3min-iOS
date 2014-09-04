@@ -99,19 +99,14 @@
 
 	self.lblUsername.text = product.user.fullName;
 	self.lblUsername.text = [product.createAt relativeDate];
-
-//	[self performSelector:@selector(loadImages:) withObject:product afterDelay:0.5];
-    [self loadImages:product];
 }
 
 - (void)loadImages:(TMEProduct *)product {
-//	if ([self isCompletelyVisible]) {
 	TMEProductImage *firstImage = [product.images firstObject];
 	[self.imgProduct tme_setImageWithURL:firstImage.mediumURL placeholderImage:nil];
 
 	NSURL *avatarUrl = [NSURL URLWithString:product.user.avatar];
 	[self.userAvatar tme_setImageWithURL:avatarUrl placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
-//	}
 }
 
 - (BOOL)isCompletelyVisible {

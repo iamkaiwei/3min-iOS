@@ -34,19 +34,22 @@
 }
 
 + (CGFloat)staticBottomInformationHeightWithProduct:(TMEProduct *)product {
+
+//    return 300;
+
 	CGFloat oneLineHeight = 21;
 	CGFloat bottomStaticHeight = 152;
-    
+
 	__block TMEProductCollectionViewCell *cell = nil;
 	dispatch_async(dispatch_get_main_queue(), ^{
 	    cell = [TMEProductCollectionViewCell sharedTemplate];
 	});
 
-	[cell prepareForReuse];
+//	[cell prepareForReuse];
 
 	cell.lblProductName.preferredMaxLayoutWidth = cell.lblProductName.width;
-	[cell configWithData:product];
-	[cell layoutIfNeeded];
+//	[cell configWithData:product];
+//	[cell layoutIfNeeded];
 	return cell.lblProductName.height + bottomStaticHeight - oneLineHeight;
 }
 
