@@ -45,6 +45,8 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+
+    [[[AFHTTPRequestOperationManager manager] operationQueue] setMaxConcurrentOperationCount:4];
 	// Do any additional setup after loading the view from its nib.
 
 	[self.collectionViewProducts registerNib:[TMELoadMoreCollectionFooterView defaultNib] forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionFooterView class])];

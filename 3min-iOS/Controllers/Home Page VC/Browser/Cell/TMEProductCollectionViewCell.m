@@ -40,7 +40,6 @@
 	self = [super initWithCoder:aDecoder];
 	if (self) {
 		// Initialization code
-//		[self resetContent];
 		[self addShadowAndBorderRadius];
 	}
 	return self;
@@ -50,7 +49,6 @@
 	self = [super init];
 	if (self) {
 		// Initialization code
-//		[self resetContent];
 		[self addShadowAndBorderRadius];
 	}
 	return self;
@@ -60,7 +58,6 @@
 	self = [super initWithFrame:frame];
 	if (self) {
 		// Initialization code
-//		[self resetContent];
 		[self addShadowAndBorderRadius];
 	}
 	return self;
@@ -69,27 +66,29 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self addShadowAndBorderRadius];
-    self.opaque = YES;
 }
 
 - (void)prepareForReuse {
 	[super prepareForReuse];
+    [self.imgProduct cancelImageRequestOperation];
+    [self.userAvatar cancelImageRequestOperation];
 	[self resetContent];
 }
 
 #pragma mark -
 
 - (void)addShadowAndBorderRadius {
+    self.opaque = YES;
+
+	self.borderRadiusView.layer.cornerRadius = 3.0f;
+	self.borderRadiusView.layer.masksToBounds = YES;
+	self.layer.shadowColor = [UIColor colorWithHexString:@"#aaa"].CGColor;
+	self.layer.shadowRadius = 0;
+	self.layer.shadowOffset = CGSizeMake(0.0f, 1.5f);
+	self.layer.shadowOpacity = .3f;
 
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [UIScreen mainScreen].scale;
-
-//	self.borderRadiusView.layer.cornerRadius = 3.0f;
-//	self.borderRadiusView.layer.masksToBounds = YES;
-//	self.layer.shadowColor = [UIColor colorWithHexString:@"#aaa"].CGColor;
-//	self.layer.shadowRadius = 0;
-//	self.layer.shadowOffset = CGSizeMake(0.0f, 1.5f);
-//	self.layer.shadowOpacity = .3f;
 }
 
 #pragma mark -
@@ -117,25 +116,6 @@
 
 	NSURL *avatarUrl = [NSURL URLWithString:product.user.avatar];
 	[self.userAvatar tme_setImageWithURL:avatarUrl placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
-}
-
-- (BOOL)isCompletelyVisible {
-	UICollectionView *collectionView = (UICollectionView *)[self parents:[UICollectionView class]];
-	UICollectionViewLayoutAttributes *attr = [collectionView layoutAttributesForItemAtIndexPath:[collectionView indexPathForCell:self]];
-	CGRect rect = attr.frame;
-	rect = [collectionView convertRect:rect toView:collectionView.superview];
-	BOOL completelyVisible = CGRectContainsRect(collectionView.frame, rect);
-
-	return completelyVisible;
-}
-
-- (UIView *)parents:(Class)class {
-	UIView *v = self;
-	while (![v.superview isKindOfClass:class]) {
-		v = v.superview;
-	}
-
-	return v.superview;
 }
 
 #pragma mark - Reset
