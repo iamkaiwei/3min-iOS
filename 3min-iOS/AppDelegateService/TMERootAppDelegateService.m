@@ -24,6 +24,7 @@
     self = [super init];
     if (self) {
         [self registerNotifications];
+        [self setMaxConcurrencyRequest];
     }
 
     return self;
@@ -182,5 +183,9 @@
 //    [[UAPush shared] updateRegistration];
 //
 //}
+
+- (void)setMaxConcurrencyRequest {
+    [[[AFHTTPRequestOperationManager manager] operationQueue] setMaxConcurrentOperationCount:4];
+}
 
 @end

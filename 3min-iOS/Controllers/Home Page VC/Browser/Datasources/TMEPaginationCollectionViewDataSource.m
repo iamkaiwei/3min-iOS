@@ -22,7 +22,7 @@ static const CGFloat kProductCollectionCellWidth = 152;
     UICollectionViewDataSource
 >
 
-@property (copy, nonatomic, readwrite) NSArray *items;
+@property (strong, nonatomic, readwrite) NSArray *items;
 @property (copy, nonatomic) IdentifierParserBlock identifierParserBlock;
 @property (copy, nonatomic) CollectionViewCellConfigureBlock configureCellBlock;
 

@@ -9,6 +9,7 @@
 #import "TMESearchPageContentViewController.h"
 #import "TMESearchFilterViewController.h"
 #import "TMESearchTextViewController.h"
+#import "TMESearchResultViewController.h"
 
 #import "TMESearchFilter.h"
 
@@ -21,92 +22,76 @@
 
 @property (nonatomic, strong) TMESearchTextViewController *searchTextVC;
 @property (nonatomic, strong) TMESearchFilterViewController *searchFilterVC;
-@property (nonatomic, strong) UIViewController *searchResultVC;
+@property (nonatomic, strong) TMESearchResultViewController *searchResultVC;
 
 @property (nonatomic, strong) UIViewController *currentChildVC;
-
-@property (nonatomic, strong) TMESearchNetworkClient *searchNetworkClient;
-
 @end
 
 @implementation TMESearchPageContentViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (void)viewDidLoad {
+	[super viewDidLoad];
+
+	// Add SearchTextVC
+	[self addChildVC:self.searchTextVC containerView:self.view];
+
+	[self addSearchResultVC];
+
+	// Set SearchFilterVC as default
+	[self addChildVC:self.searchFilterVC containerView:self.containerView];
+
+	[self.searchFilterVC.view mas_makeConstraints: ^(MASConstraintMaker *make) {
+	    make.edges.equalTo(self.containerView);
+	}];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    self.searchNetworkClient = [[TMESearchNetworkClient alloc] init];
-
-    // Add SearchTextVC
-    [self addChildVC:self.searchTextVC containerView:self.view];
-
-    // Set SearchFilterVC as default
-    [self addChildVC:self.searchFilterVC containerView:self.containerView];
-    [self.searchFilterVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.containerView);
-    }];
+- (void)addSearchResultVC {
+	[self addChildVC:self.searchResultVC containerView:self.containerView];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)didReceiveMemoryWarning {
+	[super didReceiveMemoryWarning];
+	// Dispose of any resources that can be recreated.
 }
 
 #pragma mark - ChildVC
-- (TMESearchTextViewController *)searchTextVC
-{
-    if (!_searchTextVC) {
-        _searchTextVC = [[TMESearchTextViewController alloc] init];
-        _searchTextVC.delegate = self;
-    }
+- (TMESearchTextViewController *)searchTextVC {
+	if (!_searchTextVC) {
+		_searchTextVC = [[TMESearchTextViewController alloc] init];
+		_searchTextVC.delegate = self;
+	}
 
-    return _searchTextVC;
+	return _searchTextVC;
 }
 
-- (TMESearchFilterViewController *)searchFilterVC
-{
-    if (!_searchFilterVC) {
-        _searchFilterVC = [[TMESearchFilterViewController alloc] init];
-    }
+- (TMESearchFilterViewController *)searchFilterVC {
+	if (!_searchFilterVC) {
+		_searchFilterVC = [[TMESearchFilterViewController alloc] init];
+	}
 
-    return _searchFilterVC;
+	return _searchFilterVC;
 }
 
-- (UIViewController *)searchResultVC
-{
-    if (!_searchResultVC) {
-        _searchResultVC = [[UIViewController alloc] init];
-    }
+- (TMESearchResultViewController *)searchResultVC {
+	if (!_searchResultVC) {
+		_searchResultVC = [[TMESearchResultViewController alloc] init];
+	}
 
-    return _searchResultVC;
+	return _searchResultVC;
 }
-
 
 #pragma mark - TMESearchTextVC
-- (void)searchTextVC:(TMESearchTextViewController *)searchTextVC didSelectText:(NSString *)text
-{
-    [self.searchNetworkClient search:text sucess:^(NSArray *results) {
-        self.searchFilterVC.view.hidden = YES;
-        self.searchResultVC.view.hidden = NO;
-    } failure:^(NSError *error) {
-
-    }];
+- (void)searchTextVC:(TMESearchTextViewController *)searchTextVC didSelectText:(NSString *)text {
+	[self.searchResultVC.viewModel searchWithString:text success: ^(NSArray *arrItems) {
+	    self.searchFilterVC.view.hidden = YES;
+	    self.searchResultVC.view.hidden = NO;
+	} failure: ^(NSError *error) {
+	}];
 }
 
-- (void)searchTextVCDidCancel:(TMESearchTextViewController *)searchTextVC
-{
-    self.searchFilterVC.view.hidden = NO;
-    self.searchResultVC.view.hidden = YES;
+- (void)searchTextVCDidCancel:(TMESearchTextViewController *)searchTextVC {
+	self.searchFilterVC.view.hidden = NO;
+	self.searchResultVC.view.hidden = YES;
 }
 
 @end

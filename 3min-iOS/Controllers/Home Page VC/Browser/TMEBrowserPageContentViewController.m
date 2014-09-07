@@ -36,17 +36,9 @@
 
 #pragma mark - VC cycle
 
-- (id)init {
-	self = [super init];
-	if (self) {
-	}
-	return self;
-}
-
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-    [[[AFHTTPRequestOperationManager manager] operationQueue] setMaxConcurrentOperationCount:4];
 	// Do any additional setup after loading the view from its nib.
 
 	[self.collectionViewProducts registerNib:[TMELoadMoreCollectionFooterView defaultNib] forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([TMELoadMoreCollectionFooterView class])];
@@ -65,9 +57,6 @@
 }
 
 #pragma mark -
-
-- (void)viewDidLayoutSubviews {
-}
 
 - (void)addTakePhotoButton {
 	self.takePhotoButtonVC = [[TMETakePhotoButtonViewController alloc] init];
