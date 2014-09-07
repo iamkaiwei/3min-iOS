@@ -26,5 +26,6 @@
 @property (weak, nonatomic) id<TMEProductCollectionViewCellDelete> delegate;
 
 - (void)configWithData:(TMEProduct *)product;
+- (void)loadImages:(TMEProduct *)product;
 
 @end

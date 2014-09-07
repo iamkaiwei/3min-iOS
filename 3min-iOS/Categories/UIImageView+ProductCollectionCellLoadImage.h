@@ -11,5 +11,6 @@
 @interface UIImageView (ProductCollectionCellLoadImage)
 
 - (void)tme_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage;
+- (BOOL)tme_loadCachedImageWithUrl:(NSURL *)url;
 
 @end

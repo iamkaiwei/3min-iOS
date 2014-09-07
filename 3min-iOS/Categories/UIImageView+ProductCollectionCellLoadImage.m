@@ -11,6 +11,24 @@
 
 @implementation UIImageView (ProductCollectionCellLoadImage)
 
+- (BOOL)tme_loadCachedImageWithUrl:(NSURL *)url {
+	NSURLRequest *request;
+	if ([url isKindOfClass:[NSString class]]) {
+		request = [NSURLRequest requestWithURL:[NSURL URLWithString:(NSString *)url]];
+	}
+	else {
+		request = [NSURLRequest requestWithURL:url];
+	}
+
+	UIImage *image = [[UIImageView sharedImageCache] cachedImageForRequest:request];
+	if (image) {
+		[self setImage:image];
+        return YES;
+	}
+
+    return NO;
+}
+
 - (void)tme_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage {
 	NSURLRequest *request;
 	if ([url isKindOfClass:[NSString class]]) {
