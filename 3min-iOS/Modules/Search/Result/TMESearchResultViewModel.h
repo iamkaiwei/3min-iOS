@@ -15,7 +15,7 @@
 
 @property (copy, nonatomic, readonly) NSMutableArray *arrayItems;
 
-@property (nonatomic, readonly, strong) TMEPaginationCollectionViewDataSource *datasource;
+@property (nonatomic, readonly, strong) TMEBrowserProductPaginationCollectionViewDataSource *datasource;
 
 @property (nonatomic, readonly) TMEViewModelState state;
 

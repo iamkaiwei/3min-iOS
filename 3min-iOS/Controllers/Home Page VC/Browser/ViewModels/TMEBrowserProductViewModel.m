@@ -18,7 +18,7 @@ static const CGFloat kLoadMoreHeight = 50;
 
 @property (nonatomic, readwrite) TMEViewModelState state;
 
-@property (nonatomic, readwrite, strong) TMEPaginationCollectionViewDataSource *datasource;
+@property (nonatomic, readwrite, strong) TMEBrowserProductPaginationCollectionViewDataSource *datasource;
 
 @property (strong, nonatomic) FBKVOController *kvoController;
 
@@ -100,7 +100,7 @@ static const CGFloat kLoadMoreHeight = 50;
 	// if there is loading state, then keep the current datasource
 	if (self.state == TMEViewModelStateLoading ||
 	    self.state == TMEViewModelStateLoadingMorePage) {
-		if ([self.datasource isKindOfClass:[TMEPaginationCollectionViewDataSource class]]) {
+		if ([self.datasource isKindOfClass:[TMEBrowserProductPaginationCollectionViewDataSource class]]) {
 			return self.datasource;
 		}
 	}
@@ -109,10 +109,10 @@ static const CGFloat kLoadMoreHeight = 50;
 		return [[TMEErrorCollectionViewDataSource alloc] init];
 	}
 
-	return [[TMEPaginationCollectionViewDataSource alloc] initWithItems:self.arrayItems identifierParserBlock:nil configureCellBlock:nil];
+	return [[TMEBrowserProductPaginationCollectionViewDataSource alloc] initWithItems:self.arrayItems identifierParserBlock:nil configureCellBlock:nil];
 }
 
-- (void)setDatasource:(TMEPaginationCollectionViewDataSource *)datasource {
+- (void)setDatasource:(TMEBrowserProductPaginationCollectionViewDataSource *)datasource {
 	_datasource = datasource;
 	[_datasource setCellAndFooterClasses:self.collectionView];
 	self.collectionView.dataSource = _datasource;

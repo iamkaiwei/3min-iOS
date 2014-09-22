@@ -7,7 +7,7 @@
 //
 
 #import "FPCollectionArrayDataSource.h"
-#import "TMEPaginationCollectionViewDataSource.h"
+#import "TMEBrowserProductPaginationCollectionViewDataSource.h"
 #import "TMEProductCollectionViewCell.h"
 #import "TMELoadMoreCollectionFooterView.h"
 #import "TMEProductCollectionViewCell+Template.h"
@@ -17,7 +17,7 @@
 static const CGFloat kProductCollectionCellStaticInfoHeight = 128;
 static const CGFloat kProductCollectionCellWidth = 152;
 
-@interface TMEPaginationCollectionViewDataSource ()
+@interface TMEBrowserProductPaginationCollectionViewDataSource ()
 <
     UICollectionViewDataSource
 >
@@ -28,7 +28,7 @@ static const CGFloat kProductCollectionCellWidth = 152;
 
 @end
 
-@implementation TMEPaginationCollectionViewDataSource
+@implementation TMEBrowserProductPaginationCollectionViewDataSource
 
 - (id)initWithViewModel:(id)viewModel {
 	self = [super init];

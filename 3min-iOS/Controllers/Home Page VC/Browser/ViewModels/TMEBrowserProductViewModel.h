@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TMEPaginationCollectionViewDataSource.h"
+#import "TMEBrowserProductPaginationCollectionViewDataSource.h"
 
 typedef NS_ENUM(NSUInteger, TMEViewModelState) {
     TMEViewModelStateIntial,
@@ -23,7 +23,7 @@ typedef NS_ENUM(NSUInteger, TMEViewModelState) {
 
 @property (copy, nonatomic, readonly) NSArray *arrayItems;
 
-@property (nonatomic, readonly, strong) TMEPaginationCollectionViewDataSource *datasource;
+@property (nonatomic, readonly, strong) TMEBrowserProductPaginationCollectionViewDataSource *datasource;
 
 @property (nonatomic, readonly) TMEViewModelState state;
 
