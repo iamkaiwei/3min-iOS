@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LZB-NN-uT9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LZB-NN-uT9">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
+        <!--Product DetailVC-->
+        <scene sceneID="PKQ-Pb-cmk">
+            <objects>
+                <viewController storyboardIdentifier="TMEProductDetailVC" id="Dhm-eF-lSD" customClass="TMEProductDetailVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="egj-SG-46u"/>
+                        <viewControllerLayoutGuide type="bottom" id="MMV-cm-SRi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HjZ-dy-KeU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8P-T9-qMa" userLabel="Button - Chat to buy">
+                                <rect key="frame" x="110" y="511" width="100" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btn_chat-to-buy">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MMV-cm-SRi" firstAttribute="top" secondItem="L8P-T9-qMa" secondAttribute="bottom" constant="20" id="3jX-cU-N7v"/>
+                            <constraint firstAttribute="centerX" secondItem="L8P-T9-qMa" secondAttribute="centerX" id="XgQ-Sz-LDh"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v1m-jg-tTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="25" y="-4"/>
+        </scene>
         <!--Product Detail Only TableVC-->
         <scene sceneID="Zmu-kp-Zvh">
             <objects>
@@ -28,6 +59,9 @@
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="likeButtonTouched:" destination="LZB-NN-uT9" eventType="touchUpInside" id="5xu-cJ-LjV"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9t-sd-AhU">
                                     <rect key="frame" x="108" y="20" width="104" height="24"/>
@@ -36,6 +70,9 @@
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="commentButtonTouched:" destination="LZB-NN-uT9" eventType="touchUpInside" id="jGM-x9-94F"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrH-lb-uc7">
                                     <rect key="frame" x="231" y="20" width="79" height="24"/>
@@ -44,6 +81,9 @@
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="shareButtonTouched:" destination="LZB-NN-uT9" eventType="touchUpInside" id="fel-KK-wtb"/>
+                                    </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bottom_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="Nwz-kH-Rla">
                                     <rect key="frame" x="97" y="5" width="1" height="50"/>
@@ -152,6 +192,9 @@
                                                     <state key="normal" title="12 people like this">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="likeInfoButtonTouched:" destination="LZB-NN-uT9" eventType="touchUpInside" id="HBc-J5-R8j"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -177,6 +220,9 @@
                                                     <state key="normal" title="View all comments">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="commentInfoButtonTouched:" destination="LZB-NN-uT9" eventType="touchUpInside" id="Qhp-2O-qp6"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -268,6 +314,28 @@
                         </connections>
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="commentButton" destination="L9t-sd-AhU" id="Rod-0c-RL5"/>
+                        <outlet property="commentInfoButton" destination="h6V-1s-fub" id="r8K-8N-3Op"/>
+                        <outlet property="descriptionLabel" destination="7lh-dN-J3O" id="3h3-tr-YB9"/>
+                        <outlet property="imageView" destination="LQZ-kU-evg" id="G9S-aF-ESM"/>
+                        <outlet property="likeButton" destination="He0-Cb-Hep" id="erz-7s-cjZ"/>
+                        <outlet property="likeInfoButton" destination="XAP-uj-vBW" id="a2e-Em-qyZ"/>
+                        <outlet property="locationLabel" destination="5gj-V2-XKT" id="O0A-Tr-rWd"/>
+                        <outlet property="nameLabel" destination="cqs-ex-VbI" id="0P3-h2-cln"/>
+                        <outlet property="priceLabel" destination="bxa-SK-HzS" id="XaU-vI-PaN"/>
+                        <outlet property="shareButton" destination="HrH-lb-uc7" id="QO6-Ho-8S6"/>
+                        <outletCollection property="commentUserAvatarImageViews" destination="kHy-Tj-eRY" id="7PH-p3-U8O"/>
+                        <outletCollection property="commentUserAvatarImageViews" destination="viE-eU-e7D" id="JgH-9g-Buv"/>
+                        <outletCollection property="commentUserAvatarImageViews" destination="RNA-5r-66b" id="ufH-nn-nC9"/>
+                        <outletCollection property="commentUserNameLabels" destination="VqM-gv-92B" id="wdB-Or-zhB"/>
+                        <outletCollection property="commentUserNameLabels" destination="xMZ-8C-BZu" id="MBF-Qb-ru7"/>
+                        <outletCollection property="commentUserNameLabels" destination="TXF-xr-Cq8" id="ydV-I1-acP"/>
+                        <outletCollection property="commentUserCommentLabels" destination="iIG-Y0-60I" id="yuI-yE-YmN"/>
+                        <outletCollection property="commentUserCommentLabels" destination="bYO-eN-HnT" id="7XY-rY-mkg"/>
+                        <outletCollection property="commentUserCommentLabels" destination="UFl-yZ-Bdu" id="Zym-Pg-GEn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSv-h8-bTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -276,6 +344,7 @@
     </scenes>
     <resources>
         <image name="bottom_gradient" width="1" height="52"/>
+        <image name="btn_chat-to-buy" width="100" height="37"/>
         <image name="icn_coment" width="24" height="24"/>
         <image name="icn_info" width="24" height="24"/>
         <image name="icn_like" width="24" height="24"/>

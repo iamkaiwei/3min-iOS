@@ -21,7 +21,7 @@ void ProductCollectionCellShare(UIViewController *onViewController, TMEProduct *
 }
 
 void ProductCollectionCellGoDetails(UIViewController *onViewController, TMEProduct *product) {
-    TMEProductDetailVC *productDetailVC = [[TMEProductDetailVC alloc] init];
+    TMEProductDetailVC *productDetailVC = [TMEProductDetailVC tme_instantiateFromStoryboardNamed:@"ProductDetail"];
     productDetailVC.product = product;
     [onViewController.navigationController pushViewController:productDetailVC animated:YES];
 }
