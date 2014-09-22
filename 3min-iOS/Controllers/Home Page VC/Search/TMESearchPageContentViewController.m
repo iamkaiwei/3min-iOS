@@ -80,18 +80,52 @@
 	return _searchResultVC;
 }
 
-#pragma mark - TMESearchTextVC
+#pragma mark - TMESearchTextVCDelegate
 - (void)searchTextVC:(TMESearchTextViewController *)searchTextVC didSelectText:(NSString *)text {
+    [SVProgressHUD show];
 	[self.searchResultVC.viewModel searchWithString:text success: ^(NSArray *arrItems) {
-	    self.searchFilterVC.view.hidden = YES;
-	    self.searchResultVC.view.hidden = NO;
+        [SVProgressHUD dismiss];
+	    [self showSearchResultVC];
 	} failure: ^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:nil];
 	}];
 }
 
 - (void)searchTextVCDidCancel:(TMESearchTextViewController *)searchTextVC {
-	self.searchFilterVC.view.hidden = NO;
-	self.searchResultVC.view.hidden = YES;
+	[self showSearchFilterVC];
+}
+
+#pragma mark - Helper
+- (void)showSearchFilterVC
+{
+    [self showChildVC:self.searchFilterVC];
+}
+
+- (void)showSearchResultVC
+{
+    [self showChildVC:self.searchResultVC];
+}
+
+- (void)showChildVC:(UIViewController *)childVC
+{
+    UIViewController *showVC, *hideVC;
+    for (UIViewController *vc in @[ self.searchResultVC, self.searchFilterVC ]) {
+        if (vc == childVC) {
+            showVC = vc;
+        } else {
+            hideVC = vc;
+        }
+    }
+
+    showVC.view.alpha = 0;
+    hideVC.view.alpha = 1;
+    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        showVC.view.alpha = 1;
+        hideVC.view.alpha = 0;
+    } completion:^(BOOL finished) {
+        showVC.view.hidden = NO;
+        hideVC.view.hidden = YES;
+    }];
 }
 
 @end
