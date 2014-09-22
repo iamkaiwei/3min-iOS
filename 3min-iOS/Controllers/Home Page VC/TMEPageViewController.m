@@ -8,6 +8,8 @@
 
 #import "TMEPageViewController.h"
 #import "TMEHomeNavigationButtonDelegate.h"
+#import "TMEHomePageViewDatasource.h"
+#import "UIColor+Additions.h"
 
 @interface TMEPageViewController()
 <

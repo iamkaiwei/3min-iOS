@@ -7,6 +7,7 @@
 //
 
 #import "TMEHomePageViewController.h"
+#import "TMEPageViewController.h"
 
 @interface TMEHomePageViewController ()
 
@@ -33,13 +34,10 @@
 }
 
 - (void)addPageViewControllerAndDisplay {
-	self.navVC = [[TMEHomeNavigationViewController alloc] initWithRootViewController:self.pageViewController];
-
 	[self addChildViewController:self.navVC];
 	[self.view addSubview:self.navVC.view];
 
-	CGRect pageViewRect = self.view.bounds;
-	self.navVC.view.frame = pageViewRect;
+	self.navVC.view.frame = self.view.bounds;
 
 	[self.navVC didMoveToParentViewController:self];
 
