@@ -9,6 +9,7 @@
 #import "TMEProductDetailVC.h"
 #import "TMEProduct.h"
 #import "TMEProductDetailOnlyTableVC.h"
+#import "UIViewController+Additions.h"
 
 @interface TMEProductDetailVC ()
 
@@ -45,7 +46,8 @@
 - (void)setupChildVC
 {
     // Product Detail Only
-    self.productDetailOnlyTableVC = [[TMEProductDetailOnlyTableVC alloc] init];
+    self.productDetailOnlyTableVC = [TMEProductDetailOnlyTableVC
+                                      tme_instantiateFromStoryboardNamed:@"ProductDetail"];
     self.productDetailOnlyTableVC.product = self.product;
     [self addChildVC:self.productDetailOnlyTableVC containerView:self.view];
     [self.view sendSubviewToBack:self.productDetailOnlyTableVC.view];
