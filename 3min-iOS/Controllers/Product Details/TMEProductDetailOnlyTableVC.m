@@ -48,6 +48,9 @@
     // Leave room for the "Chat to buy" button
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 70, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+
+    // Display
+    [self displayProduct];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,7 +64,8 @@
 {
     // Image
     if (self.product.images.count > 0) {
-        [self.imageView setImageWithURL:[NSURL URLWithString:self.product.images[0]] placeholderImage:nil];
+        TMEProductImage *image = self.product.images[0];
+        [self.imageView setImageWithURL:image.mediumURL placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
     }
 
     // Info
