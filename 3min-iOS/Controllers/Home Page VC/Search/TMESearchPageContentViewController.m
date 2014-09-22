@@ -32,10 +32,21 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	// Add SearchTextVC
+    [self setupChildVC];
+}
+
+- (void)didReceiveMemoryWarning {
+	[super didReceiveMemoryWarning];
+	// Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Setup
+- (void)setupChildVC
+{
+    // Add SearchTextVC
 	[self addChildVC:self.searchTextVC containerView:self.view];
 
-	[self addSearchResultVC];
+	[self addChildVC:self.searchResultVC containerView:self.containerView];
 
 	// Set SearchFilterVC as default
 	[self addChildVC:self.searchFilterVC containerView:self.containerView];
@@ -43,15 +54,6 @@
 	[self.searchFilterVC.view mas_makeConstraints: ^(MASConstraintMaker *make) {
 	    make.edges.equalTo(self.containerView);
 	}];
-}
-
-- (void)addSearchResultVC {
-	[self addChildVC:self.searchResultVC containerView:self.containerView];
-}
-
-- (void)didReceiveMemoryWarning {
-	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
 }
 
 #pragma mark - ChildVC

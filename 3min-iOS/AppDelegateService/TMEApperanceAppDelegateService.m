@@ -13,6 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self configureStatusBar];
+    [self configureNavigationBar];
 
     return YES;
 }
@@ -20,12 +21,19 @@
 #pragma mark - Helper
 - (void)configureStatusBar
 {
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+    if (IS_IOS7_OR_ABOVE) {
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault
                                                     animated:NO];
     } else {
         [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigation_background"] forBarMetrics:UIBarMetricsDefault];
     }
+}
+
+- (void)configureNavigationBar
+{
+    NSDictionary *titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                          };
+    [[UINavigationBar appearance] setTitleTextAttributes:titleTextAttributes];
 }
 
 @end

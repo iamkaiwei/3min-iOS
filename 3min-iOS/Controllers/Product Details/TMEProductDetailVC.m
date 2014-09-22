@@ -8,8 +8,12 @@
 
 #import "TMEProductDetailVC.h"
 #import "TMEProduct.h"
+#import "TMEProductDetailOnlyTableVC.h"
 
 @interface TMEProductDetailVC ()
+
+@property (weak, nonatomic) IBOutlet UIButton *chatToBuyButton;
+@property (nonatomic, strong) TMEProductDetailOnlyTableVC *productDetailOnlyTableVC;
 
 @end
 
@@ -27,13 +31,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    [self setupChildVC];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Setup
+- (void)setupChildVC
+{
+    // Product Detail Only
+    self.productDetailOnlyTableVC = [[TMEProductDetailOnlyTableVC alloc] init];
+    self.productDetailOnlyTableVC.product = self.product;
+    [self addChildVC:self.productDetailOnlyTableVC containerView:self.view];
+    [self.view sendSubviewToBack:self.productDetailOnlyTableVC.view];
 }
 
 #pragma mark - Product
@@ -43,5 +58,10 @@
 
     self.title = product.name;
 }
+
+#pragma mark - Action
+- (IBAction)chatToBuyButtonTouched:(id)sender {
+}
+
 
 @end

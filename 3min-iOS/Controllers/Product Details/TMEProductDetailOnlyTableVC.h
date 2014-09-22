@@ -1,5 +1,5 @@
 //
-//  TMEProductDetailVC.h
+//  TMEProductDetailOnlyTableVC.h
 //  ThreeMin
 //
 //  Created by Khoa Pham on 9/22/14.
@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TMEBaseViewController.h"
 
 @class TMEProduct;
 
-@interface TMEProductDetailVC : TMEBaseViewController
+@interface TMEProductDetailOnlyTableVC : UITableViewController
 
 @property (nonatomic, strong) TMEProduct *product;
 

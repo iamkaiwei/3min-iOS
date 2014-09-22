@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEProductDetailVC">
             <connections>
+                <outlet property="chatToBuyButton" destination="szB-q2-q33" id="UnF-9a-qpC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,9 +15,27 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="0.17637978830000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szB-q2-q33" userLabel="Button - Chat to buy">
+                    <rect key="frame" x="110" y="511" width="100" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="btn_chat-to-buy">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="chatToBuyButtonTouched:" destination="-1" eventType="touchUpInside" id="ss8-qs-shq"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="szB-q2-q33" secondAttribute="bottom" constant="20" id="MeX-sB-Nso"/>
+                <constraint firstAttribute="centerX" secondItem="szB-q2-q33" secondAttribute="centerX" id="R3F-pF-VWI"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="btn_chat-to-buy" width="100" height="37"/>
+    </resources>
 </document>
