@@ -7,10 +7,12 @@
 //
 
 #import "TMEProfilePageContentViewController.h"
-#import "TMEPr
+#import "TMEMyTopProfileViewController.h"
 #import "TMEProfilePageContentViewController.h"
 
 @interface TMEProfilePageContentViewController ()
+
+@property (strong, nonatomic) UIViewController *topVC;
 
 @end
 
@@ -30,12 +32,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
+    TMEMyTopProfileViewController *topVC = [[TMEMyTopProfileViewController alloc] init];
+    [self addChildViewController:topVC];
+    [topVC willMoveToParentViewController:self];
+    [self.view addSubview:topVC.view];
+    [topVC didMoveToParentViewController:self];
+
+    self.topVC = topVC;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)updateViewConstraints {
+    [super updateViewConstraints];
 }
 
 @end

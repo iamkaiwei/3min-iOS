@@ -19,19 +19,17 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+- (void)updateViewConstraints {
 
-/*
-#pragma mark - Navigation
+    [super updateViewConstraints];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.view.superview).with.offset(0);
+        make.top.equalTo(self.view.superview).with.offset(0);
+        make.width.equalTo(@(self.view.width));
+    }];
+
+    [self.view.superview layoutIfNeeded];
 }
-*/
 
 @end

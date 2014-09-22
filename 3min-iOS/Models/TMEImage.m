@@ -15,6 +15,7 @@
     return @{
              @"imageId" : @"id",
              @"urlString": @"url",
+             @"imageDescription": @"description"
              };
 }
 
