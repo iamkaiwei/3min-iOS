@@ -135,24 +135,36 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rv5-3s-ePw">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DescriptionCellID" id="rv5-3s-ePw">
                                         <rect key="frame" x="0.0" y="310" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rv5-3s-ePw" id="0Uf-fj-SsR">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icn_info" translatesAutoresizingMaskIntoConstraints="NO" id="zLL-SQ-MC7">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_info" translatesAutoresizingMaskIntoConstraints="NO" id="zLL-SQ-MC7">
                                                     <rect key="frame" x="20" y="7" width="30" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="EuV-Yt-2S9"/>
+                                                        <constraint firstAttribute="height" constant="31" id="wps-dK-6vY"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lh-dN-J3O" userLabel="Label - Info">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="7lh-dN-J3O" userLabel="Label - Info">
                                                     <rect key="frame" x="58" y="11" width="242" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7lh-dN-J3O" firstAttribute="top" secondItem="0Uf-fj-SsR" secondAttribute="top" constant="11" id="Kqf-by-YFP"/>
+                                                <constraint firstItem="zLL-SQ-MC7" firstAttribute="top" secondItem="0Uf-fj-SsR" secondAttribute="top" constant="7" id="KuR-1h-lxv"/>
+                                                <constraint firstItem="7lh-dN-J3O" firstAttribute="leading" secondItem="0Uf-fj-SsR" secondAttribute="leading" constant="58" id="QKG-Ca-ZpJ"/>
+                                                <constraint firstItem="zLL-SQ-MC7" firstAttribute="leading" secondItem="0Uf-fj-SsR" secondAttribute="leading" constant="20" id="au9-Bc-jIF"/>
+                                                <constraint firstAttribute="trailing" secondItem="7lh-dN-J3O" secondAttribute="trailing" constant="20" id="cdj-8n-7rE"/>
+                                                <constraint firstAttribute="bottom" secondItem="7lh-dN-J3O" secondAttribute="bottom" constant="12" id="d3t-pX-850"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="LXR-g2-epS">

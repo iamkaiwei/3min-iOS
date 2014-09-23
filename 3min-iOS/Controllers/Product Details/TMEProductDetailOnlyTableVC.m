@@ -70,7 +70,7 @@
 
     // Info
     self.priceLabel.text = self.product.price;
-    self.descriptionLabel.text = self.product.productDescription;
+    self.descriptionLabel.text = @"Directly animating constraints is really only a feasible strategy on OS X, and it is limited in what you can animate, since only a constraint’s constant can be changed after creating it. On iOS you would have to drive the animation manually, whereas on OS X you can use an animator proxy on the constraint’s constant. Furthermore, this approach is significantly slower than the Core Animation approach, which also makes it a bad fit for mobile platforms for the time being";
     self.locationLabel.text = @"Some where on Earth";
 
     NSString *likeInfoString = NSStringf(@"%@ people like this", self.product.likes);
@@ -115,5 +115,20 @@
 #pragma mark - UITableViewDataSource
 
 #pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1 && indexPath.row > 0) {
+        return 0;
+    }
+
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        CGSize size = [self.descriptionLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        return size.height + 23;
+    }
+
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+
 
 @end
