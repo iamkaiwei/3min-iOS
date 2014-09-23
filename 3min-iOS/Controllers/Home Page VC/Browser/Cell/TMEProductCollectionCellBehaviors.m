@@ -7,6 +7,7 @@
 //
 
 #import "TMEProductCollectionCellBehaviors.h"
+#import "TMEProductDetailVC.h"
 
 void ProductCollectionCellLike(UIViewController *onViewController, TMEProduct *product) {
     NSLog(@"Like");
@@ -20,7 +21,9 @@ void ProductCollectionCellShare(UIViewController *onViewController, TMEProduct *
 }
 
 void ProductCollectionCellGoDetails(UIViewController *onViewController, TMEProduct *product) {
-    NSLog(@"Details");
+    TMEProductDetailVC *productDetailVC = [TMEProductDetailVC tme_instantiateFromStoryboardNamed:@"ProductDetail"];
+    productDetailVC.product = product;
+    [onViewController.navigationController pushViewController:productDetailVC animated:YES];
 }
 
 void ProductCollectionCellAct(UIViewController *onViewController, TMEProduct *product, TMEProductCollectionCellAction action) {

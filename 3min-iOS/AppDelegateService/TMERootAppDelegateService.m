@@ -9,7 +9,11 @@
 #import "TMERootAppDelegateService.h"
 #import "AppDelegate.h"
 #import "TMETutorialViewController.h"
-#import <FacebookSDK/FacebookSDK.h>
+#import "TMEPageViewController.h"
+#import "TMEHomeNavigationViewController.h"
+
+// DOTO: Remove
+#import <IIViewDeckController.h>
 
 @interface TMERootAppDelegateService ()
 
@@ -60,9 +64,10 @@
 #pragma mark - Home
 - (void)showHomeViewController
 {
-    TMEHomePageViewController *pageViewController = [[TMEHomePageViewController alloc] init];
+    TMEPageViewController *pageVC = [[TMEPageViewController alloc] init];
+    TMEHomeNavigationViewController *homeNC = [[TMEHomeNavigationViewController alloc] initWithRootViewController:pageVC];
 
- 	IIViewDeckController *deckController =  [[IIViewDeckController alloc] initWithCenterViewController:pageViewController leftViewController:nil];
+ 	IIViewDeckController *deckController =  [[IIViewDeckController alloc] initWithCenterViewController:homeNC leftViewController:nil];
 
  	self.deckController = deckController;
     // FIXME: Leave it for now
@@ -176,13 +181,6 @@
     [self showLoginViewController];
 }
 
-// TODO: Refactor
-//- (void)updateUAAlias
-//{
-//    [UAPush shared].alias = [NSString stringWithFormat:@"user-%d", [[TMEUserManager sharedManager].loggedUser.userID integerValue]];
-//    [[UAPush shared] updateRegistration];
-//
-//}
 
 - (void)setMaxConcurrencyRequest {
     [[[AFHTTPRequestOperationManager manager] operationQueue] setMaxConcurrentOperationCount:4];

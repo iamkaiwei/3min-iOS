@@ -14,13 +14,13 @@
 @property (nonatomic, strong) NSNumber *ID;
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *imageDescription;
 
 @property (nonatomic, strong) NSValue *dim;
 
-@property (nonatomic, copy) NSURL *thumbURL;
-@property (nonatomic, copy) NSURL *squareURL;
-@property (nonatomic, copy) NSURL *mediumURL;
-@property (nonatomic, copy) NSURL *originURL;
+@property (nonatomic, strong) NSURL *thumbURL;
+@property (nonatomic, strong) NSURL *squareURL;
+@property (nonatomic, strong) NSURL *mediumURL;
+@property (nonatomic, strong) NSURL *originURL;
 
 @end

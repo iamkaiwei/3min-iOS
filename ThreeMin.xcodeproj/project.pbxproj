@@ -30,6 +30,12 @@
 		990CB7D1199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB7D0199A61B200AEA179 /* TMEGooglePlusAppDelegateService.m */; };
 		990CB7D4199A631F00AEA179 /* TMEGooglePlusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB7D3199A631F00AEA179 /* TMEGooglePlusManager.m */; };
 		990CB7D6199A75D400AEA179 /* TMETutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990CB7D5199A75D400AEA179 /* TMETutorialViewController.xib */; };
+		9910BE0019D07D7A00BAC139 /* NSString+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9910BDFF19D07D7A00BAC139 /* NSString+TMEAdditions.m */; };
+		9910BE0319D07F4300BAC139 /* TMEProductCommentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9910BE0219D07F4300BAC139 /* TMEProductCommentsVC.m */; };
+		9910BE0619D07F5800BAC139 /* TMEProductLikesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9910BE0519D07F5800BAC139 /* TMEProductLikesVC.m */; };
+		9910BE0919D07F6700BAC139 /* TMEProductAddCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9910BE0819D07F6700BAC139 /* TMEProductAddCommentVC.m */; };
+		9910BE0B19D0809700BAC139 /* ProductLikes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9910BE0A19D0809700BAC139 /* ProductLikes.storyboard */; };
+		9910BE0D19D080A000BAC139 /* ProductComment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9910BE0C19D080A000BAC139 /* ProductComment.storyboard */; };
 		9937B8FE19B5EA030000EE0C /* TMEAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B8FD19B5EA030000EE0C /* TMEAlertView.m */; };
 		9937B90219B5EA160000EE0C /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9937B8FF19B5EA160000EE0C /* Search.storyboard */; };
 		9937B90319B5EA160000EE0C /* TMESearchFilterOnlyTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90119B5EA160000EE0C /* TMESearchFilterOnlyTableVC.m */; };
@@ -259,6 +265,7 @@
 		D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224260F19A2061C009DB3AC /* TMEDeviceManager.m */; };
 		D224261319A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */; };
 		D224261619A2070A009DB3AC /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261519A2070A009DB3AC /* TMEUserManager.m */; };
+		D2678F2919CFC52200B26A9D /* TMEProductDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2678F2719CFC52200B26A9D /* TMEProductDetailVC.m */; };
 		D27CECA919B01AD600565A5D /* TMESearchFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D27CECA719B01AD600565A5D /* TMESearchFilterViewController.m */; };
 		D27CECAA19B01AD600565A5D /* TMESearchFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D27CECA819B01AD600565A5D /* TMESearchFilterViewController.xib */; };
 		D27CECAD19B01AEB00565A5D /* TMESearchFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D27CECAC19B01AEB00565A5D /* TMESearchFilter.m */; };
@@ -267,6 +274,8 @@
 		D27CECB519B02E6A00565A5D /* TMESearchNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D27CECB419B02E6A00565A5D /* TMESearchNetworkClient.m */; };
 		D27CECB819B0358300565A5D /* TMERecentSearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D27CECB719B0358300565A5D /* TMERecentSearchManager.m */; };
 		D27CECBB19B0362D00565A5D /* TMERecentSearchAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D27CECBA19B0362D00565A5D /* TMERecentSearchAppDelegateService.m */; };
+		D2A23CA919D0152A00EDA87C /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A23CA819D0152A00EDA87C /* ProductDetail.storyboard */; };
+		D2A23CAC19D0154300EDA87C /* TMEProductDetailOnlyTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A23CAB19D0154300EDA87C /* TMEProductDetailOnlyTableVC.m */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
@@ -309,6 +318,16 @@
 		990CB7D2199A631F00AEA179 /* TMEGooglePlusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEGooglePlusManager.h; sourceTree = "<group>"; };
 		990CB7D3199A631F00AEA179 /* TMEGooglePlusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEGooglePlusManager.m; sourceTree = "<group>"; };
 		990CB7D5199A75D400AEA179 /* TMETutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMETutorialViewController.xib; sourceTree = "<group>"; };
+		9910BDFE19D07D7A00BAC139 /* NSString+TMEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TMEAdditions.h"; sourceTree = "<group>"; };
+		9910BDFF19D07D7A00BAC139 /* NSString+TMEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TMEAdditions.m"; sourceTree = "<group>"; };
+		9910BE0119D07F4300BAC139 /* TMEProductCommentsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductCommentsVC.h; sourceTree = "<group>"; };
+		9910BE0219D07F4300BAC139 /* TMEProductCommentsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductCommentsVC.m; sourceTree = "<group>"; };
+		9910BE0419D07F5800BAC139 /* TMEProductLikesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductLikesVC.h; sourceTree = "<group>"; };
+		9910BE0519D07F5800BAC139 /* TMEProductLikesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductLikesVC.m; sourceTree = "<group>"; };
+		9910BE0719D07F6700BAC139 /* TMEProductAddCommentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductAddCommentVC.h; sourceTree = "<group>"; };
+		9910BE0819D07F6700BAC139 /* TMEProductAddCommentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductAddCommentVC.m; sourceTree = "<group>"; };
+		9910BE0A19D0809700BAC139 /* ProductLikes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductLikes.storyboard; sourceTree = "<group>"; };
+		9910BE0C19D080A000BAC139 /* ProductComment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductComment.storyboard; sourceTree = "<group>"; };
 		9937B8FC19B5EA030000EE0C /* TMEAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEAlertView.h; sourceTree = "<group>"; };
 		9937B8FD19B5EA030000EE0C /* TMEAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEAlertView.m; sourceTree = "<group>"; };
 		9937B8FF19B5EA160000EE0C /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
@@ -731,6 +750,8 @@
 		D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEDeviceManagerAppDelegateService.m; sourceTree = "<group>"; };
 		D224261419A2070A009DB3AC /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManager.h; sourceTree = "<group>"; };
 		D224261519A2070A009DB3AC /* TMEUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserManager.m; sourceTree = "<group>"; };
+		D2678F2619CFC52200B26A9D /* TMEProductDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductDetailVC.h; sourceTree = "<group>"; };
+		D2678F2719CFC52200B26A9D /* TMEProductDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductDetailVC.m; sourceTree = "<group>"; };
 		D27CECA619B01AD600565A5D /* TMESearchFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESearchFilterViewController.h; sourceTree = "<group>"; };
 		D27CECA719B01AD600565A5D /* TMESearchFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESearchFilterViewController.m; sourceTree = "<group>"; };
 		D27CECA819B01AD600565A5D /* TMESearchFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMESearchFilterViewController.xib; sourceTree = "<group>"; };
@@ -745,6 +766,9 @@
 		D27CECB719B0358300565A5D /* TMERecentSearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMERecentSearchManager.m; sourceTree = "<group>"; };
 		D27CECB919B0362D00565A5D /* TMERecentSearchAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMERecentSearchAppDelegateService.h; sourceTree = "<group>"; };
 		D27CECBA19B0362D00565A5D /* TMERecentSearchAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMERecentSearchAppDelegateService.m; sourceTree = "<group>"; };
+		D2A23CA819D0152A00EDA87C /* ProductDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
+		D2A23CAA19D0154300EDA87C /* TMEProductDetailOnlyTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductDetailOnlyTableVC.h; sourceTree = "<group>"; };
+		D2A23CAB19D0154300EDA87C /* TMEProductDetailOnlyTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductDetailOnlyTableVC.m; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1140,6 +1164,8 @@
 				B4EF43A519A462A7001F010C /* NSValueTransformer+Addition.m */,
 				B41C80C319B782BA00210878 /* UIImageView+ProductCollectionCellLoadImage.h */,
 				B41C80C419B782BA00210878 /* UIImageView+ProductCollectionCellLoadImage.m */,
+				9910BDFE19D07D7A00BAC139 /* NSString+TMEAdditions.h */,
+				9910BDFF19D07D7A00BAC139 /* NSString+TMEAdditions.m */,
 			);
 			name = Categories;
 			path = "3min-iOS/Categories";
@@ -1359,6 +1385,19 @@
 				99EA0E721978492D00872EE4 /* TMEProductDetailsViewController.h */,
 				99EA0E731978492D00872EE4 /* TMEProductDetailsViewController.m */,
 				99EA0E741978492D00872EE4 /* TMEProductDetailsViewController.xib */,
+				D2678F2619CFC52200B26A9D /* TMEProductDetailVC.h */,
+				D2678F2719CFC52200B26A9D /* TMEProductDetailVC.m */,
+				D2A23CA819D0152A00EDA87C /* ProductDetail.storyboard */,
+				D2A23CAA19D0154300EDA87C /* TMEProductDetailOnlyTableVC.h */,
+				D2A23CAB19D0154300EDA87C /* TMEProductDetailOnlyTableVC.m */,
+				9910BE0119D07F4300BAC139 /* TMEProductCommentsVC.h */,
+				9910BE0219D07F4300BAC139 /* TMEProductCommentsVC.m */,
+				9910BE0719D07F6700BAC139 /* TMEProductAddCommentVC.h */,
+				9910BE0819D07F6700BAC139 /* TMEProductAddCommentVC.m */,
+				9910BE0C19D080A000BAC139 /* ProductComment.storyboard */,
+				9910BE0419D07F5800BAC139 /* TMEProductLikesVC.h */,
+				9910BE0519D07F5800BAC139 /* TMEProductLikesVC.m */,
+				9910BE0A19D0809700BAC139 /* ProductLikes.storyboard */,
 			);
 			path = "Product Details";
 			sourceTree = "<group>";
@@ -1846,6 +1885,7 @@
 				99EA0F591978492D00872EE4 /* TMEMyListingTableViewCell.xib in Resources */,
 				99EA0F3E1978492D00872EE4 /* TMEActivityViewController.xib in Resources */,
 				B4AE17EF198EAF9500F6D601 /* TMEBrowserPageContentViewController.xib in Resources */,
+				9910BE0D19D080A000BAC139 /* ProductComment.storyboard in Resources */,
 				D27CECB219B028E800565A5D /* TMESearchTextViewController.xib in Resources */,
 				B470E4ED19AC320100F4FF18 /* TMEErrorReusableCollectionView.xib in Resources */,
 				99EA0F531978492D00872EE4 /* TMEHomeViewController.xib in Resources */,
@@ -1857,6 +1897,7 @@
 				99EA0F5B1978492D00872EE4 /* TMEMyListingViewController.xib in Resources */,
 				D27CECAA19B01AD600565A5D /* TMESearchFilterViewController.xib in Resources */,
 				99EA0F551978492D00872EE4 /* TMELikedTableViewCell.xib in Resources */,
+				D2A23CA919D0152A00EDA87C /* ProductDetail.storyboard in Resources */,
 				B470E4FB19AC323B00F4FF18 /* TMEProductCollectionViewCell.xib in Resources */,
 				99EA0F5D1978492D00872EE4 /* TMEOfferedTableViewCell.xib in Resources */,
 				99EA0F741978492D00872EE4 /* TMESearchViewController.xib in Resources */,
@@ -1865,6 +1906,7 @@
 				99EA0F631978492D00872EE4 /* TMEMeViewController.xib in Resources */,
 				B41929E519B1E72C00E50CED /* TMETakePhotoButtonViewController.xib in Resources */,
 				99EA0F431978492D00872EE4 /* TMEBrowserProductsViewController.xib in Resources */,
+				9910BE0B19D0809700BAC139 /* ProductLikes.storyboard in Resources */,
 				99EA0F5F1978492D00872EE4 /* TMEOfferedViewController.xib in Resources */,
 				99EA0F511978492D00872EE4 /* TMELeftMenuViewController.xib in Resources */,
 				99EA0F3C1978492D00872EE4 /* TMEActivityTableViewCell.xib in Resources */,
@@ -1963,6 +2005,7 @@
 				99EA0EFA1978492D00872EE4 /* TMEConversationManager.m in Sources */,
 				B40522451987562D00A148AD /* TMEConversation+BackwardSupport.m in Sources */,
 				B4AE17F7198EC20600F6D601 /* TMEHomePageViewDatasource.m in Sources */,
+				D2A23CAC19D0154300EDA87C /* TMEProductDetailOnlyTableVC.m in Sources */,
 				B470E4E719AC320100F4FF18 /* FPCollectionArrayDataSource.m in Sources */,
 				B410F76019961A7C000AE5B7 /* TMEActivityManager.m in Sources */,
 				B4F513D119AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m in Sources */,
@@ -1976,6 +2019,7 @@
 				99EA0F5A1978492D00872EE4 /* TMEMyListingViewController.m in Sources */,
 				99EA0EFE1978492D00872EE4 /* TMEReachabilityManager.m in Sources */,
 				99EA0F641978492D00872EE4 /* TMENavigationViewController.m in Sources */,
+				9910BE0919D07F6700BAC139 /* TMEProductAddCommentVC.m in Sources */,
 				99EA0F261978492D00872EE4 /* UIBezierPath-Points.m in Sources */,
 				B470E4EB19AC320100F4FF18 /* TMEBrowserProductViewModel.m in Sources */,
 				B4EF43A619A462A7001F010C /* NSValueTransformer+Addition.m in Sources */,
@@ -1992,6 +2036,7 @@
 				99EA0EF21978492D00872EE4 /* TMEVersionCheckerAppDelegateService.m in Sources */,
 				B470E4FA19AC323B00F4FF18 /* TMEProductCollectionViewCell.m in Sources */,
 				99EA0F271978492D00872EE4 /* UIButton+Additions.m in Sources */,
+				9910BE0619D07F5800BAC139 /* TMEProductLikesVC.m in Sources */,
 				99EA0F9F1978574000872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				99EA0F211978492D00872EE4 /* NSString+ActiveSupportInflector.m in Sources */,
 				D27CECBB19B0362D00565A5D /* TMERecentSearchAppDelegateService.m in Sources */,
@@ -2064,6 +2109,7 @@
 				99EA0F581978492D00872EE4 /* TMEMyListingTableViewCell.m in Sources */,
 				99EA0F1F1978492D00872EE4 /* NSNumber+Additions.m in Sources */,
 				99EA0F7B1978492D00872EE4 /* TMESubmitViewControllerArrayDataSource.m in Sources */,
+				9910BE0319D07F4300BAC139 /* TMEProductCommentsVC.m in Sources */,
 				99EA0F0D1978492D00872EE4 /* TMEUser.m in Sources */,
 				99EA0F301978492D00872EE4 /* UINavigationController+Additions.m in Sources */,
 				99EA0F2E1978492D00872EE4 /* UIImageView+CircleProgress.m in Sources */,
@@ -2085,6 +2131,7 @@
 				99EA0F3A1978492D00872EE4 /* UIPlaceHolderTextView.m in Sources */,
 				D27CECB819B0358300565A5D /* TMERecentSearchManager.m in Sources */,
 				99EA0F3F1978492D00872EE4 /* TMEBaseArrayDataSourceWithLoadMore.m in Sources */,
+				D2678F2919CFC52200B26A9D /* TMEProductDetailVC.m in Sources */,
 				99EA0EF01978492D00872EE4 /* TMEReachabilityAppDelegateService.m in Sources */,
 				99EA0F8C1978492D00872EE4 /* JZRefreshControl.m in Sources */,
 				99EA0FA01978574000872EE4 /* YIFullScreenScroll.m in Sources */,
@@ -2109,6 +2156,7 @@
 				9937B90D19B5EA4A0000EE0C /* TMESingleSectionDataSource.m in Sources */,
 				9937B8FE19B5EA030000EE0C /* TMEAlertView.m in Sources */,
 				99EA0EF11978492D00872EE4 /* TMERootAppDelegateService.m in Sources */,
+				9910BE0019D07D7A00BAC139 /* NSString+TMEAdditions.m in Sources */,
 				99EA0F561978492D00872EE4 /* TMELikedViewController.m in Sources */,
 				99EA0F341978492D00872EE4 /* UIView+Glow.m in Sources */,
 				99EA0F331978492D00872EE4 /* UIView+Additions.m in Sources */,

@@ -14,7 +14,7 @@
 	return @{
 			   @"ID": @"id",
 			   @"name": @"name",
-			   @"description": @"description",
+			   @"imageDescription": @"description",
 			   @"dim": @"dimensions",
 			   @"thumbURL": @"thumb",
 			   @"squareURL": @"square",
@@ -27,19 +27,19 @@
 	return [NSValueTransformer valueTransformerForName:DimensionsValueTransformerName];
 }
 
-+ (NSValueTransformer *)thumbURLJSONTranformer {
++ (NSValueTransformer *)thumbURLJSONTransformer {
 	return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
 }
 
-+ (NSValueTransformer *)squareURLJSONTranformer {
++ (NSValueTransformer *)squareURLJSONTransformer {
 	return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
 }
 
-+ (NSValueTransformer *)mediumURLJSONTranformer {
++ (NSValueTransformer *)mediumURLJSONTransformer {
 	return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
 }
 
-+ (NSValueTransformer *)originURLJSONTranformer {
++ (NSValueTransformer *)originURLJSONTransformer {
 	return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
 }
 
