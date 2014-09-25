@@ -37,3 +37,4 @@
 #import <CrashlyticsFramework/Crashlytics.h>
 #import <KVOController/FBKVOController.h>
 #import <LBDelegateMatrioska/LBDelegateMatrioska.h>
+#import <RZCellSizeManager/RZCellSizeManager.h>
