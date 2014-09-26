@@ -33,12 +33,19 @@ static const CGFloat kPaddingBottom = 10.0f;
 
 	[self.collectionActivities registerNib:[TMEActivitiesCollectionViewCell defaultNib] forCellWithReuseIdentifier:[TMEActivitiesCollectionViewCell kind]];
 
+//	[self.sizeManager registerCellClassName:[TMEActivitiesCollectionViewCell kind]
+//	                           withNibNamed:[TMEActivitiesCollectionViewCell kind]
+//	                         forObjectClass:[TMEActivity class]
+//	                        withHeightBlock: ^CGFloat (TMEActivitiesCollectionViewCell *cell, TMEActivity *ac) {
+//	    [cell configWithData:ac];
+//	    return CGRectGetMaxY(cell.imgViewClock.frame) + kPaddingBottom;
+//	}];
+
 	[self.sizeManager registerCellClassName:[TMEActivitiesCollectionViewCell kind]
 	                           withNibNamed:[TMEActivitiesCollectionViewCell kind]
 	                         forObjectClass:[TMEActivity class]
-	                        withHeightBlock: ^CGFloat (TMEActivitiesCollectionViewCell *cell, TMEActivity *ac) {
+	                        withConfigurationBlock: ^void (TMEActivitiesCollectionViewCell *cell, TMEActivity *ac) {
 	    [cell configWithData:ac];
-	    return CGRectGetMaxY(cell.imgViewClock.frame) + kPaddingBottom;
 	}];
 
 	[[TMEActivityManager sharedManager] getActivitiesWithSuccess: ^(NSArray *models) {

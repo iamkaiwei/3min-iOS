@@ -25,13 +25,17 @@
 	// Initialization code
 	__weak typeof(self) weakSelf = self;
 
+    [super awakeFromNib];
+
+	[weakSelf.contentView mas_remakeConstraints: ^(MASConstraintMaker *make) {
+	    make.leading.equalTo(weakSelf);
+	    make.trailing.equalTo(weakSelf);
+	    make.top.equalTo(weakSelf);
+	    make.bottom.equalTo(weakSelf);
+	}];
+
 	self.configBlock = ^void (UICollectionViewCell *cell, TMEActivity *activity) {
 		weakSelf.lblActivityType.text = activity.content;
-		[weakSelf.imgViewClock mas_remakeConstraints: ^(MASConstraintMaker *make) {
-		    make.bottom.equalTo(weakSelf.contentView).with.offset(10).with.priorityLow();
-		}];
-
-        [weakSelf layoutIfNeeded];
 	};
 }
 
@@ -39,10 +43,6 @@
 	self.configBlock(self, activity);
 	[self setNeedsUpdateConstraints];
 	[self layoutIfNeeded];
-}
-
-- (void)updateConstraints {
-	[super updateConstraints];
 }
 
 @end
