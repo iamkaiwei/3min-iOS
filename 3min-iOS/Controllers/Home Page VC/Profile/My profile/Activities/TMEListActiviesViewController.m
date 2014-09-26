@@ -9,6 +9,8 @@
 #import "TMEListActiviesViewController.h"
 #import "TMEActivitiesCollectionViewCell.h"
 
+static const CGFloat kPaddingBottom = 10.0f;
+
 @interface TMEListActiviesViewController ()
 <
     UICollectionViewDelegateFlowLayout,
@@ -31,19 +33,12 @@
 
 	[self.collectionActivities registerNib:[TMEActivitiesCollectionViewCell defaultNib] forCellWithReuseIdentifier:[TMEActivitiesCollectionViewCell kind]];
 
-//	[self.sizeManager registerCellClassName:[TMEActivitiesCollectionViewCell kind]
-//	                           withNibNamed:[TMEActivitiesCollectionViewCell kind]
-//	                         forObjectClass:[TMEActivity class]
-//	                 withConfigurationBlock: ^(TMEActivitiesCollectionViewCell *cell, TMEActivity *object) {
-//                         [cell configWithData:object];
-//	}];
-
 	[self.sizeManager registerCellClassName:[TMEActivitiesCollectionViewCell kind]
 	                           withNibNamed:[TMEActivitiesCollectionViewCell kind]
 	                         forObjectClass:[TMEActivity class]
 	                        withHeightBlock: ^CGFloat (TMEActivitiesCollectionViewCell *cell, TMEActivity *ac) {
-                         [cell configWithData:ac];
-                                return CGRectGetMaxY(cell.imgViewClock.frame) + 10;
+	    [cell configWithData:ac];
+	    return CGRectGetMaxY(cell.imgViewClock.frame) + kPaddingBottom;
 	}];
 
 	[[TMEActivityManager sharedManager] getActivitiesWithSuccess: ^(NSArray *models) {
