@@ -17,6 +17,7 @@
 #import "UINavigationController+SGProgress.h"
 #import "Reachability.h"
 #import "TSMessage.h"
+#import "KHRoundAvatar.h"
 #import <AFNetworking/AFNetworking.h>
 #import "TMECircleProgressIndicator.h"
 #import "UIImageView+CircleProgress.h"

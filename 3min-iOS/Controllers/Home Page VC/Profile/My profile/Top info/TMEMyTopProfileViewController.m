@@ -10,6 +10,9 @@
 
 @interface TMEMyTopProfileViewController ()
 
+@property (weak, nonatomic) IBOutlet KHRoundAvatar *imgUserAvatar;
+@property (weak, nonatomic) IBOutlet UILabel *lblUserName;
+
 @end
 
 @implementation TMEMyTopProfileViewController
@@ -17,6 +20,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    [self configWithUser:[[TMEUserManager sharedManager] loggedUser]];
+}
+
+- (void)configWithUser:(TMEUser *)user {
+    [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:user.avatar]
+                       placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
+    self.lblUserName.text = user.fullName;
 }
 
 - (void)updateViewConstraints {

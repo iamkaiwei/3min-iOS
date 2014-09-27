@@ -52,7 +52,6 @@ static const CGFloat kPaddingBottom = 10.0f;
 	// Retrieve our object to give to our size manager.
 	id object = [self.arrActivies objectAtIndex:indexPath.row];
 	CGFloat height = [self.sizeManager cellHeightForObject:object indexPath:indexPath cellReuseIdentifier:[TMEActivitiesCollectionViewCell kind]];
-	NSLog(@"%@", NSStringFromCGSize(CGSizeMake(self.view.width, height)));
 	return CGSizeMake(self.view.width, height);
 }
 
