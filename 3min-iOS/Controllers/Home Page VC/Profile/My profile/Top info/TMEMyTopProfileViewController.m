@@ -31,9 +31,6 @@
     [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:user.avatar]
                        placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
     self.lblUserName.text = user.fullName;
-
-    self.btnPositive.titleLabel.text = @"95%\n positive";
-    self.btnPositive.titleLabel.numberOfLines = 0;
 }
 
 - (void)updateViewConstraints {
