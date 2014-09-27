@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEMyTopProfileViewController">
             <connections>
+                <outlet property="btnFollower" destination="D3B-L3-aph" id="i49-GQ-PN4"/>
+                <outlet property="btnFollowing" destination="khJ-Te-Ikp" id="Xki-UQ-gVu"/>
+                <outlet property="btnPositive" destination="hqZ-u1-CZf" id="E6x-4V-Bye"/>
                 <outlet property="imgUserAvatar" destination="ErU-yQ-uyG" id="Tru-k2-Ml7"/>
                 <outlet property="lblUserName" destination="aZl-Iy-a4A" id="iMN-pU-vOS"/>
                 <outlet property="view" destination="OB7-7a-fRA" id="Ot4-To-0Ff"/>
@@ -93,7 +96,7 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqZ-u1-CZf">
                     <rect key="frame" x="0.0" y="114" width="106" height="45"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Positivie">
+                    <state key="normal" title="Positive">
                         <color key="titleColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
