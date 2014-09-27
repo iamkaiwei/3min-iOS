@@ -7,15 +7,22 @@
 //
 
 #import "TMEActivitiesCollectionViewCell.h"
+#import "KHRoundAvatar.h"
 
 @interface TMEActivitiesCollectionViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *lblActivityType;
 @property (weak, nonatomic) IBOutlet UILabel *lblActivityComment;
 @property (weak, nonatomic) IBOutlet UILabel *lblRelativeDatetime;
+@property (weak, nonatomic) IBOutlet KHRoundAvatar *imgAvatar;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewClock;
+@property (weak, nonatomic) IBOutlet UIImageView *imgActivityAvatar;
+
+@property (weak, nonatomic) IBOutlet UIView *containLabelsView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintLabelActivityTypeWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintLabelCommentHeight;
 @property (copy, nonatomic, readwrite) void (^configBlock)(UICollectionViewCell *cell, TMEActivity *activity);
-@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end
 
@@ -25,24 +32,81 @@
 	// Initialization code
 	__weak typeof(self) weakSelf = self;
 
-    [super awakeFromNib];
+	[super awakeFromNib];
 
-	[weakSelf.contentView mas_remakeConstraints: ^(MASConstraintMaker *make) {
-	    make.leading.equalTo(weakSelf);
-	    make.trailing.equalTo(weakSelf);
-	    make.top.equalTo(weakSelf);
-	    make.bottom.equalTo(weakSelf);
-	}];
+	[self prepareForReuse];
 
 	self.configBlock = ^void (UICollectionViewCell *cell, TMEActivity *activity) {
 		weakSelf.lblActivityType.text = activity.content;
+		[weakSelf.imgAvatar setImageWithURL:[NSURL URLWithString:activity.user.avatar]];
+		[weakSelf.imgActivityAvatar setImageWithURL:activity.displayURL];
 	};
 }
 
 - (void)configWithData:(TMEActivity *)activity {
 	self.configBlock(self, activity);
+
+	[self.contentView mas_remakeConstraints: ^(MASConstraintMaker *make) {
+	    make.leading.equalTo(self);
+	    make.trailing.equalTo(self);
+	    make.top.equalTo(self);
+	    make.bottom.equalTo(self);
+	}];
+
+	NSString *selName = [NSString stringWithFormat:@"configWith%@:", [activity.subjectType capitalizedString]];
+	SEL config = NSSelectorFromString(selName);
+	if ([self respondsToSelector:config]) {
+        // related link http://stackoverflow.com/questions/7017281/performselector-may-cause-a-leak-because-its-selector-is-unknown
+		// same meaning with
+        // [self performSelector:config withObject:activity];
+        ((void (*)(id, SEL))[self methodForSelector:config])(self, config);
+	}
 	[self setNeedsUpdateConstraints];
 	[self layoutIfNeeded];
+}
+
+- (void)prepareForReuse {
+	self.constraintLabelActivityTypeWidth.constant = self.width / 2;
+	self.lblActivityComment.hidden = YES;
+	self.imgActivityAvatar.hidden = YES;
+	self.constraintLabelCommentHeight.constant = 0;
+	self.imgAvatar.image = nil;
+	self.imgActivityAvatar.image = nil;
+	self.lblActivityComment.text = @"";
+	self.lblActivityType.text = @"";
+	self.lblRelativeDatetime.text = @"";
+}
+
+// chat
+- (void)configWithConversation:(TMEActivity *)activity {
+	self.lblActivityComment.hidden = NO;
+	self.imgActivityAvatar.hidden = NO;
+	self.constraintLabelCommentHeight.constant = 21;
+}
+
+// like
+- (void)configWithProduct:(TMEActivity *)activity {
+	self.imgActivityAvatar.hidden = NO;
+}
+
+// Follow
+- (void)configWithRelationship:(TMEActivity *)activity {
+	self.constraintLabelActivityTypeWidth.constant = 220;
+	self.imgActivityAvatar.hidden = YES;
+}
+
+#pragma mark - Calculate height
+
+- (CGFloat)heightForActivity:(TMEActivity *)activity {
+    [self prepareForReuse];
+	[self configWithData:activity];
+    CGFloat height = CGRectGetMaxY(self.containLabelsView.frame);
+
+	if (!self.imgActivityAvatar.hidden && height <= 100) {
+		return 100;
+	}
+
+    return height + 10;
 }
 
 @end

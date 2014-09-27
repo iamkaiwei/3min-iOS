@@ -10,9 +10,9 @@
 
 @interface TMEActivitiesCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *imgViewClock;
 @property (copy, nonatomic, readonly) void (^configBlock)(UICollectionViewCell *cell, TMEActivity *activity);
 
 - (void)configWithData:(TMEActivity *)activity;
+- (CGFloat)heightForActivity:(TMEActivity *)activity;
 
 @end

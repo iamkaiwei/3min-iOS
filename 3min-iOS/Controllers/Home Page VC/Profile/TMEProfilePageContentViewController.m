@@ -48,15 +48,25 @@
     [activitiesVC didMoveToParentViewController:self];
 
     self.activitiesVC = activitiesVC;
+
+    [self.view layoutIfNeeded];
 }
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
 
+    [self.topVC.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).with.offset(0);
+        make.height.equalTo(@160);
+        make.leading.equalTo(self.view);
+        make.trailing.equalTo(self.view);
+    }];
+
+    [self.view layoutIfNeeded];
+
     [self.activitiesVC.view mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.width.equalTo(@(self.view.width));
         make.bottom.equalTo(self.view).with.offset(0);
-        make.top.equalTo(self.view).with.offset(220);
+        make.top.equalTo(self.view).with.offset(160);
         make.leading.equalTo(self.view);
         make.trailing.equalTo(self.view);
     }];

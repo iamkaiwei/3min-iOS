@@ -12,18 +12,18 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="OB7-7a-fRA">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxh-H5-y8U">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_holding" translatesAutoresizingMaskIntoConstraints="NO" id="ErU-yQ-uyG" customClass="KHRoundAvatar">
-                            <rect key="frame" x="15" y="11" width="80" height="80"/>
+                            <rect key="frame" x="15" y="8" width="51" height="51"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kavin" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZl-Iy-a4A">
-                            <rect key="frame" x="111" y="33" width="195" height="34"/>
+                            <rect key="frame" x="74" y="17" width="195" height="34"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="195" id="4i6-Bx-hlc"/>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="KFE-Yu-TYC"/>
@@ -35,37 +35,37 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="aZl-Iy-a4A" firstAttribute="leading" secondItem="zxh-H5-y8U" secondAttribute="leading" constant="111" id="DdR-ah-RJC"/>
+                        <constraint firstItem="aZl-Iy-a4A" firstAttribute="leading" secondItem="zxh-H5-y8U" secondAttribute="leading" constant="74" id="DdR-ah-RJC"/>
                         <constraint firstAttribute="centerY" secondItem="aZl-Iy-a4A" secondAttribute="centerY" constant="-0.5" id="Zwy-Mo-v2o"/>
-                        <constraint firstAttribute="height" constant="99" id="pgM-ea-GEV"/>
+                        <constraint firstAttribute="height" constant="67" id="pgM-ea-GEV"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8MC-7E-Ezy">
-                    <rect key="frame" x="0.0" y="100" width="320" height="1"/>
+                    <rect key="frame" x="0.0" y="67" width="320" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XEh-TZ-uhy">
-                    <rect key="frame" x="0.0" y="219" width="320" height="1"/>
+                    <rect key="frame" x="0.0" y="159" width="320" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Fa-Nf-Wgu">
-                    <rect key="frame" x="0.0" y="161" width="320" height="1"/>
+                    <rect key="frame" x="0.0" y="113" width="320" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Al-g4-huN">
-                    <rect key="frame" x="107" y="107" width="1" height="50"/>
+                    <rect key="frame" x="107" y="74" width="1" height="35"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XmE-DH-5Rw">
-                    <rect key="frame" x="107" y="166" width="1" height="50"/>
+                    <rect key="frame" x="107" y="119" width="1" height="35"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Huv-3F-ZH7">
-                    <rect key="frame" x="213" y="107" width="1" height="50"/>
+                    <rect key="frame" x="213" y="74" width="1" height="35"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAx-tK-wgY">
-                    <rect key="frame" x="0.0" y="100" width="106" height="61"/>
+                    <rect key="frame" x="0.0" y="68" width="106" height="45"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="Edit">
                         <color key="titleColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -73,7 +73,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keO-9A-0Ii">
-                    <rect key="frame" x="108" y="100" width="106" height="61"/>
+                    <rect key="frame" x="108" y="68" width="106" height="45"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="My likes">
                         <color key="titleColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,7 +81,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0V-lz-xfg">
-                    <rect key="frame" x="214" y="99" width="106" height="61"/>
+                    <rect key="frame" x="214" y="67" width="106" height="45"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="My items">
                         <color key="titleColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,7 +89,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqZ-u1-CZf">
-                    <rect key="frame" x="0.0" y="161" width="106" height="61"/>
+                    <rect key="frame" x="0.0" y="114" width="106" height="45"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="Positivie">
                         <color key="titleColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -97,7 +97,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3B-L3-aph">
-                    <rect key="frame" x="108" y="161" width="106" height="61"/>
+                    <rect key="frame" x="108" y="114" width="106" height="45"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="Follower">
                         <color key="titleColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -105,7 +105,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khJ-Te-Ikp">
-                    <rect key="frame" x="214" y="160" width="106" height="61"/>
+                    <rect key="frame" x="214" y="114" width="106" height="45"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="Following">
                         <color key="titleColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -113,7 +113,7 @@
                     </state>
                 </button>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LXe-2k-OcQ">
-                    <rect key="frame" x="214" y="166" width="1" height="50"/>
+                    <rect key="frame" x="214" y="119" width="1" height="35"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
@@ -126,7 +126,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="322" y="-192.5"/>
+            <point key="canvasLocation" x="322" y="-190.5"/>
         </view>
     </objects>
     <resources>
