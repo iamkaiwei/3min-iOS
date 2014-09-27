@@ -71,6 +71,7 @@
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uBo-W6-8oh">
                         <rect key="frame" x="252" y="8" width="60" height="60"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="ZXs-ao-MHl"/>
                             <constraint firstAttribute="height" constant="60" id="ldq-fQ-sM4"/>
