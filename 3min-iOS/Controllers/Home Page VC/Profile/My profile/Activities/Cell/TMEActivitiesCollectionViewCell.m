@@ -30,21 +30,17 @@
 
 - (void)awakeFromNib {
 	// Initialization code
-	__weak typeof(self) weakSelf = self;
-
 	[super awakeFromNib];
-
 	[self prepareForReuse];
-
-	self.configBlock = ^void (UICollectionViewCell *cell, TMEActivity *activity) {
-		weakSelf.lblActivityType.text = activity.content;
-		[weakSelf.imgAvatar setImageWithURL:[NSURL URLWithString:activity.user.avatar]];
-		[weakSelf.imgActivityAvatar setImageWithURL:activity.displayURL];
-	};
 }
 
 - (void)configWithData:(TMEActivity *)activity {
-	self.configBlock(self, activity);
+
+	self.lblActivityType.text = activity.content;
+	[self.imgAvatar setImageWithURL:[NSURL URLWithString:activity.user.avatar]];
+	[self.imgActivityAvatar setImageWithURL:activity.displayURL];
+    self.lblRelativeDatetime.text = [[[NSDate alloc] initWithTimeIntervalSince1970:[activity.updateTime integerValue]] relativeDate];
+    self.lblActivityComment.text = activity.content;
 
 	[self.contentView mas_remakeConstraints: ^(MASConstraintMaker *make) {
 	    make.leading.equalTo(self);
@@ -56,10 +52,10 @@
 	NSString *selName = [NSString stringWithFormat:@"configWith%@:", [activity.subjectType capitalizedString]];
 	SEL config = NSSelectorFromString(selName);
 	if ([self respondsToSelector:config]) {
-        // related link http://stackoverflow.com/questions/7017281/performselector-may-cause-a-leak-because-its-selector-is-unknown
+		// related link http://stackoverflow.com/questions/7017281/performselector-may-cause-a-leak-because-its-selector-is-unknown
 		// same meaning with
-        // [self performSelector:config withObject:activity];
-        ((void (*)(id, SEL))[self methodForSelector:config])(self, config);
+		// [self performSelector:config withObject:activity];
+		((void (*)(id, SEL, id))[self methodForSelector : config])(self, config, activity);
 	}
 	[self setNeedsUpdateConstraints];
 	[self layoutIfNeeded];
@@ -98,15 +94,15 @@
 #pragma mark - Calculate height
 
 - (CGFloat)heightForActivity:(TMEActivity *)activity {
-    [self prepareForReuse];
+	[self prepareForReuse];
 	[self configWithData:activity];
-    CGFloat height = CGRectGetMaxY(self.containLabelsView.frame);
+	CGFloat height = CGRectGetMaxY(self.containLabelsView.frame);
 
 	if (!self.imgActivityAvatar.hidden && height <= 100) {
 		return 100;
 	}
 
-    return height + 10;
+	return height + 10;
 }
 
 @end

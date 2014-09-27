@@ -10,8 +10,6 @@
 
 @interface TMEActivitiesCollectionViewCell : UICollectionViewCell
 
-@property (copy, nonatomic, readonly) void (^configBlock)(UICollectionViewCell *cell, TMEActivity *activity);
-
 - (void)configWithData:(TMEActivity *)activity;
 - (CGFloat)heightForActivity:(TMEActivity *)activity;
 

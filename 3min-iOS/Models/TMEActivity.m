@@ -17,6 +17,7 @@
 			   @"subjectType" : @"subject_type",
 			   @"displayURL" : @"display_image_url",
 			   @"subjectId" : @"subject_id",
+			   @"updateTime" : @"update_time",
 	};
 }
 
