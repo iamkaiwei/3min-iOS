@@ -8,6 +8,8 @@
 
 #import "TMEListActiviesViewController.h"
 #import "TMEActivitiesCollectionViewCell.h"
+#import "TMEListActivitiesViewModel.h"
+#import "TMESimpleCollectionDatasource.h"
 
 static const CGFloat kPaddingBottom = 10.0f;
 
@@ -18,8 +20,10 @@ static const CGFloat kPaddingBottom = 10.0f;
 >
 
 @property (strong, nonatomic) RZCellSizeManager *sizeManager;
+@property (strong, nonatomic) TMEListActivitiesViewModel *viewModel;
 @property (strong, nonatomic) NSArray *arrActivies;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionActivities;
+@property (strong, nonatomic) TMESimpleCollectionDatasource *datasource;
 
 @end
 
@@ -31,7 +35,8 @@ static const CGFloat kPaddingBottom = 10.0f;
 
 	self.sizeManager = [[RZCellSizeManager alloc] init];
 
-	[self.collectionActivities registerNib:[TMEActivitiesCollectionViewCell defaultNib] forCellWithReuseIdentifier:[TMEActivitiesCollectionViewCell kind]];
+	[self.collectionActivities registerNib:[TMEActivitiesCollectionViewCell defaultNib]
+	            forCellWithReuseIdentifier:[TMEActivitiesCollectionViewCell kind]];
 
 	[self.sizeManager registerCellClassName:[TMEActivitiesCollectionViewCell kind]
 	                           withNibNamed:[TMEActivitiesCollectionViewCell kind]
@@ -41,27 +46,30 @@ static const CGFloat kPaddingBottom = 10.0f;
 	    return height;
 	}];
 
-	[[TMEActivityManager sharedManager] getActivitiesWithSuccess: ^(NSArray *models) {
-	    self.arrActivies = models;
+	self.viewModel = [[TMEListActivitiesViewModel alloc] init];
+	[self.viewModel reloadWithDoneBlock: ^(NSArray *items, NSError *error) {
 	    [self.collectionActivities reloadData];
-	} failure: ^(NSError *error) {
 	}];
+
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 	// Retrieve our object to give to our size manager.
-	id object = [self.arrActivies objectAtIndex:indexPath.row];
-	CGFloat height = [self.sizeManager cellHeightForObject:object indexPath:indexPath cellReuseIdentifier:[TMEActivitiesCollectionViewCell kind]];
+	id object = [self.viewModel itemAtIndexPath:indexPath];
+	CGFloat height = [self.sizeManager cellHeightForObject:object
+	                                             indexPath:indexPath
+	                                   cellReuseIdentifier:[TMEActivitiesCollectionViewCell kind]];
 	return CGSizeMake(self.view.width, height);
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-	return self.arrActivies.count;
+	return [self.viewModel numberOfItems];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	TMEActivitiesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[TMEActivitiesCollectionViewCell kind] forIndexPath:indexPath];
-	[cell configWithData:self.arrActivies[indexPath.item]];
+	id object = [self.viewModel itemAtIndexPath:indexPath];
+	[cell configWithData:object];
 	return cell;
 }
 
