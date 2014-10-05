@@ -53,6 +53,13 @@
     [self displayProduct];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    [self updateCommentInfo];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -70,16 +77,10 @@
 
     // Info
     self.priceLabel.text = self.product.price;
-    self.descriptionLabel.text = @"Directly animating constraints is really only a feasible strategy on OS X, and it is limited in what you can animate, since only a constraint’s constant can be changed after creating it. On iOS you would have to drive the animation manually, whereas on OS X you can use an animator proxy on the constraint’s constant. Furthermore, this approach is significantly slower than the Core Animation approach, which also makes it a bad fit for mobile platforms for the time being";
+    self.descriptionLabel.text =  self.product.productDescription;
     self.locationLabel.text = @"Some where on Earth";
 
-    NSString *likeInfoString = NSStringf(@"%@ people like this", self.product.likes);
-    [self.likeInfoButton setTitle:likeInfoString forState:UIControlStateNormal];
-
-    NSString *commentInfoString = @"View all 123 comments";
-    [self.commentInfoButton setTitle:commentInfoString forState:UIControlStateNormal];
-
-    // Comment
+    [self updateLikeInfo];
 }
 
 #pragma mark - Action
@@ -97,7 +98,7 @@
 
 - (IBAction)likeButtonTouched:(id)sender
 {
-
+    [self toggleLike];
 }
 
 - (IBAction)commentButtonTouched:(id)sender
@@ -108,7 +109,7 @@
 
 - (IBAction)shareButtonTouched:(id)sender
 {
-
+    [self share];
 }
 
 
@@ -129,6 +130,79 @@
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
+#pragma mark - Like
+- (void)updateLikeInfo
+{
+    UIImage *likeImage = self.product.liked ? [UIImage imageNamed:@"icn_liked"] : [UIImage imageNamed:@"icn_like"];
+    [self.likeButton setImage:likeImage forState:UIControlStateNormal];
 
+    NSString *likeInfoString = NSStringf(@"%@ people like this", self.product.likes);
+    [self.likeInfoButton setTitle:likeInfoString forState:UIControlStateNormal];
+}
+
+- (void)toggleLike
+{
+    [SVProgressHUD show];
+    self.likeButton.enabled = NO;
+
+    void (^failureBlock)() = ^{
+        self.likeButton.enabled = YES;
+        [SVProgressHUD showErrorWithStatus:nil];
+    };
+
+    void (^successBlock)(NSString *) = ^(NSString *status){
+        if ([status isEqualToString:@"success"]) {
+            self.likeButton.enabled = YES;
+            [SVProgressHUD showSuccessWithStatus:nil];
+
+            self.product.liked = !self.product.liked;
+
+            NSInteger amount = self.product.liked ? 1 : -1;
+            self.product.likes = @(self.product.likes.integerValue + amount);
+
+            [self updateLikeInfo];
+        } else {
+            failureBlock();
+        }
+    };
+
+
+    if (self.product.liked) {
+        [TMEProductsManager unlikeProductWithProductID:self.product.productID onSuccessBlock:^(NSString *status) {
+            [SVProgressHUD showSuccessWithStatus:nil];
+            successBlock(status);
+        } failureBlock:^(NSError *error) {
+            [SVProgressHUD showErrorWithStatus:nil];
+            failureBlock();
+        }];
+    } else {
+        [TMEProductsManager likeProductWithProductID:self.product.productID onSuccessBlock:^(NSString *status) {
+            successBlock(status);
+        } failureBlock:^(NSError *error) {
+            failureBlock();
+        }];
+    }
+}
+
+#pragma mark - Share
+- (void)share
+{
+    NSString *text = @"Share";
+    NSURL *url = [NSURL URLWithString:@"www.google.com"];
+
+    NSArray *items = @[text, url];
+    UIActivityViewController *controller = [[UIActivityViewController alloc]
+                                            initWithActivityItems:items
+                                            applicationActivities:nil];
+
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+#pragma mark - Comment
+- (void)updateCommentInfo
+{
+    NSString *commentInfoString = @"View all 123 comments";
+    [self.commentInfoButton setTitle:commentInfoString forState:UIControlStateNormal];
+}
 
 @end
