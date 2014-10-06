@@ -73,7 +73,7 @@
 
 - (NSArray *)productCommentsFromResponse:(id)response
 {
-    if ([response isKindOfClass:[NSArray class]]) {
+    if (![response isKindOfClass:[NSArray class]]) {
         return nil;
     }
 

@@ -62,7 +62,7 @@
 {
     self.viewModel = [[TMEProductLikeViewModel alloc] initWithProduct:self.product];
     self.viewModelKVOController = [FBKVOController controllerWithObserver:self];
-    [self.viewModelKVOController observe:self.view
+    [self.viewModelKVOController observe:self.viewModel
                                  keyPath:@"users"
                                  options:NSKeyValueObservingOptionNew
                                    block:^(id observer, id object, NSDictionary *change)
