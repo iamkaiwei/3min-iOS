@@ -16,6 +16,8 @@ typedef void (^TMEArrayBlock)(NSArray *array);
 typedef void (^TMEAnyBlock)(id any);
 typedef void (^TMEStringBlock)(NSString *string);
 
+extern NSString *const kSuccess;
+
 extern NSString *const TMEShowLoginViewControllerNotification;
 extern NSString *const TMEShowHomeViewControllerNotification;
 

@@ -7,8 +7,13 @@
 //
 
 #import "TMEProductAddCommentVC.h"
+#import "TMEProductComment.h"
+#import "TMEProductCommentNetworkClient.h"
+#import "TMEProduct.h"
 
-@interface TMEProductAddCommentVC ()
+@interface TMEProductAddCommentVC () <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
 
 @end
 
@@ -31,15 +36,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+#pragma mark - Action
+- (IBAction)sendButtonAction:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [SVProgressHUD show];
+    self.sendButton.enabled = NO;
+
+    TMEProductCommentNetworkClient *client = [[TMEProductCommentNetworkClient alloc] init];
+    [client createCommentForProduct:self.product content:self.textField.text completion:^(BOOL succeeded) {
+        self.sendButton.enabled = YES;
+
+        if (succeeded) {
+            [SVProgressHUD showSuccessWithStatus:nil];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [SVProgressHUD showErrorWithStatus:nil];
+        }
+    }];
+    
 }
-*/
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+
+    return YES;
+}
 
 @end

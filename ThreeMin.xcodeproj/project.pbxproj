@@ -37,6 +37,13 @@
 		9937B90D19B5EA4A0000EE0C /* TMESingleSectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90C19B5EA4A0000EE0C /* TMESingleSectionDataSource.m */; };
 		9966434819A1085E008960DB /* TMEUserNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9966434719A1085E008960DB /* TMEUserNetworkClient.m */; };
 		9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */; };
+		9992943119E2D95800896D05 /* TMEProductComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943019E2D95800896D05 /* TMEProductComment.m */; };
+		9992943419E2D98000896D05 /* TMEProductCommentNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943319E2D98000896D05 /* TMEProductCommentNetworkClient.m */; };
+		9992943719E2E93400896D05 /* TMEProductCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943619E2E93400896D05 /* TMEProductCommentCell.m */; };
+		9992943A19E2EA4B00896D05 /* TMEProductCommentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943919E2EA4B00896D05 /* TMEProductCommentViewModel.m */; };
+		9992943D19E2F7F700896D05 /* TMEProductLikeNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943C19E2F7F700896D05 /* TMEProductLikeNetworkClient.m */; };
+		9992944019E2F82B00896D05 /* TMEProductLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943F19E2F82B00896D05 /* TMEProductLikeCell.m */; };
+		9992944319E2F96D00896D05 /* TMEProductLikeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992944219E2F96D00896D05 /* TMEProductLikeViewModel.m */; };
 		99AA4B2219A26F0600268345 /* NSObject+TMENotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AA4B2119A26F0600268345 /* NSObject+TMENotification.m */; };
 		99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D601978492C00872EE4 /* AppDelegate.m */; };
 		99EA0EE81978492D00872EE4 /* TMEApperanceAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D631978492C00872EE4 /* TMEApperanceAppDelegateService.m */; };
@@ -335,6 +342,20 @@
 		9966434919A1087D008960DB /* TMENetworkHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMENetworkHeaders.h; sourceTree = "<group>"; };
 		9990E4271997CBD9008B603F /* TMELoggerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoggerAppDelegateService.h; sourceTree = "<group>"; };
 		9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoggerAppDelegateService.m; sourceTree = "<group>"; };
+		9992942F19E2D95800896D05 /* TMEProductComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductComment.h; sourceTree = "<group>"; };
+		9992943019E2D95800896D05 /* TMEProductComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductComment.m; sourceTree = "<group>"; };
+		9992943219E2D98000896D05 /* TMEProductCommentNetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductCommentNetworkClient.h; sourceTree = "<group>"; };
+		9992943319E2D98000896D05 /* TMEProductCommentNetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductCommentNetworkClient.m; sourceTree = "<group>"; };
+		9992943519E2E93400896D05 /* TMEProductCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductCommentCell.h; sourceTree = "<group>"; };
+		9992943619E2E93400896D05 /* TMEProductCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductCommentCell.m; sourceTree = "<group>"; };
+		9992943819E2EA4B00896D05 /* TMEProductCommentViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductCommentViewModel.h; sourceTree = "<group>"; };
+		9992943919E2EA4B00896D05 /* TMEProductCommentViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductCommentViewModel.m; sourceTree = "<group>"; };
+		9992943B19E2F7F700896D05 /* TMEProductLikeNetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductLikeNetworkClient.h; sourceTree = "<group>"; };
+		9992943C19E2F7F700896D05 /* TMEProductLikeNetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductLikeNetworkClient.m; sourceTree = "<group>"; };
+		9992943E19E2F82B00896D05 /* TMEProductLikeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductLikeCell.h; sourceTree = "<group>"; };
+		9992943F19E2F82B00896D05 /* TMEProductLikeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductLikeCell.m; sourceTree = "<group>"; };
+		9992944119E2F96D00896D05 /* TMEProductLikeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductLikeViewModel.h; sourceTree = "<group>"; };
+		9992944219E2F96D00896D05 /* TMEProductLikeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductLikeViewModel.m; sourceTree = "<group>"; };
 		99AA4B2019A26F0600268345 /* NSObject+TMENotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TMENotification.h"; sourceTree = "<group>"; };
 		99AA4B2119A26F0600268345 /* NSObject+TMENotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TMENotification.m"; sourceTree = "<group>"; };
 		99EA0D5F1978492C00872EE4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1784,6 +1805,14 @@
 				D295D2C119E29F2C008B9BC4 /* TMEProductAddCommentVC.m */,
 				D295D2C219E29F2C008B9BC4 /* TMEProductCommentsVC.h */,
 				D295D2C319E29F2C008B9BC4 /* TMEProductCommentsVC.m */,
+				9992942F19E2D95800896D05 /* TMEProductComment.h */,
+				9992943019E2D95800896D05 /* TMEProductComment.m */,
+				9992943219E2D98000896D05 /* TMEProductCommentNetworkClient.h */,
+				9992943319E2D98000896D05 /* TMEProductCommentNetworkClient.m */,
+				9992943519E2E93400896D05 /* TMEProductCommentCell.h */,
+				9992943619E2E93400896D05 /* TMEProductCommentCell.m */,
+				9992943819E2EA4B00896D05 /* TMEProductCommentViewModel.h */,
+				9992943919E2EA4B00896D05 /* TMEProductCommentViewModel.m */,
 			);
 			path = Comment;
 			sourceTree = "<group>";
@@ -1794,6 +1823,12 @@
 				D295D2C519E29F2C008B9BC4 /* ProductLikes.storyboard */,
 				D295D2C619E29F2C008B9BC4 /* TMEProductLikesVC.h */,
 				D295D2C719E29F2C008B9BC4 /* TMEProductLikesVC.m */,
+				9992943B19E2F7F700896D05 /* TMEProductLikeNetworkClient.h */,
+				9992943C19E2F7F700896D05 /* TMEProductLikeNetworkClient.m */,
+				9992943E19E2F82B00896D05 /* TMEProductLikeCell.h */,
+				9992943F19E2F82B00896D05 /* TMEProductLikeCell.m */,
+				9992944119E2F96D00896D05 /* TMEProductLikeViewModel.h */,
+				9992944219E2F96D00896D05 /* TMEProductLikeViewModel.m */,
 			);
 			path = Like;
 			sourceTree = "<group>";
@@ -2037,6 +2072,7 @@
 				99EA0F6F1978492D00872EE4 /* TMEPublishProductViewController.m in Sources */,
 				99AA4B2219A26F0600268345 /* NSObject+TMENotification.m in Sources */,
 				99EA0F931978492D00872EE4 /* TMELoadMoreTableViewCell.m in Sources */,
+				9992943A19E2EA4B00896D05 /* TMEProductCommentViewModel.m in Sources */,
 				99EA0F7D1978492D00872EE4 /* TMEBasePhotoEditorViewController.m in Sources */,
 				99EA0F0A1978492D00872EE4 /* TMEProductImage.m in Sources */,
 				99EA0F181978492D00872EE4 /* MKMapView+Additions.m in Sources */,
@@ -2058,12 +2094,14 @@
 				99EA0F201978492D00872EE4 /* NSObject+Additions.m in Sources */,
 				99EA0F161978492D00872EE4 /* ISO8601DateFormatter.m in Sources */,
 				99EA0F901978492D00872EE4 /* TMESwitch.m in Sources */,
+				9992943D19E2F7F700896D05 /* TMEProductLikeNetworkClient.m in Sources */,
 				99EA0F2B1978492D00872EE4 /* UIImage+Additions.m in Sources */,
 				9937B90919B5EA200000EE0C /* UITextField+TMEAdditions.m in Sources */,
 				D295D2F319E29FAD008B9BC4 /* TMESearchFilterOnlyTableVC.m in Sources */,
 				99EA0F971978492D00872EE4 /* TMESearchBar.m in Sources */,
 				99EA0F7F1978492D00872EE4 /* TMEBaseTableViewController.m in Sources */,
 				99EA0F381978492D00872EE4 /* FSConverter.m in Sources */,
+				9992944319E2F96D00896D05 /* TMEProductLikeViewModel.m in Sources */,
 				99EA0F731978492D00872EE4 /* TMESearchViewController.m in Sources */,
 				99EA0F1C1978492D00872EE4 /* NSDate+Additions.m in Sources */,
 				99EA0F031978492D00872EE4 /* _TMEReply.m in Sources */,
@@ -2083,6 +2121,7 @@
 				99EA0F5A1978492D00872EE4 /* TMEMyListingViewController.m in Sources */,
 				D295D2FC19E29FAD008B9BC4 /* TMESearchNetworkClient.m in Sources */,
 				99EA0EFE1978492D00872EE4 /* TMEReachabilityManager.m in Sources */,
+				9992944019E2F82B00896D05 /* TMEProductLikeCell.m in Sources */,
 				99EA0F641978492D00872EE4 /* TMENavigationViewController.m in Sources */,
 				99EA0F261978492D00872EE4 /* UIBezierPath-Points.m in Sources */,
 				B470E4EB19AC320100F4FF18 /* TMEBrowserProductViewModel.m in Sources */,
@@ -2098,11 +2137,13 @@
 				99EA0F3B1978492D00872EE4 /* TMEActivityTableViewCell.m in Sources */,
 				B41C80C519B782BA00210878 /* UIImageView+ProductCollectionCellLoadImage.m in Sources */,
 				99EA0F051978492D00872EE4 /* TMECategory.m in Sources */,
+				9992943419E2D98000896D05 /* TMEProductCommentNetworkClient.m in Sources */,
 				99EA0EF21978492D00872EE4 /* TMEVersionCheckerAppDelegateService.m in Sources */,
 				D295D2CF19E29F2C008B9BC4 /* TMEProductAddCommentVC.m in Sources */,
 				B470E4FA19AC323B00F4FF18 /* TMEProductCollectionViewCell.m in Sources */,
 				D295D2F819E29FAD008B9BC4 /* TMESearchResultViewModel.m in Sources */,
 				99EA0F271978492D00872EE4 /* UIButton+Additions.m in Sources */,
+				9992943719E2E93400896D05 /* TMEProductCommentCell.m in Sources */,
 				99EA0F9F1978574000872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				99EA0F211978492D00872EE4 /* NSString+ActiveSupportInflector.m in Sources */,
 				99EA0F1E1978492D00872EE4 /* NSMutableArray+Additions.m in Sources */,
@@ -2142,6 +2183,7 @@
 				99EA0F0C1978492D00872EE4 /* TMEUser+BackwardSupport.m in Sources */,
 				99EA0F2F1978492D00872EE4 /* UILabel+Additions.m in Sources */,
 				99EA0F621978492D00872EE4 /* TMEMeViewController.m in Sources */,
+				9992943119E2D95800896D05 /* TMEProductComment.m in Sources */,
 				99EA0F951978492D00872EE4 /* TMECircleProgressIndicator.m in Sources */,
 				B410F755199619DF000AE5B7 /* TMEImage.m in Sources */,
 				99EA0F1B1978492D00872EE4 /* NSData+Base64.m in Sources */,
