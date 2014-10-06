@@ -76,9 +76,10 @@
     }
 
     // Info
+    self.nameLabel.text = self.product.name;
     self.priceLabel.text = self.product.price;
     self.descriptionLabel.text =  self.product.productDescription;
-    self.locationLabel.text = @"Some where on Earth";
+    self.locationLabel.text = @"Somewhere on Earth";
 
     [self updateLikeInfo];
 }
@@ -87,12 +88,14 @@
 - (IBAction)likeInfoButtonTouched:(id)sender
 {
     TMEProductLikesVC *likesVC = [TMEProductLikesVC tme_instantiateFromStoryboardNamed:@"ProductLikes"];
+    likesVC.product = self.product;
     [self.navigationController pushViewController:likesVC animated:YES];
 }
 
 - (IBAction)commentInfoButtonTouched:(id)sender
 {
     TMEProductCommentsVC *commentsVC = [TMEProductCommentsVC tme_instantiateFromStoryboardNamed:@"ProductComment"];
+    commentsVC.product = self.product;
     [self.navigationController pushViewController:commentsVC animated:YES];
 }
 
@@ -104,6 +107,7 @@
 - (IBAction)commentButtonTouched:(id)sender
 {
     TMEProductAddCommentVC *addCommentVC = [TMEProductAddCommentVC tme_instantiateFromStoryboardNamed:@"ProductComment"];
+    addCommentVC.product = self.product;
     [self.navigationController pushViewController:addCommentVC animated:YES];
 }
 
@@ -151,7 +155,7 @@
     };
 
     void (^successBlock)(NSString *) = ^(NSString *status){
-        if ([status isEqualToString:@"success"]) {
+        if ([status isEqualToString:kSuccess]) {
             self.likeButton.enabled = YES;
             [SVProgressHUD showSuccessWithStatus:nil];
 
