@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oXm-Ra-P60">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Product LikesVC-->
@@ -25,16 +27,26 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cWS-nQ-cZ0" id="a9I-SH-IwQ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Je-l2-9OJ">
-                                                    <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Je-l2-9OJ">
+                                                    <rect key="frame" x="18" y="18" width="43" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="4Je-l2-9OJ" secondAttribute="height" multiplier="1:1" id="r53-lf-NvX"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpP-nQ-B6w">
-                                                    <rect key="frame" x="58" y="19" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpP-nQ-B6w">
+                                                    <rect key="frame" x="69" y="29" width="44" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4Je-l2-9OJ" firstAttribute="top" secondItem="a9I-SH-IwQ" secondAttribute="topMargin" constant="10" id="KTe-PC-tHx"/>
+                                                <constraint firstItem="MpP-nQ-B6w" firstAttribute="leading" secondItem="4Je-l2-9OJ" secondAttribute="trailing" constant="8" id="dgF-4X-TdA"/>
+                                                <constraint firstItem="MpP-nQ-B6w" firstAttribute="centerY" secondItem="4Je-l2-9OJ" secondAttribute="centerY" constant="-0.5" id="hND-lw-ccn"/>
+                                                <constraint firstItem="4Je-l2-9OJ" firstAttribute="leading" secondItem="a9I-SH-IwQ" secondAttribute="leadingMargin" constant="10" id="kkg-e9-Vdr"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4Je-l2-9OJ" secondAttribute="bottom" constant="10" id="rVg-bl-E9t"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="userImageView" destination="4Je-l2-9OJ" id="CgL-rM-Xlx"/>

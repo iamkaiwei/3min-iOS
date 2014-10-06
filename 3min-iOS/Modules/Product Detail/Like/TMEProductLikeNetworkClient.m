@@ -14,7 +14,13 @@
                         success:(TMEArrayBlock)success
                         failure:(TMEErrorBlock)failure
 {
-    
+    // TODO: Need server API
+    NSArray *users = @[ [TMEUserManager sharedManager].loggedUser ];
+    if (success) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            success(users);
+        });
+    }
 }
 
 @end

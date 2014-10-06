@@ -12,6 +12,7 @@
 
 @interface TMEProductCommentCell : UITableViewCell
 
+- (void)updatePreferredMaxLayoutWidth;
 - (void)configureForModel:(TMEProductComment *)comment;
 
 @end

@@ -95,6 +95,8 @@
 {
     TMEProductComment *comment = self.dataSource.items[indexPath.row];
     [self.prototypeCell configureForModel:comment];
+
+    [self.prototypeCell updatePreferredMaxLayoutWidth];
     
     [self.prototypeCell layoutIfNeeded];
     [self.prototypeCell updateConstraintsIfNeeded];

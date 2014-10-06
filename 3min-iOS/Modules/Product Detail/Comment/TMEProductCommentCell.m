@@ -23,6 +23,12 @@
     // Initialization code
 }
 
+- (void)updatePreferredMaxLayoutWidth
+{
+    self.userNameLabel.preferredMaxLayoutWidth = self.userNameLabel.width;
+    self.commentLabel.preferredMaxLayoutWidth = self.commentLabel.width;
+}
+
 - (void)configureForModel:(TMEProductComment *)comment
 {
     [self.userAvatarImageView setImageWithURL:[NSURL URLWithString:comment.user.avatar] placeholderImage:nil];
