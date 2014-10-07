@@ -54,10 +54,13 @@
                                  options:NSKeyValueObservingOptionNew
                                    block:^(id observer, id object, NSDictionary *change)
     {
+        [SVProgressHUD dismiss];
         typeof(self) innerSelf = observer;
+        innerSelf.dataSource.items = innerSelf.viewModel.productComments;
         [innerSelf.tableView reloadData];
     }];
 
+    [SVProgressHUD show];
     [self.viewModel pullProductComments];
 }
 

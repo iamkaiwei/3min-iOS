@@ -30,7 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    [self setupTableView];
+    [self configureViewModel];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,10 +69,13 @@
                                  options:NSKeyValueObservingOptionNew
                                    block:^(id observer, id object, NSDictionary *change)
      {
+         [SVProgressHUD dismiss];
          typeof(self) innerSelf = observer;
+         innerSelf.dataSource.items = innerSelf.viewModel.users;
          [innerSelf.tableView reloadData];
      }];
 
+    [SVProgressHUD show];
     [self.viewModel pullUsers];
 }
 
