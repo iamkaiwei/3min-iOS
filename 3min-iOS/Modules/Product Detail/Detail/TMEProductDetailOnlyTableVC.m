@@ -87,6 +87,10 @@
 #pragma mark - Action
 - (IBAction)likeInfoButtonTouched:(id)sender
 {
+    if (self.product.likes.integerValue == 0) {
+        return;
+    }
+    
     TMEProductLikesVC *likesVC = [TMEProductLikesVC tme_instantiateFromStoryboardNamed:@"ProductLikes"];
     likesVC.product = self.product;
     [self.navigationController pushViewController:likesVC animated:YES];
@@ -192,7 +196,7 @@
 - (void)share
 {
     NSString *text = @"Share";
-    NSURL *url = [NSURL URLWithString:@"www.google.com"];
+    NSURL *url = [NSURL URLWithString:@"http://www.google.com"];
 
     NSArray *items = @[text, url];
     UIActivityViewController *controller = [[UIActivityViewController alloc]

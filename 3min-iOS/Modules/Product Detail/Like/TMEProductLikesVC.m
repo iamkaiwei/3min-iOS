@@ -22,14 +22,12 @@
 
 @implementation TMEProductLikesVC
 
-- (void)awakeFromNib
-{
-    self.title = @"Likes";
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    NSString *formatString = self.product.likes.integerValue > 1 ? @"%@ Likes" : @"%@ Like";
+    self.title = NSStringf(formatString, self.product.likes);
 
     [self setupTableView];
     [self configureViewModel];

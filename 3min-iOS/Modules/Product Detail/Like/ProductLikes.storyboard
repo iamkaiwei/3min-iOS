@@ -27,7 +27,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cWS-nQ-cZ0" id="a9I-SH-IwQ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Je-l2-9OJ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Je-l2-9OJ" customClass="KHRoundAvatar">
                                                     <rect key="frame" x="18" y="18" width="43" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="4Je-l2-9OJ" secondAttribute="height" multiplier="1:1" id="r53-lf-NvX"/>

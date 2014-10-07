@@ -7,18 +7,19 @@
 //
 
 #import "TMEProductLikeCell.h"
+#import <QuartzCore/QuartzCore.h>
+#import "KHRoundAvatar.h"
 
 @interface TMEProductLikeCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet KHRoundAvatar *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
-
 
 @end
 
 @implementation TMEProductLikeCell
 
 - (void)awakeFromNib {
-    // Initialization code
+
 }
 
 - (void)configureForModel:(TMEUser *)user

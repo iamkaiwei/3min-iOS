@@ -8,10 +8,12 @@
 
 #import "TMEProductCommentCell.h"
 #import "TMEProductComment.h"
+#import <QuartzCore/QuartzCore.h>
+#import "KHRoundAvatar.h"
 
 @interface TMEProductCommentCell ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *userAvatarImageView;
+@property (weak, nonatomic) IBOutlet KHRoundAvatar *userAvatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
 
@@ -20,7 +22,6 @@
 @implementation TMEProductCommentCell
 
 - (void)awakeFromNib {
-    // Initialization code
 }
 
 - (void)updatePreferredMaxLayoutWidth
