@@ -16,4 +16,7 @@
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, strong) TMEUser *user;
 
+@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic, strong) NSDate *updatedAt;
+
 @end

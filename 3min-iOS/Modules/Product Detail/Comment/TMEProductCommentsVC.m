@@ -104,7 +104,7 @@
     [self.prototypeCell layoutIfNeeded];
     [self.prototypeCell updateConstraintsIfNeeded];
 
-    return [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    return [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 6;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
