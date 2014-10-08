@@ -42,6 +42,8 @@
 #pragma mark - TableView
 - (void)setupTableView
 {
+    self.tableView.tableFooterView = [[UIView alloc] init];
+
     // DataSource
     self.dataSource = [[TMESingleSectionDataSource alloc] init];
     self.dataSource.cellIdentifier = [TMEProductLikeCell kind];

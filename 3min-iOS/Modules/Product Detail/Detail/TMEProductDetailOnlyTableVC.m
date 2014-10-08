@@ -90,6 +90,7 @@
 {
     self.commentsVC = [TMEProductCommentsVC tme_instantiateFromStoryboardNamed:@"ProductComment"];
     self.commentsVC.product = self.product;
+    self.commentsVC.displayedAsChild = YES;
     [self addChildVC:self.commentsVC containerView:self.commentsContainerView];
 
     self.commentsContainerView.backgroundColor = [UIColor greenColor];
@@ -137,6 +138,10 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        return 500;
+    }
+    
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 

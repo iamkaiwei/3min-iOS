@@ -36,12 +36,23 @@
 
     [self setupTableView];
     [self configureViewModel];
+
+    [self setupAsChild];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Setup
+- (void)setupAsChild
+{
+    if (self.displayedAsChild) {
+        self.tableView.scrollEnabled = NO;
+        self.tableView.showsVerticalScrollIndicator = NO;
+    }
 }
 
 #pragma mark - ViewModel
@@ -67,6 +78,8 @@
 #pragma mark - TableView
 - (void)setupTableView
 {
+    self.tableView.tableFooterView = [[UIView alloc] init];
+
     self.tableView.delegate = self;
 
     // DataSource
@@ -110,6 +123,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    UINavigationController *navC = self.navigationController ?: self.parentViewController.navigationController;
+    (void)(navC);
 }
 
 @end

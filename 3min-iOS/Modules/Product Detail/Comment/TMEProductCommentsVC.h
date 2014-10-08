@@ -13,5 +13,6 @@
 @interface TMEProductCommentsVC : UIViewController
 
 @property (nonatomic, strong) TMEProduct *product;
+@property (nonatomic, assign) BOOL displayedAsChild;
 
 @end
