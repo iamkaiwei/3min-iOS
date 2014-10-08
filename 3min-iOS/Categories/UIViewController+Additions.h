@@ -29,4 +29,8 @@
 #pragma mark - Storyboard
 + (instancetype)tme_instantiateFromStoryboardNamed:(NSString *)storyboardName;
 
+#pragma mark - ChildVC
+- (void)addChildVC:(UIViewController *)childVC containerView:(UIView *)containerView;
+- (void)removeChildVC:(UIViewController *)childVC;
+
 @end

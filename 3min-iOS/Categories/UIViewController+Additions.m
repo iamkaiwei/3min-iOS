@@ -149,5 +149,27 @@
     return [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(self)];
 }
 
+
+#pragma mark - ChildVC
+- (void)addChildVC:(UIViewController *)childVC containerView:(UIView *)containerView
+{
+    [self addChildViewController:childVC];
+    childVC.view.frame = containerView.bounds;
+    [containerView addSubview:childVC.view];
+
+    [childVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(containerView);
+    }];
+
+    [childVC didMoveToParentViewController:self];
+}
+
+- (void)removeChildVC:(UIViewController *)childVC
+{
+    [childVC willMoveToParentViewController:nil];
+    [childVC.view removeFromSuperview];
+    [childVC removeFromParentViewController];
+}
+
 @end
 

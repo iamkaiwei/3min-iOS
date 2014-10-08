@@ -11,6 +11,8 @@
 #import "TMEProductLikesVC.h"
 #import "TMEProductAddCommentVC.h"
 
+#import "TMEProductCommentsVC.h"
+
 @interface TMEProductDetailOnlyTableVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -19,14 +21,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UIButton *likeInfoButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentInfoButton;
-
-@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *commentUserAvatarImageViews;
-@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *commentUserNameLabels;
-@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *commentUserCommentLabels;
+@property (weak, nonatomic) IBOutlet UIView *commentsContainerView;
 
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
+
+@property (nonatomic, strong) TMEProductCommentsVC *commentsVC;
 
 @end
 
@@ -51,6 +52,7 @@
 
     // Display
     [self displayProduct];
+    [self setupCommentsVC];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -82,6 +84,15 @@
     self.locationLabel.text = @"Somewhere on Earth";
 
     [self updateLikeInfo];
+}
+
+- (void)setupCommentsVC
+{
+    self.commentsVC = [TMEProductCommentsVC tme_instantiateFromStoryboardNamed:@"ProductComment"];
+    self.commentsVC.product = self.product;
+    [self addChildVC:self.commentsVC containerView:self.commentsContainerView];
+
+    self.commentsContainerView.backgroundColor = [UIColor greenColor];
 }
 
 #pragma mark - Action
@@ -126,15 +137,6 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1 && indexPath.row > 0) {
-        return 0;
-    }
-
-    if (indexPath.section == 0 && indexPath.row == 2) {
-        CGSize size = [self.descriptionLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-        return size.height + 23;
-    }
-
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
