@@ -32,6 +32,7 @@
     TMEProductCommentNetworkClient *client = [[TMEProductCommentNetworkClient alloc] init];
     [client getCommentsForProduct:self.product success:^(NSArray *productComments) {
         self.productComments = productComments;
+        self.productCommentsCount = productComments.count;
     } failure:^(NSError *error) {
 
     }];

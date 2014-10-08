@@ -10,10 +10,15 @@
 #import "TMEProductCommentsVC.h"
 #import "TMEProductLikesVC.h"
 #import "TMEProductAddCommentVC.h"
-
 #import "TMEProductCommentsVC.h"
+#import "TMEProductCommentViewModel.h"
+#import <KVOController/FBKVOController.h>
 
-@interface TMEProductDetailOnlyTableVC ()
+NSInteger const kMaxCommentCountInBrief = 3;
+
+
+@interface TMEProductDetailOnlyTableVC () <TMEProductCommentsVCDelegate>
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
@@ -28,6 +33,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 @property (nonatomic, strong) TMEProductCommentsVC *commentsVC;
+@property (nonatomic, strong) TMEProductCommentViewModel *commentViewModel;
+@property (nonatomic, assign) CGFloat commentsVCHeight;
+@property (nonatomic, strong) FBKVOController *commentViewModelKVOController;
 
 @end
 
@@ -46,26 +54,59 @@
 {
     [super viewDidLoad];
 
-    // Leave room for the "Chat to buy" button
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 70, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    [self configureViewModel];
+    [self setupTableView];
+    [self setupCommentsVC];
 
     // Display
     [self displayProduct];
-    [self setupCommentsVC];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
 
-    [self updateCommentInfo];
+    [self.commentViewModel pullProductComments];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Setup
+- (void)configureViewModel
+{
+    self.commentViewModel = [[TMEProductCommentViewModel alloc] initWithProduct:self.product];
+    self.commentViewModelKVOController = [FBKVOController controllerWithObserver:self];
+    [self.commentViewModelKVOController observe:self.commentViewModel
+                                        keyPath:@"productCommentsCount"
+                                        options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                                          block:^(id observer, id object, NSDictionary *change)
+    {
+        typeof(self) innerSelf = observer;
+        [innerSelf updateCommentInfo];
+    }];
+}
+
+- (void)setupTableView
+{
+    // Leave room for the "Chat to buy" button
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 70, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+}
+
+- (void)setupCommentsVC
+{
+    self.commentsVC = [TMEProductCommentsVC tme_instantiateFromStoryboardNamed:@"ProductComment"];
+    self.commentsVC.product = self.product;
+    self.commentsVC.displayedInBrief = YES;
+    self.commentsVC.delegate = self;
+    self.commentsVC.viewModel = self.commentViewModel;
+    self.commentsVC.maxCommentCountInBrief = kMaxCommentCountInBrief;
+
+    [self addChildVC:self.commentsVC containerView:self.commentsContainerView];
 }
 
 #pragma mark - Data
@@ -86,15 +127,6 @@
     [self updateLikeInfo];
 }
 
-- (void)setupCommentsVC
-{
-    self.commentsVC = [TMEProductCommentsVC tme_instantiateFromStoryboardNamed:@"ProductComment"];
-    self.commentsVC.product = self.product;
-    self.commentsVC.displayedAsChild = YES;
-    [self addChildVC:self.commentsVC containerView:self.commentsContainerView];
-
-    self.commentsContainerView.backgroundColor = [UIColor greenColor];
-}
 
 #pragma mark - Action
 - (IBAction)likeInfoButtonTouched:(id)sender
@@ -112,6 +144,8 @@
 {
     TMEProductCommentsVC *commentsVC = [TMEProductCommentsVC tme_instantiateFromStoryboardNamed:@"ProductComment"];
     commentsVC.product = self.product;
+    commentsVC.viewModel = self.commentViewModel;
+
     [self.navigationController pushViewController:commentsVC animated:YES];
 }
 
@@ -124,6 +158,7 @@
 {
     TMEProductAddCommentVC *addCommentVC = [TMEProductAddCommentVC tme_instantiateFromStoryboardNamed:@"ProductComment"];
     addCommentVC.product = self.product;
+
     [self.navigationController pushViewController:addCommentVC animated:YES];
 }
 
@@ -139,10 +174,17 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1 && indexPath.row == 1) {
-        return 500;
+        return self.commentsVCHeight;
     }
     
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+#pragma mark - TMEProductCommentsVCDelegate
+- (void)productCommentsVC:(TMEProductCommentsVC *)commentsVC didChangeHeight:(CGFloat)height
+{
+    self.commentsVCHeight = height;
+    [self.tableView reloadData];
 }
 
 #pragma mark - Like
@@ -216,8 +258,22 @@
 #pragma mark - Comment
 - (void)updateCommentInfo
 {
-    NSString *commentInfoString = @"View all 123 comments";
-    [self.commentInfoButton setTitle:commentInfoString forState:UIControlStateNormal];
+    NSInteger count = self.commentViewModel.productCommentsCount;
+
+    NSString *infoString = nil;
+    if (count == 0) {
+        infoString = @"There are no comments";
+        self.commentInfoButton.enabled = NO;
+    } else if (count <= kMaxCommentCountInBrief) {
+        self.commentInfoButton.enabled = NO;
+        NSString *formatString = count > 1 ? @"%d comment" : @"%d comments";
+        infoString = NSStringf(formatString, count);
+    } else {
+        self.commentInfoButton.enabled = YES;
+        infoString = NSStringf(@"View all %d comments", count);
+    }
+
+    [self.commentInfoButton setTitle:infoString forState:UIControlStateNormal];
 }
 
 @end
