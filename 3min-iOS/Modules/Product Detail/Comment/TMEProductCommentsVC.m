@@ -35,23 +35,12 @@
 
     [self setupTableView];
     [self configureViewModel];
-
-    [self setupAsChild];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Setup
-- (void)setupAsChild
-{
-    if (self.displayedInBrief) {
-        self.tableView.scrollEnabled = NO;
-        self.tableView.showsVerticalScrollIndicator = NO;
-    }
 }
 
 #pragma mark - ViewModel
@@ -96,6 +85,11 @@
     };
 
     self.tableView.dataSource = self.dataSource;
+
+    if (self.displayedInBrief) {
+        self.tableView.scrollEnabled = NO;
+        self.tableView.showsVerticalScrollIndicator = NO;
+    }
 }
 
 - (TMEProductCommentCell *)prototypeCell
@@ -171,7 +165,9 @@
     }
 
     // For some padding
-    height += 30;
+    if (height > 0) {
+        height += 30;
+    }
 
     [self didChangeHeight:height];
 }

@@ -58,7 +58,6 @@ NSInteger const kMaxCommentCountInBrief = 3;
     [self setupTableView];
     [self setupCommentsVC];
 
-    // Display
     [self displayProduct];
 }
 
@@ -66,7 +65,7 @@ NSInteger const kMaxCommentCountInBrief = 3;
 {
     [super viewWillAppear:animated];
 
-    [self.commentViewModel pullProductComments];
+     [self.commentViewModel pullProductComments];
 }
 
 - (void)didReceiveMemoryWarning
@@ -174,6 +173,7 @@ NSInteger const kMaxCommentCountInBrief = 3;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1 && indexPath.row == 1) {
+        // commentsVCContainerView cell
         return self.commentsVCHeight;
     }
     

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LZB-NN-uT9">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -106,7 +107,7 @@
                             </constraints>
                         </view>
                         <sections>
-                            <tableViewSection headerTitle="Info" id="or7-N4-2Pd">
+                            <tableViewSection id="or7-N4-2Pd">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="VjK-e9-KpI">
                                         <rect key="frame" x="0.0" y="222" width="320" height="44"/>
@@ -213,7 +214,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Comment" id="QIF-n2-XR2">
+                            <tableViewSection id="QIF-n2-XR2">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="yvd-Hp-Qsq">
                                         <rect key="frame" x="0.0" y="464" width="320" height="44"/>
