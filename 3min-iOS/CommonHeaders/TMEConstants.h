@@ -10,6 +10,14 @@ typedef void(^TMEFailureBlock)(NSError *error);
 typedef void(^TMESuccessBlock)();
 typedef void(^TMEArraySuccessBlock)(NSArray *results);
 
+typedef void (^TMEErrorBlock)(NSError *error);
+typedef void (^TMEBooleanBlock)(BOOL boolean);
+typedef void (^TMEArrayBlock)(NSArray *array);
+typedef void (^TMEAnyBlock)(id any);
+typedef void (^TMEStringBlock)(NSString *string);
+
+extern NSString *const kSuccess;
+
 extern NSString *const TMEShowLoginViewControllerNotification;
 extern NSString *const TMEShowHomeViewControllerNotification;
 

@@ -94,9 +94,7 @@
 - (void)unregisterForKeyboardNotifications;
 - (void)registerForKeyboardNotifications;
 
-#pragma mark - ChildVC
-- (void)addChildVC:(UIViewController *)childVC containerView:(UIView *)containerView;
-- (void)removeChildVC:(UIViewController *)childVC;
+
 
 @end
 

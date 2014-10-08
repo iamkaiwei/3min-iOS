@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class TMEProduct;
+
 @interface TMEProductAddCommentVC : UIViewController
+
+@property (nonatomic, strong) TMEProduct *product;
 
 @end

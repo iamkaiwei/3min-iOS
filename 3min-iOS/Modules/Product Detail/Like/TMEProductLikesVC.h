@@ -10,4 +10,6 @@
 
 @interface TMEProductLikesVC : UIViewController
 
+@property (nonatomic, strong) TMEProduct *product;
+
 @end

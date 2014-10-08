@@ -8,6 +8,8 @@
 
 #import "TMEConstants.h"
 
+NSString *const kSuccess = @"success";
+
 NSString *const TMEShowLoginViewControllerNotification = @"TMEShowLoginViewControllerNotification";
 NSString *const TMEShowHomeViewControllerNotification = @"TMEShowHomeViewControllerNotification";
 

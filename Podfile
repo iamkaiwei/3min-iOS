@@ -39,5 +39,5 @@ target :ThreeMin, :exclusive => true do
   pod 'FLEX'
   pod 'LBDelegateMatrioska'
   pod 'SIAlertView', '~> 1.3'
-
+  pod 'FormatterKit', '~> 1.7'
 end
