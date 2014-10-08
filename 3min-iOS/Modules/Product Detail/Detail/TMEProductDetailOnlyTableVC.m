@@ -263,13 +263,13 @@ NSInteger const kMaxCommentCountInBrief = 3;
     NSString *infoString = nil;
     if (count == 0) {
         infoString = @"There are no comments";
-        self.commentInfoButton.enabled = NO;
+        self.commentInfoButton.userInteractionEnabled = NO;
     } else if (count <= kMaxCommentCountInBrief) {
-        self.commentInfoButton.enabled = NO;
+        self.commentInfoButton.userInteractionEnabled = NO;
         NSString *formatString = count > 1 ? @"%d comment" : @"%d comments";
         infoString = NSStringf(formatString, count);
     } else {
-        self.commentInfoButton.enabled = YES;
+        self.commentInfoButton.userInteractionEnabled = YES;
         infoString = NSStringf(@"View all %d comments", count);
     }
 
