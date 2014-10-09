@@ -27,7 +27,7 @@
 @implementation TMEBrowserProductsTableCell
 
 - (void)configCellWithData:(TMEProduct *)product {
-	self.labelLikes.text = product.likes.stringValue;
+    self.labelLikes.text = NSStringf(@"%d", product.likeCount);
 	[self.labelLikes sizeToFitKeepHeight];
 
 	self.btnFollow.selected = product.likedValue;

@@ -101,7 +101,7 @@
 
 	self.lblProductPrice.text = product.price;
 
-	self.btnLike.titleLabel.text = [product.likes stringValue];
+    self.btnLike.titleLabel.text = NSStringf(@"%d", product.likeCount);
 	self.btnLike.selected = product.liked;
 
 	self.btnComment.titleLabel.text = product.comments;

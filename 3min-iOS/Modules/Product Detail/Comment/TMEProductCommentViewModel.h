@@ -14,6 +14,7 @@
 
 - (instancetype)initWithProduct:(TMEProduct *)product;
 
+@property (nonatomic, assign) NSInteger productCommentsCount;
 @property (nonatomic, strong) NSArray *productComments;
 
 - (void)pullProductComments;

@@ -23,11 +23,11 @@
 }
 
 - (void)likesDescrease {
-    self.likes = @([self.likes integerValue] + 1);
+    self.likeCount += 1;
 }
 
 - (void)likesIncrease {
-    self.likes = @([self.likes integerValue] - 1);
+    self.likeCount -= 1;
 }
 
 @end

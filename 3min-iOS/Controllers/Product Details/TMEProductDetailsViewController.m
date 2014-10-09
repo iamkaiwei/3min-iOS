@@ -81,7 +81,7 @@
 	[self.lblProductPrice sizeToFitKeepHeightAlignRight];
 
 	self.labelBottom.text = self.lblProductPrice.text;
-	self.labelLikes.text = self.product.likes.stringValue;
+    self.labelLikes.text = NSStringf(@"%d", self.product.likeCount);
 	self.btnFollow.selected = self.product.liked;
 
 	self.lblProductLocation.text = self.product.venueID;
@@ -178,7 +178,7 @@
 		        [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:NO];
 			}
 		    self.product.liked = YES;
-		    self.product.likes = @([self.product.likes integerValue] + 1);
+            self.product.likeCount += 1;
 		    self.labelLikes.text = [@(self.labelLikes.text.integerValue + 1)stringValue];
 		}
 
@@ -196,7 +196,7 @@
 	        [self likeProductFailureHandleButtonLike:sender currentProduct:self.product label:self.labelLikes unlike:YES];
 		}
 	    self.product.liked = NO;
-	    self.product.likes = @([self.product.likes integerValue] - 1);
+        self.product.likeCount -= 1;
 	    self.labelLikes.text = [@(self.labelLikes.text.integerValue - 1)stringValue];
 	}
 
@@ -212,12 +212,12 @@
 	currentProduct.liked = !currentProduct.liked;
 
 	if (flag) {
-	    self.product.likes = @([self.product.likes integerValue] + 1);
+        self.product.likeCount += 1;
 		label.text = [@(label.text.integerValue + 1)stringValue];
 		return;
 	}
 
-	self.product.likes = @([self.product.likes integerValue] - 1);
+    self.product.likeCount -= 1;
 	label.text = [@(label.text.integerValue - 1)stringValue];
 }
 

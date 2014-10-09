@@ -104,6 +104,25 @@ OMNIA_SINGLETON_M(sharedManager)
      }];
 }
 
+- (void)delete:(NSString *)path
+        params:(NSDictionary *)params
+       success:(TMENetworkManagerJSONResponseSuccessBlock)success
+       failure:(TMENetworkManagerFailureBlock)failure
+{
+    [self.requestManager DELETE:path
+                     parameters:params
+                        success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         if (success) {
+             success(responseObject);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
 - (void)getModels:(Class)modelClass
              path:(NSString *)path
            params:(NSDictionary *)params success:(TMENetworkManagerArraySuccessBlock)success

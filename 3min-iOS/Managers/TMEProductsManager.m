@@ -93,7 +93,7 @@
                  successBlock:(void (^) (NSArray *))successBlock
                  failureBlock:(TMENetworkManagerFailureBlock)failureBlock{
     NSDictionary *params = @{@"page" : @(page)};
-    NSString *path = [NSString stringWithFormat:@"%@%@", API_PRODUCTS, API_LIKED];
+    NSString *path = [NSString stringWithFormat:@"%@%@", API_PRODUCTS, @"likes"];
 
     [[TMENetworkManager sharedManager] getModels:[TMEProduct class]
                                             path:path
@@ -107,7 +107,7 @@
                   onSuccessBlock:(void (^) (NSString *))successBlock
                     failureBlock:(TMENetworkManagerFailureBlock)failureBlock
 {
-    NSString *path = [NSString stringWithFormat:@"%@/%@%@", API_PRODUCTS, productID, API_LIKES];
+    NSString *path = [NSString stringWithFormat:@"%@/%@/%@", API_PRODUCTS, productID, @"likes"];
 
     [[TMENetworkManager sharedManager] post:path params:nil success:^(id responseObject) {
         if (successBlock) {
@@ -128,9 +128,9 @@
                     onSuccessBlock:(void (^) (NSString *))successBlock
                       failureBlock:(TMENetworkManagerFailureBlock)failureBlock
 {
-    NSString *path = [NSString stringWithFormat:@"%@/%@%@", API_PRODUCTS, productID, API_LIKES];
+    NSString *path = [NSString stringWithFormat:@"%@/%@/%@", API_PRODUCTS, productID, @"likes"];
 
-    [[TMENetworkManager sharedManager] post:path params:nil success:^(id responseObject) {
+    [[TMENetworkManager sharedManager] delete:path params:nil success:^(id responseObject) {
         if (successBlock) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 successBlock(responseObject[@"status"]);

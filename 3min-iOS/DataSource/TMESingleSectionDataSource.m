@@ -34,7 +34,7 @@
     if (self.cellConfigureBlock) {
         self.cellConfigureBlock(cell, item);
     }
-
+    
     return cell;
 }
 
