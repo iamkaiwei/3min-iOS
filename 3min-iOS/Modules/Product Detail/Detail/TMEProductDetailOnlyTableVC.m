@@ -176,7 +176,13 @@ NSInteger const kMaxCommentCountInBrief = 3;
         // commentsVCContainerView cell
         return self.commentsVCHeight;
     }
-    
+
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        CGSize size = [self.descriptionLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        return size.height + 23;
+    }
+
+
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
