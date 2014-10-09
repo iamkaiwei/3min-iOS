@@ -25,7 +25,9 @@
 @property (nonatomic, strong) NSDate *updateAt;
 
 @property (nonatomic, strong) NSNumber *dislikes;
-@property (nonatomic, strong) NSNumber *likes;
+@property (nonatomic, strong) NSArray *likes;
+@property (nonatomic, assign) NSInteger likeCount;
+
 @property (nonatomic, assign) BOOL liked;
 
 @property (nonatomic, copy) NSString *price;

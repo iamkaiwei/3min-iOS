@@ -130,7 +130,7 @@ NSInteger const kMaxCommentCountInBrief = 3;
 #pragma mark - Action
 - (IBAction)likeInfoButtonTouched:(id)sender
 {
-    if (self.product.likes.integerValue == 0) {
+    if (self.product.likeCount == 0) {
         return;
     }
     
@@ -193,7 +193,7 @@ NSInteger const kMaxCommentCountInBrief = 3;
     UIImage *likeImage = self.product.liked ? [UIImage imageNamed:@"icn_liked"] : [UIImage imageNamed:@"icn_like"];
     [self.likeButton setImage:likeImage forState:UIControlStateNormal];
 
-    NSString *likeInfoString = NSStringf(@"%@ people like this", self.product.likes);
+    NSString *likeInfoString = NSStringf(@"%d people like this", self.product.likeCount);
     [self.likeInfoButton setTitle:likeInfoString forState:UIControlStateNormal];
 }
 
@@ -215,7 +215,7 @@ NSInteger const kMaxCommentCountInBrief = 3;
             self.product.liked = !self.product.liked;
 
             NSInteger amount = self.product.liked ? 1 : -1;
-            self.product.likes = @(self.product.likes.integerValue + amount);
+            self.product.likeCount += amount;
 
             [self updateLikeInfo];
         } else {

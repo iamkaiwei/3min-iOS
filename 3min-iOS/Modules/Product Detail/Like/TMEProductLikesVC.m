@@ -26,8 +26,8 @@
 {
     [super viewDidLoad];
 
-    NSString *formatString = self.product.likes.integerValue > 1 ? @"%@ Likes" : @"%@ Like";
-    self.title = NSStringf(formatString, self.product.likes);
+    NSString *formatString = self.product.likeCount > 1 ? @"%d Likes" : @"%d Like";
+    self.title = NSStringf(formatString, self.product.likeCount);
 
     [self setupTableView];
     [self configureViewModel];

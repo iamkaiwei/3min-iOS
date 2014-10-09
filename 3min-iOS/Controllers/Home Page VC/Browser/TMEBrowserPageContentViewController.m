@@ -81,7 +81,12 @@
 	[self.kvoController observe:self.viewModel keyPath:@"state" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
 	    typeof(self) innerSelf = observer;
 	    innerSelf.collectionViewProducts.dataSource = innerSelf.viewModel.datasource;
-	    innerSelf.viewModel.datasource.ownerViewController = self;
+
+        // FIXME: [TMEErrorCollectionViewDataSource setOwnerViewController:]: unrecognized selector sent to instance
+        if ([innerSelf.viewModel.datasource respondsToSelector:@selector(setOwnerViewController:)]) {
+            innerSelf.viewModel.datasource.ownerViewController = self;
+        }
+
 	    innerSelf.chainDelegate = [[LBDelegateMatrioska alloc] initWithDelegates:@[innerSelf.viewModel.datasource, innerSelf, innerSelf.takePhotoButtonVC]];
 	    innerSelf.collectionViewProducts.delegate = (id <UICollectionViewDelegate> )innerSelf.chainDelegate;
 	    [innerSelf.collectionViewProducts reloadData];

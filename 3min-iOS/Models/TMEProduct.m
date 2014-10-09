@@ -31,6 +31,16 @@
 	};
 }
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error
+{
+    self = [super initWithDictionary:dictionaryValue error:error];
+
+    if (self) {
+        _likeCount = _likes.count;
+    }
+
+    return self;
+}
 
 + (NSValueTransformer *)createAtJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSNumber *timestamp) {
