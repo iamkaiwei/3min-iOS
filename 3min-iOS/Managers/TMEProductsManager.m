@@ -107,7 +107,7 @@
                   onSuccessBlock:(void (^) (NSString *))successBlock
                     failureBlock:(TMENetworkManagerFailureBlock)failureBlock
 {
-    NSString *path = [NSString stringWithFormat:@"%@/%@%@", API_PRODUCTS, productID, @"likes"];
+    NSString *path = [NSString stringWithFormat:@"%@/%@/%@", API_PRODUCTS, productID, @"likes"];
 
     [[TMENetworkManager sharedManager] post:path params:nil success:^(id responseObject) {
         if (successBlock) {
@@ -128,7 +128,7 @@
                     onSuccessBlock:(void (^) (NSString *))successBlock
                       failureBlock:(TMENetworkManagerFailureBlock)failureBlock
 {
-    NSString *path = [NSString stringWithFormat:@"%@/%@%@", API_PRODUCTS, productID, @"likes"];
+    NSString *path = [NSString stringWithFormat:@"%@/%@/%@", API_PRODUCTS, productID, @"likes"];
 
     [[TMENetworkManager sharedManager] post:path params:nil success:^(id responseObject) {
         if (successBlock) {

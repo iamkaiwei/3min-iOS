@@ -42,7 +42,9 @@
     [super viewDidAppear:animated];
 
     // FIXME: Temporarily fix
-    self.tableView.height = 100;
+    if (self.tableView.height == 0) {
+        self.tableView.height = 1;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,7 +59,7 @@
     self.viewModelKVOController = [FBKVOController controllerWithObserver:self];
     [self.viewModelKVOController observe:self.viewModel
                                  keyPath:@"productComments"
-                                 options:NSKeyValueObservingOptionNew
+                                 options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
                                    block:^(id observer, id object, NSDictionary *change)
     {
         typeof(self) innerSelf = observer;

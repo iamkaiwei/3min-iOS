@@ -178,8 +178,8 @@ NSInteger const kMaxCommentCountInBrief = 3;
     }
 
     if (indexPath.section == 0 && indexPath.row == 2) {
-        CGSize size = [self.descriptionLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-        return size.height + 23;
+        CGFloat height = [self.descriptionLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+        return height == 0 ? 44 : height + 23;
     }
 
 
