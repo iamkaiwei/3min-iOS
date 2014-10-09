@@ -130,7 +130,7 @@
 {
     NSString *path = [NSString stringWithFormat:@"%@/%@/%@", API_PRODUCTS, productID, @"likes"];
 
-    [[TMENetworkManager sharedManager] post:path params:nil success:^(id responseObject) {
+    [[TMENetworkManager sharedManager] delete:path params:nil success:^(id responseObject) {
         if (successBlock) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 successBlock(responseObject[@"status"]);
