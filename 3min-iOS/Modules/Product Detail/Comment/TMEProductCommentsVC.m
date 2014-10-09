@@ -37,6 +37,14 @@
     [self configureViewModel];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+    // FIXME: Temporarily fix
+    self.tableView.height = 100;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -49,7 +57,7 @@
     self.viewModelKVOController = [FBKVOController controllerWithObserver:self];
     [self.viewModelKVOController observe:self.viewModel
                                  keyPath:@"productComments"
-                                 options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
+                                 options:NSKeyValueObservingOptionNew
                                    block:^(id observer, id object, NSDictionary *change)
     {
         typeof(self) innerSelf = observer;
@@ -166,7 +174,7 @@
 
     // For some padding
     if (height > 0) {
-        height += 30;
+        height += 17;
     }
 
     [self didChangeHeight:height];

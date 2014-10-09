@@ -237,7 +237,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="agI-Uq-i2F">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="agI-Uq-i2F">
                                         <rect key="frame" x="0.0" y="464" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="agI-Uq-i2F" id="iqZ-kd-ERe">
@@ -245,7 +245,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5J-YS-L5I" userLabel="View - Comments Container">
-                                                    <rect key="frame" x="20" y="0.0" width="280" height="44"/>
+                                                    <rect key="frame" x="20" y="0.0" width="300" height="100"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -253,7 +253,7 @@
                                                 <constraint firstItem="w5J-YS-L5I" firstAttribute="top" secondItem="iqZ-kd-ERe" secondAttribute="top" id="3KU-0A-vBU"/>
                                                 <constraint firstItem="w5J-YS-L5I" firstAttribute="leading" secondItem="iqZ-kd-ERe" secondAttribute="leading" constant="20" id="TUX-ah-sON"/>
                                                 <constraint firstAttribute="bottom" secondItem="w5J-YS-L5I" secondAttribute="bottom" id="d1y-3A-R0k"/>
-                                                <constraint firstAttribute="trailing" secondItem="w5J-YS-L5I" secondAttribute="trailing" constant="20" id="lOd-bz-mED"/>
+                                                <constraint firstAttribute="trailing" secondItem="w5J-YS-L5I" secondAttribute="trailing" id="lOd-bz-mED"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
