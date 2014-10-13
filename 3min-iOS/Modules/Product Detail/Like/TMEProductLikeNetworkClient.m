@@ -14,13 +14,31 @@
                         success:(TMEArrayBlock)success
                         failure:(TMEErrorBlock)failure
 {
-    // TODO: Need server API
-    NSArray *users = @[ [TMEUserManager sharedManager].loggedUser ];
-    if (success) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            success(users);
-        });
-    }
+    NSString *fullPath = [self likeAPIPathForProduct:product];
+
+    [[TMENetworkManager sharedManager] get:fullPath
+                                    params:nil success:^(id responseObject)
+     {
+         NSArray *users = [TMEUser tme_modelsFromJSONResponse:responseObject];
+         if (success) {
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 success(users);
+             });
+         }
+     } failure:^(NSError *error) {
+         if (failure) {
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 failure(error);
+             });
+         }
+     }];
+}
+
+#pragma mark - Helper
+- (NSString *)likeAPIPathForProduct:(TMEProduct *)product
+{
+    NSString *path = NSStringf(@"/api/v1/products/%@/likes", product.productID.stringValue);
+    return NSStringf(@"%@%@", API_BASE_URL, path);
 }
 
 @end
