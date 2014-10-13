@@ -201,6 +201,7 @@ NSInteger const kMaxCommentCountInBrief = 3;
 
     NSString *likeInfoString = NSStringf(@"%d people like this", self.product.likeCount);
     [self.likeInfoButton setTitle:likeInfoString forState:UIControlStateNormal];
+    self.likeInfoButton.userInteractionEnabled = self.product.likeCount > 0;
 }
 
 - (void)toggleLike
