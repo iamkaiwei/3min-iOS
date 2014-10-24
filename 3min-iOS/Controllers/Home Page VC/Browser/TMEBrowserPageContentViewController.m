@@ -61,16 +61,17 @@
 - (void)addTakePhotoButton {
 	self.takePhotoButtonVC = [[TMETakePhotoButtonViewController alloc] init];
 	[self.takePhotoButtonVC willMoveToParentViewController:self];
-	self.takePhotoButtonVC.view.frame = ({
-	                                         CGRect screen = self.view.frame;
-	                                         CGFloat y = screen.size.height - 70 - 64;
-	                                         CGRect frame = CGRectMake(0, y, screen.size.width, 70);
-	                                         frame;
-										 });
-	[self.view addSubview:self.takePhotoButtonVC.view];
+    [self.view addSubview:self.takePhotoButtonVC.view];
 	[self.takePhotoButtonVC.view mas_makeConstraints: ^(MASConstraintMaker *make) {
-        make.height.equalTo(@70);
+	    make.bottom.equalTo(self.view);
+	    make.trailing.equalTo(self.view);
+	    make.leading.equalTo(self.view);
+	    make.height.equalTo(@70);
 	}];
+
+	[self.takePhotoButtonVC didMoveToParentViewController:self];
+	[self.view setNeedsUpdateConstraints];
+	[self.view layoutIfNeeded];
 }
 
 #pragma mark -
@@ -82,10 +83,10 @@
 	    typeof(self) innerSelf = observer;
 	    innerSelf.collectionViewProducts.dataSource = innerSelf.viewModel.datasource;
 
-        // FIXME: [TMEErrorCollectionViewDataSource setOwnerViewController:]: unrecognized selector sent to instance
-        if ([innerSelf.viewModel.datasource respondsToSelector:@selector(setOwnerViewController:)]) {
-            innerSelf.viewModel.datasource.ownerViewController = self;
-        }
+	    // FIXME: [TMEErrorCollectionViewDataSource setOwnerViewController:]: unrecognized selector sent to instance
+	    if ([innerSelf.viewModel.datasource respondsToSelector:@selector(setOwnerViewController:)]) {
+	        innerSelf.viewModel.datasource.ownerViewController = self;
+		}
 
 	    innerSelf.chainDelegate = [[LBDelegateMatrioska alloc] initWithDelegates:@[innerSelf.viewModel.datasource, innerSelf, innerSelf.takePhotoButtonVC]];
 	    innerSelf.collectionViewProducts.delegate = (id <UICollectionViewDelegate> )innerSelf.chainDelegate;
