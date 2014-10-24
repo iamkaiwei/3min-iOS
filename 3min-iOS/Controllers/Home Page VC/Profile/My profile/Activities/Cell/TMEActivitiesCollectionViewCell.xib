@@ -67,6 +67,7 @@
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="7yB-wV-KfJ"/>
                             <constraint firstAttribute="trailing" secondItem="hmA-VE-INN" secondAttribute="trailing" id="AyT-q3-z4x"/>
                             <constraint firstItem="dF8-ll-Pse" firstAttribute="leading" secondItem="rij-HM-kdo" secondAttribute="leading" id="CJH-M9-8rk"/>
+                            <constraint firstAttribute="width" constant="185" id="KN5-WJ-G1x"/>
                             <constraint firstItem="Hsv-le-06d" firstAttribute="top" secondItem="dF8-ll-Pse" secondAttribute="top" constant="-1" id="Lry-IL-l73"/>
                             <constraint firstAttribute="bottom" secondItem="dF8-ll-Pse" secondAttribute="bottom" priority="200" constant="2" id="M3q-12-BW9"/>
                             <constraint firstItem="rij-HM-kdo" firstAttribute="leading" secondItem="eui-tt-stS" secondAttribute="leading" id="MVe-Wk-I7X"/>
@@ -130,6 +131,7 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="constantContainLabelWidth" destination="KN5-WJ-G1x" id="IFR-2M-n05"/>
                 <outlet property="constraintLabelActivityTypeWidth" destination="WA4-UK-Esq" id="Hzi-I2-S06"/>
                 <outlet property="containLabelsView" destination="eui-tt-stS" id="0d6-eZ-Xob"/>
                 <outlet property="imgActivityAvatar" destination="uBo-W6-8oh" id="OEa-HC-Faj"/>

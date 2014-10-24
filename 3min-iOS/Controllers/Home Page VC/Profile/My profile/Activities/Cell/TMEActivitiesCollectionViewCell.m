@@ -20,8 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgActivityAvatar;
 
 @property (weak, nonatomic) IBOutlet UIView *containLabelsView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constantContainLabelWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintLabelActivityTypeWidth;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintLabelCommentHeight;
 @property (copy, nonatomic, readwrite) void (^configBlock)(UICollectionViewCell *cell, TMEActivity *activity);
 
 @end
@@ -33,21 +33,18 @@
 	[super awakeFromNib];
 	[self prepareForReuse];
 
-    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self);
-        make.trailing.equalTo(self);
-        make.leading.equalTo(self);
-        make.bottom.equalTo(self);
-    }];
+	[self.contentView mas_makeConstraints: ^(MASConstraintMaker *make) {
+	    make.top.equalTo(self);
+	    make.trailing.equalTo(self);
+	    make.leading.equalTo(self);
+	    make.bottom.equalTo(self);
+	}];
 }
 
 - (void)configWithData:(TMEActivity *)activity {
-
 	self.lblActivityType.text = activity.content;
 	[self.imgAvatar setImageWithURL:[NSURL URLWithString:activity.user.avatar]];
-	[self.imgActivityAvatar setImageWithURL:activity.displayURL];
-    self.lblRelativeDatetime.text = [[[NSDate alloc] initWithTimeIntervalSince1970:[activity.updateTime integerValue]] relativeDate];
-//    self.lblActivityComment.text = activity.content;
+	self.lblRelativeDatetime.text = [[[NSDate alloc] initWithTimeIntervalSince1970:[activity.updateTime integerValue]] relativeDate];
 
 	NSString *selName = [NSString stringWithFormat:@"configWith%@:", [activity.subjectType capitalizedString]];
 	SEL config = NSSelectorFromString(selName);
@@ -62,10 +59,9 @@
 }
 
 - (void)prepareForReuse {
-	self.constraintLabelActivityTypeWidth.constant = self.width / 2;
 	self.lblActivityComment.hidden = YES;
+    self.constantContainLabelWidth.constant = 185;
 	self.imgActivityAvatar.hidden = YES;
-	self.constraintLabelCommentHeight.constant = 0;
 	self.imgAvatar.image = nil;
 	self.imgActivityAvatar.image = nil;
 	self.lblActivityComment.text = @"";
@@ -73,11 +69,20 @@
 	self.lblRelativeDatetime.text = @"";
 }
 
+- (void)_setActivityProductPictureWithActvity:(TMEActivity *)activity {
+	if (![activity.displayURL.absoluteString isEqualToString:@""]) {
+		[self.imgActivityAvatar setImageWithURL:activity.displayURL];
+        return;
+	}
+
+    // rezise the content if there is no picture
+    self.constantContainLabelWidth.constant = CGRectGetMaxY(self.imgActivityAvatar.frame);
+}
+
 // chat
 - (void)configWithConversation:(TMEActivity *)activity {
 	self.lblActivityComment.hidden = NO;
 	self.imgActivityAvatar.hidden = NO;
-//	self.constraintLabelCommentHeight.constant = 21;
 }
 
 // like
@@ -87,7 +92,6 @@
 
 // Follow
 - (void)configWithRelationship:(TMEActivity *)activity {
-//	self.constraintLabelActivityTypeWidth.constant = 220;
 	self.imgActivityAvatar.hidden = YES;
 }
 
@@ -95,26 +99,26 @@
 
 - (CGFloat)heightForActivity:(TMEActivity *)activity {
 	[self prepareForReuse];
-    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self);
-        make.trailing.equalTo(self);
-        make.leading.equalTo(self);
-        make.bottom.equalTo(self);
-    }];
+	[self.contentView mas_makeConstraints: ^(MASConstraintMaker *make) {
+	    make.top.equalTo(self);
+	    make.trailing.equalTo(self);
+	    make.leading.equalTo(self);
+	    make.bottom.equalTo(self);
+	}];
 
 	[self configWithData:activity];
-    [self setNeedsUpdateConstraints];
-    [self layoutIfNeeded];
+	[self setNeedsUpdateConstraints];
+	[self layoutIfNeeded];
 
 	CGFloat height = CGRectGetMaxY(self.containLabelsView.frame);
-    CGFloat maxHeight = CGRectGetMaxY(self.imgActivityAvatar.frame);
-    CGFloat paddingBottom = 10;
+	CGFloat maxHeight = CGRectGetMaxY(self.imgActivityAvatar.frame);
+	CGFloat paddingBottom = 10;
 
 	if (!self.imgActivityAvatar.hidden && height <= maxHeight) {
 		return maxHeight + paddingBottom;
 	}
 
-    return height + 10;
+	return height + 10;
 }
 
 @end
