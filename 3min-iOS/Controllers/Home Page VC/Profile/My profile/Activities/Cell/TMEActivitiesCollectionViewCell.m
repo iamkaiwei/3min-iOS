@@ -103,8 +103,8 @@
     }];
 
 	[self configWithData:activity];
-    [self.containLabelsView setNeedsUpdateConstraints];
-    [self.containLabelsView layoutIfNeeded];
+    [self setNeedsUpdateConstraints];
+    [self layoutIfNeeded];
 
 	CGFloat height = CGRectGetMaxY(self.containLabelsView.frame);
     CGFloat maxHeight = CGRectGetMaxY(self.imgActivityAvatar.frame);
