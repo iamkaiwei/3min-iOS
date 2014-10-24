@@ -1,4 +1,4 @@
-platform :ios, '6.0'
+platform :ios, '7.0'
 
 # ignore all warnings from all pods
 inhibit_all_warnings!
@@ -39,4 +39,5 @@ target :ThreeMin, :exclusive => true do
   pod 'LBDelegateMatrioska'
   pod 'SIAlertView', '~> 1.3'
   pod 'FormatterKit', '~> 1.7'
+  pod 'RZCellSizeManager'
 end

@@ -13,6 +13,6 @@
     UICollectionViewDataSource
 >
 
-- (instancetype)initWithViewModel:(id<TMEViewModelProtocol>)vm collectionView:(UICollectionView *)collectionView andCellClass:(Class)cellClass;
+- (instancetype)initWithViewModel:(id<TMEViewModelDataProtocol>)vm collectionView:(UICollectionView *)collectionView andCellClass:(Class)cellClass;
 
 @end
