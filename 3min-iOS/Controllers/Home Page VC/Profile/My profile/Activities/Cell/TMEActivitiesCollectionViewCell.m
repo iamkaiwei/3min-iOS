@@ -47,7 +47,7 @@
 	[self.imgAvatar setImageWithURL:[NSURL URLWithString:activity.user.avatar]];
 	[self.imgActivityAvatar setImageWithURL:activity.displayURL];
     self.lblRelativeDatetime.text = [[[NSDate alloc] initWithTimeIntervalSince1970:[activity.updateTime integerValue]] relativeDate];
-    self.lblActivityComment.text = activity.content;
+//    self.lblActivityComment.text = activity.content;
 
 	NSString *selName = [NSString stringWithFormat:@"configWith%@:", [activity.subjectType capitalizedString]];
 	SEL config = NSSelectorFromString(selName);
@@ -77,7 +77,7 @@
 - (void)configWithConversation:(TMEActivity *)activity {
 	self.lblActivityComment.hidden = NO;
 	self.imgActivityAvatar.hidden = NO;
-	self.constraintLabelCommentHeight.constant = 21;
+//	self.constraintLabelCommentHeight.constant = 21;
 }
 
 // like
@@ -87,7 +87,7 @@
 
 // Follow
 - (void)configWithRelationship:(TMEActivity *)activity {
-	self.constraintLabelActivityTypeWidth.constant = 220;
+//	self.constraintLabelActivityTypeWidth.constant = 220;
 	self.imgActivityAvatar.hidden = YES;
 }
 

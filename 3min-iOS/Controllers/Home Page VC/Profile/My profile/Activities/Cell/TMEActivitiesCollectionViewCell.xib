@@ -28,14 +28,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="dF8-ll-Pse">
-                                <rect key="frame" x="0.0" y="53" width="19" height="18"/>
+                                <rect key="frame" x="0.0" y="52" width="19" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="19" id="CyF-da-C22"/>
                                     <constraint firstAttribute="height" constant="18" id="J80-b6-jSX"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 w" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsv-le-06d">
-                                <rect key="frame" x="23" y="52" width="91" height="19"/>
+                                <rect key="frame" x="23" y="51" width="91" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="91" id="YJY-ja-l5r"/>
                                     <constraint firstAttribute="height" constant="19" id="i5L-QL-7pX"/>
@@ -44,15 +44,19 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rij-HM-kdo">
-                                <rect key="frame" x="0.0" y="34" width="185" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" text="Labelg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rij-HM-kdo" customClass="TMELabel">
+                                <rect key="frame" x="0.0" y="34" width="185" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="40x-Ka-V5L"/>
                                     <constraint firstAttribute="width" constant="185" id="LCb-6P-wr9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="LCb-6P-wr9"/>
+                                    </mask>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,7 +68,7 @@
                             <constraint firstAttribute="trailing" secondItem="hmA-VE-INN" secondAttribute="trailing" id="AyT-q3-z4x"/>
                             <constraint firstItem="dF8-ll-Pse" firstAttribute="leading" secondItem="rij-HM-kdo" secondAttribute="leading" id="CJH-M9-8rk"/>
                             <constraint firstItem="Hsv-le-06d" firstAttribute="top" secondItem="dF8-ll-Pse" secondAttribute="top" constant="-1" id="Lry-IL-l73"/>
-                            <constraint firstAttribute="bottom" secondItem="dF8-ll-Pse" secondAttribute="bottom" constant="2" id="M3q-12-BW9"/>
+                            <constraint firstAttribute="bottom" secondItem="dF8-ll-Pse" secondAttribute="bottom" priority="200" constant="2" id="M3q-12-BW9"/>
                             <constraint firstItem="rij-HM-kdo" firstAttribute="leading" secondItem="eui-tt-stS" secondAttribute="leading" id="MVe-Wk-I7X"/>
                             <constraint firstItem="rij-HM-kdo" firstAttribute="top" secondItem="hmA-VE-INN" secondAttribute="bottom" id="UG8-Uc-O43"/>
                             <constraint firstItem="hmA-VE-INN" firstAttribute="top" secondItem="eui-tt-stS" secondAttribute="top" id="a0t-h0-ebt"/>
@@ -127,7 +131,6 @@
             </variation>
             <connections>
                 <outlet property="constraintLabelActivityTypeWidth" destination="WA4-UK-Esq" id="Hzi-I2-S06"/>
-                <outlet property="constraintLabelCommentHeight" destination="40x-Ka-V5L" id="LFq-ZA-8wv"/>
                 <outlet property="containLabelsView" destination="eui-tt-stS" id="0d6-eZ-Xob"/>
                 <outlet property="imgActivityAvatar" destination="uBo-W6-8oh" id="OEa-HC-Faj"/>
                 <outlet property="imgAvatar" destination="6JE-kn-AhV" id="4o0-c9-uYH"/>
