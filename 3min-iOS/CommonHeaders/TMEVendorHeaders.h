@@ -27,6 +27,7 @@
 #import "FSVenue.h"
 #import "FSConverter.h"
 #import <Flurry.h>
+#import <FLEX/FLEXManager.h>
 #import <VENVersionTracker.h>
 #import <Pusher/Pusher.h>
 #import <Pusher/PTPusherChannel.h>

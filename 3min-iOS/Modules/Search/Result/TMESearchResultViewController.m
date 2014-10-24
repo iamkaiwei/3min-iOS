@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
 
-    [[FLEXManager sharedManager] showExplorer];
+//    [[FLEXManager sharedManager] showExplorer];
 
     // Do any additional setup after loading the view from its nib.
 	[self.collectionViewResult registerNib:[TMEProductCollectionViewCell defaultNib]

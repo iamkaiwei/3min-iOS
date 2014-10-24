@@ -32,6 +32,13 @@
 	// Initialization code
 	[super awakeFromNib];
 	[self prepareForReuse];
+
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self);
+        make.trailing.equalTo(self);
+        make.leading.equalTo(self);
+        make.bottom.equalTo(self);
+    }];
 }
 
 - (void)configWithData:(TMEActivity *)activity {
@@ -41,13 +48,6 @@
 	[self.imgActivityAvatar setImageWithURL:activity.displayURL];
     self.lblRelativeDatetime.text = [[[NSDate alloc] initWithTimeIntervalSince1970:[activity.updateTime integerValue]] relativeDate];
     self.lblActivityComment.text = activity.content;
-
-	[self.contentView mas_remakeConstraints: ^(MASConstraintMaker *make) {
-	    make.leading.equalTo(self);
-	    make.trailing.equalTo(self);
-	    make.top.equalTo(self);
-	    make.bottom.equalTo(self);
-	}];
 
 	NSString *selName = [NSString stringWithFormat:@"configWith%@:", [activity.subjectType capitalizedString]];
 	SEL config = NSSelectorFromString(selName);
@@ -95,14 +95,26 @@
 
 - (CGFloat)heightForActivity:(TMEActivity *)activity {
 	[self prepareForReuse];
-	[self configWithData:activity];
-	CGFloat height = CGRectGetMaxY(self.containLabelsView.frame);
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self);
+        make.trailing.equalTo(self);
+        make.leading.equalTo(self);
+        make.bottom.equalTo(self);
+    }];
 
-	if (!self.imgActivityAvatar.hidden && height <= 100) {
-		return 100;
+	[self configWithData:activity];
+    [self.containLabelsView setNeedsUpdateConstraints];
+    [self.containLabelsView layoutIfNeeded];
+
+	CGFloat height = CGRectGetMaxY(self.containLabelsView.frame);
+    CGFloat maxHeight = CGRectGetMaxY(self.imgActivityAvatar.frame);
+    CGFloat paddingBottom = 10;
+
+	if (!self.imgActivityAvatar.hidden && height <= maxHeight) {
+		return maxHeight + paddingBottom;
 	}
 
-	return height + 10;
+    return height + 10;
 }
 
 @end

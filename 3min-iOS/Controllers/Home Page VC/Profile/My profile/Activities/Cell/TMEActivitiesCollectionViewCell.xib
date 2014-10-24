@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
@@ -57,12 +56,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rij-HM-kdo" secondAttribute="trailing" id="0YO-In-gKn"/>
                             <constraint firstItem="dF8-ll-Pse" firstAttribute="top" secondItem="rij-HM-kdo" secondAttribute="bottom" constant="1" id="4Ci-aG-jT1"/>
                             <constraint firstItem="Hsv-le-06d" firstAttribute="leading" secondItem="dF8-ll-Pse" secondAttribute="trailing" constant="4" id="6TY-wG-50D"/>
                             <constraint firstAttribute="trailing" secondItem="hmA-VE-INN" secondAttribute="trailing" id="AyT-q3-z4x"/>
                             <constraint firstItem="dF8-ll-Pse" firstAttribute="leading" secondItem="rij-HM-kdo" secondAttribute="leading" id="CJH-M9-8rk"/>
                             <constraint firstItem="Hsv-le-06d" firstAttribute="top" secondItem="dF8-ll-Pse" secondAttribute="top" constant="-1" id="Lry-IL-l73"/>
                             <constraint firstAttribute="bottom" secondItem="dF8-ll-Pse" secondAttribute="bottom" constant="2" id="M3q-12-BW9"/>
+                            <constraint firstItem="rij-HM-kdo" firstAttribute="leading" secondItem="eui-tt-stS" secondAttribute="leading" id="MVe-Wk-I7X"/>
                             <constraint firstItem="rij-HM-kdo" firstAttribute="top" secondItem="hmA-VE-INN" secondAttribute="bottom" id="UG8-Uc-O43"/>
                             <constraint firstItem="hmA-VE-INN" firstAttribute="top" secondItem="eui-tt-stS" secondAttribute="top" id="a0t-h0-ebt"/>
                             <constraint firstItem="hmA-VE-INN" firstAttribute="leading" secondItem="rij-HM-kdo" secondAttribute="leading" id="atu-u9-715"/>
@@ -106,13 +107,21 @@
                 <constraint firstAttribute="trailing" secondItem="uBo-W6-8oh" secondAttribute="trailing" constant="8" id="AIL-Tm-JXl"/>
                 <constraint firstItem="uBo-W6-8oh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Bu8-nw-hSm"/>
                 <constraint firstItem="6JE-kn-AhV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="18" id="I52-WL-AJW"/>
+                <constraint firstAttribute="bottom" secondItem="eui-tt-stS" secondAttribute="bottom" priority="250" constant="7" id="N8f-1s-nGR"/>
                 <constraint firstItem="6JE-kn-AhV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Ntq-4Q-Rkk"/>
                 <constraint firstAttribute="bottom" secondItem="P2x-X4-xV1" secondAttribute="bottom" id="PHc-09-6w1"/>
                 <constraint firstItem="eui-tt-stS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="9" id="bJF-je-hKJ"/>
                 <constraint firstItem="P2x-X4-xV1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="boV-v3-GWR"/>
+                <constraint firstAttribute="bottom" secondItem="P2x-X4-xV1" secondAttribute="bottom" id="s7O-cv-3VS"/>
                 <constraint firstAttribute="trailing" secondItem="P2x-X4-xV1" secondAttribute="trailing" id="zzm-99-W9N"/>
             </constraints>
             <size key="customSize" width="296" height="116"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="N8f-1s-nGR"/>
+                    <exclude reference="PHc-09-6w1"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="constraintLabelActivityTypeWidth" destination="WA4-UK-Esq" id="Hzi-I2-S06"/>
                 <outlet property="constraintLabelCommentHeight" destination="40x-Ka-V5L" id="LFq-ZA-8wv"/>
