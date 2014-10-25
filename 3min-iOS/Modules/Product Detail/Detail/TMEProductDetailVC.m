@@ -8,6 +8,7 @@
 
 #import "TMEProductDetailVC.h"
 #import "TMEProduct.h"
+#import "TMEOfferViewController.h"
 #import "TMEProductDetailOnlyTableVC.h"
 #import "UIViewController+Additions.h"
 
@@ -63,6 +64,10 @@
 
 #pragma mark - Action
 - (IBAction)chatToBuyButtonTouched:(id)sender {
+    TMEOfferViewController *offerController = [[TMEOfferViewController alloc] init];
+    offerController.product = self.product;
+//    offerController.conversation = self.conversation;
+    [self.navigationController pushViewController:offerController animated:YES];
 }
 
 
