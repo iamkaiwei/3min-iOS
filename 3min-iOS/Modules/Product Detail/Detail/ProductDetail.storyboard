@@ -21,6 +21,9 @@
                                 <state key="normal" image="btn_chat-to-buy">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="chatToBuyButtonTouched:" destination="Dhm-eF-lSD" eventType="touchUpInside" id="1xk-1R-Kl5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

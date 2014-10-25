@@ -95,7 +95,7 @@ UIAlertViewDelegate
 }
 
 - (void)onCancelButton:(id)sender {
-    [self dismissKeyboard];
+    [self.view endEditing:YES];
     
     self.labelPriceOffer.text = [NSString stringWithFormat:@"%@ VND", self.product.price];
     self.txtPrice.text = @"";
@@ -132,6 +132,10 @@ UIAlertViewDelegate
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
     self.isKeyboardShowing = NO;
+//    [self addNavigationItems];
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.rightBarButtonItem = [self rightNavigationButtonSubmit];
+    self.buttonTapToChange.userInteractionEnabled = YES;
     return YES;
 }
 
@@ -154,20 +158,6 @@ UIAlertViewDelegate
     self.labelPriceOffer.text = price;
     [self sizeToKeepLabelPriceHeightAlignCenter];
     return YES;
-}
-
-#pragma UIKeyboardNotification
-- (void)onKeyboardWillShowNotification:(NSNotification *)sender
-{
-    
-}
-
-- (void)onKeyboardWillHideNotification:(NSNotification *)sender
-{
-    [self addNavigationItems];
-    self.navigationItem.rightBarButtonItem = [self rightNavigationButtonSubmit];
-    [self dismissKeyboard];
-    self.buttonTapToChange.userInteractionEnabled = YES;
 }
 
 - (BOOL)invalidateOfferPrice{
