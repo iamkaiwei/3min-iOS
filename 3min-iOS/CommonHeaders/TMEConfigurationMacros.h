@@ -70,7 +70,7 @@
 #define API_USER                                    @"/api/v1/users"
 #define API_POPULAR                                 @"/api/v1/popular"
 #define API_CONVERSATIONS                           @"/api/v1/conversations"
-#define API_CONVERSATIONS_EXIST                     @"/api/v1/exist"
+#define API_CONVERSATIONS_EXIST                     @"/exist"
 #define API_CONVERSATION_REPLIES                    @"/api/v1/conversation_replies"
 #define API_CREATE_BULK                             @"/api/v1/bulk_create"
 #define API_OFFER                                   @"/api/v1/offer"

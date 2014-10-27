@@ -15,7 +15,9 @@
 @interface TMEProductDetailVC ()
 
 @property (weak, nonatomic) IBOutlet UIButton *chatToBuyButton;
-@property (nonatomic, strong) TMEProductDetailOnlyTableVC *productDetailOnlyTableVC;
+@property (assign, nonatomic, getter=isFirstTimeOffer) BOOL firstTimeOffer;
+@property (strong, nonatomic) TMEConversation *conversation;
+@property (strong, nonatomic) TMEProductDetailOnlyTableVC *productDetailOnlyTableVC;
 
 @end
 
@@ -58,16 +60,50 @@
 - (void)setProduct:(TMEProduct *)product
 {
     _product = product;
-
     self.title = product.name;
+}
+
+- (void)checkFirstTimeOffer {
+    self.chatToBuyButton.userInteractionEnabled = NO;
+    [TMEConversationManager checkConversationExistWithProductID:self.product.productID
+                                                       toUserID:self.product.user.userID
+                                                 onSuccessBlock: ^(TMEConversation *conversation)
+     {
+         self.firstTimeOffer = YES;
+         if (conversation.id) {
+             self.firstTimeOffer = NO;
+             self.conversation = conversation;
+         }
+         self.chatToBuyButton.userInteractionEnabled = YES;
+         UIViewController *viewController = [self controllerForNextStep];
+         self.hidesBottomBarWhenPushed = NO;
+         [self.navigationController pushViewController:viewController animated:YES];
+     }
+     
+                                                   failureBlock: ^(NSError *error)
+     {
+         self.chatToBuyButton.userInteractionEnabled = YES;
+     }];
+}
+
+- (UIViewController *)controllerForNextStep {
+    if (self.firstTimeOffer) {
+        TMEOfferViewController *offerController = [[TMEOfferViewController alloc] init];
+        offerController.product = self.product;
+        offerController.conversation = self.conversation;
+        return offerController;
+    }
+    else {
+        TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
+        submitController.product = self.product;
+        submitController.conversation = self.conversation;
+        return submitController;
+    }
 }
 
 #pragma mark - Action
 - (IBAction)chatToBuyButtonTouched:(id)sender {
-    TMEOfferViewController *offerController = [[TMEOfferViewController alloc] init];
-    offerController.product = self.product;
-//    offerController.conversation = self.conversation;
-    [self.navigationController pushViewController:offerController animated:YES];
+    [self checkFirstTimeOffer];
 }
 
 
