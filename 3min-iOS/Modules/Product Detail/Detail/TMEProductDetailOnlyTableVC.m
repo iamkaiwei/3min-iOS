@@ -68,7 +68,7 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
     [self configureViewModel];
     [self setupTableView];
     [self setupCommentsVC];
-
+    [self setupFont];
     [self displayProduct];
 }
 
@@ -117,6 +117,19 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
     self.commentsVC.maxCommentCountInBrief = kMaxCommentCountInBrief;
 
     [self addChildVC:self.commentsVC containerView:self.commentsContainerView];
+}
+
+- (void)setupFont
+{
+    self.nameLabel.font = [UIFont openSansSemiBoldFontWithSize:self.nameLabel.font.pointSize];
+    self.priceLabel.font = [UIFont openSansSemiBoldFontWithSize:self.priceLabel.font.pointSize];
+    self.descriptionLabel.font = [UIFont openSansRegularFontWithSize:self.descriptionLabel.font.pointSize];
+    self.locationLabel.font = [UIFont openSansRegularFontWithSize:self.locationLabel.font.pointSize];
+    self.likeInfoButton.titleLabel.font = [UIFont openSansSemiBoldFontWithSize:self.likeInfoButton.titleLabel.font.pointSize];
+    self.commentInfoButton.titleLabel.font = [UIFont openSansSemiBoldFontWithSize:self.commentInfoButton.titleLabel.font.pointSize];
+    self.likeButton.titleLabel.font = [UIFont openSansSemiBoldFontWithSize:self.likeButton.titleLabel.font.pointSize];
+    self.commentButton.titleLabel.font = [UIFont openSansSemiBoldFontWithSize:self.commentButton.titleLabel.font.pointSize];
+    self.shareButton.titleLabel.font = [UIFont openSansSemiBoldFontWithSize:self.shareButton.titleLabel.font.pointSize];
 }
 
 #pragma mark - Data
@@ -205,7 +218,7 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
 
     if (indexPath.section == TMEProductDetailSectionInfo && indexPath.row == 2) {
         CGFloat height = [self.descriptionLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-        return height == 0 ? 44 : height + 23;
+        return height == 0 ? 36 : height + 23;
     }
 
     if (indexPath.section == TMEProductDetailSectionComment && indexPath.row == 1) {

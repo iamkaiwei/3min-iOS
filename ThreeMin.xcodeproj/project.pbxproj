@@ -104,7 +104,6 @@
 		99EA0F271978492D00872EE4 /* UIButton+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DF01978492C00872EE4 /* UIButton+Additions.m */; };
 		99EA0F281978492D00872EE4 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DF21978492C00872EE4 /* UIColor+Additions.m */; };
 		99EA0F291978492D00872EE4 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DF41978492C00872EE4 /* UIColor+Custom.m */; };
-		99EA0F2A1978492D00872EE4 /* UIFont+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DF61978492C00872EE4 /* UIFont+Additions.m */; };
 		99EA0F2B1978492D00872EE4 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DF81978492C00872EE4 /* UIImage+Additions.m */; };
 		99EA0F2C1978492D00872EE4 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DFA1978492C00872EE4 /* UIImage+ImageEffects.m */; };
 		99EA0F2D1978492D00872EE4 /* UIImageView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0DFC1978492C00872EE4 /* UIImageView+Additions.m */; };
@@ -254,6 +253,17 @@
 		B4F513DD19AEDCF2003DE851 /* TMEDropDownDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F513DC19AEDCF2003DE851 /* TMEDropDownDatasource.m */; };
 		B4F513E019AEE5AF003DE851 /* TMEDropDownMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F513DF19AEE5AF003DE851 /* TMEDropDownMenuCell.m */; };
 		B4F513E219AEE5BF003DE851 /* TMEDropDownMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F513E119AEE5BF003DE851 /* TMEDropDownMenuCell.xib */; };
+		B690935319FE79D60004A12C /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B690934919FE78900004A12C /* OpenSans-Bold.ttf */; };
+		B690935419FE79D60004A12C /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B690934A19FE78900004A12C /* OpenSans-BoldItalic.ttf */; };
+		B690935519FE79D60004A12C /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B690934B19FE78900004A12C /* OpenSans-ExtraBold.ttf */; };
+		B690935619FE79D60004A12C /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B690934C19FE78900004A12C /* OpenSans-ExtraBoldItalic.ttf */; };
+		B690935719FE79D60004A12C /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B690934D19FE78900004A12C /* OpenSans-Italic.ttf */; };
+		B690935819FE79D60004A12C /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B690934E19FE78900004A12C /* OpenSans-Light.ttf */; };
+		B690935919FE79D60004A12C /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B690934F19FE78900004A12C /* OpenSans-LightItalic.ttf */; };
+		B690935A19FE79D60004A12C /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B690935019FE78900004A12C /* OpenSans-Regular.ttf */; };
+		B690935B19FE79D60004A12C /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B690935119FE78900004A12C /* OpenSans-Semibold.ttf */; };
+		B690935C19FE79D60004A12C /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B690935219FE78900004A12C /* OpenSans-SemiboldItalic.ttf */; };
+		B690935F19FE7A400004A12C /* UIFont+TMECustomFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = B690935E19FE7A400004A12C /* UIFont+TMECustomFonts.m */; };
 		D2140D9719A3338E008560B0 /* TMECrashlyticsAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */; };
 		D21698A119A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */; };
 		D22016BD19A49D480071535C /* TMEPushNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D22016BC19A49D480071535C /* TMEPushNotificationManager.m */; };
@@ -483,8 +493,6 @@
 		99EA0DF21978492C00872EE4 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		99EA0DF31978492C00872EE4 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
 		99EA0DF41978492C00872EE4 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
-		99EA0DF51978492C00872EE4 /* UIFont+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Additions.h"; sourceTree = "<group>"; };
-		99EA0DF61978492C00872EE4 /* UIFont+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Additions.m"; sourceTree = "<group>"; };
 		99EA0DF71978492C00872EE4 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
 		99EA0DF81978492C00872EE4 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
 		99EA0DF91978492C00872EE4 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -742,6 +750,18 @@
 		B4F513DE19AEE5AF003DE851 /* TMEDropDownMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEDropDownMenuCell.h; sourceTree = "<group>"; };
 		B4F513DF19AEE5AF003DE851 /* TMEDropDownMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEDropDownMenuCell.m; sourceTree = "<group>"; };
 		B4F513E119AEE5BF003DE851 /* TMEDropDownMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEDropDownMenuCell.xib; sourceTree = "<group>"; };
+		B690934919FE78900004A12C /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		B690934A19FE78900004A12C /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		B690934B19FE78900004A12C /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		B690934C19FE78900004A12C /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		B690934D19FE78900004A12C /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		B690934E19FE78900004A12C /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		B690934F19FE78900004A12C /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		B690935019FE78900004A12C /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		B690935119FE78900004A12C /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		B690935219FE78900004A12C /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		B690935D19FE7A400004A12C /* UIFont+TMECustomFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+TMECustomFonts.h"; sourceTree = "<group>"; };
+		B690935E19FE7A400004A12C /* UIFont+TMECustomFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+TMECustomFonts.m"; sourceTree = "<group>"; };
 		C99C45F832C15113F06B8E70 /* Pods-ThreeMin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeMin.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThreeMin/Pods-ThreeMin.release.xcconfig"; sourceTree = "<group>"; };
 		D2140D9519A3338E008560B0 /* TMECrashlyticsAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECrashlyticsAppDelegateService.h; sourceTree = "<group>"; };
 		D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECrashlyticsAppDelegateService.m; sourceTree = "<group>"; };
@@ -838,6 +858,7 @@
 				9966434519A10835008960DB /* Network */,
 				99EA0D5E1978492C00872EE4 /* AppDelegate */,
 				99EA0D611978492C00872EE4 /* AppDelegateService */,
+				B690934819FE78630004A12C /* Fonts */,
 				99EA0D781978492C00872EE4 /* CommonHeaders */,
 				99EA0D851978492C00872EE4 /* Managers */,
 				99EA0D9D1978492C00872EE4 /* Models */,
@@ -1153,8 +1174,6 @@
 				99EA0DF21978492C00872EE4 /* UIColor+Additions.m */,
 				99EA0DF31978492C00872EE4 /* UIColor+Custom.h */,
 				99EA0DF41978492C00872EE4 /* UIColor+Custom.m */,
-				99EA0DF51978492C00872EE4 /* UIFont+Additions.h */,
-				99EA0DF61978492C00872EE4 /* UIFont+Additions.m */,
 				99EA0DF71978492C00872EE4 /* UIImage+Additions.h */,
 				99EA0DF81978492C00872EE4 /* UIImage+Additions.m */,
 				99EA0DF91978492C00872EE4 /* UIImage+ImageEffects.h */,
@@ -1191,6 +1210,8 @@
 				B41C80C419B782BA00210878 /* UIImageView+ProductCollectionCellLoadImage.m */,
 				9910BDFE19D07D7A00BAC139 /* NSString+TMEAdditions.h */,
 				9910BDFF19D07D7A00BAC139 /* NSString+TMEAdditions.m */,
+				B690935D19FE7A400004A12C /* UIFont+TMECustomFonts.h */,
+				B690935E19FE7A400004A12C /* UIFont+TMECustomFonts.m */,
 			);
 			name = Categories;
 			path = "3min-iOS/Categories";
@@ -1777,6 +1798,23 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		B690934819FE78630004A12C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B690934919FE78900004A12C /* OpenSans-Bold.ttf */,
+				B690934A19FE78900004A12C /* OpenSans-BoldItalic.ttf */,
+				B690934B19FE78900004A12C /* OpenSans-ExtraBold.ttf */,
+				B690934C19FE78900004A12C /* OpenSans-ExtraBoldItalic.ttf */,
+				B690934D19FE78900004A12C /* OpenSans-Italic.ttf */,
+				B690934E19FE78900004A12C /* OpenSans-Light.ttf */,
+				B690934F19FE78900004A12C /* OpenSans-LightItalic.ttf */,
+				B690935019FE78900004A12C /* OpenSans-Regular.ttf */,
+				B690935119FE78900004A12C /* OpenSans-Semibold.ttf */,
+				B690935219FE78900004A12C /* OpenSans-SemiboldItalic.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		D295D2BC19E29F2C008B9BC4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -1957,6 +1995,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				99EA0F6C1978492D00872EE4 /* TMEProductDetailsViewController.xib in Resources */,
+				B690935319FE79D60004A12C /* OpenSans-Bold.ttf in Resources */,
+				B690935419FE79D60004A12C /* OpenSans-BoldItalic.ttf in Resources */,
+				B690935519FE79D60004A12C /* OpenSans-ExtraBold.ttf in Resources */,
+				B690935619FE79D60004A12C /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				B690935719FE79D60004A12C /* OpenSans-Italic.ttf in Resources */,
+				B690935819FE79D60004A12C /* OpenSans-Light.ttf in Resources */,
+				B690935919FE79D60004A12C /* OpenSans-LightItalic.ttf in Resources */,
+				B690935A19FE79D60004A12C /* OpenSans-Regular.ttf in Resources */,
+				B690935B19FE79D60004A12C /* OpenSans-Semibold.ttf in Resources */,
+				B690935C19FE79D60004A12C /* OpenSans-SemiboldItalic.ttf in Resources */,
 				99EA0F111978492D00872EE4 /* ThreeMin-Info.plist in Resources */,
 				99EA0F0F1978492D00872EE4 /* Localizable.strings in Resources */,
 				99EA0F6A1978492D00872EE4 /* TMEListOffersTableViewCell.xib in Resources */,
@@ -2113,6 +2161,7 @@
 				B410F76019961A7C000AE5B7 /* TMEActivityManager.m in Sources */,
 				B4F513D119AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m in Sources */,
 				B410F75819961A15000AE5B7 /* TMEBaseModel+TMEAdditions.m in Sources */,
+				B690935F19FE7A400004A12C /* UIFont+TMECustomFonts.m in Sources */,
 				B470E4E919AC320100F4FF18 /* TMEPaginationCollectionViewDataSource.m in Sources */,
 				99EA0F801978492D00872EE4 /* TMEBaseViewController.m in Sources */,
 				99EA0F041978492D00872EE4 /* TMEActivity.m in Sources */,
@@ -2258,7 +2307,6 @@
 				99EA0F7C1978492D00872EE4 /* TMEBaseArrayDataSource.m in Sources */,
 				99EA0F981978492D00872EE4 /* TMEBaseTableViewCell.m in Sources */,
 				99EA0EFB1978492D00872EE4 /* TMEFacebookManager.m in Sources */,
-				99EA0F2A1978492D00872EE4 /* UIFont+Additions.m in Sources */,
 				9937B90D19B5EA4A0000EE0C /* TMESingleSectionDataSource.m in Sources */,
 				9937B8FE19B5EA030000EE0C /* TMEAlertView.m in Sources */,
 				99EA0EF11978492D00872EE4 /* TMERootAppDelegateService.m in Sources */,

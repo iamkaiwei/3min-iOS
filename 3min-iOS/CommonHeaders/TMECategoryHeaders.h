@@ -23,7 +23,6 @@
 #import "UIBarButtonItem+Custom.h"
 #import "UIColor+Additions.h"
 #import "UIColor+Custom.h"
-#import "UIFont+Additions.h"
 #import "UIImage+Additions.h"
 #import "UIImage+ImageEffects.h"
 #import "UIImageView+Additions.h"
@@ -45,3 +44,4 @@
 #import "TMEBaseModel+TMEAdditions.h"
 #import "NSObject+TMENotification.h"
 #import "NSString+TMEAdditions.h"
+#import "UIFont+TMECustomFonts.h"
