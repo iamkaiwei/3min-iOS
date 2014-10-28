@@ -13,13 +13,20 @@
 #import "TMEProductCommentsVC.h"
 #import "TMEProductCommentViewModel.h"
 #import <KVOController/FBKVOController.h>
+#import "KHRoundAvatar.h"
+#import <FormatterKit/TTTTimeIntervalFormatter.h>
 
 NSInteger const kMaxCommentCountInBrief = 3;
 
+typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
+    TMEProductDetailSectionUser,
+    TMEProductDetailSectionImage,
+    TMEProductDetailSectionInfo,
+    TMEProductDetailSectionComment
+};
 
 @interface TMEProductDetailOnlyTableVC () <TMEProductCommentsVCDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -27,10 +34,14 @@ NSInteger const kMaxCommentCountInBrief = 3;
 @property (weak, nonatomic) IBOutlet UIButton *likeInfoButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentInfoButton;
 @property (weak, nonatomic) IBOutlet UIView *commentsContainerView;
+@property (weak, nonatomic) IBOutlet KHRoundAvatar *userAvatarImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *productDateLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *productImageViews;
 
 @property (nonatomic, strong) TMEProductCommentsVC *commentsVC;
 @property (nonatomic, strong) TMEProductCommentViewModel *commentViewModel;
@@ -111,10 +122,18 @@ NSInteger const kMaxCommentCountInBrief = 3;
 #pragma mark - Data
 - (void)displayProduct
 {
-    // Image
-    if (self.product.images.count > 0) {
-        TMEProductImage *image = self.product.images[0];
-        [self.imageView setImageWithURL:image.mediumURL placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
+    // User
+    [self.userAvatarImageView setImageWithURL:[NSURL URLWithString:self.product.user.avatar]
+                             placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
+    self.userNameLabel.text = self.product.user.fullName;
+    TTTTimeIntervalFormatter *timeIntervalFormatter = [[TTTTimeIntervalFormatter alloc] init];
+    self.productDateLabel.text = [timeIntervalFormatter stringForTimeInterval:self.product.updateAt.timeIntervalSinceNow];
+
+    // Images
+    for (int i=0; i<self.product.images.count; ++i) {
+        TMEProductImage *image = self.product.images[i];
+        UIImageView *imageView = self.productImageViews[i];
+        [imageView setImageWithURL:image.mediumURL placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
     }
 
     // Info
@@ -172,16 +191,27 @@ NSInteger const kMaxCommentCountInBrief = 3;
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1 && indexPath.row == 1) {
-        // commentsVCContainerView cell
-        return self.commentsVCHeight;
+    if (indexPath.section == TMEProductDetailSectionImage) {
+        if (indexPath.row < self.product.images.count) {
+            TMEProductImage *image = self.product.images[indexPath.row];
+            CGSize size = [image.dim CGSizeValue];
+            return size.height / size.width * (tableView.width - 10);
+        } else {
+            UIImageView *imageView = self.productImageViews[indexPath.row];
+            [imageView.superview removeConstraints:imageView.superview.constraints];
+            return 0;
+        }
     }
 
-    if (indexPath.section == 0 && indexPath.row == 2) {
+    if (indexPath.section == TMEProductDetailSectionInfo && indexPath.row == 2) {
         CGFloat height = [self.descriptionLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         return height == 0 ? 44 : height + 23;
     }
 
+    if (indexPath.section == TMEProductDetailSectionComment && indexPath.row == 1) {
+        // commentsVCContainerView cell
+        return self.commentsVCHeight;
+    }
 
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
