@@ -46,10 +46,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="LQZ-kU-evg">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ktM-9k-GsW" userLabel="Footer">
                             <rect key="frame" x="0.0" y="640" width="320" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -154,6 +150,86 @@
                                                 <constraint firstItem="UfD-rZ-Evv" firstAttribute="leading" secondItem="6bs-5H-bj2" secondAttribute="trailing" constant="8" id="fhI-f1-WBy"/>
                                                 <constraint firstItem="UfD-rZ-Evv" firstAttribute="leading" secondItem="YlF-3H-Qws" secondAttribute="leading" id="gXq-vm-G0k"/>
                                                 <constraint firstItem="6bs-5H-bj2" firstAttribute="leading" secondItem="oF9-WE-boN" secondAttribute="leading" constant="10" id="uCk-6y-ql4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="hHc-Iv-ANl">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="PwU-TS-Jgb">
+                                        <rect key="frame" x="0.0" y="464" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PwU-TS-Jgb" id="Yjm-ru-f7k">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NbC-UA-1uy">
+                                                    <rect key="frame" x="5" y="5" width="310" height="90"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="NbC-UA-1uy" secondAttribute="bottom" constant="5" id="3CK-4X-F6X"/>
+                                                <constraint firstItem="NbC-UA-1uy" firstAttribute="leading" secondItem="Yjm-ru-f7k" secondAttribute="leading" constant="5" id="iDf-CS-F1H"/>
+                                                <constraint firstItem="NbC-UA-1uy" firstAttribute="top" secondItem="Yjm-ru-f7k" secondAttribute="top" constant="5" id="pnr-RX-FEf"/>
+                                                <constraint firstAttribute="trailing" secondItem="NbC-UA-1uy" secondAttribute="trailing" constant="5" id="xTa-0B-Qnu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="9Nt-K2-ZvD">
+                                        <rect key="frame" x="0.0" y="464" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Nt-K2-ZvD" id="jyd-Ia-VOE">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vz7-gU-MWR">
+                                                    <rect key="frame" x="5" y="5" width="310" height="90"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Vz7-gU-MWR" secondAttribute="trailing" constant="5" id="CXS-C4-vBm"/>
+                                                <constraint firstItem="Vz7-gU-MWR" firstAttribute="leading" secondItem="jyd-Ia-VOE" secondAttribute="leading" constant="5" id="RXw-xZ-MPx"/>
+                                                <constraint firstItem="Vz7-gU-MWR" firstAttribute="top" secondItem="jyd-Ia-VOE" secondAttribute="top" constant="5" id="Y4T-iU-f7B"/>
+                                                <constraint firstAttribute="bottom" secondItem="Vz7-gU-MWR" secondAttribute="bottom" constant="5" id="alK-xt-IEI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="aXq-Aa-Huo">
+                                        <rect key="frame" x="0.0" y="464" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aXq-Aa-Huo" id="k6m-3d-4cL">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ar2-kP-afe">
+                                                    <rect key="frame" x="5" y="5" width="310" height="90"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ar2-kP-afe" firstAttribute="leading" secondItem="k6m-3d-4cL" secondAttribute="leading" constant="5" id="1lP-Cx-eDg"/>
+                                                <constraint firstItem="ar2-kP-afe" firstAttribute="top" secondItem="k6m-3d-4cL" secondAttribute="top" constant="5" id="Rw2-Mp-x2F"/>
+                                                <constraint firstAttribute="bottom" secondItem="ar2-kP-afe" secondAttribute="bottom" constant="5" id="g5B-TQ-GYM"/>
+                                                <constraint firstAttribute="trailing" secondItem="ar2-kP-afe" secondAttribute="trailing" constant="5" id="noF-Vl-RaP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="q2y-hy-DPh">
+                                        <rect key="frame" x="0.0" y="464" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q2y-hy-DPh" id="sWD-hF-0SV">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TTi-bk-bhG">
+                                                    <rect key="frame" x="5" y="5" width="310" height="90"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="TTi-bk-bhG" firstAttribute="top" secondItem="sWD-hF-0SV" secondAttribute="top" constant="5" id="E0y-FN-nGY"/>
+                                                <constraint firstAttribute="trailing" secondItem="TTi-bk-bhG" secondAttribute="trailing" constant="5" id="anQ-z9-S3V"/>
+                                                <constraint firstItem="TTi-bk-bhG" firstAttribute="leading" secondItem="sWD-hF-0SV" secondAttribute="leading" constant="5" id="fNe-d7-zCg"/>
+                                                <constraint firstAttribute="bottom" secondItem="TTi-bk-bhG" secondAttribute="bottom" constant="5" id="vkl-Te-Tzg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -325,7 +401,6 @@
                         <outlet property="commentInfoButton" destination="h6V-1s-fub" id="r8K-8N-3Op"/>
                         <outlet property="commentsContainerView" destination="w5J-YS-L5I" id="6uC-nj-QSX"/>
                         <outlet property="descriptionLabel" destination="7lh-dN-J3O" id="3h3-tr-YB9"/>
-                        <outlet property="imageView" destination="LQZ-kU-evg" id="G9S-aF-ESM"/>
                         <outlet property="likeButton" destination="He0-Cb-Hep" id="erz-7s-cjZ"/>
                         <outlet property="likeInfoButton" destination="XAP-uj-vBW" id="a2e-Em-qyZ"/>
                         <outlet property="locationLabel" destination="5gj-V2-XKT" id="O0A-Tr-rWd"/>
@@ -335,6 +410,10 @@
                         <outlet property="shareButton" destination="HrH-lb-uc7" id="QO6-Ho-8S6"/>
                         <outlet property="userAvatarImageView" destination="6bs-5H-bj2" id="8GT-c5-Civ"/>
                         <outlet property="userNameLabel" destination="UfD-rZ-Evv" id="e0U-3O-FcT"/>
+                        <outletCollection property="productImageViews" destination="NbC-UA-1uy" id="lXz-k1-ORS"/>
+                        <outletCollection property="productImageViews" destination="Vz7-gU-MWR" id="CeO-Yn-PY6"/>
+                        <outletCollection property="productImageViews" destination="ar2-kP-afe" id="vf8-JJ-jie"/>
+                        <outletCollection property="productImageViews" destination="TTi-bk-bhG" id="rSF-as-Pda"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSv-h8-bTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
