@@ -13,6 +13,8 @@
 #import "TMEProductCommentsVC.h"
 #import "TMEProductCommentViewModel.h"
 #import <KVOController/FBKVOController.h>
+#import "KHRoundAvatar.h"
+#import <FormatterKit/TTTTimeIntervalFormatter.h>
 
 NSInteger const kMaxCommentCountInBrief = 3;
 
@@ -27,6 +29,9 @@ NSInteger const kMaxCommentCountInBrief = 3;
 @property (weak, nonatomic) IBOutlet UIButton *likeInfoButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentInfoButton;
 @property (weak, nonatomic) IBOutlet UIView *commentsContainerView;
+@property (weak, nonatomic) IBOutlet KHRoundAvatar *userAvatarImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *productDateLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
@@ -111,6 +116,13 @@ NSInteger const kMaxCommentCountInBrief = 3;
 #pragma mark - Data
 - (void)displayProduct
 {
+    // User
+    [self.userAvatarImageView setImageWithURL:[NSURL URLWithString:self.product.user.avatar]
+                             placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
+    self.userNameLabel.text = self.product.user.fullName;
+    TTTTimeIntervalFormatter *timeIntervalFormatter = [[TTTTimeIntervalFormatter alloc] init];
+    self.productDateLabel.text = [timeIntervalFormatter stringForTimeInterval:self.product.updateAt.timeIntervalSinceNow];
+
     // Image
     if (self.product.images.count > 0) {
         TMEProductImage *image = self.product.images[0];
@@ -172,12 +184,12 @@ NSInteger const kMaxCommentCountInBrief = 3;
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1 && indexPath.row == 1) {
+    if (indexPath.section == 2 && indexPath.row == 1) {
         // commentsVCContainerView cell
         return self.commentsVCHeight;
     }
 
-    if (indexPath.section == 0 && indexPath.row == 2) {
+    if (indexPath.section == 1 && indexPath.row == 2) {
         CGFloat height = [self.descriptionLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         return height == 0 ? 44 : height + 23;
     }
