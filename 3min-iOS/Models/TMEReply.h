@@ -11,8 +11,4 @@
 @property (nonatomic, strong) NSNumber* userID;
 @property (nonatomic, weak) TMEConversation *conversation;
 
-+ (TMEReply *)replyPendingWithContent:(NSString *)content;
-
-+ (TMEReply *)replyWithContent:(NSString *)content sender:(TMEUser *)sender timeStamp:(NSNumber *)timeStamp;
-
 @end

@@ -226,7 +226,7 @@ PTPusherPresenceChannelDelegate
          self.dataArray = [conversation.replies mutableCopy];
          if (self.dataArray.count % 10 == 0 && self.dataArray.count)
              self.paging = YES;
-         self.dataArray = [[self.dataArray sortByAttribute:@"time_stamp" ascending:YES] mutableCopy];
+         self.dataArray = [[self.dataArray sortByAttribute:@"timeStamp" ascending:YES] mutableCopy];
          [self reloadTableViewConversationShowBottom:showBottom];
      }
                                           failureBlock:^(NSError *error)
@@ -245,7 +245,7 @@ PTPusherPresenceChannelDelegate
 #pragma mark - Helper method
 
 - (NSInteger)getLastestReplyID{
-    return [[self.dataArray valueForKeyPath:@"@max.id"] integerValue];
+    return [[self.dataArray valueForKeyPath:@"@max.replyID"] integerValue];
 }
 
 - (void)handleMarkAsSoldButtonTitle{
