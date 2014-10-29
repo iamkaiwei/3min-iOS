@@ -40,3 +40,4 @@
 #import <KVOController/FBKVOController.h>
 #import <LBDelegateMatrioska/LBDelegateMatrioska.h>
 #import <RZCellSizeManager/RZCellSizeManager.h>
+#import <KHTableViewController/KHTableViewController.h>
