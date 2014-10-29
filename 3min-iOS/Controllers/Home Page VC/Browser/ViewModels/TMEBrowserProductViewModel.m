@@ -53,6 +53,7 @@ static const CGFloat kLoadMoreHeight = 50;
 		_kvoController = [FBKVOController controllerWithObserver:self];
 
 		__weak UICollectionView *weakCollection = collection;
+        __weak typeof(self)weakSelf = self;
 
 		[_kvoController observe:collection keyPath:@"contentOffset" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
 		    UICollectionView *collectionView = weakCollection;
@@ -60,17 +61,21 @@ static const CGFloat kLoadMoreHeight = 50;
 
 		    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
 		    CGFloat btm = (contentSize.height - collectionView.contentOffset.y - screenHeight);
-		    BOOL shouldLoadMore = btm < kLoadMoreHeight;
+		    BOOL atBottomScrollView = btm < kLoadMoreHeight;
 
-		    if (shouldLoadMore) {
-		        DLog(@"Shoud load more");
-		        [self getProducts:nil failure:nil];
+		    if (atBottomScrollView) {
+                [weakSelf _shouldLoadMore];
 			}
 		}];
 
 		_collectionView = collection;
 	}
 	return self;
+}
+
+- (void)_shouldLoadMore {
+//	DLog(@"Shoud load more");
+	[self getProducts:nil failure:nil];
 }
 
 #pragma mark -
