@@ -27,7 +27,6 @@
 #import "FSConverter.h"
 #import <Flurry.h>
 #import <VENVersionTracker.h>
-#import <KZPropertyMapper.h>
 #import <Pusher/Pusher.h>
 #import <Pusher/PTPusherChannel.h>
 #import <FacebookSDK/FacebookSDK.h>

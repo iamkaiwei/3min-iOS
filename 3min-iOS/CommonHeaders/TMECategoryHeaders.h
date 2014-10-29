@@ -40,7 +40,6 @@
 #import "NSString+FontAwesome.h"
 #import "IIViewDeckController.h"
 #import "CAAnimation+EasingEquations.h"
-#import "KZPropertyMapper+DateBoxing.h"
 #import "TMEBaseModel+TMEAdditions.h"
 #import "NSObject+TMENotification.h"
 #import "NSString+TMEAdditions.h"

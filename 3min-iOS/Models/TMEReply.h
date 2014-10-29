@@ -11,12 +11,6 @@
 @property (nonatomic, strong) NSNumber* userID;
 @property (nonatomic, weak) TMEConversation *conversation;
 
-+ (NSArray *)arrayRepliesFromArrayData:(NSArray *)arrData
-                        ofConversation:(TMEConversation *)conversation;
-
-+ (TMEReply *)replyWithData:(NSDictionary *)data
-             ofConversation:(TMEConversation *)conversation;
-
 + (TMEReply *)replyPendingWithContent:(NSString *)content;
 
 + (TMEReply *)replyWithContent:(NSString *)content sender:(TMEUser *)sender timeStamp:(NSNumber *)timeStamp;
