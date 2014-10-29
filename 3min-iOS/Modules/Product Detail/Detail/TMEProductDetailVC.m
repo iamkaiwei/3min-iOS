@@ -70,7 +70,7 @@
                                                  onSuccessBlock: ^(TMEConversation *conversation)
      {
          self.firstTimeOffer = YES;
-         if (conversation.id) {
+         if (conversation.conversationID) {
              self.firstTimeOffer = NO;
              self.conversation = conversation;
          }

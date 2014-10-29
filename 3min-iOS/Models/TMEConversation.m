@@ -10,16 +10,28 @@
 
 @implementation TMEConversation
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error
+{
+    self = [super initWithDictionary:dictionaryValue error:error];
+    if (self) {
+        for (TMEReply *reply in self.replies) {
+            reply.conversation = self;
+        }
+    }
+    return self;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
              @"channelName": @"channel_name",
              @"userAvatar": @"user.facebook_avatar",
              @"userFullname": @"user.full_name",
              @"userID": @"user.id",
-             @"id": @"id",
+             @"conversationID": @"id",
              @"latestUpdate": @"latest_update",
              @"latestMessage": @"latest_message",
              @"offer": @"offer",
+             @"replies": @"replies"
              };
 }
 
@@ -45,6 +57,10 @@
 
 + (NSValueTransformer *)productMessageJSONTransformer {
     return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[TMEProduct class]];
+}
+
++ (NSValueTransformer *)repliesJSONTransformer {
+    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[TMEReply class]];
 }
 
 @end

@@ -27,7 +27,7 @@ cellRightIdentifier:(NSString *)aCellRightIdentifier
        conversation:(TMEConversation *)aConversation
              paging:(BOOL)flag{
     self = [super initWithItems:anItems cellIdentifier:aCellIdentifier paging:flag handleCellBlock:nil];
-    if (self) {;
+    if (self) {
         _cellRightIdentifier = aCellRightIdentifier;
         _conversation = aConversation;
     }
@@ -54,16 +54,16 @@ cellRightIdentifier:(NSString *)aCellRightIdentifier
         item = [self itemAtIndexPath:indexPath];
     }
     
-    if ([item.user_id isEqual:[[[TMEUserManager sharedManager] loggedUser] userID]]) {
-        item.user_full_name = [[[TMEUserManager sharedManager] loggedUser] fullName];
-        item.user_avatar = [[[TMEUserManager sharedManager] loggedUser] avatar];
+    if ([item.userID isEqual:[[[TMEUserManager sharedManager] loggedUser] userID]]) {
+        item.userFullName = [[[TMEUserManager sharedManager] loggedUser] fullName];
+        item.userAvatar = [[[TMEUserManager sharedManager] loggedUser] avatar];
         TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
         [cell configCellWithMessage:item];
         return cell;
     }
     
-    item.user_full_name = self.conversation.userFullname;
-    item.user_avatar = self.conversation.userAvatar;
+    item.userFullName = self.conversation.userFullname;
+    item.userAvatar = self.conversation.userAvatar;
     TMESubmitTableCellRight *cell = [tableView dequeueReusableCellWithIdentifier:self.cellRightIdentifier
                                                                     forIndexPath:indexPath];
     [cell configCellWithMessage:item];
