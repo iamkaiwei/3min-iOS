@@ -18,7 +18,7 @@
 + (UIBarButtonItem *)appRightButtonWithTitle:(NSString *)title target:(id)target action:(SEL)action
 {
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightButton.titleLabel.font = [UIFont lightCondensedAppFontOfSize:18];
+    rightButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [rightButton setTitle:title forState:UIControlStateNormal];
     [rightButton setTitleColor:[UIColor colorWithHexValue:0xd31c1d] forState:UIControlStateNormal];
     [rightButton setTitleColor:[UIColor colorWithHexValue:0x470809] forState:UIControlStateHighlighted];
