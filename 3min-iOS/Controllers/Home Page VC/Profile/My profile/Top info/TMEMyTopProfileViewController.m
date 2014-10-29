@@ -7,14 +7,12 @@
 //
 
 #import "TMEMyTopProfileViewController.h"
+#import <KHTableViewController/KHCollectionController.h>
 
 @interface TMEMyTopProfileViewController ()
 
-@property (weak, nonatomic) IBOutlet KHRoundAvatar *imgUserAvatar;
-@property (weak, nonatomic) IBOutlet UILabel *lblUserName;
-@property (weak, nonatomic) IBOutlet UIButton *btnPositive;
-@property (weak, nonatomic) IBOutlet UIButton *btnFollower;
-@property (weak, nonatomic) IBOutlet UIButton *btnFollowing;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionTop;
+@property (strong, nonatomic) KHCollectionController *collectionController;
 
 @end
 
@@ -24,13 +22,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
-    [self configWithUser:[[TMEUserManager sharedManager] loggedUser]];
-}
+    KHCollectionController *collectionController = [[KHCollectionController alloc] init];
+    KHBasicTableViewModel *basicSection = [[KHBasicTableViewModel alloc] init];
+    KHLoadMoreSection *loadingSection = [[KHLoadMoreSection alloc] init];
+    basicSection.sectionModel = loadingSection;
 
-- (void)configWithUser:(TMEUser *)user {
-    [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:user.avatar]
-                       placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
-    self.lblUserName.text = user.fullName;
+    self.collectionController = collectionController;
+    self.collectionController.model = basicSection;
+
+    self.collectionTop.delegate = self.collectionController;
+    self.collectionTop.dataSource = self.collectionController;
 }
 
 - (void)updateViewConstraints {
