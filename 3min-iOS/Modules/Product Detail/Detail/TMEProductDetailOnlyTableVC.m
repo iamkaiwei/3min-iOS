@@ -121,6 +121,8 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
 
 - (void)setupFont
 {
+    self.userNameLabel.font = [UIFont openSansSemiBoldFontWithSize:self.userNameLabel.font.pointSize];
+    self.productDateLabel.font = [UIFont openSansRegularFontWithSize:self.productDateLabel.font.pointSize];
     self.nameLabel.font = [UIFont openSansSemiBoldFontWithSize:self.nameLabel.font.pointSize];
     self.priceLabel.font = [UIFont openSansSemiBoldFontWithSize:self.priceLabel.font.pointSize];
     self.descriptionLabel.font = [UIFont openSansRegularFontWithSize:self.descriptionLabel.font.pointSize];
