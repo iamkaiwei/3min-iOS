@@ -64,7 +64,7 @@ cellRightIdentifier:(NSString *)aCellRightIdentifier
     
     item.userFullName = self.conversation.userFullname;
     item.userAvatar = self.conversation.userAvatar;
-    TMESubmitTableCellRight *cell = [tableView dequeueReusableCellWithIdentifier:self.cellRightIdentifier
+    TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
                                                                     forIndexPath:indexPath];
     [cell configCellWithMessage:item];
     return cell;

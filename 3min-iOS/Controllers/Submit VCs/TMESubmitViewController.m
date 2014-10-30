@@ -146,62 +146,64 @@ PTPusherPresenceChannelDelegate
     
     if (self.paging) {
         TMEReply *reply = self.dataArray[indexPath.row - 1];
+        NSLog(@"%f", [cell getHeightWithContent:reply.reply]);
         return [cell getHeightWithContent:reply.reply];
     }
     
     TMEReply *reply = self.dataArray[indexPath.row];
+    NSLog(@"%f", [cell getHeightWithContent:reply.reply]);
     return [cell getHeightWithContent:reply.reply];
 }
 
 #pragma mark - Post message
 
 - (void)postMessage{
-//    if ([self.textViewInputMessage.text isEqual: @""]) {
-//        return;
-//    }
-//    self.isTyping = NO;
-//
-//    if (self.currentChatMode == TMEChatModeOnline) {
-//        double currentTimeStamp = [[NSDate date] timeIntervalSince1970];
-//        [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_NAME
-//                                           data:@{@"name": [TMEUserManager sharedManager].loggedUser.fullName,
-//                                                  @"message" : self.textViewInputMessage.text,
-//                                                  @"timestamp" : @(currentTimeStamp)}];
-//        TMEReply *reply = [TMEReply replyWithContent:self.textViewInputMessage.text
-//                                              sender:[TMEUserManager sharedManager].loggedUser
-//                                           timeStamp:@(currentTimeStamp)];
-//        [self.dataArray addObject:reply];
-//        [self.arrayClientReplies addObject:@{ @"reply": self.textViewInputMessage.text,
-//                                              @"created_at": @(currentTimeStamp) }];
-//        if (self.arrayClientReplies.count == 20) {
-//            [self postMessagesToServer];
-//        }
-//        [self reloadTableViewConversationShowBottom:YES];
-//        return;
-//    }
-//
-//    TMEReply *reply = [TMEReply replyPendingWithContent:self.textViewInputMessage.text];
-//    [self.dataArray addObject:reply];
-//    [self reloadTableViewConversationShowBottom:YES];
-//    
-//    NSInteger lastestReplyID = [self getLastestReplyID];
-//    [TMEConversationManager postReplyToConversation:[self.conversation.conversationID intValue]
-//                                        withMessage:self.textViewInputMessage.text
-//                                     onSuccessBlock:^(NSString *status)
-//     {
-//         if ([status isEqualToString:@"success"]) {
-//             [self loadMessageWithReplyIDLargerID:lastestReplyID
-//                                      orSmallerID:0
-//                                         withPage:1
-//                                       showBottom:YES];
-//         }
-//     }
-//                                       failureBlock:^(NSError *error)
-//     {
-//         [self.dataArray removeLastObject];
-//         [self reloadTableViewConversationShowBottom:NO];
-//         [self failureBlockHandleWithError:error];
-//     }];
+    if ([self.textViewInputMessage.text isEqual: @""]) {
+        return;
+    }
+    self.isTyping = NO;
+
+    if (self.currentChatMode == TMEChatModeOnline) {
+        double currentTimeStamp = [[NSDate date] timeIntervalSince1970];
+        [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_NAME
+                                           data:@{@"name": [TMEUserManager sharedManager].loggedUser.fullName,
+                                                  @"message" : self.textViewInputMessage.text,
+                                                  @"timestamp" : @(currentTimeStamp)}];
+        TMEReply *reply = [TMEReply replyWithContent:self.textViewInputMessage.text
+                                              sender:[TMEUserManager sharedManager].loggedUser
+                                           timeStamp:@(currentTimeStamp)];
+        [self.dataArray addObject:reply];
+        [self.arrayClientReplies addObject:@{ @"reply": self.textViewInputMessage.text,
+                                              @"created_at": @(currentTimeStamp) }];
+        if (self.arrayClientReplies.count == 20) {
+            [self postMessagesToServer];
+        }
+        [self reloadTableViewConversationShowBottom:YES];
+        return;
+    }
+
+    TMEReply *reply = [TMEReply replyPendingWithContent:self.textViewInputMessage.text];
+    [self.dataArray addObject:reply];
+    [self reloadTableViewConversationShowBottom:YES];
+    
+    NSInteger lastestReplyID = [self getLastestReplyID];
+    [TMEConversationManager postReplyToConversation:[self.conversation.conversationID intValue]
+                                        withMessage:self.textViewInputMessage.text
+                                     onSuccessBlock:^(NSString *status)
+     {
+         if ([status isEqualToString:@"success"]) {
+             [self loadMessageWithReplyIDLargerID:lastestReplyID
+                                      orSmallerID:0
+                                         withPage:1
+                                       showBottom:YES];
+         }
+     }
+                                       failureBlock:^(NSError *error)
+     {
+         [self.dataArray removeLastObject];
+         [self reloadTableViewConversationShowBottom:NO];
+         [self failureBlockHandleWithError:error];
+     }];
 }
 
 #pragma mark - Load message
@@ -222,8 +224,19 @@ PTPusherPresenceChannelDelegate
                                         onSuccessBlock:^(TMEConversation *conversation)
      {
          self.paging = NO;
-         self.conversation = conversation;
-         self.dataArray = [conversation.replies mutableCopy];
+         if (largerReplyID) {
+             [self.dataArray removeLastObject];
+             [self.dataArray addObjectsFromArray:conversation.replies];
+             self.conversation.replies = self.dataArray;
+         }
+         else if (smallerReplyID) {
+             [self.dataArray insertObjects:conversation.replies atIndexes:[NSIndexSet indexSetWithIndex:0]];
+             self.conversation.replies = self.dataArray;
+         }
+         else {
+             self.dataArray = [conversation.replies mutableCopy];
+             self.conversation = conversation;
+         }
          if (self.dataArray.count % 10 == 0 && self.dataArray.count)
              self.paging = YES;
          self.dataArray = [[self.dataArray sortByAttribute:@"timeStamp" ascending:YES] mutableCopy];
