@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) NSNumber *categoryId;
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *categoryDescription;
 @property (nonatomic, copy) NSString *specificType;
 
 @property (nonatomic, strong) TMEImage *image;

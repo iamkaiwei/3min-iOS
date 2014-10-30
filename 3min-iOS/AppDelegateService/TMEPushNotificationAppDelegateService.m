@@ -61,7 +61,7 @@
     if ([navController.topViewController isMemberOfClass:[TMESubmitViewController class]])
     {
         TMESubmitViewController *submitVC = (TMESubmitViewController *)navController.topViewController;
-        if ([submitVC.conversation.id isEqual:conversationID]) {
+        if ([submitVC.conversation.conversationID isEqual:conversationID]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
             return;
         }

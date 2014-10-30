@@ -143,14 +143,13 @@ PTPusherPresenceChannelDelegate
     }
     
     TMESubmitTableCell *cell = [[TMESubmitTableCell alloc] init];
-    TMEReply *reply;
     
     if (self.paging) {
-        reply = self.dataArray[indexPath.row - 1];
+        TMEReply *reply = self.dataArray[indexPath.row - 1];
         return [cell getHeightWithContent:reply.reply];
     }
     
-    reply = self.dataArray[indexPath.row];
+    TMEReply *reply = self.dataArray[indexPath.row];
     return [cell getHeightWithContent:reply.reply];
 }
 
@@ -186,7 +185,7 @@ PTPusherPresenceChannelDelegate
     [self reloadTableViewConversationShowBottom:YES];
     
     NSInteger lastestReplyID = [self getLastestReplyID];
-    [TMEConversationManager postReplyToConversation:[self.conversation.id intValue]
+    [TMEConversationManager postReplyToConversation:[self.conversation.conversationID intValue]
                                         withMessage:self.textViewInputMessage.text
                                      onSuccessBlock:^(NSString *status)
      {
@@ -216,7 +215,7 @@ PTPusherPresenceChannelDelegate
         return;
     }
     
-    [TMEConversationManager getRepliesOfConversationID:[self.conversation.id intValue]
+    [TMEConversationManager getRepliesOfConversationID:[self.conversation.conversationID intValue]
                                          largerReplyID:largerReplyID
                                         smallerReplyID:smallerReplyID
                                               withPage:page
@@ -227,7 +226,7 @@ PTPusherPresenceChannelDelegate
          self.dataArray = [conversation.replies mutableCopy];
          if (self.dataArray.count % 10 == 0 && self.dataArray.count)
              self.paging = YES;
-         self.dataArray = [[self.dataArray sortByAttribute:@"time_stamp" ascending:YES] mutableCopy];
+         self.dataArray = [[self.dataArray sortByAttribute:@"timeStamp" ascending:YES] mutableCopy];
          [self reloadTableViewConversationShowBottom:showBottom];
      }
                                           failureBlock:^(NSError *error)
@@ -246,7 +245,7 @@ PTPusherPresenceChannelDelegate
 #pragma mark - Helper method
 
 - (NSInteger)getLastestReplyID{
-    return [[self.dataArray valueForKeyPath:@"@max.id"] integerValue];
+    return [[self.dataArray valueForKeyPath:@"@max.replyID"] integerValue];
 }
 
 - (void)handleMarkAsSoldButtonTitle{
@@ -311,7 +310,7 @@ PTPusherPresenceChannelDelegate
         return;
     }
 
-    [TMEConversationManager createBulkWithConversationID:self.conversation.id
+    [TMEConversationManager createBulkWithConversationID:self.conversation.conversationID
                                            arrayMessages:self.arrayClientReplies
                                           onSuccessBlock:^()
     {

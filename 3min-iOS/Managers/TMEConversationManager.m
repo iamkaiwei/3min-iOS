@@ -91,7 +91,7 @@
             return ![conversation.offer isEqual:NSNull.null] && ![conversation.offer isEqualToNumber:@(0)];
         }]];
 
-        NSArray *sortedConversations = [filteredConversations sortByAttribute:@"latest_update"
+        NSArray *sortedConversations = [filteredConversations sortByAttribute:@"latestUpdate"
                                                             ascending:NO];
         if (successBlock) {
             dispatch_async(dispatch_get_main_queue(), ^{

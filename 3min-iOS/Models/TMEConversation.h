@@ -11,7 +11,7 @@
 @interface TMEConversation : TMEBaseModel <MTLJSONSerializing>
 
 @property (nonatomic, copy  ) NSString   *channelName;
-@property (nonatomic, strong) NSNumber   *id;
+@property (nonatomic, strong) NSNumber   *conversationID;
 @property (nonatomic, copy  ) NSString   *latestMessage;
 @property (nonatomic, strong) NSDate     *latestUpdate;
 @property (nonatomic, strong) NSNumber   *offer;

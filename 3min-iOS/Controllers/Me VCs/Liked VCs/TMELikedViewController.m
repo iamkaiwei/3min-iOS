@@ -87,7 +87,7 @@
      {
          [self handlePagingWithResponseArray:arrayProduct currentPage:page];
          [self.dataArray addObjectsFromArray:arrayProduct];
-         self.dataArray = [[self.dataArray sortByAttribute:@"created_at" ascending:NO] mutableCopy];
+         self.dataArray = [[self.dataArray sortByAttribute:@"createdAt" ascending:NO] mutableCopy];
          [self reloadTableViewLikedProduct];
      }
                                  failureBlock:^(NSError *error)

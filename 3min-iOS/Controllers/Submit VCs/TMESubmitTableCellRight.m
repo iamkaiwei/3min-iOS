@@ -21,14 +21,14 @@
 @implementation TMESubmitTableCellRight
 
 - (void)configCellWithMessage:(TMEReply *)reply{
-  self.lblUsername.text = reply.user_full_name;
-  [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:reply.user_avatar]];
+  self.lblUsername.text = reply.userFullName;
+  [self.imageViewAvatar setImageWithURL:[NSURL URLWithString:reply.userAvatar]];
   
   self.lblContent.text = reply.reply;
   [self.lblContent sizeToFitKeepWidth];
   
   [self.separatorView alignBelowView:self.lblContent offsetY:7 sameWidth:NO];
-  self.lblTime.text = [reply.time_stamp relativeDate];
+  self.lblTime.text = [reply.timeStamp relativeDate];
 }
 
 + (CGFloat)getHeight{

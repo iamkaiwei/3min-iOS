@@ -65,7 +65,7 @@ UIAlertViewDelegate
                                              withOfferPrice:@([self.txtPrice.text integerValue])
                                              onSuccessBlock:^(TMEConversation *conversation)
      {
-         if (conversation.id) {
+         if (conversation.conversationID) {
              self.conversation = conversation;
              TMESubmitViewController *submitController = [[TMESubmitViewController alloc] init];
              submitController.product = self.product;

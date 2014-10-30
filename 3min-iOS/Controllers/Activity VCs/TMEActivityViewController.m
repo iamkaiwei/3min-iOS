@@ -119,7 +119,7 @@
          }
          
          self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:arrayConversation] mutableCopy];
-         self.dataArray = [[self.dataArray sortByAttribute:@"latest_update" ascending:NO] mutableCopy];
+         self.dataArray = [[self.dataArray sortByAttribute:@"latestUpdate" ascending:NO] mutableCopy];
          
          [self reloadTableViewActivity];
      }
