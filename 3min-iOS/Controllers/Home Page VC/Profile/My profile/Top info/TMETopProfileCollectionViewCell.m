@@ -12,8 +12,14 @@
 
 @property (weak, nonatomic) IBOutlet KHRoundAvatar *imgUserAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserName;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblPositive;
 @property (weak, nonatomic) IBOutlet UIButton *btnPositive;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblFollower;
 @property (weak, nonatomic) IBOutlet UIButton *btnFollower;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblFollowing;
 @property (weak, nonatomic) IBOutlet UIButton *btnFollowing;
 
 @end
@@ -30,10 +36,10 @@
     }
 
     TMEUser *user = (TMEUser *)data;
-
     [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:user.avatar]
                        placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
     self.lblUserName.text = user.fullName;
+    self.lblPositive.text = [user.positive_count stringValue];
 }
 
 @end

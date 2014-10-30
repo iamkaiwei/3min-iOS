@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
@@ -117,6 +116,12 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQ0-IT-oIF">
+                        <rect key="frame" x="246" y="119" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zsv-QO-Hpf">
                         <rect key="frame" x="214" y="114" width="106" height="45"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -130,12 +135,6 @@
                         <rect key="frame" x="214" y="119" width="1" height="35"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQ0-IT-oIF">
-                        <rect key="frame" x="246" y="119" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
@@ -145,6 +144,16 @@
                 <constraint firstItem="zmc-Sr-AgL" firstAttribute="top" secondItem="tpa-ac-rec" secondAttribute="top" id="vDB-gk-TN2"/>
             </constraints>
             <size key="customSize" width="305" height="137"/>
+            <connections>
+                <outlet property="btnFollower" destination="YHM-iU-JQX" id="GXA-un-m5T"/>
+                <outlet property="btnFollowing" destination="Zsv-QO-Hpf" id="Mbc-OC-6M0"/>
+                <outlet property="btnPositive" destination="0Wo-QU-NQ2" id="uS6-BY-n9X"/>
+                <outlet property="imgUserAvatar" destination="xXH-h8-xYI" id="FPM-x9-sr8"/>
+                <outlet property="lblFollower" destination="OFI-Y8-Z88" id="hl9-HQ-VG4"/>
+                <outlet property="lblFollowing" destination="rQ0-IT-oIF" id="6lu-Ys-COp"/>
+                <outlet property="lblPositive" destination="DNE-BP-lln" id="m9s-eR-gNm"/>
+                <outlet property="lblUserName" destination="JIV-Hg-dBQ" id="1R3-mn-Tdm"/>
+            </connections>
             <point key="canvasLocation" x="315.5" y="14.5"/>
         </collectionViewCell>
     </objects>

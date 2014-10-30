@@ -35,6 +35,10 @@
 @property (nonatomic, copy) NSString *gender;
 @property (nonatomic, copy) NSString *role;
 
+@property (nonatomic, strong) NSNumber *positive_count;
+@property (nonatomic, strong) NSNumber *normal_count;
+@property (nonatomic, strong) NSNumber *negative_count;
+
 // Useful properties
 @property (nonatomic, strong) NSDate *accessTokenReceivedAt;
 
