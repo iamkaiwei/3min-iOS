@@ -259,6 +259,7 @@
 		B4AE17F3198EAFAD00F6D601 /* TMEProfilePageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17F1198EAFAD00F6D601 /* TMEProfilePageContentViewController.m */; };
 		B4AE17F4198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AE17F2198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib */; };
 		B4AE17F7198EC20600F6D601 /* TMEHomePageViewDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17F6198EC20600F6D601 /* TMEHomePageViewDatasource.m */; };
+		B4CBA1E51A02050A0083ACDE /* TMETopUserSection.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CBA1E41A02050A0083ACDE /* TMETopUserSection.m */; };
 		B4EF43A619A462A7001F010C /* NSValueTransformer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF43A519A462A7001F010C /* NSValueTransformer+Addition.m */; };
 		B4F513D119AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F513D019AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m */; };
 		B4F513D619AEDCB9003DE851 /* TMEDropDownMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F513D419AEDCB9003DE851 /* TMEDropDownMenuViewController.m */; };
@@ -763,6 +764,8 @@
 		B4AE17F2198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEProfilePageContentViewController.xib; sourceTree = "<group>"; };
 		B4AE17F5198EC20600F6D601 /* TMEHomePageViewDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHomePageViewDatasource.h; sourceTree = "<group>"; };
 		B4AE17F6198EC20600F6D601 /* TMEHomePageViewDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEHomePageViewDatasource.m; sourceTree = "<group>"; };
+		B4CBA1E31A02050A0083ACDE /* TMETopUserSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETopUserSection.h; sourceTree = "<group>"; };
+		B4CBA1E41A02050A0083ACDE /* TMETopUserSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETopUserSection.m; sourceTree = "<group>"; };
 		B4EF43A419A462A7001F010C /* NSValueTransformer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+Addition.h"; sourceTree = "<group>"; };
 		B4EF43A519A462A7001F010C /* NSValueTransformer+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValueTransformer+Addition.m"; sourceTree = "<group>"; };
 		B4F513CF19AD8985003DE851 /* TMEHomeNavigationButtonDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHomeNavigationButtonDelegate.h; sourceTree = "<group>"; };
@@ -1735,6 +1738,8 @@
 				B41D6E621A00A4EB008EFF71 /* TMETopProfileCollectionViewCell.xib */,
 				B45473851A00A8780059256C /* TMETopProfileCellFactory.h */,
 				B45473861A00A8780059256C /* TMETopProfileCellFactory.m */,
+				B4CBA1E31A02050A0083ACDE /* TMETopUserSection.h */,
+				B4CBA1E41A02050A0083ACDE /* TMETopUserSection.m */,
 			);
 			path = "Top info";
 			sourceTree = "<group>";
@@ -2288,6 +2293,7 @@
 				B470E4FA19AC323B00F4FF18 /* TMEProductCollectionViewCell.m in Sources */,
 				D295D2F819E29FAD008B9BC4 /* TMESearchResultViewModel.m in Sources */,
 				99EA0F271978492D00872EE4 /* UIButton+Additions.m in Sources */,
+				B4CBA1E51A02050A0083ACDE /* TMETopUserSection.m in Sources */,
 				9992943719E2E93400896D05 /* TMEProductCommentCell.m in Sources */,
 				99EA0F9F1978574000872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				99EA0F211978492D00872EE4 /* NSString+ActiveSupportInflector.m in Sources */,

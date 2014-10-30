@@ -9,6 +9,7 @@
 #import "TMEMyTopProfileViewController.h"
 #import <KHTableViewController/KHCollectionController.h>
 #import "TMETopProfileCellFactory.h"
+#import "TMETopUserSection.h"
 
 @interface TMEMyTopProfileViewController ()
 
@@ -39,6 +40,8 @@
     self.collectionTop.dataSource = self.collectionController;
 
     [self.collectionTop reloadData];
+
+    [self loadingUserInformation];
 }
 
 - (void)updateViewConstraints {
@@ -55,7 +58,12 @@
 }
 
 - (void)loadingUserInformation {
-    [[TMEUserManager sharedManager] loggedUser];
+    KHBasicTableViewModel *basicSection = [[KHBasicTableViewModel alloc] init];
+    TMETopUserSection *userInfoSection = [[TMETopUserSection alloc] init];
+    basicSection.sectionModel = userInfoSection;
+
+    self.collectionController.model = basicSection;
+    [self.collectionTop reloadData];
 }
 
 @end
