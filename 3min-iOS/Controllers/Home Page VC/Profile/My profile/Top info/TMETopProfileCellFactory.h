@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KHSuperCollectionCellFactory.h"
 
-@interface TMETopProfileCellFactory : NSObject
+@interface TMETopProfileCellFactory : KHSuperCollectionCellFactory
 <
 KHCollectionViewCellFactoryProtocol
 >

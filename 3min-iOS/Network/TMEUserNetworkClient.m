@@ -80,7 +80,7 @@
                                      params:combinedParams
                                     success:^(id responseObject)
     {
-        TMEUser *user = [TMEUser tme_modelFromJSONResponse:responseObject];
+        TMEUser *user = [TMEUser tme_modelFromJSONResponse:responseObject[@"user"]];
         user.accessTokenReceivedAt = [NSDate date];
 
         [TMEUserManager sharedManager].loggedUser = user;

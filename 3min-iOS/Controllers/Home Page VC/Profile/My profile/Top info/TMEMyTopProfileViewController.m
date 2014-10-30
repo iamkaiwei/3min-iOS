@@ -8,11 +8,13 @@
 
 #import "TMEMyTopProfileViewController.h"
 #import <KHTableViewController/KHCollectionController.h>
+#import "TMETopProfileCellFactory.h"
 
 @interface TMEMyTopProfileViewController ()
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionTop;
 @property (strong, nonatomic) KHCollectionController *collectionController;
+@property (strong, nonatomic) TMETopProfileCellFactory *cellFactory;
 
 @end
 
@@ -30,8 +32,13 @@
     self.collectionController = collectionController;
     self.collectionController.model = basicSection;
 
+    self.cellFactory = [[TMETopProfileCellFactory alloc] init];
+    self.collectionController.cellFactory = self.cellFactory;
+
     self.collectionTop.delegate = self.collectionController;
     self.collectionTop.dataSource = self.collectionController;
+
+    [self.collectionTop reloadData];
 }
 
 - (void)updateViewConstraints {
@@ -45,6 +52,10 @@
     }];
 
     [self.view.superview layoutIfNeeded];
+}
+
+- (void)loadingUserInformation {
+    [[TMEUserManager sharedManager] loggedUser];
 }
 
 @end
