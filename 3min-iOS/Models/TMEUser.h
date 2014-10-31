@@ -39,6 +39,9 @@
 @property (nonatomic, strong) NSNumber *normal_count;
 @property (nonatomic, strong) NSNumber *negative_count;
 
+@property (nonatomic, strong) NSArray *followers;
+@property (nonatomic, strong) NSArray *followings;
+
 // Useful properties
 @property (nonatomic, strong) NSDate *accessTokenReceivedAt;
 

@@ -70,9 +70,9 @@
 	                                 params:combinedParams
 	                                success: ^(id responseObject)
 	{
-        // put every information at the same hierarchy level
+	    // put every information at the same hierarchy level
 	    NSMutableDictionary *dicInfo = [NSMutableDictionary dictionaryWithDictionary:responseObject];
-        [dicInfo addEntriesFromDictionary:responseObject[@"user"]];
+	    [dicInfo addEntriesFromDictionary:responseObject[@"user"]];
 
 	    TMEUser *user = [TMEUser tme_modelFromJSONResponse:dicInfo];
 	    user.accessTokenReceivedAt = [NSDate date];
@@ -93,6 +93,25 @@
 	            failure(error);
 			});
 		}
+	}];
+}
+
+- (void)getFullInformationWithUserID:(NSUInteger)userID
+                             success:(void (^)(TMEUser *user))success
+                             failure:(TMEFailureBlock)failure {
+	NSString *path = [NSString stringWithFormat:@"%@%@/%d", API_BASE_URL, API_USER, userID];
+
+	[NSBlockOperation blockOperationWithBlock: ^{
+	    [[TMENetworkManager sharedManager] get:path params:@{} success: ^(NSDictionary * responseObject) {
+            TMEUser *parsingUser = [MTLJSONAdapter modelOfClass:[TMEUser class] fromJSONDictionary:responseObject error:nil];
+            if (success) {
+                success(parsingUser);
+            }
+		} failure: ^(NSError *error) {
+            if (failure) {
+                failure(error);
+            }
+		}];
 	}];
 }
 

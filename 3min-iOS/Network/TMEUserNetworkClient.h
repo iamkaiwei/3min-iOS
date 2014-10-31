@@ -16,4 +16,8 @@
 - (void)loginWithGooglePlusWithSuccess:(TMESuccessBlock)success
                                failure:(TMEFailureBlock)failure;
 
+- (void)getFullInformationWithUserID:(NSUInteger)userID
+                             success:(void (^)(TMEUser *user))success
+                             failure:(TMEFailureBlock)failure;
+
 @end
