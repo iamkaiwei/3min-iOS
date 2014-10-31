@@ -40,14 +40,6 @@ static const CGFloat kPaddingBottom = 10.0f;
 	[self.collectionActivities registerNib:[TMEActivitiesCollectionViewCell defaultNib]
 	            forCellWithReuseIdentifier:[TMEActivitiesCollectionViewCell kind]];
 
-//	[self.sizeManager registerCellClassName:[TMEActivitiesCollectionViewCell kind]
-//	                           withNibNamed:[TMEActivitiesCollectionViewCell kind]
-//	                         forObjectClass:[TMEActivity class]
-//	                        withHeightBlock: ^CGFloat (TMEActivitiesCollectionViewCell *cell, TMEActivity *ac) {
-//	    CGFloat height = [cell heightForActivity:ac];
-//	    return height;
-//	}];
-
 	[self.sizeManager registerCellClassName:[TMEActivitiesCollectionViewCell kind]
 	                           withNibNamed:[TMEActivitiesCollectionViewCell kind]
 	                         forObjectClass:[TMEActivity class] withConfigurationBlock:^(TMEActivitiesCollectionViewCell *cell, id object) {
