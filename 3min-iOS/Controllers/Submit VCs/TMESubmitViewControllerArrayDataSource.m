@@ -9,7 +9,6 @@
 #import "TMESubmitViewControllerArrayDataSource.h"
 #import "TMELoadMoreTableViewCell.h"
 #import "TMESubmitTableCell.h"
-#import "TMESubmitTableCellRight.h"
 
 @interface TMESubmitViewControllerArrayDataSource()
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -16,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2h ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEO-Tv-FBX">
-                        <rect key="frame" x="203" y="14" width="36" height="14"/>
+                        <rect key="frame" x="203" y="13" width="36" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="gBE-6j-7mK"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="5" id="tOE-m5-8bY"/>
@@ -76,7 +75,7 @@
                     <constraint firstItem="evU-7z-hfc" firstAttribute="bottom" secondItem="yVb-jZ-ITD" secondAttribute="bottom" id="euE-Jv-8PE"/>
                     <constraint firstItem="e2x-uh-02d" firstAttribute="leading" secondItem="Thq-ma-7ub" secondAttribute="trailing" constant="7" id="gc8-Vt-sUO"/>
                     <constraint firstItem="yVb-jZ-ITD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hjq-ZF-baC" secondAttribute="leading" constant="5" id="oLg-rN-65k"/>
-                    <constraint firstItem="uEO-Tv-FBX" firstAttribute="top" secondItem="hjq-ZF-baC" secondAttribute="topMargin" constant="6" id="tQv-Jy-0lO"/>
+                    <constraint firstItem="uEO-Tv-FBX" firstAttribute="top" secondItem="hjq-ZF-baC" secondAttribute="topMargin" constant="5" id="tQv-Jy-0lO"/>
                     <constraint firstItem="uEO-Tv-FBX" firstAttribute="leading" secondItem="F0H-UV-u6f" secondAttribute="trailing" constant="6" id="yGb-72-n9p"/>
                     <constraint firstItem="evU-7z-hfc" firstAttribute="trailing" secondItem="yVb-jZ-ITD" secondAttribute="trailing" constant="-5" id="zHd-kc-VdN"/>
                 </constraints>

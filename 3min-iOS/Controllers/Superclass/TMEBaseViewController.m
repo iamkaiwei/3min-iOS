@@ -63,7 +63,7 @@ IIViewDeckControllerDelegate
 
     //Tap to dismiss keyboard
     self.shouldHandleKeyboardNotification = YES;
-    self.isKeyboardShowing = NO;
+    self.keyboardShowing = NO;
     self.tapToDismissKeyboardGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGesture:)];
     self.tapToDismissKeyboardGestureRecognizer.cancelsTouchesInView = NO;
     self.tapToDismissKeyboardGestureRecognizer.delegate = self;
@@ -338,30 +338,6 @@ IIViewDeckControllerDelegate
   [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark - UITextViewDelegate
-
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-  self.navigationItem.leftBarButtonItem = [self leftNavigationButtonCancel];
-  self.navigationItem.rightBarButtonItem = [self rightNavigationButtonDone];
-  self.title = @"";
-  
-  if ([textView.text isEqualToString:NSLocalizedString(@"Type message here to chat...", nil)]) {
-    textView.text = @"";
-    textView.textColor = [UIColor blackColor];
-  }
-  
-  UIScrollView *scrollView = (UIScrollView *)[self getScrollableView];
-  if (scrollView == nil) {
-    return YES;
-  }
-  
-  dispatch_async(dispatch_get_main_queue(), ^{
-    [scrollView scrollSubviewToCenter:textView animated:YES];
-  });
-  
-  return YES;
-}
-
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -417,7 +393,7 @@ IIViewDeckControllerDelegate
 
 - (void)onKeyboardWillShowNotification:(NSNotification *)sender
 {
-  self.isKeyboardShowing = YES;
+  self.keyboardShowing = YES;
   
   self.keyboardFrame = [[sender userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey];
   CGSize kbSize = [self.keyboardFrame CGRectValue].size;
@@ -450,7 +426,7 @@ IIViewDeckControllerDelegate
 
 - (void)onKeyboardWillHideNotification:(NSNotification *)sender
 {
-  self.isKeyboardShowing = NO;
+  self.keyboardShowing = NO;
   
   NSTimeInterval duration = [[[sender userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
   UIViewAnimationOptions animationCurve = [[[sender userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];

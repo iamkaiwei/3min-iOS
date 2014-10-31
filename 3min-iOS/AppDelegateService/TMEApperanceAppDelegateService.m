@@ -22,8 +22,7 @@
 - (void)configureStatusBar
 {
     if (IS_IOS7_OR_ABOVE) {
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault
-                                                    animated:NO];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     } else {
         [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigation_background"] forBarMetrics:UIBarMetricsDefault];
     }
