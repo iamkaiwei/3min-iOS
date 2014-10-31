@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constantContainLabelWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintLabelActivityTypeWidth;
 @property (copy, nonatomic, readwrite) void (^configBlock)(UICollectionViewCell *cell, TMEActivity *activity);
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constaintContrainLabelHeight;
 
 @end
 
@@ -60,7 +61,7 @@
 
 - (void)prepareForReuse {
 	self.lblActivityComment.hidden = YES;
-    self.constantContainLabelWidth.constant = 185;
+	self.constantContainLabelWidth.constant = 185;
 	self.imgActivityAvatar.hidden = YES;
 	self.imgAvatar.image = nil;
 	self.imgActivityAvatar.image = nil;
@@ -70,29 +71,35 @@
 }
 
 - (void)_setActivityProductPictureWithActvity:(TMEActivity *)activity {
-	if (![activity.displayURL.absoluteString isEqualToString:@""]) {
+	if (![activity.displayURL.absoluteString isEqualToString:@""] && activity.displayURL) {
+		self.constaintContrainLabelHeight.constant = 60;
 		[self.imgActivityAvatar setImageWithURL:activity.displayURL];
-        return;
+		self.imgActivityAvatar.hidden = NO;
+		return;
 	}
 
-    // rezise the content if there is no picture
-    self.constantContainLabelWidth.constant = CGRectGetMaxY(self.imgActivityAvatar.frame);
+	// rezise the content if there is no picture
+	self.imgActivityAvatar.hidden = YES;
+	self.constantContainLabelWidth.constant = CGRectGetMaxX(self.imgActivityAvatar.frame);
+	self.constaintContrainLabelHeight.constant = 40;
+	[self setNeedsUpdateConstraints];
+	[self layoutIfNeeded];
 }
 
 // chat
 - (void)configWithConversation:(TMEActivity *)activity {
+	[self _setActivityProductPictureWithActvity:activity];
 	self.lblActivityComment.hidden = NO;
-	self.imgActivityAvatar.hidden = NO;
 }
 
 // like
 - (void)configWithProduct:(TMEActivity *)activity {
-	self.imgActivityAvatar.hidden = NO;
+	[self _setActivityProductPictureWithActvity:activity];
 }
 
 // Follow
 - (void)configWithRelationship:(TMEActivity *)activity {
-	self.imgActivityAvatar.hidden = YES;
+	[self _setActivityProductPictureWithActvity:activity];
 }
 
 #pragma mark - Calculate height
