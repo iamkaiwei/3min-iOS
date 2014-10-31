@@ -8,9 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TMETopProfileCollectionViewCellProtocol <NSObject>
+
+- (void)onTapEdit;
+- (void)onTapMyLikes;
+- (void)onTapMyItems;
+- (void)onTapPositive;
+- (void)onTapFollowers;
+- (void)onTapFollwings;
+
+@end
+
 @interface TMETopProfileCollectionViewCell : UICollectionViewCell
 <
     KHCellProtocol
 >
+
+@property (nonatomic, weak) id<TMETopProfileCollectionViewCellProtocol> delegate;
 
 @end

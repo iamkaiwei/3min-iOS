@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TMETopProfileCollectionViewCell.h"
 
 @interface TMEMyTopProfileViewController : UIViewController
+<
+    TMETopProfileCollectionViewCellProtocol
+>
+
+@property (strong, nonatomic) TMEUser *user;
 
 @end

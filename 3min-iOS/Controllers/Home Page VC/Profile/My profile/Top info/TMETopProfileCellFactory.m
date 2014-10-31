@@ -19,8 +19,9 @@
 		return [factory collectionView:collection cellAtIndexPath:indexPath withModel:model];
 	}
 
-	UICollectionViewCell <KHCellProtocol> *cell = [self _getReusableCellWithClass:[TMETopProfileCollectionViewCell class] collectionView:collection atIndexPath:indexPath];
+	TMETopProfileCollectionViewCell <KHCellProtocol> *cell = (TMETopProfileCollectionViewCell *) [self _getReusableCellWithClass:[TMETopProfileCollectionViewCell class] collectionView:collection atIndexPath:indexPath];
     [cell configWithData:[model itemAtIndexpath:indexPath]];
+    cell.delegate = self.delegate;
 
 	return cell;
 }

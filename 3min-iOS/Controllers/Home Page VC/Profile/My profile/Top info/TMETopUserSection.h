@@ -13,4 +13,6 @@
 KHTableViewSectionModel
 >
 
+- (void)setUser:(TMEUser *)user;
+
 @end

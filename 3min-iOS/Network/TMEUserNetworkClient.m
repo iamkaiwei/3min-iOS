@@ -101,17 +101,19 @@
                              failure:(TMEFailureBlock)failure {
 	NSString *path = [NSString stringWithFormat:@"%@%@/%d", API_BASE_URL, API_USER, userID];
 
-	[NSBlockOperation blockOperationWithBlock: ^{
-	    [[TMENetworkManager sharedManager] get:path params:@{} success: ^(NSDictionary * responseObject) {
-            TMEUser *parsingUser = [MTLJSONAdapter modelOfClass:[TMEUser class] fromJSONDictionary:responseObject error:nil];
-            if (success) {
-                success(parsingUser);
-            }
-		} failure: ^(NSError *error) {
-            if (failure) {
-                failure(error);
-            }
-		}];
+	[[TMENetworkManager sharedManager] get:path params:@{} success: ^(NSDictionary *responseObject) {
+	    TMEUser *parsingUser = [MTLJSONAdapter modelOfClass:[TMEUser class] fromJSONDictionary:responseObject error:nil];
+	    dispatch_async(dispatch_get_main_queue(), ^{
+	        if (success) {
+	            success(parsingUser);
+			}
+		});
+	} failure: ^(NSError *error) {
+	    dispatch_async(dispatch_get_main_queue(), ^{
+	        if (failure) {
+	            failure(error);
+			}
+		});
 	}];
 }
 

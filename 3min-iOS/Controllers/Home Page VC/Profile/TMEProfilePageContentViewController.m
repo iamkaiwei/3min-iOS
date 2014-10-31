@@ -34,6 +34,7 @@
     // Do any additional setup after loading the view from its nib.
 
     TMEMyTopProfileViewController *topVC = [[TMEMyTopProfileViewController alloc] init];
+    topVC.user = self.user;
     [self addChildViewController:topVC];
     [topVC willMoveToParentViewController:self];
     [self.view addSubview:topVC.view];

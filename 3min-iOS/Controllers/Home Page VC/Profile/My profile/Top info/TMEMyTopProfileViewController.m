@@ -7,9 +7,11 @@
 //
 
 #import "TMEMyTopProfileViewController.h"
-#import <KHTableViewController/KHCollectionController.h>
 #import "TMETopProfileCellFactory.h"
 #import "TMETopUserSection.h"
+#import <KHTableViewController/KHCollectionController.h>
+#import <KHTableViewController/KHLoadMoreSection.h>
+#import <KHTableViewController/KHBasicTableViewModel.h>
 
 @interface TMEMyTopProfileViewController ()
 
@@ -22,48 +24,82 @@
 @implementation TMEMyTopProfileViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	[super viewDidLoad];
+	// Do any additional setup after loading the view from its nib.
 
-    KHCollectionController *collectionController = [[KHCollectionController alloc] init];
-    KHBasicTableViewModel *basicSection = [[KHBasicTableViewModel alloc] init];
-    KHLoadMoreSection *loadingSection = [[KHLoadMoreSection alloc] init];
-    basicSection.sectionModel = loadingSection;
+	KHCollectionController *collectionController = [[KHCollectionController alloc] init];
+	KHBasicTableViewModel *basicSection = [[KHBasicTableViewModel alloc] init];
+	KHLoadMoreSection *loadingSection = [[KHLoadMoreSection alloc] init];
+	basicSection.sectionModel = loadingSection;
 
-    self.collectionController = collectionController;
-    self.collectionController.model = basicSection;
+	self.collectionController = collectionController;
+	self.collectionController.model = basicSection;
 
-    self.cellFactory = [[TMETopProfileCellFactory alloc] init];
-    self.collectionController.cellFactory = self.cellFactory;
+	self.cellFactory = [[TMETopProfileCellFactory alloc] init];
+	self.collectionController.cellFactory = (id) self.cellFactory;
+    self.cellFactory.delegate = self;
 
-    self.collectionTop.delegate = self.collectionController;
-    self.collectionTop.dataSource = self.collectionController;
+	self.collectionTop.delegate = self.collectionController;
+	self.collectionTop.dataSource = self.collectionController;
 
-    [self.collectionTop reloadData];
+	[self.collectionTop reloadData];
 
-    [self loadingUserInformation];
+	[self loadingUserInformation];
 }
 
 - (void)updateViewConstraints {
+	[super updateViewConstraints];
 
-    [super updateViewConstraints];
+	[self.view mas_remakeConstraints: ^(MASConstraintMaker *make) {
+	    make.leading.equalTo(self.view.superview).with.offset(0);
+	    make.top.equalTo(self.view.superview).with.offset(0);
+	    make.width.equalTo(@(self.view.superview.width));
+	}];
 
-    [self.view mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.view.superview).with.offset(0);
-        make.top.equalTo(self.view.superview).with.offset(0);
-        make.width.equalTo(@(self.view.superview.width));
-    }];
-
-    [self.view.superview layoutIfNeeded];
+	[self.view.superview layoutIfNeeded];
 }
 
 - (void)loadingUserInformation {
-    KHBasicTableViewModel *basicSection = [[KHBasicTableViewModel alloc] init];
-    TMETopUserSection *userInfoSection = [[TMETopUserSection alloc] init];
-    basicSection.sectionModel = userInfoSection;
+	TMEUserNetworkClient *client = [[TMEUserNetworkClient alloc] init];
+	[client getFullInformationWithUserID:[self.user.userID integerValue] success: ^(TMEUser *user) {
+	    KHBasicTableViewModel *basicSection = [[KHBasicTableViewModel alloc] init];
 
-    self.collectionController.model = basicSection;
-    [self.collectionTop reloadData];
+	    TMETopUserSection *userInfoSection = [[TMETopUserSection alloc] init];
+        userInfoSection.user = user;
+
+	    basicSection.sectionModel = userInfoSection;
+
+	    self.collectionController.model = basicSection;
+	    [self.collectionTop reloadData];
+	} failure: ^(NSError *error) {
+
+	}];
+}
+
+#pragma mark - Cell delegate
+
+- (void)onTapMyLikes {
+
+}
+
+- (void)onTapPositive {
+
+}
+
+- (void)onTapFollowers {
+
+}
+
+- (void)onTapFollwings {
+
+}
+
+- (void)onTapMyItems {
+
+}
+
+- (void)onTapEdit {
+
 }
 
 @end

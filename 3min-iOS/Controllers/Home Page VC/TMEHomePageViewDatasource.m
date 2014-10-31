@@ -35,6 +35,7 @@
 - (TMEProfilePageContentViewController *)profileVC {
     if (!_profileVC) {
         _profileVC = [[TMEProfilePageContentViewController alloc] init];
+        _profileVC.user = [[TMEUserManager sharedManager] loggedUser];
     }
 
     return _profileVC;

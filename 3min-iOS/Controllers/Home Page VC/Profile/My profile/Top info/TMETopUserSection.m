@@ -8,15 +8,24 @@
 
 #import "TMETopUserSection.h"
 
+@interface TMETopUserSection()
+
+@property (strong, nonatomic) TMEUser *user;
+
+@end
+
 @implementation TMETopUserSection
+
+- (void)setUser:(TMEUser *)user {
+    _user = user;
+}
 
 - (NSUInteger)count {
     return 1;
 }
 
 - (id)objectAtIndex:(NSUInteger)index {
-    TMEUser *user = [[TMEUserManager sharedManager] loggedUser];
-    return user;
+    return self.user;
 }
 
 @end

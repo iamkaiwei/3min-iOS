@@ -40,6 +40,46 @@
                        placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
     self.lblUserName.text = user.fullName;
     self.lblPositive.text = [user.positive_count stringValue];
+
+    self.lblFollower.text = [user.follower_count stringValue];
+    self.lblFollowing.text = [user.following_count stringValue];
 }
+
+- (IBAction)onBtnEdit:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(onTapEdit)]) {
+        [self.delegate onTapEdit];
+    }
+}
+
+- (IBAction)onBtnMyItems:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(onTapMyItems)]) {
+        [self.delegate onTapMyItems];
+    }
+}
+
+- (IBAction)onBtnFollowings:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(onTapFollwings)]) {
+        [self.delegate onTapFollwings];
+    }
+}
+
+- (IBAction)onBtnFollwers:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(onTapFollowers)]) {
+        [self.delegate onTapFollowers];
+    }
+}
+
+- (IBAction)onBtnPositive:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(onTapPositive)]) {
+        [self.delegate onTapPositive];
+    }
+}
+
+- (IBAction)onBtnLike:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(onTapMyLikes)]) {
+        [self.delegate onTapMyLikes];
+    }
+}
+
 
 @end

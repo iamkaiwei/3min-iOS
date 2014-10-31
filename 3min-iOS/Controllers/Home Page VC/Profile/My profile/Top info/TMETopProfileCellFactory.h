@@ -14,4 +14,6 @@
 KHCollectionViewCellFactoryProtocol
 >
 
+@property (nonatomic, weak) id delegate;
+
 @end
