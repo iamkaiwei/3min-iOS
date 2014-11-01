@@ -259,6 +259,7 @@
 		B4AE17F3198EAFAD00F6D601 /* TMEProfilePageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17F1198EAFAD00F6D601 /* TMEProfilePageContentViewController.m */; };
 		B4AE17F4198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AE17F2198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib */; };
 		B4AE17F7198EC20600F6D601 /* TMEHomePageViewDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17F6198EC20600F6D601 /* TMEHomePageViewDatasource.m */; };
+		B4BC82781A03887D00DF3983 /* TMELabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BC82771A03887D00DF3983 /* TMELabel.m */; };
 		B4CBA1E51A02050A0083ACDE /* TMETopUserSection.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CBA1E41A02050A0083ACDE /* TMETopUserSection.m */; };
 		B4EF43A619A462A7001F010C /* NSValueTransformer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF43A519A462A7001F010C /* NSValueTransformer+Addition.m */; };
 		B4F513D119AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F513D019AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m */; };
@@ -764,6 +765,8 @@
 		B4AE17F2198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEProfilePageContentViewController.xib; sourceTree = "<group>"; };
 		B4AE17F5198EC20600F6D601 /* TMEHomePageViewDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHomePageViewDatasource.h; sourceTree = "<group>"; };
 		B4AE17F6198EC20600F6D601 /* TMEHomePageViewDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEHomePageViewDatasource.m; sourceTree = "<group>"; };
+		B4BC82761A03887D00DF3983 /* TMELabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELabel.h; sourceTree = "<group>"; };
+		B4BC82771A03887D00DF3983 /* TMELabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELabel.m; sourceTree = "<group>"; };
 		B4CBA1E31A02050A0083ACDE /* TMETopUserSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETopUserSection.h; sourceTree = "<group>"; };
 		B4CBA1E41A02050A0083ACDE /* TMETopUserSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETopUserSection.m; sourceTree = "<group>"; };
 		B4EF43A419A462A7001F010C /* NSValueTransformer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+Addition.h"; sourceTree = "<group>"; };
@@ -1711,6 +1714,8 @@
 		B40D946B19FA4B9E00432DD0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				B4BC82761A03887D00DF3983 /* TMELabel.h */,
+				B4BC82771A03887D00DF3983 /* TMELabel.m */,
 				B40D946C19FA4B9E00432DD0 /* TMEActivitiesCollectionViewCell.h */,
 				B40D946D19FA4B9E00432DD0 /* TMEActivitiesCollectionViewCell.m */,
 				B40D946E19FA4B9E00432DD0 /* TMEActivitiesCollectionViewCell.xib */,
@@ -2335,6 +2340,7 @@
 				99EA0F0C1978492D00872EE4 /* TMEUser+BackwardSupport.m in Sources */,
 				99EA0F2F1978492D00872EE4 /* UILabel+Additions.m in Sources */,
 				99EA0F621978492D00872EE4 /* TMEMeViewController.m in Sources */,
+				B4BC82781A03887D00DF3983 /* TMELabel.m in Sources */,
 				9992943119E2D95800896D05 /* TMEProductComment.m in Sources */,
 				99EA0F951978492D00872EE4 /* TMECircleProgressIndicator.m in Sources */,
 				B410F755199619DF000AE5B7 /* TMEImage.m in Sources */,
