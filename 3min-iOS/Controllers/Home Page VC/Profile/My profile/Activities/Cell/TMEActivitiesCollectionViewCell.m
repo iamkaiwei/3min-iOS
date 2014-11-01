@@ -80,7 +80,7 @@
 
 	// rezise the content if there is no picture
 	self.imgActivityAvatar.hidden = YES;
-	self.constantContainLabelWidth.constant = CGRectGetMaxX(self.imgActivityAvatar.frame);
+	self.constantContainLabelWidth.constant = CGRectGetMaxX(self.imgActivityAvatar.frame) - self.containLabelsView.frame.origin.x;
 	self.constaintContrainLabelHeight.constant = 40;
 	[self setNeedsUpdateConstraints];
 	[self layoutIfNeeded];
