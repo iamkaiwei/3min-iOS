@@ -12,6 +12,7 @@
 #import <KHTableViewController/KHCollectionController.h>
 #import <KHTableViewController/KHLoadMoreSection.h>
 #import <KHTableViewController/KHBasicTableViewModel.h>
+#import "TMEFollowingsViewController.h"
 
 @interface TMEMyTopProfileViewController ()
 
@@ -91,7 +92,9 @@
 }
 
 - (void)onTapFollwings {
-
+    TMEFollowingsViewController *followingVC = [[TMEFollowingsViewController alloc] initWithUser:self.user];
+    [self presentViewController:followingVC animated:YES completion:nil];
+//    [self.navigationController pushViewController:followingVC animated:YES];
 }
 
 - (void)onTapMyItems {

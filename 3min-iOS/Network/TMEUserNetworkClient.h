@@ -20,4 +20,9 @@
                              success:(void (^)(TMEUser *user))success
                              failure:(TMEFailureBlock)failure;
 
+- (void)getFollowingsWithUserID:(NSUInteger)userID
+                           page:(NSUInteger)page
+                        success:(void (^)(NSArray *arrFollowings))success
+                        failure:(TMEFailureBlock)failure;
+
 @end

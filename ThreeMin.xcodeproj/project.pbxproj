@@ -261,6 +261,7 @@
 		B4AE17F7198EC20600F6D601 /* TMEHomePageViewDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17F6198EC20600F6D601 /* TMEHomePageViewDatasource.m */; };
 		B4BC82781A03887D00DF3983 /* TMELabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BC82771A03887D00DF3983 /* TMELabel.m */; };
 		B4CBA1E51A02050A0083ACDE /* TMETopUserSection.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CBA1E41A02050A0083ACDE /* TMETopUserSection.m */; };
+		B4D6148C1A04896E00602247 /* TMEFollowingLoadingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D6148B1A04896E00602247 /* TMEFollowingLoadingOperation.m */; };
 		B4EF43A619A462A7001F010C /* NSValueTransformer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF43A519A462A7001F010C /* NSValueTransformer+Addition.m */; };
 		B4F513D119AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F513D019AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m */; };
 		B4F513D619AEDCB9003DE851 /* TMEDropDownMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F513D419AEDCB9003DE851 /* TMEDropDownMenuViewController.m */; };
@@ -769,6 +770,8 @@
 		B4BC82771A03887D00DF3983 /* TMELabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELabel.m; sourceTree = "<group>"; };
 		B4CBA1E31A02050A0083ACDE /* TMETopUserSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMETopUserSection.h; sourceTree = "<group>"; };
 		B4CBA1E41A02050A0083ACDE /* TMETopUserSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMETopUserSection.m; sourceTree = "<group>"; };
+		B4D6148A1A04896E00602247 /* TMEFollowingLoadingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFollowingLoadingOperation.h; sourceTree = "<group>"; };
+		B4D6148B1A04896E00602247 /* TMEFollowingLoadingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFollowingLoadingOperation.m; sourceTree = "<group>"; };
 		B4EF43A419A462A7001F010C /* NSValueTransformer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+Addition.h"; sourceTree = "<group>"; };
 		B4EF43A519A462A7001F010C /* NSValueTransformer+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValueTransformer+Addition.m"; sourceTree = "<group>"; };
 		B4F513CF19AD8985003DE851 /* TMEHomeNavigationButtonDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHomeNavigationButtonDelegate.h; sourceTree = "<group>"; };
@@ -1802,6 +1805,23 @@
 			path = "Take Photo Button";
 			sourceTree = "<group>";
 		};
+		B424E9221A046641001151D6 /* Followings */ = {
+			isa = PBXGroup;
+			children = (
+				B424E9231A046674001151D6 /* TMEFollowingsViewController.h */,
+				B424E9241A046674001151D6 /* TMEFollowingsViewController.m */,
+				B424E9251A046674001151D6 /* TMEFollowingsViewController.xib */,
+				B424E9281A04670B001151D6 /* TMEFollowingCollectionViewCell.h */,
+				B424E9291A04670B001151D6 /* TMEFollowingCollectionViewCell.m */,
+				B424E92A1A04670B001151D6 /* TMEFollowingCollectionViewCell.xib */,
+				B424E92D1A0469E5001151D6 /* TMEFollowingsCellFactory.h */,
+				B424E92E1A0469E5001151D6 /* TMEFollowingsCellFactory.m */,
+				B4D6148A1A04896E00602247 /* TMEFollowingLoadingOperation.h */,
+				B4D6148B1A04896E00602247 /* TMEFollowingLoadingOperation.m */,
+			);
+			path = Followings;
+			sourceTree = "<group>";
+		};
 		B470E4D419AC320100F4FF18 /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
@@ -2429,6 +2449,7 @@
 				99EA0F331978492D00872EE4 /* UIView+Additions.m in Sources */,
 				99EA0F221978492D00872EE4 /* NSString+Additions.m in Sources */,
 				99EA0F8D1978492D00872EE4 /* PBImageHelper.m in Sources */,
+				B4D6148C1A04896E00602247 /* TMEFollowingLoadingOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

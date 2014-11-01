@@ -117,4 +117,30 @@
 	}];
 }
 
+- (void)getFollowingsWithUserID:(NSUInteger)userID
+                           page:(NSUInteger)page
+                        success:(void (^)(NSArray *arrFollowings))success
+                        failure:(TMEFailureBlock)failure {
+	NSString *path = [NSString stringWithFormat:@"%@%@/%d/followings", API_BASE_URL, API_USER, userID];
+
+    NSDictionary *params = @{
+                             @"page": @(page)
+                             };
+
+	[[TMENetworkManager sharedManager] get:path params:params success: ^(id responseObject) {
+        NSArray *arrFollowings = [MTLJSONAdapter modelsOfClass:[TMEUser class] fromJSONArray:responseObject error:nil];
+	    dispatch_async(dispatch_get_main_queue(), ^{
+	        if (success) {
+	            success(arrFollowings);
+			}
+		});
+	} failure: ^(NSError *error) {
+	    dispatch_async(dispatch_get_main_queue(), ^{
+	        if (failure) {
+	            failure(error);
+			}
+		});
+	}];
+}
+
 @end
