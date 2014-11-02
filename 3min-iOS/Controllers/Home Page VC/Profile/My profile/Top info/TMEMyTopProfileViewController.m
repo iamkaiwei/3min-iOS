@@ -93,8 +93,7 @@
 
 - (void)onTapFollwings {
     TMEFollowingsViewController *followingVC = [[TMEFollowingsViewController alloc] initWithUser:self.user];
-    [self presentViewController:followingVC animated:YES completion:nil];
-//    [self.navigationController pushViewController:followingVC animated:YES];
+    [self.parentViewController.navigationController pushViewController:followingVC animated:YES];
 }
 
 - (void)onTapMyItems {
