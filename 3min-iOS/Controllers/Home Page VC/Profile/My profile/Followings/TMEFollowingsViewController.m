@@ -7,7 +7,7 @@
 //
 
 #import "TMEFollowingsViewController.h"
-#import "TMEFollowingsCellFactory.h"
+#import "TMEFollowingCellFactory.h"
 #import "TMEFollowingLoadingOperation.h"
 #import <KHTableViewController/KHCollectionController.h>
 #import <KHTableViewController/KHContentLoadingSectionViewModel.h>
@@ -43,7 +43,7 @@
 }
 
 - (id<KHCollectionViewCellFactoryProtocol>)cellFactory {
-    return [[TMEFollowingsCellFactory alloc] init];
+    return [[TMEFollowingCellFactory alloc] init];
 }
 
 - (id<KHTableViewSectionModel>)getLoadingContentViewModel {

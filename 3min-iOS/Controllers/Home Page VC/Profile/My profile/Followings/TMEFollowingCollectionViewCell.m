@@ -10,4 +10,8 @@
 
 @implementation TMEFollowingCollectionViewCell
 
+- (void)configWithData:(id)data {
+    
+}
+
 @end

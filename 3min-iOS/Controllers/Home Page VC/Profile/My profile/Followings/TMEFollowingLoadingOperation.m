@@ -7,6 +7,7 @@
 //
 
 #import "TMEFollowingLoadingOperation.h"
+#import "TMEUserNetworkClient.h"
 
 @interface TMEFollowingLoadingOperation()
 
