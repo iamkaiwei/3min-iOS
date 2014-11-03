@@ -43,6 +43,7 @@
 - (void)_configWithUser:(TMEUser *)user {
 	self.lblUsername.text = user.fullName;
 	[self.imgUserAvatar setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:nil];
+	self.btnFollow.titleLabel.text = [user.followed boolValue] ? @"Unfollow" : @"Follow";
 }
 
 - (void)updateViewConstraints {
@@ -57,6 +58,28 @@
 	[self.view.superview layoutIfNeeded];
 }
 
+- (void)_followOrUnfollowUser:(void (^)(NSError *error))finishBlock {
+	TMEUserNetworkClient *userClient = [[TMEUserNetworkClient alloc] init];
+
+	// unfollow
+	if (self.user.followed) {
+		[userClient unfollowUser:self.user finishBlock: ^(NSError *error) {
+		    if (finishBlock) {
+		        finishBlock(error);
+			}
+		}];
+		return;
+	}
+
+	// follow
+	[userClient followUser:self.user finishBlock: ^(NSError *error) {
+	    if (finishBlock) {
+	        finishBlock(error);
+		}
+	}];
+	return;
+}
+
 #pragma mark - Action
 
 - (IBAction)btmMyItems:(id)sender {
@@ -66,6 +89,19 @@
 }
 
 - (IBAction)btnEdit:(id)sender {
+}
+
+- (IBAction)onBtnFollow:(id)sender {
+	self.btnFollow.hidden = YES;
+	self.followingProgressIndicator.hidden = NO;
+	[self _followOrUnfollowUser: ^(NSError *error) {
+	    if (!error) {
+	        self.user.followed = @(YES);
+	        [self _configWithUser:self.user];
+	        self.btnFollow.hidden = NO;
+	        self.followingProgressIndicator.hidden = YES;
+		}
+	}];
 }
 
 @end

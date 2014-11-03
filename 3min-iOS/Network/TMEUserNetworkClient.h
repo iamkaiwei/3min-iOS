@@ -25,4 +25,7 @@
                         success:(void (^)(NSArray *arrFollowings))success
                         failure:(TMEFailureBlock)failure;
 
+- (void)followUser:(TMEUser *)user finishBlock:(void(^)(NSError *error))finishBlock;
+- (void)unfollowUser:(TMEUser *)user finishBlock:(void(^)(NSError *error))finishBlock;
+
 @end

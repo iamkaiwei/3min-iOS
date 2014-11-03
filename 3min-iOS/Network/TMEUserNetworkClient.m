@@ -143,4 +143,44 @@
 	}];
 }
 
+- (void)followUser:(TMEUser *)user finishBlock:(void(^)(NSError *error))finishBlock {
+    NSDictionary *params = @{
+                             @"user_id": user.userID
+                             };
+
+	[[TMENetworkManager sharedManager] post:API_RELATIONSHIPS_FOLLOW params:params success: ^(id responseObject) {
+	    dispatch_async(dispatch_get_main_queue(), ^{
+            if(finishBlock) {
+                finishBlock(nil);
+            }
+		});
+	} failure: ^(NSError *error) {
+	    dispatch_async(dispatch_get_main_queue(), ^{
+            if(finishBlock) {
+                finishBlock(error);
+            }
+		});
+	}];
+}
+
+- (void)unfollowUser:(TMEUser *)user finishBlock:(void(^)(NSError *error))finishBlock {
+    NSDictionary *params = @{
+                             @"user_id": user.userID
+                             };
+
+	[[TMENetworkManager sharedManager] delete:API_RELATIONSHIPS_UNFOLLOW params:params success: ^(id responseObject) {
+	    dispatch_async(dispatch_get_main_queue(), ^{
+            if(finishBlock) {
+                finishBlock(nil);
+            }
+		});
+	} failure: ^(NSError *error) {
+	    dispatch_async(dispatch_get_main_queue(), ^{
+            if(finishBlock) {
+                finishBlock(error);
+            }
+		});
+	}];
+}
+
 @end

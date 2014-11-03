@@ -84,6 +84,8 @@
 #define API_CATEGORY_TAGGABLE                       @"/api/v1/taggable"
 #define API_USER_LOGIN                              @"/oauth/token"
 #define API_ACTIVITY                                @"/api/v1/activities"
+#define API_RELATIONSHIPS_FOLLOW                    @"/api/v1/relationships"
+#define API_RELATIONSHIPS_UNFOLLOW                  @"/api/v1/relationships/unfollow"
 #define URL_PUSHER_ENDPOINT                         @"/api/v1/pushers/auth"
 
 
