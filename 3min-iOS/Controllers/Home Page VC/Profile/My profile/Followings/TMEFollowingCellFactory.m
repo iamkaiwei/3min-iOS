@@ -35,7 +35,6 @@
 
 	TMEFollowingCollectionViewCell <KHCellProtocol> *cell = (TMEFollowingCollectionViewCell <KHCellProtocol> *) [self _getReusableCellWithClass:[TMEFollowingCollectionViewCell class] collectionView:collection atIndexPath:indexPath];
 	[cell configWithData:[model itemAtIndexpath:indexPath]];
-    cell.delegate = self.cellDelegate;
 	return cell;
 }
 

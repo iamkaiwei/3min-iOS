@@ -17,10 +17,11 @@
 
 @interface TMEFollowingViewController ()
 <
-TMEFollowingCollectionViewCellProtocol
+UICollectionViewDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) LBDelegateMatrioska *chainDelegate;
 
 @end
 
@@ -28,12 +29,20 @@ TMEFollowingCollectionViewCellProtocol
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.collectionView.delegate = (id) self.chainDelegate;
     [self enablePullToRefresh];
+}
+
+- (LBDelegateMatrioska *)chainDelegate {
+    if (!_chainDelegate) {
+        _chainDelegate = [[LBDelegateMatrioska alloc] initWithDelegates:@[self.collectionView.delegate, self]];
+    }
+
+    return _chainDelegate;
 }
 
 - (id<KHCollectionViewCellFactoryProtocol>)cellFactory {
     TMEFollowingCellFactory *cellFactory = [[TMEFollowingCellFactory alloc] init];
-    cellFactory.cellDelegate = self;
     return cellFactory;
 }
 
@@ -45,10 +54,7 @@ TMEFollowingCollectionViewCellProtocol
 	return [[TMEFollowingLoadingOperation alloc] initUserID:[self.user.userID integerValue] page:page + 1];
 }
 
-- (void)onFollowButton:(id)sender {
-    UICollectionViewCell *cell = (UICollectionViewCell *)sender;
-    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     TMEUser *user = (TMEUser *)[self itemAtIndexPath:indexPath];
 }
 

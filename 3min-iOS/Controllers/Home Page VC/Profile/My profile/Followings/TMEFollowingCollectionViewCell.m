@@ -50,10 +50,4 @@
     self.btnFollow.selected = NO;
 }
 
-- (IBAction)onTapButtonFollow:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(onFollowButton:)]) {
-        [self.delegate onFollowButton:self];
-    }
-}
-
 @end

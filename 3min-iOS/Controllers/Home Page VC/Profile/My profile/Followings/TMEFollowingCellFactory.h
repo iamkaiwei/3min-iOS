@@ -15,6 +15,4 @@
 KHCollectionViewCellFactoryProtocol
 >
 
-@property (nonatomic, weak) id<TMEFollowingCollectionViewCellProtocol> cellDelegate;
-
 @end

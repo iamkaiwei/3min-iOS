@@ -8,17 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol TMEFollowingCollectionViewCellProtocol <NSObject>
-
-- (void)onFollowButton:(id)sender;
-
-@end
-
 @interface TMEFollowingCollectionViewCell : UICollectionViewCell
 <
 KHCellProtocol
 >
-
-@property (nonatomic, weak) id<TMEFollowingCollectionViewCellProtocol> delegate;
 
 @end
