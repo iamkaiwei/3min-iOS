@@ -55,7 +55,7 @@
 
 	[self.topVC.view mas_remakeConstraints: ^(MASConstraintMaker *make) {
 	    make.top.equalTo(self.view).with.offset(0);
-	    make.height.equalTo(@160);
+        make.height.equalTo([self _isLoggedInUserProfile] ? @160: @114);
 	    make.leading.equalTo(self.view);
 	    make.trailing.equalTo(self.view);
 	}];
@@ -64,7 +64,7 @@
 
 	[self.activitiesVC.view mas_remakeConstraints: ^(MASConstraintMaker *make) {
 	    make.bottom.equalTo(self.view).with.offset(0);
-	    make.top.equalTo(self.view).with.offset(160);
+	    make.top.equalTo(self.view).with.offset([self _isLoggedInUserProfile] ? 160: 114);
 	    make.leading.equalTo(self.view);
 	    make.trailing.equalTo(self.view);
 	}];
