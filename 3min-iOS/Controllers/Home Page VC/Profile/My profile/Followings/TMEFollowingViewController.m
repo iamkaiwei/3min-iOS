@@ -56,6 +56,10 @@ UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     TMEUser *user = (TMEUser *)[self itemAtIndexPath:indexPath];
+    TMEProfilePageContentViewController *newProfilePage = [[TMEProfilePageContentViewController alloc] init];
+    newProfilePage.user = user;
+    UINavigationController *nav = (UINavigationController *)self.parentViewController;
+    [nav pushViewController:newProfilePage animated:YES];
 }
 
 @end
