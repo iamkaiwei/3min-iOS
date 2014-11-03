@@ -9,12 +9,18 @@
 #import "TMEFollowingViewController.h"
 #import "TMEFollowingCellFactory.h"
 #import "TMEFollowingLoadingOperation.h"
+#import "TMEFollowingCollectionViewCell.h"
 #import <KHTableViewController/KHCollectionController.h>
 #import <KHTableViewController/KHContentLoadingSectionViewModel.h>
 #import <KHTableViewController/KHOrderedDataProvider.h>
 
 
 @interface TMEFollowingViewController ()
+<
+TMEFollowingCollectionViewCellProtocol
+>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -26,7 +32,9 @@
 }
 
 - (id<KHCollectionViewCellFactoryProtocol>)cellFactory {
-    return [[TMEFollowingCellFactory alloc] init];
+    TMEFollowingCellFactory *cellFactory = [[TMEFollowingCellFactory alloc] init];
+    cellFactory.cellDelegate = self;
+    return cellFactory;
 }
 
 - (id<KHTableViewSectionModel>)getLoadingContentViewModel {
@@ -35,6 +43,13 @@
 
 - (id <KHLoadingOperationProtocol> )loadingOperationForSectionViewModel:(id <KHTableViewSectionModel> )viewModel forPage:(NSUInteger)page {
 	return [[TMEFollowingLoadingOperation alloc] initUserID:[self.user.userID integerValue] page:page + 1];
+}
+
+- (void)onFollowButton:(id)sender {
+    UICollectionViewCell *cell = (UICollectionViewCell *)sender;
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+
+    TMEUser *user = (TMEUser *)[self itemAtIndexPath:indexPath];
 }
 
 @end

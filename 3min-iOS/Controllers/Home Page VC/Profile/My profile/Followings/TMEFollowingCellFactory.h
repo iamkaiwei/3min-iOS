@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <KHTableViewController/KHSuperCollectionCellFactory.h>
+#import "TMEFollowingCollectionViewCell.h"
 
 @interface TMEFollowingCellFactory : KHSuperCollectionCellFactory
 <
 KHCollectionViewCellFactoryProtocol
 >
+
+@property (nonatomic, weak) id<TMEFollowingCollectionViewCellProtocol> cellDelegate;
 
 @end

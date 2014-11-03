@@ -9,7 +9,6 @@
 #import "TMEFollowingCellFactory.h"
 #import "KHCollectionContentLoadingCellFactory.h"
 #import "KHContentLoadingSectionViewModel.h"
-#import "TMEFollowingCollectionViewCell.h"
 
 @implementation TMEFollowingCellFactory
 
@@ -34,8 +33,9 @@
 		return [[[KHCollectionContentLoadingCellFactory alloc] init] collectionView:collection cellAtIndexPath:indexPath withModel:model];
 	}
 
-	UICollectionViewCell <KHCellProtocol> *cell = [self _getReusableCellWithClass:[TMEFollowingCollectionViewCell class] collectionView:collection atIndexPath:indexPath];
+	TMEFollowingCollectionViewCell <KHCellProtocol> *cell = (TMEFollowingCollectionViewCell <KHCellProtocol> *) [self _getReusableCellWithClass:[TMEFollowingCollectionViewCell class] collectionView:collection atIndexPath:indexPath];
 	[cell configWithData:[model itemAtIndexpath:indexPath]];
+    cell.delegate = self.cellDelegate;
 	return cell;
 }
 

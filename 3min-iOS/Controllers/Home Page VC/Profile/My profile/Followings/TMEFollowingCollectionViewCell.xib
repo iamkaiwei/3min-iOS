@@ -36,6 +36,9 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <state key="selected" image="icn_followed"/>
+                        <connections>
+                            <action selector="onTapButtonFollow:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LN1-KT-p50"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
