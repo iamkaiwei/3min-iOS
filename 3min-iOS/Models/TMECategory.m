@@ -17,6 +17,7 @@
              @"categoryId" : @"id",
              @"specificType": @"specific_type",
              @"image": @"image",
+             @"categoryDescription": @"description",
              };
 }
 

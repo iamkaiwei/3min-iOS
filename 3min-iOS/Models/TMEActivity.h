@@ -16,6 +16,7 @@
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *subjectId;
 @property (nonatomic, copy) NSString *subjectType;
+@property (nonatomic, strong) NSURL *displayURL;
 @property (nonatomic, strong) NSNumber *updateTime;
 @property (nonatomic, strong) TMEUser *user;
 

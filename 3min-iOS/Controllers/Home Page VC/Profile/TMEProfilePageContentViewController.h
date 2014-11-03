@@ -10,4 +10,6 @@
 
 @interface TMEProfilePageContentViewController : UIViewController
 
+@property (strong, nonatomic) TMEUser *user;
+
 @end

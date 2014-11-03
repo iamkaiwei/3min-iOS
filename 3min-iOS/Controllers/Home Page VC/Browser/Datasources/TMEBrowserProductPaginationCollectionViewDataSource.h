@@ -15,7 +15,7 @@
 
 @end
 
-@interface TMEPaginationCollectionViewDataSource : FPCollectionArrayDataSource
+@interface TMEBrowserProductPaginationCollectionViewDataSource : FPCollectionArrayDataSource
 <
     CHTCollectionViewDelegateWaterfallLayout,
     TMECollectionDataSourceProtocol

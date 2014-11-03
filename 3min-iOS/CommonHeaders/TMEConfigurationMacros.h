@@ -53,7 +53,7 @@
 #endif
 
 // Common
-#define APP_VERSION                                 ([[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleVersionKey])
+#define APP_VERSION                                 ([[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey])
 
 
 
@@ -78,6 +78,8 @@
 #define API_LIKES                                   @"/api/v1/likes"
 #define API_LIKED                                   @"/api/v1/liked"
 #define API_ME                                      @"/api/v1/me"
+#define API_FOLLOWER                                @"/api/v1/followers"
+#define API_FOLLOWING                               @"/api/v1/followings"
 #define API_CATEGORY                                @"/api/v1/categories"
 #define API_CATEGORY_TAGGABLE                       @"/api/v1/taggable"
 #define API_USER_LOGIN                              @"/oauth/token"

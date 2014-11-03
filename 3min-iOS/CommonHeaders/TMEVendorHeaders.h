@@ -17,6 +17,7 @@
 #import "UINavigationController+SGProgress.h"
 #import "Reachability.h"
 #import "TSMessage.h"
+#import "KHRoundAvatar.h"
 #import <AFNetworking/AFNetworking.h>
 #import "TMECircleProgressIndicator.h"
 #import "UIImageView+CircleProgress.h"
@@ -26,6 +27,7 @@
 #import "FSVenue.h"
 #import "FSConverter.h"
 #import <Flurry.h>
+#import <FLEX/FLEXManager.h>
 #import <VENVersionTracker.h>
 #import <Pusher/Pusher.h>
 #import <Pusher/PTPusherChannel.h>
@@ -37,3 +39,5 @@
 #import <CrashlyticsFramework/Crashlytics.h>
 #import <KVOController/FBKVOController.h>
 #import <LBDelegateMatrioska/LBDelegateMatrioska.h>
+#import <RZCellSizeManager/RZCellSizeManager.h>
+#import <KHTableViewController/KHTableViewController.h>

@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSNumber *imageId;
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *imageDescription;
 @property (nonatomic, copy) NSString *urlString;
 
 @end

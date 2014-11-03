@@ -13,27 +13,6 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
-//    return @{
-//             @"accessToken" : @"access_token",
-//             @"expiresIn" : @"expires_in",
-//             @"tokenType" : @"token_type",
-//             @"facebookID" : @"user.facebook_id",
-//             @"facebookAvatar" : @"user.facebook_avatar",
-//             @"googleID" : @"user.google_id",
-//             @"userID" : @"user.id",
-//             @"userUDID" : @"user.udid",
-//             @"username" : @"user.username",
-//             @"avatar" : @"user.avatar",
-//             @"birthday" : @"user.birthday",
-//             @"email" : @"user.email",
-//             @"firstName" : @"user.first_name",
-//             @"fullName" : @"user.full_name",
-//             @"lastName" : @"user.last_name",
-//             @"middleName" : @"user.middle_name",
-//             @"gender" : @"user.gender",
-//             @"role" : @"user.role",
-//             @"accessTokenReceivedAt": NSNull.null,
-//             };
     return @{
              @"accessToken" : @"access_token",
              @"expiresIn" : @"expires_in",

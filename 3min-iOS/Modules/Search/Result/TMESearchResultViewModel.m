@@ -9,7 +9,7 @@
 #import "TMESearchResultViewModel.h"
 #import "TMESearchNetworkClient.h"
 #import "TMEProduct+ProductCellHeight.h"
-#import "TMEPaginationCollectionViewDataSource.h"
+#import "TMEBrowserProductPaginationCollectionViewDataSource.h"
 
 @interface TMESearchResultViewModel()
 
@@ -17,7 +17,7 @@
 
 @property (nonatomic, readwrite) TMEViewModelState state;
 
-@property (nonatomic, readwrite, strong) TMEPaginationCollectionViewDataSource *datasource;
+@property (nonatomic, readwrite, strong) TMEBrowserProductPaginationCollectionViewDataSource *datasource;
 
 @property (weak, nonatomic) UICollectionView *collectionView;
 
@@ -44,9 +44,9 @@
 	return _arrayItems;
 }
 
-- (TMEPaginationCollectionViewDataSource *)datasource {
+- (TMEBrowserProductPaginationCollectionViewDataSource *)datasource {
     if (!_datasource) {
-        _datasource = [[TMEPaginationCollectionViewDataSource alloc] initWithItems:self.arrayItems identifierParserBlock:nil configureCellBlock:nil];
+        _datasource = [[TMEBrowserProductPaginationCollectionViewDataSource alloc] initWithItems:self.arrayItems identifierParserBlock:nil configureCellBlock:nil];
         _collectionView.dataSource = _datasource;
         [_datasource setCellAndFooterClasses:self.collectionView];
     }

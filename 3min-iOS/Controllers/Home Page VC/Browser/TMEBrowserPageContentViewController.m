@@ -8,7 +8,6 @@
 
 #import "TMEBrowserPageContentViewController.h"
 #import "TMEProductCollectionViewCell.h"
-#import "TMEPaginationCollectionViewDataSource.h"
 #import "TMEBrowserProductViewModel.h"
 #import "TMELoadMoreCollectionFooterView.h"
 #import "TMEDropDownMenuViewController.h"

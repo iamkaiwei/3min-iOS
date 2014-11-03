@@ -18,7 +18,7 @@ static const CGFloat kLoadMoreHeight = 50;
 
 @property (nonatomic, readwrite) TMEViewModelState state;
 
-@property (nonatomic, readwrite, strong) TMEPaginationCollectionViewDataSource *datasource;
+@property (nonatomic, readwrite, strong) TMEBrowserProductPaginationCollectionViewDataSource *datasource;
 
 @property (strong, nonatomic) FBKVOController *kvoController;
 
@@ -53,6 +53,7 @@ static const CGFloat kLoadMoreHeight = 50;
 		_kvoController = [FBKVOController controllerWithObserver:self];
 
 		__weak UICollectionView *weakCollection = collection;
+        __weak typeof(self)weakSelf = self;
 
 		[_kvoController observe:collection keyPath:@"contentOffset" options:NSKeyValueObservingOptionNew block: ^(id observer, id object, NSDictionary *change) {
 		    UICollectionView *collectionView = weakCollection;
@@ -60,17 +61,21 @@ static const CGFloat kLoadMoreHeight = 50;
 
 		    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
 		    CGFloat btm = (contentSize.height - collectionView.contentOffset.y - screenHeight);
-		    BOOL shouldLoadMore = btm < kLoadMoreHeight;
+		    BOOL atBottomScrollView = btm < kLoadMoreHeight;
 
-		    if (shouldLoadMore) {
-		        DLog(@"Shoud load more");
-		        [self getProducts:nil failure:nil];
+		    if (atBottomScrollView) {
+                [weakSelf _shouldLoadMore];
 			}
 		}];
 
 		_collectionView = collection;
 	}
 	return self;
+}
+
+- (void)_shouldLoadMore {
+//	DLog(@"Shoud load more");
+	[self getProducts:nil failure:nil];
 }
 
 #pragma mark -
@@ -100,7 +105,7 @@ static const CGFloat kLoadMoreHeight = 50;
 	// if there is loading state, then keep the current datasource
 	if (self.state == TMEViewModelStateLoading ||
 	    self.state == TMEViewModelStateLoadingMorePage) {
-		if ([self.datasource isKindOfClass:[TMEPaginationCollectionViewDataSource class]]) {
+		if ([self.datasource isKindOfClass:[TMEBrowserProductPaginationCollectionViewDataSource class]]) {
 			return self.datasource;
 		}
 	}
@@ -109,10 +114,10 @@ static const CGFloat kLoadMoreHeight = 50;
 		return [[TMEErrorCollectionViewDataSource alloc] init];
 	}
 
-	return [[TMEPaginationCollectionViewDataSource alloc] initWithItems:self.arrayItems identifierParserBlock:nil configureCellBlock:nil];
+	return [[TMEBrowserProductPaginationCollectionViewDataSource alloc] initWithItems:self.arrayItems identifierParserBlock:nil configureCellBlock:nil];
 }
 
-- (void)setDatasource:(TMEPaginationCollectionViewDataSource *)datasource {
+- (void)setDatasource:(TMEBrowserProductPaginationCollectionViewDataSource *)datasource {
 	_datasource = datasource;
 	[_datasource setCellAndFooterClasses:self.collectionView];
 	self.collectionView.dataSource = _datasource;

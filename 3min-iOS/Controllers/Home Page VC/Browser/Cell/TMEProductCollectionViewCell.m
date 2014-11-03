@@ -85,7 +85,7 @@
 	self.layer.shadowColor = [UIColor colorWithHexString:@"#aaa"].CGColor;
 	self.layer.shadowRadius = 0;
 	self.layer.shadowOffset = CGSizeMake(0.0f, 1.5f);
-	self.layer.shadowOpacity = .3f;
+    self.layer.shadowOpacity = .3f;
 
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [UIScreen mainScreen].scale;

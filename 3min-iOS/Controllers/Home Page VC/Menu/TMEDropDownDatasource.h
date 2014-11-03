@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "FPCollectionArrayDataSource.h"
 #import "TMEDropDownMenuCell.h"
-#import "TMEPaginationCollectionViewDataSource.h"
+#import "TMEBrowserProductPaginationCollectionViewDataSource.h"
 
 @interface TMEDropDownDatasource : FPCollectionArrayDataSource
 <

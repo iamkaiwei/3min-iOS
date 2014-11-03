@@ -7,3 +7,4 @@
 //
 
 #import "TMEViewModelDataProtocol.h"
+#import "TMEViewModelProtocol.h"

@@ -90,26 +90,26 @@ PTPusherPresenceChannelDelegate
 }
 
 - (void)subscribeChannel{
-    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:self.conversation.channelName delegate:self];
-    [self.presenceChannel bindToEventNamed:PUSHER_CHAT_EVENT_NAME                           handleWithBlock:^(PTPusherEvent *channelEvent) {
-        self.labelTyping.text = @"";
-        TMEUser *user = [TMEUser userWithID:self.conversation.userID
-                                   fullName:self.conversation.userFullname
-                                  photoURL:self.conversation.userAvatar];
-
-        TMEReply *reply = [TMEReply replyWithContent:channelEvent.data[@"message"]
-                                              sender:user
-                                           timeStamp:channelEvent.data[@"timestamp"]];
-        [self.dataArray addObject:reply];
-        [self reloadTableViewConversationShowBottom:YES];
-    }];
-
-    [self.presenceChannel bindToEventNamed:PUSHER_CHAT_EVENT_TYPING handleWithBlock:^(PTPusherEvent *channelEvent) {
-        self.labelTyping.text = channelEvent.data[@"text"];
-        [self.labelTyping performSelector:@selector(setText:)
-                               withObject:@""
-                               afterDelay:15.0f];
-    }];
+//    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:self.conversation.channelName delegate:self];
+//    [self.presenceChannel bindToEventNamed:PUSHER_CHAT_EVENT_NAME                           handleWithBlock:^(PTPusherEvent *channelEvent) {
+//        self.labelTyping.text = @"";
+//        TMEUser *user = [TMEUser userWithID:self.conversation.userID
+//                                   fullName:self.conversation.userFullname
+//                                  photoURL:self.conversation.userAvatar];
+//
+//        TMEReply *reply = [TMEReply replyWithContent:channelEvent.data[@"message"]
+//                                              sender:user
+//                                           timeStamp:channelEvent.data[@"timestamp"]];
+//        [self.dataArray addObject:reply];
+//        [self reloadTableViewConversationShowBottom:YES];
+//    }];
+//
+//    [self.presenceChannel bindToEventNamed:PUSHER_CHAT_EVENT_TYPING handleWithBlock:^(PTPusherEvent *channelEvent) {
+//        self.labelTyping.text = channelEvent.data[@"text"];
+//        [self.labelTyping performSelector:@selector(setText:)
+//                               withObject:@""
+//                               afterDelay:15.0f];
+//    }];
 }
 
 - (void)setUpTableView{
@@ -156,52 +156,52 @@ PTPusherPresenceChannelDelegate
 #pragma mark - Post message
 
 - (void)postMessage{
-    if ([self.textViewInputMessage.text isEqual: @""]) {
-        return;
-    }
-    self.isTyping = NO;
-
-    if (self.currentChatMode == TMEChatModeOnline) {
-        double currentTimeStamp = [[NSDate date] timeIntervalSince1970];
-        [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_NAME
-                                           data:@{@"name": [TMEUserManager sharedManager].loggedUser.fullName,
-                                                  @"message" : self.textViewInputMessage.text,
-                                                  @"timestamp" : @(currentTimeStamp)}];
-        TMEReply *reply = [TMEReply replyWithContent:self.textViewInputMessage.text
-                                              sender:[TMEUserManager sharedManager].loggedUser
-                                           timeStamp:@(currentTimeStamp)];
-        [self.dataArray addObject:reply];
-        [self.arrayClientReplies addObject:@{ @"reply": self.textViewInputMessage.text,
-                                              @"created_at": @(currentTimeStamp) }];
-        if (self.arrayClientReplies.count == 20) {
-            [self postMessagesToServer];
-        }
-        [self reloadTableViewConversationShowBottom:YES];
-        return;
-    }
-
-    TMEReply *reply = [TMEReply replyPendingWithContent:self.textViewInputMessage.text];
-    [self.dataArray addObject:reply];
-    [self reloadTableViewConversationShowBottom:YES];
-    
-    NSInteger lastestReplyID = [self getLastestReplyID];
-    [TMEConversationManager postReplyToConversation:[self.conversation.conversationID intValue]
-                                        withMessage:self.textViewInputMessage.text
-                                     onSuccessBlock:^(NSString *status)
-     {
-         if ([status isEqualToString:@"success"]) {
-             [self loadMessageWithReplyIDLargerID:lastestReplyID
-                                      orSmallerID:0
-                                         withPage:1
-                                       showBottom:YES];
-         }
-     }
-                                       failureBlock:^(NSError *error)
-     {
-         [self.dataArray removeLastObject];
-         [self reloadTableViewConversationShowBottom:NO];
-         [self failureBlockHandleWithError:error];
-     }];
+//    if ([self.textViewInputMessage.text isEqual: @""]) {
+//        return;
+//    }
+//    self.isTyping = NO;
+//
+//    if (self.currentChatMode == TMEChatModeOnline) {
+//        double currentTimeStamp = [[NSDate date] timeIntervalSince1970];
+//        [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_NAME
+//                                           data:@{@"name": [TMEUserManager sharedManager].loggedUser.fullName,
+//                                                  @"message" : self.textViewInputMessage.text,
+//                                                  @"timestamp" : @(currentTimeStamp)}];
+//        TMEReply *reply = [TMEReply replyWithContent:self.textViewInputMessage.text
+//                                              sender:[TMEUserManager sharedManager].loggedUser
+//                                           timeStamp:@(currentTimeStamp)];
+//        [self.dataArray addObject:reply];
+//        [self.arrayClientReplies addObject:@{ @"reply": self.textViewInputMessage.text,
+//                                              @"created_at": @(currentTimeStamp) }];
+//        if (self.arrayClientReplies.count == 20) {
+//            [self postMessagesToServer];
+//        }
+//        [self reloadTableViewConversationShowBottom:YES];
+//        return;
+//    }
+//
+//    TMEReply *reply = [TMEReply replyPendingWithContent:self.textViewInputMessage.text];
+//    [self.dataArray addObject:reply];
+//    [self reloadTableViewConversationShowBottom:YES];
+//    
+//    NSInteger lastestReplyID = [self getLastestReplyID];
+//    [TMEConversationManager postReplyToConversation:[self.conversation.conversationID intValue]
+//                                        withMessage:self.textViewInputMessage.text
+//                                     onSuccessBlock:^(NSString *status)
+//     {
+//         if ([status isEqualToString:@"success"]) {
+//             [self loadMessageWithReplyIDLargerID:lastestReplyID
+//                                      orSmallerID:0
+//                                         withPage:1
+//                                       showBottom:YES];
+//         }
+//     }
+//                                       failureBlock:^(NSError *error)
+//     {
+//         [self.dataArray removeLastObject];
+//         [self reloadTableViewConversationShowBottom:NO];
+//         [self failureBlockHandleWithError:error];
+//     }];
 }
 
 #pragma mark - Load message

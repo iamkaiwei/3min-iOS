@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TMEPaginationCollectionViewDataSource.h"
+#import "TMEBrowserProductPaginationCollectionViewDataSource.h"
 
 @interface TMEErrorCollectionViewDataSource : NSObject
 <
