@@ -13,7 +13,7 @@
 @interface TMESearchResultViewController ()
 <
     UICollectionViewDelegateFlowLayout,
-    TMEProductCollectionViewCellDelete
+    TMEProductCollectionViewCellDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewResult;

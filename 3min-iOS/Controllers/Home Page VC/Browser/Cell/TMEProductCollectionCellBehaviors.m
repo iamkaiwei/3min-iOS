@@ -8,6 +8,7 @@
 
 #import "TMEProductCollectionCellBehaviors.h"
 #import "TMEProductDetailVC.h"
+#import "TMEProfilePageContentViewController.h"
 
 void ProductCollectionCellLike(UIViewController *onViewController, TMEProduct *product) {
     NSLog(@"Like");
@@ -18,6 +19,12 @@ void ProductCollectionCellComment(UIViewController *onViewController, TMEProduct
 }
 void ProductCollectionCellShare(UIViewController *onViewController, TMEProduct *product) {
     NSLog(@"Share");
+}
+
+void ProductCollectionCellViewProfile(UIViewController *onViewController, TMEProduct *product) {
+    TMEProfilePageContentViewController *profileVC = [[TMEProfilePageContentViewController alloc] init];
+    profileVC.user = product.user;
+    [onViewController.navigationController pushViewController:profileVC animated:YES];
 }
 
 void ProductCollectionCellGoDetails(UIViewController *onViewController, TMEProduct *product) {
@@ -34,6 +41,10 @@ void ProductCollectionCellAct(UIViewController *onViewController, TMEProduct *pr
 
         case TMEProductCollectionCellLike:
             ProductCollectionCellLike(onViewController, product);
+            break;
+
+        case TMEProductCollectionCellViewProfile:
+            ProductCollectionCellViewProfile(onViewController, product);
             break;
 
         case TMEProductCollectionCellShare:

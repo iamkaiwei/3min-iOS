@@ -10,20 +10,21 @@
 
 @class TMEProductCollectionViewCell;
 
-@protocol TMEProductCollectionViewCellDelete <NSObject>
+@protocol TMEProductCollectionViewCellDelegate <NSObject>
 
 @optional
 - (void)tapOnLikeProductOnCell:(TMEProductCollectionViewCell *)cell;
 - (void)tapOnShareProductOnCell:(TMEProductCollectionViewCell *)cell;
 - (void)tapOnCommentProductOnCell:(TMEProductCollectionViewCell *)cell;
 - (void)tapOnDetailsProductOnCell:(TMEProductCollectionViewCell *)cell;
+- (void)tapOnViewProfileOnProductOnCell:(TMEProductCollectionViewCell *)cell;
 
 @end
 
 @interface TMEProductCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *lblProductName;
-@property (weak, nonatomic) id<TMEProductCollectionViewCellDelete> delegate;
+@property (weak, nonatomic) id<TMEProductCollectionViewCellDelegate> delegate;
 
 - (void)configWithData:(TMEProduct *)product;
 - (void)loadImages:(TMEProduct *)product;
