@@ -159,6 +159,14 @@
 	[self.delegate tapOnShareProductOnCell:cell];
 }
 
+- (IBAction)onBtnViewProfile:(id)sender {
+	if (![self.delegate respondsToSelector:@selector(tapOnViewProfileOnProductOnCell:)]) {
+		return;
+	}
+	TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
+	[self.delegate tapOnViewProfileOnProductOnCell:cell];
+}
+
 #pragma mark - Helpers
 
 - (TMEProductCollectionViewCell *)getCellFromButton:(UIButton *)button {

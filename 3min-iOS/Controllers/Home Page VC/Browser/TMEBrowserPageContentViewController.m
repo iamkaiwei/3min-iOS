@@ -17,7 +17,7 @@
 @interface TMEBrowserPageContentViewController ()
 <
     UICollectionViewDelegateFlowLayout,
-    TMEProductCollectionViewCellDelete
+    TMEProductCollectionViewCellDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewProducts;
@@ -176,6 +176,12 @@
 	NSIndexPath *indexPath = [self.collectionViewProducts indexPathForCell:cell];
 	TMEProduct *product = (TMEProduct *)[self.viewModel itemAtIndexPath:indexPath];
 	ProductCollectionCellAct(self, product, TMEProductCollectionCellShare);
+}
+
+- (void)tapOnViewProfileOnProductOnCell:(TMEProductCollectionViewCell *)cell {
+	NSIndexPath *indexPath = [self.collectionViewProducts indexPathForCell:cell];
+	TMEProduct *product = (TMEProduct *)[self.viewModel itemAtIndexPath:indexPath];
+	ProductCollectionCellAct(self, product, TMEProductCollectionCellViewProfile);
 }
 
 @end

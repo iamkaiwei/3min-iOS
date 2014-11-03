@@ -11,6 +11,7 @@ typedef NS_ENUM(NSUInteger, TMEProductCollectionCellAction) {
     TMEProductCollectionCellLike,
     TMEProductCollectionCellComment,
     TMEProductCollectionCellShare,
+    TMEProductCollectionCellViewProfile,
     TMEProductCollectionCellUnknown,
 };
 
