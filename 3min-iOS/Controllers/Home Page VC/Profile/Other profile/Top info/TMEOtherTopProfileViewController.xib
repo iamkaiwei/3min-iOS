@@ -7,6 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEOtherTopProfileViewController">
             <connections>
+                <outlet property="btnFollow" destination="emq-Wq-zmd" id="o4D-Qx-WdS"/>
+                <outlet property="followingProgressIndicator" destination="CXz-ex-c9d" id="GgX-LJ-Ggi"/>
+                <outlet property="imgUserAvatar" destination="KhY-yY-GyG" id="Sgh-HK-1he"/>
+                <outlet property="lblUsername" destination="NdX-ww-eWC" id="86h-VV-y13"/>
+                <outlet property="loadingScreen" destination="zhR-FT-aRa" id="5XZ-tk-dkn"/>
                 <outlet property="view" destination="n2A-U3-zxH" id="bJ1-YK-a9D"/>
             </connections>
         </placeholder>
@@ -39,6 +44,9 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CXz-ex-c9d">
+                            <rect key="frame" x="253" y="24" width="20" height="20"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -48,19 +56,15 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kzm-Um-3pr">
-                    <rect key="frame" x="0.0" y="67" width="320" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="edQ-t0-a6C">
-                    <rect key="frame" x="0.0" y="113" width="320" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FZW-oI-mpz">
-                    <rect key="frame" x="107" y="74" width="1" height="35"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tep-Tt-UQP">
-                    <rect key="frame" x="213" y="74" width="1" height="35"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwY-S6-ctn">
@@ -70,6 +74,9 @@
                         <color key="titleColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="btnEdit:" destination="-1" eventType="touchUpInside" id="kC5-DI-Iop"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZi-bS-Q7I">
                     <rect key="frame" x="108" y="68" width="106" height="45"/>
@@ -78,6 +85,9 @@
                         <color key="titleColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="btnMyLikes:" destination="-1" eventType="touchUpInside" id="ftK-bz-1Yz"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfW-Dh-1Pr">
                     <rect key="frame" x="214" y="67" width="106" height="45"/>
@@ -86,13 +96,45 @@
                         <color key="titleColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="btmMyItems:" destination="-1" eventType="touchUpInside" id="uTW-DX-bBL"/>
+                    </connections>
                 </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhp-Gh-F0Q">
+                    <rect key="frame" x="0.0" y="68" width="320" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zhy-v3-2iI">
+                    <rect key="frame" x="0.0" y="113" width="320" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xP0-4s-EEU">
+                    <rect key="frame" x="107" y="73" width="1" height="35"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aAB-VD-ZgS">
+                    <rect key="frame" x="214" y="74" width="1" height="35"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhR-FT-aRa">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Zfo-8l-HNF">
+                            <rect key="frame" x="150" y="47" width="20" height="20"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Ee3-Xi-I3C" firstAttribute="top" secondItem="n2A-U3-zxH" secondAttribute="top" id="Nzt-BF-thw"/>
                 <constraint firstItem="Ee3-Xi-I3C" firstAttribute="leading" secondItem="n2A-U3-zxH" secondAttribute="leading" id="We1-O2-T5H"/>
+                <constraint firstAttribute="bottom" secondItem="zhR-FT-aRa" secondAttribute="bottom" id="XKB-62-E4u"/>
+                <constraint firstAttribute="trailing" secondItem="zhR-FT-aRa" secondAttribute="trailing" id="bet-ZN-kTE"/>
+                <constraint firstItem="zhR-FT-aRa" firstAttribute="leading" secondItem="n2A-U3-zxH" secondAttribute="leading" id="kCp-1S-WEh"/>
                 <constraint firstAttribute="trailing" secondItem="Ee3-Xi-I3C" secondAttribute="trailing" id="kfh-nP-Abv"/>
+                <constraint firstItem="zhR-FT-aRa" firstAttribute="top" secondItem="n2A-U3-zxH" secondAttribute="top" id="sRy-mN-FiU"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

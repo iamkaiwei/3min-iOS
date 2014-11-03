@@ -92,6 +92,7 @@
 
 	// and the orther
 	TMEOtherTopProfileViewController *topVC = [[TMEOtherTopProfileViewController alloc] init];
+    topVC.user = self.user;
 	return topVC;
 }
 
