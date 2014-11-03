@@ -14,7 +14,7 @@
 @implementation TMETopProfileCellFactory
 
 - (UICollectionViewCell <KHCellProtocol> *)collectionView:(UICollectionView *)collection cellAtIndexPath:(NSIndexPath *)indexPath withModel:(id <KHTableViewModel> )model {
-	if ([[model sectionAtIndex:0] isKindOfClass:[KHLoadMoreSection class]]) {
+	if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHLoadMoreSection class]]) {
 		id <KHCollectionViewCellFactoryProtocol> factory = [[KHCollectionContentLoadingCellFactory alloc] init];
 		return [factory collectionView:collection cellAtIndexPath:indexPath withModel:model];
 	}
