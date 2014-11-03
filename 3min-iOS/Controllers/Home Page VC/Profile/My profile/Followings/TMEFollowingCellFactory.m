@@ -8,25 +8,35 @@
 
 #import "TMEFollowingCellFactory.h"
 #import "KHCollectionContentLoadingCellFactory.h"
+#import "KHContentLoadingSectionViewModel.h"
 #import "TMEFollowingCollectionViewCell.h"
 
 @implementation TMEFollowingCellFactory
 
-- (CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath model:(id<KHTableViewModel>)model {
-    if ([[model sectionAtIndex:0] isKindOfClass:[KHLoadMoreSection class]]) {
-        return [[[KHCollectionContentLoadingCellFactory alloc] init] collectionView:collectionView sizeForItemAtIndexPath:indexPath model:model];
-    }
+- (CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath model:(id <KHTableViewModel> )model {
+	if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHContentLoadingSectionViewModel class]]) {
+		return [[[KHCollectionContentLoadingCellFactory alloc] init] collectionView:collectionView sizeForItemAtIndexPath:indexPath model:model];
+	}
 
-    return CGSizeMake(collectionView.frame.size.width, 60);
+	if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHLoadMoreSection class]]) {
+		return CGSizeMake(collectionView.frame.size.width, 50);
+	}
+
+	return CGSizeMake(collectionView.frame.size.width, 50);
 }
 
-- (UICollectionViewCell<KHCellProtocol> *)collectionView:(UICollectionView *)collection cellAtIndexPath:(NSIndexPath *)indexPath withModel:(id<KHTableViewModel>)model {
-    if ([[model sectionAtIndex:0] isKindOfClass:[KHLoadMoreSection class]]) {
-        return [[[KHCollectionContentLoadingCellFactory alloc] init] collectionView:collection cellAtIndexPath:indexPath withModel:model];
-    }
+- (UICollectionViewCell <KHCellProtocol> *)collectionView:(UICollectionView *)collection cellAtIndexPath:(NSIndexPath *)indexPath withModel:(id <KHTableViewModel> )model {
+	if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHContentLoadingSectionViewModel class]]) {
+		return [[[KHCollectionContentLoadingCellFactory alloc] init] collectionView:collection cellAtIndexPath:indexPath withModel:model];
+	}
 
-    TMEFollowingCollectionViewCell<KHCellProtocol> *cell = [self _getReusableCellWithClass:[TMEFollowingCollectionViewCell class] collectionView:collection atIndexPath:indexPath];
-    return cell;
+	if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHLoadMoreSection class]]) {
+		return [[[KHCollectionContentLoadingCellFactory alloc] init] collectionView:collection cellAtIndexPath:indexPath withModel:model];
+	}
+
+	UICollectionViewCell <KHCellProtocol> *cell = [self _getReusableCellWithClass:[TMEFollowingCollectionViewCell class] collectionView:collection atIndexPath:indexPath];
+	[cell configWithData:[model itemAtIndexpath:indexPath]];
+	return cell;
 }
 
 @end

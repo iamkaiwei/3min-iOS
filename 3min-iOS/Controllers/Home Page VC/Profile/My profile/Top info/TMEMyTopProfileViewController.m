@@ -12,7 +12,8 @@
 #import <KHTableViewController/KHCollectionController.h>
 #import <KHTableViewController/KHLoadMoreSection.h>
 #import <KHTableViewController/KHBasicTableViewModel.h>
-#import "TMEFollowingsViewController.h"
+#import "TMEProfilePageContentViewController.h"
+#import "TMEFollowingViewController.h"
 
 @interface TMEMyTopProfileViewController ()
 
@@ -37,8 +38,8 @@
 	self.collectionController.model = basicSection;
 
 	self.cellFactory = [[TMETopProfileCellFactory alloc] init];
-	self.collectionController.cellFactory = (id) self.cellFactory;
-    self.cellFactory.delegate = self;
+	self.collectionController.cellFactory = (id)self.cellFactory;
+	self.cellFactory.delegate = self;
 
 	self.collectionTop.delegate = self.collectionController;
 	self.collectionTop.dataSource = self.collectionController;
@@ -66,42 +67,43 @@
 	    KHBasicTableViewModel *basicSection = [[KHBasicTableViewModel alloc] init];
 
 	    TMETopUserSection *userInfoSection = [[TMETopUserSection alloc] init];
-        userInfoSection.user = user;
+	    userInfoSection.user = user;
 
 	    basicSection.sectionModel = userInfoSection;
 
 	    self.collectionController.model = basicSection;
 	    [self.collectionTop reloadData];
 	} failure: ^(NSError *error) {
-
 	}];
 }
 
 #pragma mark - Cell delegate
 
 - (void)onTapMyLikes {
-
 }
 
 - (void)onTapPositive {
-
 }
 
 - (void)onTapFollowers {
-
 }
 
 - (void)onTapFollwings {
-    TMEFollowingsViewController *followingVC = [[TMEFollowingsViewController alloc] initWithUser:self.user];
-    [self.parentViewController.navigationController pushViewController:followingVC animated:YES];
+	TMEFollowingViewController *vc = [[UIStoryboard storyboardWithName:@"TMEFollowingViewController" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEFollowingViewController class])];
+	vc.user = self.user;
+	UINavigationController *nav = (UINavigationController *)self.parentViewController.parentViewController.parentViewController;
+	[nav pushViewController:vc animated:YES];
+	return;
+
+//    UIViewController *vc = [[UIViewController alloc] init];
+//    UINavigationController *nav = (UINavigationController *)self.parentViewController.parentViewController.parentViewController;
+//    [nav pushViewController:vc animated:YES];
 }
 
 - (void)onTapMyItems {
-
 }
 
 - (void)onTapEdit {
-
 }
 
 @end

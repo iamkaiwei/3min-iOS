@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TMEFollowingCollectionViewCell" id="gTV-IL-0wX">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TMEFollowingCollectionViewCell" id="gTV-IL-0wX" customClass="TMEFollowingCollectionViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="udR-kc-pmJ" customClass="KHRoundAvatar">
-                        <rect key="frame" x="8" y="5" width="40" height="40"/>
+                        <rect key="frame" x="10" y="5" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="UmO-sk-jsV"/>
                             <constraint firstAttribute="width" constant="40" id="lsQ-Fs-28j"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hd-dy-WaA">
-                        <rect key="frame" x="55" y="14" width="206" height="21"/>
+                        <rect key="frame" x="57" y="14" width="206" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Fde-1c-M3t"/>
                             <constraint firstAttribute="width" constant="206" id="iYT-46-hJl"/>
@@ -30,7 +31,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OD-Rk-IxL">
-                        <rect key="frame" x="266" y="10" width="46" height="30"/>
+                        <rect key="frame" x="268" y="10" width="44" height="30"/>
                         <state key="normal" title="Button">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -44,11 +45,15 @@
                 <constraint firstAttribute="trailing" secondItem="5OD-Rk-IxL" secondAttribute="trailing" constant="8" id="HaR-sM-Z6O"/>
                 <constraint firstItem="8hd-dy-WaA" firstAttribute="leading" secondItem="udR-kc-pmJ" secondAttribute="trailing" constant="7" id="K2E-FO-jeu"/>
                 <constraint firstItem="5OD-Rk-IxL" firstAttribute="leading" secondItem="8hd-dy-WaA" secondAttribute="trailing" constant="5" id="Xaa-db-IVs"/>
-                <constraint firstItem="udR-kc-pmJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="XpX-4w-CQ1"/>
+                <constraint firstItem="udR-kc-pmJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="XpX-4w-CQ1"/>
                 <constraint firstAttribute="bottom" secondItem="udR-kc-pmJ" secondAttribute="bottom" constant="5" id="azp-Jf-HyI"/>
                 <constraint firstItem="5OD-Rk-IxL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="leY-JO-S2k"/>
             </constraints>
             <size key="customSize" width="155" height="50"/>
+            <connections>
+                <outlet property="imgViewUserAvatar" destination="udR-kc-pmJ" id="LEG-tu-hya"/>
+                <outlet property="lblUsername" destination="8hd-dy-WaA" id="2lm-hb-o5I"/>
+            </connections>
             <point key="canvasLocation" x="240" y="488"/>
         </collectionViewCell>
     </objects>
