@@ -30,11 +30,12 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OD-Rk-IxL">
-                        <rect key="frame" x="268" y="10" width="44" height="30"/>
-                        <state key="normal" title="Button">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OD-Rk-IxL">
+                        <rect key="frame" x="278" y="14" width="34" height="22"/>
+                        <state key="normal" image="icn_follow">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <state key="selected" image="icn_followed"/>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -44,17 +45,22 @@
                 <constraint firstItem="8hd-dy-WaA" firstAttribute="top" secondItem="udR-kc-pmJ" secondAttribute="top" constant="9" id="G9o-4b-cuT"/>
                 <constraint firstAttribute="trailing" secondItem="5OD-Rk-IxL" secondAttribute="trailing" constant="8" id="HaR-sM-Z6O"/>
                 <constraint firstItem="8hd-dy-WaA" firstAttribute="leading" secondItem="udR-kc-pmJ" secondAttribute="trailing" constant="7" id="K2E-FO-jeu"/>
-                <constraint firstItem="5OD-Rk-IxL" firstAttribute="leading" secondItem="8hd-dy-WaA" secondAttribute="trailing" constant="5" id="Xaa-db-IVs"/>
+                <constraint firstItem="5OD-Rk-IxL" firstAttribute="leading" secondItem="8hd-dy-WaA" secondAttribute="trailing" constant="15" id="Xaa-db-IVs"/>
                 <constraint firstItem="udR-kc-pmJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="XpX-4w-CQ1"/>
                 <constraint firstAttribute="bottom" secondItem="udR-kc-pmJ" secondAttribute="bottom" constant="5" id="azp-Jf-HyI"/>
-                <constraint firstItem="5OD-Rk-IxL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="leY-JO-S2k"/>
+                <constraint firstItem="5OD-Rk-IxL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="leY-JO-S2k"/>
             </constraints>
             <size key="customSize" width="155" height="50"/>
             <connections>
+                <outlet property="btnFollow" destination="5OD-Rk-IxL" id="CU9-en-pHV"/>
                 <outlet property="imgViewUserAvatar" destination="udR-kc-pmJ" id="LEG-tu-hya"/>
                 <outlet property="lblUsername" destination="8hd-dy-WaA" id="2lm-hb-o5I"/>
             </connections>
             <point key="canvasLocation" x="240" y="488"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="icn_follow" width="34" height="19"/>
+        <image name="icn_followed" width="34" height="19"/>
+    </resources>
 </document>

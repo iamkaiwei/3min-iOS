@@ -20,6 +20,11 @@
 
 @implementation TMEFollowingViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self enablePullToRefresh];
+}
+
 - (id<KHCollectionViewCellFactoryProtocol>)cellFactory {
     return [[TMEFollowingCellFactory alloc] init];
 }
