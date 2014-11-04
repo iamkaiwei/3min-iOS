@@ -32,9 +32,6 @@ static const CGFloat kPaddingBottom = 10.0f;
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view from its nib.
-
-    [[FLEXManager sharedManager] showExplorer];
-
 	self.sizeManager = [[RZCellSizeManager alloc] init];
 
 	[self.collectionActivities registerNib:[TMEActivitiesCollectionViewCell defaultNib]

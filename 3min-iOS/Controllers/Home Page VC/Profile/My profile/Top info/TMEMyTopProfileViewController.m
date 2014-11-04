@@ -13,6 +13,7 @@
 #import <KHTableViewController/KHLoadMoreSection.h>
 #import <KHTableViewController/KHBasicTableViewModel.h>
 #import "TMEProfilePageContentViewController.h"
+#import "TMEFollowerViewController.h"
 #import "TMEFollowingViewController.h"
 
 @interface TMEMyTopProfileViewController ()
@@ -89,6 +90,11 @@
 }
 
 - (void)onTapFollowers {
+	TMEFollowerViewController *vc = [[UIStoryboard storyboardWithName:@"TMEFollowerViewController" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEFollowerViewController class])];
+	vc.user = self.user;
+	UINavigationController *nav = (UINavigationController *)self.parentViewController.parentViewController.parentViewController;
+	[nav pushViewController:vc animated:YES];
+	return;
 }
 
 - (void)onTapFollwings {
@@ -97,10 +103,6 @@
 	UINavigationController *nav = (UINavigationController *)self.parentViewController.parentViewController.parentViewController;
 	[nav pushViewController:vc animated:YES];
 	return;
-
-//    UIViewController *vc = [[UIViewController alloc] init];
-//    UINavigationController *nav = (UINavigationController *)self.parentViewController.parentViewController.parentViewController;
-//    [nav pushViewController:vc animated:YES];
 }
 
 - (void)onTapMyItems {
