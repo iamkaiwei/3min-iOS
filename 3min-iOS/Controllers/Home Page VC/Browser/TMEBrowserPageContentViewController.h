@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <KHTableViewController/KHBasicOrderedCollectionViewController.h>
 
-@interface TMEBrowserPageContentViewController : UIViewController
+@interface TMEBrowserPageContentViewController : KHBasicOrderedCollectionViewController
 
 @end
