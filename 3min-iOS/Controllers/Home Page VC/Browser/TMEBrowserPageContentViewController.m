@@ -26,14 +26,6 @@
     TMEProductCollectionViewCellDelegate
 >
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) UIRefreshControl *refreshView;
-@property (strong, nonatomic) CHTCollectionViewWaterfallLayout *layout;
-@property (strong, nonatomic) TMEBrowserProductViewModel *viewModel;
-@property (strong, nonatomic) FBKVOController *kvoController;
-@property (strong, nonatomic) LBDelegateMatrioska *chainDelegate;
-
-@property (strong, nonatomic) TMETakePhotoButtonViewController *takePhotoButtonVC;
 @property (strong, nonatomic) TMECategory *currentCategory;
 @end
 
@@ -66,32 +58,33 @@
 
 #pragma mark -
 
-- (void)addTakePhotoButton {
-	self.takePhotoButtonVC = [[TMETakePhotoButtonViewController alloc] init];
-	[self.takePhotoButtonVC willMoveToParentViewController:self];
-    [self.view addSubview:self.takePhotoButtonVC.view];
-	[self.takePhotoButtonVC.view mas_makeConstraints: ^(MASConstraintMaker *make) {
-	    make.bottom.equalTo(self.view);
-	    make.trailing.equalTo(self.view);
-	    make.leading.equalTo(self.view);
-	    make.height.equalTo(@70);
-	}];
-
-	[self.takePhotoButtonVC didMoveToParentViewController:self];
-	[self.view setNeedsUpdateConstraints];
-	[self.view layoutIfNeeded];
-}
+//- (void)addTakePhotoButton {
+//	self.takePhotoButtonVC = [[TMETakePhotoButtonViewController alloc] init];
+//	[self.takePhotoButtonVC willMoveToParentViewController:self];
+//    [self.view addSubview:self.takePhotoButtonVC.view];
+//	[self.takePhotoButtonVC.view mas_makeConstraints: ^(MASConstraintMaker *make) {
+//	    make.bottom.equalTo(self.view);
+//	    make.trailing.equalTo(self.view);
+//	    make.leading.equalTo(self.view);
+//	    make.height.equalTo(@70);
+//	}];
+//
+//	[self.takePhotoButtonVC didMoveToParentViewController:self];
+//	[self.view setNeedsUpdateConstraints];
+//	[self.view layoutIfNeeded];
+//}
 
 - (void)listenToTheCategoryDidChangedNofitication {
 	__weak typeof(self) weakSelf = self;
 
 	[[NSNotificationCenter defaultCenter] addObserverForName:TMEHomeCategoryDidChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock: ^(NSNotification *note) {
 	    TMEDropDownMenuViewController *vc = note.object;
-	    weakSelf.viewModel.currentCategory = vc.selectedCategory;
         weakSelf.currentCategory = vc.selectedCategory;
 	    UIButton *centerBtn = [weakSelf.parentViewController.navigationItem.titleView getButton];
-	    [centerBtn setTitle:weakSelf.viewModel.currentCategory.name forState:UIControlStateNormal];
-	    [centerBtn setTitle:weakSelf.viewModel.currentCategory.name forState:UIControlStateSelected];
+	    [centerBtn setTitle:weakSelf.currentCategory.name forState:UIControlStateNormal];
+	    [centerBtn setTitle:weakSelf.currentCategory.name forState:UIControlStateSelected];
+
+        [self reloadAllData];
 	}];
 }
 
@@ -100,13 +93,6 @@
 }
 
 #pragma mark - Reload
-
-- (void)refreshCollectionProducts {
-	[self.refreshView beginRefreshing];
-	[self.viewModel reloadWithFinishBlock: ^(NSError *error) {
-	    [self.refreshView endRefreshing];
-	}];
-}
 
 #pragma mark - Collection delegate
 

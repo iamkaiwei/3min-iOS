@@ -11,4 +11,6 @@
 
 @interface TMEBrowserPageContentViewController : KHBasicOrderedCollectionViewController
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @end

@@ -55,6 +55,7 @@
 		[TMEProductsManager getProductsOfCategory:self.currentCategory
 		                                 withPage:self.page
 		                           onSuccessBlock: ^(NSArray *arrProducts) {
+		    weakSelf.dataPage = arrProducts;
 		    successBlock(arrProducts);
 		} failureBlock: ^(NSError *error) {
 		    finishBlock(nil, error);
