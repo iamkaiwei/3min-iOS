@@ -15,36 +15,52 @@
 @property (strong, nonatomic) TMEBrowserPageContentViewController *childVC;
 @property (strong, nonatomic) TMETakePhotoButtonViewController *takePhotoVC;
 
+@property (strong, nonatomic) LBDelegateMatrioska *chainDelegate;
+
 @end
 
 @implementation TMEContainBrowserProductViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    [self _addBrowserProductContentVC];
-    [self _addTakePhotoButton];
+	[super viewDidLoad];
+	[self _addBrowserProductContentVC];
+	[self _addTakePhotoButton];
 }
 
 - (TMEBrowserPageContentViewController *)childVC {
-    if (!_childVC) {
-        _childVC = [[UIStoryboard storyboardWithName:@"TMEBrowserPageContentViewController" bundle:nil] instantiateViewControllerWithIdentifier:@"TMEBrowserPageContentViewController"];
+	if (!_childVC) {
+		_childVC = [[UIStoryboard storyboardWithName:@"TMEBrowserPageContentViewController" bundle:nil] instantiateViewControllerWithIdentifier:@"TMEBrowserPageContentViewController"];
+	}
+
+	return _childVC;
+}
+
+- (TMETakePhotoButtonViewController *)takePhotoVC {
+    if (!_takePhotoVC) {
+        _takePhotoVC = [[TMETakePhotoButtonViewController alloc] init];
     }
 
-    return _childVC;
+    return _takePhotoVC;
 }
 
 - (void)_addBrowserProductContentVC {
-    [self.childVC willMoveToParentViewController:self];
-    [self addChildViewController:self.childVC];
-    [self.view addSubview:self.childVC.view];
-    [self.childVC didMoveToParentViewController:self];
-    [self.view layoutIfNeeded];
+	[self.childVC willMoveToParentViewController:self];
+	[self addChildViewController:self.childVC];
+	[self.view addSubview:self.childVC.view];
+	[self.childVC didMoveToParentViewController:self];
+	[self.view layoutIfNeeded];
+
+    [self _hideAndShowTakePhotoButtonViewControllerWhenScrolling];
+}
+
+- (void)_hideAndShowTakePhotoButtonViewControllerWhenScrolling {
+	self.chainDelegate = [[LBDelegateMatrioska alloc] initWithDelegates:@[self.childVC.collectionView.delegate, self.takePhotoVC]];
+	self.childVC.collectionView.delegate = (id) self.chainDelegate;
 }
 
 - (void)_addTakePhotoButton {
-	self.takePhotoVC = [[TMETakePhotoButtonViewController alloc] init];
 	[self.takePhotoVC willMoveToParentViewController:self];
-    [self.view addSubview:self.takePhotoVC.view];
+	[self.view addSubview:self.takePhotoVC.view];
 	[self.takePhotoVC.view mas_makeConstraints: ^(MASConstraintMaker *make) {
 	    make.bottom.equalTo(self.view);
 	    make.trailing.equalTo(self.view);
