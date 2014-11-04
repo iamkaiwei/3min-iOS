@@ -60,7 +60,7 @@
 - (void)onTapTitleButton:(UIButton *)sender {
     [self keepSelected:sender];
 
-	BOOL isOnBrowserProductPage = [self.pageViewController.currentViewController isKindOfClass:[TMEBrowserPageContentViewController class]];
+	BOOL isOnBrowserProductPage = [self.pageViewController.currentViewController isKindOfClass:[TMEContainBrowserProductViewController class]];
 
 	if (isOnBrowserProductPage) {
 		[self tongleMenu:sender];

@@ -58,22 +58,6 @@
 
 #pragma mark -
 
-//- (void)addTakePhotoButton {
-//	self.takePhotoButtonVC = [[TMETakePhotoButtonViewController alloc] init];
-//	[self.takePhotoButtonVC willMoveToParentViewController:self];
-//    [self.view addSubview:self.takePhotoButtonVC.view];
-//	[self.takePhotoButtonVC.view mas_makeConstraints: ^(MASConstraintMaker *make) {
-//	    make.bottom.equalTo(self.view);
-//	    make.trailing.equalTo(self.view);
-//	    make.leading.equalTo(self.view);
-//	    make.height.equalTo(@70);
-//	}];
-//
-//	[self.takePhotoButtonVC didMoveToParentViewController:self];
-//	[self.view setNeedsUpdateConstraints];
-//	[self.view layoutIfNeeded];
-//}
-
 - (void)listenToTheCategoryDidChangedNofitication {
 	__weak typeof(self) weakSelf = self;
 

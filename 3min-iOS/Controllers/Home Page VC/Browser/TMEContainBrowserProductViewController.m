@@ -8,10 +8,12 @@
 
 #import "TMEContainBrowserProductViewController.h"
 #import "TMEBrowserPageContentViewController.h"
+#import "TMETakePhotoButtonViewController.h"
 
 @interface TMEContainBrowserProductViewController ()
 
 @property (strong, nonatomic) TMEBrowserPageContentViewController *childVC;
+@property (strong, nonatomic) TMETakePhotoButtonViewController *takePhotoVC;
 
 @end
 
@@ -19,7 +21,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self _addBrowserProductContentVC];
+    [self _addTakePhotoButton];
+}
 
+- (TMEBrowserPageContentViewController *)childVC {
+    if (!_childVC) {
+        _childVC = [[UIStoryboard storyboardWithName:@"TMEBrowserPageContentViewController" bundle:nil] instantiateViewControllerWithIdentifier:@"TMEBrowserPageContentViewController"];
+    }
+
+    return _childVC;
+}
+
+- (void)_addBrowserProductContentVC {
     [self.childVC willMoveToParentViewController:self];
     [self addChildViewController:self.childVC];
     [self.view addSubview:self.childVC.view];
@@ -27,12 +41,20 @@
     [self.view layoutIfNeeded];
 }
 
-- (TMEBrowserPageContentViewController *)childVC {
-    if (!_childVC) {
-        _childVC = [[TMEBrowserPageContentViewController alloc] init];
-    }
+- (void)_addTakePhotoButton {
+	self.takePhotoVC = [[TMETakePhotoButtonViewController alloc] init];
+	[self.takePhotoVC willMoveToParentViewController:self];
+    [self.view addSubview:self.takePhotoVC.view];
+	[self.takePhotoVC.view mas_makeConstraints: ^(MASConstraintMaker *make) {
+	    make.bottom.equalTo(self.view);
+	    make.trailing.equalTo(self.view);
+	    make.leading.equalTo(self.view);
+	    make.height.equalTo(@70);
+	}];
 
-    return _childVC;
+	[self.takePhotoVC didMoveToParentViewController:self];
+	[self.view setNeedsUpdateConstraints];
+	[self.view layoutIfNeeded];
 }
 
 @end
