@@ -7,11 +7,14 @@
 //
 
 #import "TMEBrowserProductCellFactory.h"
-#import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
+#import <KHTableViewController/KHContentLoadingSectionViewModel.h>
+#import "TMEProduct+ProductCellHeight.h"
+#import "TMEProductCollectionViewCell.h"
 
 @interface TMEBrowserProductCellFactory()
 
 @property (strong, nonatomic) CHTCollectionViewWaterfallLayout *waterFlowLayout;
+@property (weak, nonatomic) UICollectionView *collectionView;
 
 @end
 
@@ -24,35 +27,37 @@
 	layout.columnCount = 2;
 	layout.minimumColumnSpacing = 5;
 	layout.minimumInteritemSpacing = 6;
+
 	return layout;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath model:(id <KHTableViewModel> )model {
-//	if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHContentLoadingSectionViewModel class]]) {
-//		return [[[KHCollectionContentLoadingCellFactory alloc] init] collectionView:collectionView sizeForItemAtIndexPath:indexPath model:model];
-//	}
 
-	if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHLoadMoreSection class]]) {
-		return CGSizeMake(collectionView.frame.size.width, 50);
+	if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHContentLoadingSectionViewModel class]]) {
+		return [[[KHCollectionContentLoadingCellFactory alloc] init] collectionView:collectionView sizeForItemAtIndexPath:indexPath model:model];
 	}
 
-	return CGSizeMake(collectionView.frame.size.width, 50);
+    if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHLoadMoreSection class]]) {
+        return CGSizeMake(320, 0);
+    }
+
+    TMEProduct *product = [model itemAtIndexpath:indexPath];
+	return CGSizeMake(150, [product productCellHeight]);
 }
 
 - (UICollectionViewCell <KHCellProtocol> *)collectionView:(UICollectionView *)collection cellAtIndexPath:(NSIndexPath *)indexPath withModel:(id <KHTableViewModel> )model {
-//	if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHContentLoadingSectionViewModel class]]) {
-//		return [[[KHCollectionContentLoadingCellFactory alloc] init] collectionView:collection cellAtIndexPath:indexPath withModel:model];
-//	}
-
-	if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHLoadMoreSection class]]) {
+	if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHContentLoadingSectionViewModel class]]) {
 		return [[[KHCollectionContentLoadingCellFactory alloc] init] collectionView:collection cellAtIndexPath:indexPath withModel:model];
 	}
 
-//	TMEFollowingCollectionViewCell <KHCellProtocol> *cell = (TMEFollowingCollectionViewCell <KHCellProtocol> *) [self _getReusableCellWithClass:[TMEFollowingCollectionViewCell class] collectionView:collection atIndexPath:indexPath];
-//	[cell configWithData:[model itemAtIndexpath:indexPath]];
-//	return cell;
+    if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHLoadMoreSection class]]) {
+        return nil;
+    }
 
-    return nil;
+	TMEProductCollectionViewCell <KHCellProtocol> *cell = (TMEProductCollectionViewCell <KHCellProtocol> *) [self _getReusableCellWithClass:[TMEProductCollectionViewCell class] collectionView:collection atIndexPath:indexPath];
+	[cell configWithData:[model itemAtIndexpath:indexPath]];
+    [cell loadImages:[model itemAtIndexpath:indexPath]];
+	return cell;
 }
 
 @end

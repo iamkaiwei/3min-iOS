@@ -9,7 +9,7 @@
 #import "TMEBrowserProductLoadingOperation.h"
 #import "TMEProduct+ProductCellHeight.h"
 
-@interface TMEBrowserProductLoadingOperation()
+@interface TMEBrowserProductLoadingOperation ()
 
 @property (assign, nonatomic) NSUInteger page;
 @property (assign, nonatomic) NSUInteger userID;
@@ -21,17 +21,17 @@
 @implementation TMEBrowserProductLoadingOperation
 
 - (instancetype)initWithCategory:(TMECategory *)category andPage:(NSUInteger)page {
-    self = [super init];
-    if (self) {
-        _currentCategory = category;
-        _page = page;
-    }
+	self = [super init];
+	if (self) {
+		_currentCategory = category;
+		_page = page;
+	}
 
-    return self;
+	return self;
 }
 
 - (void)loadData:(void (^)(NSArray *, NSError *))finishBlock {
-    __weak typeof(self)weakSelf = self;
+	__weak typeof(self) weakSelf = self;
 
 	void (^successBlock)(NSArray *) = ^(NSArray *arrProducts) {
 		NSMutableArray *arr = [self.dataPage mutableCopy];
@@ -64,6 +64,7 @@
 
 	[TMEProductsManager getAllProductsWihPage:self.page
 	                           onSuccessBlock: ^(NSArray *arrProducts) {
+	    weakSelf.dataPage = arrProducts;
 	    successBlock(arrProducts);
 	} failureBlock: ^(NSError *error) {
 	    finishBlock(nil, error);

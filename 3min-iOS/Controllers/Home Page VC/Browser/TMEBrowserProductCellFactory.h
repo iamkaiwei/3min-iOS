@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <KHTableViewController/KHSuperCollectionCellFactory.h>
+#import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 #import "TMEProductCollectionViewCell.h"
 
 @interface TMEBrowserProductCellFactory : KHSuperCollectionCellFactory
 <
 KHCollectionViewCellFactoryProtocol
 >
+
+- (CHTCollectionViewWaterfallLayout *)waterFlowLayout;
 
 @end

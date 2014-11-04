@@ -47,12 +47,11 @@
 	// Do any additional setup after loading the view from its nib.
 
 	[self listenToTheCategoryDidChangedNofitication];
-
-	[self addTakePhotoButton];
 }
 
 - (id<KHCollectionViewCellFactoryProtocol>)cellFactory {
     TMEBrowserProductCellFactory *cellFactory = [[TMEBrowserProductCellFactory alloc] init];
+    self.collectionView.collectionViewLayout = [cellFactory waterFlowLayout];
     return cellFactory;
 }
 
@@ -61,7 +60,7 @@
 }
 
 - (id <KHLoadingOperationProtocol> )loadingOperationForSectionViewModel:(id <KHTableViewSectionModel> )viewModel forPage:(NSUInteger)page {
-    return [[TMEBrowserProductLoadingOperation alloc] initWithCategory:self.currentCategory andPage:page];
+    return [[TMEBrowserProductLoadingOperation alloc] initWithCategory:self.currentCategory andPage:page+1];
 }
 
 #pragma mark -

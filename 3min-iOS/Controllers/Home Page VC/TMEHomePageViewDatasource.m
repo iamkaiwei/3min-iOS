@@ -27,7 +27,8 @@
 
 - (TMEBrowserPageContentViewController *)browserVC {
     if (!_browserVC) {
-        _browserVC = [[TMEBrowserPageContentViewController alloc] init];
+        TMEBrowserPageContentViewController *vc = [[UIStoryboard storyboardWithName:NSStringFromClass([TMEBrowserPageContentViewController class]) bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEBrowserPageContentViewController class])];
+        _browserVC = vc;
     }
     return _browserVC;
 }

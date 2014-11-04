@@ -9,7 +9,7 @@
         <!--Browser Page Content View Controller-->
         <scene sceneID="gx3-8j-MDw">
             <objects>
-                <viewController id="lIR-4c-01a" customClass="TMEBrowserPageContentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TMEBrowserPageContentViewController" id="lIR-4c-01a" customClass="TMEBrowserPageContentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ovh-bE-f5A"/>
                         <viewControllerLayoutGuide type="bottom" id="Uxh-AD-aPp"/>
@@ -18,14 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F5n-EJ-qph">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F5n-EJ-qph">
+                                <rect key="frame" x="12" y="24" width="576" height="576"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="-5" maxY="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZIf-0p-IP5">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="20" maxX="0.0" maxY="5"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fGG-sX-NID">
@@ -40,12 +41,12 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="F5n-EJ-qph" firstAttribute="leading" secondItem="6lq-PL-MJD" secondAttribute="leadingMargin" constant="-16" id="DBh-Th-yaa"/>
-                            <constraint firstItem="F5n-EJ-qph" firstAttribute="top" secondItem="Ovh-bE-f5A" secondAttribute="bottom" constant="-20" id="KPJ-5m-9x8"/>
+                            <constraint firstItem="F5n-EJ-qph" firstAttribute="leading" secondItem="6lq-PL-MJD" secondAttribute="leadingMargin" constant="-4" id="DBh-Th-yaa"/>
+                            <constraint firstItem="F5n-EJ-qph" firstAttribute="top" secondItem="Ovh-bE-f5A" secondAttribute="bottom" constant="4" id="KPJ-5m-9x8"/>
                             <constraint firstItem="Uxh-AD-aPp" firstAttribute="top" secondItem="F5n-EJ-qph" secondAttribute="bottom" id="ihP-VI-P5t"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="F5n-EJ-qph" secondAttribute="trailing" constant="-16" id="jIV-lX-6Nv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F5n-EJ-qph" secondAttribute="trailing" constant="-4" id="jIV-lX-6Nv"/>
                         </constraints>
                     </view>
                     <connections>

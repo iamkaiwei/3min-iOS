@@ -22,6 +22,9 @@
 @end
 
 @interface TMEProductCollectionViewCell : UICollectionViewCell
+<
+KHCellProtocol
+>
 
 @property (weak, nonatomic) IBOutlet UILabel *lblProductName;
 @property (weak, nonatomic) id<TMEProductCollectionViewCellDelegate> delegate;
