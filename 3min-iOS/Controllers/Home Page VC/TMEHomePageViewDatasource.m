@@ -11,7 +11,7 @@
 @interface TMEHomePageViewDatasource()
 
 @property (nonatomic, strong, readwrite) TMEProfilePageContentViewController *profileVC;
-@property (nonatomic, strong, readwrite) TMEBrowserPageContentViewController *browserVC;
+@property (nonatomic, strong, readwrite) TMEContainBrowserProductViewController *browserVC;
 @property (nonatomic, strong, readwrite) TMESearchPageContentViewController *searchVC;
 
 @end
@@ -25,9 +25,9 @@
     return _searchVC;
 }
 
-- (TMEBrowserPageContentViewController *)browserVC {
+- (TMEContainBrowserProductViewController *)browserVC {
     if (!_browserVC) {
-        TMEBrowserPageContentViewController *vc = [[UIStoryboard storyboardWithName:NSStringFromClass([TMEBrowserPageContentViewController class]) bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEBrowserPageContentViewController class])];
+        TMEContainBrowserProductViewController *vc = [[UIStoryboard storyboardWithName:NSStringFromClass([TMEBrowserPageContentViewController class]) bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEContainBrowserProductViewController class])];
         _browserVC = vc;
     }
     return _browserVC;
@@ -46,7 +46,7 @@
 
     NSDictionary *controllers = @{
                                   NSStringFromClass([TMESearchPageContentViewController class]): [NSNull null],
-                                  NSStringFromClass([TMEBrowserPageContentViewController class]): self.searchVC,
+                                  NSStringFromClass([TMEContainBrowserProductViewController class]): self.searchVC,
                                   NSStringFromClass([TMEProfilePageContentViewController class]): self.browserVC,
                                   };
 
@@ -58,7 +58,7 @@
 
     NSDictionary *controllers = @{
                                   NSStringFromClass([TMESearchPageContentViewController class]): self.browserVC,
-                                  NSStringFromClass([TMEBrowserPageContentViewController class]): self.profileVC,
+                                  NSStringFromClass([TMEContainBrowserProductViewController class]): self.profileVC,
                                   NSStringFromClass([TMEProfilePageContentViewController class]): [NSNull null],
                                   };
 
@@ -68,7 +68,7 @@
 
 - (NSUInteger)indexOfViewController:(UIViewController *)controller {
     NSNumber *page = @{NSStringFromClass([TMESearchPageContentViewController class]): @1,
-      NSStringFromClass([TMEBrowserPageContentViewController class]): @2,
+      NSStringFromClass([TMEContainBrowserProductViewController class]): @2,
       NSStringFromClass([TMEProfilePageContentViewController class]): @3}[NSStringFromClass([controller class])];
     NSAssert(page, @"Index not found");
     return [page integerValue];
