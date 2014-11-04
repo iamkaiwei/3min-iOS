@@ -16,6 +16,9 @@
 #import <KHTableViewController/KHCollectionController.h>
 #import <LBDelegateMatrioska/LBDelegateMatrioska.h>
 #import <KHTableViewController/KHContentLoadingCellFactory.h>
+#import <KHTableViewController/KHOrderedDataProvider.h>
+#import "TMEBrowserProductLoadingOperation.h"
+#import "TMEBrowserProductCellFactory.h"
 
 @interface TMEBrowserPageContentViewController ()
 <
@@ -31,6 +34,7 @@
 @property (strong, nonatomic) LBDelegateMatrioska *chainDelegate;
 
 @property (strong, nonatomic) TMETakePhotoButtonViewController *takePhotoButtonVC;
+@property (strong, nonatomic) TMECategory *currentCategory;
 @end
 
 @implementation TMEBrowserPageContentViewController
@@ -45,6 +49,19 @@
 	[self listenToTheCategoryDidChangedNofitication];
 
 	[self addTakePhotoButton];
+}
+
+- (id<KHCollectionViewCellFactoryProtocol>)cellFactory {
+    TMEBrowserProductCellFactory *cellFactory = [[TMEBrowserProductCellFactory alloc] init];
+    return cellFactory;
+}
+
+- (id<KHTableViewSectionModel>)getLoadingContentViewModel {
+    return [[KHOrderedDataProvider alloc] init];
+}
+
+- (id <KHLoadingOperationProtocol> )loadingOperationForSectionViewModel:(id <KHTableViewSectionModel> )viewModel forPage:(NSUInteger)page {
+    return [[TMEBrowserProductLoadingOperation alloc] initWithCategory:self.currentCategory andPage:page];
 }
 
 #pragma mark -
@@ -71,6 +88,7 @@
 	[[NSNotificationCenter defaultCenter] addObserverForName:TMEHomeCategoryDidChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock: ^(NSNotification *note) {
 	    TMEDropDownMenuViewController *vc = note.object;
 	    weakSelf.viewModel.currentCategory = vc.selectedCategory;
+        weakSelf.currentCategory = vc.selectedCategory;
 	    UIButton *centerBtn = [weakSelf.parentViewController.navigationItem.titleView getButton];
 	    [centerBtn setTitle:weakSelf.viewModel.currentCategory.name forState:UIControlStateNormal];
 	    [centerBtn setTitle:weakSelf.viewModel.currentCategory.name forState:UIControlStateSelected];
@@ -79,16 +97,6 @@
 
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark -
-
-- (CHTCollectionViewWaterfallLayout *)waterFlowLayout {
-	CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
-	layout.columnCount = 2;
-	layout.minimumColumnSpacing = 5;
-	layout.minimumInteritemSpacing = 6;
-	return layout;
 }
 
 #pragma mark - Reload

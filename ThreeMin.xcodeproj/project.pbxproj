@@ -252,6 +252,8 @@
 		B486E3681A04F75E00696267 /* TMEFollowingCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B486E3671A04F75E00696267 /* TMEFollowingCellFactory.m */; };
 		B486E36B1A04FADB00696267 /* TMEFollowingLoadingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B486E3691A04FADB00696267 /* TMEFollowingLoadingOperation.m */; };
 		B486FC271A0893660058D8B7 /* TMEBrowserPageContentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B486FC261A0893660058D8B7 /* TMEBrowserPageContentViewController.storyboard */; };
+		B486FC2A1A08AF450058D8B7 /* TMEBrowserProductCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B486FC291A08AF450058D8B7 /* TMEBrowserProductCellFactory.m */; };
+		B486FC2D1A08B13C0058D8B7 /* TMEBrowserProductLoadingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B486FC2C1A08B13C0058D8B7 /* TMEBrowserProductLoadingOperation.m */; };
 		B4AE17D3198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */; };
 		B4AE17D6198E4A3200F6D601 /* KHRoundAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */; };
 		B4AE17DD198EAE1F00F6D601 /* TMEHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE17DC198EAE1F00F6D601 /* TMEHomePageViewController.m */; };
@@ -760,6 +762,10 @@
 		B486E3691A04FADB00696267 /* TMEFollowingLoadingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFollowingLoadingOperation.m; sourceTree = "<group>"; };
 		B486E36A1A04FADB00696267 /* TMEFollowingLoadingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFollowingLoadingOperation.h; sourceTree = "<group>"; };
 		B486FC261A0893660058D8B7 /* TMEBrowserPageContentViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TMEBrowserPageContentViewController.storyboard; sourceTree = "<group>"; };
+		B486FC281A08AF450058D8B7 /* TMEBrowserProductCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductCellFactory.h; sourceTree = "<group>"; };
+		B486FC291A08AF450058D8B7 /* TMEBrowserProductCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductCellFactory.m; sourceTree = "<group>"; };
+		B486FC2B1A08B13C0058D8B7 /* TMEBrowserProductLoadingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductLoadingOperation.h; sourceTree = "<group>"; };
+		B486FC2C1A08B13C0058D8B7 /* TMEBrowserProductLoadingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductLoadingOperation.m; sourceTree = "<group>"; };
 		B4AE17D2198E45C900F6D601 /* PSPDFUIKitMainThreadGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPDFUIKitMainThreadGuard.m; sourceTree = "<group>"; };
 		B4AE17D4198E4A3200F6D601 /* KHRoundAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRoundAvatar.h; sourceTree = "<group>"; };
 		B4AE17D5198E4A3200F6D601 /* KHRoundAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHRoundAvatar.m; sourceTree = "<group>"; };
@@ -1910,6 +1916,10 @@
 		B4AE17E9198EAF7B00F6D601 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				B486FC2B1A08B13C0058D8B7 /* TMEBrowserProductLoadingOperation.h */,
+				B486FC2C1A08B13C0058D8B7 /* TMEBrowserProductLoadingOperation.m */,
+				B486FC281A08AF450058D8B7 /* TMEBrowserProductCellFactory.h */,
+				B486FC291A08AF450058D8B7 /* TMEBrowserProductCellFactory.m */,
 				B4AE17EB198EAF9500F6D601 /* TMEBrowserPageContentViewController.h */,
 				B4AE17EC198EAF9500F6D601 /* TMEBrowserPageContentViewController.m */,
 				B486FC261A0893660058D8B7 /* TMEBrowserPageContentViewController.storyboard */,
@@ -2329,6 +2339,7 @@
 				99EA0F271978492D00872EE4 /* UIButton+Additions.m in Sources */,
 				B4CBA1E51A02050A0083ACDE /* TMETopUserSection.m in Sources */,
 				9992943719E2E93400896D05 /* TMEProductCommentCell.m in Sources */,
+				B486FC2A1A08AF450058D8B7 /* TMEBrowserProductCellFactory.m in Sources */,
 				99EA0F9F1978574000872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				99EA0F211978492D00872EE4 /* NSString+ActiveSupportInflector.m in Sources */,
 				99EA0F1E1978492D00872EE4 /* NSMutableArray+Additions.m in Sources */,
@@ -2446,6 +2457,7 @@
 				99EA0F401978492D00872EE4 /* TMEBrowserProductsTableCell.m in Sources */,
 				99EA0F7C1978492D00872EE4 /* TMEBaseArrayDataSource.m in Sources */,
 				99EA0F981978492D00872EE4 /* TMEBaseTableViewCell.m in Sources */,
+				B486FC2D1A08B13C0058D8B7 /* TMEBrowserProductLoadingOperation.m in Sources */,
 				99EA0EFB1978492D00872EE4 /* TMEFacebookManager.m in Sources */,
 				9937B90D19B5EA4A0000EE0C /* TMESingleSectionDataSource.m in Sources */,
 				9937B8FE19B5EA030000EE0C /* TMEAlertView.m in Sources */,
