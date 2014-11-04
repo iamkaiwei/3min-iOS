@@ -22,6 +22,7 @@
 #import "TMEUser+BackwardSupport.h"
 
 #import "TMEReply.h"
+#import "TMEReply+BackwardSupport.h"
 
 #import "TMEConversation.h"
 

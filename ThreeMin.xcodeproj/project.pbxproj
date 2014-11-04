@@ -270,6 +270,17 @@
 		B4F513E019AEE5AF003DE851 /* TMEDropDownMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F513DF19AEE5AF003DE851 /* TMEDropDownMenuCell.m */; };
 		B4F513E219AEE5BF003DE851 /* TMEDropDownMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4F513E119AEE5BF003DE851 /* TMEDropDownMenuCell.xib */; };
 		B4FF484F1A062FAD008FF411 /* TMEFollowingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FF484D1A062FAD008FF411 /* TMEFollowingViewController.m */; };
+		B64808391A0893CC00A855A0 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B648082F1A08934100A855A0 /* OpenSans-Bold.ttf */; };
+		B648083A1A0893CC00A855A0 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B64808301A08934100A855A0 /* OpenSans-BoldItalic.ttf */; };
+		B648083B1A0893CC00A855A0 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B64808311A08934100A855A0 /* OpenSans-ExtraBold.ttf */; };
+		B648083C1A0893CC00A855A0 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B64808321A08934100A855A0 /* OpenSans-ExtraBoldItalic.ttf */; };
+		B648083D1A0893CC00A855A0 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B64808331A08934100A855A0 /* OpenSans-Italic.ttf */; };
+		B648083E1A0893CC00A855A0 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B64808341A08934100A855A0 /* OpenSans-Light.ttf */; };
+		B648083F1A0893CC00A855A0 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B64808351A08934100A855A0 /* OpenSans-LightItalic.ttf */; };
+		B64808401A0893CC00A855A0 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B64808361A08934100A855A0 /* OpenSans-Regular.ttf */; };
+		B64808411A0893CC00A855A0 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B64808371A08934100A855A0 /* OpenSans-Semibold.ttf */; };
+		B64808421A0893CC00A855A0 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B64808381A08934100A855A0 /* OpenSans-SemiboldItalic.ttf */; };
+		B69F6AE71A07D5AA00A2DE08 /* TMEReply+BackwardSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = B69F6AE61A07D5AA00A2DE08 /* TMEReply+BackwardSupport.m */; };
 		D2140D9719A3338E008560B0 /* TMECrashlyticsAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */; };
 		D21698A119A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */; };
 		D22016BD19A49D480071535C /* TMEPushNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D22016BC19A49D480071535C /* TMEPushNotificationManager.m */; };
@@ -422,12 +433,8 @@
 		99EA0DA01978492C00872EE4 /* _TMEActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEActivity.m; sourceTree = "<group>"; };
 		99EA0DA11978492C00872EE4 /* _TMECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMECategory.h; sourceTree = "<group>"; };
 		99EA0DA21978492C00872EE4 /* _TMECategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMECategory.m; sourceTree = "<group>"; };
-		99EA0DA31978492C00872EE4 /* _TMEConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEConversation.h; sourceTree = "<group>"; };
-		99EA0DA41978492C00872EE4 /* _TMEConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEConversation.m; sourceTree = "<group>"; };
 		99EA0DA51978492C00872EE4 /* _TMEProductImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEProductImages.h; sourceTree = "<group>"; };
 		99EA0DA61978492C00872EE4 /* _TMEProductImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEProductImages.m; sourceTree = "<group>"; };
-		99EA0DA71978492C00872EE4 /* _TMEReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TMEReply.h; sourceTree = "<group>"; };
-		99EA0DA81978492C00872EE4 /* _TMEReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TMEReply.m; sourceTree = "<group>"; };
 		99EA0DA91978492C00872EE4 /* TMEActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEActivity.h; sourceTree = "<group>"; };
 		99EA0DAA1978492C00872EE4 /* TMEActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEActivity.m; sourceTree = "<group>"; };
 		99EA0DAB1978492C00872EE4 /* TMECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECategory.h; sourceTree = "<group>"; };
@@ -618,15 +625,15 @@
 		99EA0E801978492D00872EE4 /* TMESearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESearchViewController.h; sourceTree = "<group>"; };
 		99EA0E811978492D00872EE4 /* TMESearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESearchViewController.m; sourceTree = "<group>"; };
 		99EA0E821978492D00872EE4 /* TMESearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMESearchViewController.xib; sourceTree = "<group>"; };
-		99EA0E841978492D00872EE4 /* TMESubmitTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitTableCell.h; path = "../Controllers/Submit VCs/TMESubmitTableCell.h"; sourceTree = "<group>"; };
-		99EA0E851978492D00872EE4 /* TMESubmitTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESubmitTableCell.m; path = "../Controllers/Submit VCs/TMESubmitTableCell.m"; sourceTree = "<group>"; };
-		99EA0E861978492D00872EE4 /* TMESubmitTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMESubmitTableCell.xib; path = "../Controllers/Submit VCs/TMESubmitTableCell.xib"; sourceTree = "<group>"; };
-		99EA0E891978492D00872EE4 /* TMESubmitTableCellRight.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMESubmitTableCellRight.xib; path = "../Controllers/Submit VCs/TMESubmitTableCellRight.xib"; sourceTree = "<group>"; };
-		99EA0E8A1978492D00872EE4 /* TMESubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitViewController.h; path = "../Controllers/Submit VCs/TMESubmitViewController.h"; sourceTree = "<group>"; };
-		99EA0E8B1978492D00872EE4 /* TMESubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESubmitViewController.m; path = "../Controllers/Submit VCs/TMESubmitViewController.m"; sourceTree = "<group>"; };
-		99EA0E8C1978492D00872EE4 /* TMESubmitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMESubmitViewController.xib; path = "../Controllers/Submit VCs/TMESubmitViewController.xib"; sourceTree = "<group>"; };
-		99EA0E8D1978492D00872EE4 /* TMESubmitViewControllerArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMESubmitViewControllerArrayDataSource.h; path = "../Controllers/Submit VCs/TMESubmitViewControllerArrayDataSource.h"; sourceTree = "<group>"; };
-		99EA0E8E1978492D00872EE4 /* TMESubmitViewControllerArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMESubmitViewControllerArrayDataSource.m; path = "../Controllers/Submit VCs/TMESubmitViewControllerArrayDataSource.m"; sourceTree = "<group>"; };
+		99EA0E841978492D00872EE4 /* TMESubmitTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESubmitTableCell.h; sourceTree = "<group>"; };
+		99EA0E851978492D00872EE4 /* TMESubmitTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESubmitTableCell.m; sourceTree = "<group>"; };
+		99EA0E861978492D00872EE4 /* TMESubmitTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMESubmitTableCell.xib; sourceTree = "<group>"; };
+		99EA0E891978492D00872EE4 /* TMESubmitTableCellRight.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMESubmitTableCellRight.xib; sourceTree = "<group>"; };
+		99EA0E8A1978492D00872EE4 /* TMESubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESubmitViewController.h; sourceTree = "<group>"; };
+		99EA0E8B1978492D00872EE4 /* TMESubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESubmitViewController.m; sourceTree = "<group>"; };
+		99EA0E8C1978492D00872EE4 /* TMESubmitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMESubmitViewController.xib; sourceTree = "<group>"; };
+		99EA0E8D1978492D00872EE4 /* TMESubmitViewControllerArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESubmitViewControllerArrayDataSource.h; sourceTree = "<group>"; };
+		99EA0E8E1978492D00872EE4 /* TMESubmitViewControllerArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESubmitViewControllerArrayDataSource.m; sourceTree = "<group>"; };
 		99EA0E901978492D00872EE4 /* TMEBaseArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseArrayDataSource.h; sourceTree = "<group>"; };
 		99EA0E911978492D00872EE4 /* TMEBaseArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseArrayDataSource.m; sourceTree = "<group>"; };
 		99EA0E921978492D00872EE4 /* TMEBasePhotoEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBasePhotoEditorViewController.h; sourceTree = "<group>"; };
@@ -668,8 +675,6 @@
 		99EA0F9C1978574000872EE4 /* UIViewController+YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YIFullScreenScroll.m"; sourceTree = "<group>"; };
 		99EA0F9D1978574000872EE4 /* YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YIFullScreenScroll.h; sourceTree = "<group>"; };
 		99EA0F9E1978574000872EE4 /* YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YIFullScreenScroll.m; sourceTree = "<group>"; };
-		B40522431987562D00A148AD /* TMEConversation+BackwardSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEConversation+BackwardSupport.h"; sourceTree = "<group>"; };
-		B40522441987562D00A148AD /* TMEConversation+BackwardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEConversation+BackwardSupport.m"; sourceTree = "<group>"; };
 		B40D946619FA4B4C00432DD0 /* TMEBrowserProductPaginationCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductPaginationCollectionViewDataSource.h; sourceTree = "<group>"; };
 		B40D946719FA4B4C00432DD0 /* TMEBrowserProductPaginationCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductPaginationCollectionViewDataSource.m; sourceTree = "<group>"; };
 		B40D946C19FA4B9E00432DD0 /* TMEActivitiesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEActivitiesCollectionViewCell.h; sourceTree = "<group>"; };
@@ -790,6 +795,18 @@
 		B4F513E119AEE5BF003DE851 /* TMEDropDownMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEDropDownMenuCell.xib; sourceTree = "<group>"; };
 		B4FF484C1A062FAD008FF411 /* TMEFollowingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFollowingViewController.h; sourceTree = "<group>"; };
 		B4FF484D1A062FAD008FF411 /* TMEFollowingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFollowingViewController.m; sourceTree = "<group>"; };
+		B648082F1A08934100A855A0 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		B64808301A08934100A855A0 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		B64808311A08934100A855A0 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		B64808321A08934100A855A0 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		B64808331A08934100A855A0 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		B64808341A08934100A855A0 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		B64808351A08934100A855A0 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		B64808361A08934100A855A0 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		B64808371A08934100A855A0 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		B64808381A08934100A855A0 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		B69F6AE51A07D5AA00A2DE08 /* TMEReply+BackwardSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEReply+BackwardSupport.h"; sourceTree = "<group>"; };
+		B69F6AE61A07D5AA00A2DE08 /* TMEReply+BackwardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEReply+BackwardSupport.m"; sourceTree = "<group>"; };
 		C99C45F832C15113F06B8E70 /* Pods-ThreeMin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeMin.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThreeMin/Pods-ThreeMin.release.xcconfig"; sourceTree = "<group>"; };
 		D2140D9519A3338E008560B0 /* TMECrashlyticsAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECrashlyticsAppDelegateService.h; sourceTree = "<group>"; };
 		D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECrashlyticsAppDelegateService.m; sourceTree = "<group>"; };
@@ -1085,6 +1102,8 @@
 		99EA0D9D1978492C00872EE4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B69F6AE51A07D5AA00A2DE08 /* TMEReply+BackwardSupport.h */,
+				B69F6AE61A07D5AA00A2DE08 /* TMEReply+BackwardSupport.m */,
 				99EA0D9E1978492C00872EE4 /* Machine */,
 				B410F750199619DF000AE5B7 /* TMEBaseModel.h */,
 				B410F751199619DF000AE5B7 /* TMEBaseModel.m */,
@@ -1096,8 +1115,6 @@
 				99EA0DAC1978492C00872EE4 /* TMECategory.m */,
 				99EA0DAD1978492C00872EE4 /* TMEConversation.h */,
 				99EA0DAE1978492C00872EE4 /* TMEConversation.m */,
-				B40522431987562D00A148AD /* TMEConversation+BackwardSupport.h */,
-				B40522441987562D00A148AD /* TMEConversation+BackwardSupport.m */,
 				99EA0DAF1978492C00872EE4 /* TMEProduct+BackwardSupport.h */,
 				99EA0DB01978492C00872EE4 /* TMEProduct+BackwardSupport.m */,
 				99EA0DB11978492C00872EE4 /* TMEProduct+ParseArrayProducts.h */,
@@ -1124,12 +1141,8 @@
 				99EA0DA01978492C00872EE4 /* _TMEActivity.m */,
 				99EA0DA11978492C00872EE4 /* _TMECategory.h */,
 				99EA0DA21978492C00872EE4 /* _TMECategory.m */,
-				99EA0DA31978492C00872EE4 /* _TMEConversation.h */,
-				99EA0DA41978492C00872EE4 /* _TMEConversation.m */,
 				99EA0DA51978492C00872EE4 /* _TMEProductImages.h */,
 				99EA0DA61978492C00872EE4 /* _TMEProductImages.m */,
-				99EA0DA71978492C00872EE4 /* _TMEReply.h */,
-				99EA0DA81978492C00872EE4 /* _TMEReply.m */,
 			);
 			path = Machine;
 			sourceTree = "<group>";
@@ -1137,6 +1150,7 @@
 		99EA0DBD1978492C00872EE4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B648082E1A08931E00A855A0 /* Fonts */,
 				99EA0DBF1978492C00872EE4 /* Localizable.strings */,
 				99EA0DC11978492C00872EE4 /* main.m */,
 				99EA0DC21978492C00872EE4 /* ThreeMin-Info.plist */,
@@ -1277,7 +1291,6 @@
 				99EA0E6A1978492D00872EE4 /* Product Details */,
 				99EA0E751978492D00872EE4 /* Publish Products */,
 				99EA0E7C1978492D00872EE4 /* Search VCs */,
-				99EA0E831978492D00872EE4 /* Submit VCs */,
 				99EA0E9A1978492D00872EE4 /* Tutorial */,
 				B4AE17DA198EAE1F00F6D601 /* Home Page VC */,
 			);
@@ -1504,8 +1517,6 @@
 				99EA0E841978492D00872EE4 /* TMESubmitTableCell.h */,
 				99EA0E851978492D00872EE4 /* TMESubmitTableCell.m */,
 				99EA0E861978492D00872EE4 /* TMESubmitTableCell.xib */,
-				99EA0E871978492D00872EE4 /* TMESubmitTableCellRight.h */,
-				99EA0E881978492D00872EE4 /* TMESubmitTableCellRight.m */,
 				99EA0E891978492D00872EE4 /* TMESubmitTableCellRight.xib */,
 				99EA0E8A1978492D00872EE4 /* TMESubmitViewController.h */,
 				99EA0E8B1978492D00872EE4 /* TMESubmitViewController.m */,
@@ -1513,7 +1524,8 @@
 				99EA0E8D1978492D00872EE4 /* TMESubmitViewControllerArrayDataSource.h */,
 				99EA0E8E1978492D00872EE4 /* TMESubmitViewControllerArrayDataSource.m */,
 			);
-			path = "Submit VCs";
+			name = "Submit VCs";
+			path = "../Controllers/Submit VCs";
 			sourceTree = "<group>";
 		};
 		99EA0E8F1978492D00872EE4 /* Superclass */ = {
@@ -1947,35 +1959,19 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
-		B670A9551A00E3CA00F3AC43 /* Conversation */ = {
+		B648082E1A08931E00A855A0 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				99EA0E841978492D00872EE4 /* TMESubmitTableCell.h */,
-				99EA0E851978492D00872EE4 /* TMESubmitTableCell.m */,
-				99EA0E861978492D00872EE4 /* TMESubmitTableCell.xib */,
-				99EA0E891978492D00872EE4 /* TMESubmitTableCellRight.xib */,
-				99EA0E8A1978492D00872EE4 /* TMESubmitViewController.h */,
-				99EA0E8B1978492D00872EE4 /* TMESubmitViewController.m */,
-				99EA0E8C1978492D00872EE4 /* TMESubmitViewController.xib */,
-				99EA0E8D1978492D00872EE4 /* TMESubmitViewControllerArrayDataSource.h */,
-				99EA0E8E1978492D00872EE4 /* TMESubmitViewControllerArrayDataSource.m */,
-			);
-			name = Conversation;
-			sourceTree = "<group>";
-		};
-		B690934819FE78630004A12C /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				B690934919FE78900004A12C /* OpenSans-Bold.ttf */,
-				B690934A19FE78900004A12C /* OpenSans-BoldItalic.ttf */,
-				B690934B19FE78900004A12C /* OpenSans-ExtraBold.ttf */,
-				B690934C19FE78900004A12C /* OpenSans-ExtraBoldItalic.ttf */,
-				B690934D19FE78900004A12C /* OpenSans-Italic.ttf */,
-				B690934E19FE78900004A12C /* OpenSans-Light.ttf */,
-				B690934F19FE78900004A12C /* OpenSans-LightItalic.ttf */,
-				B690935019FE78900004A12C /* OpenSans-Regular.ttf */,
-				B690935119FE78900004A12C /* OpenSans-Semibold.ttf */,
-				B690935219FE78900004A12C /* OpenSans-SemiboldItalic.ttf */,
+				B648082F1A08934100A855A0 /* OpenSans-Bold.ttf */,
+				B64808301A08934100A855A0 /* OpenSans-BoldItalic.ttf */,
+				B64808311A08934100A855A0 /* OpenSans-ExtraBold.ttf */,
+				B64808321A08934100A855A0 /* OpenSans-ExtraBoldItalic.ttf */,
+				B64808331A08934100A855A0 /* OpenSans-Italic.ttf */,
+				B64808341A08934100A855A0 /* OpenSans-Light.ttf */,
+				B64808351A08934100A855A0 /* OpenSans-LightItalic.ttf */,
+				B64808361A08934100A855A0 /* OpenSans-Regular.ttf */,
+				B64808371A08934100A855A0 /* OpenSans-Semibold.ttf */,
+				B64808381A08934100A855A0 /* OpenSans-SemiboldItalic.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -1983,6 +1979,7 @@
 		D295D2BC19E29F2C008B9BC4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				99EA0E831978492D00872EE4 /* Submit VCs */,
 				D295D2D619E29FAD008B9BC4 /* Search */,
 				D295D2BD19E29F2C008B9BC4 /* Product Detail */,
 			);
@@ -2158,6 +2155,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B64808391A0893CC00A855A0 /* OpenSans-Bold.ttf in Resources */,
+				B648083A1A0893CC00A855A0 /* OpenSans-BoldItalic.ttf in Resources */,
+				B648083B1A0893CC00A855A0 /* OpenSans-ExtraBold.ttf in Resources */,
+				B648083C1A0893CC00A855A0 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				B648083D1A0893CC00A855A0 /* OpenSans-Italic.ttf in Resources */,
+				B648083E1A0893CC00A855A0 /* OpenSans-Light.ttf in Resources */,
+				B648083F1A0893CC00A855A0 /* OpenSans-LightItalic.ttf in Resources */,
+				B64808401A0893CC00A855A0 /* OpenSans-Regular.ttf in Resources */,
+				B64808411A0893CC00A855A0 /* OpenSans-Semibold.ttf in Resources */,
+				B64808421A0893CC00A855A0 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				99EA0F6C1978492D00872EE4 /* TMEProductDetailsViewController.xib in Resources */,
 				99EA0F111978492D00872EE4 /* ThreeMin-Info.plist in Resources */,
 				B44384641A0625560089D807 /* TMEMyTopProfileViewController.xib in Resources */,
@@ -2285,6 +2292,7 @@
 				99EA0F931978492D00872EE4 /* TMELoadMoreTableViewCell.m in Sources */,
 				9992943A19E2EA4B00896D05 /* TMEProductCommentViewModel.m in Sources */,
 				99EA0F7D1978492D00872EE4 /* TMEBasePhotoEditorViewController.m in Sources */,
+				B69F6AE71A07D5AA00A2DE08 /* TMEReply+BackwardSupport.m in Sources */,
 				99EA0F0A1978492D00872EE4 /* TMEProductImage.m in Sources */,
 				B486E36B1A04FADB00696267 /* TMEFollowingLoadingOperation.m in Sources */,
 				99EA0F181978492D00872EE4 /* MKMapView+Additions.m in Sources */,

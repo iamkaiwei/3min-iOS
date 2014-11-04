@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -15,9 +16,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2h ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEO-Tv-FBX">
-                        <rect key="frame" x="203" y="13" width="36" height="14"/>
+                        <rect key="frame" x="228" y="12" width="36" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="14" id="gBE-6j-7mK"/>
+                            <constraint firstAttribute="height" constant="17" id="gBE-6j-7mK"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="5" id="tOE-m5-8bY"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -25,14 +26,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Thq-ma-7ub">
-                        <rect key="frame" x="245" y="12" width="18" height="18"/>
+                        <rect key="frame" x="204" y="12" width="18" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="18" id="GLE-Xy-Cf8"/>
                             <constraint firstAttribute="height" constant="18" id="hjS-sk-d98"/>
                         </constraints>
                     </imageView>
                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="F0H-UV-u6f">
-                        <rect key="frame" x="177" y="11" width="20" height="20"/>
+                        <rect key="frame" x="178" y="11" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="CrR-Lq-4Vq"/>
                             <constraint firstAttribute="height" constant="20" id="WBb-Df-h3I"/>
@@ -62,21 +63,21 @@
                 </subviews>
                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="Thq-ma-7ub" firstAttribute="leading" secondItem="uEO-Tv-FBX" secondAttribute="trailing" constant="6" id="1Fz-W2-LGz"/>
                     <constraint firstItem="evU-7z-hfc" firstAttribute="top" secondItem="yVb-jZ-ITD" secondAttribute="top" constant="5" id="3sE-Ag-XQj"/>
                     <constraint firstItem="F0H-UV-u6f" firstAttribute="top" secondItem="hjq-ZF-baC" secondAttribute="top" constant="11" id="81s-jQ-qFG"/>
                     <constraint firstItem="evU-7z-hfc" firstAttribute="leading" secondItem="yVb-jZ-ITD" secondAttribute="leading" constant="5" id="O70-AL-mHU"/>
+                    <constraint firstItem="uEO-Tv-FBX" firstAttribute="leading" secondItem="Thq-ma-7ub" secondAttribute="trailing" constant="6" id="OSC-pg-8od"/>
                     <constraint firstItem="Thq-ma-7ub" firstAttribute="bottom" secondItem="yVb-jZ-ITD" secondAttribute="top" constant="1" id="Uai-iU-ldb"/>
+                    <constraint firstItem="e2x-uh-02d" firstAttribute="leading" secondItem="uEO-Tv-FBX" secondAttribute="trailing" constant="6" id="VbD-gv-zxG"/>
                     <constraint firstItem="e2x-uh-02d" firstAttribute="top" secondItem="hjq-ZF-baC" secondAttribute="top" constant="6" id="Y5Z-wk-Te3"/>
+                    <constraint firstItem="Thq-ma-7ub" firstAttribute="leading" secondItem="F0H-UV-u6f" secondAttribute="trailing" constant="6" id="Zhe-5n-V2G"/>
                     <constraint firstAttribute="trailing" secondItem="e2x-uh-02d" secondAttribute="trailing" constant="6" id="b60-hv-gc6"/>
                     <constraint firstItem="Thq-ma-7ub" firstAttribute="top" secondItem="hjq-ZF-baC" secondAttribute="topMargin" constant="4" id="cFK-T9-ydE"/>
                     <constraint firstAttribute="bottom" secondItem="yVb-jZ-ITD" secondAttribute="bottom" constant="5" id="d5L-Lx-nS8"/>
                     <constraint firstAttribute="trailing" secondItem="yVb-jZ-ITD" secondAttribute="trailing" constant="6" id="et7-PO-edV"/>
                     <constraint firstItem="evU-7z-hfc" firstAttribute="bottom" secondItem="yVb-jZ-ITD" secondAttribute="bottom" id="euE-Jv-8PE"/>
-                    <constraint firstItem="e2x-uh-02d" firstAttribute="leading" secondItem="Thq-ma-7ub" secondAttribute="trailing" constant="7" id="gc8-Vt-sUO"/>
                     <constraint firstItem="yVb-jZ-ITD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hjq-ZF-baC" secondAttribute="leading" constant="5" id="oLg-rN-65k"/>
-                    <constraint firstItem="uEO-Tv-FBX" firstAttribute="top" secondItem="hjq-ZF-baC" secondAttribute="topMargin" constant="5" id="tQv-Jy-0lO"/>
-                    <constraint firstItem="uEO-Tv-FBX" firstAttribute="leading" secondItem="F0H-UV-u6f" secondAttribute="trailing" constant="6" id="yGb-72-n9p"/>
+                    <constraint firstItem="uEO-Tv-FBX" firstAttribute="top" secondItem="hjq-ZF-baC" secondAttribute="topMargin" constant="4" id="tQv-Jy-0lO"/>
                     <constraint firstItem="evU-7z-hfc" firstAttribute="trailing" secondItem="yVb-jZ-ITD" secondAttribute="trailing" constant="-5" id="zHd-kc-VdN"/>
                 </constraints>
             </tableViewCellContentView>

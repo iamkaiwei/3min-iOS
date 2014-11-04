@@ -113,7 +113,7 @@ PTPusherPresenceChannelDelegate
     self.textViewInputMessage.placeholder = @"Type message here to chat";
     self.textViewInputMessage.layer.cornerRadius = 19.0f;
     self.textViewInputMessage.internalTextView.backgroundColor = [UIColor clearColor];
-    [self.textViewInputMessage setTintColor:[UIColor colorWithHexString:@"e4e4e4"]];
+    [self.textViewInputMessage setTintColor:[UIColor colorWithHexString:@"c5c5c5"]];
 }
 
 - (void)setupUIFont {
@@ -261,25 +261,20 @@ PTPusherPresenceChannelDelegate
                                         onSuccessBlock:^(TMEConversation *conversation)
      {
          self.paging = NO;
-         if (largerReplyID) {
+         TMEReply *pendingReply = [self.dataArray lastObject];
+         if (!pendingReply.timeStamp) {
              [self.dataArray removeLastObject];
-             [self.dataArray addObjectsFromArray:conversation.replies];
-             self.conversation.replies = self.dataArray;
          }
-         else if (smallerReplyID) {
-             [self.dataArray insertObjects:conversation.replies atIndexes:[NSIndexSet indexSetWithIndex:0]];
-             self.conversation.replies = self.dataArray;
+         if (!largerReplyID && !smallerReplyID) {
+             if ([conversation.replies count] % 10 == 0 && [conversation.replies count])
+                 self.paging = YES;
          }
-         else {
-             NSMutableSet *repliesSet = [NSMutableSet setWithArray:[conversation.replies mutableCopy]];
-             [repliesSet addObjectsFromArray:self.dataArray];
-             self.dataArray = [[repliesSet allObjects] mutableCopy];
-             [self.dataArray sortByAttribute:@"replyID" ascending:YES];
-             conversation.replies = self.dataArray;
-             self.conversation = conversation;
-         }
-         if (self.dataArray.count % 10 == 0 && self.dataArray.count)
-             self.paging = YES;
+         NSMutableSet *repliesSet = [NSMutableSet setWithArray:[conversation.replies mutableCopy]];
+         [repliesSet addObjectsFromArray:self.dataArray];
+         self.dataArray = [[repliesSet allObjects] mutableCopy];
+         [self.dataArray sortByAttribute:@"replyID" ascending:YES];
+         conversation.replies = self.dataArray;
+         self.conversation = conversation;
          self.dataArray = [[self.dataArray sortByAttribute:@"timeStamp" ascending:YES] mutableCopy];
          [self reloadTableViewConversationShowBottom:showBottom];
      }
