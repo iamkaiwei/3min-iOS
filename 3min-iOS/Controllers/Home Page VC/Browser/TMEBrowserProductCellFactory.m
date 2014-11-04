@@ -57,6 +57,7 @@
 	TMEProductCollectionViewCell <KHCellProtocol> *cell = (TMEProductCollectionViewCell <KHCellProtocol> *) [self _getReusableCellWithClass:[TMEProductCollectionViewCell class] collectionView:collection atIndexPath:indexPath];
 	[cell configWithData:[model itemAtIndexpath:indexPath]];
     [cell loadImages:[model itemAtIndexpath:indexPath]];
+    cell.delegate = self.delegate;
 	return cell;
 }
 

@@ -52,6 +52,7 @@
 - (id<KHCollectionViewCellFactoryProtocol>)cellFactory {
     TMEBrowserProductCellFactory *cellFactory = [[TMEBrowserProductCellFactory alloc] init];
     self.collectionView.collectionViewLayout = [cellFactory waterFlowLayout];
+    cellFactory.delegate = self;
     return cellFactory;
 }
 

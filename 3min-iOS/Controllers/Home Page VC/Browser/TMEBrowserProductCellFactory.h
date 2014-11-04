@@ -16,6 +16,8 @@
 KHCollectionViewCellFactoryProtocol
 >
 
+@property (nonatomic, weak) id<TMEProductCollectionViewCellDelegate> delegate;
+
 - (CHTCollectionViewWaterfallLayout *)waterFlowLayout;
 
 @end
