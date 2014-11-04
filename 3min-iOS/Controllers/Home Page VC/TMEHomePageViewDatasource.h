@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "TMESearchPageContentViewController.h"
 #import "TMEProfilePageContentViewController.h"
-#import "TMEBrowserPageContentViewController.h"
+#import "TMEContainBrowserProductViewController.h"
 
 @interface TMEHomePageViewDatasource : NSObject <UIPageViewControllerDataSource>
 
 @property (nonatomic, strong, readonly) TMEProfilePageContentViewController *profileVC;
-@property (nonatomic, strong, readonly) TMEBrowserPageContentViewController *browserVC;
+@property (nonatomic, strong, readonly) TMEContainBrowserProductViewController *browserVC;
 @property (nonatomic, strong, readonly) TMESearchPageContentViewController *searchVC;
 
 - (NSUInteger)indexOfViewController:(UIViewController *)controller;

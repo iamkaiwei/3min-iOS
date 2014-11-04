@@ -66,6 +66,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self addShadowAndBorderRadius];
+    [self _addGestures];
 }
 
 - (void)prepareForReuse {
@@ -76,6 +77,16 @@
 }
 
 #pragma mark -
+
+- (void)_addGestures {
+    UITapGestureRecognizer *tapToViewDetails = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapCell:)];
+    tapToViewDetails.numberOfTapsRequired = 1;
+    [self addGestureRecognizer:tapToViewDetails];
+
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDoubleTap:)];
+    doubleTap.numberOfTapsRequired = 2;
+    [self addGestureRecognizer:doubleTap];
+}
 
 - (void)addShadowAndBorderRadius {
     self.opaque = YES;
@@ -165,6 +176,20 @@
 	}
 	TMEProductCollectionViewCell *cell = [self getCellFromButton:sender];
 	[self.delegate tapOnViewProfileOnProductOnCell:cell];
+}
+
+- (IBAction)onTapCell:(id)sender {
+	if (![self.delegate respondsToSelector:@selector(tapOnDetailsProductOnCell:)]) {
+		return;
+	}
+	[self.delegate tapOnDetailsProductOnCell:self];
+}
+
+- (IBAction)onDoubleTap:(id)sender {
+	if (![self.delegate respondsToSelector:@selector(tapOnLikeProductOnCell:)]) {
+		return;
+	}
+	[self.delegate tapOnLikeProductOnCell:self];
 }
 
 #pragma mark - Helpers
