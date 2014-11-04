@@ -167,6 +167,20 @@
 	[self.delegate tapOnViewProfileOnProductOnCell:cell];
 }
 
+- (IBAction)onTapCell:(id)sender {
+	if (![self.delegate respondsToSelector:@selector(tapOnDetailsProductOnCell:)]) {
+		return;
+	}
+	[self.delegate tapOnDetailsProductOnCell:self];
+}
+
+- (IBAction)onDoubleTap:(id)sender {
+	if (![self.delegate respondsToSelector:@selector(tapOnLikeProductOnCell:)]) {
+		return;
+	}
+	[self.delegate tapOnLikeProductOnCell:self];
+}
+
 #pragma mark - Helpers
 
 - (TMEProductCollectionViewCell *)getCellFromButton:(UIButton *)button {

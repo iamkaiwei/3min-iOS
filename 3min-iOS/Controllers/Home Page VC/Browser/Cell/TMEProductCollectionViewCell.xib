@@ -122,6 +122,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <size key="customSize" width="279" height="495"/>
             <connections>
                 <outlet property="borderRadiusView" destination="rqe-4h-fDY" id="jN6-Up-a8b"/>
@@ -133,8 +134,20 @@
                 <outlet property="lblProductPrice" destination="eRx-IP-5cM" id="Or7-uC-WM9"/>
                 <outlet property="lblUsername" destination="EDC-zJ-cVj" id="ear-Hj-t8f"/>
                 <outlet property="userAvatar" destination="D31-f7-Fcl" id="0i2-zX-ifu"/>
+                <outletCollection property="gestureRecognizers" destination="n6g-Kc-o3i" appends="YES" id="UnL-xi-B2C"/>
+                <outletCollection property="gestureRecognizers" destination="r0B-JI-gXX" appends="YES" id="YAU-ZB-azV"/>
             </connections>
         </collectionViewCell>
+        <tapGestureRecognizer id="n6g-Kc-o3i" userLabel="Go details">
+            <connections>
+                <action selector="onTapCell:" destination="2Xw-Qn-eID" id="Oio-D5-Fdq"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer numberOfTapsRequired="2" id="r0B-JI-gXX" userLabel="Like">
+            <connections>
+                <action selector="onDoubleTap:" destination="2Xw-Qn-eID" id="1od-t0-Xpq"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="avatar_holding" width="30" height="30"/>

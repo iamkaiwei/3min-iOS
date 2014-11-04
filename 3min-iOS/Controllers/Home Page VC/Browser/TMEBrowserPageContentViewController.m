@@ -110,7 +110,8 @@
 
 #pragma mark - Collection delegate
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tapOnDetailsProductOnCell:(TMEProductCollectionViewCell *)cell {
+	NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
 	TMEProduct *product = (TMEProduct *)[self itemAtIndexPath:indexPath];
 	ProductCollectionCellAct(self, product, TMEProductCollectionCellGoDetails);
 }
