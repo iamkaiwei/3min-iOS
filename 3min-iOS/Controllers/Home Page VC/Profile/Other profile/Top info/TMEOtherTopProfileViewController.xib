@@ -23,7 +23,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ee3-Xi-I3C">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_holding" translatesAutoresizingMaskIntoConstraints="NO" id="KhY-yY-GyG" customClass="KHRoundAvatar">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_holding" translatesAutoresizingMaskIntoConstraints="NO" id="KhY-yY-GyG" customClass="KHRoundAvatar">
                             <rect key="frame" x="15" y="8" width="51" height="51"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </imageView>

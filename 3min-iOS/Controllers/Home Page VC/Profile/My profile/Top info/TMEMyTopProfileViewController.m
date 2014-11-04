@@ -45,7 +45,10 @@
 	self.collectionTop.dataSource = self.collectionController;
 
 	[self.collectionTop reloadData];
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 	[self loadingUserInformation];
 }
 
