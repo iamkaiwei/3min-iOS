@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tlI-ZJ-KGF">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="8" y="20" width="584" height="580"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ddm-hf-PeY">
                                     <size key="itemSize" width="50" height="50"/>
@@ -43,8 +43,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tlI-ZJ-KGF" firstAttribute="bottom" secondItem="ToX-OI-Mzs" secondAttribute="top" id="6mA-Hb-c0e"/>
-                            <constraint firstItem="tlI-ZJ-KGF" firstAttribute="leading" secondItem="bWm-3Q-qpK" secondAttribute="leadingMargin" constant="-16" id="CNE-xv-W6c"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tlI-ZJ-KGF" secondAttribute="trailing" constant="-16" id="GpC-Ua-Wh2"/>
+                            <constraint firstItem="tlI-ZJ-KGF" firstAttribute="leading" secondItem="bWm-3Q-qpK" secondAttribute="leadingMargin" constant="-8" id="CNE-xv-W6c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tlI-ZJ-KGF" secondAttribute="trailing" constant="-8" id="GpC-Ua-Wh2"/>
                             <constraint firstItem="tlI-ZJ-KGF" firstAttribute="top" secondItem="cNb-gK-iGG" secondAttribute="bottom" constant="-20" id="vwB-zy-V8y"/>
                             <constraint firstItem="tlI-ZJ-KGF" firstAttribute="top" secondItem="cNb-gK-iGG" secondAttribute="bottom" id="xou-BP-TeS"/>
                         </constraints>
