@@ -71,7 +71,7 @@
 #define API_POPULAR                                 @"/api/v1/popular"
 #define API_CONVERSATIONS                           @"/api/v1/conversations"
 #define API_CONVERSATIONS_EXIST                     @"/exist"
-#define API_CONVERSATION_REPLIES                    @"/conversation_replies"
+#define API_CONVERSATION_REPLIES                    @"/conversation_replies.json"
 #define API_CREATE_BULK                             @"/api/v1/bulk_create"
 #define API_OFFER                                   @"/api/v1/offer"
 #define API_SHOW_OFFER                              @"/api/v1/show_offer"

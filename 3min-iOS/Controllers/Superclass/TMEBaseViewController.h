@@ -18,7 +18,7 @@
 @property (nonatomic, strong) IIViewDeckController *deckController;
 @property (nonatomic, strong) TMERefreshControl *pullToRefreshView;
 @property (nonatomic, strong) UITextField *activeTextField;
-@property (nonatomic, assign) BOOL isKeyboardShowing;
+@property (nonatomic, assign, getter = isKeyboardShowing) BOOL keyboardShowing;
 @property (nonatomic, assign) BOOL previousVCIsHome;
 @property (nonatomic, assign) BOOL shouldHandleKeyboardNotification;
 @property (nonatomic, strong) UILabel *titleLabel;

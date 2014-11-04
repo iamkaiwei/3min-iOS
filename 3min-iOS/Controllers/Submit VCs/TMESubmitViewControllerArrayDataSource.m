@@ -9,7 +9,6 @@
 #import "TMESubmitViewControllerArrayDataSource.h"
 #import "TMELoadMoreTableViewCell.h"
 #import "TMESubmitTableCell.h"
-#import "TMESubmitTableCellRight.h"
 
 @interface TMESubmitViewControllerArrayDataSource()
 
@@ -57,14 +56,14 @@ cellRightIdentifier:(NSString *)aCellRightIdentifier
     if ([item.userID isEqual:[[[TMEUserManager sharedManager] loggedUser] userID]]) {
         item.userFullName = [[[TMEUserManager sharedManager] loggedUser] fullName];
         item.userAvatar = [[[TMEUserManager sharedManager] loggedUser] avatar];
-        TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
+        TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellRightIdentifier forIndexPath:indexPath];
         [cell configCellWithMessage:item];
         return cell;
     }
     
     item.userFullName = self.conversation.userFullname;
     item.userAvatar = self.conversation.userAvatar;
-    TMESubmitTableCellRight *cell = [tableView dequeueReusableCellWithIdentifier:self.cellRightIdentifier
+    TMESubmitTableCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
                                                                     forIndexPath:indexPath];
     [cell configCellWithMessage:item];
     return cell;

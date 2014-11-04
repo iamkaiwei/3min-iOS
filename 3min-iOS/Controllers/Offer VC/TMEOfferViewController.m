@@ -125,13 +125,13 @@ UIAlertViewDelegate
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
-    self.isKeyboardShowing = YES;
+    self.keyboardShowing = YES;
     return YES;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-    self.isKeyboardShowing = NO;
+    self.keyboardShowing = NO;
 //    [self addNavigationItems];
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.rightBarButtonItem = [self rightNavigationButtonSubmit];
