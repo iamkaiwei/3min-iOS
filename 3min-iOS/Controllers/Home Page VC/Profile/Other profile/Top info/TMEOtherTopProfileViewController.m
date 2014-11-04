@@ -25,6 +25,7 @@
 	[super viewDidLoad];
 
 	[self _loadingUserInformation];
+	[self _configTheButton];
 }
 
 - (void)_loadingUserInformation {
@@ -40,10 +41,19 @@
 
 #pragma mark - Private method
 
+- (void)_configTheButton {
+	self.btnFollow.layer.borderWidth = 1;
+	self.btnFollow.layer.borderColor = [UIColor orangeMainColor].CGColor;
+	self.btnFollow.layer.cornerRadius = 4.0f;
+	self.btnFollow.layer.masksToBounds = YES;
+}
+
 - (void)_configWithUser:(TMEUser *)user {
 	self.lblUsername.text = user.fullName;
 	[self.imgUserAvatar setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:nil];
-	self.btnFollow.titleLabel.text = [user.followed boolValue] ? @"Unfollow" : @"Follow";
+
+	NSString *buttonTitle = [user.followed boolValue] ? @"Unfollow" : @"Follow";
+	[self.btnFollow setTitle:buttonTitle forState:UIControlStateNormal];
 }
 
 - (void)updateViewConstraints {
@@ -62,7 +72,7 @@
 	TMEUserNetworkClient *userClient = [[TMEUserNetworkClient alloc] init];
 
 	// unfollow
-	if (self.user.followed) {
+	if ([self.user.followed boolValue]) {
 		[userClient unfollowUser:self.user finishBlock: ^(NSError *error) {
 		    if (finishBlock) {
 		        finishBlock(error);
@@ -96,11 +106,12 @@
 	self.followingProgressIndicator.hidden = NO;
 	[self _followOrUnfollowUser: ^(NSError *error) {
 	    if (!error) {
-	        self.user.followed = @(YES);
-	        [self _configWithUser:self.user];
-	        self.btnFollow.hidden = NO;
-	        self.followingProgressIndicator.hidden = YES;
+            self.user.followed = @(![self.user.followed boolValue]);
 		}
+
+	    [self _configWithUser:self.user];
+	    self.btnFollow.hidden = NO;
+	    self.followingProgressIndicator.hidden = YES;
 	}];
 }
 
