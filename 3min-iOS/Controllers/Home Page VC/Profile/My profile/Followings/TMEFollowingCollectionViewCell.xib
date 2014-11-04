@@ -38,8 +38,8 @@
                         <state key="selected" image="icn_followed"/>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsf-Hu-dLX" userLabel="border">
-                        <rect key="frame" x="0.0" y="49" width="320" height="1"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <rect key="frame" x="10" y="49" width="310" height="1"/>
+                        <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="8fr-kN-mFo"/>
                         </constraints>
@@ -57,7 +57,7 @@
                 <constraint firstItem="udR-kc-pmJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="XpX-4w-CQ1"/>
                 <constraint firstAttribute="bottom" secondItem="udR-kc-pmJ" secondAttribute="bottom" constant="5" id="azp-Jf-HyI"/>
                 <constraint firstAttribute="bottom" secondItem="dsf-Hu-dLX" secondAttribute="bottom" id="fcm-yx-ihu"/>
-                <constraint firstItem="dsf-Hu-dLX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="i0x-cI-oXd"/>
+                <constraint firstItem="dsf-Hu-dLX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="i0x-cI-oXd"/>
                 <constraint firstItem="5OD-Rk-IxL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="leY-JO-S2k"/>
             </constraints>
             <size key="customSize" width="155" height="50"/>
