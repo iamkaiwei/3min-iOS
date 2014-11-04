@@ -37,6 +37,13 @@
                         </state>
                         <state key="selected" image="icn_followed"/>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsf-Hu-dLX" userLabel="border">
+                        <rect key="frame" x="0.0" y="49" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="8fr-kN-mFo"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
@@ -45,9 +52,12 @@
                 <constraint firstItem="8hd-dy-WaA" firstAttribute="top" secondItem="udR-kc-pmJ" secondAttribute="top" constant="9" id="G9o-4b-cuT"/>
                 <constraint firstAttribute="trailing" secondItem="5OD-Rk-IxL" secondAttribute="trailing" constant="8" id="HaR-sM-Z6O"/>
                 <constraint firstItem="8hd-dy-WaA" firstAttribute="leading" secondItem="udR-kc-pmJ" secondAttribute="trailing" constant="7" id="K2E-FO-jeu"/>
+                <constraint firstAttribute="trailing" secondItem="dsf-Hu-dLX" secondAttribute="trailing" id="Vfk-uM-joQ"/>
                 <constraint firstItem="5OD-Rk-IxL" firstAttribute="leading" secondItem="8hd-dy-WaA" secondAttribute="trailing" constant="15" id="Xaa-db-IVs"/>
                 <constraint firstItem="udR-kc-pmJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="XpX-4w-CQ1"/>
                 <constraint firstAttribute="bottom" secondItem="udR-kc-pmJ" secondAttribute="bottom" constant="5" id="azp-Jf-HyI"/>
+                <constraint firstAttribute="bottom" secondItem="dsf-Hu-dLX" secondAttribute="bottom" id="fcm-yx-ihu"/>
+                <constraint firstItem="dsf-Hu-dLX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="i0x-cI-oXd"/>
                 <constraint firstItem="5OD-Rk-IxL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="leY-JO-S2k"/>
             </constraints>
             <size key="customSize" width="155" height="50"/>
