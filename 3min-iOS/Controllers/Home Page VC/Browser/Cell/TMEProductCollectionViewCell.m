@@ -66,6 +66,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self addShadowAndBorderRadius];
+    [self _addGestures];
 }
 
 - (void)prepareForReuse {
@@ -76,6 +77,16 @@
 }
 
 #pragma mark -
+
+- (void)_addGestures {
+    UITapGestureRecognizer *tapToViewDetails = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapCell:)];
+    tapToViewDetails.numberOfTapsRequired = 1;
+    [self addGestureRecognizer:tapToViewDetails];
+
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDoubleTap:)];
+    doubleTap.numberOfTapsRequired = 2;
+    [self addGestureRecognizer:doubleTap];
+}
 
 - (void)addShadowAndBorderRadius {
     self.opaque = YES;
