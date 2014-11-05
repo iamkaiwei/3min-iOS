@@ -22,15 +22,6 @@
 
 #pragma mark -
 
-- (CHTCollectionViewWaterfallLayout *)waterFlowLayout {
-	CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
-	layout.columnCount = 2;
-	layout.minimumColumnSpacing = 5;
-	layout.minimumInteritemSpacing = 6;
-
-	return layout;
-}
-
 - (CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath model:(id <KHTableViewModel> )model {
 
 	if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHContentLoadingSectionViewModel class]]) {

@@ -23,7 +23,8 @@
 @interface TMEBrowserPageContentViewController ()
 <
     UICollectionViewDelegateFlowLayout,
-    TMEProductCollectionViewCellDelegate
+    TMEProductCollectionViewCellDelegate,
+    KHBasicOrderedCollectionViewControllerProtocol
 >
 
 @property (strong, nonatomic) TMECategory *currentCategory;
@@ -41,19 +42,26 @@
 	[self listenToTheCategoryDidChangedNofitication];
 }
 
-- (id<KHCollectionViewCellFactoryProtocol>)cellFactory {
-    TMEBrowserProductCellFactory *cellFactory = [[TMEBrowserProductCellFactory alloc] init];
-    self.collectionView.collectionViewLayout = [cellFactory waterFlowLayout];
-    cellFactory.delegate = self;
-    return cellFactory;
+- (id <KHCollectionViewCellFactoryProtocol> )cellFactory {
+	TMEBrowserProductCellFactory *cellFactory = [[TMEBrowserProductCellFactory alloc] init];
+	cellFactory.delegate = self;
+	return cellFactory;
 }
 
-- (id<KHTableViewSectionModel>)getLoadingContentViewModel {
-    return [[KHOrderedDataProvider alloc] init];
+- (UICollectionViewLayout *)getCollectionViewLayout {
+	CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
+	layout.columnCount = 2;
+	layout.minimumColumnSpacing = 5;
+	layout.minimumInteritemSpacing = 6;
+    return layout;
+}
+
+- (id <KHTableViewSectionModel> )getLoadingContentViewModel {
+	return [[KHOrderedDataProvider alloc] init];
 }
 
 - (id <KHLoadingOperationProtocol> )loadingOperationForSectionViewModel:(id <KHTableViewSectionModel> )viewModel forPage:(NSUInteger)page {
-    return [[TMEBrowserProductLoadingOperation alloc] initWithCategory:self.currentCategory andPage:page+1];
+	return [[TMEBrowserProductLoadingOperation alloc] initWithCategory:self.currentCategory andPage:page + 1];
 }
 
 #pragma mark -
@@ -63,12 +71,12 @@
 
 	[[NSNotificationCenter defaultCenter] addObserverForName:TMEHomeCategoryDidChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock: ^(NSNotification *note) {
 	    TMEDropDownMenuViewController *vc = note.object;
-        weakSelf.currentCategory = vc.selectedCategory;
+	    weakSelf.currentCategory = vc.selectedCategory;
 	    UIButton *centerBtn = [weakSelf.parentViewController.navigationItem.titleView getButton];
 	    [centerBtn setTitle:weakSelf.currentCategory.name forState:UIControlStateNormal];
 	    [centerBtn setTitle:weakSelf.currentCategory.name forState:UIControlStateSelected];
 
-        [self reloadAllData];
+	    [self reloadAllData];
 	}];
 }
 
