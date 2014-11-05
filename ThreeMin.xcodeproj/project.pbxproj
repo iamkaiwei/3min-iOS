@@ -290,6 +290,10 @@
 		B64808411A0893CC00A855A0 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B64808371A08934100A855A0 /* OpenSans-Semibold.ttf */; };
 		B64808421A0893CC00A855A0 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B64808381A08934100A855A0 /* OpenSans-SemiboldItalic.ttf */; };
 		B69F6AE71A07D5AA00A2DE08 /* TMEReply+BackwardSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = B69F6AE61A07D5AA00A2DE08 /* TMEReply+BackwardSupport.m */; };
+		B6D724BE1A09D42600DCAC07 /* TMEUserMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D724BD1A09D42600DCAC07 /* TMEUserMessage.m */; };
+		B6D724C21A09DA8600DCAC07 /* TMEPostMessageOnline.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D724C11A09DA8600DCAC07 /* TMEPostMessageOnline.m */; };
+		B6D724C51A09DA9C00DCAC07 /* TMEPostMessageOffline.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D724C41A09DA9C00DCAC07 /* TMEPostMessageOffline.m */; };
+		B6D724C91A09FF9F00DCAC07 /* TMEUserMessageParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D724C81A09FF9F00DCAC07 /* TMEUserMessageParameter.m */; };
 		D2140D9719A3338E008560B0 /* TMECrashlyticsAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */; };
 		D21698A119A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D21698A019A2FDE200CC0ACC /* TMEUserManagerAppDelegateService.m */; };
 		D22016BD19A49D480071535C /* TMEPushNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D22016BC19A49D480071535C /* TMEPushNotificationManager.m */; };
@@ -832,6 +836,16 @@
 		B64808381A08934100A855A0 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		B69F6AE51A07D5AA00A2DE08 /* TMEReply+BackwardSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TMEReply+BackwardSupport.h"; sourceTree = "<group>"; };
 		B69F6AE61A07D5AA00A2DE08 /* TMEReply+BackwardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TMEReply+BackwardSupport.m"; sourceTree = "<group>"; };
+		B6D724BC1A09D42600DCAC07 /* TMEUserMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserMessage.h; sourceTree = "<group>"; };
+		B6D724BD1A09D42600DCAC07 /* TMEUserMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserMessage.m; sourceTree = "<group>"; };
+		B6D724C01A09DA8600DCAC07 /* TMEPostMessageOnline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPostMessageOnline.h; sourceTree = "<group>"; };
+		B6D724C11A09DA8600DCAC07 /* TMEPostMessageOnline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPostMessageOnline.m; sourceTree = "<group>"; };
+		B6D724C31A09DA9C00DCAC07 /* TMEPostMessageOffline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPostMessageOffline.h; sourceTree = "<group>"; };
+		B6D724C41A09DA9C00DCAC07 /* TMEPostMessageOffline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPostMessageOffline.m; sourceTree = "<group>"; };
+		B6D724C61A09E4C600DCAC07 /* TMEUserMessageParameterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserMessageParameterProtocol.h; sourceTree = "<group>"; };
+		B6D724C71A09FF9F00DCAC07 /* TMEUserMessageParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserMessageParameter.h; sourceTree = "<group>"; };
+		B6D724C81A09FF9F00DCAC07 /* TMEUserMessageParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserMessageParameter.m; sourceTree = "<group>"; };
+		B6D724CA1A0A03A600DCAC07 /* TMEEnumHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMEEnumHeaders.h; sourceTree = "<group>"; };
 		C99C45F832C15113F06B8E70 /* Pods-ThreeMin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeMin.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThreeMin/Pods-ThreeMin.release.xcconfig"; sourceTree = "<group>"; };
 		D2140D9519A3338E008560B0 /* TMECrashlyticsAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECrashlyticsAppDelegateService.h; sourceTree = "<group>"; };
 		D2140D9619A3338E008560B0 /* TMECrashlyticsAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECrashlyticsAppDelegateService.m; sourceTree = "<group>"; };
@@ -1077,6 +1091,7 @@
 				99EA0D841978492C00872EE4 /* TMEViewHeaders.h */,
 				9966434919A1087D008960DB /* TMENetworkHeaders.h */,
 				B481670119B1A342007C3B57 /* TMEProtocolHeaders.h */,
+				B6D724CA1A0A03A600DCAC07 /* TMEEnumHeaders.h */,
 			);
 			name = CommonHeaders;
 			path = "3min-iOS/CommonHeaders";
@@ -1085,6 +1100,7 @@
 		99EA0D851978492C00872EE4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B6D724BF1A09DA2B00DCAC07 /* User Message Handle */,
 				D224261419A2070A009DB3AC /* TMEUserManager.h */,
 				D224261519A2070A009DB3AC /* TMEUserManager.m */,
 				B410F76519961AA5000AE5B7 /* TMEBaseManager.h */,
@@ -2033,6 +2049,22 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		B6D724BF1A09DA2B00DCAC07 /* User Message Handle */ = {
+			isa = PBXGroup;
+			children = (
+				B6D724BC1A09D42600DCAC07 /* TMEUserMessage.h */,
+				B6D724BD1A09D42600DCAC07 /* TMEUserMessage.m */,
+				B6D724C01A09DA8600DCAC07 /* TMEPostMessageOnline.h */,
+				B6D724C11A09DA8600DCAC07 /* TMEPostMessageOnline.m */,
+				B6D724C31A09DA9C00DCAC07 /* TMEPostMessageOffline.h */,
+				B6D724C41A09DA9C00DCAC07 /* TMEPostMessageOffline.m */,
+				B6D724C61A09E4C600DCAC07 /* TMEUserMessageParameterProtocol.h */,
+				B6D724C71A09FF9F00DCAC07 /* TMEUserMessageParameter.h */,
+				B6D724C81A09FF9F00DCAC07 /* TMEUserMessageParameter.m */,
+			);
+			name = "User Message Handle";
+			sourceTree = "<group>";
+		};
 		D295D2BC19E29F2C008B9BC4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -2393,6 +2425,7 @@
 				B410F76019961A7C000AE5B7 /* TMEActivityManager.m in Sources */,
 				B486FC201A0880870058D8B7 /* TMEFollowerViewController.m in Sources */,
 				B4F513D119AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m in Sources */,
+				B6D724C21A09DA8600DCAC07 /* TMEPostMessageOnline.m in Sources */,
 				B410F75819961A15000AE5B7 /* TMEBaseModel+TMEAdditions.m in Sources */,
 				99EA0F801978492D00872EE4 /* TMEBaseViewController.m in Sources */,
 				99EA0F041978492D00872EE4 /* TMEActivity.m in Sources */,
@@ -2468,6 +2501,7 @@
 				99EA0F2F1978492D00872EE4 /* UILabel+Additions.m in Sources */,
 				99EA0F621978492D00872EE4 /* TMEMeViewController.m in Sources */,
 				B4BC82781A03887D00DF3983 /* TMELabel.m in Sources */,
+				B6D724BE1A09D42600DCAC07 /* TMEUserMessage.m in Sources */,
 				9992943119E2D95800896D05 /* TMEProductComment.m in Sources */,
 				99EA0F951978492D00872EE4 /* TMECircleProgressIndicator.m in Sources */,
 				B410F755199619DF000AE5B7 /* TMEImage.m in Sources */,
@@ -2502,6 +2536,7 @@
 				99EA0F521978492D00872EE4 /* TMEHomeViewController.m in Sources */,
 				99EA0EEF1978492D00872EE4 /* TMEPushNotificationAppDelegateService.m in Sources */,
 				99EA0F581978492D00872EE4 /* TMEMyListingTableViewCell.m in Sources */,
+				B6D724C91A09FF9F00DCAC07 /* TMEUserMessageParameter.m in Sources */,
 				B40D948319FA4B9E00432DD0 /* TMEListActivitiesViewModel.m in Sources */,
 				99EA0F1F1978492D00872EE4 /* NSNumber+Additions.m in Sources */,
 				99EA0F7B1978492D00872EE4 /* TMESubmitViewControllerArrayDataSource.m in Sources */,

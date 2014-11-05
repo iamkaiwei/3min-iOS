@@ -46,7 +46,7 @@
     return 77;
 }
 
-- (CGFloat)getHeightWithContent:(NSString *)content{
++ (CGFloat)getHeightWithContent:(NSString *)content{
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 22)];
     label.numberOfLines = 0;
     label.font = [UIFont openSansRegularFontWithSize:17.0f];

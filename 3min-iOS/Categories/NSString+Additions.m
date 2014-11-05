@@ -51,7 +51,7 @@
 }
 
 - (NSString *)trim {
-    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
 - (NSString*)URLEncodedString

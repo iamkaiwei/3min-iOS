@@ -10,7 +10,7 @@
 
 @interface TMESubmitTableCell : TMEBaseTableViewCell
 
-- (CGFloat)getHeightWithContent:(NSString *)content;
++ (CGFloat)getHeightWithContent:(NSString *)content;
 - (void)configCellWithMessage:(TMEReply *)reply;
 
 @end
