@@ -15,6 +15,10 @@
 @property (weak, nonatomic) IBOutlet KHRoundAvatar *imgUserAvatar;
 @property (weak, nonatomic) IBOutlet UIButton *btnFollow;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblPositive;
+@property (weak, nonatomic) IBOutlet UILabel *lblFollower;
+@property (weak, nonatomic) IBOutlet UILabel *lblFollowing;
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *followingProgressIndicator;
 
 @end
@@ -51,6 +55,10 @@
 - (void)_configWithUser:(TMEUser *)user {
 	self.lblUsername.text = user.fullName;
 	[self.imgUserAvatar setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:nil];
+
+    self.lblPositive.text = [[user.positive_percent stringValue] stringByAppendingString:@"%"];
+    self.lblFollower.text = [user.follower_count stringValue];
+    self.lblFollowing.text = [user.following_count stringValue];
 
 	NSString *buttonTitle = [user.followed boolValue] ? @"Unfollow" : @"Follow";
 	[self.btnFollow setTitle:buttonTitle forState:UIControlStateNormal];

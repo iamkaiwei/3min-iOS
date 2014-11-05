@@ -39,7 +39,7 @@
     [self.imgUserAvatar setImageWithURL:[NSURL URLWithString:user.avatar]
                        placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
     self.lblUserName.text = user.fullName;
-    self.lblPositive.text = [user.positive_count stringValue];
+    self.lblPositive.text = [[user.positive_percent stringValue] stringByAppendingString:@"%"];
 
     self.lblFollower.text = [user.follower_count stringValue];
     self.lblFollowing.text = [user.following_count stringValue];
