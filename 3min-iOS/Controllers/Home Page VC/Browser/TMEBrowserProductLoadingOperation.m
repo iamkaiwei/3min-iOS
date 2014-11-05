@@ -8,6 +8,7 @@
 
 #import "TMEBrowserProductLoadingOperation.h"
 #import "TMEProduct+ProductCellHeight.h"
+#import "TMEProductsManager.h"
 
 @interface TMEBrowserProductLoadingOperation ()
 

@@ -43,6 +43,6 @@ target :ThreeMin, :exclusive => true do
   pod 'SIAlertView', '~> 1.3'
   pod 'FormatterKit', '~> 1.7'
   pod 'RZCellSizeManager'
-  pod 'KHTableViewController'
   pod 'HPGrowingTextView'
+  pod 'KHTableViewController'
 end

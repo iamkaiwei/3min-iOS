@@ -10,6 +10,7 @@
 #import <KHTableViewController/KHContentLoadingSectionViewModel.h>
 #import "TMEProduct+ProductCellHeight.h"
 #import "TMEProductCollectionViewCell.h"
+#import "KHOrderedDataProvider.h"
 
 @interface TMEBrowserProductCellFactory()
 
@@ -32,7 +33,8 @@
         return CGSizeMake(320, 0);
     }
 
-    TMEProduct *product = [model itemAtIndexpath:indexPath];
+    KHOrderedDataProvider *dataProvider = (KHOrderedDataProvider *) [model sectionAtIndex:indexPath.section];
+    TMEProduct *product = [dataProvider objectAtIndex:indexPath.item withTriggerPagination:NO];
 	return CGSizeMake(150, [product productCellHeight]);
 }
 

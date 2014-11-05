@@ -27,7 +27,6 @@
     KHBasicOrderedCollectionViewControllerProtocol
 >
 
-@property (strong, nonatomic) TMECategory *currentCategory;
 @end
 
 @implementation TMEBrowserPageContentViewController
@@ -40,6 +39,7 @@
 	// Do any additional setup after loading the view from its nib.
 
 	[self listenToTheCategoryDidChangedNofitication];
+    [self enablePullToRefresh];
 }
 
 - (id <KHCollectionViewCellFactoryProtocol> )cellFactory {
@@ -76,7 +76,7 @@
 	    [centerBtn setTitle:weakSelf.currentCategory.name forState:UIControlStateNormal];
 	    [centerBtn setTitle:weakSelf.currentCategory.name forState:UIControlStateSelected];
 
-	    [self reloadAllData];
+	    [self reloadAlData];
 	}];
 }
 

@@ -13,4 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (strong, nonatomic) TMECategory *currentCategory;
+
 @end

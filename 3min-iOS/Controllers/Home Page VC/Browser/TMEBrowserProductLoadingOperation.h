@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TMECategory.h"
+#import <KHTableViewController/KHLoadingOperationProtocol.h>
 
 @interface TMEBrowserProductLoadingOperation : NSObject
 <
