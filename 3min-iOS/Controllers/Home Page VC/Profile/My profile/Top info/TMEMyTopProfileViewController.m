@@ -15,6 +15,7 @@
 #import "TMEProfilePageContentViewController.h"
 #import "TMEFollowerViewController.h"
 #import "TMEFollowingViewController.h"
+#import "TMEMyItemViewController.h"
 
 @interface TMEMyTopProfileViewController ()
 
@@ -106,6 +107,10 @@
 }
 
 - (void)onTapMyItems {
+	TMEMyItemViewController *vc = [[UIStoryboard storyboardWithName:@"TMEMyItemViewController" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEMyItemViewController class])];
+	UINavigationController *nav = (UINavigationController *)self.parentViewController.parentViewController.parentViewController;
+	[nav pushViewController:vc animated:YES];
+    return;
 }
 
 - (void)onTapEdit {

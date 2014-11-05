@@ -10,7 +10,7 @@
 
 @implementation TMEProductsManager
 
-
+// get user own products
 + (void)getAllProductsWihPage:(NSInteger)page
                onSuccessBlock:(void (^) (NSArray *))successBlock
                  failureBlock:(TMENetworkManagerFailureBlock)failureBlock
@@ -19,6 +19,19 @@
 
     [[TMENetworkManager sharedManager] getModels:[TMEProduct class]
                                             path:API_PRODUCTS
+                                          params:params
+                                         success:successBlock
+                                         failure:failureBlock];
+}
+
++ (void)getOwnProductsWihPage:(NSInteger)page
+               onSuccessBlock:(void (^) (NSArray *))successBlock
+                 failureBlock:(TMENetworkManagerFailureBlock)failureBlock
+{
+    NSDictionary *params = @{@"page" : @(page)};
+
+    [[TMENetworkManager sharedManager] getModels:[TMEProduct class]
+                                            path:API_OWN_PRODUCTS
                                           params:params
                                          success:successBlock
                                          failure:failureBlock];
