@@ -1,24 +1,22 @@
 //
-//  TMEBrowserProductCellFactory.m
+//  TMEMyItemCellFactory.m
 //  ThreeMin
 //
-//  Created by Triệu Khang on 4/11/14.
+//  Created by Triệu Khang on 6/11/14.
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
-#import "TMEBrowserProductCellFactory.h"
+#import "TMEMyItemCellFactory.h"
 #import <KHTableViewController/KHContentLoadingSectionViewModel.h>
 #import "TMEProduct+ProductCellHeight.h"
 #import "TMEProductCollectionViewCell.h"
 #import "KHOrderedDataProvider.h"
 
-@interface TMEBrowserProductCellFactory()
+@interface TMEMyItemCellFactory()
 
 @end
 
-@implementation TMEBrowserProductCellFactory
-
-#pragma mark -
+@implementation TMEMyItemCellFactory
 
 - (CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath model:(id <KHTableViewModel> )model {
 

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <KHTableViewController/KHBasicOrderedCollectionViewController.h>
 
-@interface TMEMyItemViewController : KHBasicOrderedCollectionViewController 
+@interface TMEMyItemViewController : KHBasicOrderedCollectionViewController
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

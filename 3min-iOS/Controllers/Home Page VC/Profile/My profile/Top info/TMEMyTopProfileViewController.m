@@ -16,6 +16,7 @@
 #import "TMEFollowerViewController.h"
 #import "TMEFollowingViewController.h"
 #import "TMEMyItemViewController.h"
+#import "TMEBrowserPageContentViewController.h"
 
 @interface TMEMyTopProfileViewController ()
 
@@ -107,8 +108,11 @@
 }
 
 - (void)onTapMyItems {
+//    UIViewController *vc = [[UIViewController alloc] init];
+//    vc.view.backgroundColor = [UIColor whiteColor];
 	TMEMyItemViewController *vc = [[UIStoryboard storyboardWithName:@"TMEMyItemViewController" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEMyItemViewController class])];
-	UINavigationController *nav = (UINavigationController *)self.parentViewController.parentViewController.parentViewController;
+//	TMEBrowserPageContentViewController *vc = [[UIStoryboard storyboardWithName:@"TMEBrowserPageContentViewController" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEBrowserPageContentViewController class])];
+    UINavigationController *nav = (UINavigationController *)self.parentViewController.parentViewController.parentViewController;
 	[nav pushViewController:vc animated:YES];
     return;
 }

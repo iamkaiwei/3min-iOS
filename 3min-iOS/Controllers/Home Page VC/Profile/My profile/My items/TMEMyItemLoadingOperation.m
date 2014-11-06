@@ -9,7 +9,7 @@
 #import "TMEMyItemLoadingOperation.h"
 #import "TMEProduct+ProductCellHeight.h"
 
-@interface TMEMyItemLoadingOperation()
+@interface TMEMyItemLoadingOperation ()
 
 @property (assign, nonatomic) NSUInteger page;
 @property (strong, nonatomic) NSArray *dataPage;
@@ -19,19 +19,19 @@
 @implementation TMEMyItemLoadingOperation
 
 - (instancetype)initWithPage:(NSUInteger)page {
-    self = [super init];
-    if (self) {
-        _page = page;
-    }
+	self = [super init];
+	if (self) {
+		_page = page;
+	}
 
-    return self;
+	return self;
 }
 
 - (void)loadData:(void (^)(NSArray *, NSError *))finishBlock {
 	__weak typeof(self) weakSelf = self;
 
 	void (^successBlock)(NSArray *) = ^(NSArray *arrProducts) {
-		NSMutableArray *arr = [self.dataPage mutableCopy];
+		NSMutableArray *arr = [weakSelf.dataPage mutableCopy];
 		[arr addObjectsFromArray:arrProducts];
 		weakSelf.dataPage = arr;
 
@@ -51,9 +51,13 @@
 	[TMEProductsManager getOwnProductsWihPage:self.page
 	                           onSuccessBlock: ^(NSArray *arrProducts) {
 	    weakSelf.dataPage = arrProducts;
-	    successBlock(arrProducts);
+	    dispatch_async(dispatch_get_main_queue(), ^{
+	        successBlock(arrProducts);
+		});
 	} failureBlock: ^(NSError *error) {
-	    finishBlock(nil, error);
+	    dispatch_async(dispatch_get_main_queue(), ^{
+	        finishBlock(nil, error);
+		});
 	}];
 }
 

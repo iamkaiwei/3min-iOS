@@ -245,6 +245,7 @@
 		B470E4FE19AC367C00F4FF18 /* TMEPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E4FD19AC367C00F4FF18 /* TMEPageViewController.m */; };
 		B470E50419AC473D00F4FF18 /* UIBarButtonItem+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E50319AC473D00F4FF18 /* UIBarButtonItem+Additions.m */; };
 		B470E50719AC7A4C00F4FF18 /* UIView+TitleViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B470E50619AC7A4C00F4FF18 /* UIView+TitleViewUtils.m */; };
+		B47FBD991A0B516C002A75F3 /* TMEMyItemViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4CC4E3D1A0B305300FCACD1 /* TMEMyItemViewController.storyboard */; };
 		B486E3591A04F25C00696267 /* UIFont+TMECustomFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = B486E3581A04F25C00696267 /* UIFont+TMECustomFonts.m */; };
 		B486E3601A04F35000696267 /* TMEFollowingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B486E35B1A04F35000696267 /* TMEFollowingCollectionViewCell.xib */; };
 		B486E3651A04F62200696267 /* TMEFollowingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B486E3641A04F62200696267 /* TMEFollowingCollectionViewCell.m */; };
@@ -268,8 +269,8 @@
 		B4CBA1E51A02050A0083ACDE /* TMETopUserSection.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CBA1E41A02050A0083ACDE /* TMETopUserSection.m */; };
 		B4CC4E361A0A33A400FCACD1 /* TMEMyItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CC4E341A0A33A400FCACD1 /* TMEMyItemViewController.m */; };
 		B4CC4E3A1A0A346D00FCACD1 /* TMEMyItemLoadingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CC4E391A0A346D00FCACD1 /* TMEMyItemLoadingOperation.m */; };
-		B4CC4E3C1A0A3AA000FCACD1 /* TMEMyItemViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4CC4E3B1A0A3AA000FCACD1 /* TMEMyItemViewController.storyboard */; };
 		B4CE71B31A063D4600DF9E78 /* TMEFollowingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4CE71B21A063D4600DF9E78 /* TMEFollowingViewController.storyboard */; };
+		B4D745351A0B399E00CD14D4 /* TMEMyItemCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D745341A0B399E00CD14D4 /* TMEMyItemCellFactory.m */; };
 		B4EF43A619A462A7001F010C /* NSValueTransformer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = B4EF43A519A462A7001F010C /* NSValueTransformer+Addition.m */; };
 		B4F513D119AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F513D019AD8985003DE851 /* TMEHomeNavigationButtonDelegate.m */; };
 		B4F513D619AEDCB9003DE851 /* TMEDropDownMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F513D419AEDCB9003DE851 /* TMEDropDownMenuViewController.m */; };
@@ -802,8 +803,10 @@
 		B4CC4E341A0A33A400FCACD1 /* TMEMyItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMyItemViewController.m; sourceTree = "<group>"; };
 		B4CC4E381A0A346D00FCACD1 /* TMEMyItemLoadingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEMyItemLoadingOperation.h; sourceTree = "<group>"; };
 		B4CC4E391A0A346D00FCACD1 /* TMEMyItemLoadingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMyItemLoadingOperation.m; sourceTree = "<group>"; };
-		B4CC4E3B1A0A3AA000FCACD1 /* TMEMyItemViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TMEMyItemViewController.storyboard; sourceTree = "<group>"; };
+		B4CC4E3D1A0B305300FCACD1 /* TMEMyItemViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TMEMyItemViewController.storyboard; sourceTree = "<group>"; };
 		B4CE71B21A063D4600DF9E78 /* TMEFollowingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TMEFollowingViewController.storyboard; sourceTree = "<group>"; };
+		B4D745331A0B399E00CD14D4 /* TMEMyItemCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEMyItemCellFactory.h; sourceTree = "<group>"; };
+		B4D745341A0B399E00CD14D4 /* TMEMyItemCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEMyItemCellFactory.m; sourceTree = "<group>"; };
 		B4EF43A419A462A7001F010C /* NSValueTransformer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+Addition.h"; sourceTree = "<group>"; };
 		B4EF43A519A462A7001F010C /* NSValueTransformer+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValueTransformer+Addition.m"; sourceTree = "<group>"; };
 		B4F513CF19AD8985003DE851 /* TMEHomeNavigationButtonDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEHomeNavigationButtonDelegate.h; sourceTree = "<group>"; };
@@ -1992,9 +1995,11 @@
 			children = (
 				B4CC4E381A0A346D00FCACD1 /* TMEMyItemLoadingOperation.h */,
 				B4CC4E391A0A346D00FCACD1 /* TMEMyItemLoadingOperation.m */,
+				B4D745331A0B399E00CD14D4 /* TMEMyItemCellFactory.h */,
+				B4D745341A0B399E00CD14D4 /* TMEMyItemCellFactory.m */,
 				B4CC4E331A0A33A400FCACD1 /* TMEMyItemViewController.h */,
 				B4CC4E341A0A33A400FCACD1 /* TMEMyItemViewController.m */,
-				B4CC4E3B1A0A3AA000FCACD1 /* TMEMyItemViewController.storyboard */,
+				B4CC4E3D1A0B305300FCACD1 /* TMEMyItemViewController.storyboard */,
 			);
 			path = "My items";
 			sourceTree = "<group>";
@@ -2212,6 +2217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B47FBD991A0B516C002A75F3 /* TMEMyItemViewController.storyboard in Resources */,
 				B64808391A0893CC00A855A0 /* OpenSans-Bold.ttf in Resources */,
 				B648083A1A0893CC00A855A0 /* OpenSans-BoldItalic.ttf in Resources */,
 				B648083B1A0893CC00A855A0 /* OpenSans-ExtraBold.ttf in Resources */,
@@ -2241,7 +2247,6 @@
 				99EA0F661978492D00872EE4 /* TMEOfferViewController.xib in Resources */,
 				99EA0F4D1978492D00872EE4 /* HTKContainerViewController.xib in Resources */,
 				99EA0F821978492D00872EE4 /* Images.xcassets in Resources */,
-				B4CC4E3C1A0A3AA000FCACD1 /* TMEMyItemViewController.storyboard in Resources */,
 				99EA0F761978492D00872EE4 /* TMESubmitTableCell.xib in Resources */,
 				B486FC1D1A087FF50058D8B7 /* TMEFollowerViewController.storyboard in Resources */,
 				990CB7D6199A75D400AEA179 /* TMETutorialViewController.xib in Resources */,
@@ -2377,6 +2382,7 @@
 				99EA0F901978492D00872EE4 /* TMESwitch.m in Sources */,
 				9992943D19E2F7F700896D05 /* TMEProductLikeNetworkClient.m in Sources */,
 				B486E3681A04F75E00696267 /* TMEFollowingCellFactory.m in Sources */,
+				B4D745351A0B399E00CD14D4 /* TMEMyItemCellFactory.m in Sources */,
 				99EA0F2B1978492D00872EE4 /* UIImage+Additions.m in Sources */,
 				B40D948419FA4B9E00432DD0 /* TMEMyTopProfileViewController.m in Sources */,
 				9937B90919B5EA200000EE0C /* UITextField+TMEAdditions.m in Sources */,
