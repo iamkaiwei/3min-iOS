@@ -12,9 +12,13 @@
 #import "HTKContainerViewController.h"
 #import "TMESubmitViewControllerArrayDataSource.h"
 #import "TMEUserMessage.h"
+#import "TMEPusherImp.h"
 #import <HPGrowingTextView.h>
 
 static NSString * const kRightTableViewCellIdentifier = @"TMESubmitTableCellRight";
+static NSString * const kChatEventName = @"client-chat";
+static NSString * const kChatEventTyping = @"client-typing";
+static NSString * const kChatEventCurrentUserTyping = @"client-currentusertyping";
 
 @interface TMESubmitViewController()
 <
@@ -80,7 +84,6 @@ PTPusherPresenceChannelDelegate
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [TMEPusherManager connectWithDelegate:self];
     [self subscribeChannel];
     self.currentPostMode = TMEPostModeOffline;
     self.isTyping = NO;
@@ -128,27 +131,36 @@ PTPusherPresenceChannelDelegate
     self.sendMessageButton.titleLabel.font = [UIFont openSansSemiBoldFontWithSize:self.sendMessageButton.titleLabel.font.pointSize];
 }
 
-- (void)subscribeChannel{
-//    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:self.conversation.channelName delegate:self];
-//    [self.presenceChannel bindToEventNamed:PUSHER_CHAT_EVENT_NAME                           handleWithBlock:^(PTPusherEvent *channelEvent) {
-//        self.labelTyping.text = @"";
-//        TMEUser *user = [TMEUser userWithID:self.conversation.userID
-//                                   fullName:self.conversation.userFullname
-//                                  photoURL:self.conversation.userAvatar];
-//
-//        TMEReply *reply = [TMEReply replyWithContent:channelEvent.data[@"message"]
-//                                              sender:user
-//                                           timeStamp:channelEvent.data[@"timestamp"]];
-//        [self.dataArray addObject:reply];
-//        [self reloadTableViewConversationShowBottom:YES];
-//    }];
-//
-//    [self.presenceChannel bindToEventNamed:PUSHER_CHAT_EVENT_TYPING handleWithBlock:^(PTPusherEvent *channelEvent) {
-//        self.labelTyping.text = channelEvent.data[@"text"];
-//        [self.labelTyping performSelector:@selector(setText:)
-//                               withObject:@""
-//                               afterDelay:15.0f];
-//    }];
+- (void)subscribeChannel
+{
+    TMEPusherImp *pusherImp = [[TMEPusherImp alloc] initWithCurrentPostMode:self.currentPostMode activeChannel:self.presenceChannel];
+    pusherImp.memberRemovedHandleBlock = ^void(){
+        if (self.arrayClientReplies.count) {
+            [self postMessagesToServer];
+        }
+        [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"%@ is offline!", self.conversation.userFullname] type:TSMessageNotificationTypeError];
+    };
+    [TMEPusherManager connectWithDelegate:pusherImp];
+    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:self.conversation.channelName delegate:pusherImp];
+    [self.presenceChannel bindToEventNamed:kChatEventName handleWithBlock:^(PTPusherEvent *channelEvent) {
+        self.labelTyping.text = @"";
+        TMEUser *user = [TMEUser userWithID:self.conversation.userID
+                                   fullName:self.conversation.userFullname
+                                  photoURL:self.conversation.userAvatar];
+
+        TMEReply *reply = [TMEReply replyWithContent:channelEvent.data[@"message"]
+                                              sender:user
+                                           timeStamp:channelEvent.data[@"timestamp"]];
+        [self.dataArray addObject:reply];
+        [self reloadTableViewConversationShowBottom:YES];
+    }];
+
+    [self.presenceChannel bindToEventNamed:kChatEventTyping handleWithBlock:^(PTPusherEvent *channelEvent) {
+        self.labelTyping.text = channelEvent.data[@"text"];
+        [self.labelTyping performSelector:@selector(setText:)
+                               withObject:@""
+                               afterDelay:15.0f];
+    }];
 }
 
 - (void)setUpTableView{
@@ -357,7 +369,7 @@ PTPusherPresenceChannelDelegate
 - (void)growingTextViewDidChange:(HPGrowingTextView *)growingTextView
 {
     if (growingTextView.text.length > 0 && !self.isTyping && self.currentPostMode == TMEPostModeOnline) {
-        [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_TYPING
+        [self.presenceChannel triggerEventNamed:kChatEventCurrentUserTyping
                                            data:@{@"text" : [NSString stringWithFormat:@"%@ is typing...", [TMEUserManager sharedManager].loggedUser.fullName]}];
         self.isTyping = YES;
     }
@@ -475,28 +487,7 @@ PTPusherPresenceChannelDelegate
     }
 }
 
-- (void)pusher:(PTPusher *)pusher willAuthorizeChannel:(PTPusherChannel *)channel withRequest:(NSMutableURLRequest *)request{
-    [request setValue:[NSString stringWithFormat:@"Bearer %@",[TMEUserManager sharedManager].loggedUser.accessToken] forHTTPHeaderField:@"Authorization"];
-}
 
-- (void)presenceChannelDidSubscribe:(PTPusherPresenceChannel *)channel{
-    if (channel.members.count == 2) {
-        self.currentPostMode = TMEPostModeOnline;
-    };
-}
-
-- (void)presenceChannel:(PTPusherPresenceChannel *)channel memberAdded:(PTPusherChannelMember *)member{
-    self.currentPostMode = TMEPostModeOnline;
-    [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"%@ is online!", member.userInfo[@"name"]] type:TSMessageNotificationTypeSuccess];
-}
-
-- (void)presenceChannel:(PTPusherPresenceChannel *)channel memberRemoved:(PTPusherChannelMember *)member{
-    self.currentPostMode = TMEPostModeOffline;
-    if (self.arrayClientReplies.count) {
-        [self postMessagesToServer];
-    }
-    [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"%@ is offline!", self.conversation.userFullname] type:TSMessageNotificationTypeError];
-}
 
 #pragma mark - Handle changing reachability
 

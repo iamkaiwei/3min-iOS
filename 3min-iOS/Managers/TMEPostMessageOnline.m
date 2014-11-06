@@ -9,6 +9,8 @@
 #import "TMEPostMessageOnline.h"
 #import "TMEUserMessage.h"
 
+static NSString * const kChatEventName = @"client-chat";
+
 @implementation TMEPostMessageOnline
 
 + (void)postMessageWithParameter:(TMEUserMessageParameter *)parameter {
@@ -16,7 +18,7 @@
     TMEReply *reply = [TMEReply replyWithContent:parameter.message
                                           sender:parameter.user
                                        timeStamp:@(currentTimeStamp)];
-    [parameter.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_NAME
+    [parameter.presenceChannel triggerEventNamed:kChatEventName
                                        data:@{@"name": parameter.user.fullName,
                                               @"message" : parameter.message,
                                               @"timestamp" : @(currentTimeStamp)}];

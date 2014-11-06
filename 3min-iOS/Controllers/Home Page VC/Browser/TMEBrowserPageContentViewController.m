@@ -76,7 +76,7 @@
 	    [centerBtn setTitle:weakSelf.currentCategory.name forState:UIControlStateNormal];
 	    [centerBtn setTitle:weakSelf.currentCategory.name forState:UIControlStateSelected];
 
-	    [self reloadAlData];
+        [self reloadAlData];
 	}];
 }
 
