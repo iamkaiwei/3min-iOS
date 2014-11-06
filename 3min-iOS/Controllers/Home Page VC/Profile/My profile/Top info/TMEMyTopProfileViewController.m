@@ -110,7 +110,8 @@
 - (void)onTapMyItems {
 //    UIViewController *vc = [[UIViewController alloc] init];
 //    vc.view.backgroundColor = [UIColor whiteColor];
-	TMEMyItemViewController *vc = [[UIStoryboard storyboardWithName:@"TMEMyItemViewController" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEMyItemViewController class])];
+//	TMEMyItemViewController *vc = [[UIStoryboard storyboardWithName:@"TMEMyItemViewController" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEMyItemViewController class])];
+    TMEMyItemViewController *vc = [[TMEMyItemViewController alloc] init];
 //	TMEBrowserPageContentViewController *vc = [[UIStoryboard storyboardWithName:@"TMEBrowserPageContentViewController" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEBrowserPageContentViewController class])];
     UINavigationController *nav = (UINavigationController *)self.parentViewController.parentViewController.parentViewController;
 	[nav pushViewController:vc animated:YES];

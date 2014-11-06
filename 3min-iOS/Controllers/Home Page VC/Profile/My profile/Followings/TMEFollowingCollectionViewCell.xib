@@ -58,11 +58,17 @@
                 <constraint firstItem="5OD-Rk-IxL" firstAttribute="leading" secondItem="8hd-dy-WaA" secondAttribute="trailing" constant="15" id="Xaa-db-IVs"/>
                 <constraint firstItem="udR-kc-pmJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="XpX-4w-CQ1"/>
                 <constraint firstAttribute="bottom" secondItem="udR-kc-pmJ" secondAttribute="bottom" constant="5" id="azp-Jf-HyI"/>
+                <constraint firstItem="8hd-dy-WaA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="crc-gB-0j9"/>
                 <constraint firstAttribute="bottom" secondItem="dsf-Hu-dLX" secondAttribute="bottom" id="fcm-yx-ihu"/>
                 <constraint firstItem="dsf-Hu-dLX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="i0x-cI-oXd"/>
                 <constraint firstItem="5OD-Rk-IxL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="leY-JO-S2k"/>
             </constraints>
             <size key="customSize" width="155" height="50"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="G9o-4b-cuT"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="btnFollow" destination="5OD-Rk-IxL" id="CU9-en-pHV"/>
                 <outlet property="imgViewUserAvatar" destination="udR-kc-pmJ" id="LEG-tu-hya"/>
