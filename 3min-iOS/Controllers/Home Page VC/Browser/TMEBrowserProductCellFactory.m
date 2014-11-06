@@ -10,26 +10,15 @@
 #import <KHTableViewController/KHContentLoadingSectionViewModel.h>
 #import "TMEProduct+ProductCellHeight.h"
 #import "TMEProductCollectionViewCell.h"
+#import "KHOrderedDataProvider.h"
 
 @interface TMEBrowserProductCellFactory()
-
-@property (strong, nonatomic) CHTCollectionViewWaterfallLayout *waterFlowLayout;
-@property (weak, nonatomic) UICollectionView *collectionView;
 
 @end
 
 @implementation TMEBrowserProductCellFactory
 
 #pragma mark -
-
-- (CHTCollectionViewWaterfallLayout *)waterFlowLayout {
-	CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
-	layout.columnCount = 2;
-	layout.minimumColumnSpacing = 5;
-	layout.minimumInteritemSpacing = 6;
-
-	return layout;
-}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView sizeForItemAtIndexPath:(NSIndexPath *)indexPath model:(id <KHTableViewModel> )model {
 
@@ -41,7 +30,8 @@
         return CGSizeMake(320, 0);
     }
 
-    TMEProduct *product = [model itemAtIndexpath:indexPath];
+    KHOrderedDataProvider *dataProvider = (KHOrderedDataProvider *) [model sectionAtIndex:indexPath.section];
+    TMEProduct *product = [dataProvider objectAtIndex:indexPath.item withTriggerPagination:NO];
 	return CGSizeMake(150, [product productCellHeight]);
 }
 

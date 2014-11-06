@@ -13,7 +13,10 @@
 #import <KHTableViewController/KHLoadMoreSection.h>
 #import <KHTableViewController/KHBasicTableViewModel.h>
 #import "TMEProfilePageContentViewController.h"
+#import "TMEFollowerViewController.h"
 #import "TMEFollowingViewController.h"
+#import "TMEMyItemViewController.h"
+#import "TMEBrowserPageContentViewController.h"
 
 @interface TMEMyTopProfileViewController ()
 
@@ -45,7 +48,10 @@
 	self.collectionTop.dataSource = self.collectionController;
 
 	[self.collectionTop reloadData];
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 	[self loadingUserInformation];
 }
 
@@ -86,6 +92,11 @@
 }
 
 - (void)onTapFollowers {
+	TMEFollowerViewController *vc = [[UIStoryboard storyboardWithName:@"TMEFollowerViewController" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEFollowerViewController class])];
+	vc.user = self.user;
+	UINavigationController *nav = (UINavigationController *)self.parentViewController.parentViewController.parentViewController;
+	[nav pushViewController:vc animated:YES];
+	return;
 }
 
 - (void)onTapFollwings {
@@ -94,13 +105,17 @@
 	UINavigationController *nav = (UINavigationController *)self.parentViewController.parentViewController.parentViewController;
 	[nav pushViewController:vc animated:YES];
 	return;
-
-//    UIViewController *vc = [[UIViewController alloc] init];
-//    UINavigationController *nav = (UINavigationController *)self.parentViewController.parentViewController.parentViewController;
-//    [nav pushViewController:vc animated:YES];
 }
 
 - (void)onTapMyItems {
+//    UIViewController *vc = [[UIViewController alloc] init];
+//    vc.view.backgroundColor = [UIColor whiteColor];
+//	TMEMyItemViewController *vc = [[UIStoryboard storyboardWithName:@"TMEMyItemViewController" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEMyItemViewController class])];
+    TMEMyItemViewController *vc = [[TMEMyItemViewController alloc] init];
+//	TMEBrowserPageContentViewController *vc = [[UIStoryboard storyboardWithName:@"TMEBrowserPageContentViewController" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([TMEBrowserPageContentViewController class])];
+    UINavigationController *nav = (UINavigationController *)self.parentViewController.parentViewController.parentViewController;
+	[nav pushViewController:vc animated:YES];
+    return;
 }
 
 - (void)onTapEdit {

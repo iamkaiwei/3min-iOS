@@ -43,4 +43,8 @@
                     onSuccessBlock:(void (^) (NSString *))successBlock
                       failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
 
++ (void)getOwnProductsWihPage:(NSInteger)page
+               onSuccessBlock:(void (^) (NSArray *))successBlock
+                 failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
+
 @end

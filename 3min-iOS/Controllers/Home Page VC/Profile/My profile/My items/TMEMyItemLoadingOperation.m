@@ -1,30 +1,26 @@
 //
-//  TMEBrowserProductLoadingOperation.m
+//  TMEMyItemLoadingOperation.m
 //  ThreeMin
 //
-//  Created by Triệu Khang on 4/11/14.
+//  Created by Triệu Khang on 5/11/14.
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
-#import "TMEBrowserProductLoadingOperation.h"
+#import "TMEMyItemLoadingOperation.h"
 #import "TMEProduct+ProductCellHeight.h"
-#import "TMEProductsManager.h"
 
-@interface TMEBrowserProductLoadingOperation ()
+@interface TMEMyItemLoadingOperation ()
 
 @property (assign, nonatomic) NSUInteger page;
-@property (assign, nonatomic) NSUInteger userID;
-
 @property (strong, nonatomic) NSArray *dataPage;
 
 @end
 
-@implementation TMEBrowserProductLoadingOperation
+@implementation TMEMyItemLoadingOperation
 
-- (instancetype)initWithCategory:(TMECategory *)category andPage:(NSUInteger)page {
+- (instancetype)initWithPage:(NSUInteger)page {
 	self = [super init];
 	if (self) {
-		_currentCategory = category;
 		_page = page;
 	}
 
@@ -35,7 +31,7 @@
 	__weak typeof(self) weakSelf = self;
 
 	void (^successBlock)(NSArray *) = ^(NSArray *arrProducts) {
-		NSMutableArray *arr = [self.dataPage mutableCopy];
+		NSMutableArray *arr = [weakSelf.dataPage mutableCopy];
 		[arr addObjectsFromArray:arrProducts];
 		weakSelf.dataPage = arr;
 
@@ -52,24 +48,16 @@
 		});
 	};
 
-	if (self.currentCategory) {
-		[TMEProductsManager getProductsOfCategory:self.currentCategory
-		                                 withPage:self.page
-		                           onSuccessBlock: ^(NSArray *arrProducts) {
-		    weakSelf.dataPage = arrProducts;
-		    successBlock(arrProducts);
-		} failureBlock: ^(NSError *error) {
-		    finishBlock(nil, error);
-		}];
-		return;
-	}
-
-	[TMEProductsManager getAllProductsWihPage:self.page
+	[TMEProductsManager getOwnProductsWihPage:self.page
 	                           onSuccessBlock: ^(NSArray *arrProducts) {
 	    weakSelf.dataPage = arrProducts;
-	    successBlock(arrProducts);
+	    dispatch_async(dispatch_get_main_queue(), ^{
+	        successBlock(arrProducts);
+		});
 	} failureBlock: ^(NSError *error) {
-	    finishBlock(nil, error);
+	    dispatch_async(dispatch_get_main_queue(), ^{
+	        finishBlock(nil, error);
+		});
 	}];
 }
 

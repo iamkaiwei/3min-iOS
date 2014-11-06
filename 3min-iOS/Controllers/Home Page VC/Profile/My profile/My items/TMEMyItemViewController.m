@@ -1,26 +1,21 @@
 //
-//  TMEBrowserPageContentViewController.m
+//  TMEMyItemViewController.m
 //  ThreeMin
 //
-//  Created by Triệu Khang on 4/8/14.
+//  Created by Triệu Khang on 5/11/14.
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
-#import "TMEBrowserPageContentViewController.h"
-#import "TMEProductCollectionViewCell.h"
-#import "TMEBrowserProductViewModel.h"
-#import "TMELoadMoreCollectionFooterView.h"
-#import "TMEDropDownMenuViewController.h"
-#import "UIView+TitleViewUtils.h"
+#import "TMEMyItemViewController.h"
 #import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
 #import <KHTableViewController/KHCollectionController.h>
 #import <LBDelegateMatrioska/LBDelegateMatrioska.h>
 #import <KHTableViewController/KHContentLoadingCellFactory.h>
 #import <KHTableViewController/KHOrderedDataProvider.h>
-#import "TMEBrowserProductLoadingOperation.h"
+#import "TMEMyItemLoadingOperation.h"
 #import "TMEBrowserProductCellFactory.h"
 
-@interface TMEBrowserPageContentViewController ()
+@interface TMEMyItemViewController ()
 <
     UICollectionViewDelegateFlowLayout,
     TMEProductCollectionViewCellDelegate,
@@ -29,17 +24,12 @@
 
 @end
 
-@implementation TMEBrowserPageContentViewController
-
-#pragma mark - VC cycle
+@implementation TMEMyItemViewController
 
 - (void)viewDidLoad {
-	[super viewDidLoad];
-
-	// Do any additional setup after loading the view from its nib.
-
-	[self listenToTheCategoryDidChangedNofitication];
+    [super viewDidLoad];
     [self enablePullToRefresh];
+    [[FLEXManager sharedManager] showExplorer];
 }
 
 - (id <KHCollectionViewCellFactoryProtocol> )cellFactory {
@@ -61,30 +51,8 @@
 }
 
 - (id <KHLoadingOperationProtocol> )loadingOperationForSectionViewModel:(id <KHTableViewSectionModel> )viewModel forPage:(NSUInteger)page {
-	return [[TMEBrowserProductLoadingOperation alloc] initWithCategory:self.currentCategory andPage:page + 1];
+    return [[TMEMyItemLoadingOperation alloc] initWithPage:page+1];
 }
-
-#pragma mark -
-
-- (void)listenToTheCategoryDidChangedNofitication {
-	__weak typeof(self) weakSelf = self;
-
-	[[NSNotificationCenter defaultCenter] addObserverForName:TMEHomeCategoryDidChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock: ^(NSNotification *note) {
-	    TMEDropDownMenuViewController *vc = note.object;
-	    weakSelf.currentCategory = vc.selectedCategory;
-	    UIButton *centerBtn = [weakSelf.parentViewController.navigationItem.titleView getButton];
-	    [centerBtn setTitle:weakSelf.currentCategory.name forState:UIControlStateNormal];
-	    [centerBtn setTitle:weakSelf.currentCategory.name forState:UIControlStateSelected];
-
-	    [self reloadAlData];
-	}];
-}
-
-- (void)dealloc {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark - Reload
 
 #pragma mark - Collection delegate
 

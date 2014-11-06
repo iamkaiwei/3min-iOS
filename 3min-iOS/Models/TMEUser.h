@@ -48,6 +48,8 @@
 @property (nonatomic, strong) NSNumber *following_count;
 @property (nonatomic, strong) NSNumber *follower_count;
 
+@property (nonatomic, strong) NSNumber *positive_percent;
+
 // to let you know that you has followed this user
 @property (nonatomic, strong) NSNumber *followed;
 

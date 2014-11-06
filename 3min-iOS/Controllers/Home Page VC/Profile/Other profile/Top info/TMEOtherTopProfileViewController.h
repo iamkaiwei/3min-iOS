@@ -10,4 +10,6 @@
 
 @interface TMEOtherTopProfileViewController : UIViewController
 
+@property (nonatomic, strong) TMEUser *user;
+
 @end
