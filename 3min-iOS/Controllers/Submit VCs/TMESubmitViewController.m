@@ -13,6 +13,7 @@
 #import "TMESubmitViewControllerArrayDataSource.h"
 #import "TMEUserMessage.h"
 #import "TMEPusherImp.h"
+#import "TMEMessageContentViewController.h"
 #import <HPGrowingTextView.h>
 
 static NSString * const kRightTableViewCellIdentifier = @"TMESubmitTableCellRight";
@@ -49,6 +50,7 @@ PTPusherPresenceChannelDelegate
 @property (strong, nonatomic) NSMutableArray                         * arrayClientReplies;
 @property (assign, nonatomic) TMEPostMode                              currentPostMode;
 @property (assign, nonatomic) BOOL                                     isTyping;
+@property (weak, nonatomic) IBOutlet UIView *viewMessagesContain;
 
 @end
 
@@ -80,6 +82,25 @@ PTPusherPresenceChannelDelegate
                                              selector:@selector(reloadMessageNotification:)
                                                  name:NOTIFICATION_RELOAD_CONVERSATION
                                                object:nil];
+    
+    TMEMessageContentViewController *messageContent = [[TMEMessageContentViewController alloc] init];
+    messageContent.parameter = [[TMEUserMessageParameter alloc] initWithLatestReplyID:0 conversationID:self.conversation.conversationID smallerReplyID:0 page:1];
+    
+    [messageContent willMoveToParentViewController:self];
+    [self.viewMessagesContain addSubview:messageContent.view];
+    
+    [messageContent.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@0);
+        make.trailing.equalTo(@0);
+        make.leading.equalTo(@0);
+        make.bottom.equalTo(@0);
+    }];
+    
+    [self addChildViewController:messageContent];
+    [messageContent didMoveToParentViewController:self];
+    
+    [messageContent.view setNeedsUpdateConstraints];
+    [messageContent.view layoutIfNeeded];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

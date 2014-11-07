@@ -9,7 +9,9 @@
 #import "TMEUserMessageParameter.h"
 
 @implementation TMEUserMessageParameter
-@synthesize latestReplyID = _latestReplyID,
+@synthesize page = _page,
+            latestReplyID = _latestReplyID,
+            smallerReplyID = _smallerReplyID,
             conversationID = _conversationID,
             user = _user,
             presenceChannel = _presenceChannel,
@@ -32,4 +34,12 @@
     return self;
 }
 
+- (instancetype)initWithLatestReplyID:(NSInteger)latestReplyID conversationID:(NSNumber *)conversationID smallerReplyID:(NSInteger)smallerReplyID page:(NSInteger)page
+{
+    if (self = [self initWithMessage:nil ofUser:nil presenceChannel:nil latestReplyID:latestReplyID conversationID:conversationID postMode:0]) {
+        _smallerReplyID = smallerReplyID;
+        _page = page;
+    }
+    return self;
+}
 @end
