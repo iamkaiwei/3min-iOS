@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Contain Browser Product View Controller-->
@@ -37,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F5n-EJ-qph">
-                                <rect key="frame" x="12" y="24" width="576" height="576"/>
+                                <rect key="frame" x="5" y="24" width="590" height="576"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="-5" maxY="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZIf-0p-IP5">
@@ -61,10 +60,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="F5n-EJ-qph" firstAttribute="leading" secondItem="6lq-PL-MJD" secondAttribute="leadingMargin" constant="-4" id="DBh-Th-yaa"/>
+                            <constraint firstItem="F5n-EJ-qph" firstAttribute="leading" secondItem="6lq-PL-MJD" secondAttribute="leading" constant="5" id="DBh-Th-yaa"/>
                             <constraint firstItem="F5n-EJ-qph" firstAttribute="top" secondItem="Ovh-bE-f5A" secondAttribute="bottom" constant="4" id="KPJ-5m-9x8"/>
                             <constraint firstItem="Uxh-AD-aPp" firstAttribute="top" secondItem="F5n-EJ-qph" secondAttribute="bottom" id="ihP-VI-P5t"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="F5n-EJ-qph" secondAttribute="trailing" constant="-4" id="jIV-lX-6Nv"/>
+                            <constraint firstAttribute="trailing" secondItem="F5n-EJ-qph" secondAttribute="trailing" constant="5" id="jIV-lX-6Nv"/>
                         </constraints>
                     </view>
                     <connections>
