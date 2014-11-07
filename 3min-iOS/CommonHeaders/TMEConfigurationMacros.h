@@ -55,9 +55,6 @@
 // Common
 #define APP_VERSION                                 ([[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey])
 
-
-
-
 // API Path
 #define API_SERVER_HOST                             ([NSString stringWithFormat:@"%@%@", API_BASE_URL, API_PREFIX])
 
@@ -88,8 +85,3 @@
 #define API_RELATIONSHIPS_FOLLOW                    @"/api/v1/relationships"
 #define API_RELATIONSHIPS_UNFOLLOW                  @"/api/v1/relationships/unfollow"
 #define URL_PUSHER_ENDPOINT                         @"/api/v1/pushers/auth"
-
-
-#define PUSHER_CHAT_EVENT_NAME                      @"client-chat"
-#define PUSHER_CHAT_EVENT_TYPING                    @"client-typing"
-#define PUSHER_CHAT_EVENT_UNTYPING                  @"client-untyping"

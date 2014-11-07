@@ -11,10 +11,15 @@
 #import "AppDelegate.h"
 #import "HTKContainerViewController.h"
 #import "TMESubmitViewControllerArrayDataSource.h"
+#import "TMEUserMessage.h"
+#import "TMEPusherImp.h"
+#import "TMEMessageContentViewController.h"
 #import <HPGrowingTextView.h>
 
-static CGFloat const kKeyboardSizeHeight = 216.0f;
 static NSString * const kRightTableViewCellIdentifier = @"TMESubmitTableCellRight";
+static NSString * const kChatEventName = @"client-chat";
+static NSString * const kChatEventTyping = @"client-typing";
+static NSString * const kChatEventCurrentUserTyping = @"client-currentusertyping";
 
 @interface TMESubmitViewController()
 <
@@ -38,13 +43,14 @@ PTPusherPresenceChannelDelegate
 @property (weak, nonatomic)   IBOutlet   UIView                      * containerView;
 @property (weak, nonatomic)   IBOutlet   UIImageView                 * imageViewProduct;
 @property (weak, nonatomic)   IBOutlet   HPGrowingTextView           * textViewInputMessage;
+@property (weak, nonatomic)   IBOutlet   UIScrollView                * scrollViewContent;
 
-@property (strong, nonatomic) IBOutlet   UIScrollView                * scrollViewContent;
 @property (strong, nonatomic) TMESubmitViewControllerArrayDataSource * repliesArrayDataSource;
 @property (strong, nonatomic) PTPusherPresenceChannel                * presenceChannel;
 @property (strong, nonatomic) NSMutableArray                         * arrayClientReplies;
-@property (assign, nonatomic) enum TMEChatMode                       currentChatMode;
-@property (assign, nonatomic) BOOL                                   isTyping;
+@property (assign, nonatomic) TMEPostMode                              currentPostMode;
+@property (assign, nonatomic) BOOL                                     isTyping;
+@property (weak, nonatomic) IBOutlet UIView *viewMessagesContain;
 
 @end
 
@@ -76,13 +82,31 @@ PTPusherPresenceChannelDelegate
                                              selector:@selector(reloadMessageNotification:)
                                                  name:NOTIFICATION_RELOAD_CONVERSATION
                                                object:nil];
+    
+    TMEMessageContentViewController *messageContent = [[TMEMessageContentViewController alloc] init];
+    messageContent.parameter = [[TMEUserMessageParameter alloc] initWithLatestReplyID:0 conversationID:self.conversation.conversationID smallerReplyID:0 page:1];
+    
+    [messageContent willMoveToParentViewController:self];
+    [self.viewMessagesContain addSubview:messageContent.view];
+    
+    [messageContent.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@0);
+        make.trailing.equalTo(@0);
+        make.leading.equalTo(@0);
+        make.bottom.equalTo(@0);
+    }];
+    
+    [self addChildViewController:messageContent];
+    [messageContent didMoveToParentViewController:self];
+    
+    [messageContent.view setNeedsUpdateConstraints];
+    [messageContent.view layoutIfNeeded];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [TMEPusherManager connectWithDelegate:self];
     [self subscribeChannel];
-    self.currentChatMode = TMEChatModeOffline;
+    self.currentPostMode = TMEPostModeOffline;
     self.isTyping = NO;
 }
 
@@ -113,7 +137,7 @@ PTPusherPresenceChannelDelegate
     self.textViewInputMessage.placeholder = @"Type message here to chat";
     self.textViewInputMessage.layer.cornerRadius = 19.0f;
     self.textViewInputMessage.internalTextView.backgroundColor = [UIColor clearColor];
-    [self.textViewInputMessage setTintColor:[UIColor colorWithHexString:@"c5c5c5"]];
+    [self.textViewInputMessage.internalTextView setTintColor:[UIColor colorWithHexString:@"e4e4e4"]];
 }
 
 - (void)setupUIFont {
@@ -128,27 +152,36 @@ PTPusherPresenceChannelDelegate
     self.sendMessageButton.titleLabel.font = [UIFont openSansSemiBoldFontWithSize:self.sendMessageButton.titleLabel.font.pointSize];
 }
 
-- (void)subscribeChannel{
-//    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:self.conversation.channelName delegate:self];
-//    [self.presenceChannel bindToEventNamed:PUSHER_CHAT_EVENT_NAME                           handleWithBlock:^(PTPusherEvent *channelEvent) {
-//        self.labelTyping.text = @"";
-//        TMEUser *user = [TMEUser userWithID:self.conversation.userID
-//                                   fullName:self.conversation.userFullname
-//                                  photoURL:self.conversation.userAvatar];
-//
-//        TMEReply *reply = [TMEReply replyWithContent:channelEvent.data[@"message"]
-//                                              sender:user
-//                                           timeStamp:channelEvent.data[@"timestamp"]];
-//        [self.dataArray addObject:reply];
-//        [self reloadTableViewConversationShowBottom:YES];
-//    }];
-//
-//    [self.presenceChannel bindToEventNamed:PUSHER_CHAT_EVENT_TYPING handleWithBlock:^(PTPusherEvent *channelEvent) {
-//        self.labelTyping.text = channelEvent.data[@"text"];
-//        [self.labelTyping performSelector:@selector(setText:)
-//                               withObject:@""
-//                               afterDelay:15.0f];
-//    }];
+- (void)subscribeChannel
+{
+    TMEPusherImp *pusherImp = [[TMEPusherImp alloc] initWithCurrentPostMode:self.currentPostMode activeChannel:self.presenceChannel];
+    pusherImp.memberRemovedHandleBlock = ^void(){
+        if (self.arrayClientReplies.count) {
+            [self postMessagesToServer];
+        }
+        [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"%@ is offline!", self.conversation.userFullname] type:TSMessageNotificationTypeError];
+    };
+    [TMEPusherManager connectWithDelegate:pusherImp];
+    self.presenceChannel = [TMEPusherManager subscribeToPresenceChannelNamed:self.conversation.channelName delegate:pusherImp];
+    [self.presenceChannel bindToEventNamed:kChatEventName handleWithBlock:^(PTPusherEvent *channelEvent) {
+        self.labelTyping.text = @"";
+        TMEUser *user = [TMEUser userWithID:self.conversation.userID
+                                   fullName:self.conversation.userFullname
+                                  photoURL:self.conversation.userAvatar];
+
+        TMEReply *reply = [TMEReply replyWithContent:channelEvent.data[@"message"]
+                                              sender:user
+                                           timeStamp:channelEvent.data[@"timestamp"]];
+        [self.dataArray addObject:reply];
+        [self reloadTableViewConversationShowBottom:YES];
+    }];
+
+    [self.presenceChannel bindToEventNamed:kChatEventTyping handleWithBlock:^(PTPusherEvent *channelEvent) {
+        self.labelTyping.text = channelEvent.data[@"text"];
+        [self.labelTyping performSelector:@selector(setText:)
+                               withObject:@""
+                               afterDelay:15.0f];
+    }];
 }
 
 - (void)setUpTableView{
@@ -181,66 +214,42 @@ PTPusherPresenceChannelDelegate
         return [TMELoadMoreTableViewCell getHeight];
     }
     
-    TMESubmitTableCell *cell = [[TMESubmitTableCell alloc] init];
-    
-    if (self.paging) {
-        TMEReply *reply = self.dataArray[indexPath.row - 1];
-        return [cell getHeightWithContent:reply.reply];
-    }
-    
-    TMEReply *reply = self.dataArray[indexPath.row];
-    return [cell getHeightWithContent:reply.reply];
+    TMEReply *reply = self.paging ? self.dataArray[indexPath.row - 1] : self.dataArray[indexPath.row];
+    return [TMESubmitTableCell getHeightWithContent:reply.reply];
 }
 
 #pragma mark - Post message
 
 - (void)postMessage{
+    self.textViewInputMessage.text = [self.textViewInputMessage.text trim];
     if ([self.textViewInputMessage.text isEqual: @""]) {
         return;
     }
-    self.isTyping = NO;
-
-    if (self.currentChatMode == TMEChatModeOnline) {
-        double currentTimeStamp = [[NSDate date] timeIntervalSince1970];
-        [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_NAME
-                                           data:@{@"name": [TMEUserManager sharedManager].loggedUser.fullName,
-                                                  @"message" : self.textViewInputMessage.text,
-                                                  @"timestamp" : @(currentTimeStamp)}];
-        TMEReply *reply = [TMEReply replyWithContent:self.textViewInputMessage.text
-                                              sender:[TMEUserManager sharedManager].loggedUser
-                                           timeStamp:@(currentTimeStamp)];
+    TMEUserMessageParameter *postMessageParameter = [[TMEUserMessageParameter alloc] initWithMessage:self.textViewInputMessage.text ofUser:[TMEUserManager sharedManager].loggedUser presenceChannel:self.presenceChannel latestReplyID:[self getLastestReplyID] conversationID:self.conversation.conversationID postMode:self.currentPostMode];
+    __weak TMEUserMessageParameter *weakPostMessageParameter = postMessageParameter;
+    postMessageParameter.shouldPostMessageBlock = ^void(TMEReply *reply, TMEPostMode postMode) {
         [self.dataArray addObject:reply];
-        [self.arrayClientReplies addObject:@{ @"reply": self.textViewInputMessage.text,
-                                              @"created_at": @(currentTimeStamp) }];
-        if (self.arrayClientReplies.count == 20) {
-            [self postMessagesToServer];
+        if (postMode == TMEPostModeOnline) {
+            [self.arrayClientReplies addObject:@{ @"reply": reply.reply,
+                                                  @"created_at": @([reply.timeStamp timeIntervalSince1970]) }];
+            if (self.arrayClientReplies.count == 20) {
+                [self postMessagesToServer];
+            }
         }
         [self reloadTableViewConversationShowBottom:YES];
-        return;
-    }
-
-    TMEReply *reply = [TMEReply replyPendingWithContent:self.textViewInputMessage.text];
-    [self.dataArray addObject:reply];
-    [self reloadTableViewConversationShowBottom:YES];
-    
-    NSInteger lastestReplyID = [self getLastestReplyID];
-    [TMEConversationManager postReplyToConversation:[self.conversation.conversationID intValue]
-                                        withMessage:self.textViewInputMessage.text
-                                     onSuccessBlock:^(NSString *status)
-     {
-         if ([status isEqualToString:@"success"]) {
-             [self loadMessageWithReplyIDLargerID:lastestReplyID
-                                      orSmallerID:0
-                                         withPage:1
-                                       showBottom:YES];
-         }
-     }
-                                       failureBlock:^(NSError *error)
-     {
-         [self.dataArray removeLastObject];
-         [self reloadTableViewConversationShowBottom:NO];
-         [self failureBlockHandleWithError:error];
-     }];
+    };
+    postMessageParameter.didPostMessageBlock = ^void() {
+        [self loadMessageWithReplyIDLargerID:weakPostMessageParameter.latestReplyID
+                                 orSmallerID:0
+                                    withPage:1
+                                  showBottom:YES];
+    };
+    postMessageParameter.postMessageFailedBlock = ^void(NSError *error) {
+        [self.dataArray removeLastObject];
+        [self reloadTableViewConversationShowBottom:NO];
+        [self failureBlockHandleWithError:error];
+    };
+    [TMEUserMessage postMessageWithParameter:postMessageParameter];
 }
 
 #pragma mark - Load message
@@ -269,10 +278,8 @@ PTPusherPresenceChannelDelegate
              if ([conversation.replies count] % 10 == 0 && [conversation.replies count])
                  self.paging = YES;
          }
-         NSMutableSet *repliesSet = [NSMutableSet setWithArray:[conversation.replies mutableCopy]];
-         [repliesSet addObjectsFromArray:self.dataArray];
-         self.dataArray = [[repliesSet allObjects] mutableCopy];
-         [self.dataArray sortByAttribute:@"replyID" ascending:YES];
+
+         self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:conversation.replies] mutableCopy];
          conversation.replies = self.dataArray;
          self.conversation = conversation;
          self.dataArray = [[self.dataArray sortByAttribute:@"timeStamp" ascending:YES] mutableCopy];
@@ -329,13 +336,13 @@ PTPusherPresenceChannelDelegate
     [self.labelTyping alignBelowView:self.tableView offsetY:10 sameWidth:YES];
     [self.scrollViewContent autoAdjustScrollViewContentSize];
     
-    CGPoint bottomOffset = CGPointMake(0, 0);
+    CGPoint bottomOffset = CGPointZero;
     if (showBottom && self.scrollViewContent.contentSize.height > self.scrollViewContent.height) {
         if (!self.isKeyboardShowing) {
             bottomOffset = CGPointMake(0, self.scrollViewContent.contentSize.height - CGRectGetHeight(self.scrollViewContent.bounds));
         }
         else{
-            bottomOffset = CGPointMake(0, self.scrollViewContent.contentSize.height - CGRectGetHeight(self.scrollViewContent.bounds) + kKeyboardSizeHeight);
+            bottomOffset = CGPointMake(0, self.scrollViewContent.contentSize.height - CGRectGetHeight(self.scrollViewContent.bounds) + 216.0f);
         }
         [self.scrollViewContent setContentOffset:bottomOffset animated:YES];
     }
@@ -382,8 +389,8 @@ PTPusherPresenceChannelDelegate
 
 - (void)growingTextViewDidChange:(HPGrowingTextView *)growingTextView
 {
-    if (growingTextView.text.length > 0 && !self.isTyping && self.currentChatMode == TMEChatModeOnline) {
-        [self.presenceChannel triggerEventNamed:PUSHER_CHAT_EVENT_TYPING
+    if (growingTextView.text.length > 0 && !self.isTyping && self.currentPostMode == TMEPostModeOnline) {
+        [self.presenceChannel triggerEventNamed:kChatEventCurrentUserTyping
                                            data:@{@"text" : [NSString stringWithFormat:@"%@ is typing...", [TMEUserManager sharedManager].loggedUser.fullName]}];
         self.isTyping = YES;
     }
@@ -394,6 +401,7 @@ PTPusherPresenceChannelDelegate
     [self addNavigationItems];
     self.navigationItem.rightBarButtonItem = nil;
     self.keyboardShowing = NO;
+    self.isTyping = NO;
     self.title = NSLocalizedString(@"You Offer", nil);
     
     if ([growingTextView.text isEqualToString:@""]) {
@@ -421,7 +429,6 @@ PTPusherPresenceChannelDelegate
 - (void)growingTextView:(HPGrowingTextView *)growingTextView willChangeHeight:(float)height
 {
     float diff = (growingTextView.frame.size.height - height);
-    NSLog(@"%f - %f", height, diff);
     CGRect r = self.containerView.frame;
     r.size.height -= diff;
     r.origin.y += diff;
@@ -441,7 +448,7 @@ PTPusherPresenceChannelDelegate
 
 - (void)onBtnBack{
     UIViewController *root = self.navigationController.viewControllers[0];
-    if ([root isKindOfClass:[HTKContainerViewController class]]) {
+    if ([root isKindOfClass:[TMEPageViewController class]]) {
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
     [self.navigationController popViewControllerAnimated:YES];
@@ -452,24 +459,26 @@ PTPusherPresenceChannelDelegate
 - (void)onKeyboardWillShowNotification:(NSNotification *)sender{
     self.keyboardShowing = YES;
     
+    CGRect keyBoardFrame = [[[sender userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     NSTimeInterval duration = [[[sender userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationOptions animationCurve = [[[sender userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
     
     [UIView animateWithDuration:duration delay:0 options:animationCurve animations:^{
-        UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, kKeyboardSizeHeight, 0);
+        UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, keyBoardFrame.size.height, 0);
         [self.scrollViewContent setContentInset:edgeInsets];
         [self.scrollViewContent setScrollIndicatorInsets:edgeInsets];
         CGRect newFrame = self.containerView.frame;
-        newFrame.origin.y = self.containerView.frame.origin.y - kKeyboardSizeHeight;
+        newFrame.origin.y = keyBoardFrame.origin.y - self.containerView.height - 64.0f; // navigation bar height is 64.0f
         self.containerView.frame = newFrame;
     } completion:nil];
-    CGPoint bottomOffset = CGPointMake(0, self.scrollViewContent.contentSize.height + kKeyboardSizeHeight - self.scrollViewContent.bounds.size.height);
+    CGPoint bottomOffset = CGPointMake(0, self.scrollViewContent.contentSize.height + keyBoardFrame.size.height - self.scrollViewContent.bounds.size.height);
     [self.scrollViewContent setContentOffset:bottomOffset animated:YES];
 }
 
 - (void)onKeyboardWillHideNotification:(NSNotification *)sender {
     self.keyboardShowing = NO;
     
+    CGSize kbSize = [[[sender userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     NSTimeInterval duration = [[[sender userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationOptions animationCurve = [[[sender userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
     [UIView animateWithDuration:duration delay:0 options:animationCurve animations:^{
@@ -477,7 +486,7 @@ PTPusherPresenceChannelDelegate
         [self.scrollViewContent setContentInset:edgeInsets];
         [self.scrollViewContent setScrollIndicatorInsets:edgeInsets];
         CGRect newFrame = self.containerView.frame;
-        newFrame.origin.y = self.containerView.frame.origin.y + kKeyboardSizeHeight;
+        newFrame.origin.y = self.containerView.frame.origin.y + kbSize.height;
         self.containerView.frame = newFrame;
     } completion:nil];
 }
@@ -499,28 +508,7 @@ PTPusherPresenceChannelDelegate
     }
 }
 
-- (void)pusher:(PTPusher *)pusher willAuthorizeChannel:(PTPusherChannel *)channel withRequest:(NSMutableURLRequest *)request{
-    [request setValue:[NSString stringWithFormat:@"Bearer %@",[TMEUserManager sharedManager].loggedUser.accessToken] forHTTPHeaderField:@"Authorization"];
-}
 
-- (void)presenceChannelDidSubscribe:(PTPusherPresenceChannel *)channel{
-    if (channel.members.count == 2) {
-        self.currentChatMode = TMEChatModeOnline;
-    };
-}
-
-- (void)presenceChannel:(PTPusherPresenceChannel *)channel memberAdded:(PTPusherChannelMember *)member{
-    self.currentChatMode = TMEChatModeOnline;
-    [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"%@ is online!", member.userInfo[@"name"]] type:TSMessageNotificationTypeSuccess];
-}
-
-- (void)presenceChannel:(PTPusherPresenceChannel *)channel memberRemoved:(PTPusherChannelMember *)member{
-    self.currentChatMode = TMEChatModeOffline;
-    if (self.arrayClientReplies.count) {
-        [self postMessagesToServer];
-    }
-    [TSMessage showNotificationWithTitle:[NSString stringWithFormat:@"%@ is offline!", self.conversation.userFullname] type:TSMessageNotificationTypeError];
-}
 
 #pragma mark - Handle changing reachability
 
