@@ -29,7 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self enablePullToRefresh];
-    [[FLEXManager sharedManager] showExplorer];
 }
 
 - (id <KHCollectionViewCellFactoryProtocol> )cellFactory {

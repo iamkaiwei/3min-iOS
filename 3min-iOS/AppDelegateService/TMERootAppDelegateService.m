@@ -47,6 +47,11 @@
     }
 
     [window makeKeyAndVisible];
+
+#ifdef DEBUG
+    [[FLEXManager sharedManager] showExplorer];
+#endif
+
     return YES;
 }
 

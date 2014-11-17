@@ -46,7 +46,6 @@
 	[super loadView];
 	self.navigationBar.translucent = NO;
 	self.navigationBar.barTintColor = [UIColor colorWithHexString:@"#FF0000"];
-//	[[FLEXManager sharedManager] showExplorer];
 }
 
 #pragma mark -
