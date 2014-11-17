@@ -62,7 +62,7 @@
 
     };
 
-    self.tableView.delegate = self.dataSource;
+    self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;
 }
 
@@ -84,6 +84,18 @@
 
     [SVProgressHUD show];
     [self.viewModel pullUsers];
+}
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    TMEUser *user = self.dataSource.items[indexPath.row];
+
+    TMEProfilePageContentViewController *vc = [[TMEProfilePageContentViewController alloc] init];
+    vc.user = user;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

@@ -13,6 +13,8 @@
 #import "TMEProductCommentCell.h"
 #import "TMEProductComment.h"
 
+#import "TMEProfilePageContentViewController.h"
+
 @interface TMEProductCommentsVC () <UITableViewDelegate>
 
 @property (nonatomic, strong) FBKVOController *viewModelKVOController;
@@ -75,6 +77,7 @@
         innerSelf.dataSource.items = items;
         [innerSelf.tableView reloadData];
 
+        // FIXME: contentSize is not correct
         if (self.displayedInBrief) {
             [innerSelf.tableView updateConstraintsIfNeeded];
             [innerSelf.tableView layoutIfNeeded];
@@ -160,7 +163,11 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    __unused UINavigationController *navC = self.navigationController ?: self.parentViewController.navigationController;
+    TMEProductComment *comment = self.dataSource.items[indexPath.row];
+
+    TMEProfilePageContentViewController *vc = [[TMEProfilePageContentViewController alloc] init];
+    vc.user = comment.user;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Delegate
