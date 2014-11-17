@@ -81,11 +81,7 @@
         if (self.displayedInBrief) {
             [innerSelf.tableView updateConstraintsIfNeeded];
             [innerSelf.tableView layoutIfNeeded];
-            CGFloat height = innerSelf.tableView.contentSize.height;
-
-            if (items.count > 2) {
-                height += 30;
-            }
+            CGFloat height = innerSelf.tableView.contentSize.height + 30;
 
             [innerSelf didChangeHeight:height];
         }
@@ -140,11 +136,7 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (IS_IOS8_OR_ABOVE) {
-        return 30;
-    } else {
-        return UITableViewAutomaticDimension;
-    }
+    return UITableViewAutomaticDimension;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
