@@ -25,8 +25,11 @@
 - (void)awakeFromNib {
 }
 
-- (void)updatePreferredMaxLayoutWidth
+
+- (void)layoutSubviews
 {
+    [super layoutSubviews];
+
     self.commentLabel.preferredMaxLayoutWidth = self.commentLabel.width;
 }
 

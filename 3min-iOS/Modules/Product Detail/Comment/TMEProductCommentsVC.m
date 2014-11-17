@@ -71,10 +71,21 @@
     {
         typeof(self) innerSelf = observer;
         NSArray *items = [innerSelf determinedItems:innerSelf.viewModel.productComments];
-        [innerSelf determineHeightWithItems:items];
 
         innerSelf.dataSource.items = items;
         [innerSelf.tableView reloadData];
+
+        if (self.displayedInBrief) {
+            [innerSelf.tableView updateConstraintsIfNeeded];
+            [innerSelf.tableView layoutIfNeeded];
+            CGFloat height = innerSelf.tableView.contentSize.height;
+
+            if (items.count > 2) {
+                height += 30;
+            }
+
+            [innerSelf didChangeHeight:height];
+        }
     }];
 
     [self.viewModelKVOController observe:self.viewModel
@@ -107,6 +118,11 @@
         self.tableView.scrollEnabled = NO;
         self.tableView.showsVerticalScrollIndicator = NO;
     }
+
+    if (IS_IOS8_OR_ABOVE) {
+        //self.tableView.rowHeight = UITableViewAutomaticDimension;
+        //self.tableView.estimatedRowHeight = 30;
+    }
 }
 
 - (TMEProductCommentCell *)prototypeCell
@@ -121,22 +137,30 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return UITableViewAutomaticDimension;
+    if (IS_IOS8_OR_ABOVE) {
+        return 30;
+    } else {
+        return UITableViewAutomaticDimension;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TMEProductComment *comment = self.dataSource.items[indexPath.row];
+    if (IS_IOS8_OR_ABOVE) {
+        return UITableViewAutomaticDimension;
+    } else {
+        TMEProductComment *comment = self.dataSource.items[indexPath.row];
 
-    return [self cellHeighFromComment:comment] + 6;
+        CGFloat height = [self cellHeighFromComment:comment] + 6;
+        return height;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    UINavigationController *navC = self.navigationController ?: self.parentViewController.navigationController;
-    (void)(navC);
+    __unused UINavigationController *navC = self.navigationController ?: self.parentViewController.navigationController;
 }
 
 #pragma mark - Delegate
@@ -166,27 +190,11 @@
 {
     [self.prototypeCell configureForModel:comment];
 
-    [self.prototypeCell updatePreferredMaxLayoutWidth];
-
+    [self.prototypeCell setNeedsLayout];
     [self.prototypeCell layoutIfNeeded];
-    [self.prototypeCell updateConstraintsIfNeeded];
+    [self.prototypeCell updateConstraintsIfNeeded];;
 
     return [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-}
-
-- (void)determineHeightWithItems:(NSArray *)items
-{
-    CGFloat height = 0;
-    for (TMEProductComment *comment in items) {
-        height += [self cellHeighFromComment:comment];
-    }
-
-    // For some padding
-    if (height > 0) {
-        height += 17;
-    }
-
-    [self didChangeHeight:height];
 }
 
 @end
