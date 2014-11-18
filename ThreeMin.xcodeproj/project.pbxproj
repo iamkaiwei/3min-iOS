@@ -36,6 +36,8 @@
 		9937B90919B5EA200000EE0C /* UITextField+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90719B5EA200000EE0C /* UITextField+TMEAdditions.m */; };
 		9937B90D19B5EA4A0000EE0C /* TMESingleSectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90C19B5EA4A0000EE0C /* TMESingleSectionDataSource.m */; };
 		9966434819A1085E008960DB /* TMEUserNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9966434719A1085E008960DB /* TMEUserNetworkClient.m */; };
+		998A11211A1B94FD007F62FF /* TMEEditProductPriceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 998A11201A1B94FD007F62FF /* TMEEditProductPriceVC.m */; };
+		998A11231A1B950C007F62FF /* EditProductPrice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998A11221A1B950C007F62FF /* EditProductPrice.storyboard */; };
 		9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */; };
 		9992943119E2D95800896D05 /* TMEProductComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943019E2D95800896D05 /* TMEProductComment.m */; };
 		9992943419E2D98000896D05 /* TMEProductCommentNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943319E2D98000896D05 /* TMEProductCommentNetworkClient.m */; };
@@ -393,6 +395,9 @@
 		9966434619A1085E008960DB /* TMEUserNetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserNetworkClient.h; sourceTree = "<group>"; };
 		9966434719A1085E008960DB /* TMEUserNetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserNetworkClient.m; sourceTree = "<group>"; };
 		9966434919A1087D008960DB /* TMENetworkHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMENetworkHeaders.h; sourceTree = "<group>"; };
+		998A111F1A1B94FD007F62FF /* TMEEditProductPriceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEEditProductPriceVC.h; sourceTree = "<group>"; };
+		998A11201A1B94FD007F62FF /* TMEEditProductPriceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEEditProductPriceVC.m; sourceTree = "<group>"; };
+		998A11221A1B950C007F62FF /* EditProductPrice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProductPrice.storyboard; sourceTree = "<group>"; };
 		9990E4271997CBD9008B603F /* TMELoggerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoggerAppDelegateService.h; sourceTree = "<group>"; };
 		9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoggerAppDelegateService.m; sourceTree = "<group>"; };
 		9992942F19E2D95800896D05 /* TMEProductComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductComment.h; sourceTree = "<group>"; };
@@ -1057,6 +1062,16 @@
 			);
 			name = Network;
 			path = "3min-iOS/Network";
+			sourceTree = "<group>";
+		};
+		998A111E1A1B94D6007F62FF /* Price */ = {
+			isa = PBXGroup;
+			children = (
+				998A111F1A1B94FD007F62FF /* TMEEditProductPriceVC.h */,
+				998A11201A1B94FD007F62FF /* TMEEditProductPriceVC.m */,
+				998A11221A1B950C007F62FF /* EditProductPrice.storyboard */,
+			);
+			path = Price;
 			sourceTree = "<group>";
 		};
 		99EA0D5E1978492C00872EE4 /* AppDelegate */ = {
@@ -2230,9 +2245,9 @@
 		D2E07CA01A1AF36900D54014 /* Edit Product */ = {
 			isa = PBXGroup;
 			children = (
+				998A111E1A1B94D6007F62FF /* Price */,
 				D2E07CAA1A1B0F5600D54014 /* Category */,
 				D2E07CAB1A1B0F5600D54014 /* Item */,
-				D2E07CAC1A1B0F5600D54014 /* Price */,
 				D2E07CA21A1AF64600D54014 /* TMEEditProductVC.h */,
 				D2E07CA31A1AF64600D54014 /* TMEEditProductVC.m */,
 				D2E07CA51A1AF65E00D54014 /* EditProduct.storyboard */,
@@ -2267,13 +2282,6 @@
 				D2E07CB81A1B3CC300D54014 /* EditProductName.storyboard */,
 			);
 			path = Item;
-			sourceTree = "<group>";
-		};
-		D2E07CAC1A1B0F5600D54014 /* Price */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Price;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2343,6 +2351,7 @@
 				B648083B1A0893CC00A855A0 /* OpenSans-ExtraBold.ttf in Resources */,
 				B648083C1A0893CC00A855A0 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				B648083D1A0893CC00A855A0 /* OpenSans-Italic.ttf in Resources */,
+				998A11231A1B950C007F62FF /* EditProductPrice.storyboard in Resources */,
 				B648083E1A0893CC00A855A0 /* OpenSans-Light.ttf in Resources */,
 				B648083F1A0893CC00A855A0 /* OpenSans-LightItalic.ttf in Resources */,
 				B64808401A0893CC00A855A0 /* OpenSans-Regular.ttf in Resources */,
@@ -2481,6 +2490,7 @@
 				99EA0EEB1978492D00872EE4 /* TMEFacebookAppDelegateService.m in Sources */,
 				99EA0F6F1978492D00872EE4 /* TMEPublishProductViewController.m in Sources */,
 				99AA4B2219A26F0600268345 /* NSObject+TMENotification.m in Sources */,
+				998A11211A1B94FD007F62FF /* TMEEditProductPriceVC.m in Sources */,
 				99EA0F931978492D00872EE4 /* TMELoadMoreTableViewCell.m in Sources */,
 				9992943A19E2EA4B00896D05 /* TMEProductCommentViewModel.m in Sources */,
 				99EA0F7D1978492D00872EE4 /* TMEBasePhotoEditorViewController.m in Sources */,

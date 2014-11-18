@@ -8,6 +8,8 @@
 
 #import "TMEEditProductVC.h"
 #import "TMEProductCategoriesVC.h"
+#import "TMEEditProductNameVC.h"
+#import "TMEEditProductPriceVC.h"
 
 typedef NS_ENUM(NSUInteger, TMEProductRow) {
     TMEProductRowPhoto = 0,
@@ -115,6 +117,16 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
     if (indexPath.row == TMEProductRowCategory) {
         TMEProductCategoriesVC *vc = [TMEProductCategoriesVC tme_instantiateFromStoryboardNamed:@"ProductCategory"];
+        vc.product = self.product;
+        TMENavigationViewController *nc = [[TMENavigationViewController alloc] initWithRootViewController:vc];
+        [self presentViewController:nc animated:YES completion:nil];
+    } else if (indexPath.row == TMEProductRowItem) {
+        TMEEditProductNameVC *vc = [TMEEditProductNameVC tme_instantiateFromStoryboardNamed:@"EditProductName"];
+        vc.product = self.product;
+        TMENavigationViewController *nc = [[TMENavigationViewController alloc] initWithRootViewController:vc];
+        [self presentViewController:nc animated:YES completion:nil];
+    } else if (indexPath.row == TMEProductRowPrice) {
+        TMEEditProductPriceVC *vc = [TMEEditProductPriceVC tme_instantiateFromStoryboardNamed:@"EditProductPrice"];
         vc.product = self.product;
         TMENavigationViewController *nc = [[TMENavigationViewController alloc] initWithRootViewController:vc];
         [self presentViewController:nc animated:YES completion:nil];

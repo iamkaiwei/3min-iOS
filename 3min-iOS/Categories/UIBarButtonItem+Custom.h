@@ -18,5 +18,6 @@
 
 + (UIBarButtonItem *)cancelItemWithTarget:(id)target action:(SEL)action;
 + (UIBarButtonItem *)submitItemWithTarget:(id)target action:(SEL)action;
++ (UIBarButtonItem *)doneItemWithTarget:(id)target action:(SEL)action;
 
 @end

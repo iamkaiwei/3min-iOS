@@ -80,4 +80,9 @@
     return [[UIBarButtonItem alloc] initWithImage:[UIImage originalImageNamed:@"icn_submit"] style:UIBarButtonItemStylePlain target:target action:action];
 }
 
++ (UIBarButtonItem *)doneItemWithTarget:(id)target action:(SEL)action
+{
+    return [[UIBarButtonItem alloc] initWithImage:[UIImage originalImageNamed:@"icn_done"] style:UIBarButtonItemStylePlain target:target action:action];
+}
+
 @end

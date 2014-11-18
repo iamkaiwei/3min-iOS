@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Edit Product PriceVC-->
+        <scene sceneID="240-zm-OJM">
+            <objects>
+                <tableViewController storyboardIdentifier="TMEEditProductPriceVC" id="fVP-Vf-OOn" customClass="TMEEditProductPriceVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="i6s-dd-HZ0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="ddg-U0-8P6">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Pge-wg-Ju5">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pge-wg-Ju5" id="2u2-nV-dsf">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Set price" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nRW-Tm-aWh">
+                                                    <rect key="frame" x="15" y="13" width="295" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="fVP-Vf-OOn" id="vEo-gx-EQY"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="nRW-Tm-aWh" secondAttribute="centerY" id="9Gd-JZ-L9B"/>
+                                                <constraint firstItem="nRW-Tm-aWh" firstAttribute="leading" secondItem="2u2-nV-dsf" secondAttribute="leading" constant="15" id="Cr4-ed-NlH"/>
+                                                <constraint firstAttribute="trailing" secondItem="nRW-Tm-aWh" secondAttribute="trailing" constant="10" id="rrH-js-Zj2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="fVP-Vf-OOn" id="ciE-OK-oZL"/>
+                            <outlet property="delegate" destination="fVP-Vf-OOn" id="81L-KK-xcw"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="priceTextField" destination="nRW-Tm-aWh" id="0KN-YT-fVz"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3EU-xA-ckY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="485.33333333333331" y="3.7866666666666666"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
