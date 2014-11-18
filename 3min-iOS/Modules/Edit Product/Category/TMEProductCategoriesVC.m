@@ -45,9 +45,17 @@
 {
     self.dataSource = [[TMESingleSectionDataSource alloc] init];
     self.dataSource.cellIdentifier = [TMEProductCategoryCell kind];
+
+    __weak typeof (self) weakSelf = self;
     self.dataSource.cellConfigureBlock = ^(TMEProductCategoryCell *cell, TMECategory *category) {
         [cell.categoryImageView setImageWithURL:[NSURL URLWithString:category.image.urlString]];
         cell.categoryLabel.text = category.name;
+
+        if ([weakSelf.product.category.name isEqualToString:category.name]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
     };
 
     self.tableView.dataSource = self.dataSource;
@@ -65,7 +73,7 @@
 #pragma mark - Action
 - (void)cancelTouched:(id)sender
 {
-     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDelegate
@@ -76,7 +84,9 @@
     TMECategory *category = self.dataSource.items[indexPath.row];
     self.product.category = category;
 
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.tableView reloadData];
+
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

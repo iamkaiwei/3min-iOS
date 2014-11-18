@@ -37,7 +37,7 @@
 @property (nonatomic, strong) NSNumber *venueLong;
 @property (nonatomic, strong) NSNumber *venueLat;
 
-@property (nonatomic, weak) TMECategory *category;
+@property (nonatomic, strong) TMECategory *category;
 
 @property (nonatomic, strong) NSSet *conversation;
 @property (nonatomic, strong) NSArray *images;

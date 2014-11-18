@@ -40,19 +40,18 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxf-cX-Y5i">
-                                                    <rect key="frame" x="235" y="11" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Set category" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNC-Ij-14M">
+                                                    <rect key="frame" x="193" y="14" width="86" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="hxf-cX-Y5i" secondAttribute="trailing" constant="10" id="BBs-HD-5Rq"/>
-                                                <constraint firstAttribute="centerY" secondItem="hxf-cX-Y5i" secondAttribute="centerY" id="KIF-Mj-0ZZ"/>
+                                                <constraint firstAttribute="centerY" secondItem="UNC-Ij-14M" secondAttribute="centerY" constant="-0.5" id="AO5-qO-P0M"/>
                                                 <constraint firstItem="gni-08-gO8" firstAttribute="leading" secondItem="Uml-se-TZT" secondAttribute="trailing" constant="10" id="Zgs-Fv-sb1"/>
                                                 <constraint firstAttribute="centerY" secondItem="gni-08-gO8" secondAttribute="centerY" id="bLh-dK-OqX"/>
                                                 <constraint firstItem="Uml-se-TZT" firstAttribute="leading" secondItem="qQq-Z0-y5J" secondAttribute="leading" constant="8" id="hkd-In-GDr"/>
+                                                <constraint firstAttribute="trailing" secondItem="UNC-Ij-14M" secondAttribute="trailing" constant="8" id="jyu-df-8GZ"/>
                                                 <constraint firstAttribute="centerY" secondItem="Uml-se-TZT" secondAttribute="centerY" constant="-0.5" id="swZ-q8-2TT"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -75,20 +74,19 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3P-qm-eNt">
-                                                    <rect key="frame" x="235" y="11" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What do you sell?" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QgQ-j4-lfY">
+                                                    <rect key="frame" x="159" y="12" width="120" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="iqd-7Z-tre" firstAttribute="leading" secondItem="Qub-pf-bet" secondAttribute="leading" constant="8" id="Vbp-le-Oxs"/>
+                                                <constraint firstAttribute="trailing" secondItem="QgQ-j4-lfY" secondAttribute="trailing" constant="8" id="Xjz-cR-o5s"/>
+                                                <constraint firstAttribute="centerY" secondItem="QgQ-j4-lfY" secondAttribute="centerY" constant="1.5" id="YPk-5l-Ffq"/>
                                                 <constraint firstAttribute="centerY" secondItem="iqd-7Z-tre" secondAttribute="centerY" constant="-0.5" id="dHt-xy-Uhg"/>
                                                 <constraint firstAttribute="centerY" secondItem="FJb-6q-c6a" secondAttribute="centerY" id="dXv-i5-WFo"/>
-                                                <constraint firstAttribute="centerY" secondItem="H3P-qm-eNt" secondAttribute="centerY" id="uj9-Sx-pQe"/>
                                                 <constraint firstItem="FJb-6q-c6a" firstAttribute="leading" secondItem="iqd-7Z-tre" secondAttribute="trailing" constant="10" id="uvK-OT-fdt"/>
-                                                <constraint firstAttribute="trailing" secondItem="H3P-qm-eNt" secondAttribute="trailing" constant="10" id="y7S-tN-8kH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -103,12 +101,6 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HiV-Qi-408">
-                                                    <rect key="frame" x="235" y="11" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_price_orange" translatesAutoresizingMaskIntoConstraints="NO" id="lCy-4A-vbx">
                                                     <rect key="frame" x="8" y="7" width="30" height="30"/>
                                                     <constraints>
@@ -116,13 +108,18 @@
                                                         <constraint firstAttribute="width" constant="30" id="uGG-YQ-2DE"/>
                                                     </constraints>
                                                 </imageView>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Set price" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PVv-Ws-etn">
+                                                    <rect key="frame" x="217" y="14" width="62" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="PVv-Ws-etn" secondAttribute="trailing" constant="8" id="15Z-gi-YB3"/>
                                                 <constraint firstItem="N0X-sX-PUE" firstAttribute="leading" secondItem="lCy-4A-vbx" secondAttribute="trailing" constant="10" id="9Nk-WT-vZa"/>
-                                                <constraint firstAttribute="centerY" secondItem="HiV-Qi-408" secondAttribute="centerY" id="Acx-Ei-cqR"/>
                                                 <constraint firstAttribute="centerY" secondItem="lCy-4A-vbx" secondAttribute="centerY" constant="-0.5" id="Hjq-CQ-cTm"/>
+                                                <constraint firstAttribute="centerY" secondItem="PVv-Ws-etn" secondAttribute="centerY" constant="-0.5" id="Mek-rs-pIZ"/>
                                                 <constraint firstItem="lCy-4A-vbx" firstAttribute="leading" secondItem="H0K-fy-4SK" secondAttribute="leading" constant="8" id="hsB-3Y-2FM"/>
-                                                <constraint firstAttribute="trailing" secondItem="HiV-Qi-408" secondAttribute="trailing" constant="10" id="z2i-me-cfj"/>
                                                 <constraint firstAttribute="centerY" secondItem="N0X-sX-PUE" secondAttribute="centerY" id="zFf-3e-MRG"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -187,10 +184,10 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="categoryLabel" destination="hxf-cX-Y5i" id="qEd-jQ-kyW"/>
+                        <outlet property="categoryTextField" destination="UNC-Ij-14M" id="fYw-fL-FYE"/>
                         <outlet property="facebookSwitch" destination="Rqj-ue-wv4" id="5Ki-0A-Zf8"/>
-                        <outlet property="itemLabel" destination="H3P-qm-eNt" id="3Et-vF-tNx"/>
-                        <outlet property="priceLabel" destination="HiV-Qi-408" id="FpZ-ki-uuD"/>
+                        <outlet property="itemTextField" destination="QgQ-j4-lfY" id="y5l-7G-q9h"/>
+                        <outlet property="priceTextField" destination="PVv-Ws-etn" id="l3H-Wn-ngE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdh-Pb-s1P" userLabel="First Responder" sceneMemberID="firstResponder"/>

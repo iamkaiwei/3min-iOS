@@ -21,9 +21,9 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
 @interface TMEEditProductVC ()
 
-@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *itemLabel;
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UITextField *categoryTextField;
+@property (weak, nonatomic) IBOutlet UITextField *itemTextField;
+@property (weak, nonatomic) IBOutlet UITextField *priceTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *facebookSwitch;
 @property (nonatomic, assign) BOOL isCreatedNew;
 
@@ -40,15 +40,18 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
     if (self.product) {
         self.title = self.product.name;
-        [self displayProduct];
     } else {
+        self.product = [[TMEProduct alloc] init];
         self.title = @"Start Selling";
         self.isCreatedNew = YES;
-
-        self.categoryLabel.text = @"Choose a category";
-        self.itemLabel.text = @"What are you selling?";
-        self.priceLabel.text = @"Choose a price";
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    [self displayProduct];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,9 +73,9 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
 - (void)displayProduct
 {
-    self.categoryLabel.text = self.product.category.name;
-    self.itemLabel.text = self.product.name;
-    self.priceLabel.text = self.product.price;
+    self.categoryTextField.text = self.product.category.name;
+    self.itemTextField.text = self.product.name;
+    self.priceTextField.text = self.product.price;
 }
 
 #pragma mark - Action
@@ -112,6 +115,7 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
     if (indexPath.row == TMEProductRowCategory) {
         TMEProductCategoriesVC *vc = [TMEProductCategoriesVC tme_instantiateFromStoryboardNamed:@"ProductCategory"];
+        vc.product = self.product;
         TMENavigationViewController *nc = [[TMENavigationViewController alloc] initWithRootViewController:vc];
         [self presentViewController:nc animated:YES completion:nil];
     }
