@@ -63,8 +63,8 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
 - (void)setupNavigationItems
 {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage originalImageNamed:@"icn_cancel"] style:UIBarButtonItemStylePlain target:self action:@selector(cancelTouched:)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage originalImageNamed:@"icn_submit"] style:UIBarButtonItemStylePlain target:self action:@selector(submitTouched:)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem cancelItemWithTarget:self action:@selector(cancelTouched:)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem submitItemWithTarget:self action:@selector(submitTouched:)];
 }
 
 - (void)displayProduct

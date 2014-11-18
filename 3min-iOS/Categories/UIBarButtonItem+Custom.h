@@ -15,4 +15,8 @@
 + (UIBarButtonItem *)appMenuButtonWithTarget:(id)target action:(SEL)action;
 + (UIBarButtonItem *)appListButtonWithTarget:(id)target action:(SEL)action;
 + (UIBarButtonItem *)appShareButtonWithTarget:(id)target action:(SEL)action;
+
++ (UIBarButtonItem *)cancelItemWithTarget:(id)target action:(SEL)action;
++ (UIBarButtonItem *)submitItemWithTarget:(id)target action:(SEL)action;
+
 @end
