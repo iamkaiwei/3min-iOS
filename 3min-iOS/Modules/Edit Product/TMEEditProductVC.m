@@ -7,6 +7,7 @@
 //
 
 #import "TMEEditProductVC.h"
+#import "TMEProductCategoriesVC.h"
 
 typedef NS_ENUM(NSUInteger, TMEProductRow) {
     TMEProductRowPhoto = 0,
@@ -77,7 +78,7 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 #pragma mark - Action
 - (void)cancelTouched:(id)sender
 {
-
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)submitTouched:(id)sender
@@ -108,6 +109,12 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    if (indexPath.row == TMEProductRowCategory) {
+        TMEProductCategoriesVC *vc = [TMEProductCategoriesVC tme_instantiateFromStoryboardNamed:@"ProductCategory"];
+        TMENavigationViewController *nc = [[TMENavigationViewController alloc] initWithRootViewController:vc];
+        [self presentViewController:nc animated:YES completion:nil];
+    }
 }
 
 @end

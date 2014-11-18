@@ -331,6 +331,9 @@
 		D2E07CA41A1AF64600D54014 /* TMEEditProductVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CA31A1AF64600D54014 /* TMEEditProductVC.m */; };
 		D2E07CA61A1AF65E00D54014 /* EditProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E07CA51A1AF65E00D54014 /* EditProduct.storyboard */; };
 		D2E07CA91A1B02BD00D54014 /* UIImage+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CA81A1B02BD00D54014 /* UIImage+TMEAdditions.m */; };
+		D2E07CAF1A1B280F00D54014 /* TMEProductCategoriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CAE1A1B280F00D54014 /* TMEProductCategoriesVC.m */; };
+		D2E07CB11A1B281B00D54014 /* ProductCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E07CB01A1B281B00D54014 /* ProductCategory.storyboard */; };
+		D2E07CB41A1B29B800D54014 /* TMEProductCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CB31A1B29B800D54014 /* TMEProductCategoryCell.m */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
@@ -917,6 +920,11 @@
 		D2E07CA51A1AF65E00D54014 /* EditProduct.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProduct.storyboard; sourceTree = "<group>"; };
 		D2E07CA71A1B02BD00D54014 /* UIImage+TMEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TMEAdditions.h"; sourceTree = "<group>"; };
 		D2E07CA81A1B02BD00D54014 /* UIImage+TMEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TMEAdditions.m"; sourceTree = "<group>"; };
+		D2E07CAD1A1B280F00D54014 /* TMEProductCategoriesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductCategoriesVC.h; sourceTree = "<group>"; };
+		D2E07CAE1A1B280F00D54014 /* TMEProductCategoriesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductCategoriesVC.m; sourceTree = "<group>"; };
+		D2E07CB01A1B281B00D54014 /* ProductCategory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductCategory.storyboard; sourceTree = "<group>"; };
+		D2E07CB21A1B29B800D54014 /* TMEProductCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductCategoryCell.h; sourceTree = "<group>"; };
+		D2E07CB31A1B29B800D54014 /* TMEProductCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductCategoryCell.m; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -2217,6 +2225,9 @@
 		D2E07CA01A1AF36900D54014 /* Edit Product */ = {
 			isa = PBXGroup;
 			children = (
+				D2E07CAA1A1B0F5600D54014 /* Category */,
+				D2E07CAB1A1B0F5600D54014 /* Item */,
+				D2E07CAC1A1B0F5600D54014 /* Price */,
 				D2E07CA21A1AF64600D54014 /* TMEEditProductVC.h */,
 				D2E07CA31A1AF64600D54014 /* TMEEditProductVC.m */,
 				D2E07CA51A1AF65E00D54014 /* EditProduct.storyboard */,
@@ -2229,6 +2240,32 @@
 			children = (
 			);
 			path = "Take Photo";
+			sourceTree = "<group>";
+		};
+		D2E07CAA1A1B0F5600D54014 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D2E07CAD1A1B280F00D54014 /* TMEProductCategoriesVC.h */,
+				D2E07CAE1A1B280F00D54014 /* TMEProductCategoriesVC.m */,
+				D2E07CB01A1B281B00D54014 /* ProductCategory.storyboard */,
+				D2E07CB21A1B29B800D54014 /* TMEProductCategoryCell.h */,
+				D2E07CB31A1B29B800D54014 /* TMEProductCategoryCell.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		D2E07CAB1A1B0F5600D54014 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		D2E07CAC1A1B0F5600D54014 /* Price */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Price;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2358,6 +2395,7 @@
 				99EA0F5D1978492D00872EE4 /* TMEOfferedTableViewCell.xib in Resources */,
 				B68DCD781A0C7D7A0023A877 /* TMEMessageCollectionViewCell.xib in Resources */,
 				99EA0F741978492D00872EE4 /* TMESearchViewController.xib in Resources */,
+				D2E07CB11A1B281B00D54014 /* ProductCategory.storyboard in Resources */,
 				B486E3601A04F35000696267 /* TMEFollowingCollectionViewCell.xib in Resources */,
 				99EA0F141978492D00872EE4 /* ActiveSupportInflector.plist in Resources */,
 				99EA0F631978492D00872EE4 /* TMEMeViewController.xib in Resources */,
@@ -2472,6 +2510,7 @@
 				B68DCD6B1A0C75230023A877 /* TMESubmitCellFactory.m in Sources */,
 				99EA0F7F1978492D00872EE4 /* TMEBaseTableViewController.m in Sources */,
 				99EA0F381978492D00872EE4 /* FSConverter.m in Sources */,
+				D2E07CB41A1B29B800D54014 /* TMEProductCategoryCell.m in Sources */,
 				9992944319E2F96D00896D05 /* TMEProductLikeViewModel.m in Sources */,
 				99EA0F731978492D00872EE4 /* TMESearchViewController.m in Sources */,
 				99EA0F1C1978492D00872EE4 /* NSDate+Additions.m in Sources */,
@@ -2523,6 +2562,7 @@
 				99EA0F9F1978574000872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				99EA0F211978492D00872EE4 /* NSString+ActiveSupportInflector.m in Sources */,
 				99EA0F1E1978492D00872EE4 /* NSMutableArray+Additions.m in Sources */,
+				D2E07CAF1A1B280F00D54014 /* TMEProductCategoriesVC.m in Sources */,
 				99EA0F241978492D00872EE4 /* UIAlertView+Additions.m in Sources */,
 				9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */,
 				B4FF484F1A062FAD008FF411 /* TMEFollowingViewController.m in Sources */,
