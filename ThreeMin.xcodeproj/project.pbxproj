@@ -334,6 +334,8 @@
 		D2E07CAF1A1B280F00D54014 /* TMEProductCategoriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CAE1A1B280F00D54014 /* TMEProductCategoriesVC.m */; };
 		D2E07CB11A1B281B00D54014 /* ProductCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E07CB01A1B281B00D54014 /* ProductCategory.storyboard */; };
 		D2E07CB41A1B29B800D54014 /* TMEProductCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CB31A1B29B800D54014 /* TMEProductCategoryCell.m */; };
+		D2E07CB71A1B3CB900D54014 /* TMEEditProductNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CB61A1B3CB900D54014 /* TMEEditProductNameVC.m */; };
+		D2E07CB91A1B3CC300D54014 /* EditProductName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E07CB81A1B3CC300D54014 /* EditProductName.storyboard */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
@@ -925,6 +927,9 @@
 		D2E07CB01A1B281B00D54014 /* ProductCategory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductCategory.storyboard; sourceTree = "<group>"; };
 		D2E07CB21A1B29B800D54014 /* TMEProductCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductCategoryCell.h; sourceTree = "<group>"; };
 		D2E07CB31A1B29B800D54014 /* TMEProductCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductCategoryCell.m; sourceTree = "<group>"; };
+		D2E07CB51A1B3CB900D54014 /* TMEEditProductNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEEditProductNameVC.h; sourceTree = "<group>"; };
+		D2E07CB61A1B3CB900D54014 /* TMEEditProductNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEEditProductNameVC.m; sourceTree = "<group>"; };
+		D2E07CB81A1B3CC300D54014 /* EditProductName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProductName.storyboard; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -2257,6 +2262,9 @@
 		D2E07CAB1A1B0F5600D54014 /* Item */ = {
 			isa = PBXGroup;
 			children = (
+				D2E07CB51A1B3CB900D54014 /* TMEEditProductNameVC.h */,
+				D2E07CB61A1B3CB900D54014 /* TMEEditProductNameVC.m */,
+				D2E07CB81A1B3CC300D54014 /* EditProductName.storyboard */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -2379,6 +2387,7 @@
 				99EA0F3E1978492D00872EE4 /* TMEActivityViewController.xib in Resources */,
 				D295D2CE19E29F2C008B9BC4 /* ProductComment.storyboard in Resources */,
 				B68DCD7F1A0C7E670023A877 /* TMEMessageRightCollectionViewCell.xib in Resources */,
+				D2E07CB91A1B3CC300D54014 /* EditProductName.storyboard in Resources */,
 				B470E4ED19AC320100F4FF18 /* TMEErrorReusableCollectionView.xib in Resources */,
 				99EA0F531978492D00872EE4 /* TMEHomeViewController.xib in Resources */,
 				B4F513E219AEE5BF003DE851 /* TMEDropDownMenuCell.xib in Resources */,
@@ -2578,6 +2587,7 @@
 				99EA0F101978492D00872EE4 /* main.m in Sources */,
 				B4F513DA19AEDCE2003DE851 /* TMEDropDownViewModel.m in Sources */,
 				99EA0F1A1978492D00872EE4 /* NSCalendar+Additions.m in Sources */,
+				D2E07CB71A1B3CB900D54014 /* TMEEditProductNameVC.m in Sources */,
 				99EA0F911978492D00872EE4 /* TMELoadMoreCollectionViewCell.m in Sources */,
 				99EA0F061978492D00872EE4 /* TMEConversation.m in Sources */,
 				99EA0F081978492D00872EE4 /* TMEProduct+ParseArrayProducts.m in Sources */,
