@@ -9,7 +9,7 @@
 #import "TMEEditProductVC.h"
 
 typedef NS_ENUM(NSUInteger, TMEProductRow) {
-    TMEProductRowPhoto,
+    TMEProductRowPhoto = 0,
     TMEProductRowCategory,
     TMEProductRowItem,
     TMEProductRowPrice,
@@ -33,8 +33,9 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self setupNavigationItems];
+    [self setupTableView];
 
     if (self.product) {
         self.title = self.product.name;
@@ -42,6 +43,10 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     } else {
         self.title = @"Start Selling";
         self.isCreatedNew = YES;
+
+        self.categoryLabel.text = @"Choose a category";
+        self.itemLabel.text = @"What are you selling?";
+        self.priceLabel.text = @"Choose a price";
     }
 }
 
@@ -51,6 +56,11 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 }
 
 #pragma mark - Setup
+- (void)setupTableView
+{
+    self.tableView.tableFooterView = [[UIView alloc] init];
+}
+
 - (void)setupNavigationItems
 {
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage originalImageNamed:@"icn_cancel"] style:UIBarButtonItemStylePlain target:self action:@selector(cancelTouched:)];
