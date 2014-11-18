@@ -73,7 +73,7 @@
 #pragma mark - Action
 - (void)cancelTouched:(id)sender
 {
-     [self dismissViewControllerAnimated:YES completion:nil];
+     [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UITableViewDelegate
@@ -86,7 +86,7 @@
 
     [self.tableView reloadData];
 
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -80,7 +80,6 @@
                                                 <constraint firstItem="HYI-u1-EKI" firstAttribute="leading" secondItem="yTU-F1-ETu" secondAttribute="leading" constant="15" id="hbN-Z4-YgQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>

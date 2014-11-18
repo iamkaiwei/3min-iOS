@@ -9,6 +9,7 @@
 #import "TMEEditProductNameVC.h"
 #import <CoreLocation/CoreLocation.h>
 #import <SZTextView.h>
+#import "TMEEditProductLocationVC.h"
 
 @interface TMEEditProductNameVC () <UITextFieldDelegate, UITextViewDelegate, UITableViewDelegate>
 
@@ -63,6 +64,7 @@
 - (void)setupGR
 {
     self.tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+    self.tapGR.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:self.tapGR];
 }
 
@@ -98,12 +100,12 @@
     self.product.name = self.nameTextField.text;
     self.product.productDescription = self.descriptionTextView.text;
 
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)cancelTouched:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -131,8 +133,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     if (indexPath.row == 2) {
-        // Location
+        TMEEditProductLocationVC *vc = [TMEEditProductLocationVC tme_instantiateFromStoryboardNamed:@"EditProductLocation"];
+        vc.product = self.product;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
 
 @end

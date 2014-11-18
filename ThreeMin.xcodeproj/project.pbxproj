@@ -38,6 +38,8 @@
 		9966434819A1085E008960DB /* TMEUserNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9966434719A1085E008960DB /* TMEUserNetworkClient.m */; };
 		998A11211A1B94FD007F62FF /* TMEEditProductPriceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 998A11201A1B94FD007F62FF /* TMEEditProductPriceVC.m */; };
 		998A11231A1B950C007F62FF /* EditProductPrice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998A11221A1B950C007F62FF /* EditProductPrice.storyboard */; };
+		998A11271A1B98A9007F62FF /* TMEEditProductLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 998A11261A1B98A9007F62FF /* TMEEditProductLocationVC.m */; };
+		998A11291A1B98B3007F62FF /* EditProductLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998A11281A1B98B3007F62FF /* EditProductLocation.storyboard */; };
 		9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */; };
 		9992943119E2D95800896D05 /* TMEProductComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943019E2D95800896D05 /* TMEProductComment.m */; };
 		9992943419E2D98000896D05 /* TMEProductCommentNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943319E2D98000896D05 /* TMEProductCommentNetworkClient.m */; };
@@ -398,6 +400,9 @@
 		998A111F1A1B94FD007F62FF /* TMEEditProductPriceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEEditProductPriceVC.h; sourceTree = "<group>"; };
 		998A11201A1B94FD007F62FF /* TMEEditProductPriceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEEditProductPriceVC.m; sourceTree = "<group>"; };
 		998A11221A1B950C007F62FF /* EditProductPrice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProductPrice.storyboard; sourceTree = "<group>"; };
+		998A11251A1B98A9007F62FF /* TMEEditProductLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEEditProductLocationVC.h; sourceTree = "<group>"; };
+		998A11261A1B98A9007F62FF /* TMEEditProductLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEEditProductLocationVC.m; sourceTree = "<group>"; };
+		998A11281A1B98B3007F62FF /* EditProductLocation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProductLocation.storyboard; sourceTree = "<group>"; };
 		9990E4271997CBD9008B603F /* TMELoggerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoggerAppDelegateService.h; sourceTree = "<group>"; };
 		9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoggerAppDelegateService.m; sourceTree = "<group>"; };
 		9992942F19E2D95800896D05 /* TMEProductComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductComment.h; sourceTree = "<group>"; };
@@ -1072,6 +1077,16 @@
 				998A11221A1B950C007F62FF /* EditProductPrice.storyboard */,
 			);
 			path = Price;
+			sourceTree = "<group>";
+		};
+		998A11241A1B988E007F62FF /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				998A11251A1B98A9007F62FF /* TMEEditProductLocationVC.h */,
+				998A11261A1B98A9007F62FF /* TMEEditProductLocationVC.m */,
+				998A11281A1B98B3007F62FF /* EditProductLocation.storyboard */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		99EA0D5E1978492C00872EE4 /* AppDelegate */ = {
@@ -2245,6 +2260,7 @@
 		D2E07CA01A1AF36900D54014 /* Edit Product */ = {
 			isa = PBXGroup;
 			children = (
+				998A11241A1B988E007F62FF /* Location */,
 				998A111E1A1B94D6007F62FF /* Price */,
 				D2E07CAA1A1B0F5600D54014 /* Category */,
 				D2E07CAB1A1B0F5600D54014 /* Item */,
@@ -2367,6 +2383,7 @@
 				99EA0F4F1978492D00872EE4 /* TMELeftMenuTableViewCell.xib in Resources */,
 				B4AE17F4198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib in Resources */,
 				B4F513D719AEDCB9003DE851 /* TMEDropDownMenuViewController.xib in Resources */,
+				998A11291A1B98B3007F62FF /* EditProductLocation.storyboard in Resources */,
 				99EA0F6E1978492D00872EE4 /* PublishLocationPickerViewController.xib in Resources */,
 				99EA0F681978492D00872EE4 /* TMEListOffersTableViewController.xib in Resources */,
 				B47FBD9B1A0B534F002A75F3 /* TMEMyItemViewController.xib in Resources */,
@@ -2694,6 +2711,7 @@
 				99EA0F8F1978492D00872EE4 /* UINavigationController+SGProgress.m in Sources */,
 				99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */,
 				99EA0EF31978492D00872EE4 /* TMEConstants.m in Sources */,
+				998A11271A1B98A9007F62FF /* TMEEditProductLocationVC.m in Sources */,
 				B4AE17DD198EAE1F00F6D601 /* TMEHomePageViewController.m in Sources */,
 				99EA0F791978492D00872EE4 /* TMESubmitViewController.m in Sources */,
 				99EA0F401978492D00872EE4 /* TMEBrowserProductsTableCell.m in Sources */,
