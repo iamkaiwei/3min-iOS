@@ -136,10 +136,10 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="245" placeholderIntrinsicHeight="25" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-rZ-Evv">
-                                                    <rect key="frame" x="56" y="12" width="245" height="16"/>
+                                                    <rect key="frame" x="56" y="12" width="200" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="DBB-xe-is4"/>
-                                                        <constraint firstAttribute="width" constant="245" id="vOg-qI-WLO"/>
+                                                        <constraint firstAttribute="width" constant="200" id="vOg-qI-WLO"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -158,13 +158,28 @@
                                                         <constraint firstAttribute="height" constant="11" id="Ju9-1P-LTk"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNk-g0-N5P">
+                                                    <rect key="frame" x="288" y="12" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="P5o-PV-KIk"/>
+                                                        <constraint firstAttribute="width" constant="24" id="h2B-HG-bzR"/>
+                                                    </constraints>
+                                                    <state key="normal" image="icn_edit">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="editButtonTouched:" destination="LZB-NN-uT9" eventType="touchUpInside" id="7BU-c8-37D"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="lTV-v5-TCe" firstAttribute="leading" secondItem="YlF-3H-Qws" secondAttribute="trailing" constant="6" id="9sE-ay-aIf"/>
                                                 <constraint firstAttribute="centerY" secondItem="6bs-5H-bj2" secondAttribute="centerY" constant="-4.5" id="CVM-oQ-iea"/>
                                                 <constraint firstItem="UfD-rZ-Evv" firstAttribute="top" secondItem="6bs-5H-bj2" secondAttribute="top" constant="3" id="FOH-Kc-H0z"/>
+                                                <constraint firstItem="cNk-g0-N5P" firstAttribute="top" secondItem="oF9-WE-boN" secondAttribute="top" constant="12" id="PnK-i8-1gj"/>
                                                 <constraint firstItem="YlF-3H-Qws" firstAttribute="top" secondItem="lTV-v5-TCe" secondAttribute="top" constant="2" id="W53-CE-ogE"/>
                                                 <constraint firstItem="YlF-3H-Qws" firstAttribute="top" secondItem="UfD-rZ-Evv" secondAttribute="bottom" constant="5" id="cIn-UF-gni"/>
+                                                <constraint firstAttribute="trailing" secondItem="cNk-g0-N5P" secondAttribute="trailing" constant="8" id="eRI-ig-UX1"/>
                                                 <constraint firstItem="UfD-rZ-Evv" firstAttribute="leading" secondItem="6bs-5H-bj2" secondAttribute="trailing" constant="6" id="fhI-f1-WBy"/>
                                                 <constraint firstItem="UfD-rZ-Evv" firstAttribute="leading" secondItem="YlF-3H-Qws" secondAttribute="leading" id="gXq-vm-G0k"/>
                                                 <constraint firstItem="6bs-5H-bj2" firstAttribute="leading" secondItem="oF9-WE-boN" secondAttribute="leading" constant="10" id="uCk-6y-ql4"/>
@@ -419,6 +434,7 @@
                             <outlet property="delegate" destination="LZB-NN-uT9" id="CJJ-FA-845"/>
                         </connections>
                     </tableView>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
@@ -426,6 +442,7 @@
                         <outlet property="commentInfoButton" destination="h6V-1s-fub" id="r8K-8N-3Op"/>
                         <outlet property="commentsContainerView" destination="w5J-YS-L5I" id="6uC-nj-QSX"/>
                         <outlet property="descriptionLabel" destination="7lh-dN-J3O" id="3h3-tr-YB9"/>
+                        <outlet property="editButton" destination="cNk-g0-N5P" id="8BU-kt-oRt"/>
                         <outlet property="likeButton" destination="He0-Cb-Hep" id="erz-7s-cjZ"/>
                         <outlet property="likeInfoButton" destination="XAP-uj-vBW" id="a2e-Em-qyZ"/>
                         <outlet property="locationLabel" destination="5gj-V2-XKT" id="O0A-Tr-rWd"/>
@@ -451,6 +468,7 @@
         <image name="btn_chat-to-buy" width="100" height="37"/>
         <image name="clock" width="11" height="11"/>
         <image name="icn_coment" width="24" height="24"/>
+        <image name="icn_edit" width="24" height="24"/>
         <image name="icn_info" width="24" height="24"/>
         <image name="icn_like" width="24" height="24"/>
         <image name="icn_location" width="24" height="24"/>

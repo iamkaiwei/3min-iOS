@@ -50,6 +50,7 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
 @property (nonatomic, strong) FBKVOController *commentViewModelKVOController;
 
 @property (nonatomic, strong) CLGeocoder *geoCoder;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 
 @end
 
@@ -157,6 +158,8 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
 #pragma mark - Data
 - (void)displayProduct
 {
+    self.editButton.hidden = ![[TMEUserManager sharedManager].loggedUser.userID isEqual:self.product.user.userID];
+
     // User
     [self.userAvatarImageView setImageWithURL:[NSURL URLWithString:self.product.user.avatar]
                              placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
@@ -218,6 +221,11 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
 - (IBAction)shareButtonTouched:(id)sender
 {
     [self share];
+}
+
+- (IBAction)editButtonTouched:(id)sender
+{
+
 }
 
 
