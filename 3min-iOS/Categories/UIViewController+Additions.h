@@ -30,6 +30,7 @@
 + (instancetype)tme_instantiateFromStoryboardNamed:(NSString *)storyboardName;
 
 #pragma mark - ChildVC
+- (void)addChildVC:(UIViewController *)childVC containerView:(UIView *)containerView masConstraintBlock:(void(^)(MASConstraintMaker *make))block;
 - (void)addChildVC:(UIViewController *)childVC containerView:(UIView *)containerView;
 - (void)removeChildVC:(UIViewController *)childVC;
 

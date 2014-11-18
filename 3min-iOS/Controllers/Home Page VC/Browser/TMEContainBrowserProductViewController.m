@@ -59,16 +59,15 @@
 }
 
 - (void)_addTakePhotoButton {
-	[self.takePhotoVC willMoveToParentViewController:self];
-	[self.view addSubview:self.takePhotoVC.view];
-	[self.takePhotoVC.view mas_makeConstraints: ^(MASConstraintMaker *make) {
-	    make.bottom.equalTo(self.view);
-	    make.trailing.equalTo(self.view);
-	    make.leading.equalTo(self.view);
-	    make.height.equalTo(@70);
-	}];
 
-	[self.takePhotoVC didMoveToParentViewController:self];
+    UIView *containerView = self.view;
+    [self addChildVC:self.takePhotoVC containerView:containerView masConstraintBlock:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(containerView);
+        make.trailing.equalTo(containerView);
+        make.leading.equalTo(containerView);
+        make.height.equalTo(@70);
+    }];
+
 	[self.view setNeedsUpdateConstraints];
 	[self.view layoutIfNeeded];
 }

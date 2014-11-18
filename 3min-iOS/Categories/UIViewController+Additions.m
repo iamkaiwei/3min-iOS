@@ -151,17 +151,22 @@
 
 
 #pragma mark - ChildVC
-- (void)addChildVC:(UIViewController *)childVC containerView:(UIView *)containerView
+- (void)addChildVC:(UIViewController *)childVC containerView:(UIView *)containerView masConstraintBlock:(void(^)(MASConstraintMaker *make))block
 {
     [self addChildViewController:childVC];
     childVC.view.frame = containerView.bounds;
     [containerView addSubview:childVC.view];
 
-    [childVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(containerView);
-    }];
+    [childVC.view mas_makeConstraints:block];
 
     [childVC didMoveToParentViewController:self];
+}
+
+- (void)addChildVC:(UIViewController *)childVC containerView:(UIView *)containerView
+{
+    [self addChildVC:childVC containerView:containerView masConstraintBlock:^(MASConstraintMaker *make) {
+        make.edges.equalTo(containerView);
+    }];
 }
 
 - (void)removeChildVC:(UIViewController *)childVC

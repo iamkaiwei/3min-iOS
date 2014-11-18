@@ -16,6 +16,7 @@
 #import "KHRoundAvatar.h"
 #import <FormatterKit/TTTTimeIntervalFormatter.h>
 #import <CoreLocation/CoreLocation.h>
+#import "TMEEditProductVC.h"
 
 NSInteger const kMaxCommentCountInBrief = 3;
 
@@ -225,7 +226,9 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
 
 - (IBAction)editButtonTouched:(id)sender
 {
-
+    TMEEditProductVC *editProductVC = [TMEEditProductVC tme_instantiateFromStoryboardNamed:@"EditProduct"];
+    editProductVC.product = self.product;
+    [self.navigationController pushViewController:editProductVC animated:YES];
 }
 
 
