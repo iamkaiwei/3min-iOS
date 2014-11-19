@@ -341,6 +341,7 @@
 		D2E07CB71A1B3CB900D54014 /* TMEEditProductNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CB61A1B3CB900D54014 /* TMEEditProductNameVC.m */; };
 		D2E07CB91A1B3CC300D54014 /* EditProductName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E07CB81A1B3CC300D54014 /* EditProductName.storyboard */; };
 		D2E07CC01A1C8B2E00D54014 /* TMECameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CBF1A1C8B2E00D54014 /* TMECameraVC.m */; };
+		D2E07CC21A1CA3D600D54014 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E07CC11A1CA3D600D54014 /* Camera.storyboard */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
@@ -943,6 +944,7 @@
 		D2E07CB81A1B3CC300D54014 /* EditProductName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProductName.storyboard; sourceTree = "<group>"; };
 		D2E07CBE1A1C8B2E00D54014 /* TMECameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECameraVC.h; sourceTree = "<group>"; };
 		D2E07CBF1A1C8B2E00D54014 /* TMECameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECameraVC.m; sourceTree = "<group>"; };
+		D2E07CC11A1CA3D600D54014 /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -2310,6 +2312,7 @@
 			children = (
 				D2E07CBE1A1C8B2E00D54014 /* TMECameraVC.h */,
 				D2E07CBF1A1C8B2E00D54014 /* TMECameraVC.m */,
+				D2E07CC11A1CA3D600D54014 /* Camera.storyboard */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -2444,6 +2447,7 @@
 				D295D2D119E29F2C008B9BC4 /* ProductLikes.storyboard in Resources */,
 				99EA0F701978492D00872EE4 /* TMEPublishProductViewController.xib in Resources */,
 				B40D948219FA4B9E00432DD0 /* TMEListActiviesViewController.xib in Resources */,
+				D2E07CC21A1CA3D600D54014 /* Camera.storyboard in Resources */,
 				99EA0F461978492D00872EE4 /* TMEBrowserProductTableViewHeader.xib in Resources */,
 				99EA0F5B1978492D00872EE4 /* TMEMyListingViewController.xib in Resources */,
 				99EA0F551978492D00872EE4 /* TMELikedTableViewCell.xib in Resources */,

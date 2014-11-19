@@ -43,6 +43,9 @@ UIImagePickerControllerDelegate>
 @property (nonatomic, assign) BOOL isFilterSelectorDown;
 @property (nonatomic, strong) id<IMGLYCameraImageProvider> imageProvider;
 @property (nonatomic, strong) NSArray *availableFilterList;
+@property (weak, nonatomic) IBOutlet UIView *bottomContainerView;
+@property (weak, nonatomic) IBOutlet UIView *filterContainerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *filterContainerViewBottomConstraint;
 
 @end
 
@@ -102,7 +105,7 @@ UIImagePickerControllerDelegate>
     [self configureCameraController];
     [self configureGestureRecognizers];
 
-    [self configureCameraBottomBarView];
+    //[self configureCameraBottomBarView];
     [self configureFilterSelectorView];
 
     [self configureShutterView];
@@ -144,9 +147,27 @@ UIImagePickerControllerDelegate>
     }];
 }
 
+- (IBAction)takePhotoTouched:(id)sender {
+
+}
+
+- (IBAction)albumTouched:(id)sender {
+
+}
+
+- (IBAction)filterTouched:(id)sender {
+    [self showFilterView];
+}
+
+- (IBAction)filterViewDownTouched:(id)sender {
+    [self hideFilterView];
+}
+
 #pragma mark - GUI configuration
 
 - (void)configureFilterSelectorView {
+    self.filterContainerViewBottomConstraint.constant = -200;
+
     CGRect viewBounds = self.view.bounds;
     CGFloat selectorViewHeight = 95;
     CGRect selectorViewFrame = CGRectMake(0.0f, viewBounds.size.height, viewBounds.size.width, selectorViewHeight);
@@ -156,7 +177,13 @@ UIImagePickerControllerDelegate>
                                                          availableFilterList:_availableFilterList];
     self.filterSelectorView.delegate = self;
     [self.filterSelectorView generateStaticPreviewsForImage:_imageProvider.filterPreviewImage];
-    [self.view addSubview:self.filterSelectorView];
+
+    // TODO:
+    [self.filterContainerView addSubview:self.filterSelectorView];
+    [self.filterContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.filterContainerView);
+    }];
+
     if (![IMGLYDeviceDetector isRunningOn4Inch]) {
         filterSelectorMoveDistance = -84;
     }
@@ -173,7 +200,7 @@ UIImagePickerControllerDelegate>
 - (void)configureCameraController {
     CGRect screenBounds = [UIScreen mainScreen].bounds;
     self.cameraController = [[IMGLYCameraController alloc] initWithRect:screenBounds];
-    [self.view addSubview:self.cameraController.view];
+    [self.view insertSubview:self.cameraController.view atIndex:0];
 }
 
 // Add a single tap gesture to focus on the point tapped, then lock focus
@@ -200,6 +227,27 @@ UIImagePickerControllerDelegate>
     CGRect layerRect = mainScreen.bounds;
     _shutterView = [[IMGLYShutterView alloc] initWithFrame:layerRect];
     [self.view addSubview:_shutterView];
+}
+
+#pragma mark - Filter View
+- (void)showFilterView
+{
+    [self toggleFilterViewVisibility:YES];
+}
+
+- (void)hideFilterView
+{
+    [self toggleFilterViewVisibility:NO];
+}
+
+- (void)toggleFilterViewVisibility:(BOOL)visible
+{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.filterContainerViewBottomConstraint.constant = visible ? 0 : -200;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+
+    }];
 }
 
 #pragma mark - notification handling

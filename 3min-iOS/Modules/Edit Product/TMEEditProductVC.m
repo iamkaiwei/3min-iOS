@@ -144,7 +144,7 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 #pragma mark - Action
 - (IBAction)photoButtonTouched:(id)sender
 {
-    TMECameraVC *cameraVC = [[TMECameraVC alloc] init];
+    TMECameraVC *cameraVC = [TMECameraVC tme_instantiateFromStoryboardNamed:@"Camera"];
     cameraVC.completionHandler = ^(TMECameraVCResult result, UIImage *image, IMGLYFilterType filterType) {
         NSLog(@"%@", image);
     };
