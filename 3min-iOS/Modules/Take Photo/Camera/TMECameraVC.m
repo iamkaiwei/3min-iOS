@@ -10,7 +10,6 @@
 
 #import "IMGLYCameraBottomBarView.h"
 #import "IMGLYCameraController.h"
-#import "IMGLYCameraTopBarView.h"
 #import "IMGLYDefaultCameraImageProvider.h"
 #import "IMGLYDefines.h"
 #import "IMGLYDeviceDetector.h"
@@ -35,12 +34,10 @@ static const CGFloat kIMGLYHQProgressMarginRight = 10;
 IMGLYCameraBottomBarCommandDelegate,
 IMGLYFilterSelectorViewDelegate,
 UINavigationControllerDelegate,
-UIImagePickerControllerDelegate,
-IMGLYCameraTopBarViewDelegate>
+UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) IMGLYCameraBottomBarView *cameraBottomBarView;
 @property (nonatomic, strong) IMGLYCameraController *cameraController;
-@property (nonatomic, strong) IMGLYCameraTopBarView *cameraTopBarView;
 @property (nonatomic, strong) IMGLYFilterSelectorView *filterSelectorView;
 @property (nonatomic, strong) IMGLYShutterView *shutterView;
 @property (nonatomic, assign) BOOL isFilterSelectorDown;
@@ -107,9 +104,8 @@ IMGLYCameraTopBarViewDelegate>
 
     [self configureCameraBottomBarView];
     [self configureFilterSelectorView];
-    [self configureCameraTopBar];
+
     [self configureShutterView];
-    [self addOrientationNotification];
 }
 
 - (void)viewDidAppear:(BOOL)animated  {
@@ -133,7 +129,19 @@ IMGLYCameraTopBarViewDelegate>
 
 - (void)switchFrontBackCameraTouched:(id)sender
 {
+    [self.cameraController removeCameraObservers];
+    [self.cameraController removeNotifications];
 
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.cameraController setPreviewAlpha:0.0];
+    } completion:^(BOOL finished) {
+        [self.cameraController flipCamera];
+        [self.cameraController hideIndicator];
+
+        [UIView animateWithDuration:0.2 animations:^{
+            [self.cameraController setPreviewAlpha:1.0];
+        }];
+    }];
 }
 
 #pragma mark - GUI configuration
@@ -152,14 +160,6 @@ IMGLYCameraTopBarViewDelegate>
     if (![IMGLYDeviceDetector isRunningOn4Inch]) {
         filterSelectorMoveDistance = -84;
     }
-}
-
-- (void)configureCameraTopBar {
-    self.cameraTopBarView = [[IMGLYCameraTopBarView alloc] initWithYPosition:29];
-    self.cameraTopBarView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 55);
-    self.cameraTopBarView.delegate = self;
-    self.cameraTopBarView.userInteractionEnabled = YES;
-    [self.view addSubview:self.cameraTopBarView];
 }
 
 - (void)configureCameraBottomBarView {
@@ -207,13 +207,6 @@ IMGLYCameraTopBarViewDelegate>
 
 }
 
-- (void)addOrientationNotification {
-    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(deviceOrientationDidChange:)
-                                                 name:UIDeviceOrientationDidChangeNotification
-                                               object:[UIDevice currentDevice]];
-}
 
 #pragma mark - focus handling
 - (void)tapToAutoFocus:(UIGestureRecognizer *)gestureRecognizer {
@@ -328,7 +321,6 @@ IMGLYCameraTopBarViewDelegate>
         bottomFrame.origin.y += filterSelectorMoveDistance;
         self.cameraBottomBarView.frame = bottomFrame;
         [self.cameraBottomBarView setAlphaForAllViews:0.7f];
-        [self.cameraTopBarView relayoutForFilterSelectorStatus:!self.isFilterSelectorDown];
     } completion:^(BOOL finished) {
         [self.cameraBottomBarView setArrowDirectionDown];
         self.isFilterSelectorDown = NO;
@@ -346,7 +338,6 @@ IMGLYCameraTopBarViewDelegate>
         bottomFrame.origin.y -= filterSelectorMoveDistance;
         self.cameraBottomBarView.frame = bottomFrame;
         [self.cameraBottomBarView setAlphaForAllViews:1.0f];
-        [self.cameraTopBarView relayoutForFilterSelectorStatus:!self.isFilterSelectorDown];
     } completion:^(BOOL finished) {
         [self.cameraBottomBarView setArrowDirectionUp];
         self.isFilterSelectorDown = YES;
@@ -389,63 +380,6 @@ IMGLYCameraTopBarViewDelegate>
     [self.shutterView setFrame:self.view.frame];
 }
 
-- (void)deviceOrientationDidChange:(NSNotification *)notification {
-    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
-    [UIView animateWithDuration:0.2 animations:^{
-        switch (deviceOrientation) {
-            case UIDeviceOrientationLandscapeLeft:
-                [self.cameraTopBarView rotateForLandscapeLeftOrientation:[self isFilterSelectorDown]];
-                [self.cameraBottomBarView rotateForLandscapeLeftOrientation];
-                [self.filterSelectorView rotateLanscapeLeftMode];
-                break;
-            case UIDeviceOrientationLandscapeRight:
-                [self.cameraTopBarView rotateForLandscapeRightOrientation:[self isFilterSelectorDown]];
-                [self.cameraBottomBarView rotateForLandscapeRightOrientation];
-                [self.filterSelectorView rotateLanscapeRightMode];
-                break;
-            case UIDeviceOrientationPortrait:
-            case UIDeviceOrientationPortraitUpsideDown:
-                [self.cameraTopBarView rotateForPortraitOrientation:[self isFilterSelectorDown]];
-                [self.cameraBottomBarView rotateForPortraitOrientation];
-                [self.filterSelectorView rotatePortraitOrientation];
-                break;
-            case UIDeviceOrientationFaceDown:
-            case UIDeviceOrientationFaceUp:
-            case UIDeviceOrientationUnknown:
-                break;
-        }
-    }];
-}
-
-#pragma mark - image preview handling
-
-- (void)cameraTopBarView:(IMGLYCameraTopBarView *)cameraTopBarView didSelectCameraFlashMode:(IMGLYCameraFlashMode)cameraFlashMode {
-    [self.cameraController setCameraFlashMode:cameraFlashMode];
-}
-
-- (void)cameraTopBarViewDidToggleCameraPosition:(IMGLYCameraTopBarView *)cameraTopBarView {
-    [self.cameraController removeCameraObservers];
-    [self.cameraController removeNotifications];
-
-    [UIView animateWithDuration:0.2 animations:^{
-        [self.cameraController setPreviewAlpha:0.0];
-    } completion:^(BOOL finished) {
-        [self.cameraController flipCamera];
-        [self.cameraController hideIndicator];
-
-        if([self.cameraController cameraSupportsFlash]) {
-            [self.cameraTopBarView showFlashButton];
-        }
-        else {
-            [self.cameraTopBarView hideFlashButton];
-        }
-
-        [UIView animateWithDuration:0.2 animations:^{
-            [self.cameraController setPreviewAlpha:1.0];
-        }];
-    }];
-
-}
 
 #pragma mark - accept / camera mode switching
 
