@@ -138,4 +138,11 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     }
 }
 
+#pragma mark - Action
+- (IBAction)photoButtonTouched:(id)sender
+{
+
+}
+
+
 @end
