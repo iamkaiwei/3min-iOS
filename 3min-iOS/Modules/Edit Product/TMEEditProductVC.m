@@ -29,6 +29,10 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 @property (weak, nonatomic) IBOutlet UISwitch *facebookSwitch;
 @property (nonatomic, assign) BOOL isCreatedNew;
 
+@property (weak, nonatomic) IBOutlet UIButton *button1;
+@property (weak, nonatomic) IBOutlet UIButton *button2;
+@property (weak, nonatomic) IBOutlet UIButton *button3;
+@property (weak, nonatomic) IBOutlet UIButton *button4;
 
 @end
 
@@ -100,6 +104,10 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == TMEProductRowPhoto) {
+        return self.view.width;
+    }
+
     if (self.isCreatedNew && indexPath.row == TMEProductRowDeleteListing) {
         return 0;
     }
