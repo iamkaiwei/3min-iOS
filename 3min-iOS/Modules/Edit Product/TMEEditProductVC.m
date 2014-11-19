@@ -11,6 +11,8 @@
 #import "TMEEditProductNameVC.h"
 #import "TMEEditProductPriceVC.h"
 
+#import "TMECameraVC.h"
+
 typedef NS_ENUM(NSUInteger, TMEProductRow) {
     TMEProductRowPhoto = 0,
     TMEProductRowCategory,
@@ -33,6 +35,7 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 @property (weak, nonatomic) IBOutlet UIButton *button2;
 @property (weak, nonatomic) IBOutlet UIButton *button3;
 @property (weak, nonatomic) IBOutlet UIButton *button4;
+
 
 @end
 
@@ -141,7 +144,12 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 #pragma mark - Action
 - (IBAction)photoButtonTouched:(id)sender
 {
+    TMECameraVC *cameraVC = [[TMECameraVC alloc] init];
+    cameraVC.completionHandler = ^(TMECameraVCResult result, UIImage *image, IMGLYFilterType filterType) {
+        NSLog(@"%@", image);
+    };
 
+    [self.navigationController pushViewController:cameraVC animated:YES];
 }
 
 

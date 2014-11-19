@@ -340,6 +340,7 @@
 		D2E07CB41A1B29B800D54014 /* TMEProductCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CB31A1B29B800D54014 /* TMEProductCategoryCell.m */; };
 		D2E07CB71A1B3CB900D54014 /* TMEEditProductNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CB61A1B3CB900D54014 /* TMEEditProductNameVC.m */; };
 		D2E07CB91A1B3CC300D54014 /* EditProductName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E07CB81A1B3CC300D54014 /* EditProductName.storyboard */; };
+		D2E07CC01A1C8B2E00D54014 /* TMECameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CBF1A1C8B2E00D54014 /* TMECameraVC.m */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
@@ -940,6 +941,8 @@
 		D2E07CB51A1B3CB900D54014 /* TMEEditProductNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEEditProductNameVC.h; sourceTree = "<group>"; };
 		D2E07CB61A1B3CB900D54014 /* TMEEditProductNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEEditProductNameVC.m; sourceTree = "<group>"; };
 		D2E07CB81A1B3CC300D54014 /* EditProductName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProductName.storyboard; sourceTree = "<group>"; };
+		D2E07CBE1A1C8B2E00D54014 /* TMECameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECameraVC.h; sourceTree = "<group>"; };
+		D2E07CBF1A1C8B2E00D54014 /* TMECameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECameraVC.m; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -2274,6 +2277,8 @@
 		D2E07CA11A1AF36900D54014 /* Take Photo */ = {
 			isa = PBXGroup;
 			children = (
+				D2E07CBC1A1C8B1A00D54014 /* Camera */,
+				D2E07CBD1A1C8B1A00D54014 /* Edit */,
 			);
 			path = "Take Photo";
 			sourceTree = "<group>";
@@ -2298,6 +2303,22 @@
 				D2E07CB81A1B3CC300D54014 /* EditProductName.storyboard */,
 			);
 			path = Item;
+			sourceTree = "<group>";
+		};
+		D2E07CBC1A1C8B1A00D54014 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				D2E07CBE1A1C8B2E00D54014 /* TMECameraVC.h */,
+				D2E07CBF1A1C8B2E00D54014 /* TMECameraVC.m */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		D2E07CBD1A1C8B1A00D54014 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Edit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2334,7 +2355,7 @@
 				ORGANIZATIONNAME = 3min;
 				TargetAttributes = {
 					5976C03E15925D2D007F6FC3 = {
-						DevelopmentTeam = LZHP3NSA6X;
+						DevelopmentTeam = T78DK947F2;
 					};
 				};
 			};
@@ -2621,6 +2642,7 @@
 				B470E4EC19AC320100F4FF18 /* TMEErrorReusableCollectionView.m in Sources */,
 				99EA0F2C1978492D00872EE4 /* UIImage+ImageEffects.m in Sources */,
 				B410F754199619DF000AE5B7 /* TMEBaseModel.m in Sources */,
+				D2E07CC01A1C8B2E00D54014 /* TMECameraVC.m in Sources */,
 				B41929E419B1E72C00E50CED /* TMETakePhotoButtonViewController.m in Sources */,
 				99EA0F4C1978492D00872EE4 /* HTKContainerViewController.m in Sources */,
 				D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */,
@@ -2819,6 +2841,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
@@ -2830,7 +2853,7 @@
 					"$(PROJECT_DIR)/3min-iOS/Vendors/GoogleAnalytics",
 				);
 				PRODUCT_NAME = ThreeMin;
-				PROVISIONING_PROFILE = "35BEE6A0-75C0-4794-BE4D-374B71C0BD71";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -2844,6 +2867,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
@@ -2855,7 +2879,7 @@
 					"$(PROJECT_DIR)/3min-iOS/Vendors/GoogleAnalytics",
 				);
 				PRODUCT_NAME = ThreeMin;
-				PROVISIONING_PROFILE = "35BEE6A0-75C0-4794-BE4D-374B71C0BD71";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -2902,6 +2926,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
@@ -2913,7 +2938,7 @@
 					"$(PROJECT_DIR)/3min-iOS/Vendors/GoogleAnalytics",
 				);
 				PRODUCT_NAME = ThreeMin;
-				PROVISIONING_PROFILE = "35BEE6A0-75C0-4794-BE4D-374B71C0BD71";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -2955,6 +2980,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
@@ -2966,7 +2992,7 @@
 					"$(PROJECT_DIR)/3min-iOS/Vendors/GoogleAnalytics",
 				);
 				PRODUCT_NAME = ThreeMin;
-				PROVISIONING_PROFILE = "35BEE6A0-75C0-4794-BE4D-374B71C0BD71";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
