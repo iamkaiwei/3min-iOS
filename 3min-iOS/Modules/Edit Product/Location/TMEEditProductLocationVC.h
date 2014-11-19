@@ -8,7 +8,7 @@
 
 #import "TMEBaseViewController.h"
 
-@interface TMEEditProductLocationVC : TMEBaseViewController
+@interface TMEEditProductLocationVC : UIViewController
 
 @property (nonatomic, strong) TMEProduct *product;
 

@@ -18,8 +18,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *locationTextField;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGR;
 
-@property (nonatomic, strong) CLGeocoder *geoCoder;
-
 @end
 
 @implementation TMEEditProductNameVC
@@ -34,6 +32,12 @@
     self.descriptionTextView.placeholder = @"Product description";
 
     [self displayProduct];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
     [self setupLocationInfo];
 }
 
@@ -70,17 +74,17 @@
 
 - (void)setupLocationInfo
 {
-    self.locationTextField.text = nil;
-
-    self.geoCoder = [[CLGeocoder alloc] init];
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:self.product.venueLat.doubleValue longitude:self.product.venueLong.doubleValue];
-
-    [self.geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        CLPlacemark *placemark = placemarks.lastObject;
-        if (placemark && placemark.locality && placemark.country) {
-            self.locationTextField.text = NSStringf(@"%@, %@", placemark.locality, placemark.country);
-        }
-    }];
+    if (self.product.locationText.length > 0) {
+        self.locationTextField.text = self.product.locationText;
+    } else if (self.product.venueLat && self.product.venueLong) {
+        self.locationTextField.text = nil;
+        CLLocation *location = [[CLLocation alloc] initWithLatitude:self.product.venueLat.doubleValue longitude:self.product.venueLong.doubleValue];
+        [SVGeocoder reverseGeocode:location.coordinate completion:^(NSArray *placemarks, NSHTTPURLResponse *urlResponse, NSError *error) {
+            SVPlacemark *placemark = placemarks.lastObject;
+            self.product.locationText = placemark.formattedAddress;
+            self.locationTextField.text = self.product.locationText;
+        }];
+    }
 }
 
 - (void)displayProduct

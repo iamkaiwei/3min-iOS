@@ -27,7 +27,8 @@
 			   @"updateAt": @"update_time",
 			   @"images": @"images",
 			   @"category": @"category",
-			   @"user": @"owner"
+			   @"user": @"owner",
+               @"locationText": NSNull.null,
 	};
 }
 
