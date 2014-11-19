@@ -52,6 +52,7 @@
 		99B2C1CD1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1CC1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m */; };
 		99B2C1D01A1CF90700332CAE /* TMECameraFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1CF1A1CF90700332CAE /* TMECameraFilterCell.m */; };
 		99B2C1D21A1CF91300332CAE /* CameraFilterSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C1D11A1CF91300332CAE /* CameraFilterSelector.storyboard */; };
+		99B2C1D51A1D04B300332CAE /* TMECameraFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1D41A1D04B300332CAE /* TMECameraFilter.m */; };
 		99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D601978492C00872EE4 /* AppDelegate.m */; };
 		99EA0EE81978492D00872EE4 /* TMEApperanceAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D631978492C00872EE4 /* TMEApperanceAppDelegateService.m */; };
 		99EA0EE91978492D00872EE4 /* TMECoreDataAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D651978492C00872EE4 /* TMECoreDataAppDelegateService.m */; };
@@ -431,6 +432,8 @@
 		99B2C1CE1A1CF90700332CAE /* TMECameraFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECameraFilterCell.h; sourceTree = "<group>"; };
 		99B2C1CF1A1CF90700332CAE /* TMECameraFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECameraFilterCell.m; sourceTree = "<group>"; };
 		99B2C1D11A1CF91300332CAE /* CameraFilterSelector.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CameraFilterSelector.storyboard; sourceTree = "<group>"; };
+		99B2C1D31A1D04B300332CAE /* TMECameraFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECameraFilter.h; sourceTree = "<group>"; };
+		99B2C1D41A1D04B300332CAE /* TMECameraFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECameraFilter.m; sourceTree = "<group>"; };
 		99EA0D5F1978492C00872EE4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		99EA0D601978492C00872EE4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		99EA0D621978492C00872EE4 /* TMEApperanceAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEApperanceAppDelegateService.h; sourceTree = "<group>"; };
@@ -1110,6 +1113,8 @@
 				99B2C1CE1A1CF90700332CAE /* TMECameraFilterCell.h */,
 				99B2C1CF1A1CF90700332CAE /* TMECameraFilterCell.m */,
 				99B2C1D11A1CF91300332CAE /* CameraFilterSelector.storyboard */,
+				99B2C1D31A1D04B300332CAE /* TMECameraFilter.h */,
+				99B2C1D41A1D04B300332CAE /* TMECameraFilter.m */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -2671,6 +2676,7 @@
 				B410F754199619DF000AE5B7 /* TMEBaseModel.m in Sources */,
 				D2E07CC01A1C8B2E00D54014 /* TMECameraVC.m in Sources */,
 				B41929E419B1E72C00E50CED /* TMETakePhotoButtonViewController.m in Sources */,
+				99B2C1D51A1D04B300332CAE /* TMECameraFilter.m in Sources */,
 				99EA0F4C1978492D00872EE4 /* HTKContainerViewController.m in Sources */,
 				D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */,
 				D295D2F619E29FAD008B9BC4 /* TMESearchResultViewController.m in Sources */,
