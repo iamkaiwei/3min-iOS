@@ -21,7 +21,7 @@
 #import "UIImage+IMGLYKitAdditions.h"
 
 #import "UIBarButtonItem+Custom.h"
-#import "TMEFilterSelectorVC.h"
+#import "TMECameraFilterSelectorVC.h"
 
 static const CGFloat kIMGLYPreviewImageSize = 62.0f;
 extern const CGFloat kIMGLYPreviewImageDistance;
@@ -32,7 +32,7 @@ IMGLYCameraBottomBarCommandDelegate,
 IMGLYFilterSelectorViewDelegate,
 UINavigationControllerDelegate,
 UIImagePickerControllerDelegate,
-TMEFilterSelectorVCDelegate>
+TMECameraFilterSelectorVCDelegate>
 
 @property (nonatomic, strong) IMGLYCameraBottomBarView *cameraBottomBarView;
 @property (nonatomic, strong) IMGLYCameraController *cameraController;
@@ -45,7 +45,7 @@ TMEFilterSelectorVCDelegate>
 @property (weak, nonatomic) IBOutlet UIView *filterContainerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *filterContainerViewBottomConstraint;
 
-@property (nonatomic, strong) TMEFilterSelectorVC *filterSelectorVC;
+@property (nonatomic, strong) TMECameraFilterSelectorVC *filterSelectorVC;
 
 @end
 
@@ -127,7 +127,7 @@ TMEFilterSelectorVCDelegate>
 {
     self.filterContainerViewBottomConstraint.constant = -200;
     
-    self.filterSelectorVC = [TMEFilterSelectorVC tme_instantiateFromStoryboardNamed:@"FilterSelector"];
+    self.filterSelectorVC = [TMECameraFilterSelectorVC tme_instantiateFromStoryboardNamed:@"FilterSelector"];
     [self addChildVC:self.filterSelectorVC containerView:self.filterContainerView];
 }
 

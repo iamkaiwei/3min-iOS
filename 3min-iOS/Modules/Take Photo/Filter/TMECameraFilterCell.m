@@ -1,13 +1,13 @@
 //
-//  TMEFilterCell.m
+//  TMECameraFilterCell.m
 //  ThreeMin
 //
 //  Created by Khoa Pham on 11/19/14.
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
-#import "TMEFilterCell.h"
+#import "TMECameraFilterCell.h"
 
-@implementation TMEFilterCell
+@implementation TMECameraFilterCell
 
 @end

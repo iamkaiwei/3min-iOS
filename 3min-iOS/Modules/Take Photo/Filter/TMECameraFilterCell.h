@@ -1,5 +1,5 @@
 //
-//  TMEFilterCell.h
+//  TMECameraFilterCell.h
 //  ThreeMin
 //
 //  Created by Khoa Pham on 11/19/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TMEFilterCell : UICollectionViewCell
+@interface TMECameraFilterCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *filterImageView;
 @property (weak, nonatomic) IBOutlet UILabel *filterLabel;
 

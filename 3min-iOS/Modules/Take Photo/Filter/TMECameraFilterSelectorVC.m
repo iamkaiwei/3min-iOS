@@ -1,22 +1,23 @@
 //
-//  TMEFilterSelectorVC.m
+//  TMECameraFilterSelectorVC.m
 //  ThreeMin
 //
 //  Created by Khoa Pham on 11/19/14.
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
-#import "TMEFilterSelectorVC.h"
+#import "TMECameraFilterSelectorVC.h"
 #import "TMESingleSectionDataSource.h"
-#import "TMEFilterCell.h"
+#import "TMECameraFilterCell.h"
 
-@interface TMEFilterSelectorVC ()
+@interface TMECameraFilterSelectorVC ()
 
 @property (nonatomic, strong) TMESingleSectionDataSource *dataSource;
+@property (nonatomic, strong) NSArray *filters;
 
 @end
 
-@implementation TMEFilterSelectorVC
+@implementation TMECameraFilterSelectorVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,8 +32,8 @@
 - (void)setupCollectionView
 {
     self.dataSource = [[TMESingleSectionDataSource alloc] init];
-    self.dataSource.cellIdentifier = [TMEFilterCell kind];
-    self.dataSource.cellConfigureBlock = ^(TMEFilterCell *cell, id object) {
+    self.dataSource.cellIdentifier = [TMECameraFilterCell kind];
+    self.dataSource.cellConfigureBlock = ^(TMECameraFilterCell *cell, id object) {
 
     };
 
@@ -40,6 +41,10 @@
 }
 
 #pragma mark - Configure
+- (void)configure
+{
+
+}
 
 #pragma mark - Delegate
 - (void)didSelectFilter
@@ -48,5 +53,8 @@
         [self.delegate filterSelectorVCDidSelectFilter];
     }
 }
+
+#pragma mark - Filter
+
 
 @end

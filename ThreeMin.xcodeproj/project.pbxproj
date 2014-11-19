@@ -49,9 +49,9 @@
 		9992944019E2F82B00896D05 /* TMEProductLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943F19E2F82B00896D05 /* TMEProductLikeCell.m */; };
 		9992944319E2F96D00896D05 /* TMEProductLikeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992944219E2F96D00896D05 /* TMEProductLikeViewModel.m */; };
 		99AA4B2219A26F0600268345 /* NSObject+TMENotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AA4B2119A26F0600268345 /* NSObject+TMENotification.m */; };
-		99B2C1CD1A1CF8F400332CAE /* TMEFilterSelectorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1CC1A1CF8F400332CAE /* TMEFilterSelectorVC.m */; };
-		99B2C1D01A1CF90700332CAE /* TMEFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1CF1A1CF90700332CAE /* TMEFilterCell.m */; };
-		99B2C1D21A1CF91300332CAE /* FilterSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C1D11A1CF91300332CAE /* FilterSelector.storyboard */; };
+		99B2C1CD1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1CC1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m */; };
+		99B2C1D01A1CF90700332CAE /* TMECameraFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1CF1A1CF90700332CAE /* TMECameraFilterCell.m */; };
+		99B2C1D21A1CF91300332CAE /* CameraFilterSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C1D11A1CF91300332CAE /* CameraFilterSelector.storyboard */; };
 		99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D601978492C00872EE4 /* AppDelegate.m */; };
 		99EA0EE81978492D00872EE4 /* TMEApperanceAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D631978492C00872EE4 /* TMEApperanceAppDelegateService.m */; };
 		99EA0EE91978492D00872EE4 /* TMECoreDataAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D651978492C00872EE4 /* TMECoreDataAppDelegateService.m */; };
@@ -426,11 +426,11 @@
 		9992944219E2F96D00896D05 /* TMEProductLikeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductLikeViewModel.m; sourceTree = "<group>"; };
 		99AA4B2019A26F0600268345 /* NSObject+TMENotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TMENotification.h"; sourceTree = "<group>"; };
 		99AA4B2119A26F0600268345 /* NSObject+TMENotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TMENotification.m"; sourceTree = "<group>"; };
-		99B2C1CB1A1CF8F400332CAE /* TMEFilterSelectorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFilterSelectorVC.h; sourceTree = "<group>"; };
-		99B2C1CC1A1CF8F400332CAE /* TMEFilterSelectorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFilterSelectorVC.m; sourceTree = "<group>"; };
-		99B2C1CE1A1CF90700332CAE /* TMEFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFilterCell.h; sourceTree = "<group>"; };
-		99B2C1CF1A1CF90700332CAE /* TMEFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFilterCell.m; sourceTree = "<group>"; };
-		99B2C1D11A1CF91300332CAE /* FilterSelector.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FilterSelector.storyboard; sourceTree = "<group>"; };
+		99B2C1CB1A1CF8F400332CAE /* TMECameraFilterSelectorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECameraFilterSelectorVC.h; sourceTree = "<group>"; };
+		99B2C1CC1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECameraFilterSelectorVC.m; sourceTree = "<group>"; };
+		99B2C1CE1A1CF90700332CAE /* TMECameraFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECameraFilterCell.h; sourceTree = "<group>"; };
+		99B2C1CF1A1CF90700332CAE /* TMECameraFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECameraFilterCell.m; sourceTree = "<group>"; };
+		99B2C1D11A1CF91300332CAE /* CameraFilterSelector.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CameraFilterSelector.storyboard; sourceTree = "<group>"; };
 		99EA0D5F1978492C00872EE4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		99EA0D601978492C00872EE4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		99EA0D621978492C00872EE4 /* TMEApperanceAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEApperanceAppDelegateService.h; sourceTree = "<group>"; };
@@ -1105,11 +1105,11 @@
 		99B2C1CA1A1CF8DC00332CAE /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				99B2C1CB1A1CF8F400332CAE /* TMEFilterSelectorVC.h */,
-				99B2C1CC1A1CF8F400332CAE /* TMEFilterSelectorVC.m */,
-				99B2C1CE1A1CF90700332CAE /* TMEFilterCell.h */,
-				99B2C1CF1A1CF90700332CAE /* TMEFilterCell.m */,
-				99B2C1D11A1CF91300332CAE /* FilterSelector.storyboard */,
+				99B2C1CB1A1CF8F400332CAE /* TMECameraFilterSelectorVC.h */,
+				99B2C1CC1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m */,
+				99B2C1CE1A1CF90700332CAE /* TMECameraFilterCell.h */,
+				99B2C1CF1A1CF90700332CAE /* TMECameraFilterCell.m */,
+				99B2C1D11A1CF91300332CAE /* CameraFilterSelector.storyboard */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -2472,7 +2472,7 @@
 				99EA0F461978492D00872EE4 /* TMEBrowserProductTableViewHeader.xib in Resources */,
 				99EA0F5B1978492D00872EE4 /* TMEMyListingViewController.xib in Resources */,
 				99EA0F551978492D00872EE4 /* TMELikedTableViewCell.xib in Resources */,
-				99B2C1D21A1CF91300332CAE /* FilterSelector.storyboard in Resources */,
+				99B2C1D21A1CF91300332CAE /* CameraFilterSelector.storyboard in Resources */,
 				B470E4FB19AC323B00F4FF18 /* TMEProductCollectionViewCell.xib in Resources */,
 				99EA0F5D1978492D00872EE4 /* TMEOfferedTableViewCell.xib in Resources */,
 				B68DCD781A0C7D7A0023A877 /* TMEMessageCollectionViewCell.xib in Resources */,
@@ -2582,7 +2582,7 @@
 				B4AE17F3198EAFAD00F6D601 /* TMEProfilePageContentViewController.m in Sources */,
 				99EA0F201978492D00872EE4 /* NSObject+Additions.m in Sources */,
 				99EA0F161978492D00872EE4 /* ISO8601DateFormatter.m in Sources */,
-				99B2C1CD1A1CF8F400332CAE /* TMEFilterSelectorVC.m in Sources */,
+				99B2C1CD1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m in Sources */,
 				99EA0F901978492D00872EE4 /* TMESwitch.m in Sources */,
 				9992943D19E2F7F700896D05 /* TMEProductLikeNetworkClient.m in Sources */,
 				B486E3681A04F75E00696267 /* TMEFollowingCellFactory.m in Sources */,
@@ -2759,7 +2759,7 @@
 				B4F513E019AEE5AF003DE851 /* TMEDropDownMenuCell.m in Sources */,
 				99EA0F8F1978492D00872EE4 /* UINavigationController+SGProgress.m in Sources */,
 				99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */,
-				99B2C1D01A1CF90700332CAE /* TMEFilterCell.m in Sources */,
+				99B2C1D01A1CF90700332CAE /* TMECameraFilterCell.m in Sources */,
 				99EA0EF31978492D00872EE4 /* TMEConstants.m in Sources */,
 				998A11271A1B98A9007F62FF /* TMEEditProductLocationVC.m in Sources */,
 				B4AE17DD198EAE1F00F6D601 /* TMEHomePageViewController.m in Sources */,
