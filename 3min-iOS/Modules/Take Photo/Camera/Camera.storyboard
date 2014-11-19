@@ -72,18 +72,18 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V5r-YA-pSK" userLabel="View - Filter">
-                                <rect key="frame" x="0.0" y="268" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="263" width="320" height="105"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrc-4P-IaF" userLabel="View - Filter Only">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="lug-NW-WFH"/>
+                                        </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hot-Yy-UmM" userLabel="Button - Down">
-                                        <rect key="frame" x="0.0" y="80" width="320" height="20"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="iMS-JU-TII"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="85" width="320" height="20"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" image="arrow_down">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -94,14 +94,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="hot-Yy-UmM" firstAttribute="top" secondItem="zrc-4P-IaF" secondAttribute="bottom" id="3Ho-bz-qHb"/>
                                     <constraint firstItem="hot-Yy-UmM" firstAttribute="leading" secondItem="V5r-YA-pSK" secondAttribute="leading" id="5Bh-nJ-RaI"/>
                                     <constraint firstAttribute="bottom" secondItem="hot-Yy-UmM" secondAttribute="bottom" id="7wo-Dv-PgN"/>
                                     <constraint firstItem="zrc-4P-IaF" firstAttribute="leading" secondItem="V5r-YA-pSK" secondAttribute="leading" id="Pj4-FF-U8k"/>
                                     <constraint firstItem="zrc-4P-IaF" firstAttribute="top" secondItem="V5r-YA-pSK" secondAttribute="top" id="iZE-9b-yI4"/>
                                     <constraint firstAttribute="trailing" secondItem="zrc-4P-IaF" secondAttribute="trailing" id="pQm-b9-RPT"/>
                                     <constraint firstAttribute="trailing" secondItem="hot-Yy-UmM" secondAttribute="trailing" id="puZ-J5-Ldr"/>
-                                    <constraint firstAttribute="height" constant="100" id="uyM-hP-8rV"/>
+                                    <constraint firstItem="hot-Yy-UmM" firstAttribute="top" secondItem="zrc-4P-IaF" secondAttribute="bottom" id="u28-YI-DoB"/>
+                                    <constraint firstAttribute="height" constant="105" id="uyM-hP-8rV"/>
                                 </constraints>
                             </view>
                         </subviews>

@@ -21,31 +21,31 @@
 #import "UIImage+IMGLYKitAdditions.h"
 
 #import "UIBarButtonItem+Custom.h"
+#import "TMEFilterSelectorVC.h"
 
-static CGFloat filterSelectorMoveDistance = -95.0f;
 static const CGFloat kIMGLYPreviewImageSize = 62.0f;
 extern const CGFloat kIMGLYPreviewImageDistance;
 extern const CGFloat kIMGLYExtraSpaceForScrollBar;
-static const CGFloat kIMGLYHQProgressWidth = 48;
-static const CGFloat kIMGLYHQProgressHeight = 58;
-static const CGFloat kIMGLYHQProgressMarginRight = 10;
 
 @interface TMECameraVC () <UIGestureRecognizerDelegate,
 IMGLYCameraBottomBarCommandDelegate,
 IMGLYFilterSelectorViewDelegate,
 UINavigationControllerDelegate,
-UIImagePickerControllerDelegate>
+UIImagePickerControllerDelegate,
+TMEFilterSelectorVCDelegate>
 
 @property (nonatomic, strong) IMGLYCameraBottomBarView *cameraBottomBarView;
 @property (nonatomic, strong) IMGLYCameraController *cameraController;
 @property (nonatomic, strong) IMGLYFilterSelectorView *filterSelectorView;
 @property (nonatomic, strong) IMGLYShutterView *shutterView;
-@property (nonatomic, assign) BOOL isFilterSelectorDown;
+
 @property (nonatomic, strong) id<IMGLYCameraImageProvider> imageProvider;
 @property (nonatomic, strong) NSArray *availableFilterList;
 @property (weak, nonatomic) IBOutlet UIView *bottomContainerView;
 @property (weak, nonatomic) IBOutlet UIView *filterContainerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *filterContainerViewBottomConstraint;
+
+@property (nonatomic, strong) TMEFilterSelectorVC *filterSelectorVC;
 
 @end
 
@@ -100,13 +100,12 @@ UIImagePickerControllerDelegate>
         [[IMGLYImageProviderChecker sharedInstance] checkCameraImageProvider:self.imageProvider];
     }
 
-    self.isFilterSelectorDown = YES;
-
     [self configureCameraController];
     [self configureGestureRecognizers];
 
     //[self configureCameraBottomBarView];
-    [self configureFilterSelectorView];
+    //[self configureFilterSelectorView];
+    [self setupFilterSelectorVC];
 
     [self configureShutterView];
 }
@@ -122,6 +121,14 @@ UIImagePickerControllerDelegate>
 {
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem cancelItemWithTarget:self action:@selector(cancelTouched:)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage originalImageNamed:@"icn_rotate_camera"] style:UIBarButtonItemStylePlain target:self action:@selector(switchFrontBackCameraTouched:)];
+}
+
+- (void)setupFilterSelectorVC
+{
+    self.filterContainerViewBottomConstraint.constant = -200;
+    
+    self.filterSelectorVC = [TMEFilterSelectorVC tme_instantiateFromStoryboardNamed:@"FilterSelector"];
+    [self addChildVC:self.filterSelectorVC containerView:self.filterContainerView];
 }
 
 #pragma mark - Action
@@ -148,11 +155,11 @@ UIImagePickerControllerDelegate>
 }
 
 - (IBAction)takePhotoTouched:(id)sender {
-
+    [self takePhoto];
 }
 
 - (IBAction)albumTouched:(id)sender {
-
+    [self openImageFromCameraAndProcessIt];
 }
 
 - (IBAction)filterTouched:(id)sender {
@@ -164,14 +171,8 @@ UIImagePickerControllerDelegate>
 }
 
 #pragma mark - GUI configuration
-
 - (void)configureFilterSelectorView {
-    self.filterContainerViewBottomConstraint.constant = -200;
-
-    CGRect viewBounds = self.view.bounds;
-    CGFloat selectorViewHeight = 95;
-    CGRect selectorViewFrame = CGRectMake(0.0f, viewBounds.size.height, viewBounds.size.width, selectorViewHeight);
-    self.filterSelectorView = [[IMGLYFilterSelectorView alloc] initWithFrame:selectorViewFrame
+    self.filterSelectorView = [[IMGLYFilterSelectorView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 85)
                                                             previewImageSize:kIMGLYPreviewImageSize
                                                          cameraImageProvider:_imageProvider
                                                          availableFilterList:_availableFilterList];
@@ -180,13 +181,9 @@ UIImagePickerControllerDelegate>
 
     // TODO:
     [self.filterContainerView addSubview:self.filterSelectorView];
-    [self.filterContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.filterSelectorView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.filterContainerView);
     }];
-
-    if (![IMGLYDeviceDetector isRunningOn4Inch]) {
-        filterSelectorMoveDistance = -84;
-    }
 }
 
 - (void)configureCameraBottomBarView {
@@ -226,6 +223,7 @@ UIImagePickerControllerDelegate>
     UIScreen *mainScreen = [UIScreen mainScreen];
     CGRect layerRect = mainScreen.bounds;
     _shutterView = [[IMGLYShutterView alloc] initWithFrame:layerRect];
+
     [self.view addSubview:_shutterView];
 }
 
@@ -248,6 +246,12 @@ UIImagePickerControllerDelegate>
     } completion:^(BOOL finished) {
 
     }];
+}
+
+#pragma mark - TMEFilterSelectorVCDelegate
+- (void)filterSelectorVCDidSelectFilter
+{
+
 }
 
 #pragma mark - notification handling
@@ -336,16 +340,6 @@ UIImagePickerControllerDelegate>
                   filterType:self.cameraController.filterType];
 }
 
-- (void)selectFromCameraRoll {
-    [self openImageFromCameraAndProcessIt];
-}
-
-- (void)toggleFilterSelector {
-    if (self.cameraBottomBarView.backgroundAlpha == 1.0f)
-        [self showFilterSelector];
-    else if (self.cameraBottomBarView.backgroundAlpha < 1.0f)
-        [self hideFilterSelector];
-}
 
 - (void)completeWithResult:(TMECameraVCResult)result
                      image:(UIImage *)image
@@ -353,43 +347,6 @@ UIImagePickerControllerDelegate>
 
     if (self.completionHandler)
         self.completionHandler(result, image, filterType);
-}
-
-#pragma mark - filterselctor handling
-- (void)showFilterSelector {
-    [UIView animateWithDuration:0.3 animations:^{
-        CGRect viewBounds = self.view.bounds;
-        self.filterSelectorView.alpha = 1.0f;
-        CGFloat filterSelectorViewOriginY = viewBounds.size.height + filterSelectorMoveDistance;
-        self.filterSelectorView.frame = CGRectMake(0.0f,
-                                                   filterSelectorViewOriginY,
-                                                   self.filterSelectorView.frame.size.width,
-                                                   self.filterSelectorView.frame.size.height);
-        CGRect bottomFrame = self.cameraBottomBarView.frame;
-        bottomFrame.origin.y += filterSelectorMoveDistance;
-        self.cameraBottomBarView.frame = bottomFrame;
-        [self.cameraBottomBarView setAlphaForAllViews:0.7f];
-    } completion:^(BOOL finished) {
-        [self.cameraBottomBarView setArrowDirectionDown];
-        self.isFilterSelectorDown = NO;
-    }];
-}
-
-- (void)hideFilterSelector {
-    [UIView animateWithDuration:0.3 animations:^{
-        CGRect viewBounds = self.view.bounds;
-        self.filterSelectorView.frame = CGRectMake(0.0f,
-                                                   viewBounds.size.height,
-                                                   self.filterSelectorView.frame.size.width,
-                                                   self.filterSelectorView.frame.size.height);
-        CGRect bottomFrame = self.cameraBottomBarView.frame;
-        bottomFrame.origin.y -= filterSelectorMoveDistance;
-        self.cameraBottomBarView.frame = bottomFrame;
-        [self.cameraBottomBarView setAlphaForAllViews:1.0f];
-    } completion:^(BOOL finished) {
-        [self.cameraBottomBarView setArrowDirectionUp];
-        self.isFilterSelectorDown = YES;
-    }];
 }
 
 - (void)filterSelectorView:(IMGLYFilterSelectorView *)filterSelectorView

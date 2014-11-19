@@ -11,7 +11,7 @@
 typedef void (^TMESingleSectionDataSourceCellConfigureBlock)(id cell, id item);
 typedef void (^TMESingleSectionDataSourceActionBlock)(id item);
 
-@interface TMESingleSectionDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
+@interface TMESingleSectionDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) NSArray *items;
 @property (nonatomic, copy) NSString *cellIdentifier;
