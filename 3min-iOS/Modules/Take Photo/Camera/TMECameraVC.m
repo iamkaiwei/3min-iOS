@@ -13,7 +13,6 @@
 #import "IMGLYDefaultCameraImageProvider.h"
 #import "IMGLYDefines.h"
 #import "IMGLYDeviceDetector.h"
-#import "IMGLYFilterSelectorView.h"
 #import "IMGLYImageProviderChecker.h"
 #import "IMGLYShutterView.h"
 #import "IMGLYDeviceDetector.h"
@@ -29,14 +28,12 @@ extern const CGFloat kIMGLYExtraSpaceForScrollBar;
 
 @interface TMECameraVC () <UIGestureRecognizerDelegate,
 IMGLYCameraBottomBarCommandDelegate,
-IMGLYFilterSelectorViewDelegate,
 UINavigationControllerDelegate,
 UIImagePickerControllerDelegate,
 TMECameraFilterSelectorVCDelegate>
 
 @property (nonatomic, strong) IMGLYCameraBottomBarView *cameraBottomBarView;
 @property (nonatomic, strong) IMGLYCameraController *cameraController;
-@property (nonatomic, strong) IMGLYFilterSelectorView *filterSelectorView;
 @property (nonatomic, strong) IMGLYShutterView *shutterView;
 
 @property (nonatomic, strong) id<IMGLYCameraImageProvider> imageProvider;
@@ -52,38 +49,6 @@ TMECameraFilterSelectorVCDelegate>
 #pragma mark -
 
 @implementation TMECameraVC
-
-#pragma mark - init
-
-- (instancetype)initWithCameraImageProvider:(id<IMGLYCameraImageProvider>)imageProvider {
-    self = [super init];
-    if (self == nil) {
-        return nil;
-    }
-    _imageProvider = imageProvider;
-    return self;
-}
-
-
-- (instancetype)initWithCameraImageProvider:(id<IMGLYCameraImageProvider>)imageProvider availableFilterList:(NSArray *)list {
-    self = [super init];
-    if (self == nil) {
-        return nil;
-    }
-    _availableFilterList = list;
-    _imageProvider = imageProvider;
-    return self;
-}
-
-
-- (instancetype)initWithAvailableFilterList:(NSArray *)list {
-    self = [super init];
-    if (self == nil) {
-        return nil;
-    }
-    _availableFilterList = list;
-    return self;
-}
 
 #pragma mark - Life Cycle
 - (void)viewDidLoad {
@@ -104,7 +69,6 @@ TMECameraFilterSelectorVCDelegate>
     [self configureGestureRecognizers];
 
     //[self configureCameraBottomBarView];
-    //[self configureFilterSelectorView];
     [self setupFilterSelectorVC];
 
     [self configureShutterView];
@@ -127,63 +91,9 @@ TMECameraFilterSelectorVCDelegate>
 {
     self.filterContainerViewBottomConstraint.constant = -200;
     
-    self.filterSelectorVC = [TMECameraFilterSelectorVC tme_instantiateFromStoryboardNamed:@"FilterSelector"];
+    self.filterSelectorVC = [TMECameraFilterSelectorVC tme_instantiateFromStoryboardNamed:@"CameraFilterSelector"];
+    self.filterSelectorVC.delegate = self;
     [self addChildVC:self.filterSelectorVC containerView:self.filterContainerView];
-}
-
-#pragma mark - Action
-- (void)cancelTouched:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)switchFrontBackCameraTouched:(id)sender
-{
-    [self.cameraController removeCameraObservers];
-    [self.cameraController removeNotifications];
-
-    [UIView animateWithDuration:0.2 animations:^{
-        [self.cameraController setPreviewAlpha:0.0];
-    } completion:^(BOOL finished) {
-        [self.cameraController flipCamera];
-        [self.cameraController hideIndicator];
-
-        [UIView animateWithDuration:0.2 animations:^{
-            [self.cameraController setPreviewAlpha:1.0];
-        }];
-    }];
-}
-
-- (IBAction)takePhotoTouched:(id)sender {
-    [self takePhoto];
-}
-
-- (IBAction)albumTouched:(id)sender {
-    [self openImageFromCameraAndProcessIt];
-}
-
-- (IBAction)filterTouched:(id)sender {
-    [self showFilterView];
-}
-
-- (IBAction)filterViewDownTouched:(id)sender {
-    [self hideFilterView];
-}
-
-#pragma mark - GUI configuration
-- (void)configureFilterSelectorView {
-    self.filterSelectorView = [[IMGLYFilterSelectorView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 85)
-                                                            previewImageSize:kIMGLYPreviewImageSize
-                                                         cameraImageProvider:_imageProvider
-                                                         availableFilterList:_availableFilterList];
-    self.filterSelectorView.delegate = self;
-    [self.filterSelectorView generateStaticPreviewsForImage:_imageProvider.filterPreviewImage];
-
-    // TODO:
-    [self.filterContainerView addSubview:self.filterSelectorView];
-    [self.filterSelectorView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.filterContainerView);
-    }];
 }
 
 - (void)configureCameraBottomBarView {
@@ -227,6 +137,45 @@ TMECameraFilterSelectorVCDelegate>
     [self.view addSubview:_shutterView];
 }
 
+#pragma mark - Action
+- (void)cancelTouched:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)switchFrontBackCameraTouched:(id)sender
+{
+    [self.cameraController removeCameraObservers];
+    [self.cameraController removeNotifications];
+
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.cameraController setPreviewAlpha:0.0];
+    } completion:^(BOOL finished) {
+        [self.cameraController flipCamera];
+        [self.cameraController hideIndicator];
+
+        [UIView animateWithDuration:0.2 animations:^{
+            [self.cameraController setPreviewAlpha:1.0];
+        }];
+    }];
+}
+
+- (IBAction)takePhotoTouched:(id)sender {
+    [self takePhoto];
+}
+
+- (IBAction)albumTouched:(id)sender {
+    [self openImageFromCameraAndProcessIt];
+}
+
+- (IBAction)filterTouched:(id)sender {
+    [self showFilterView];
+}
+
+- (IBAction)filterViewDownTouched:(id)sender {
+    [self hideFilterView];
+}
+
 #pragma mark - Filter View
 - (void)showFilterView
 {
@@ -249,9 +198,9 @@ TMECameraFilterSelectorVCDelegate>
 }
 
 #pragma mark - TMEFilterSelectorVCDelegate
-- (void)filterSelectorVCDidSelectFilter
+- (void)filterSelectorVCDidSelectFilterType:(IMGLYFilterType)filterType
 {
-
+    [self.cameraController selectFilterType:filterType];
 }
 
 #pragma mark - notification handling
@@ -349,11 +298,6 @@ TMECameraFilterSelectorVCDelegate>
         self.completionHandler(result, image, filterType);
 }
 
-- (void)filterSelectorView:(IMGLYFilterSelectorView *)filterSelectorView
-       didSelectFilterType:(IMGLYFilterType)filterType {
-    [self.cameraController selectFilterType:filterType];
-}
-
 #pragma mark - image picker handling
 - (void)openImageFromCameraAndProcessIt {
     UIImagePickerController *pickerLibrary = [[UIImagePickerController alloc] init];
@@ -400,7 +344,9 @@ TMECameraFilterSelectorVCDelegate>
     [self.cameraController showStreamPreview];
     [self.cameraController addCameraObservers];
     [self.cameraController addNotifications];
-    [self.filterSelectorView setPreviewImagesToDefault];
+
+    // TODO
+    //[self.filterSelectorView setPreviewImagesToDefault];
     sleep(1); // avoid waitin fence error on ios 5
     [self.cameraController startCameraCapture];
 

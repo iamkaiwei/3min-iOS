@@ -72,17 +72,17 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V5r-YA-pSK" userLabel="View - Filter">
-                                <rect key="frame" x="0.0" y="263" width="320" height="105"/>
+                                <rect key="frame" x="0.0" y="258" width="320" height="110"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrc-4P-IaF" userLabel="View - Filter Only">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="85" id="lug-NW-WFH"/>
+                                            <constraint firstAttribute="height" constant="90" id="lug-NW-WFH"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hot-Yy-UmM" userLabel="Button - Down">
-                                        <rect key="frame" x="0.0" y="85" width="320" height="20"/>
+                                        <rect key="frame" x="0.0" y="90" width="320" height="20"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" image="arrow_down">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,7 +101,7 @@
                                     <constraint firstAttribute="trailing" secondItem="zrc-4P-IaF" secondAttribute="trailing" id="pQm-b9-RPT"/>
                                     <constraint firstAttribute="trailing" secondItem="hot-Yy-UmM" secondAttribute="trailing" id="puZ-J5-Ldr"/>
                                     <constraint firstItem="hot-Yy-UmM" firstAttribute="top" secondItem="zrc-4P-IaF" secondAttribute="bottom" id="u28-YI-DoB"/>
-                                    <constraint firstAttribute="height" constant="105" id="uyM-hP-8rV"/>
+                                    <constraint firstAttribute="height" constant="110" id="uyM-hP-8rV"/>
                                 </constraints>
                             </view>
                         </subviews>

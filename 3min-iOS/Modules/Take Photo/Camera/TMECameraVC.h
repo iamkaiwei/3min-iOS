@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
-#import "IMGLYFilter.h"
-
 #import <UIKit/UIKit.h>
+
+#import <IMGLYFilter.h>
 
 @protocol IMGLYCameraImageProvider;
 
@@ -32,11 +32,6 @@ typedef void (^TMECameraVCCompletionHandler)(TMECameraVCResult result,
  */
 @property (nonatomic, copy) TMECameraVCCompletionHandler completionHandler;
 
-- (instancetype)initWithCameraImageProvider:(id<IMGLYCameraImageProvider>)imageProvider;
-
-- (instancetype)initWithCameraImageProvider:(id <IMGLYCameraImageProvider>)imageProvider availableFilterList:(NSArray *)list;
-
-- (instancetype)initWithAvailableFilterList:(NSArray *)list;
 
 /*
  The camera view controller operates in two modes. First the camera mode, and second the accept mode.

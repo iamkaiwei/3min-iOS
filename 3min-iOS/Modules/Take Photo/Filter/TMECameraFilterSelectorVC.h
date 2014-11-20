@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import <IMGLYFilter.h>
+
 @protocol TMECameraFilterSelectorVCDelegate <NSObject>
 
-- (void)filterSelectorVCDidSelectFilter;
+- (void)filterSelectorVCDidSelectFilterType:(IMGLYFilterType)filterType;
 
 @end
 

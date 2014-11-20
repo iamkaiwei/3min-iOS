@@ -11,18 +11,31 @@
 #import "TMECameraFilterCell.h"
 #import "TMECameraFilter.h"
 
+#import <IMGLYFilterOperation.h>
+#import <IMGLYOperation.h>
+#import <IMGLYKit.h>
+
 @interface TMECameraFilterSelectorVC ()
 
 @property (nonatomic, strong) TMESingleSectionDataSource *dataSource;
 @property (nonatomic, strong) NSArray *filtersTypes;
 @property (nonatomic, strong) NSArray *filters;
-
+@property (nonatomic, strong) dispatch_queue_t queue;
 @end
 
 @implementation TMECameraFilterSelectorVC
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+
+    self.queue = dispatch_queue_create("TMECameraFilterSelectorVCQueue", DISPATCH_QUEUE_SERIAL);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupCollectionView];
+    [self setupFilters];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,24 +48,51 @@
 {
     self.dataSource = [[TMESingleSectionDataSource alloc] init];
     self.dataSource.cellIdentifier = [TMECameraFilterCell kind];
-    self.dataSource.cellConfigureBlock = ^(TMECameraFilterCell *cell, id object) {
-
+    self.dataSource.cellConfigureBlock = ^(TMECameraFilterCell *cell, TMECameraFilter *filter) {
+        cell.filterImageView.image = filter.image;
+        cell.filterLabel.text = filter.filterName;
     };
 
     self.collectionView.dataSource = self.dataSource;
 }
 
-#pragma mark - Configure
 - (void)setupFilters
 {
-    
+    dispatch_async(self.queue, ^{
+        UIImage *staticImage = [UIImage imageNamed:@"static_filter_image"];
+        [[IMGLYPhotoProcessor sharedPhotoProcessor] setInputImage:staticImage];
+
+        NSMutableArray *filters = [NSMutableArray array];
+        for (NSNumber *filterTypeNumber in self.filtersTypes) {
+            TMECameraFilter *filter = [[TMECameraFilter alloc] init];
+            filter.filterType = filterTypeNumber.integerValue;
+            filter.filterName = [self filterNameFromType:filter.filterType];
+
+            IMGLYProcessingJob *job = [[IMGLYProcessingJob alloc] init];
+            IMGLYFilterOperation *operation = [[IMGLYFilterOperation alloc] init];
+            operation.filterType = filter.filterType;
+            [job addOperation:(IMGLYOperation *)operation];
+            [[IMGLYPhotoProcessor sharedPhotoProcessor] performProcessingJob:job];
+
+            filter.image = [[IMGLYPhotoProcessor sharedPhotoProcessor] outputImage];
+
+            [filters addObject:filter];
+        }
+
+        self.filters = filters;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.dataSource.items = self.filters;
+            [self.collectionView reloadData];
+        });
+    });
 }
 
 #pragma mark - Delegate
-- (void)didSelectFilter
+- (void)didSelectFilterType:(IMGLYFilterType)filterType
 {
-    if ([self.delegate respondsToSelector:@selector(filterSelectorVCDidSelectFilter)]) {
-        [self.delegate filterSelectorVCDidSelectFilter];
+    if ([self.delegate respondsToSelector:@selector(filterSelectorVCDidSelectFilterType:)]) {
+        [self.delegate filterSelectorVCDidSelectFilterType:filterType];
     }
 }
 
@@ -72,32 +112,32 @@
                           @(IMGLYFilterType9EK2),
                           @(IMGLYFilterType9EK6),
                           @(IMGLYFilterType9EKDynamic),
-                          @(IMGLYFilterTypeFridge),
-                          @(IMGLYFilterTypeBreeze),
-                          @(IMGLYFilterTypeOchrid),
-                          @(IMGLYFilterTypeChestnut),
-                          @(IMGLYFilterTypeFront),
-                          @(IMGLYFilterTypeFixie),
-                          @(IMGLYFilterTypeX400),
-                          @(IMGLYFilterTypeBW),
-                          @(IMGLYFilterTypeBWHard),
-                          @(IMGLYFilterTypeLenin),
-                          @(IMGLYFilterTypeQouzi),
-                          @(IMGLYFilterType669),
-                          @(IMGLYFilterTypePola),
-                          @(IMGLYFilterTypeFood),
-                          @(IMGLYFilterTypeGlam),
-                          @(IMGLYFilterTypeLord),
-                          @(IMGLYFilterTypeTejas),
-                          @(IMGLYFilterTypeEarlyBird),
-                          @(IMGLYFilterTypeLomo),
-                          @(IMGLYFilterTypeGobblin),
-                          @(IMGLYFilterTypeSinCity),
-                          @(IMGLYFilterTypeSketch),
-                          @(IMGLYFilterTypeMellow),
-                          @(IMGLYFilterTypeSunny),
-                          @(IMGLYFilterTypeA15),
-                          @(IMGLYFilterTypeSemiRed),
+//                          @(IMGLYFilterTypeFridge),
+//                          @(IMGLYFilterTypeBreeze),
+//                          @(IMGLYFilterTypeOchrid),
+//                          @(IMGLYFilterTypeChestnut),
+//                          @(IMGLYFilterTypeFront),
+//                          @(IMGLYFilterTypeFixie),
+//                          @(IMGLYFilterTypeX400),
+//                          @(IMGLYFilterTypeBW),
+//                          @(IMGLYFilterTypeBWHard),
+//                          @(IMGLYFilterTypeLenin),
+//                          @(IMGLYFilterTypeQouzi),
+//                          @(IMGLYFilterType669),
+//                          @(IMGLYFilterTypePola),
+//                          @(IMGLYFilterTypeFood),
+//                          @(IMGLYFilterTypeGlam),
+//                          @(IMGLYFilterTypeLord),
+//                          @(IMGLYFilterTypeTejas),
+//                          @(IMGLYFilterTypeEarlyBird),
+//                          @(IMGLYFilterTypeLomo),
+//                          @(IMGLYFilterTypeGobblin),
+//                          @(IMGLYFilterTypeSinCity),
+//                          @(IMGLYFilterTypeSketch),
+//                          @(IMGLYFilterTypeMellow),
+//                          @(IMGLYFilterTypeSunny),
+//                          @(IMGLYFilterTypeA15),
+//                          @(IMGLYFilterTypeSemiRed),
                           ];
     }
 
