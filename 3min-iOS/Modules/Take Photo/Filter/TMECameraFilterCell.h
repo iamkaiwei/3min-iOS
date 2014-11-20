@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TMECameraFilterCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *filterImageView;
+
+@property (weak, nonatomic) IBOutlet UIButton *filterImageButton;
 @property (weak, nonatomic) IBOutlet UILabel *filterLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *activeOverlayImageView;
 
 @end

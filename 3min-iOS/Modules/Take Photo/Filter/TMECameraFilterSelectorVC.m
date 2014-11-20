@@ -21,6 +21,9 @@
 @property (nonatomic, strong) NSArray *filtersTypes;
 @property (nonatomic, strong) NSArray *filters;
 @property (nonatomic, strong) dispatch_queue_t queue;
+
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+
 @end
 
 @implementation TMECameraFilterSelectorVC
@@ -48,9 +51,16 @@
 {
     self.dataSource = [[TMESingleSectionDataSource alloc] init];
     self.dataSource.cellIdentifier = [TMECameraFilterCell kind];
-    self.dataSource.cellConfigureBlock = ^(TMECameraFilterCell *cell, TMECameraFilter *filter) {
-        cell.filterImageView.image = filter.image;
+
+    self.selectedIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+
+    __weak typeof (self) weakSelf = self;
+    self.dataSource.detailCellConfigureBlock = ^(TMECameraFilterCell *cell, TMECameraFilter *filter, NSIndexPath *indexPath) {
+        [cell.filterImageButton addTarget:weakSelf action:@selector(filterButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.filterImageButton setImage:filter.image forState:UIControlStateNormal];
         cell.filterLabel.text = filter.filterName;
+
+        cell.activeOverlayImageView.hidden = ![weakSelf.selectedIndexPath isEqual:indexPath];
     };
 
     self.collectionView.dataSource = self.dataSource;
@@ -88,6 +98,13 @@
     });
 }
 
+#pragma mark - Public Interface
+- (void)reset
+{
+    self.selectedIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.collectionView reloadData];
+}
+
 #pragma mark - Delegate
 - (void)didSelectFilterType:(IMGLYFilterType)filterType
 {
@@ -96,10 +113,21 @@
     }
 }
 
-#pragma mark - UICollectionViewDelegate
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - Action
+- (void)filterButtonTouched:(UIButton *)button
 {
+    CGPoint pointInCollectionView = [self.collectionView convertPoint:button.center fromView:button];
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:pointInCollectionView];;
 
+    if ([self.selectedIndexPath isEqual:indexPath]) {
+        return;
+    }
+
+    self.selectedIndexPath = indexPath;
+    [self.collectionView reloadData];
+
+    TMECameraFilter *filter = self.dataSource.items[indexPath.row];
+    [self didSelectFilterType:filter.filterType];
 }
 
 #pragma mark - Filter
@@ -133,7 +161,7 @@
 //                          @(IMGLYFilterTypeLomo),
 //                          @(IMGLYFilterTypeGobblin),
 //                          @(IMGLYFilterTypeSinCity),
-//                          @(IMGLYFilterTypeSketch),
+                          @(IMGLYFilterTypeSketch),
 //                          @(IMGLYFilterTypeMellow),
 //                          @(IMGLYFilterTypeSunny),
 //                          @(IMGLYFilterTypeA15),

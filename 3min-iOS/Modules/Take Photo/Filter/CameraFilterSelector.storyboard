@@ -28,30 +28,41 @@
                                     <rect key="frame" x="0.0" y="0.0" width="65" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ld-Y9-Wv9">
-                                            <rect key="frame" x="0.0" y="4" width="65" height="65"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="5Ld-Y9-Wv9" secondAttribute="height" multiplier="1:1" id="6v8-I9-cSv"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQm-il-g9y">
                                             <rect key="frame" x="17" y="72" width="31" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0K-Kd-aWc">
+                                            <rect key="frame" x="0.0" y="4" width="65" height="65"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="S0K-Kd-aWc" secondAttribute="height" multiplier="1:1" id="wow-bl-DF3"/>
+                                            </constraints>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_filter_active" translatesAutoresizingMaskIntoConstraints="NO" id="tHr-Rg-mHs">
+                                            <rect key="frame" x="0.0" y="4" width="65" height="65"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="5Ld-Y9-Wv9" secondAttribute="trailing" id="AnH-of-g2X"/>
-                                    <constraint firstItem="iQm-il-g9y" firstAttribute="top" secondItem="5Ld-Y9-Wv9" secondAttribute="bottom" constant="3" id="SWU-Ya-V3H"/>
+                                    <constraint firstItem="S0K-Kd-aWc" firstAttribute="bottom" secondItem="tHr-Rg-mHs" secondAttribute="bottom" id="5py-u2-6gj"/>
+                                    <constraint firstItem="iQm-il-g9y" firstAttribute="top" secondItem="S0K-Kd-aWc" secondAttribute="bottom" constant="3" id="BWD-Ii-YCo"/>
+                                    <constraint firstItem="S0K-Kd-aWc" firstAttribute="top" secondItem="9qw-KO-zyJ" secondAttribute="top" constant="4" id="M9v-TZ-Qqc"/>
                                     <constraint firstAttribute="centerX" secondItem="iQm-il-g9y" secondAttribute="centerX" id="U3u-MQ-DOr"/>
-                                    <constraint firstItem="5Ld-Y9-Wv9" firstAttribute="leading" secondItem="9qw-KO-zyJ" secondAttribute="leading" id="mqr-bd-Qc9"/>
-                                    <constraint firstItem="5Ld-Y9-Wv9" firstAttribute="top" secondItem="9qw-KO-zyJ" secondAttribute="top" constant="4" id="pRR-XT-UbC"/>
+                                    <constraint firstItem="S0K-Kd-aWc" firstAttribute="top" secondItem="tHr-Rg-mHs" secondAttribute="top" id="fUX-Xv-QTC"/>
+                                    <constraint firstAttribute="trailing" secondItem="S0K-Kd-aWc" secondAttribute="trailing" id="i52-xI-woB"/>
+                                    <constraint firstItem="S0K-Kd-aWc" firstAttribute="leading" secondItem="tHr-Rg-mHs" secondAttribute="leading" id="lGz-bV-5Hy"/>
+                                    <constraint firstItem="S0K-Kd-aWc" firstAttribute="trailing" secondItem="tHr-Rg-mHs" secondAttribute="trailing" id="lXH-6v-lRy"/>
+                                    <constraint firstItem="S0K-Kd-aWc" firstAttribute="leading" secondItem="9qw-KO-zyJ" secondAttribute="leading" id="zgu-sR-fD0"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="filterImageView" destination="5Ld-Y9-Wv9" id="SDn-e0-XUH"/>
+                                    <outlet property="activeOverlayImageView" destination="tHr-Rg-mHs" id="OeH-Bf-L99"/>
+                                    <outlet property="filterImageButton" destination="S0K-Kd-aWc" id="FJv-LH-W5Y"/>
                                     <outlet property="filterLabel" destination="iQm-il-g9y" id="29r-4C-wlM"/>
                                 </connections>
                             </collectionViewCell>
@@ -67,6 +78,9 @@
             <point key="canvasLocation" x="288.5333333333333" y="280.21333333333331"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_filter_active" width="21" height="16"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

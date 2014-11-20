@@ -344,9 +344,8 @@ TMECameraFilterSelectorVCDelegate>
     [self.cameraController showStreamPreview];
     [self.cameraController addCameraObservers];
     [self.cameraController addNotifications];
+    [self.filterSelectorVC reset];
 
-    // TODO
-    //[self.filterSelectorView setPreviewImagesToDefault];
     sleep(1); // avoid waitin fence error on ios 5
     [self.cameraController startCameraCapture];
 

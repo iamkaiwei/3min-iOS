@@ -10,4 +10,11 @@
 
 @implementation TMECameraFilterCell
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+
+    self.activeOverlayImageView.hidden = YES;
+}
+
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef void (^TMESingleSectionDataSourceCellConfigureBlock)(id cell, id item);
+typedef void (^TMESingleSectionDataSourceDetailCellConfigureBlock)(id cell, id item, NSIndexPath *indexPath);
 typedef void (^TMESingleSectionDataSourceActionBlock)(id item);
 
 @interface TMESingleSectionDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource>
@@ -18,6 +19,7 @@ typedef void (^TMESingleSectionDataSourceActionBlock)(id item);
 @property (nonatomic, copy) NSString *sectionName;
 
 @property (nonatomic, copy) TMESingleSectionDataSourceCellConfigureBlock cellConfigureBlock;
+@property (nonatomic, copy) TMESingleSectionDataSourceDetailCellConfigureBlock detailCellConfigureBlock;
 @property (nonatomic, copy) TMESingleSectionDataSourceActionBlock actionBlock;
 
 @end

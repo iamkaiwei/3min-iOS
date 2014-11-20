@@ -142,11 +142,14 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 }
 
 #pragma mark - Action
-- (IBAction)photoButtonTouched:(id)sender
+- (IBAction)photoButtonTouched:(UIButton *)button
 {
     TMECameraVC *cameraVC = [TMECameraVC tme_instantiateFromStoryboardNamed:@"Camera"];
+
+    __weak typeof (self) weakSelf = self;
     cameraVC.completionHandler = ^(TMECameraVCResult result, UIImage *image, IMGLYFilterType filterType) {
-        NSLog(@"%@", image);
+        [weakSelf.navigationController popToViewController:weakSelf animated:YES];
+        [button setImage:image forState:UIControlStateNormal];
     };
 
     [self.navigationController pushViewController:cameraVC animated:YES];

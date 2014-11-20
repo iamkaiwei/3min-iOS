@@ -34,6 +34,10 @@
     if (self.cellConfigureBlock) {
         self.cellConfigureBlock(cell, item);
     }
+
+    if (self.detailCellConfigureBlock) {
+        self.detailCellConfigureBlock(cell, item, indexPath);
+    }
     
     return cell;
 }
@@ -58,6 +62,10 @@
         self.cellConfigureBlock(cell, item);
     }
 
+    if (self.detailCellConfigureBlock) {
+        self.detailCellConfigureBlock(cell, item, indexPath);
+    }
+    
     return cell;
 }
 

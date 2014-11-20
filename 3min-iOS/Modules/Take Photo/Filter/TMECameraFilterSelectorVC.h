@@ -20,4 +20,6 @@
 
 @property (nonatomic, weak) id<TMECameraFilterSelectorVCDelegate> delegate;
 
+- (void)reset;
+
 @end
