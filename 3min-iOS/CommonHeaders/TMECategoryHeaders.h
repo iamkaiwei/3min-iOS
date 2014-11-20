@@ -24,6 +24,7 @@
 #import "UIColor+Additions.h"
 #import "UIColor+Custom.h"
 #import "UIImage+Additions.h"
+#import "UIImage+TMEAdditions.h"
 #import "UIImage+ImageEffects.h"
 #import "UIImageView+Additions.h"
 #import "UILabel+Additions.h"

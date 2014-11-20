@@ -7,6 +7,7 @@
 //
 
 #import "TMETakePhotoButtonViewController.h"
+#import "TMEEditProductVC.h"
 
 @interface TMETakePhotoButtonViewController ()
 
@@ -27,6 +28,8 @@
 }
 
 - (IBAction)onTapTakePhoto:(id)sender {
+    TMEEditProductVC *editProductVC = [TMEEditProductVC tme_instantiateFromStoryboardNamed:@"EditProduct"];
+    [self.navigationController pushViewController:editProductVC animated:YES];
 }
 
 - (void)toggleButton {

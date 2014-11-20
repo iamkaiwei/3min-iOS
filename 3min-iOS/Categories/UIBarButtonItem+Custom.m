@@ -70,4 +70,19 @@
     return [UIBarButtonItem appBarButtonItemWithTarget:target action:action imageNamed:@"bt_share" isLeftPosition:NO];
 }
 
++ (UIBarButtonItem *)cancelItemWithTarget:(id)target action:(SEL)action
+{
+    return [[UIBarButtonItem alloc] initWithImage:[UIImage originalImageNamed:@"icn_cancel"] style:UIBarButtonItemStylePlain target:target action:action];
+}
+
++ (UIBarButtonItem *)submitItemWithTarget:(id)target action:(SEL)action
+{
+    return [[UIBarButtonItem alloc] initWithImage:[UIImage originalImageNamed:@"icn_submit"] style:UIBarButtonItemStylePlain target:target action:action];
+}
+
++ (UIBarButtonItem *)doneItemWithTarget:(id)target action:(SEL)action
+{
+    return [[UIBarButtonItem alloc] initWithImage:[UIImage originalImageNamed:@"icn_done"] style:UIBarButtonItemStylePlain target:target action:action];
+}
+
 @end

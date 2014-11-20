@@ -45,4 +45,7 @@ target :ThreeMin, :exclusive => true do
   pod 'RZCellSizeManager'
   pod 'HPGrowingTextView'
   pod 'KHTableViewController'
+  pod 'SZTextView', '~> 1.1'
+  pod 'SVGeocoder', '~> 0.1'
+  pod 'imglyKit', '~> 1.0'
 end

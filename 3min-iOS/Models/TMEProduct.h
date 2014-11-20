@@ -36,8 +36,9 @@
 @property (nonatomic, copy) NSString *venueID;
 @property (nonatomic, strong) NSNumber *venueLong;
 @property (nonatomic, strong) NSNumber *venueLat;
+@property (nonatomic, copy) NSString *locationText;
 
-@property (nonatomic, weak) TMECategory *category;
+@property (nonatomic, strong) TMECategory *category;
 
 @property (nonatomic, strong) NSSet *conversation;
 @property (nonatomic, strong) NSArray *images;

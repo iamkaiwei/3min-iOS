@@ -36,6 +36,10 @@
 		9937B90919B5EA200000EE0C /* UITextField+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90719B5EA200000EE0C /* UITextField+TMEAdditions.m */; };
 		9937B90D19B5EA4A0000EE0C /* TMESingleSectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90C19B5EA4A0000EE0C /* TMESingleSectionDataSource.m */; };
 		9966434819A1085E008960DB /* TMEUserNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9966434719A1085E008960DB /* TMEUserNetworkClient.m */; };
+		998A11211A1B94FD007F62FF /* TMEEditProductPriceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 998A11201A1B94FD007F62FF /* TMEEditProductPriceVC.m */; };
+		998A11231A1B950C007F62FF /* EditProductPrice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998A11221A1B950C007F62FF /* EditProductPrice.storyboard */; };
+		998A11271A1B98A9007F62FF /* TMEEditProductLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 998A11261A1B98A9007F62FF /* TMEEditProductLocationVC.m */; };
+		998A11291A1B98B3007F62FF /* EditProductLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998A11281A1B98B3007F62FF /* EditProductLocation.storyboard */; };
 		9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */; };
 		9992943119E2D95800896D05 /* TMEProductComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943019E2D95800896D05 /* TMEProductComment.m */; };
 		9992943419E2D98000896D05 /* TMEProductCommentNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943319E2D98000896D05 /* TMEProductCommentNetworkClient.m */; };
@@ -45,6 +49,10 @@
 		9992944019E2F82B00896D05 /* TMEProductLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943F19E2F82B00896D05 /* TMEProductLikeCell.m */; };
 		9992944319E2F96D00896D05 /* TMEProductLikeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992944219E2F96D00896D05 /* TMEProductLikeViewModel.m */; };
 		99AA4B2219A26F0600268345 /* NSObject+TMENotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AA4B2119A26F0600268345 /* NSObject+TMENotification.m */; };
+		99B2C1CD1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1CC1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m */; };
+		99B2C1D01A1CF90700332CAE /* TMECameraFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1CF1A1CF90700332CAE /* TMECameraFilterCell.m */; };
+		99B2C1D21A1CF91300332CAE /* CameraFilterSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C1D11A1CF91300332CAE /* CameraFilterSelector.storyboard */; };
+		99B2C1D51A1D04B300332CAE /* TMECameraFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1D41A1D04B300332CAE /* TMECameraFilter.m */; };
 		99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D601978492C00872EE4 /* AppDelegate.m */; };
 		99EA0EE81978492D00872EE4 /* TMEApperanceAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D631978492C00872EE4 /* TMEApperanceAppDelegateService.m */; };
 		99EA0EE91978492D00872EE4 /* TMECoreDataAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D651978492C00872EE4 /* TMECoreDataAppDelegateService.m */; };
@@ -328,6 +336,16 @@
 		D295D30719E29FCF008B9BC4 /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D295D30219E29FCF008B9BC4 /* ProductDetail.storyboard */; };
 		D295D30819E29FCF008B9BC4 /* TMEProductDetailOnlyTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D295D30419E29FCF008B9BC4 /* TMEProductDetailOnlyTableVC.m */; };
 		D295D30919E29FCF008B9BC4 /* TMEProductDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D295D30619E29FCF008B9BC4 /* TMEProductDetailVC.m */; };
+		D2E07CA41A1AF64600D54014 /* TMEEditProductVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CA31A1AF64600D54014 /* TMEEditProductVC.m */; };
+		D2E07CA61A1AF65E00D54014 /* EditProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E07CA51A1AF65E00D54014 /* EditProduct.storyboard */; };
+		D2E07CA91A1B02BD00D54014 /* UIImage+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CA81A1B02BD00D54014 /* UIImage+TMEAdditions.m */; };
+		D2E07CAF1A1B280F00D54014 /* TMEProductCategoriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CAE1A1B280F00D54014 /* TMEProductCategoriesVC.m */; };
+		D2E07CB11A1B281B00D54014 /* ProductCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E07CB01A1B281B00D54014 /* ProductCategory.storyboard */; };
+		D2E07CB41A1B29B800D54014 /* TMEProductCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CB31A1B29B800D54014 /* TMEProductCategoryCell.m */; };
+		D2E07CB71A1B3CB900D54014 /* TMEEditProductNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CB61A1B3CB900D54014 /* TMEEditProductNameVC.m */; };
+		D2E07CB91A1B3CC300D54014 /* EditProductName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E07CB81A1B3CC300D54014 /* EditProductName.storyboard */; };
+		D2E07CC01A1C8B2E00D54014 /* TMECameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E07CBF1A1C8B2E00D54014 /* TMECameraVC.m */; };
+		D2E07CC21A1CA3D600D54014 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E07CC11A1CA3D600D54014 /* Camera.storyboard */; };
 		D3DB6264BF87428F8356B45E /* libPods-ThreeMin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */; };
 /* End PBXBuildFile section */
 
@@ -385,6 +403,12 @@
 		9966434619A1085E008960DB /* TMEUserNetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserNetworkClient.h; sourceTree = "<group>"; };
 		9966434719A1085E008960DB /* TMEUserNetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserNetworkClient.m; sourceTree = "<group>"; };
 		9966434919A1087D008960DB /* TMENetworkHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMENetworkHeaders.h; sourceTree = "<group>"; };
+		998A111F1A1B94FD007F62FF /* TMEEditProductPriceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEEditProductPriceVC.h; sourceTree = "<group>"; };
+		998A11201A1B94FD007F62FF /* TMEEditProductPriceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEEditProductPriceVC.m; sourceTree = "<group>"; };
+		998A11221A1B950C007F62FF /* EditProductPrice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProductPrice.storyboard; sourceTree = "<group>"; };
+		998A11251A1B98A9007F62FF /* TMEEditProductLocationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEEditProductLocationVC.h; sourceTree = "<group>"; };
+		998A11261A1B98A9007F62FF /* TMEEditProductLocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEEditProductLocationVC.m; sourceTree = "<group>"; };
+		998A11281A1B98B3007F62FF /* EditProductLocation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProductLocation.storyboard; sourceTree = "<group>"; };
 		9990E4271997CBD9008B603F /* TMELoggerAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMELoggerAppDelegateService.h; sourceTree = "<group>"; };
 		9990E4281997CBD9008B603F /* TMELoggerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMELoggerAppDelegateService.m; sourceTree = "<group>"; };
 		9992942F19E2D95800896D05 /* TMEProductComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductComment.h; sourceTree = "<group>"; };
@@ -403,6 +427,13 @@
 		9992944219E2F96D00896D05 /* TMEProductLikeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductLikeViewModel.m; sourceTree = "<group>"; };
 		99AA4B2019A26F0600268345 /* NSObject+TMENotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TMENotification.h"; sourceTree = "<group>"; };
 		99AA4B2119A26F0600268345 /* NSObject+TMENotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TMENotification.m"; sourceTree = "<group>"; };
+		99B2C1CB1A1CF8F400332CAE /* TMECameraFilterSelectorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECameraFilterSelectorVC.h; sourceTree = "<group>"; };
+		99B2C1CC1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECameraFilterSelectorVC.m; sourceTree = "<group>"; };
+		99B2C1CE1A1CF90700332CAE /* TMECameraFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECameraFilterCell.h; sourceTree = "<group>"; };
+		99B2C1CF1A1CF90700332CAE /* TMECameraFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECameraFilterCell.m; sourceTree = "<group>"; };
+		99B2C1D11A1CF91300332CAE /* CameraFilterSelector.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CameraFilterSelector.storyboard; sourceTree = "<group>"; };
+		99B2C1D31A1D04B300332CAE /* TMECameraFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECameraFilter.h; sourceTree = "<group>"; };
+		99B2C1D41A1D04B300332CAE /* TMECameraFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECameraFilter.m; sourceTree = "<group>"; };
 		99EA0D5F1978492C00872EE4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		99EA0D601978492C00872EE4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		99EA0D621978492C00872EE4 /* TMEApperanceAppDelegateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEApperanceAppDelegateService.h; sourceTree = "<group>"; };
@@ -909,6 +940,22 @@
 		D295D30419E29FCF008B9BC4 /* TMEProductDetailOnlyTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductDetailOnlyTableVC.m; sourceTree = "<group>"; };
 		D295D30519E29FCF008B9BC4 /* TMEProductDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductDetailVC.h; sourceTree = "<group>"; };
 		D295D30619E29FCF008B9BC4 /* TMEProductDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductDetailVC.m; sourceTree = "<group>"; };
+		D2E07CA21A1AF64600D54014 /* TMEEditProductVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEEditProductVC.h; sourceTree = "<group>"; };
+		D2E07CA31A1AF64600D54014 /* TMEEditProductVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEEditProductVC.m; sourceTree = "<group>"; };
+		D2E07CA51A1AF65E00D54014 /* EditProduct.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProduct.storyboard; sourceTree = "<group>"; };
+		D2E07CA71A1B02BD00D54014 /* UIImage+TMEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TMEAdditions.h"; sourceTree = "<group>"; };
+		D2E07CA81A1B02BD00D54014 /* UIImage+TMEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TMEAdditions.m"; sourceTree = "<group>"; };
+		D2E07CAD1A1B280F00D54014 /* TMEProductCategoriesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductCategoriesVC.h; sourceTree = "<group>"; };
+		D2E07CAE1A1B280F00D54014 /* TMEProductCategoriesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductCategoriesVC.m; sourceTree = "<group>"; };
+		D2E07CB01A1B281B00D54014 /* ProductCategory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductCategory.storyboard; sourceTree = "<group>"; };
+		D2E07CB21A1B29B800D54014 /* TMEProductCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductCategoryCell.h; sourceTree = "<group>"; };
+		D2E07CB31A1B29B800D54014 /* TMEProductCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductCategoryCell.m; sourceTree = "<group>"; };
+		D2E07CB51A1B3CB900D54014 /* TMEEditProductNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEEditProductNameVC.h; sourceTree = "<group>"; };
+		D2E07CB61A1B3CB900D54014 /* TMEEditProductNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEEditProductNameVC.m; sourceTree = "<group>"; };
+		D2E07CB81A1B3CC300D54014 /* EditProductName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProductName.storyboard; sourceTree = "<group>"; };
+		D2E07CBE1A1C8B2E00D54014 /* TMECameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECameraVC.h; sourceTree = "<group>"; };
+		D2E07CBF1A1C8B2E00D54014 /* TMECameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECameraVC.m; sourceTree = "<group>"; };
+		D2E07CC11A1CA3D600D54014 /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeMin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1036,6 +1083,40 @@
 			);
 			name = Network;
 			path = "3min-iOS/Network";
+			sourceTree = "<group>";
+		};
+		998A111E1A1B94D6007F62FF /* Price */ = {
+			isa = PBXGroup;
+			children = (
+				998A111F1A1B94FD007F62FF /* TMEEditProductPriceVC.h */,
+				998A11201A1B94FD007F62FF /* TMEEditProductPriceVC.m */,
+				998A11221A1B950C007F62FF /* EditProductPrice.storyboard */,
+			);
+			path = Price;
+			sourceTree = "<group>";
+		};
+		998A11241A1B988E007F62FF /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				998A11251A1B98A9007F62FF /* TMEEditProductLocationVC.h */,
+				998A11261A1B98A9007F62FF /* TMEEditProductLocationVC.m */,
+				998A11281A1B98B3007F62FF /* EditProductLocation.storyboard */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		99B2C1CA1A1CF8DC00332CAE /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				99B2C1CB1A1CF8F400332CAE /* TMECameraFilterSelectorVC.h */,
+				99B2C1CC1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m */,
+				99B2C1CE1A1CF90700332CAE /* TMECameraFilterCell.h */,
+				99B2C1CF1A1CF90700332CAE /* TMECameraFilterCell.m */,
+				99B2C1D11A1CF91300332CAE /* CameraFilterSelector.storyboard */,
+				99B2C1D31A1D04B300332CAE /* TMECameraFilter.h */,
+				99B2C1D41A1D04B300332CAE /* TMECameraFilter.m */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		99EA0D5E1978492C00872EE4 /* AppDelegate */ = {
@@ -1289,6 +1370,8 @@
 				B41C80C419B782BA00210878 /* UIImageView+ProductCollectionCellLoadImage.m */,
 				9910BDFE19D07D7A00BAC139 /* NSString+TMEAdditions.h */,
 				9910BDFF19D07D7A00BAC139 /* NSString+TMEAdditions.m */,
+				D2E07CA71A1B02BD00D54014 /* UIImage+TMEAdditions.h */,
+				D2E07CA81A1B02BD00D54014 /* UIImage+TMEAdditions.m */,
 			);
 			name = Categories;
 			path = "3min-iOS/Categories";
@@ -2088,6 +2171,8 @@
 		D295D2BC19E29F2C008B9BC4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D2E07CA01A1AF36900D54014 /* Edit Product */,
+				D2E07CA11A1AF36900D54014 /* Take Photo */,
 				99EA0E831978492D00872EE4 /* Submit VCs */,
 				D295D2D619E29FAD008B9BC4 /* Search */,
 				D295D2BD19E29F2C008B9BC4 /* Product Detail */,
@@ -2202,6 +2287,69 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		D2E07CA01A1AF36900D54014 /* Edit Product */ = {
+			isa = PBXGroup;
+			children = (
+				998A11241A1B988E007F62FF /* Location */,
+				998A111E1A1B94D6007F62FF /* Price */,
+				D2E07CAA1A1B0F5600D54014 /* Category */,
+				D2E07CAB1A1B0F5600D54014 /* Item */,
+				D2E07CA21A1AF64600D54014 /* TMEEditProductVC.h */,
+				D2E07CA31A1AF64600D54014 /* TMEEditProductVC.m */,
+				D2E07CA51A1AF65E00D54014 /* EditProduct.storyboard */,
+			);
+			path = "Edit Product";
+			sourceTree = "<group>";
+		};
+		D2E07CA11A1AF36900D54014 /* Take Photo */ = {
+			isa = PBXGroup;
+			children = (
+				99B2C1CA1A1CF8DC00332CAE /* Filter */,
+				D2E07CBC1A1C8B1A00D54014 /* Camera */,
+				D2E07CBD1A1C8B1A00D54014 /* Edit */,
+			);
+			path = "Take Photo";
+			sourceTree = "<group>";
+		};
+		D2E07CAA1A1B0F5600D54014 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D2E07CAD1A1B280F00D54014 /* TMEProductCategoriesVC.h */,
+				D2E07CAE1A1B280F00D54014 /* TMEProductCategoriesVC.m */,
+				D2E07CB01A1B281B00D54014 /* ProductCategory.storyboard */,
+				D2E07CB21A1B29B800D54014 /* TMEProductCategoryCell.h */,
+				D2E07CB31A1B29B800D54014 /* TMEProductCategoryCell.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		D2E07CAB1A1B0F5600D54014 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				D2E07CB51A1B3CB900D54014 /* TMEEditProductNameVC.h */,
+				D2E07CB61A1B3CB900D54014 /* TMEEditProductNameVC.m */,
+				D2E07CB81A1B3CC300D54014 /* EditProductName.storyboard */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		D2E07CBC1A1C8B1A00D54014 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				D2E07CBE1A1C8B2E00D54014 /* TMECameraVC.h */,
+				D2E07CBF1A1C8B2E00D54014 /* TMECameraVC.m */,
+				D2E07CC11A1CA3D600D54014 /* Camera.storyboard */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		D2E07CBD1A1C8B1A00D54014 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2269,6 +2417,7 @@
 				B648083B1A0893CC00A855A0 /* OpenSans-ExtraBold.ttf in Resources */,
 				B648083C1A0893CC00A855A0 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				B648083D1A0893CC00A855A0 /* OpenSans-Italic.ttf in Resources */,
+				998A11231A1B950C007F62FF /* EditProductPrice.storyboard in Resources */,
 				B648083E1A0893CC00A855A0 /* OpenSans-Light.ttf in Resources */,
 				B648083F1A0893CC00A855A0 /* OpenSans-LightItalic.ttf in Resources */,
 				B64808401A0893CC00A855A0 /* OpenSans-Regular.ttf in Resources */,
@@ -2284,6 +2433,7 @@
 				99EA0F4F1978492D00872EE4 /* TMELeftMenuTableViewCell.xib in Resources */,
 				B4AE17F4198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib in Resources */,
 				B4F513D719AEDCB9003DE851 /* TMEDropDownMenuViewController.xib in Resources */,
+				998A11291A1B98B3007F62FF /* EditProductLocation.storyboard in Resources */,
 				99EA0F6E1978492D00872EE4 /* PublishLocationPickerViewController.xib in Resources */,
 				99EA0F681978492D00872EE4 /* TMEListOffersTableViewController.xib in Resources */,
 				B47FBD9B1A0B534F002A75F3 /* TMEMyItemViewController.xib in Resources */,
@@ -2313,6 +2463,7 @@
 				99EA0F3E1978492D00872EE4 /* TMEActivityViewController.xib in Resources */,
 				D295D2CE19E29F2C008B9BC4 /* ProductComment.storyboard in Resources */,
 				B68DCD7F1A0C7E670023A877 /* TMEMessageRightCollectionViewCell.xib in Resources */,
+				D2E07CB91A1B3CC300D54014 /* EditProductName.storyboard in Resources */,
 				B470E4ED19AC320100F4FF18 /* TMEErrorReusableCollectionView.xib in Resources */,
 				99EA0F531978492D00872EE4 /* TMEHomeViewController.xib in Resources */,
 				B4F513E219AEE5BF003DE851 /* TMEDropDownMenuCell.xib in Resources */,
@@ -2322,13 +2473,16 @@
 				D295D2D119E29F2C008B9BC4 /* ProductLikes.storyboard in Resources */,
 				99EA0F701978492D00872EE4 /* TMEPublishProductViewController.xib in Resources */,
 				B40D948219FA4B9E00432DD0 /* TMEListActiviesViewController.xib in Resources */,
+				D2E07CC21A1CA3D600D54014 /* Camera.storyboard in Resources */,
 				99EA0F461978492D00872EE4 /* TMEBrowserProductTableViewHeader.xib in Resources */,
 				99EA0F5B1978492D00872EE4 /* TMEMyListingViewController.xib in Resources */,
 				99EA0F551978492D00872EE4 /* TMELikedTableViewCell.xib in Resources */,
+				99B2C1D21A1CF91300332CAE /* CameraFilterSelector.storyboard in Resources */,
 				B470E4FB19AC323B00F4FF18 /* TMEProductCollectionViewCell.xib in Resources */,
 				99EA0F5D1978492D00872EE4 /* TMEOfferedTableViewCell.xib in Resources */,
 				B68DCD781A0C7D7A0023A877 /* TMEMessageCollectionViewCell.xib in Resources */,
 				99EA0F741978492D00872EE4 /* TMESearchViewController.xib in Resources */,
+				D2E07CB11A1B281B00D54014 /* ProductCategory.storyboard in Resources */,
 				B486E3601A04F35000696267 /* TMEFollowingCollectionViewCell.xib in Resources */,
 				99EA0F141978492D00872EE4 /* ActiveSupportInflector.plist in Resources */,
 				99EA0F631978492D00872EE4 /* TMEMeViewController.xib in Resources */,
@@ -2336,6 +2490,7 @@
 				D295D2FE19E29FAD008B9BC4 /* TMESearchPageContentViewController.xib in Resources */,
 				99EA0F431978492D00872EE4 /* TMEBrowserProductsViewController.xib in Resources */,
 				99EA0F5F1978492D00872EE4 /* TMEOfferedViewController.xib in Resources */,
+				D2E07CA61A1AF65E00D54014 /* EditProduct.storyboard in Resources */,
 				99EA0F511978492D00872EE4 /* TMELeftMenuViewController.xib in Resources */,
 				D295D2F919E29FAD008B9BC4 /* Search.storyboard in Resources */,
 				99EA0F3C1978492D00872EE4 /* TMEActivityTableViewCell.xib in Resources */,
@@ -2404,6 +2559,7 @@
 				99EA0EEB1978492D00872EE4 /* TMEFacebookAppDelegateService.m in Sources */,
 				99EA0F6F1978492D00872EE4 /* TMEPublishProductViewController.m in Sources */,
 				99AA4B2219A26F0600268345 /* NSObject+TMENotification.m in Sources */,
+				998A11211A1B94FD007F62FF /* TMEEditProductPriceVC.m in Sources */,
 				99EA0F931978492D00872EE4 /* TMELoadMoreTableViewCell.m in Sources */,
 				9992943A19E2EA4B00896D05 /* TMEProductCommentViewModel.m in Sources */,
 				99EA0F7D1978492D00872EE4 /* TMEBasePhotoEditorViewController.m in Sources */,
@@ -2431,6 +2587,7 @@
 				B4AE17F3198EAFAD00F6D601 /* TMEProfilePageContentViewController.m in Sources */,
 				99EA0F201978492D00872EE4 /* NSObject+Additions.m in Sources */,
 				99EA0F161978492D00872EE4 /* ISO8601DateFormatter.m in Sources */,
+				99B2C1CD1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m in Sources */,
 				99EA0F901978492D00872EE4 /* TMESwitch.m in Sources */,
 				9992943D19E2F7F700896D05 /* TMEProductLikeNetworkClient.m in Sources */,
 				B486E3681A04F75E00696267 /* TMEFollowingCellFactory.m in Sources */,
@@ -2442,6 +2599,7 @@
 				B68DCD6B1A0C75230023A877 /* TMESubmitCellFactory.m in Sources */,
 				99EA0F7F1978492D00872EE4 /* TMEBaseTableViewController.m in Sources */,
 				99EA0F381978492D00872EE4 /* FSConverter.m in Sources */,
+				D2E07CB41A1B29B800D54014 /* TMEProductCategoryCell.m in Sources */,
 				9992944319E2F96D00896D05 /* TMEProductLikeViewModel.m in Sources */,
 				99EA0F731978492D00872EE4 /* TMESearchViewController.m in Sources */,
 				99EA0F1C1978492D00872EE4 /* NSDate+Additions.m in Sources */,
@@ -2487,11 +2645,13 @@
 				D295D2F819E29FAD008B9BC4 /* TMESearchResultViewModel.m in Sources */,
 				99EA0F271978492D00872EE4 /* UIButton+Additions.m in Sources */,
 				B4CBA1E51A02050A0083ACDE /* TMETopUserSection.m in Sources */,
+				D2E07CA41A1AF64600D54014 /* TMEEditProductVC.m in Sources */,
 				9992943719E2E93400896D05 /* TMEProductCommentCell.m in Sources */,
 				B486FC2A1A08AF450058D8B7 /* TMEBrowserProductCellFactory.m in Sources */,
 				99EA0F9F1978574000872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */,
 				99EA0F211978492D00872EE4 /* NSString+ActiveSupportInflector.m in Sources */,
 				99EA0F1E1978492D00872EE4 /* NSMutableArray+Additions.m in Sources */,
+				D2E07CAF1A1B280F00D54014 /* TMEProductCategoriesVC.m in Sources */,
 				99EA0F241978492D00872EE4 /* UIAlertView+Additions.m in Sources */,
 				9990E4291997CBD9008B603F /* TMELoggerAppDelegateService.m in Sources */,
 				B4FF484F1A062FAD008FF411 /* TMEFollowingViewController.m in Sources */,
@@ -2507,13 +2667,16 @@
 				99EA0F101978492D00872EE4 /* main.m in Sources */,
 				B4F513DA19AEDCE2003DE851 /* TMEDropDownViewModel.m in Sources */,
 				99EA0F1A1978492D00872EE4 /* NSCalendar+Additions.m in Sources */,
+				D2E07CB71A1B3CB900D54014 /* TMEEditProductNameVC.m in Sources */,
 				99EA0F911978492D00872EE4 /* TMELoadMoreCollectionViewCell.m in Sources */,
 				99EA0F061978492D00872EE4 /* TMEConversation.m in Sources */,
 				99EA0F081978492D00872EE4 /* TMEProduct+ParseArrayProducts.m in Sources */,
 				B470E4EC19AC320100F4FF18 /* TMEErrorReusableCollectionView.m in Sources */,
 				99EA0F2C1978492D00872EE4 /* UIImage+ImageEffects.m in Sources */,
 				B410F754199619DF000AE5B7 /* TMEBaseModel.m in Sources */,
+				D2E07CC01A1C8B2E00D54014 /* TMECameraVC.m in Sources */,
 				B41929E419B1E72C00E50CED /* TMETakePhotoButtonViewController.m in Sources */,
+				99B2C1D51A1D04B300332CAE /* TMECameraFilter.m in Sources */,
 				99EA0F4C1978492D00872EE4 /* HTKContainerViewController.m in Sources */,
 				D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */,
 				D295D2F619E29FAD008B9BC4 /* TMESearchResultViewController.m in Sources */,
@@ -2572,6 +2735,7 @@
 				99EA0F2E1978492D00872EE4 /* UIImageView+CircleProgress.m in Sources */,
 				99EA0EE81978492D00872EE4 /* TMEApperanceAppDelegateService.m in Sources */,
 				D295D2D219E29F2C008B9BC4 /* TMEProductLikesVC.m in Sources */,
+				D2E07CA91A1B02BD00D54014 /* UIImage+TMEAdditions.m in Sources */,
 				99EA0F501978492D00872EE4 /* TMELeftMenuViewController.m in Sources */,
 				99EA0F691978492D00872EE4 /* TMEListOffersTableViewCell.m in Sources */,
 				B470E50419AC473D00F4FF18 /* UIBarButtonItem+Additions.m in Sources */,
@@ -2601,7 +2765,9 @@
 				B4F513E019AEE5AF003DE851 /* TMEDropDownMenuCell.m in Sources */,
 				99EA0F8F1978492D00872EE4 /* UINavigationController+SGProgress.m in Sources */,
 				99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */,
+				99B2C1D01A1CF90700332CAE /* TMECameraFilterCell.m in Sources */,
 				99EA0EF31978492D00872EE4 /* TMEConstants.m in Sources */,
+				998A11271A1B98A9007F62FF /* TMEEditProductLocationVC.m in Sources */,
 				B4AE17DD198EAE1F00F6D601 /* TMEHomePageViewController.m in Sources */,
 				99EA0F791978492D00872EE4 /* TMESubmitViewController.m in Sources */,
 				99EA0F401978492D00872EE4 /* TMEBrowserProductsTableCell.m in Sources */,
@@ -2709,6 +2875,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
@@ -2720,7 +2887,7 @@
 					"$(PROJECT_DIR)/3min-iOS/Vendors/GoogleAnalytics",
 				);
 				PRODUCT_NAME = ThreeMin;
-				PROVISIONING_PROFILE = "35BEE6A0-75C0-4794-BE4D-374B71C0BD71";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -2734,6 +2901,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
@@ -2745,7 +2913,7 @@
 					"$(PROJECT_DIR)/3min-iOS/Vendors/GoogleAnalytics",
 				);
 				PRODUCT_NAME = ThreeMin;
-				PROVISIONING_PROFILE = "35BEE6A0-75C0-4794-BE4D-374B71C0BD71";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -2792,6 +2960,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
@@ -2803,7 +2972,7 @@
 					"$(PROJECT_DIR)/3min-iOS/Vendors/GoogleAnalytics",
 				);
 				PRODUCT_NAME = ThreeMin;
-				PROVISIONING_PROFILE = "35BEE6A0-75C0-4794-BE4D-374B71C0BD71";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -2845,6 +3014,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
@@ -2856,7 +3026,7 @@
 					"$(PROJECT_DIR)/3min-iOS/Vendors/GoogleAnalytics",
 				);
 				PRODUCT_NAME = ThreeMin;
-				PROVISIONING_PROFILE = "35BEE6A0-75C0-4794-BE4D-374B71C0BD71";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;

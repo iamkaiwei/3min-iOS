@@ -41,3 +41,4 @@
 #import <LBDelegateMatrioska/LBDelegateMatrioska.h>
 #import <RZCellSizeManager/RZCellSizeManager.h>
 #import <KHTableViewController/KHTableViewController.h>
+#import <SVGeocoder/SVGeocoder.h>

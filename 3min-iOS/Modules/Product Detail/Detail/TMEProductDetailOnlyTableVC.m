@@ -16,6 +16,7 @@
 #import "KHRoundAvatar.h"
 #import <FormatterKit/TTTTimeIntervalFormatter.h>
 #import <CoreLocation/CoreLocation.h>
+#import "TMEEditProductVC.h"
 
 NSInteger const kMaxCommentCountInBrief = 3;
 
@@ -49,7 +50,7 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
 @property (nonatomic, assign) CGFloat commentsVCHeight;
 @property (nonatomic, strong) FBKVOController *commentViewModelKVOController;
 
-@property (nonatomic, strong) CLGeocoder *geoCoder;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 
 @end
 
@@ -141,22 +142,24 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
 
 - (void)setupLocationInfo
 {
-    self.locationLabel.text = nil;
-
-    self.geoCoder = [[CLGeocoder alloc] init];
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:self.product.venueLat.doubleValue longitude:self.product.venueLong.doubleValue];
-
-    [self.geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        CLPlacemark *placemark = placemarks.lastObject;
-        if (placemark && placemark.locality && placemark.country) {
-            self.locationLabel.text = NSStringf(@"%@, %@", placemark.locality, placemark.country);
-        }
-    }];
+    if (self.product.locationText.length > 0) {
+        self.locationLabel.text = self.product.locationText;
+    } else if (self.product.venueLat && self.product.venueLong) {
+        self.locationLabel.text = nil;
+        CLLocation *location = [[CLLocation alloc] initWithLatitude:self.product.venueLat.doubleValue longitude:self.product.venueLong.doubleValue];
+        [SVGeocoder reverseGeocode:location.coordinate completion:^(NSArray *placemarks, NSHTTPURLResponse *urlResponse, NSError *error) {
+            SVPlacemark *placemark = placemarks.lastObject;
+            self.product.locationText = placemark.formattedAddress;
+            self.locationLabel.text = self.product.locationText;
+        }];
+    }
 }
 
 #pragma mark - Data
 - (void)displayProduct
 {
+    self.editButton.hidden = ![[TMEUserManager sharedManager].loggedUser.userID isEqual:self.product.user.userID];
+
     // User
     [self.userAvatarImageView setImageWithURL:[NSURL URLWithString:self.product.user.avatar]
                              placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
@@ -218,6 +221,13 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
 - (IBAction)shareButtonTouched:(id)sender
 {
     [self share];
+}
+
+- (IBAction)editButtonTouched:(id)sender
+{
+    TMEEditProductVC *editProductVC = [TMEEditProductVC tme_instantiateFromStoryboardNamed:@"EditProduct"];
+    editProductVC.product = self.product;
+    [self.navigationController pushViewController:editProductVC animated:YES];
 }
 
 
