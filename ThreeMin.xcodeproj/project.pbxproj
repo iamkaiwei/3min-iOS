@@ -2384,7 +2384,7 @@
 				ORGANIZATIONNAME = 3min;
 				TargetAttributes = {
 					5976C03E15925D2D007F6FC3 = {
-						DevelopmentTeam = T78DK947F2;
+						DevelopmentTeam = LZHP3NSA6X;
 					};
 				};
 			};
