@@ -10,8 +10,6 @@
 
 #import <IMGLYFilter.h>
 
-@protocol IMGLYCameraImageProvider;
-
 typedef NS_ENUM(NSInteger, TMECameraVCResult) {
     TMECameraVCResultCancelled,
     TMECameraVCResultDone,

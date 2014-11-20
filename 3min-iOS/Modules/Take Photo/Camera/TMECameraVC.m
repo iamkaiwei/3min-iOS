@@ -8,36 +8,25 @@
 
 #import "TMECameraVC.h"
 
-#import "IMGLYCameraBottomBarView.h"
 #import "IMGLYCameraController.h"
-#import "IMGLYDefaultCameraImageProvider.h"
 #import "IMGLYDefines.h"
-#import "IMGLYDeviceDetector.h"
-#import "IMGLYImageProviderChecker.h"
 #import "IMGLYShutterView.h"
-#import "IMGLYDeviceDetector.h"
+
 #import "IMGLYOrientationOperation.h"
 #import "UIImage+IMGLYKitAdditions.h"
 
 #import "UIBarButtonItem+Custom.h"
 #import "TMECameraFilterSelectorVC.h"
 
-static const CGFloat kIMGLYPreviewImageSize = 62.0f;
-extern const CGFloat kIMGLYPreviewImageDistance;
-extern const CGFloat kIMGLYExtraSpaceForScrollBar;
 
 @interface TMECameraVC () <UIGestureRecognizerDelegate,
-IMGLYCameraBottomBarCommandDelegate,
 UINavigationControllerDelegate,
 UIImagePickerControllerDelegate,
 TMECameraFilterSelectorVCDelegate>
 
-@property (nonatomic, strong) IMGLYCameraBottomBarView *cameraBottomBarView;
 @property (nonatomic, strong) IMGLYCameraController *cameraController;
 @property (nonatomic, strong) IMGLYShutterView *shutterView;
 
-@property (nonatomic, strong) id<IMGLYCameraImageProvider> imageProvider;
-@property (nonatomic, strong) NSArray *availableFilterList;
 @property (weak, nonatomic) IBOutlet UIView *bottomContainerView;
 @property (weak, nonatomic) IBOutlet UIView *filterContainerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *filterContainerViewBottomConstraint;
@@ -58,17 +47,9 @@ TMECameraFilterSelectorVCDelegate>
 
     [self setupNavigationItems];
 
-    if (self.imageProvider == nil) {
-        self.imageProvider = [[IMGLYDefaultCameraImageProvider alloc] init];
-    }
-    else {
-        [[IMGLYImageProviderChecker sharedInstance] checkCameraImageProvider:self.imageProvider];
-    }
-
     [self configureCameraController];
     [self configureGestureRecognizers];
 
-    //[self configureCameraBottomBarView];
     [self setupFilterSelectorVC];
 
     [self configureShutterView];
@@ -94,14 +75,6 @@ TMECameraFilterSelectorVCDelegate>
     self.filterSelectorVC = [TMECameraFilterSelectorVC tme_instantiateFromStoryboardNamed:@"CameraFilterSelector"];
     self.filterSelectorVC.delegate = self;
     [self addChildVC:self.filterSelectorVC containerView:self.filterContainerView];
-}
-
-- (void)configureCameraBottomBarView {
-    CGRect screenBounds = [UIScreen mainScreen].bounds;
-    CGFloat bottomBarY = CGRectGetHeight(screenBounds);
-    self.cameraBottomBarView = [[IMGLYCameraBottomBarView alloc] initWithYPosition:bottomBarY imageProvider:self.imageProvider];
-    [self.view addSubview:self.cameraBottomBarView];
-    self.cameraBottomBarView.delegate = self;
 }
 
 - (void)configureCameraController {
@@ -130,9 +103,7 @@ TMECameraFilterSelectorVCDelegate>
 }
 
 - (void)configureShutterView {
-    UIScreen *mainScreen = [UIScreen mainScreen];
-    CGRect layerRect = mainScreen.bounds;
-    _shutterView = [[IMGLYShutterView alloc] initWithFrame:layerRect];
+    _shutterView = [[IMGLYShutterView alloc] initWithFrame:self.view.bounds];
 
     [self.view addSubview:_shutterView];
 }
@@ -263,14 +234,9 @@ TMECameraFilterSelectorVCDelegate>
 }
 
 - (void)preparePhotoTaking {
-    [self.cameraBottomBarView disableAllButtons];
     [self.shutterView closeShutter];
 
     NSInteger timeUntilOpen = 300;
-
-    if (![IMGLYDeviceDetector isRunningOn4Inch] && ![IMGLYDeviceDetector isRunningOn4S]) {
-        timeUntilOpen = 500;
-    }
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, timeUntilOpen * NSEC_PER_MSEC), dispatch_get_main_queue(), ^{
         [self.shutterView openShutter];
@@ -279,10 +245,8 @@ TMECameraFilterSelectorVCDelegate>
 
 - (void)finishPhotoTakingWithImage:(UIImage *)image {
     [self shutdownCamera];
-    [self.cameraBottomBarView enableAllButtons];
 
-    if (![IMGLYDeviceDetector isRunningOn4Inch] && ![IMGLYDeviceDetector isRunningOn4S])
-        [SVProgressHUD dismiss];
+    [SVProgressHUD dismiss];
 
     [self completeWithResult:TMECameraVCResultDone
                        image:image
@@ -322,11 +286,7 @@ TMECameraFilterSelectorVCDelegate>
 #pragma mark - layout
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    [self layoutShutterView];
-}
-
-- (void)layoutShutterView {
-    [self.shutterView setFrame:self.view.frame];
+    self.shutterView.frame = self.view.bounds;
 }
 
 

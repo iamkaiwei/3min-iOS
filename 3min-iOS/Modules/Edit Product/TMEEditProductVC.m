@@ -148,6 +148,10 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
     __weak typeof (self) weakSelf = self;
     cameraVC.completionHandler = ^(TMECameraVCResult result, UIImage *image, IMGLYFilterType filterType) {
+        if (result == TMECameraVCResultDone) {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, NULL);
+        }
+        
         [weakSelf.navigationController popToViewController:weakSelf animated:YES];
         [button setImage:image forState:UIControlStateNormal];
     };
