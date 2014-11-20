@@ -118,6 +118,8 @@ TMECameraFilterSelectorVCDelegate>
     [self.cameraController removeCameraObservers];
     [self.cameraController removeNotifications];
 
+    [self.filterSelectorVC reset];
+
     [UIView animateWithDuration:0.2 animations:^{
         [self.cameraController setPreviewAlpha:0.0];
     } completion:^(BOOL finished) {
@@ -223,7 +225,7 @@ TMECameraFilterSelectorVCDelegate>
 - (void)preparePhotoTaking {
     [self.shutterView closeShutter];
 
-    NSInteger timeUntilOpen = 300;
+    NSInteger timeUntilOpen = 500;
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, timeUntilOpen * NSEC_PER_MSEC), dispatch_get_main_queue(), ^{
         [self.shutterView openShutter];
