@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import <IMGLYFilter.h>
+#import "IMGLYFilter.h"
 
 typedef NS_ENUM(NSInteger, TMECameraVCResult) {
     TMECameraVCResultCancelled,

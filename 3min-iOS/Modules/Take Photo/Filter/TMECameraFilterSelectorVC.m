@@ -11,9 +11,9 @@
 #import "TMECameraFilterCell.h"
 #import "TMECameraFilter.h"
 
-#import <IMGLYFilterOperation.h>
-#import <IMGLYOperation.h>
-#import <IMGLYKit.h>
+#import "IMGLYFilterOperation.h"
+#import "IMGLYOperation.h"
+#import "IMGLYKit.h"
 
 @interface TMECameraFilterSelectorVC ()
 
@@ -136,17 +136,17 @@
     if (!_filtersTypes) {
         _filtersTypes = @[
                           @(IMGLYFilterTypeNone),
-                          @(IMGLYFilterType9EK1),
-                          @(IMGLYFilterType9EK2),
-                          @(IMGLYFilterType9EK6),
-                          @(IMGLYFilterType9EKDynamic),
+//                          @(IMGLYFilterType9EK1),
+//
+//                          @(IMGLYFilterType9EK6),
+//                          @(IMGLYFilterType9EKDynamic),
 //                          @(IMGLYFilterTypeFridge),
 //                          @(IMGLYFilterTypeBreeze),
-//                          @(IMGLYFilterTypeOchrid),
+//
 //                          @(IMGLYFilterTypeChestnut),
 //                          @(IMGLYFilterTypeFront),
 //                          @(IMGLYFilterTypeFixie),
-//                          @(IMGLYFilterTypeX400),
+//
 //                          @(IMGLYFilterTypeBW),
 //                          @(IMGLYFilterTypeBWHard),
 //                          @(IMGLYFilterTypeLenin),
@@ -157,15 +157,15 @@
 //                          @(IMGLYFilterTypeGlam),
 //                          @(IMGLYFilterTypeLord),
 //                          @(IMGLYFilterTypeTejas),
-//                          @(IMGLYFilterTypeEarlyBird),
+//
 //                          @(IMGLYFilterTypeLomo),
-//                          @(IMGLYFilterTypeGobblin),
-//                          @(IMGLYFilterTypeSinCity),
+
+
                           @(IMGLYFilterTypeSketch),
 //                          @(IMGLYFilterTypeMellow),
 //                          @(IMGLYFilterTypeSunny),
 //                          @(IMGLYFilterTypeA15),
-//                          @(IMGLYFilterTypeSemiRed),
+
                           ];
     }
 

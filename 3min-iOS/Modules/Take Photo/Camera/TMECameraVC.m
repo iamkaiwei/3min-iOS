@@ -12,7 +12,6 @@
 #import "IMGLYDefines.h"
 #import "IMGLYShutterView.h"
 
-#import "IMGLYOrientationOperation.h"
 #import "UIImage+IMGLYKitAdditions.h"
 
 #import "UIBarButtonItem+Custom.h"
@@ -216,18 +215,6 @@ TMECameraFilterSelectorVCDelegate>
             DLog(@"%@", error.description);
         }
         else {
-
-            if (processedImage.size.width == 720 && processedImage.size.height == 1280) { // to support the
-                processedImage = [strongSelf cropImage:processedImage width:900 height:900];
-                [processedImage imgly_rotateImageToMatchOrientation];
-                IMGLYOrientationOperation *operation = [[IMGLYOrientationOperation alloc] init ];
-                [operation rotateRight];
-                processedImage = [operation processImage:processedImage];
-            }
-            else if (processedImage.size.width == 1280 && processedImage.size.height == 720) { // to support the
-                processedImage = [strongSelf cropImage:processedImage width:900 height:900];
-            }
-
             [strongSelf finishPhotoTakingWithImage:processedImage];
         }
     }];
