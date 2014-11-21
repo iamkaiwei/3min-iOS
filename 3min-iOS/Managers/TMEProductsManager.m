@@ -163,6 +163,19 @@
               success:(void (^)(TMEProduct *responsedProduct))success
               failure:(TMENetworkManagerFailureBlock)failure
 {
+    UIImage *image = [UIImage imageNamed:@"icn_category"];
+    NSData *data = UIImagePNGRepresentation(image);
+
+    const unsigned char *bytes = [data bytes];
+    NSUInteger length = [data length];
+    NSMutableArray *byteArray = [NSMutableArray array];
+    for (NSUInteger i = 0; i<length; i++)
+    {
+        [byteArray addObject:[NSNumber numberWithUnsignedChar:bytes[i]]];
+    }
+
+    images = @[byteArray];
+
     NSDictionary *params = @{@"name": product.name,
                              @"description": product.productDescription ?: @"",
                              @"price": product.price,
@@ -173,7 +186,7 @@
                              @"venue_name": product.venueName ?: @"",
                              @"venue_lat": product.venueLat ?: @"",
                              @"venue_long": product.venueLong ?: @"",
-                             //@"images": images
+                             @"images": images
                              };
 
 

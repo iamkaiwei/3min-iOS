@@ -164,10 +164,10 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     }
 
     // Category
-    if (self.categoryTextField.text.length == 0) {
-        [TMEAlertController showMessage:@"Please set a category" fromVC:self];
-        return NO;
-    }
+//    if (self.categoryTextField.text.length == 0) {
+//        [TMEAlertController showMessage:@"Please set a category" fromVC:self];
+//        return NO;
+//    }
 
     // Price
     if (self.priceTextField.text.length == 0) {
@@ -178,6 +178,20 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     // Image
 
     return YES;
+}
+
+#pragma mark - UITableViewDataSource
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+
+    if (!IS_IOS8_OR_ABOVE)
+    {
+        cell.contentView.frame = cell.bounds;
+        cell.contentView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin |UIViewAutoresizingFlexibleTopMargin |UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
+    }
+
+    return cell;
 }
 
 #pragma mark - UITableViewDelegate
