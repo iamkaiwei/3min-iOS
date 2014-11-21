@@ -85,6 +85,15 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     self.categoryTextField.text = self.product.category.name;
     self.itemTextField.text = self.product.name;
     self.priceTextField.text = self.product.price;
+
+    if (!self.isCreatedNew) {
+        NSArray *buttons = [self buttons];
+        for (int i=0; i<buttons.count && i<self.product.images.count; ++i) {
+            TMEProductImage *productImage = self.product.images[i];
+            UIButton *button = buttons[i];
+            [button setImageForState:UIControlStateNormal withURL:productImage.originURL];
+        }
+    }
 }
 
 #pragma mark - Action
@@ -159,5 +168,10 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     [self.navigationController pushViewController:cameraVC animated:YES];
 }
 
+#pragma mark - Helpers
+- (NSArray *)buttons
+{
+    return @[self.button1, self.button2, self.button3, self.button4];
+}
 
 @end

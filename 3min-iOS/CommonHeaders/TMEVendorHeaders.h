@@ -12,7 +12,9 @@
 
 #import "CoreData+MagicalRecord.h"
 #import "SVProgressHUD.h"
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/UIButton+AFNetworking.h>
+
 #import "iCarousel.h"
 #import "UINavigationController+SGProgress.h"
 #import "Reachability.h"

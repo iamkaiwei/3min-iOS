@@ -64,6 +64,10 @@
     return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[TMEUser class]];
 }
 
++ (NSValueTransformer *)categoryJSONTransformer {
+    return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[TMECategory class]];
+}
+
 + (NSValueTransformer *)imagesJSONTransformer {
     return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[TMEProductImage class]];
 }
