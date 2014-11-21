@@ -47,5 +47,5 @@ target :ThreeMin, :exclusive => true do
   pod 'KHTableViewController'
   pod 'SZTextView', '~> 1.1'
   pod 'SVGeocoder', '~> 0.1'
-  pod 'GPUImage', '~> 0.1'
+  pod 'GPUImage', '0.1.2'
 end

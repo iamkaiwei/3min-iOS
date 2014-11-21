@@ -39,12 +39,16 @@
     GPUImagePicture *picture = [[GPUImagePicture alloc] initWithImage:image];
 
     // TODO:
-    [filter useNextFrameForImageCapture];
+    // 0.1.6
+    //[filter useNextFrameForImageCapture];
 
     [picture addTarget:filter];
     [picture processImage];
 
-    return [filter imageFromCurrentFramebufferWithOrientation:image.imageOrientation];
+    return [filter imageFromCurrentlyProcessedOutputWithOrientation:image.imageOrientation];
+
+    // 0.1.6
+    //return [filter imageFromCurrentFramebufferWithOrientation:image.imageOrientation];
 }
 
 @end
