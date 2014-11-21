@@ -29,13 +29,13 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 @property (weak, nonatomic) IBOutlet UITextField *itemTextField;
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *facebookSwitch;
-@property (nonatomic, assign) BOOL isCreatedNew;
+
+@property (nonatomic, assign) BOOL isUpdate;
 
 @property (weak, nonatomic) IBOutlet UIButton *button1;
 @property (weak, nonatomic) IBOutlet UIButton *button2;
 @property (weak, nonatomic) IBOutlet UIButton *button3;
 @property (weak, nonatomic) IBOutlet UIButton *button4;
-
 
 @end
 
@@ -47,12 +47,11 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     [self setupNavigationItems];
     [self setupTableView];
 
-    if (self.product) {
+    if (self.isUpdate) {
         self.title = self.product.name;
     } else {
-        self.product = [[TMEProduct alloc] init];
+        _product = [[TMEProduct alloc] init];
         self.title = @"Start Selling";
-        self.isCreatedNew = YES;
     }
 }
 
@@ -66,6 +65,13 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Data
+- (void)setProduct:(TMEProduct *)product
+{
+    _product = [product copy];
+    self.isUpdate = YES;
 }
 
 #pragma mark - Setup
@@ -86,7 +92,7 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     self.itemTextField.text = self.product.name;
     self.priceTextField.text = self.product.price;
 
-    if (!self.isCreatedNew) {
+    if (!self.isUpdate) {
         NSArray *buttons = [self buttons];
         for (int i=0; i<buttons.count && i<self.product.images.count; ++i) {
             TMEProductImage *productImage = self.product.images[i];
@@ -109,14 +115,19 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     }
 
     NSString *message = nil;
-    if (self.isCreatedNew) {
-        message = @"Are you sure you want to create this product?";
-    } else {
+    if (self.isUpdate) {
         message = @"Are you sure you want to update this product?";
+    } else {
+        message = @"Are you sure you want to create this product?";
     }
 
-    [TMEAlertController showMessage:message fromVC:self actionButton:@"OK" handler:^{
 
+    [TMEAlertController showMessage:message fromVC:self actionButton:@"OK" handler:^{
+        if (self.isUpdate) {
+            [self requestToUpdateProduct];
+        } else {
+            [self requestToCreateProduct];
+        }
     }];
 
 }
@@ -128,6 +139,21 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     }];
 }
 
+#pragma mark - Network request
+- (void)requestToCreateProduct
+{
+    [TMEProductsManager createProduct:self.product images:nil success:^(TMEProduct *responsedProduct) {
+
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+}
+
+- (void)requestToUpdateProduct
+{
+
+}
+
 #pragma mark - Check
 - (BOOL)isFormCompleted
 {
@@ -137,21 +163,22 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
         return NO;
     }
 
+    // Category
     if (self.categoryTextField.text.length == 0) {
         [TMEAlertController showMessage:@"Please set a category" fromVC:self];
         return NO;
     }
 
+    // Price
     if (self.priceTextField.text.length == 0) {
         [TMEAlertController showMessage:@"Please set a price" fromVC:self];
         return NO;
     }
 
+    // Image
+
     return YES;
 }
-
-
-
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -160,11 +187,11 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
         return self.view.width;
     }
 
-    if (self.isCreatedNew && indexPath.row == TMEProductRowDeleteListing) {
+    if (self.isUpdate && indexPath.row == TMEProductRowFacebook) {
         return 0;
     }
 
-    if (!self.isCreatedNew && indexPath.row == TMEProductRowFacebook) {
+    if (!self.isUpdate && indexPath.row == TMEProductRowDeleteListing) {
         return 0;
     }
 

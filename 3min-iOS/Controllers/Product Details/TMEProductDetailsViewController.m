@@ -84,7 +84,7 @@
     self.labelLikes.text = NSStringf(@"%d", self.product.likeCount);
 	self.btnFollow.selected = self.product.liked;
 
-	self.lblProductLocation.text = self.product.venueID;
+	self.lblProductLocation.text = self.product.venueName;
 	self.lblProductDescription.text = self.product.details;
 	[self.lblProductDescription sizeToFitKeepWidth];
 	self.viewBottomDetail.height = CGRectGetMaxY(self.lblProductDescription.frame);

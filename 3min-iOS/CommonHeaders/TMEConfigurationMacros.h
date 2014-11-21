@@ -64,7 +64,7 @@
 
 #define API_PREFIX                                  @"/api/v1"
 #define API_PRODUCTS                                @"/api/v1/products"
-#define API_OWN_PRODUCTS                                @"/api/v1/products/me"
+#define API_OWN_PRODUCTS                            @"/api/v1/products/me"
 #define API_USER                                    @"/api/v1/users"
 #define API_POPULAR                                 @"/api/v1/popular"
 #define API_CONVERSATIONS                           @"/api/v1/conversations"

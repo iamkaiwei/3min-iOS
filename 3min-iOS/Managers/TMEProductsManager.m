@@ -158,4 +158,36 @@
     }];
 }
 
++ (void)createProduct:(TMEProduct *)product
+               images:(NSArray *)images
+              success:(void (^)(TMEProduct *responsedProduct))success
+              failure:(TMENetworkManagerFailureBlock)failure
+{
+    NSDictionary *params = @{@"name": product.name,
+                             @"description": product.productDescription ?: @"",
+                             @"price": product.price,
+                             @"sold_out": @(NO),
+                             @"buyer_id": @"",
+                             @"tag_list": @"",
+                             @"venueID": @"",
+                             @"venue_name": product.locationText ?: @"",
+                             @"venue_lat": product.venueLat ?: @"",
+                             @"venue_long": product.venueLong ?: @"",
+                             //@"images": images
+                             };
+
+
+    NSString *path = [NSString stringWithFormat:@"%@/", API_PRODUCTS];
+    [[TMENetworkManager sharedManager] post:path params:params success:^(id responseObject) {
+        NSLog(@"%@", responseObject);
+    } failure:^(NSError *error) {
+        if (failure) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                failure(error);
+            });
+        }
+    }];
+
+}
+
 @end

@@ -27,7 +27,7 @@ OMNIA_SINGLETON_M(sharedManager)
         NSURL *baseURL = [NSURL URLWithString:baseURLString];
         _requestManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
 
-        _requestManager.completionQueue = dispatch_queue_create("AFNetworkingCallbackQueue", DISPATCH_QUEUE_CONCURRENT);
+        //_requestManager.completionQueue = dispatch_queue_create("AFNetworkingCallbackQueue", DISPATCH_QUEUE_CONCURRENT);
         _requestManager.responseSerializer = [AFJSONResponseSerializer serializer];
 
         [self updateAuthorizationHeader];

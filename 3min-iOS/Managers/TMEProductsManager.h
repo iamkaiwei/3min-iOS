@@ -47,4 +47,9 @@
                onSuccessBlock:(void (^) (NSArray *))successBlock
                  failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
 
++ (void)createProduct:(TMEProduct *)product
+               images:(NSArray *)images
+              success:(void (^)(TMEProduct *responsedProduct))success
+              failure:(TMENetworkManagerFailureBlock)failure;
+
 @end
