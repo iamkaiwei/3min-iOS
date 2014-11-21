@@ -187,11 +187,14 @@
 
 - (CGFloat)cellHeighFromComment:(TMEProductComment *)comment
 {
+    [self.prototypeCell layoutIfNeeded];
+    self.prototypeCell.commentLabel.preferredMaxLayoutWidth = self.view.width - 60;
+
     [self.prototypeCell configureForModel:comment];
 
-    [self.prototypeCell setNeedsLayout];
-    [self.prototypeCell layoutIfNeeded];
     [self.prototypeCell updateConstraintsIfNeeded];;
+
+
 
     return [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 }

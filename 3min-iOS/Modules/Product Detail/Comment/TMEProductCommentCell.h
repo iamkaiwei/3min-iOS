@@ -12,6 +12,7 @@
 
 @interface TMEProductCommentCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *commentLabel;
 - (void)configureForModel:(TMEProductComment *)comment;
 
 @end

@@ -15,7 +15,7 @@
 @interface TMEProductCommentCell ()
 
 @property (weak, nonatomic) IBOutlet KHRoundAvatar *userAvatarImageView;
-@property (weak, nonatomic) IBOutlet UILabel *commentLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
@@ -25,13 +25,6 @@
 - (void)awakeFromNib {
 }
 
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-
-    self.commentLabel.preferredMaxLayoutWidth = self.commentLabel.width;
-}
 
 - (void)configureForModel:(TMEProductComment *)comment
 {
