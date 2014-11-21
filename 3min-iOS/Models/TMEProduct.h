@@ -37,7 +37,6 @@
 @property (nonatomic, copy) NSString *venueName;
 @property (nonatomic, strong) NSNumber *venueLong;
 @property (nonatomic, strong) NSNumber *venueLat;
-@property (nonatomic, copy) NSString *locationText;
 
 @property (nonatomic, strong) TMECategory *category;
 

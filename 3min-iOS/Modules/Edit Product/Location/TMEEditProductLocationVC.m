@@ -57,15 +57,15 @@
 
 - (void)displayProduct
 {
-    if (self.product.locationText.length > 0) {
-        self.locationTextField.text = self.product.locationText;
+    if (self.product.venueName.length > 0) {
+        self.locationTextField.text = self.product.venueName;
     } else if (self.product.venueLat && self.product.venueLong) {
         self.locationTextField.text = nil;
         CLLocation *location = [[CLLocation alloc] initWithLatitude:self.product.venueLat.doubleValue longitude:self.product.venueLong.doubleValue];
         [SVGeocoder reverseGeocode:location.coordinate completion:^(NSArray *placemarks, NSHTTPURLResponse *urlResponse, NSError *error) {
             SVPlacemark *placemark = placemarks.lastObject;
-            self.product.locationText = placemark.formattedAddress;
-            self.locationTextField.text = self.product.locationText;
+            self.product.venueName = placemark.formattedAddress;
+            self.locationTextField.text = self.product.venueName;
         }];
     }
 }
@@ -94,7 +94,7 @@
     SVPlacemark *placemark = self.dataSource.items[indexPath.row];
     self.product.venueLat =  @(placemark.coordinate.latitude);
     self.product.venueLong = @(placemark.coordinate.longitude);
-    self.product.locationText = placemark.formattedAddress;
+    self.product.venueName = placemark.formattedAddress;
 
     [self.navigationController popViewControllerAnimated:YES];
 }

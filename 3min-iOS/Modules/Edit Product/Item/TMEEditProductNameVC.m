@@ -30,15 +30,12 @@
     [self setupGR];
 
     self.descriptionTextView.placeholder = @"Product description";
-
-    [self displayProduct];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
-    [self setupLocationInfo];
+    [self displayProduct];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,25 +69,11 @@
     [self.view addGestureRecognizer:self.tapGR];
 }
 
-- (void)setupLocationInfo
-{
-    if (self.product.locationText.length > 0) {
-        self.locationTextField.text = self.product.locationText;
-    } else if (self.product.venueLat && self.product.venueLong) {
-        self.locationTextField.text = nil;
-        CLLocation *location = [[CLLocation alloc] initWithLatitude:self.product.venueLat.doubleValue longitude:self.product.venueLong.doubleValue];
-        [SVGeocoder reverseGeocode:location.coordinate completion:^(NSArray *placemarks, NSHTTPURLResponse *urlResponse, NSError *error) {
-            SVPlacemark *placemark = placemarks.lastObject;
-            self.product.locationText = placemark.formattedAddress;
-            self.locationTextField.text = self.product.locationText;
-        }];
-    }
-}
-
 - (void)displayProduct
 {
     self.nameTextField.text = self.product.name;
     self.descriptionTextView.text = self.product.productDescription;
+    self.locationTextField.text = self.product.venueName;
 }
 
 #pragma mark - Action

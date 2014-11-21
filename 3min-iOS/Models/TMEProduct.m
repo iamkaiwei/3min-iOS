@@ -29,7 +29,6 @@
 			   @"images": @"images",
 			   @"category": @"category",
 			   @"user": @"owner",
-               @"locationText": NSNull.null,
 	};
 }
 

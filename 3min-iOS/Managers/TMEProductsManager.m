@@ -170,7 +170,7 @@
                              @"buyer_id": @"",
                              @"tag_list": @"",
                              @"venueID": @"",
-                             @"venue_name": product.locationText ?: @"",
+                             @"venue_name": product.venueName ?: @"",
                              @"venue_lat": product.venueLat ?: @"",
                              @"venue_long": product.venueLong ?: @"",
                              //@"images": images
