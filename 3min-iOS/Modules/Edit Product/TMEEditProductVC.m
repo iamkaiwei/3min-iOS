@@ -116,7 +116,7 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     }
 
     [TMEAlertController showMessage:message fromVC:self actionButton:@"OK" handler:^{
-        
+
     }];
 
 }
@@ -131,8 +131,27 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 #pragma mark - Check
 - (BOOL)isFormCompleted
 {
+    // Name
+    if (self.itemTextField.text.length == 0) {
+        [TMEAlertController showMessage:@"Please input product name" fromVC:self];
+        return NO;
+    }
+
+    if (self.categoryTextField.text.length == 0) {
+        [TMEAlertController showMessage:@"Please set a category" fromVC:self];
+        return NO;
+    }
+
+    if (self.priceTextField.text.length == 0) {
+        [TMEAlertController showMessage:@"Please set a price" fromVC:self];
+        return NO;
+    }
+
     return YES;
 }
+
+
+
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

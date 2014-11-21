@@ -72,6 +72,7 @@
                             <outlet property="delegate" destination="x7G-zB-BLr" id="As7-1K-fuu"/>
                         </connections>
                     </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TBi-r1-ACi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
