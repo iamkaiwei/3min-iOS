@@ -52,6 +52,7 @@
 		99B2C1D01A1CF90700332CAE /* TMECameraFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1CF1A1CF90700332CAE /* TMECameraFilterCell.m */; };
 		99B2C1D21A1CF91300332CAE /* CameraFilterSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C1D11A1CF91300332CAE /* CameraFilterSelector.storyboard */; };
 		99B2C1D51A1D04B300332CAE /* TMECameraFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1D41A1D04B300332CAE /* TMECameraFilter.m */; };
+		99BED6261A1F9DE9008BC4E0 /* TMENetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 990014E5198E392300AF1553 /* TMENetworkManager.m */; };
 		99EA0EE71978492D00872EE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D601978492C00872EE4 /* AppDelegate.m */; };
 		99EA0EE81978492D00872EE4 /* TMEApperanceAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D631978492C00872EE4 /* TMEApperanceAppDelegateService.m */; };
 		99EA0EE91978492D00872EE4 /* TMECoreDataAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0D651978492C00872EE4 /* TMECoreDataAppDelegateService.m */; };
@@ -222,7 +223,6 @@
 		B410F75819961A15000AE5B7 /* TMEBaseModel+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F75719961A15000AE5B7 /* TMEBaseModel+TMEAdditions.m */; };
 		B410F76019961A7C000AE5B7 /* TMEActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F75A19961A7C000AE5B7 /* TMEActivityManager.m */; };
 		B410F76219961A7C000AE5B7 /* TMECategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F75E19961A7C000AE5B7 /* TMECategoryManager.m */; };
-		B410F76419961A84000AE5B7 /* TMENetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76319961A84000AE5B7 /* TMENetworkManager.m */; };
 		B410F76719961AA5000AE5B7 /* TMEBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B410F76619961AA5000AE5B7 /* TMEBaseManager.m */; };
 		B41394F719B721230080DAA8 /* TMEProduct+ProductCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = B41394F619B721230080DAA8 /* TMEProduct+ProductCellHeight.m */; };
 		B41929E419B1E72C00E50CED /* TMETakePhotoButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41929E219B1E72C00E50CED /* TMETakePhotoButtonViewController.m */; };
@@ -824,8 +824,6 @@
 		B410F75A19961A7C000AE5B7 /* TMEActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEActivityManager.m; sourceTree = "<group>"; };
 		B410F75D19961A7C000AE5B7 /* TMECategoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECategoryManager.h; sourceTree = "<group>"; };
 		B410F75E19961A7C000AE5B7 /* TMECategoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECategoryManager.m; sourceTree = "<group>"; };
-		B410F75F19961A7C000AE5B7 /* TMENetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMENetworkManager.h; sourceTree = "<group>"; };
-		B410F76319961A84000AE5B7 /* TMENetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMENetworkManager.m; sourceTree = "<group>"; };
 		B410F76519961AA5000AE5B7 /* TMEBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBaseManager.h; sourceTree = "<group>"; };
 		B410F76619961AA5000AE5B7 /* TMEBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBaseManager.m; sourceTree = "<group>"; };
 		B41394F519B721230080DAA8 /* TMEProduct+ProductCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TMEProduct+ProductCellHeight.h"; path = "3min-iOS/Controllers/Home Page VC/Browser/Cell/TMEProduct+ProductCellHeight.h"; sourceTree = SOURCE_ROOT; };
@@ -1438,11 +1436,9 @@
 				B410F76519961AA5000AE5B7 /* TMEBaseManager.h */,
 				B410F76619961AA5000AE5B7 /* TMEBaseManager.m */,
 				B410F75919961A7C000AE5B7 /* TMEActivityManager.h */,
-				B410F76319961A84000AE5B7 /* TMENetworkManager.m */,
 				B410F75A19961A7C000AE5B7 /* TMEActivityManager.m */,
 				B410F75D19961A7C000AE5B7 /* TMECategoryManager.h */,
 				B410F75E19961A7C000AE5B7 /* TMECategoryManager.m */,
-				B410F75F19961A7C000AE5B7 /* TMENetworkManager.h */,
 				99EA0D931978492C00872EE4 /* TMEConversationManager.h */,
 				99EA0D941978492C00872EE4 /* TMEConversationManager.m */,
 				99EA0D951978492C00872EE4 /* TMEFacebookManager.h */,
@@ -3044,6 +3040,7 @@
 				99EA0F381978492D00872EE4 /* FSConverter.m in Sources */,
 				D2E07CB41A1B29B800D54014 /* TMEProductCategoryCell.m in Sources */,
 				D2B4251D1A1DDFD700FE6F65 /* IMGLYEditorMainMenuView.m in Sources */,
+				99BED6261A1F9DE9008BC4E0 /* TMENetworkManager.m in Sources */,
 				D2B424FC1A1DDFD700FE6F65 /* IMGLYA15Filter.m in Sources */,
 				9992944319E2F96D00896D05 /* TMEProductLikeViewModel.m in Sources */,
 				99EA0F731978492D00872EE4 /* TMESearchViewController.m in Sources */,
@@ -3261,7 +3258,6 @@
 				D2B425161A1DDFD700FE6F65 /* IMGLYEditorCropMenu.m in Sources */,
 				99EA0F811978492D00872EE4 /* TMETutorialViewController.m in Sources */,
 				9966434819A1085E008960DB /* TMEUserNetworkClient.m in Sources */,
-				B410F76419961A84000AE5B7 /* TMENetworkManager.m in Sources */,
 				D295D2F419E29FAD008B9BC4 /* TMESearchFilterViewController.m in Sources */,
 				D295D30819E29FCF008B9BC4 /* TMEProductDetailOnlyTableVC.m in Sources */,
 				D2B425171A1DDFD700FE6F65 /* IMGLYEditorCropViewController.m in Sources */,
