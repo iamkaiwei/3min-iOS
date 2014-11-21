@@ -11,9 +11,9 @@
 #import "TMECameraFilterCell.h"
 #import "TMECameraFilter.h"
 
-#import <IMGLYFilterOperation.h>
-#import <IMGLYOperation.h>
-#import <IMGLYKit.h>
+#import "IMGLYFilterOperation.h"
+#import "IMGLYOperation.h"
+#import "IMGLYKit.h"
 
 @interface TMECameraFilterSelectorVC ()
 
@@ -137,36 +137,34 @@
         _filtersTypes = @[
                           @(IMGLYFilterTypeNone),
                           @(IMGLYFilterType9EK1),
-                          @(IMGLYFilterType9EK2),
                           @(IMGLYFilterType9EK6),
                           @(IMGLYFilterType9EKDynamic),
-//                          @(IMGLYFilterTypeFridge),
-//                          @(IMGLYFilterTypeBreeze),
-//                          @(IMGLYFilterTypeOchrid),
-//                          @(IMGLYFilterTypeChestnut),
-//                          @(IMGLYFilterTypeFront),
-//                          @(IMGLYFilterTypeFixie),
-//                          @(IMGLYFilterTypeX400),
-//                          @(IMGLYFilterTypeBW),
-//                          @(IMGLYFilterTypeBWHard),
-//                          @(IMGLYFilterTypeLenin),
-//                          @(IMGLYFilterTypeQouzi),
-//                          @(IMGLYFilterType669),
-//                          @(IMGLYFilterTypePola),
-//                          @(IMGLYFilterTypeFood),
-//                          @(IMGLYFilterTypeGlam),
-//                          @(IMGLYFilterTypeLord),
-//                          @(IMGLYFilterTypeTejas),
-//                          @(IMGLYFilterTypeEarlyBird),
-//                          @(IMGLYFilterTypeLomo),
-//                          @(IMGLYFilterTypeGobblin),
-//                          @(IMGLYFilterTypeSinCity),
+                          @(IMGLYFilterTypeFridge),
+                          @(IMGLYFilterTypeBreeze),
+                          @(IMGLYFilterTypeChestnut),
+                          @(IMGLYFilterTypeFront),
+                          @(IMGLYFilterTypeFixie),
+                          @(IMGLYFilterTypeBW),
+                          @(IMGLYFilterTypeBWHard),
+                          @(IMGLYFilterTypeLenin),
+                          @(IMGLYFilterTypeQouzi),
+                          @(IMGLYFilterType669),
+                          @(IMGLYFilterTypePola),
+                          @(IMGLYFilterTypeFood),
+                          @(IMGLYFilterTypeGlam),
+                          @(IMGLYFilterTypeLord),
+                          @(IMGLYFilterTypeTejas),
+                          @(IMGLYFilterTypeLomo),
                           @(IMGLYFilterTypeSketch),
-//                          @(IMGLYFilterTypeMellow),
-//                          @(IMGLYFilterTypeSunny),
-//                          @(IMGLYFilterTypeA15),
-//                          @(IMGLYFilterTypeSemiRed),
+                          @(IMGLYFilterTypeMellow),
+                          @(IMGLYFilterTypeSunny),
+                          @(IMGLYFilterTypeA15),
                           ];
+
+        // TODO: Avoid memory warning by use less filters
+        if (!IS_RETINA) {
+            _filters = [_filters subarrayWithRange:NSMakeRange(0, 4)];
+        }
     }
 
     return _filtersTypes;

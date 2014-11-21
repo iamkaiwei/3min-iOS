@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <IMGLYFilter.h>
+#import "IMGLYFilter.h"
 
 @interface TMECameraFilter : NSObject
 

@@ -12,7 +12,6 @@
 #import "IMGLYDefines.h"
 #import "IMGLYShutterView.h"
 
-#import "IMGLYOrientationOperation.h"
 #import "UIImage+IMGLYKitAdditions.h"
 
 #import "UIBarButtonItem+Custom.h"
@@ -119,6 +118,8 @@ TMECameraFilterSelectorVCDelegate>
     [self.cameraController removeCameraObservers];
     [self.cameraController removeNotifications];
 
+    [self.filterSelectorVC reset];
+
     [UIView animateWithDuration:0.2 animations:^{
         [self.cameraController setPreviewAlpha:0.0];
     } completion:^(BOOL finished) {
@@ -216,18 +217,6 @@ TMECameraFilterSelectorVCDelegate>
             DLog(@"%@", error.description);
         }
         else {
-
-            if (processedImage.size.width == 720 && processedImage.size.height == 1280) { // to support the
-                processedImage = [strongSelf cropImage:processedImage width:900 height:900];
-                [processedImage imgly_rotateImageToMatchOrientation];
-                IMGLYOrientationOperation *operation = [[IMGLYOrientationOperation alloc] init ];
-                [operation rotateRight];
-                processedImage = [operation processImage:processedImage];
-            }
-            else if (processedImage.size.width == 1280 && processedImage.size.height == 720) { // to support the
-                processedImage = [strongSelf cropImage:processedImage width:900 height:900];
-            }
-
             [strongSelf finishPhotoTakingWithImage:processedImage];
         }
     }];
@@ -236,7 +225,7 @@ TMECameraFilterSelectorVCDelegate>
 - (void)preparePhotoTaking {
     [self.shutterView closeShutter];
 
-    NSInteger timeUntilOpen = 300;
+    NSInteger timeUntilOpen = 500;
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, timeUntilOpen * NSEC_PER_MSEC), dispatch_get_main_queue(), ^{
         [self.shutterView openShutter];
