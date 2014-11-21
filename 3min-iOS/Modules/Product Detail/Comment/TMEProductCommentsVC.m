@@ -146,7 +146,7 @@
     } else {
         TMEProductComment *comment = self.dataSource.items[indexPath.row];
 
-        CGFloat height = [self cellHeighFromComment:comment] + 6;
+        CGFloat height = [self cellHeighFromComment:comment] + 1;
         return height;
     }
 }
@@ -187,14 +187,12 @@
 
 - (CGFloat)cellHeighFromComment:(TMEProductComment *)comment
 {
-    [self.prototypeCell layoutIfNeeded];
-    self.prototypeCell.commentLabel.preferredMaxLayoutWidth = self.view.width - 60;
-
     [self.prototypeCell configureForModel:comment];
 
-    [self.prototypeCell updateConstraintsIfNeeded];;
+    self.prototypeCell.bounds = CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(self.prototypeCell.bounds));
 
-
+    [self.prototypeCell setNeedsLayout];
+    [self.prototypeCell layoutIfNeeded];
 
     return [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 }

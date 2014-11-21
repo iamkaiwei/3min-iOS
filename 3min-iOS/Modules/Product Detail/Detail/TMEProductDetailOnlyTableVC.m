@@ -250,7 +250,7 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
 #pragma mark - TMEProductCommentsVCDelegate
 - (void)productCommentsVC:(TMEProductCommentsVC *)commentsVC didChangeHeight:(CGFloat)height
 {
-    self.commentsVCHeight = height;
+    self.commentsVCHeight = height + 20;
     [self.tableView reloadData];
 }
 

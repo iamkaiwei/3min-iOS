@@ -22,9 +22,22 @@
 
 @implementation TMEProductCommentCell
 
-- (void)awakeFromNib {
+- (void)setBounds:(CGRect)bounds
+{
+    [super setBounds:bounds];
+
+    self.contentView.frame = self.bounds;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+
+    [self.contentView setNeedsLayout];
+    [self.contentView layoutIfNeeded];
+
+    self.commentLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.commentLabel.frame);
+}
 
 - (void)configureForModel:(TMEProductComment *)comment
 {
