@@ -31,7 +31,6 @@
 		990CB7D4199A631F00AEA179 /* TMEGooglePlusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CB7D3199A631F00AEA179 /* TMEGooglePlusManager.m */; };
 		990CB7D6199A75D400AEA179 /* TMETutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990CB7D5199A75D400AEA179 /* TMETutorialViewController.xib */; };
 		9910BE0019D07D7A00BAC139 /* NSString+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9910BDFF19D07D7A00BAC139 /* NSString+TMEAdditions.m */; };
-		9937B8FE19B5EA030000EE0C /* TMEAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B8FD19B5EA030000EE0C /* TMEAlertView.m */; };
 		9937B90819B5EA200000EE0C /* UISearchBar+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90519B5EA200000EE0C /* UISearchBar+TMEAdditions.m */; };
 		9937B90919B5EA200000EE0C /* UITextField+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90719B5EA200000EE0C /* UITextField+TMEAdditions.m */; };
 		9937B90D19B5EA4A0000EE0C /* TMESingleSectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90C19B5EA4A0000EE0C /* TMESingleSectionDataSource.m */; };
@@ -313,6 +312,7 @@
 		D224261019A2061C009DB3AC /* TMEDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224260F19A2061C009DB3AC /* TMEDeviceManager.m */; };
 		D224261319A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */; };
 		D224261619A2070A009DB3AC /* TMEUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224261519A2070A009DB3AC /* TMEUserManager.m */; };
+		D25873E91A1F03BB004332DA /* TMEAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = D25873E81A1F03BB004332DA /* TMEAlertController.m */; };
 		D295D2CE19E29F2C008B9BC4 /* ProductComment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D295D2BF19E29F2C008B9BC4 /* ProductComment.storyboard */; };
 		D295D2CF19E29F2C008B9BC4 /* TMEProductAddCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D295D2C119E29F2C008B9BC4 /* TMEProductAddCommentVC.m */; };
 		D295D2D019E29F2C008B9BC4 /* TMEProductCommentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D295D2C319E29F2C008B9BC4 /* TMEProductCommentsVC.m */; };
@@ -472,8 +472,6 @@
 		990CB7D5199A75D400AEA179 /* TMETutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMETutorialViewController.xib; sourceTree = "<group>"; };
 		9910BDFE19D07D7A00BAC139 /* NSString+TMEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TMEAdditions.h"; sourceTree = "<group>"; };
 		9910BDFF19D07D7A00BAC139 /* NSString+TMEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TMEAdditions.m"; sourceTree = "<group>"; };
-		9937B8FC19B5EA030000EE0C /* TMEAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEAlertView.h; sourceTree = "<group>"; };
-		9937B8FD19B5EA030000EE0C /* TMEAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEAlertView.m; sourceTree = "<group>"; };
 		9937B90419B5EA200000EE0C /* UISearchBar+TMEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+TMEAdditions.h"; sourceTree = "<group>"; };
 		9937B90519B5EA200000EE0C /* UISearchBar+TMEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+TMEAdditions.m"; sourceTree = "<group>"; };
 		9937B90619B5EA200000EE0C /* UITextField+TMEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+TMEAdditions.h"; sourceTree = "<group>"; };
@@ -982,6 +980,8 @@
 		D224261219A206CF009DB3AC /* TMEDeviceManagerAppDelegateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEDeviceManagerAppDelegateService.m; sourceTree = "<group>"; };
 		D224261419A2070A009DB3AC /* TMEUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserManager.h; sourceTree = "<group>"; };
 		D224261519A2070A009DB3AC /* TMEUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserManager.m; sourceTree = "<group>"; };
+		D25873E71A1F03BB004332DA /* TMEAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEAlertController.h; sourceTree = "<group>"; };
+		D25873E81A1F03BB004332DA /* TMEAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEAlertController.m; sourceTree = "<group>"; };
 		D295D2BF19E29F2C008B9BC4 /* ProductComment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductComment.storyboard; sourceTree = "<group>"; };
 		D295D2C019E29F2C008B9BC4 /* TMEProductAddCommentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductAddCommentVC.h; sourceTree = "<group>"; };
 		D295D2C119E29F2C008B9BC4 /* TMEProductAddCommentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductAddCommentVC.m; sourceTree = "<group>"; };
@@ -1245,9 +1245,9 @@
 		5976C03415925D2D007F6FC3 = {
 			isa = PBXGroup;
 			children = (
+				D25873E61A1F03B1004332DA /* Helpers */,
 				D295D2BC19E29F2C008B9BC4 /* Modules */,
 				9937B90A19B5EA4A0000EE0C /* DataSource */,
-				9937B8FB19B5EA030000EE0C /* Helpers */,
 				9966434519A10835008960DB /* Network */,
 				99EA0D5E1978492C00872EE4 /* AppDelegate */,
 				99EA0D611978492C00872EE4 /* AppDelegateService */,
@@ -1303,16 +1303,6 @@
 				D856AC47F2EE4F4AA531C5AB /* libPods-ThreeMin.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9937B8FB19B5EA030000EE0C /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				9937B8FC19B5EA030000EE0C /* TMEAlertView.h */,
-				9937B8FD19B5EA030000EE0C /* TMEAlertView.m */,
-			);
-			name = Helpers;
-			path = "3min-iOS/Helpers";
 			sourceTree = "<group>";
 		};
 		9937B90A19B5EA4A0000EE0C /* DataSource */ = {
@@ -2419,6 +2409,16 @@
 			path = ../../Managers;
 			sourceTree = "<group>";
 		};
+		D25873E61A1F03B1004332DA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D25873E71A1F03BB004332DA /* TMEAlertController.h */,
+				D25873E81A1F03BB004332DA /* TMEAlertController.m */,
+			);
+			name = Helpers;
+			path = "3min-iOS/Helpers";
+			sourceTree = "<group>";
+		};
 		D295D2BC19E29F2C008B9BC4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -3092,6 +3092,7 @@
 				D295D2FD19E29FAD008B9BC4 /* TMESearchPageContentViewController.m in Sources */,
 				99EA0F6B1978492D00872EE4 /* TMEProductDetailsViewController.m in Sources */,
 				99EA0F3B1978492D00872EE4 /* TMEActivityTableViewCell.m in Sources */,
+				D25873E91A1F03BB004332DA /* TMEAlertController.m in Sources */,
 				B40D948619FA4B9E00432DD0 /* TMEOtherTopProfileViewController.m in Sources */,
 				B41C80C519B782BA00210878 /* UIImageView+ProductCollectionCellLoadImage.m in Sources */,
 				99EA0F051978492D00872EE4 /* TMECategory.m in Sources */,
@@ -3280,7 +3281,6 @@
 				B486FC2D1A08B13C0058D8B7 /* TMEBrowserProductLoadingOperation.m in Sources */,
 				99EA0EFB1978492D00872EE4 /* TMEFacebookManager.m in Sources */,
 				9937B90D19B5EA4A0000EE0C /* TMESingleSectionDataSource.m in Sources */,
-				9937B8FE19B5EA030000EE0C /* TMEAlertView.m in Sources */,
 				99EA0EF11978492D00872EE4 /* TMERootAppDelegateService.m in Sources */,
 				9910BE0019D07D7A00BAC139 /* NSString+TMEAdditions.m in Sources */,
 				B4CC4E361A0A33A400FCACD1 /* TMEMyItemViewController.m in Sources */,
@@ -3388,7 +3388,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
 				INFOPLIST_FILE = "3min-IOS/Supporting Files/ThreeMin-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/3min-iOS/Vendors/AviarySDK",
@@ -3414,7 +3414,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
 				INFOPLIST_FILE = "3min-IOS/Supporting Files/ThreeMin-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/3min-iOS/Vendors/AviarySDK",
@@ -3473,7 +3473,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
 				INFOPLIST_FILE = "3min-IOS/Supporting Files/ThreeMin-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/3min-iOS/Vendors/AviarySDK",
@@ -3527,7 +3527,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3min-IOS/Supporting Files/ThreeMin-Prefix.pch";
 				INFOPLIST_FILE = "3min-IOS/Supporting Files/ThreeMin-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/3min-iOS/Vendors/AviarySDK",

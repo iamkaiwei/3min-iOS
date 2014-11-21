@@ -104,14 +104,35 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
 - (void)submitTouched:(id)sender
 {
+    if (![self isFormCompleted]) {
+        return;
+    }
+
+    NSString *message = nil;
+    if (self.isCreatedNew) {
+        message = @"Are you sure you want to create this product?";
+    } else {
+        message = @"Are you sure you want to update this product?";
+    }
+
+    [TMEAlertController showMessage:message fromVC:self actionButton:@"OK" handler:^{
+        
+    }];
 
 }
 
 - (IBAction)deleteListingTouched:(id)sender
 {
-
+    [TMEAlertController showMessage:@"Are you sure you want to delete this product?" fromVC:self actionButton:@"OK" handler:^{
+        
+    }];
 }
 
+#pragma mark - Check
+- (BOOL)isFormCompleted
+{
+    return YES;
+}
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

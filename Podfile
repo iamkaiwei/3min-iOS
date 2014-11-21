@@ -48,4 +48,5 @@ target :ThreeMin, :exclusive => true do
   pod 'SZTextView', '~> 1.1'
   pod 'SVGeocoder', '~> 0.1'
   pod 'GPUImage', '0.1.2'
+  pod 'PSTAlertController', :git => 'https://github.com/steipete/PSTAlertController.git'
 end

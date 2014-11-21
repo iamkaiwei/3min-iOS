@@ -6,4 +6,4 @@
 //  Copyright (c) 2014 3min. All rights reserved.
 //
 
-#import "TMEAlertView.h"
+#import "TMEAlertController.h"
