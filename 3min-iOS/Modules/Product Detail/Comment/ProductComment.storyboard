@@ -27,7 +27,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L4E-Ji-njU" id="hnJ-po-wpt">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K2N-Vy-g2P" customClass="KHRoundAvatar">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_holding" translatesAutoresizingMaskIntoConstraints="NO" id="K2N-Vy-g2P" customClass="KHRoundAvatar">
                                                     <rect key="frame" x="13" y="13" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Enb-Ad-BxM"/>
@@ -144,6 +144,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="avatar_holding" width="30" height="30"/>
         <image name="clock" width="11" height="11"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

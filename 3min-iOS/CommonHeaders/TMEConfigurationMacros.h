@@ -85,3 +85,4 @@
 #define API_RELATIONSHIPS_FOLLOW                    @"/api/v1/relationships"
 #define API_RELATIONSHIPS_UNFOLLOW                  @"/api/v1/relationships/unfollow"
 #define URL_PUSHER_ENDPOINT                         @"/api/v1/pushers/auth"
+#define API_FEEDBACK                                @"/api/v1/feedbacks"

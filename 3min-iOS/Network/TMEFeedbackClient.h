@@ -10,4 +10,6 @@
 
 @interface TMEFeedbackClient : NSObject
 
++ (void)getFeedbacksForUser:(TMEUser *)user success:(TMEArrayBlock)success failure:(TMEFailureBlock)failure;
+
 @end

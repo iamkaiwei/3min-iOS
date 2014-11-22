@@ -8,13 +8,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEProfilePageContentViewController">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewFeedbackButton" destination="FQ3-rw-MY0" id="4yd-KI-pcn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQ3-rw-MY0">
+                    <rect key="frame" x="106" y="269" width="108" height="30"/>
+                    <state key="normal" title="View feedbacks">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewFeedbackTouched:" destination="-1" eventType="touchUpInside" id="hcN-AY-UAI"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="FQ3-rw-MY0" secondAttribute="centerX" id="Ugn-Os-1mu"/>
+                <constraint firstAttribute="centerY" secondItem="FQ3-rw-MY0" secondAttribute="centerY" id="kNv-M7-Sdn"/>
+            </constraints>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
