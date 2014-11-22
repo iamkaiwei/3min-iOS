@@ -294,16 +294,7 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
     __weak typeof(self) weakSelf = self;
     cropVC.completionHandler = ^(IMGLYEditorViewControllerResult result, UIImage *outputImage, IMGLYProcessingJob *job) {
-        if (result == TMECameraVCResultDone) {
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, NULL);
-        }
-
-        [weakSelf.navigationController popToViewController:weakSelf animated:YES];
-
-        NSInteger index = [weakSelf.buttons indexOfObject:button];
-        weakSelf.images[index] = image;
-        [button setImage:image forState:UIControlStateNormal];
-
+        [weakSelf handleTakenImage:outputImage button:button result:result];
         [weakSelf.navigationController popToViewController:weakSelf animated:YES];
     };
 
@@ -311,6 +302,17 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 }
 
 #pragma mark - Helpers
+- (void)handleTakenImage:(UIImage *)image button:(UIButton *)button result:(IMGLYEditorViewControllerResult)result
+{
+    if (result == TMECameraVCResultDone) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, NULL);
+    }
+
+    NSInteger index = [self.buttons indexOfObject:button];
+    self.images[index] = image;
+    [button setImage:image forState:UIControlStateNormal];
+
+}
 
 
 @end

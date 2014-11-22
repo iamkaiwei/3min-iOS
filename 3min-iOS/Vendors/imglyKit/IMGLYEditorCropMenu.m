@@ -75,10 +75,11 @@ static const CGFloat kMenuHeight = 95;
 }
 
 - (void)configureButtons {
-    [self addButtonWithImage:[_imageProvider customRatioIcon] action:@selector(freeFormButtonTouchedUpInside:)];
-    [self addButtonWithImage:[_imageProvider oneToOneRatioIcon] action:@selector(squareFormButtonTouchedUpInside:)];
-    [self addButtonWithImage:[_imageProvider fourToThreeRatioIcon] action:@selector(ratio4to3FormButtonTouchedUpInside:)];
-    [self addButtonWithImage:[_imageProvider sixteenToNineRatioIcon] action:@selector(ratio16to9FormButtonTouchedUpInside:)];
+    // TODO: DK
+    [self addButtonWithImage:[UIImage imageNamed:@"icon_crop_custom"] action:@selector(freeFormButtonTouchedUpInside:)];
+    [self addButtonWithImage:[UIImage imageNamed:@"icon_crop_square"] action:@selector(squareFormButtonTouchedUpInside:)];
+    [self addButtonWithImage:[UIImage imageNamed:@"icon_crop_4-3"] action:@selector(ratio4to3FormButtonTouchedUpInside:)];
+    [self addButtonWithImage:[UIImage imageNamed:@"icon_crop_16-9"] action:@selector(ratio16to9FormButtonTouchedUpInside:)];
 }
 
 - (void)configureFreeLabel {
