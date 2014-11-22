@@ -20,7 +20,8 @@
 			   @"liked": @"liked",
                @"likeCountNumber": @"likes_count",
 			   @"dislikes": @"dislikes",
-			   @"venueID": @"venue_name",
+			   @"venueID": @"venue_id",
+               @"venueName": @"venue_name",
 			   @"venueLong": @"venue_long",
 			   @"venueLat": @"venue_lat",
 			   @"createAt": @"create_time",
@@ -28,7 +29,6 @@
 			   @"images": @"images",
 			   @"category": @"category",
 			   @"user": @"owner",
-               @"locationText": NSNull.null,
 	};
 }
 
@@ -62,6 +62,10 @@
 
 + (NSValueTransformer *)userJSONTransformer {
     return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[TMEUser class]];
+}
+
++ (NSValueTransformer *)categoryJSONTransformer {
+    return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[TMECategory class]];
 }
 
 + (NSValueTransformer *)imagesJSONTransformer {

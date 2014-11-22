@@ -123,7 +123,7 @@ static NSUInteger const kDefaultMaxPrice = 500;
     // Validate
     if (minPrice.integerValue < kDefaultMinPrice) {
         NSString *message = [NSString stringWithFormat:@"Minimum price must be greater than %d", kDefaultMinPrice];
-        [TMEAlertView showMessage:message];
+        [TMEAlertController showMessage:message fromVC:self];
 
         self.searchFilter.minPrice = @(kDefaultMinPrice);
         self.minPriceTextField.text = [self.numberFormatter stringFromNumber:self.searchFilter.minPrice];
@@ -133,7 +133,7 @@ static NSUInteger const kDefaultMaxPrice = 500;
 
     if (maxPrice.integerValue > kDefaultMaxPrice) {
         NSString *message = [NSString stringWithFormat:@"Maximum price must be less than %d", kDefaultMaxPrice];
-        [TMEAlertView showMessage:message];
+        [TMEAlertController showMessage:message fromVC:self];
 
         self.searchFilter.maxPrice = @(kDefaultMaxPrice);
         self.maxPriceTextField.text = [self.numberFormatter stringFromNumber:self.searchFilter.maxPrice];
@@ -143,7 +143,7 @@ static NSUInteger const kDefaultMaxPrice = 500;
 
     if (minPrice.integerValue > maxPrice.integerValue) {
         NSString *message = [NSString stringWithFormat:@"Minimum price must be less than maximum price"];
-        [TMEAlertView showMessage:message];
+        [TMEAlertController showMessage:message fromVC:self];
 
         self.minPriceTextField.text = [self.numberFormatter stringFromNumber:self.searchFilter.minPrice];
         self.maxPriceTextField.text = [self.numberFormatter stringFromNumber:self.searchFilter.maxPrice];

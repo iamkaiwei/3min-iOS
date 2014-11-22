@@ -47,4 +47,18 @@
                onSuccessBlock:(void (^) (NSArray *))successBlock
                  failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
 
++ (void)createProduct:(TMEProduct *)product
+               images:(NSArray *)images
+              success:(void (^)(TMEProduct *responsedProduct))success
+              failure:(TMENetworkManagerFailureBlock)failure;
+
++ (void)updateProduct:(TMEProduct *)product
+               images:(NSArray *)images
+              success:(void (^)(TMEProduct *responsedProduct))success
+              failure:(TMENetworkManagerFailureBlock)failure;
+
++ (void)deleteProductListing:(NSNumber *)productID
+                     success:(TMESuccessBlock)success
+                     failure:(TMEFailureBlock)failure;
+
 @end

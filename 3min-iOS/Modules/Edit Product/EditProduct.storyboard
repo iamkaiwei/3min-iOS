@@ -262,14 +262,14 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="button1" destination="vpP-qY-LHn" id="jdc-cw-81v"/>
-                        <outlet property="button2" destination="WSe-yz-Ygm" id="u1Q-Zp-0OB"/>
-                        <outlet property="button3" destination="9Qi-mv-0Wr" id="YNN-Z3-ugH"/>
-                        <outlet property="button4" destination="Huv-00-G3a" id="z53-SK-Igv"/>
                         <outlet property="categoryTextField" destination="UNC-Ij-14M" id="fYw-fL-FYE"/>
                         <outlet property="facebookSwitch" destination="Rqj-ue-wv4" id="5Ki-0A-Zf8"/>
                         <outlet property="itemTextField" destination="QgQ-j4-lfY" id="y5l-7G-q9h"/>
                         <outlet property="priceTextField" destination="PVv-Ws-etn" id="l3H-Wn-ngE"/>
+                        <outletCollection property="buttons" destination="vpP-qY-LHn" id="Rzo-wF-PFN"/>
+                        <outletCollection property="buttons" destination="WSe-yz-Ygm" id="rI7-3F-kda"/>
+                        <outletCollection property="buttons" destination="9Qi-mv-0Wr" id="meQ-W9-BKz"/>
+                        <outletCollection property="buttons" destination="Huv-00-G3a" id="G2J-kh-8eQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdh-Pb-s1P" userLabel="First Responder" sceneMemberID="firstResponder"/>

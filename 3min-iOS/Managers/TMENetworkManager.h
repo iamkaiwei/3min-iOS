@@ -16,6 +16,7 @@ typedef void (^TMENetworkManagerFailureBlock)(NSError *error);
 @interface TMENetworkManager : TMEBaseManager
 
 OMNIA_SINGLETON_H(sharedManager)
+OMNIA_SINGLETON_H(sharedImageManager)
 
 - (void)updateAuthorizationHeader;
 

@@ -74,8 +74,6 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
     [self setupCommentsVC];
     [self setupFont];
     [self displayProduct];
-    [self setupLocationInfo];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -140,20 +138,6 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
     self.shareButton.titleLabel.font = [UIFont openSansSemiBoldFontWithSize:self.shareButton.titleLabel.font.pointSize];
 }
 
-- (void)setupLocationInfo
-{
-    if (self.product.locationText.length > 0) {
-        self.locationLabel.text = self.product.locationText;
-    } else if (self.product.venueLat && self.product.venueLong) {
-        self.locationLabel.text = nil;
-        CLLocation *location = [[CLLocation alloc] initWithLatitude:self.product.venueLat.doubleValue longitude:self.product.venueLong.doubleValue];
-        [SVGeocoder reverseGeocode:location.coordinate completion:^(NSArray *placemarks, NSHTTPURLResponse *urlResponse, NSError *error) {
-            SVPlacemark *placemark = placemarks.lastObject;
-            self.product.locationText = placemark.formattedAddress;
-            self.locationLabel.text = self.product.locationText;
-        }];
-    }
-}
 
 #pragma mark - Data
 - (void)displayProduct
@@ -178,7 +162,9 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
     self.nameLabel.text = self.product.name;
     self.priceLabel.text = self.product.price;
     self.descriptionLabel.text =  self.product.productDescription;
-    self.locationLabel.text = @"Somewhere on Earth";
+    self.locationLabel.text = self.product.venueName;
+
+    self.locationLabel.text = self.product.venueName;
 
     [self updateLikeInfo];
 }
@@ -232,6 +218,19 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
 
 
 #pragma mark - UITableViewDataSource
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+
+    if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1)
+    {
+        cell.contentView.frame = cell.bounds;
+        cell.contentView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin |UIViewAutoresizingFlexibleTopMargin |UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
+    }
+
+    return cell;
+}
+
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -264,7 +263,7 @@ typedef NS_ENUM(NSUInteger, TMEProductDetailSection) {
 #pragma mark - TMEProductCommentsVCDelegate
 - (void)productCommentsVC:(TMEProductCommentsVC *)commentsVC didChangeHeight:(CGFloat)height
 {
-    self.commentsVCHeight = height;
+    self.commentsVCHeight = height + 20;
     [self.tableView reloadData];
 }
 

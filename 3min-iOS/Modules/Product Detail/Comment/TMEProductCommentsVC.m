@@ -146,7 +146,7 @@
     } else {
         TMEProductComment *comment = self.dataSource.items[indexPath.row];
 
-        CGFloat height = [self cellHeighFromComment:comment] + 6;
+        CGFloat height = [self cellHeighFromComment:comment] + 1;
         return height;
     }
 }
@@ -189,9 +189,10 @@
 {
     [self.prototypeCell configureForModel:comment];
 
+    self.prototypeCell.bounds = CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(self.prototypeCell.bounds));
+
     [self.prototypeCell setNeedsLayout];
     [self.prototypeCell layoutIfNeeded];
-    [self.prototypeCell updateConstraintsIfNeeded];;
 
     return [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 }
