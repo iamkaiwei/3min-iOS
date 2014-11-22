@@ -17,23 +17,38 @@
 
 @implementation TMENetworkManager
 
-OMNIA_SINGLETON_M(sharedManager)
-
-- (instancetype)init
++ (instancetype)sharedManager
 {
-    self = [super init];
-    if (self) {
+    static TMENetworkManager *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[TMENetworkManager alloc] init];
+
         NSString *baseURLString = [NSString stringWithFormat:@"%@", API_BASE_URL];
         NSURL *baseURL = [NSURL URLWithString:baseURLString];
-        _requestManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+        instance.requestManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+        instance.requestManager.responseSerializer = [AFJSONResponseSerializer serializer];
 
-        //_requestManager.completionQueue = dispatch_queue_create("AFNetworkingCallbackQueue", DISPATCH_QUEUE_CONCURRENT);
-        _requestManager.responseSerializer = [AFJSONResponseSerializer serializer];
+        [instance updateAuthorizationHeader];
+    });
 
-        [self updateAuthorizationHeader];
-    }
+    return instance;
+}
 
-    return self;
++ (instancetype)sharedImageManager
+{
+    static TMENetworkManager *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[TMENetworkManager alloc] init];
+
+        instance.requestManager = [AFHTTPRequestOperationManager manager];
+        instance.requestManager.responseSerializer = [AFImageResponseSerializer serializer];
+
+        [instance updateAuthorizationHeader];
+    });
+
+    return instance;
 }
 
 - (void)updateAuthorizationHeader

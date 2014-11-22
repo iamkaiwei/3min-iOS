@@ -15,6 +15,7 @@ typedef void (^TMEBooleanBlock)(BOOL boolean);
 typedef void (^TMEArrayBlock)(NSArray *array);
 typedef void (^TMEAnyBlock)(id any);
 typedef void (^TMEStringBlock)(NSString *string);
+typedef void (^TMEImageBlock)(UIImage *image);
 
 extern NSString *const kSuccess;
 

@@ -30,12 +30,10 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *facebookSwitch;
 
-@property (nonatomic, assign) BOOL isUpdate;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
 
-@property (weak, nonatomic) IBOutlet UIButton *button1;
-@property (weak, nonatomic) IBOutlet UIButton *button2;
-@property (weak, nonatomic) IBOutlet UIButton *button3;
-@property (weak, nonatomic) IBOutlet UIButton *button4;
+@property (nonatomic, assign) BOOL isUpdate;
+@property (nonatomic, strong) NSMutableArray *images;
 
 @end
 
@@ -43,6 +41,11 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.images = [NSMutableArray array];
+    for (int i=0; i<4; ++i) {
+        self.images[i] = NSNull.null;
+    }
 
     [self setupNavigationItems];
     [self setupTableView];
@@ -92,12 +95,19 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     self.itemTextField.text = self.product.name;
     self.priceTextField.text = self.product.price;
 
-    if (!self.isUpdate) {
+    if (self.isUpdate) {
         NSArray *buttons = [self buttons];
         for (int i=0; i<buttons.count && i<self.product.images.count; ++i) {
             TMEProductImage *productImage = self.product.images[i];
-            UIButton *button = buttons[i];
-            [button setImageForState:UIControlStateNormal withURL:productImage.originURL];
+
+            // TODO: We use button to display both real and placeholder image, so need to keep a reference to the real images
+            [TMEImageClient getImageForURL:productImage.originURL success:^(UIImage *image) {
+                self.images[i] = image;
+                UIButton *button = buttons[i];
+                [button setImage:image forState:UIControlStateNormal];
+            } failure:^(NSError *error) {
+
+            }];
         }
     }
 }
@@ -142,28 +152,34 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 #pragma mark - Network request
 - (void)requestToCreateProduct
 {
+    [SVProgressHUD show];
     [TMEProductsManager createProduct:self.product images:nil success:^(TMEProduct *responsedProduct) {
-
+        [SVProgressHUD showSuccessWithStatus:nil];
+        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error) {
-        NSLog(@"%@", error);
+        [SVProgressHUD showErrorWithStatus:@"Please try again"];
     }];
 }
 
 - (void)requestToUpdateProduct
 {
+    [SVProgressHUD show];
     [TMEProductsManager updateProduct:self.product images:nil success:^(TMEProduct *responsedProduct) {
-
+        [SVProgressHUD showSuccessWithStatus:nil];
+        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error) {
-
+        [SVProgressHUD showErrorWithStatus:@"Please try again"];
     }];
 }
 
 - (void)requestToDeleteListing
 {
+    [SVProgressHUD show];
     [TMEProductsManager deleteProductListing:self.product.productID success:^{
-
+        [SVProgressHUD showSuccessWithStatus:nil];
+        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error) {
-
+        [SVProgressHUD showErrorWithStatus:@"Please try again"];
     }];
 }
 
@@ -189,6 +205,18 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     }
 
     // Image
+    BOOL hasImage = NO;
+    for (int i=0; i<self.images.count; ++i) {
+        if ([self.images[i] isKindOfClass:[UIImage class]]) {
+            hasImage = YES;
+            break;
+        }
+    }
+
+    if (!hasImage) {
+        [TMEAlertController showMessage:@"Please select at least one image" fromVC:self];
+        return NO;
+    }
 
     return YES;
 }
@@ -256,6 +284,9 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
         }
         
         [weakSelf.navigationController popToViewController:weakSelf animated:YES];
+
+        NSInteger index = [weakSelf.buttons indexOfObject:button];
+        weakSelf.images[index] = image;
         [button setImage:image forState:UIControlStateNormal];
     };
 
@@ -263,9 +294,5 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 }
 
 #pragma mark - Helpers
-- (NSArray *)buttons
-{
-    return @[self.button1, self.button2, self.button3, self.button4];
-}
 
 @end
