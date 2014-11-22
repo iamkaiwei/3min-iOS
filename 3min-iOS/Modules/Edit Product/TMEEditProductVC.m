@@ -135,7 +135,7 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 - (IBAction)deleteListingTouched:(id)sender
 {
     [TMEAlertController showMessage:@"Are you sure you want to delete this product?" fromVC:self actionButton:@"OK" handler:^{
-        
+        [self requestToDeleteListing];
     }];
 }
 
@@ -151,7 +151,20 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
 - (void)requestToUpdateProduct
 {
+    [TMEProductsManager updateProduct:self.product images:nil success:^(TMEProduct *responsedProduct) {
 
+    } failure:^(NSError *error) {
+
+    }];
+}
+
+- (void)requestToDeleteListing
+{
+    [TMEProductsManager deleteProductListing:self.product.productID success:^{
+
+    } failure:^(NSError *error) {
+
+    }];
 }
 
 #pragma mark - Check
@@ -164,10 +177,10 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
     }
 
     // Category
-//    if (self.categoryTextField.text.length == 0) {
-//        [TMEAlertController showMessage:@"Please set a category" fromVC:self];
-//        return NO;
-//    }
+    if (self.categoryTextField.text.length == 0) {
+        [TMEAlertController showMessage:@"Please set a category" fromVC:self];
+        return NO;
+    }
 
     // Price
     if (self.priceTextField.text.length == 0) {

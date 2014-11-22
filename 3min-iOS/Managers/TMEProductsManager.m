@@ -163,21 +163,10 @@
               success:(void (^)(TMEProduct *responsedProduct))success
               failure:(TMENetworkManagerFailureBlock)failure
 {
-    NSDictionary *params = @{@"name": product.name,
-                             @"description": product.productDescription ?: @"",
-                             @"price": product.price,
-                             @"sold_out": @(NO),
-                             @"buyer_id": @"",
-                             @"tag_list": @"",
-                             @"venueID": @"",
-                             @"venue_name": product.venueName ?: @"",
-                             @"venue_lat": product.venueLat ?: @"",
-                             @"venue_long": product.venueLong ?: @"",
-                             //@"images": images
-                             };
+    NSDictionary *params = [self paramsForProductCreationOrUpdateFromProduct:product];
 
+    NSString *path = [NSString stringWithFormat:@"%@", API_PRODUCTS];
 
-    NSString *path = [NSString stringWithFormat:@"%@/", API_PRODUCTS];
     [[TMENetworkManager sharedManager] post:path params:params success:^(id responseObject) {
         NSLog(@"%@", responseObject);
     } failure:^(NSError *error) {
@@ -187,7 +176,69 @@
             });
         }
     }];
+}
 
++ (void)updateProduct:(TMEProduct *)product
+                images:(NSArray *)images
+                success:(void (^)(TMEProduct *responsedProduct))success
+                failure:(TMENetworkManagerFailureBlock)failure
+{
+    NSDictionary *params = [self paramsForProductCreationOrUpdateFromProduct:product];
+
+    NSString *path = [NSString stringWithFormat:@"%@/%@", API_PRODUCTS, product.productID];
+
+    [[TMENetworkManager sharedManager] put:path params:params success:^(id responseObject) {
+        NSLog(@"%@", responseObject);
+    } failure:^(NSError *error) {
+        if (failure) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                failure(error);
+            });
+        }
+    }];
+}
+
++ (void)deleteProductListing:(NSNumber *)productID success:(TMESuccessBlock)success failure:(TMEFailureBlock)failure
+{
+    //TODO: Delete the product for now
+    NSString *path = [NSString stringWithFormat:@"%@/%@", API_PRODUCTS, productID];
+
+    [[TMENetworkManager sharedManager] delete:path params:nil success:^(id responseObject) {
+        if ([[responseObject objectForKey:@"status"] isEqualToString:@"success"]) {
+            if (success) {
+                success();
+            }
+        } else {
+            if (failure) {
+                failure(nil);
+            }
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                failure(error);
+            });
+        }
+    }];
+}
+
+#pragma mark - Helpers
++ (NSDictionary *)paramsForProductCreationOrUpdateFromProduct:(TMEProduct *)product
+{
+    NSDictionary *params = @{@"name": product.name,
+                             @"description": product.productDescription ?: @"",
+                             @"price": product.price,
+                             @"sold_out": @(NO),
+                             @"buyer_id": @"",
+                             @"tag_list": @"",
+                             @"category_id": product.category.categoryId,
+                             @"venueID": @"",
+                             @"venue_name": product.venueName ?: @"",
+                             @"venue_lat": product.venueLat ?: @"",
+                             @"venue_long": product.venueLong ?: @"",
+                             };
+
+    return params;
 }
 
 @end
