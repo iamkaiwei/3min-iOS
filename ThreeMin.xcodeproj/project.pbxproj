@@ -34,7 +34,8 @@
 		9937B90819B5EA200000EE0C /* UISearchBar+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90519B5EA200000EE0C /* UISearchBar+TMEAdditions.m */; };
 		9937B90919B5EA200000EE0C /* UITextField+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90719B5EA200000EE0C /* UITextField+TMEAdditions.m */; };
 		9937B90D19B5EA4A0000EE0C /* TMESingleSectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90C19B5EA4A0000EE0C /* TMESingleSectionDataSource.m */; };
-		995F20F11A201F5800919A84 /* TMEImageClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 995F20F01A201F5800919A84 /* TMEImageClient.m */; };
+		995F20F41A202A2800919A84 /* TMEImageClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 995F20F31A202A2800919A84 /* TMEImageClient.m */; };
+		995F20F71A202A6700919A84 /* TMEFeedbackClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 995F20F61A202A6700919A84 /* TMEFeedbackClient.m */; };
 		9966434819A1085E008960DB /* TMEUserNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9966434719A1085E008960DB /* TMEUserNetworkClient.m */; };
 		998A11211A1B94FD007F62FF /* TMEEditProductPriceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 998A11201A1B94FD007F62FF /* TMEEditProductPriceVC.m */; };
 		998A11231A1B950C007F62FF /* EditProductPrice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998A11221A1B950C007F62FF /* EditProductPrice.storyboard */; };
@@ -479,8 +480,10 @@
 		9937B90719B5EA200000EE0C /* UITextField+TMEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+TMEAdditions.m"; sourceTree = "<group>"; };
 		9937B90B19B5EA4A0000EE0C /* TMESingleSectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESingleSectionDataSource.h; sourceTree = "<group>"; };
 		9937B90C19B5EA4A0000EE0C /* TMESingleSectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESingleSectionDataSource.m; sourceTree = "<group>"; };
-		995F20EF1A201F5800919A84 /* TMEImageClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEImageClient.h; sourceTree = "<group>"; };
-		995F20F01A201F5800919A84 /* TMEImageClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEImageClient.m; sourceTree = "<group>"; };
+		995F20F21A202A2800919A84 /* TMEImageClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEImageClient.h; sourceTree = "<group>"; };
+		995F20F31A202A2800919A84 /* TMEImageClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEImageClient.m; sourceTree = "<group>"; };
+		995F20F51A202A6700919A84 /* TMEFeedbackClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFeedbackClient.h; sourceTree = "<group>"; };
+		995F20F61A202A6700919A84 /* TMEFeedbackClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEFeedbackClient.m; sourceTree = "<group>"; };
 		9966434619A1085E008960DB /* TMEUserNetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEUserNetworkClient.h; sourceTree = "<group>"; };
 		9966434719A1085E008960DB /* TMEUserNetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEUserNetworkClient.m; sourceTree = "<group>"; };
 		9966434919A1087D008960DB /* TMENetworkHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMENetworkHeaders.h; sourceTree = "<group>"; };
@@ -1319,8 +1322,12 @@
 		9966434519A10835008960DB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				995F20F21A202A2800919A84 /* TMEImageClient.h */,
+				995F20F31A202A2800919A84 /* TMEImageClient.m */,
 				9966434619A1085E008960DB /* TMEUserNetworkClient.h */,
 				9966434719A1085E008960DB /* TMEUserNetworkClient.m */,
+				995F20F51A202A6700919A84 /* TMEFeedbackClient.h */,
+				995F20F61A202A6700919A84 /* TMEFeedbackClient.m */,
 			);
 			name = Network;
 			path = "3min-iOS/Network";
@@ -1466,8 +1473,6 @@
 				D224260F19A2061C009DB3AC /* TMEDeviceManager.m */,
 				D22016BB19A49D480071535C /* TMEPushNotificationManager.h */,
 				D22016BC19A49D480071535C /* TMEPushNotificationManager.m */,
-				995F20EF1A201F5800919A84 /* TMEImageClient.h */,
-				995F20F01A201F5800919A84 /* TMEImageClient.m */,
 			);
 			name = Managers;
 			path = "3min-iOS/Managers";
@@ -3260,6 +3265,7 @@
 				99EA0F091978492D00872EE4 /* TMEProduct.m in Sources */,
 				9937B90819B5EA200000EE0C /* UISearchBar+TMEAdditions.m in Sources */,
 				B470E4F919AC323B00F4FF18 /* TMEProductCollectionViewCell+Template.m in Sources */,
+				995F20F71A202A6700919A84 /* TMEFeedbackClient.m in Sources */,
 				D2B425161A1DDFD700FE6F65 /* IMGLYEditorCropMenu.m in Sources */,
 				99EA0F811978492D00872EE4 /* TMETutorialViewController.m in Sources */,
 				9966434819A1085E008960DB /* TMEUserNetworkClient.m in Sources */,
@@ -3281,7 +3287,7 @@
 				99EA0F981978492D00872EE4 /* TMEBaseTableViewCell.m in Sources */,
 				B486FC2D1A08B13C0058D8B7 /* TMEBrowserProductLoadingOperation.m in Sources */,
 				99EA0EFB1978492D00872EE4 /* TMEFacebookManager.m in Sources */,
-				995F20F11A201F5800919A84 /* TMEImageClient.m in Sources */,
+				995F20F41A202A2800919A84 /* TMEImageClient.m in Sources */,
 				9937B90D19B5EA4A0000EE0C /* TMESingleSectionDataSource.m in Sources */,
 				99EA0EF11978492D00872EE4 /* TMERootAppDelegateService.m in Sources */,
 				9910BE0019D07D7A00BAC139 /* NSString+TMEAdditions.m in Sources */,

@@ -15,7 +15,6 @@
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/UIButton+AFNetworking.h>
 
-#import "iCarousel.h"
 #import "UINavigationController+SGProgress.h"
 #import "Reachability.h"
 #import "TSMessage.h"

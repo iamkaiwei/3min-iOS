@@ -7,3 +7,5 @@
 //
 
 #import "TMEUserNetworkClient.h"
+#import "TMEImageClient.h"
+#import "TMEFeedbackClient.h"
