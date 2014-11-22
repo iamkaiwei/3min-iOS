@@ -10,11 +10,13 @@
 #import "TMEMyTopProfileViewController.h"
 #import "TMEOtherTopProfileViewController.h"
 #import "TMEListActiviesViewController.h"
+#import "TMEFeedbacksVC.h"
 
 @interface TMEProfilePageContentViewController ()
 
 @property (strong, nonatomic) UIViewController *topVC;
 @property (strong, nonatomic) UIViewController *activitiesVC;
+@property (weak, nonatomic) IBOutlet UIButton *viewFeedbackButton;
 
 @end
 
@@ -44,6 +46,9 @@
 	[activitiesVC willMoveToParentViewController:self];
 	[self.view addSubview:activitiesVC.view];
 	[activitiesVC didMoveToParentViewController:self];
+
+    // TODO: Need to embed FeedbacksVC and place the viewFeedback button correctly
+    [self.view bringSubviewToFront:self.viewFeedbackButton];
 
 	self.activitiesVC = activitiesVC;
 
@@ -104,6 +109,14 @@
 
 	TMEListActiviesViewController *activitiesVC = [[TMEListActiviesViewController alloc] init];
 	return activitiesVC;
+}
+
+#pragma mark - Action
+- (IBAction)viewFeedbackTouched:(id)sender {
+    TMEFeedbacksVC *vc = [TMEFeedbacksVC tme_instantiateFromStoryboardNamed:@"Feedback"];
+    vc.user = self.user;
+
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

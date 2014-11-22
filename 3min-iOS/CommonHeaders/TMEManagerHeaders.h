@@ -19,5 +19,3 @@
 #import "TMEPusherManager.h"
 #import "TMEActivityManager.h"
 #import "TMECategoryManager.h"
-
-#import "TMEImageClient.h"
