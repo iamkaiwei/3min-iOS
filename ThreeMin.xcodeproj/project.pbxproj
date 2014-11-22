@@ -34,6 +34,7 @@
 		9937B90819B5EA200000EE0C /* UISearchBar+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90519B5EA200000EE0C /* UISearchBar+TMEAdditions.m */; };
 		9937B90919B5EA200000EE0C /* UITextField+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90719B5EA200000EE0C /* UITextField+TMEAdditions.m */; };
 		9937B90D19B5EA4A0000EE0C /* TMESingleSectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9937B90C19B5EA4A0000EE0C /* TMESingleSectionDataSource.m */; };
+		99598D311A204EFC00B182E8 /* TMECropImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99598D301A204EFC00B182E8 /* TMECropImageVC.m */; };
 		995F20F41A202A2800919A84 /* TMEImageClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 995F20F31A202A2800919A84 /* TMEImageClient.m */; };
 		995F20F71A202A6700919A84 /* TMEFeedbackClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 995F20F61A202A6700919A84 /* TMEFeedbackClient.m */; };
 		995F20FB1A20348500919A84 /* TMEFeedbacksVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 995F20FA1A20348500919A84 /* TMEFeedbacksVC.m */; };
@@ -485,6 +486,8 @@
 		9937B90719B5EA200000EE0C /* UITextField+TMEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+TMEAdditions.m"; sourceTree = "<group>"; };
 		9937B90B19B5EA4A0000EE0C /* TMESingleSectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESingleSectionDataSource.h; sourceTree = "<group>"; };
 		9937B90C19B5EA4A0000EE0C /* TMESingleSectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESingleSectionDataSource.m; sourceTree = "<group>"; };
+		99598D2F1A204EFC00B182E8 /* TMECropImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECropImageVC.h; sourceTree = "<group>"; };
+		99598D301A204EFC00B182E8 /* TMECropImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMECropImageVC.m; sourceTree = "<group>"; };
 		995F20F21A202A2800919A84 /* TMEImageClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEImageClient.h; sourceTree = "<group>"; };
 		995F20F31A202A2800919A84 /* TMEImageClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEImageClient.m; sourceTree = "<group>"; };
 		995F20F51A202A6700919A84 /* TMEFeedbackClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEFeedbackClient.h; sourceTree = "<group>"; };
@@ -1331,6 +1334,15 @@
 			);
 			name = DataSource;
 			path = "3min-iOS/DataSource";
+			sourceTree = "<group>";
+		};
+		99598D2E1A204EE100B182E8 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				99598D2F1A204EFC00B182E8 /* TMECropImageVC.h */,
+				99598D301A204EFC00B182E8 /* TMECropImageVC.m */,
+			);
+			path = Edit;
 			sourceTree = "<group>";
 		};
 		995F20F81A202F2000919A84 /* Feedback */ = {
@@ -2769,9 +2781,9 @@
 		D2E07CA11A1AF36900D54014 /* Take Photo */ = {
 			isa = PBXGroup;
 			children = (
+				99598D2E1A204EE100B182E8 /* Edit */,
 				99B2C1CA1A1CF8DC00332CAE /* Filter */,
 				D2E07CBC1A1C8B1A00D54014 /* Camera */,
-				D2E07CBD1A1C8B1A00D54014 /* Edit */,
 			);
 			path = "Take Photo";
 			sourceTree = "<group>";
@@ -2806,13 +2818,6 @@
 				D2E07CC11A1CA3D600D54014 /* Camera.storyboard */,
 			);
 			path = Camera;
-			sourceTree = "<group>";
-		};
-		D2E07CBD1A1C8B1A00D54014 /* Edit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Edit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3043,6 +3048,7 @@
 				B486E36B1A04FADB00696267 /* TMEFollowingLoadingOperation.m in Sources */,
 				995F20FE1A20349200919A84 /* TMEPostFeedbackVC.m in Sources */,
 				99EA0F181978492D00872EE4 /* MKMapView+Additions.m in Sources */,
+				99598D311A204EFC00B182E8 /* TMECropImageVC.m in Sources */,
 				99EA0F541978492D00872EE4 /* TMELikedTableViewCell.m in Sources */,
 				99EA0F131978492D00872EE4 /* ActiveSupportInflector.m in Sources */,
 				D2B4250B1A1DDFD700FE6F65 /* IMGLYContrastOperation.m in Sources */,

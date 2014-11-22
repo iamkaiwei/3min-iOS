@@ -10,8 +10,10 @@
 #import "TMEProductCategoriesVC.h"
 #import "TMEEditProductNameVC.h"
 #import "TMEEditProductPriceVC.h"
+#import "TMEImageClient.h"
 
 #import "TMECameraVC.h"
+#import "TMECropImageVC.h"
 
 typedef NS_ENUM(NSUInteger, TMEProductRow) {
     TMEProductRowPhoto = 0,
@@ -279,20 +281,36 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
     __weak typeof (self) weakSelf = self;
     cameraVC.completionHandler = ^(TMECameraVCResult result, UIImage *image, IMGLYFilterType filterType) {
-        if (result == TMECameraVCResultDone) {
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, NULL);
-        }
-        
-        [weakSelf.navigationController popToViewController:weakSelf animated:YES];
-
-        NSInteger index = [weakSelf.buttons indexOfObject:button];
-        weakSelf.images[index] = image;
-        [button setImage:image forState:UIControlStateNormal];
+        [weakSelf showEditorVCWithImage:image button:button];
     };
 
     [self.navigationController pushViewController:cameraVC animated:YES];
 }
 
+- (void)showEditorVCWithImage:(UIImage *)image button:(UIButton *)button
+{
+    TMECropImageVC *cropVC = [[TMECropImageVC alloc] init];
+    cropVC.inputImage = image;
+
+    __weak typeof(self) weakSelf = self;
+    cropVC.completionHandler = ^(IMGLYEditorViewControllerResult result, UIImage *outputImage, IMGLYProcessingJob *job) {
+        if (result == TMECameraVCResultDone) {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, NULL);
+        }
+
+        [weakSelf.navigationController popToViewController:weakSelf animated:YES];
+
+        NSInteger index = [weakSelf.buttons indexOfObject:button];
+        weakSelf.images[index] = image;
+        [button setImage:image forState:UIControlStateNormal];
+
+        [weakSelf.navigationController popToViewController:weakSelf animated:YES];
+    };
+
+    [self.navigationController pushViewController:cropVC animated:YES];
+}
+
 #pragma mark - Helpers
+
 
 @end
