@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TMEPostFeedbackVC : UIViewController
+@interface TMEPostFeedbackVC : UITableViewController
 
 @end
