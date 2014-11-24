@@ -37,6 +37,8 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 @property (nonatomic, assign) BOOL isUpdate;
 @property (nonatomic, strong) NSMutableArray *images;
 
+@property (nonatomic, strong) TMECameraVC *cameraVC;
+
 @end
 
 @implementation TMEEditProductVC
@@ -277,14 +279,14 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 #pragma mark - Action
 - (IBAction)photoButtonTouched:(UIButton *)button
 {
-    TMECameraVC *cameraVC = [TMECameraVC tme_instantiateFromStoryboardNamed:@"Camera"];
+    self.cameraVC = [TMECameraVC tme_instantiateFromStoryboardNamed:@"Camera"];
 
     __weak typeof (self) weakSelf = self;
-    cameraVC.completionHandler = ^(TMECameraVCResult result, UIImage *image, IMGLYFilterType filterType) {
+    self.cameraVC.completionHandler = ^(TMECameraVCResult result, UIImage *image, IMGLYFilterType filterType) {
         [weakSelf showEditorVCWithImage:image button:button];
     };
 
-    [self.navigationController pushViewController:cameraVC animated:YES];
+    [self.navigationController pushViewController:self.cameraVC animated:YES];
 }
 
 - (void)showEditorVCWithImage:(UIImage *)image button:(UIButton *)button
@@ -294,19 +296,23 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
     __weak typeof(self) weakSelf = self;
     cropVC.completionHandler = ^(IMGLYEditorViewControllerResult result, UIImage *outputImage, IMGLYProcessingJob *job) {
-        [weakSelf handleTakenImage:outputImage button:button result:result];
-        [weakSelf.navigationController popToViewController:weakSelf animated:YES];
+        if (result == IMGLYEditorViewControllerResultCancelled) {
+            [weakSelf.cameraVC restartCamera];
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        } else {
+            [weakSelf handleTakenImage:outputImage button:button];
+            weakSelf.cameraVC = nil;
+            [weakSelf.navigationController popToViewController:weakSelf animated:YES];
+        }
     };
 
     [self.navigationController pushViewController:cropVC animated:YES];
 }
 
 #pragma mark - Helpers
-- (void)handleTakenImage:(UIImage *)image button:(UIButton *)button result:(IMGLYEditorViewControllerResult)result
+- (void)handleTakenImage:(UIImage *)image button:(UIButton *)button
 {
-    if (result == TMECameraVCResultDone) {
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, NULL);
-    }
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, NULL);
 
     NSInteger index = [self.buttons indexOfObject:button];
     self.images[index] = image;

@@ -110,6 +110,7 @@ TMECameraFilterSelectorVCDelegate>
 #pragma mark - Action
 - (void)cancelTouched:(id)sender
 {
+    [self shutdownCamera];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

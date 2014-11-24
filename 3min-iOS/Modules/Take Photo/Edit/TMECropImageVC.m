@@ -101,7 +101,9 @@ static const CGFloat kBackgroundGrayValue =  34.0 / 255.0;
 #pragma mark - Action
 - (void)cancelTouched:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.completionHandler) {
+        self.completionHandler(IMGLYEditorViewControllerResultCancelled, nil, nil);
+    }
 }
 
 - (void)submitTouched:(id)sender
