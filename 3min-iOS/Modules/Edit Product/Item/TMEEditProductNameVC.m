@@ -29,13 +29,16 @@
     [self setupTableView];
     [self setupGR];
 
+    self.nameTextField.text = self.product.name;
+    self.descriptionTextView.text = self.product.productDescription;
+
     self.descriptionTextView.placeholder = @"Product description";
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self displayProduct];
+    self.locationTextField.text = self.product.venueName;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,13 +70,6 @@
     self.tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     self.tapGR.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:self.tapGR];
-}
-
-- (void)displayProduct
-{
-    self.nameTextField.text = self.product.name;
-    self.descriptionTextView.text = self.product.productDescription;
-    self.locationTextField.text = self.product.venueName;
 }
 
 #pragma mark - Action

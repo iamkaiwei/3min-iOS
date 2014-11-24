@@ -157,7 +157,7 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 - (void)requestToCreateProduct
 {
     [SVProgressHUD show];
-    [TMEProductsManager createProduct:self.product images:nil success:^(TMEProduct *responsedProduct) {
+    [TMEProductsManager createProduct:self.product images:self.imagesToUpload success:^(TMEProduct *responsedProduct) {
         [SVProgressHUD showSuccessWithStatus:nil];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error) {
@@ -320,5 +320,11 @@ typedef NS_ENUM(NSUInteger, TMEProductRow) {
 
 }
 
+- (NSArray *)imagesToUpload
+{
+    return [self.images filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        return [evaluatedObject isKindOfClass:[UIImage class]];
+    }]];
+}
 
 @end

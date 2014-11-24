@@ -32,5 +32,43 @@
     }
 }
 
++ (void)uploadImages:(NSArray *)images
+           path:(NSString *)path
+             success:(TMESuccessBlock)success
+             failure:(TMEFailureBlock)failure
+{
+    NSMutableArray *operations = [NSMutableArray array];
+
+    AFHTTPRequestOperationManager *manager = [TMENetworkManager sharedManager].requestManager;
+    NSString *URLString = [NSURL URLWithString:path relativeToURL:manager.baseURL].absoluteString;
+
+    for (UIImage *image in images) {
+        NSURLRequest *request = [manager.requestSerializer
+                                 multipartFormRequestWithMethod:@"POST"
+                                 URLString:URLString
+                                 parameters:nil
+                                 constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+        {
+            NSData *data = UIImagePNGRepresentation(image);
+            [formData appendPartWithFileData:data name:@"content" fileName:@"product_image.png" mimeType:@"image/png"];
+        }];
+
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        [operations addObject:operation];
+    }
+
+    NSArray *batchedOperations = [AFURLConnectionOperation
+                                  batchOfRequestOperations:operations
+                                  progressBlock:^(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations)
+    {
+        NSLog(@"%u of %u complete", numberOfFinishedOperations, totalNumberOfOperations);
+    } completionBlock:^(NSArray *operations) {
+        if (success) {
+            success();
+        }
+    }];
+
+    [manager.operationQueue addOperations:batchedOperations waitUntilFinished:NO];
+}
 
 @end

@@ -11,5 +11,9 @@
 @interface TMEImageClient : NSObject
 
 + (void)getImageForURL:(NSURL *)url success:(TMEImageBlock)success failure:(TMEFailureBlock)failure;
++ (void)uploadImages:(NSArray *)images
+                path:(NSString *)path
+             success:(TMESuccessBlock)success
+             failure:(TMEFailureBlock)failure;
 
 @end

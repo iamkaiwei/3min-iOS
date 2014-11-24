@@ -168,7 +168,21 @@
     NSString *path = [NSString stringWithFormat:@"%@", API_PRODUCTS];
 
     [[TMENetworkManager sharedManager] post:path params:params success:^(id responseObject) {
-        NSLog(@"%@", responseObject);
+        TMEProduct *responsedProduct = [TMEProduct tme_modelFromJSONResponse:responseObject[@"product"]];
+
+        // Upload images
+        NSString *imageUploadPath = [NSString stringWithFormat:@"%@/%@/images", API_PRODUCTS, responsedProduct.productID];
+
+        [TMEImageClient uploadImages:images path:imageUploadPath success:^{
+            if (success) {
+                success(responsedProduct);
+            }
+        } failure:^(NSError *error) {
+            if (failure) {
+                failure(error);
+            }
+        }];
+
     } failure:^(NSError *error) {
         if (failure) {
             dispatch_async(dispatch_get_main_queue(), ^{

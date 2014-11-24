@@ -11,7 +11,7 @@
 
 @interface TMENetworkManager ()
 
-@property (nonatomic, strong) AFHTTPRequestOperationManager *requestManager;
+@property (nonatomic, strong, readwrite) AFHTTPRequestOperationManager *requestManager;
 
 @end
 

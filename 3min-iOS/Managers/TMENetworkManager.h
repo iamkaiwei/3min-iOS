@@ -18,6 +18,8 @@ typedef void (^TMENetworkManagerFailureBlock)(NSError *error);
 OMNIA_SINGLETON_H(sharedManager)
 OMNIA_SINGLETON_H(sharedImageManager)
 
+@property (nonatomic, strong, readonly) AFHTTPRequestOperationManager *requestManager;
+
 - (void)updateAuthorizationHeader;
 
 - (void)get:(NSString *)path
