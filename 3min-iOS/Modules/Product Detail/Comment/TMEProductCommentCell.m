@@ -10,7 +10,7 @@
 #import "TMEProductComment.h"
 #import <QuartzCore/QuartzCore.h>
 #import "KHRoundAvatar.h"
-#import <FormatterKit/TTTTimeIntervalFormatter.h>
+
 
 @interface TMEProductCommentCell ()
 
@@ -50,8 +50,7 @@
 #pragma mark - Helper
 - (void)configureDateLabel:(NSDate *)date
 {
-    TTTTimeIntervalFormatter *timeIntervalFormatter = [[TTTTimeIntervalFormatter alloc] init];
-    self.dateLabel.text = [timeIntervalFormatter stringForTimeInterval:date.timeIntervalSinceNow];
+    self.dateLabel.text = date.agoString;
 }
 
 - (void)configureCommentLabel:(NSString *)userName content:(NSString *)content

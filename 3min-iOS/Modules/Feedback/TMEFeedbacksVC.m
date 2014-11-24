@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (nonatomic, strong) TMESingleSectionDataSource *dataSource;
 
+@property (nonatomic, strong) TMEFeedbackCell *prototypeCell;
+
 @end
 
 @implementation TMEFeedbacksVC
@@ -54,11 +56,20 @@
     self.dataSource = [[TMESingleSectionDataSource alloc] init];
     self.dataSource.cellIdentifier = [TMEFeedbackCell kind];
     self.dataSource.cellConfigureBlock = ^(TMEFeedbackCell *cell, TMEFeedback *feedback) {
-
+        [cell configureForModel:feedback];
     };
 
     self.tableView.dataSource = self.dataSource;
     self.tableView.delegate = self;
+}
+
+- (TMEFeedbackCell *)prototypeCell
+{
+    if (!_prototypeCell) {
+        _prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:[TMEFeedbackCell kind]];
+    }
+
+    return _prototypeCell;
 }
 
 #pragma mark - Data
@@ -81,9 +92,45 @@
 
 
 #pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (IS_IOS8_OR_ABOVE) {
+        return UITableViewAutomaticDimension;
+    } else {
+        TMEFeedback *feedback = self.dataSource.items[indexPath.row];
+        CGFloat height = [self cellHeighFromFeedback:feedback] + 1;
+        return height;
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    TMEFeedback *feedback = self.dataSource.items[indexPath.row];
+
+    TMEProfilePageContentViewController *vc = [[TMEProfilePageContentViewController alloc] init];
+    vc.user = feedback.user;
+
+    // TODO: Weird, how to show the profile screen ?
+}
+
+#pragma mark - Helper
+- (CGFloat)cellHeighFromFeedback:(TMEFeedback *)feedback
+{
+    [self.prototypeCell configureForModel:feedback];
+
+    self.prototypeCell.bounds = CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(self.prototypeCell.bounds));
+
+    [self.prototypeCell setNeedsLayout];
+    [self.prototypeCell layoutIfNeeded];
+
+    return [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 }
 
 @end

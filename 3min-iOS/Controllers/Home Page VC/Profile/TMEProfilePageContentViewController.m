@@ -116,6 +116,12 @@
     TMEFeedbacksVC *vc = [TMEFeedbacksVC tme_instantiateFromStoryboardNamed:@"Feedback"];
     vc.user = self.user;
 
+    if (IS_IOS8_OR_ABOVE) {
+        vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    } else {
+        self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    }
+
     [self presentViewController:vc animated:YES completion:nil];
 }
 

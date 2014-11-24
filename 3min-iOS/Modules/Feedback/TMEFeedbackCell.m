@@ -7,17 +7,33 @@
 //
 
 #import "TMEFeedbackCell.h"
+#import "TMEFeedback.h"
 
 @implementation TMEFeedbackCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (void)setBounds:(CGRect)bounds
+{
+    [super setBounds:bounds];
+
+    self.contentView.frame = self.bounds;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
 
-    // Configure the view for the selected state
+    [self.contentView setNeedsLayout];
+    [self.contentView layoutIfNeeded];
+
+    self.feedbackLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.feedbackLabel.frame);
+}
+
+- (void)configureForModel:(TMEFeedback *)feedback
+{
+    [self.userImageView setImageWithURL:[NSURL URLWithString:feedback.user.avatar] placeholderImage:nil];
+    self.userNameLabel.text = feedback.user.fullName;
+    self.feedbackLabel.text = feedback.content;
+    self.dateLabel.text = feedback.updatedAt.agoString;
 }
 
 @end

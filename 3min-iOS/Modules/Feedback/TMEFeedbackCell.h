@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class TMEFeedback;
+
 @interface TMEFeedbackCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet KHRoundAvatar *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *feedbackLabel;
+
+- (void)configureForModel:(TMEFeedback *)feedback;
 
 @end

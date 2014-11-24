@@ -14,8 +14,10 @@
 + (void)getFeedbacksForUser:(TMEUser *)user success:(TMEArrayBlock)success failure:(TMEFailureBlock)failure
 {
     NSString *path = NSStringf(@"%@", API_FEEDBACK);
+    NSDictionary *params = @{@"user_id": user.userID,
+                             };
 
-    [[TMENetworkManager sharedManager] get:path params:nil success:^(id responseObject) {
+    [[TMENetworkManager sharedManager] get:path params:params success:^(id responseObject) {
         NSArray *feedbacks = [TMEFeedback tme_modelsFromJSONResponse:responseObject];
         if (success) {
             success(feedbacks);

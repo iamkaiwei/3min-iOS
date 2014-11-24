@@ -8,6 +8,18 @@
 
 #import "TMEBaseModel.h"
 
+typedef NS_ENUM(NSUInteger, TMEFeedbackStatus) {
+    TMEFeedbackStatusUnknown,
+    TMEFeedbackStatusNegative,
+    TMEFeedbackStatusPositive,
+};
+
 @interface TMEFeedback : TMEBaseModel
+
+@property (nonatomic, strong) NSNumber *feedbackID;
+@property (nonatomic, copy) NSString *content;
+@property (nonatomic, strong) TMEUser *user;
+@property (nonatomic, strong) NSDate *updatedAt;
+@property (nonatomic, assign) TMEFeedbackStatus feedbackStatus;
 
 @end

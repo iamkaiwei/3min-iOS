@@ -55,6 +55,7 @@
 		9992943D19E2F7F700896D05 /* TMEProductLikeNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943C19E2F7F700896D05 /* TMEProductLikeNetworkClient.m */; };
 		9992944019E2F82B00896D05 /* TMEProductLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992943F19E2F82B00896D05 /* TMEProductLikeCell.m */; };
 		9992944319E2F96D00896D05 /* TMEProductLikeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9992944219E2F96D00896D05 /* TMEProductLikeViewModel.m */; };
+		99A316111A2370C300159958 /* NSDate+TMEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A316101A2370C300159958 /* NSDate+TMEAdditions.m */; };
 		99AA4B2219A26F0600268345 /* NSObject+TMENotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AA4B2119A26F0600268345 /* NSObject+TMENotification.m */; };
 		99B2C1CD1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1CC1A1CF8F400332CAE /* TMECameraFilterSelectorVC.m */; };
 		99B2C1D01A1CF90700332CAE /* TMECameraFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C1CF1A1CF90700332CAE /* TMECameraFilterCell.m */; };
@@ -526,6 +527,8 @@
 		9992943F19E2F82B00896D05 /* TMEProductLikeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductLikeCell.m; sourceTree = "<group>"; };
 		9992944119E2F96D00896D05 /* TMEProductLikeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductLikeViewModel.h; sourceTree = "<group>"; };
 		9992944219E2F96D00896D05 /* TMEProductLikeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductLikeViewModel.m; sourceTree = "<group>"; };
+		99A3160F1A2370C300159958 /* NSDate+TMEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TMEAdditions.h"; sourceTree = "<group>"; };
+		99A316101A2370C300159958 /* NSDate+TMEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TMEAdditions.m"; sourceTree = "<group>"; };
 		99AA4B2019A26F0600268345 /* NSObject+TMENotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TMENotification.h"; sourceTree = "<group>"; };
 		99AA4B2119A26F0600268345 /* NSObject+TMENotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TMENotification.m"; sourceTree = "<group>"; };
 		99B2C1CB1A1CF8F400332CAE /* TMECameraFilterSelectorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMECameraFilterSelectorVC.h; sourceTree = "<group>"; };
@@ -1660,6 +1663,8 @@
 				9910BDFF19D07D7A00BAC139 /* NSString+TMEAdditions.m */,
 				D2E07CA71A1B02BD00D54014 /* UIImage+TMEAdditions.h */,
 				D2E07CA81A1B02BD00D54014 /* UIImage+TMEAdditions.m */,
+				99A3160F1A2370C300159958 /* NSDate+TMEAdditions.h */,
+				99A316101A2370C300159958 /* NSDate+TMEAdditions.m */,
 			);
 			name = Categories;
 			path = "3min-iOS/Categories";
@@ -3229,6 +3234,7 @@
 				99EA0F421978492D00872EE4 /* TMEBrowserProductsViewController.m in Sources */,
 				99EA0F5C1978492D00872EE4 /* TMEOfferedTableViewCell.m in Sources */,
 				B41394F719B721230080DAA8 /* TMEProduct+ProductCellHeight.m in Sources */,
+				99A316111A2370C300159958 /* NSDate+TMEAdditions.m in Sources */,
 				99EA0EFC1978492D00872EE4 /* TMEProductsManager.m in Sources */,
 				B63FE74F1A0A2BFB006AD188 /* TMEPusherImp.m in Sources */,
 				B470E4EA19AC320100F4FF18 /* TMEPaginationCollectionViewErrorDataSource.m in Sources */,
