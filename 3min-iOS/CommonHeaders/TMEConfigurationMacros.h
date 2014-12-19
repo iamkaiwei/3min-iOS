@@ -52,9 +52,6 @@
 
 #endif
 
-// Common
-#define APP_VERSION                                 ([[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey])
-
 // API Path
 #define API_SERVER_HOST                             ([NSString stringWithFormat:@"%@%@", API_BASE_URL, API_PREFIX])
 
