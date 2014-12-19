@@ -123,7 +123,7 @@
 
 - (void)loadImages:(TMEProduct *)product {
 	TMEProductImage *firstImage = [product.images firstObject];
-	[self.imgProduct tme_setImageWithURL:firstImage.mediumURL placeholderImage:nil];
+	[self.imgProduct tme_setImageWithURL:firstImage.mediumURL placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
 
 	NSURL *avatarUrl = [NSURL URLWithString:product.user.avatar];
 	[self.userAvatar tme_setImageWithURL:avatarUrl placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
