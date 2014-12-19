@@ -14,12 +14,11 @@
 #import "SVProgressHUD.h"
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/UIButton+AFNetworking.h>
-
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import "UINavigationController+SGProgress.h"
 #import "Reachability.h"
 #import "TSMessage.h"
 #import "KHRoundAvatar.h"
-#import <AFNetworking/AFNetworking.h>
 #import "TMECircleProgressIndicator.h"
 #import "UIImageView+CircleProgress.h"
 #import "UIImageView+AFNetworking.h"
