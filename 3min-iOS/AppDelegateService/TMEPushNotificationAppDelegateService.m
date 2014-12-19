@@ -57,7 +57,7 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    DLog(@"payload: %@", userInfo);
+    NSLog(@"remote notification payload: %@", userInfo);
     
     // FIXME: handle push notification
     UIApplicationState state = [[UIApplication sharedApplication] applicationState];
