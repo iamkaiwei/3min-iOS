@@ -217,6 +217,9 @@
 		99EA0F981978492D00872EE4 /* TMEBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EE61978492D00872EE4 /* TMEBaseTableViewCell.m */; };
 		99EA0F9F1978574000872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0F9C1978574000872EE4 /* UIViewController+YIFullScreenScroll.m */; };
 		99EA0FA01978574000872EE4 /* YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0F9E1978574000872EE4 /* YIFullScreenScroll.m */; };
+		A3BF00151A480E48009CE2C8 /* TMEUserItemsLoadingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BF00141A480E48009CE2C8 /* TMEUserItemsLoadingOperation.m */; };
+		A3BF00181A480F17009CE2C8 /* TMEUserItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BF00171A480F17009CE2C8 /* TMEUserItemsViewController.m */; };
+		A3BF001E1A4814AA009CE2C8 /* TMEUserItemsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3BF001D1A4814AA009CE2C8 /* TMEUserItemsViewController.storyboard */; };
 		B40D946819FA4B4C00432DD0 /* TMEBrowserProductPaginationCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B40D946719FA4B4C00432DD0 /* TMEBrowserProductPaginationCollectionViewDataSource.m */; };
 		B40D947F19FA4B9E00432DD0 /* TMEActivitiesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B40D946D19FA4B9E00432DD0 /* TMEActivitiesCollectionViewCell.m */; };
 		B40D948019FA4B9E00432DD0 /* TMEActivitiesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B40D946E19FA4B9E00432DD0 /* TMEActivitiesCollectionViewCell.xib */; };
@@ -822,6 +825,11 @@
 		99EA0F9C1978574000872EE4 /* UIViewController+YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YIFullScreenScroll.m"; sourceTree = "<group>"; };
 		99EA0F9D1978574000872EE4 /* YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YIFullScreenScroll.h; sourceTree = "<group>"; };
 		99EA0F9E1978574000872EE4 /* YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YIFullScreenScroll.m; sourceTree = "<group>"; };
+		A3BF00131A480E48009CE2C8 /* TMEUserItemsLoadingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEUserItemsLoadingOperation.h; path = "3min-iOS/Controllers/Home Page VC/Profile/Users/TMEUserItemsLoadingOperation.h"; sourceTree = SOURCE_ROOT; };
+		A3BF00141A480E48009CE2C8 /* TMEUserItemsLoadingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEUserItemsLoadingOperation.m; path = "3min-iOS/Controllers/Home Page VC/Profile/Users/TMEUserItemsLoadingOperation.m"; sourceTree = SOURCE_ROOT; };
+		A3BF00161A480F17009CE2C8 /* TMEUserItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEUserItemsViewController.h; path = "3min-iOS/Controllers/Home Page VC/Profile/Users/TMEUserItemsViewController.h"; sourceTree = SOURCE_ROOT; };
+		A3BF00171A480F17009CE2C8 /* TMEUserItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEUserItemsViewController.m; path = "3min-iOS/Controllers/Home Page VC/Profile/Users/TMEUserItemsViewController.m"; sourceTree = SOURCE_ROOT; };
+		A3BF001D1A4814AA009CE2C8 /* TMEUserItemsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TMEUserItemsViewController.storyboard; path = "3min-iOS/Controllers/Home Page VC/Profile/Users/TMEUserItemsViewController.storyboard"; sourceTree = SOURCE_ROOT; };
 		B40D946619FA4B4C00432DD0 /* TMEBrowserProductPaginationCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEBrowserProductPaginationCollectionViewDataSource.h; sourceTree = "<group>"; };
 		B40D946719FA4B4C00432DD0 /* TMEBrowserProductPaginationCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEBrowserProductPaginationCollectionViewDataSource.m; sourceTree = "<group>"; };
 		B40D946C19FA4B9E00432DD0 /* TMEActivitiesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEActivitiesCollectionViewCell.h; sourceTree = "<group>"; };
@@ -2124,6 +2132,13 @@
 			path = YIFullScreenScroll;
 			sourceTree = "<group>";
 		};
+		A37B74071A482D7800831E56 /* Feedbacks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Feedbacks;
+			sourceTree = "<group>";
+		};
 		B123B6AC5D4DC9A76FB12B3B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2200,6 +2215,7 @@
 		B40D947919FA4B9E00432DD0 /* Other profile */ = {
 			isa = PBXGroup;
 			children = (
+				A37B74071A482D7800831E56 /* Feedbacks */,
 				B40D947A19FA4B9E00432DD0 /* Relative Products */,
 				B40D947B19FA4B9E00432DD0 /* Top info */,
 			);
@@ -2209,6 +2225,11 @@
 		B40D947A19FA4B9E00432DD0 /* Relative Products */ = {
 			isa = PBXGroup;
 			children = (
+				A3BF00131A480E48009CE2C8 /* TMEUserItemsLoadingOperation.h */,
+				A3BF00141A480E48009CE2C8 /* TMEUserItemsLoadingOperation.m */,
+				A3BF00161A480F17009CE2C8 /* TMEUserItemsViewController.h */,
+				A3BF00171A480F17009CE2C8 /* TMEUserItemsViewController.m */,
+				A3BF001D1A4814AA009CE2C8 /* TMEUserItemsViewController.storyboard */,
 			);
 			path = "Relative Products";
 			sourceTree = "<group>";
@@ -2925,6 +2946,7 @@
 				990CB7D6199A75D400AEA179 /* TMETutorialViewController.xib in Resources */,
 				99EA0F721978492D00872EE4 /* TMESearchTableViewCell.xib in Resources */,
 				B41D6E641A00A4EB008EFF71 /* TMETopProfileCollectionViewCell.xib in Resources */,
+				A3BF001E1A4814AA009CE2C8 /* TMEUserItemsViewController.storyboard in Resources */,
 				D295D2F519E29FAD008B9BC4 /* TMESearchFilterViewController.xib in Resources */,
 				99EA0F941978492D00872EE4 /* TMELoadMoreTableViewCell.xib in Resources */,
 				99EA0F781978492D00872EE4 /* TMESubmitTableCellRight.xib in Resources */,
@@ -3246,6 +3268,7 @@
 				99EA0F5E1978492D00872EE4 /* TMEOfferedViewController.m in Sources */,
 				99EA0F0B1978492D00872EE4 /* TMEReply.m in Sources */,
 				99EA0EEC1978492D00872EE4 /* TMEFlurryAppDelegateService.m in Sources */,
+				A3BF00181A480F17009CE2C8 /* TMEUserItemsViewController.m in Sources */,
 				99EA0EFD1978492D00872EE4 /* TMEPusherManager.m in Sources */,
 				B40D947F19FA4B9E00432DD0 /* TMEActivitiesCollectionViewCell.m in Sources */,
 				B410F76719961AA5000AE5B7 /* TMEBaseManager.m in Sources */,
@@ -3347,6 +3370,7 @@
 				99EA0F331978492D00872EE4 /* UIView+Additions.m in Sources */,
 				D2B425001A1DDFD700FE6F65 /* IMGLYBrightnessFilter.m in Sources */,
 				99EA0F221978492D00872EE4 /* NSString+Additions.m in Sources */,
+				A3BF00151A480E48009CE2C8 /* TMEUserItemsLoadingOperation.m in Sources */,
 				D2B425461A1DDFD700FE6F65 /* IMGLYPolaFilter.m in Sources */,
 				D2B425341A1DDFD700FE6F65 /* IMGLYHippieFilter.m in Sources */,
 				99EA0F8D1978492D00872EE4 /* PBImageHelper.m in Sources */,

@@ -24,6 +24,18 @@
                                          failure:failureBlock];
 }
 
++ (void)getProductsFromUserID:(NSNumber *)userID
+               onSuccessBlock:(void (^)(NSArray *))successBlock
+                 failureBlock:(TMENetworkManagerFailureBlock)failureBlock
+{
+    NSString *path = [NSString stringWithFormat:@"%@/%@/products", API_USER, userID];
+    [[TMENetworkManager sharedManager] getModels:[TMEProduct class]
+                                            path:path
+                                          params:nil
+                                         success:successBlock
+                                         failure:failureBlock];
+}
+
 + (void)getOwnProductsWihPage:(NSInteger)page
                onSuccessBlock:(void (^) (NSArray *))successBlock
                  failureBlock:(TMENetworkManagerFailureBlock)failureBlock
