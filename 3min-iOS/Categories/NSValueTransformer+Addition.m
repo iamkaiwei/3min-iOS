@@ -13,15 +13,16 @@ NSString *const DimensionsValueTransformerName = @"DimensionsValueTransformerNam
 @implementation NSValueTransformer (Addition)
 
 + (void)load {
-	MTLValueTransformer *dimValueTransformer = [MTLValueTransformer
-	                                            reversibleTransformerWithBlock: ^id (NSArray *dim) {
-	    if (![dim isKindOfClass:NSArray.class]) return nil;
-	    if (dim.count != 2) return nil;
-	    CGSize dimensions = CGSizeMake([dim[0] floatValue], [dim[1] floatValue]);
-	    return [NSValue valueWithCGSize:dimensions];
-	}];
-
-	[NSValueTransformer setValueTransformer:dimValueTransformer forName:DimensionsValueTransformerName];
+    MTLValueTransformer *dimValueTransformer = [MTLValueTransformer
+                                                reversibleTransformerWithBlock: ^id (NSArray *dim) {
+                                                    CGSize defaultSize = CGSizeMake(150, 200);
+                                                    if (![dim isKindOfClass:NSArray.class]) return [NSValue valueWithCGSize:defaultSize];
+                                                    if (dim.count != 2) return [NSValue valueWithCGSize:defaultSize];
+                                                    CGSize dimensions = CGSizeMake([dim[0] floatValue], [dim[1] floatValue]);
+                                                    return [NSValue valueWithCGSize:dimensions];
+                                                }];
+    
+    [NSValueTransformer setValueTransformer:dimValueTransformer forName:DimensionsValueTransformerName];
 }
 
 @end
