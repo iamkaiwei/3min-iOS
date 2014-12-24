@@ -9,6 +9,6 @@
 #import <KHTableViewController/KHBasicOrderedCollectionViewController.h>
 
 @interface TMEUserItemsViewController : KHBasicOrderedCollectionViewController
-@property (nonatomic, strong) NSNumber *userID;
+@property (nonatomic, strong) TMEUser *user;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @end

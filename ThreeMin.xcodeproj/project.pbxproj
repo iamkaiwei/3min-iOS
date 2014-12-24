@@ -217,6 +217,8 @@
 		99EA0F981978492D00872EE4 /* TMEBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0EE61978492D00872EE4 /* TMEBaseTableViewCell.m */; };
 		99EA0F9F1978574000872EE4 /* UIViewController+YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0F9C1978574000872EE4 /* UIViewController+YIFullScreenScroll.m */; };
 		99EA0FA01978574000872EE4 /* YIFullScreenScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0F9E1978574000872EE4 /* YIFullScreenScroll.m */; };
+		A39428EF1A4A5E9B006C86AA /* TMEFeedbackView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39428EE1A4A5E9B006C86AA /* TMEFeedbackView.m */; };
+		A39428F11A4A5EBD006C86AA /* TMEFeedbackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39428F01A4A5EBD006C86AA /* TMEFeedbackView.xib */; };
 		A3BF00151A480E48009CE2C8 /* TMEUserItemsLoadingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BF00141A480E48009CE2C8 /* TMEUserItemsLoadingOperation.m */; };
 		A3BF00181A480F17009CE2C8 /* TMEUserItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BF00171A480F17009CE2C8 /* TMEUserItemsViewController.m */; };
 		A3BF001E1A4814AA009CE2C8 /* TMEUserItemsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3BF001D1A4814AA009CE2C8 /* TMEUserItemsViewController.storyboard */; };
@@ -825,6 +827,9 @@
 		99EA0F9C1978574000872EE4 /* UIViewController+YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YIFullScreenScroll.m"; sourceTree = "<group>"; };
 		99EA0F9D1978574000872EE4 /* YIFullScreenScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YIFullScreenScroll.h; sourceTree = "<group>"; };
 		99EA0F9E1978574000872EE4 /* YIFullScreenScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YIFullScreenScroll.m; sourceTree = "<group>"; };
+		A39428ED1A4A5E9B006C86AA /* TMEFeedbackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEFeedbackView.h; path = "3min-iOS/Controllers/Home Page VC/Profile/Users/TMEFeedbackView.h"; sourceTree = SOURCE_ROOT; };
+		A39428EE1A4A5E9B006C86AA /* TMEFeedbackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEFeedbackView.m; path = "3min-iOS/Controllers/Home Page VC/Profile/Users/TMEFeedbackView.m"; sourceTree = SOURCE_ROOT; };
+		A39428F01A4A5EBD006C86AA /* TMEFeedbackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TMEFeedbackView.xib; path = "3min-iOS/Controllers/Home Page VC/Profile/Users/TMEFeedbackView.xib"; sourceTree = SOURCE_ROOT; };
 		A3BF00131A480E48009CE2C8 /* TMEUserItemsLoadingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEUserItemsLoadingOperation.h; path = "3min-iOS/Controllers/Home Page VC/Profile/Users/TMEUserItemsLoadingOperation.h"; sourceTree = SOURCE_ROOT; };
 		A3BF00141A480E48009CE2C8 /* TMEUserItemsLoadingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMEUserItemsLoadingOperation.m; path = "3min-iOS/Controllers/Home Page VC/Profile/Users/TMEUserItemsLoadingOperation.m"; sourceTree = SOURCE_ROOT; };
 		A3BF00161A480F17009CE2C8 /* TMEUserItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMEUserItemsViewController.h; path = "3min-iOS/Controllers/Home Page VC/Profile/Users/TMEUserItemsViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -2230,6 +2235,9 @@
 				A3BF00161A480F17009CE2C8 /* TMEUserItemsViewController.h */,
 				A3BF00171A480F17009CE2C8 /* TMEUserItemsViewController.m */,
 				A3BF001D1A4814AA009CE2C8 /* TMEUserItemsViewController.storyboard */,
+				A39428ED1A4A5E9B006C86AA /* TMEFeedbackView.h */,
+				A39428EE1A4A5E9B006C86AA /* TMEFeedbackView.m */,
+				A39428F01A4A5EBD006C86AA /* TMEFeedbackView.xib */,
 			);
 			path = "Relative Products";
 			sourceTree = "<group>";
@@ -2927,6 +2935,7 @@
 				B40D948019FA4B9E00432DD0 /* TMEActivitiesCollectionViewCell.xib in Resources */,
 				99EA0F7A1978492D00872EE4 /* TMESubmitViewController.xib in Resources */,
 				99EA0F4F1978492D00872EE4 /* TMELeftMenuTableViewCell.xib in Resources */,
+				A39428F11A4A5EBD006C86AA /* TMEFeedbackView.xib in Resources */,
 				B4AE17F4198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib in Resources */,
 				B4F513D719AEDCB9003DE851 /* TMEDropDownMenuViewController.xib in Resources */,
 				998A11291A1B98B3007F62FF /* EditProductLocation.storyboard in Resources */,
@@ -3353,6 +3362,7 @@
 				998A11271A1B98A9007F62FF /* TMEEditProductLocationVC.m in Sources */,
 				B4AE17DD198EAE1F00F6D601 /* TMEHomePageViewController.m in Sources */,
 				99EA0F791978492D00872EE4 /* TMESubmitViewController.m in Sources */,
+				A39428EF1A4A5E9B006C86AA /* TMEFeedbackView.m in Sources */,
 				99EA0F401978492D00872EE4 /* TMEBrowserProductsTableCell.m in Sources */,
 				99EA0F7C1978492D00872EE4 /* TMEBaseArrayDataSource.m in Sources */,
 				99EA0F981978492D00872EE4 /* TMEBaseTableViewCell.m in Sources */,

@@ -12,23 +12,33 @@
 #import <KHTableViewController/KHOrderedDataProvider.h>
 #import "TMEUserItemsLoadingOperation.h"
 #import "TMEBrowserProductCellFactory.h"
+#import "TMEFeedback.h"
+#import "TMEFeedbackView.h"
+#import "TMEFeedbacksVC.h"
 
 @interface TMEUserItemsViewController ()
 <
 UICollectionViewDelegateFlowLayout,
 TMEProductCollectionViewCellDelegate,
-KHBasicOrderedCollectionViewControllerProtocol
+KHBasicOrderedCollectionViewControllerProtocol,
+TMEFeedbackViewDelegate
 >
 
+@property (nonatomic, copy) NSArray *feedbacks;
 @end
 
 @implementation TMEUserItemsViewController
 
+#pragma mark - View Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self handleFeedback];
     [self enablePullToRefresh];
 }
+
+#pragma mark - Setup
 
 - (id <KHCollectionViewCellFactoryProtocol> )cellFactory
 {
@@ -43,6 +53,9 @@ KHBasicOrderedCollectionViewControllerProtocol
     layout.columnCount = 2;
     layout.minimumColumnSpacing = 5;
     layout.minimumInteritemSpacing = 6;
+    // inset
+    UIEdgeInsets feedbackInset = UIEdgeInsetsMake(180.f, 0, 0, 0);
+    layout.sectionInset = self.feedbacks.count > 0 ? feedbackInset : UIEdgeInsetsZero;
     return layout;
 }
 
@@ -53,7 +66,7 @@ KHBasicOrderedCollectionViewControllerProtocol
 
 - (id <KHLoadingOperationProtocol> )loadingOperationForSectionViewModel:(id <KHTableViewSectionModel> )viewModel forPage:(NSUInteger)page
 {
-    return [[TMEUserItemsLoadingOperation alloc] initWithUserID:[self.userID unsignedIntegerValue] page:page + 1];
+    return [[TMEUserItemsLoadingOperation alloc] initWithUserID:[self.user.userID unsignedIntegerValue] page:page + 1];
 }
 
 #pragma mark - Collection delegate
@@ -61,6 +74,7 @@ KHBasicOrderedCollectionViewControllerProtocol
 - (void)tapOnDetailsProductOnCell:(TMEProductCollectionViewCell *)cell
 {
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+    
     TMEProduct *product = (TMEProduct *)[self itemAtIndexPath:indexPath];
     ProductCollectionCellAct(self, product, TMEProductCollectionCellGoDetails);
 }
@@ -91,6 +105,46 @@ KHBasicOrderedCollectionViewControllerProtocol
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
     TMEProduct *product = (TMEProduct *)[self itemAtIndexPath:indexPath];
     ProductCollectionCellAct(self, product, TMEProductCollectionCellViewProfile);
+}
+
+#pragma mark - Get Feedbacks
+
+- (void)handleFeedback
+{
+    [TMEFeedbackClient getFeedbacksForUser:self.user success:^(NSArray *feedbacks) {
+        self.feedbacks = feedbacks;
+        NSUInteger feedbackCount = feedbacks.count;
+        if (feedbackCount > 0) {
+            TMEFeedbackView *feedbackView = [TMEFeedbackView new];
+            [self.collectionView addSubview:feedbackView];
+            feedbackView.feedbackViewDelegate = self;
+            [feedbackView.viewFeedbackButton setTitle:[NSString stringWithFormat:@"View %@ feedbacks", @(feedbackCount)]
+                                             forState:UIControlStateNormal];
+            
+            TMEFeedback *feedback = [feedbacks firstObject];
+            feedbackView.feedback = feedback;
+            [self.collectionView layoutIfNeeded];
+        }
+    } failure:^(NSError *error) {
+        DLog(@"%@", error);
+        [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+    }];
+}
+
+#pragma mark - View delegate
+
+- (void)didTapViewFeedbackButton:(UIButton *)button
+{
+    TMEFeedbacksVC *vc = [TMEFeedbacksVC tme_instantiateFromStoryboardNamed:@"Feedback"];
+    vc.user = self.user;
+    
+    if (IS_IOS8_OR_ABOVE) {
+        vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    } else {
+        self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    }
+    
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

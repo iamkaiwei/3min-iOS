@@ -11,20 +11,10 @@
 #import "TMEOtherTopProfileViewController.h"
 #import "TMEListActiviesViewController.h"
 #import "TMEUserItemsViewController.h"
-#import "TMEFeedbacksVC.h"
-#import "TMEFeedback.h"
 
 @interface TMEProfilePageContentViewController ()
-
 @property (strong, nonatomic) UIViewController *topVC;
 @property (strong, nonatomic) UIViewController *activitiesVC;
-@property (weak, nonatomic) IBOutlet UIView *lineView;
-@property (weak, nonatomic) IBOutlet UIButton *viewFeedbackButton;
-@property (weak, nonatomic) IBOutlet UIView *feedbackView;
-@property (weak, nonatomic) IBOutlet KHRoundAvatar *feedbackUserAvatar;
-@property (weak, nonatomic) IBOutlet UILabel *feedbackUserName;
-@property (weak, nonatomic) IBOutlet UILabel *feedbackTime;
-@property (weak, nonatomic) IBOutlet UILabel *feedbackLabel;
 @property (nonatomic, strong) TMEUserItemsViewController *userItemsViewController;
 @end
 
@@ -35,13 +25,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self setupFeedbackButton];
     [self setupNavigationBar];
     [self setupContainerControllers];
-    
-    // -- Need to handle feedbacks
-    // [self handleFeedbacks];
 }
 
 - (void)updateViewConstraints
@@ -82,37 +67,6 @@
     [activitiesVC didMoveToParentViewController:self];
     self.activitiesVC = activitiesVC;
     [self.view layoutIfNeeded];
-}
-
-- (void)handleFeedbacks
-{
-    [self.view bringSubviewToFront:self.viewFeedbackButton];
-    [self.view bringSubviewToFront:self.lineView];
-    [TMEFeedbackClient getFeedbacksForUser:self.user success:^(NSArray *array) {
-        NSUInteger feedbackCount = array.count;
-        if (feedbackCount > 0) {
-            [self.view bringSubviewToFront:self.feedbackView];
-            [self.viewFeedbackButton setTitle:[NSString stringWithFormat:@"View %@ feedbacks", @(feedbackCount)]
-                                     forState:UIControlStateNormal];
-            TMEFeedback *feedback = [array firstObject];
-            [self.feedbackUserAvatar setImageWithURL:[NSURL URLWithString:feedback.user.avatar]
-                                    placeholderImage:[UIImage imageNamed:@"avatar_holding"]];
-            self.feedbackUserName.text = feedback.user.fullName;
-            self.feedbackTime.text = feedback.updatedAt.agoString;
-            self.feedbackLabel.text = feedback.content;
-        }
-    } failure:^(NSError *error) {
-        DLog(@"%@", error);
-        [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-    }];
-}
-
-- (void)setupFeedbackButton
-{
-    self.viewFeedbackButton.layer.borderColor = [UIColor orangeMainColor].CGColor;
-    self.viewFeedbackButton.layer.borderWidth = 1.f;
-    self.viewFeedbackButton.layer.cornerRadius = 14.f;
-    self.viewFeedbackButton.titleLabel.textColor = [UIColor orangeMainColor];
 }
 
 - (void)setupNavigationBar
@@ -170,27 +124,13 @@
     if (!_userItemsViewController) {
         _userItemsViewController = [TMEUserItemsViewController
                                     tme_instantiateFromStoryboardNamed:NSStringFromClass([TMEUserItemsViewController class])];
-        _userItemsViewController.userID = self.user.userID;
+        _userItemsViewController.user = self.user;
     }
 
     return _userItemsViewController;
 }
 
 #pragma mark - Action
-
-- (IBAction)viewFeedbackTouched:(id)sender
-{
-    TMEFeedbacksVC *vc = [TMEFeedbacksVC tme_instantiateFromStoryboardNamed:@"Feedback"];
-    vc.user = self.user;
-    
-    if (IS_IOS8_OR_ABOVE) {
-        vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    } else {
-        self.modalPresentationStyle = UIModalPresentationCurrentContext;
-    }
-    
-    [self presentViewController:vc animated:YES completion:nil];
-}
 
 - (void)didPressBackBarButton:(UIBarButtonItem *)sender
 {

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Emf-Qj-Joq">
-                                <rect key="frame" x="8" y="57" width="584" height="543"/>
+                                <rect key="frame" x="8" y="49" width="584" height="580"/>
                                 <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ozc-Mu-OM4">
                                     <size key="itemSize" width="50" height="50"/>
@@ -39,10 +39,11 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09d-Du-dkB">
-                                <rect key="frame" x="105" y="28" width="123" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3U-hu-IqW">
+                                <rect key="frame" x="131" y="20" width="60" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="123" id="pp6-kG-Gkh"/>
+                                    <constraint firstAttribute="width" constant="60" id="39h-Ib-rTC"/>
+                                    <constraint firstAttribute="height" constant="21" id="6Z1-BU-FsJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -51,12 +52,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="S3U-hu-IqW" firstAttribute="leading" secondItem="jZn-A3-jpm" secondAttribute="leadingMargin" constant="115" id="8Ih-jV-gng"/>
+                            <constraint firstItem="Emf-Qj-Joq" firstAttribute="top" secondItem="S3U-hu-IqW" secondAttribute="bottom" constant="8" id="CT8-iU-JHM"/>
                             <constraint firstItem="Emf-Qj-Joq" firstAttribute="leading" secondItem="jZn-A3-jpm" secondAttribute="leadingMargin" constant="-8" id="OL9-r2-AK8"/>
-                            <constraint firstItem="M57-jK-TZY" firstAttribute="top" secondItem="Emf-Qj-Joq" secondAttribute="bottom" id="eMr-Zz-V7b"/>
+                            <constraint firstItem="M57-jK-TZY" firstAttribute="top" secondItem="Emf-Qj-Joq" secondAttribute="bottom" constant="-29" id="eMr-Zz-V7b"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Emf-Qj-Joq" secondAttribute="trailing" constant="-8" id="fyc-bo-m16"/>
-                            <constraint firstItem="09d-Du-dkB" firstAttribute="top" secondItem="lt6-ss-m1H" secondAttribute="bottom" constant="8" id="lt5-ry-Xal"/>
-                            <constraint firstItem="09d-Du-dkB" firstAttribute="leading" secondItem="jZn-A3-jpm" secondAttribute="leadingMargin" constant="89" id="xwl-TY-oFl"/>
-                            <constraint firstItem="Emf-Qj-Joq" firstAttribute="top" secondItem="lt6-ss-m1H" secondAttribute="bottom" constant="37" id="y5s-bD-j46"/>
+                            <constraint firstItem="S3U-hu-IqW" firstAttribute="top" secondItem="lt6-ss-m1H" secondAttribute="bottom" id="y0m-8m-Na2"/>
                         </constraints>
                     </view>
                     <connections>
@@ -65,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZC-2q-frR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175" y="344"/>
+            <point key="canvasLocation" x="174" y="362"/>
         </scene>
     </scenes>
 </document>
