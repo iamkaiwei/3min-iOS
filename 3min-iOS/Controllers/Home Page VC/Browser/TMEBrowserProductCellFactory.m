@@ -11,6 +11,7 @@
 #import "TMEProduct+ProductCellHeight.h"
 #import "TMEProductCollectionViewCell.h"
 #import "KHOrderedDataProvider.h"
+#import "TMELoadMoreCollectionViewCell.h"
 
 @interface TMEBrowserProductCellFactory()
 
@@ -41,7 +42,7 @@
 	}
 
     if ([[model sectionAtIndex:indexPath.section] isKindOfClass:[KHLoadMoreSection class]]) {
-        return nil;
+        return [[[KHCollectionContentLoadingCellFactory alloc] init] collectionView:collection cellAtIndexPath:indexPath withModel:model];
     }
 
 	TMEProductCollectionViewCell <KHCellProtocol> *cell = (TMEProductCollectionViewCell <KHCellProtocol> *) [self _getReusableCellWithClass:[TMEProductCollectionViewCell class] collectionView:collection atIndexPath:indexPath];
