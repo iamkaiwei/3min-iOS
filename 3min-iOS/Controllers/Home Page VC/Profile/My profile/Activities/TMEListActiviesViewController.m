@@ -15,8 +15,8 @@ static const CGFloat kPaddingBottom = 10.0f;
 
 @interface TMEListActiviesViewController ()
 <
-    UICollectionViewDelegateFlowLayout,
-    UICollectionViewDataSource
+UICollectionViewDelegateFlowLayout,
+UICollectionViewDataSource
 >
 
 @property (strong, nonatomic) RZCellSizeManager *sizeManager;
@@ -30,44 +30,46 @@ static const CGFloat kPaddingBottom = 10.0f;
 @implementation TMEListActiviesViewController
 
 - (void)viewDidLoad {
-	[super viewDidLoad];
-	// Do any additional setup after loading the view from its nib.
-	self.sizeManager = [[RZCellSizeManager alloc] init];
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
 
-	[self.collectionActivities registerNib:[TMEActivitiesCollectionViewCell defaultNib]
-	            forCellWithReuseIdentifier:[TMEActivitiesCollectionViewCell kind]];
-
-	[self.sizeManager registerCellClassName:[TMEActivitiesCollectionViewCell kind]
-	                           withNibNamed:[TMEActivitiesCollectionViewCell kind]
-	                         forObjectClass:[TMEActivity class] withConfigurationBlock:^(TMEActivitiesCollectionViewCell *cell, id object) {
-                                 [cell configWithData:object];
-                             }];
-
-	self.viewModel = [[TMEListActivitiesViewModel alloc] init];
-	[self.viewModel reloadWithDoneBlock: ^(NSArray *items, NSError *error) {
-	    [self.collectionActivities reloadData];
-	}];
-
+    self.sizeManager = [[RZCellSizeManager alloc] init];
+    
+    [self.collectionActivities registerNib:[TMEActivitiesCollectionViewCell defaultNib]
+                forCellWithReuseIdentifier:[TMEActivitiesCollectionViewCell kind]];
+    
+    [self.sizeManager registerCellClassName:[TMEActivitiesCollectionViewCell kind]
+                               withNibNamed:[TMEActivitiesCollectionViewCell kind]
+                             forObjectClass:[TMEActivity class]
+                     withConfigurationBlock:^(TMEActivitiesCollectionViewCell *cell, id object) {
+                         [cell configWithData:object];
+                     }];
+    
+    self.viewModel = [[TMEListActivitiesViewModel alloc] init];
+    [self.viewModel reloadWithDoneBlock: ^(NSArray *items, NSError *error) {
+        [self.collectionActivities reloadData];
+    }];
+    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-	// Retrieve our object to give to our size manager.
-	id object = [self.viewModel itemAtIndexPath:indexPath];
-	CGFloat height = [self.sizeManager cellHeightForObject:object
-	                                             indexPath:indexPath
-	                                   cellReuseIdentifier:[TMEActivitiesCollectionViewCell kind]];
-	return CGSizeMake(self.view.width, height);
+    // Retrieve our object to give to our size manager.
+    id object = [self.viewModel itemAtIndexPath:indexPath];
+    CGFloat height = [self.sizeManager cellHeightForObject:object
+                                                 indexPath:indexPath
+                                       cellReuseIdentifier:[TMEActivitiesCollectionViewCell kind]];
+    return CGSizeMake(self.view.width, height);
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-	return [self.viewModel numberOfItems];
+    return [self.viewModel numberOfItems];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-	TMEActivitiesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[TMEActivitiesCollectionViewCell kind] forIndexPath:indexPath];
-	id object = [self.viewModel itemAtIndexPath:indexPath];
-	[cell configWithData:object];
-	return cell;
+    TMEActivitiesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[TMEActivitiesCollectionViewCell kind] forIndexPath:indexPath];
+    id object = [self.viewModel itemAtIndexPath:indexPath];
+    [cell configWithData:object];
+    return cell;
 }
 
 @end

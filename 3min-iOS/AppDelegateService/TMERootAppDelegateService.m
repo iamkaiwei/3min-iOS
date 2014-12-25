@@ -12,9 +12,6 @@
 #import "TMEPageViewController.h"
 #import "TMEHomeNavigationViewController.h"
 
-// DOTO: Remove
-#import <IIViewDeckController.h>
-
 @interface TMERootAppDelegateService ()
 
 @property (strong, nonatomic) IIViewDeckController *deckController;
@@ -29,29 +26,30 @@
     if (self) {
         [self registerNotifications];
         [self setMaxConcurrencyRequest];
+        [self setNetworkingStatusBarActivityIndicator];
     }
-
+    
     return self;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.appDelegate.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-
+    
     UIWindow *window = self.appDelegate.window;
-
+    
     if ([TMEUserManager sharedManager].loggedUser) {
         [self showHomeViewController];
     } else {
         [self showLoginViewController];
     }
-
+    
     [window makeKeyAndVisible];
-
+    
 #ifdef DEBUG
     [[FLEXManager sharedManager] showExplorer];
 #endif
-
+    
     return YES;
 }
 
@@ -71,41 +69,41 @@
 {
     TMEPageViewController *pageVC = [[TMEPageViewController alloc] init];
     TMEHomeNavigationViewController *homeNC = [[TMEHomeNavigationViewController alloc] initWithRootViewController:pageVC];
-
- 	IIViewDeckController *deckController =  [[IIViewDeckController alloc] initWithCenterViewController:homeNC leftViewController:nil];
-
- 	self.deckController = deckController;
+    
+    IIViewDeckController *deckController =  [[IIViewDeckController alloc] initWithCenterViewController:homeNC leftViewController:nil];
+    
+    self.deckController = deckController;
     // FIXME: Leave it for now
     [self switchRootViewController:self.deckController animated:YES completion:nil];
     return;
-
+    
     if (![[TMEUserManager sharedManager] loggedUser] && [TMEReachabilityManager isReachable]) {
         [SVProgressHUD showWithStatus:NSLocalizedString(@"Login...", nil) maskType:SVProgressHUDMaskTypeGradient];
-
+        
         // FIXME: fix this stuff
         /*
-        [[TMEUserManager sharedManager] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
-            [[TMEUserManager sharedManager] setLoggedUser:tmeUser andFacebookUser:nil];
-            [self updateUAAlias];
-
-            [self switchRootViewController:self.deckController animated:YES completion:nil];
-            UITabBarController *tabBarController = (UITabBarController *)self.deckController.centerController;
-            tabBarController.selectedIndex = 0;
-        } andFailureBlock:^(id obj) {
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Login failed", nil)];
-        }];
+         [[TMEUserManager sharedManager] loginBySendingFacebookWithSuccessBlock:^(TMEUser *tmeUser) {
+         [[TMEUserManager sharedManager] setLoggedUser:tmeUser andFacebookUser:nil];
+         [self updateUAAlias];
+         
+         [self switchRootViewController:self.deckController animated:YES completion:nil];
+         UITabBarController *tabBarController = (UITabBarController *)self.deckController.centerController;
+         tabBarController.selectedIndex = 0;
+         } andFailureBlock:^(id obj) {
+         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Login failed", nil)];
+         }];
          */
-
+        
         return;
     }
-
+    
     if (![TMEReachabilityManager isReachable]) {
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No connection!", nil)];
-
+        
         return;
     }
-
-//    [self updateUAAlias];
+    
+    //    [self updateUAAlias];
     [self switchRootViewController:self.deckController animated:YES completion:nil];
 }
 
@@ -119,14 +117,14 @@
 {
     if (!_deckController) {
         TMELeftMenuViewController* leftController = [[TMELeftMenuViewController alloc] init];
-
+        
         TMEHomeViewController *rootVC = [[TMEHomeViewController alloc] init];
-
+        
         IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:rootVC leftViewController:leftController];
-
+        
         [deckController setNavigationControllerBehavior:IIViewDeckNavigationControllerIntegrated];
         [deckController setCenterhiddenInteractivity:IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing];
-
+        
         _deckController = deckController;
     }
     
@@ -138,7 +136,7 @@
                       completion:(void (^)())completion
 {
     UIWindow *window = self.appDelegate.window;
-
+    
     if (animated) {
         [UIView transitionWithView:window
                           duration:0.3
@@ -171,11 +169,11 @@
 - (void)handleUserDidLoginNotification:(NSNotification *)note
 {
     [self showHomeViewController];
-
+    
     // FIXME: This is for push notification
     if (note.userInfo && [note.userInfo objectForKey:@"index"]) {
         NSNumber *index = [note.userInfo objectForKey:@"index"];
-
+        
         UITabBarController *homeController = (UITabBarController *)self.deckController.centerController;
         [homeController setSelectedIndex:[index integerValue]];
     }
@@ -186,9 +184,15 @@
     [self showLoginViewController];
 }
 
-
-- (void)setMaxConcurrencyRequest {
+- (void)setMaxConcurrencyRequest
+{
     [[[AFHTTPRequestOperationManager manager] operationQueue] setMaxConcurrentOperationCount:4];
+}
+
+- (void)setNetworkingStatusBarActivityIndicator
+{
+    // Manages the state of the network activity indicator in the status bar
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 }
 
 @end

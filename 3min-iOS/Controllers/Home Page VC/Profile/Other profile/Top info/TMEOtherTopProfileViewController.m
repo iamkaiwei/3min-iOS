@@ -48,7 +48,7 @@
 - (void)_configTheButton {
 	self.btnFollow.layer.borderWidth = 1;
 	self.btnFollow.layer.borderColor = [UIColor orangeMainColor].CGColor;
-	self.btnFollow.layer.cornerRadius = 4.0f;
+	self.btnFollow.layer.cornerRadius = 14.0f;
 	self.btnFollow.layer.masksToBounds = YES;
 }
 

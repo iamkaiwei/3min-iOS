@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="zfH-II-C1U" customClass="TMEFeedbackView">
+            <rect key="frame" x="0.0" y="0.0" width="310" height="180"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9x-MF-uWp">
+                    <rect key="frame" x="80" y="116" width="150" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="bay-ci-ntQ"/>
+                        <constraint firstAttribute="height" constant="44" id="ez0-Zj-KTR"/>
+                    </constraints>
+                    <state key="normal" title="View feedbacks">
+                        <color key="titleColor" red="1" green="0.40000000000000002" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gBK-KM-YB1">
+                    <rect key="frame" x="0.0" y="175" width="310" height="1"/>
+                    <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xsc-t9-w9Q">
+                    <rect key="frame" x="10" y="8" width="290" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mika" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BJ-Ml-QKj">
+                            <rect key="frame" x="60" y="8" width="222" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_holding" translatesAutoresizingMaskIntoConstraints="NO" id="v9e-7P-XPN" customClass="KHRoundAvatar">
+                            <rect key="frame" x="8" y="8" width="40" height="40"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uic-dZ-CS2">
+                            <rect key="frame" x="60" y="29" width="124" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" placeholderIntrinsicWidth="245" placeholderIntrinsicHeight="25" text="Feedback" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNC-H3-lLI">
+                            <rect key="frame" x="8" y="47" width="274" height="45"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="d9x-MF-uWp" firstAttribute="top" secondItem="zfH-II-C1U" secondAttribute="top" constant="116" id="N9K-hx-cBD"/>
+                <constraint firstItem="d9x-MF-uWp" firstAttribute="leading" secondItem="zfH-II-C1U" secondAttribute="leading" constant="80" id="k9D-uh-rmn"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="feedbackLabel" destination="yNC-H3-lLI" id="tUc-aE-EbK"/>
+                <outlet property="feedbackTime" destination="Uic-dZ-CS2" id="XGY-m9-zMY"/>
+                <outlet property="feedbackUserAvatar" destination="v9e-7P-XPN" id="TmO-04-UEL"/>
+                <outlet property="feedbackUserName" destination="8BJ-Ml-QKj" id="fwC-S0-PgR"/>
+                <outlet property="feedbackView" destination="xsc-t9-w9Q" id="UPL-d9-0qD"/>
+                <outlet property="viewFeedbackButton" destination="d9x-MF-uWp" id="Xzi-Ni-yAi"/>
+            </connections>
+            <point key="canvasLocation" x="503" y="295"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="avatar_holding" width="30" height="30"/>
+    </resources>
+</document>

@@ -14,6 +14,10 @@
                onSuccessBlock:(void (^)(NSArray *))successBlock
                  failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
 
++ (void)getProductsFromUserID:(NSNumber *)userID
+               onSuccessBlock:(void (^)(NSArray *))successBlock
+                 failureBlock:(TMENetworkManagerFailureBlock)failureBlock;
+
 + (void)getProductsOfCategory:(TMECategory *)category
                      withPage:(NSInteger)page
                onSuccessBlock:(void (^) (NSArray *))successBlock

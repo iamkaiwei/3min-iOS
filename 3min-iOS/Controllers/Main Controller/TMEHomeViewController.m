@@ -7,11 +7,11 @@
 //
 
 typedef NS_ENUM(NSInteger, TMETabbarButtonType){
-  TMETabbarButtonTypeBrowser  = 0,
-  TMETabbarButtonTypeSearch   = 1,
-  TMETabbarButtonTypeSell     = 2,
-  TMETabbarButtonTypeActivity = 3,
-  TMETabbarButtonTypeMe       = 4
+    TMETabbarButtonTypeBrowser  = 0,
+    TMETabbarButtonTypeSearch   = 1,
+    TMETabbarButtonTypeSell     = 2,
+    TMETabbarButtonTypeActivity = 3,
+    TMETabbarButtonTypeMe       = 4
 };
 
 #import "TMEBrowserCollectionViewController.h"
@@ -46,21 +46,21 @@ UIImagePickerControllerDelegate
 {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"Main Menu", nil);
-
-
-
+    
+    
+    
     self.viewControllers = @[];
-
+    
     [self addBrowserProductTab];
     [self addSearchButton];
     [self addPublishButton];
     [self addActivityButton];
     [self addMeButton];
     [self addFakeStatusBar];
-
+    
     [self.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbar-background"]];
     [self.tabBar setSelectionIndicatorImage:[[UIImage alloc] init]];
-
+    
 }
 
 #pragma marks - UI helper
@@ -68,16 +68,16 @@ UIImagePickerControllerDelegate
 - (void)addViewController:(UIViewController *)viewController
              withIconName:(NSString *)iconName
 {
-  NSMutableArray *VCs = [self.viewControllers mutableCopy];
-  
-  if (!VCs)
-    VCs = [@[] mutableCopy];
-  
-  [VCs addObject:viewController];
-  self.viewControllers = VCs;
-  
-  NSInteger index = [self.viewControllers indexOfObject:viewController];
-  [self createTabbarButtonWithIconName:iconName atIndex:index];
+    NSMutableArray *VCs = [self.viewControllers mutableCopy];
+    
+    if (!VCs)
+        VCs = [@[] mutableCopy];
+    
+    [VCs addObject:viewController];
+    self.viewControllers = VCs;
+    
+    NSInteger index = [self.viewControllers indexOfObject:viewController];
+    [self createTabbarButtonWithIconName:iconName atIndex:index];
 }
 
 
@@ -95,50 +95,50 @@ UIImagePickerControllerDelegate
 
 - (void)addBrowserProductTab
 {
-  HTKContainerViewController *browserContainerVC = [[HTKContainerViewController alloc] init];
-  TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserContainerVC];
-  
-  [self addViewController:navigationViewController
-             withIconName:@"tabbar-browser-icon"];
+    HTKContainerViewController *browserContainerVC = [[HTKContainerViewController alloc] init];
+    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:browserContainerVC];
+    
+    [self addViewController:navigationViewController
+               withIconName:@"tabbar-browser-icon"];
 }
 
 - (void)addSearchButton
 {
-  TMESearchViewController *searchVC = [[TMESearchViewController alloc] init];
-  TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:searchVC];
-  
-  [self addViewController:navigationViewController
-             withIconName:@"tabbar-search-icon"];
+    TMESearchViewController *searchVC = [[TMESearchViewController alloc] init];
+    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:searchVC];
+    
+    [self addViewController:navigationViewController
+               withIconName:@"tabbar-search-icon"];
 }
 
 - (void)addActivityButton
 {
-  TMEActivityViewController *activityVC = [[TMEActivityViewController alloc] init];
-  TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:activityVC];
-  
-  [self addViewController:navigationViewController
-             withIconName:@"tabbar-activity-icon"];
+    TMEActivityViewController *activityVC = [[TMEActivityViewController alloc] init];
+    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:activityVC];
+    
+    [self addViewController:navigationViewController
+               withIconName:@"tabbar-activity-icon"];
 }
 
 - (void)addMeButton
 {
-  TMEMeViewController *meVC = [[TMEMeViewController alloc] init];
-  TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:meVC];
-  
-  [self addViewController:navigationViewController
-             withIconName:@"tabbar-me-icon"];
+    TMEMeViewController *meVC = [[TMEMeViewController alloc] init];
+    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:meVC];
+    
+    [self addViewController:navigationViewController
+               withIconName:@"tabbar-me-icon"];
 }
 
 - (void)addPublishButton
 {
-  TMEPublishProductViewController *publishVC = [[TMEPublishProductViewController alloc] init];
-  TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:publishVC];
-  [self addViewController:navigationViewController
-             withIconName:@"tabbar-sell-icon"];
+    TMEPublishProductViewController *publishVC = [[TMEPublishProductViewController alloc] init];
+    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:publishVC];
+    [self addViewController:navigationViewController
+               withIconName:@"tabbar-sell-icon"];
 }
 
 - (void)setStatusBarViewAlpha:(CGFloat)alpha{
-  [self.statusBarView setAlpha:alpha];
+    [self.statusBarView setAlpha:alpha];
 }
 
 - (void)addFakeStatusBar{
@@ -155,7 +155,7 @@ UIImagePickerControllerDelegate
 #pragma marks - UIImagePicker Delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-  [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+    [self.navigationController dismissViewControllerAnimated:NO completion:nil];
 }
 
 @end
