@@ -10,9 +10,6 @@
 #import "TMEBaseViewController.h"
 
 @class TMEProduct;
-
 @interface TMEProductDetailVC : TMEBaseViewController
-
 @property (nonatomic, strong) TMEProduct *product;
-
 @end

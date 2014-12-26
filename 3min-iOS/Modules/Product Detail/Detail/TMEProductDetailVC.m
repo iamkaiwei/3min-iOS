@@ -12,8 +12,9 @@
 #import "TMEProductDetailOnlyTableVC.h"
 #import "UIViewController+Additions.h"
 
-@interface TMEProductDetailVC ()
+@interface TMEProductDetailVC () <UIAlertViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIImageView *chatToBuyBottomGradient;
 @property (weak, nonatomic) IBOutlet UIButton *chatToBuyButton;
 @property (assign, nonatomic, getter=isFirstTimeOffer) BOOL firstTimeOffer;
 @property (strong, nonatomic) TMEConversation *conversation;
@@ -22,6 +23,8 @@
 @end
 
 @implementation TMEProductDetailVC
+
+#pragma mark - View Lifecycle
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,10 +35,15 @@
     return self;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self setupBackBarButton];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     [self setupChildVC];
 }
 
@@ -46,47 +54,57 @@
 }
 
 #pragma mark - Setup
+
 - (void)setupChildVC
 {
     // Product Detail Only
     self.productDetailOnlyTableVC = [TMEProductDetailOnlyTableVC
-                                      tme_instantiateFromStoryboardNamed:@"ProductDetail"];
+                                     tme_instantiateFromStoryboardNamed:@"ProductDetail"];
     self.productDetailOnlyTableVC.product = self.product;
     [self addChildVC:self.productDetailOnlyTableVC containerView:self.view];
     [self.view sendSubviewToBack:self.productDetailOnlyTableVC.view];
 }
 
 #pragma mark - Product
+
 - (void)setProduct:(TMEProduct *)product
 {
     _product = product;
     self.title = product.name;
 }
 
-- (void)checkFirstTimeOffer {
+- (void)checkFirstTimeOffer
+{
+    if (!self.product.user) {
+        UIAlertView *invalidUserAlertView = [[UIAlertView alloc] initWithTitle:@""
+                                                                       message:NSLocalizedString(@"We are sorry, something went wrong.", nil)
+                                                                      delegate:self
+                                                             cancelButtonTitle:NSLocalizedString(@"Back", nil)
+                                                             otherButtonTitles:nil];
+        [invalidUserAlertView show];
+        return;
+    }
+    
     self.chatToBuyButton.userInteractionEnabled = NO;
     [TMEConversationManager checkConversationExistWithProductID:self.product.productID
                                                        toUserID:self.product.user.userID
-                                                 onSuccessBlock: ^(TMEConversation *conversation)
-     {
-         self.firstTimeOffer = YES;
-         if (conversation.conversationID) {
-             self.firstTimeOffer = NO;
-             self.conversation = conversation;
-         }
-         self.chatToBuyButton.userInteractionEnabled = YES;
-         UIViewController *viewController = [self controllerForNextStep];
-         self.hidesBottomBarWhenPushed = NO;
-         [self.navigationController pushViewController:viewController animated:YES];
-     }
-     
-                                                   failureBlock: ^(NSError *error)
-     {
-         self.chatToBuyButton.userInteractionEnabled = YES;
-     }];
+                                                 onSuccessBlock: ^(TMEConversation *conversation) {
+                                                     self.firstTimeOffer = YES;
+                                                     if (conversation.conversationID) {
+                                                         self.firstTimeOffer = NO;
+                                                         self.conversation = conversation;
+                                                     }
+                                                     self.chatToBuyButton.userInteractionEnabled = YES;
+                                                     UIViewController *viewController = [self controllerForNextStep];
+                                                     self.hidesBottomBarWhenPushed = NO;
+                                                     [self.navigationController pushViewController:viewController animated:YES];
+                                                 } failureBlock: ^(NSError *error) {
+                                                     self.chatToBuyButton.userInteractionEnabled = YES;
+                                                 }];
 }
 
-- (UIViewController *)controllerForNextStep {
+- (UIViewController *)controllerForNextStep
+{
     if (self.firstTimeOffer) {
         TMEOfferViewController *offerController = [[TMEOfferViewController alloc] init];
         offerController.product = self.product;
@@ -102,8 +120,47 @@
 }
 
 #pragma mark - Action
-- (IBAction)chatToBuyButtonTouched:(id)sender {
+
+- (IBAction)chatToBuyButtonTouched:(id)sender
+{
     [self checkFirstTimeOffer];
+}
+
+#pragma mark - Private
+
+- (BOOL)isCurrentUser
+{
+    return [self.product.user.userID isEqual:[TMEUserManager sharedManager].loggedUser.userID];
+}
+
+- (void)setupBackBarButton
+{
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn_back"]
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(didPressBackBarButton:)];
+    backButton.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+
+- (void)didPressBackBarButton:(UIBarButtonItem *)button
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Alert View Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0: {
+            [self onBtnBack:nil];
+            break;
+        }
+        default:
+            break;
+    }
+
 }
 
 

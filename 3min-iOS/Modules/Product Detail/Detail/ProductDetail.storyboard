@@ -43,6 +43,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chatToBuyBottomGradient" destination="6OW-M7-O1U" id="kQK-OR-OuF"/>
                         <outlet property="chatToBuyButton" destination="L8P-T9-qMa" id="fiE-ef-huK"/>
                     </connections>
                 </viewController>

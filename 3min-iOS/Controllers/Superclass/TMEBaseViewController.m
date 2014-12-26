@@ -565,7 +565,6 @@ IIViewDeckControllerDelegate
 - (void)addNavigationItems
 {
     UIBarButtonItem *leftButtonItem = [self leftNavigationButton];
-    
     self.navigationItem.leftBarButtonItem = leftButtonItem;
 }
 

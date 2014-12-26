@@ -29,7 +29,10 @@ UICollectionViewDataSource
 
 @implementation TMEListActiviesViewController
 
-- (void)viewDidLoad {
+#pragma mark - View Lifecycle
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
@@ -52,7 +55,10 @@ UICollectionViewDataSource
     
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+#pragma mark - Collection View delegate
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     // Retrieve our object to give to our size manager.
     id object = [self.viewModel itemAtIndexPath:indexPath];
     CGFloat height = [self.sizeManager cellHeightForObject:object
@@ -61,11 +67,13 @@ UICollectionViewDataSource
     return CGSizeMake(self.view.width, height);
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     return [self.viewModel numberOfItems];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     TMEActivitiesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[TMEActivitiesCollectionViewCell kind] forIndexPath:indexPath];
     id object = [self.viewModel itemAtIndexPath:indexPath];
     [cell configWithData:object];

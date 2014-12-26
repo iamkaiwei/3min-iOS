@@ -12,27 +12,27 @@
 
 - (void)sizeToFitKeepHeight
 {
-  CGFloat initialHeight = CGRectGetHeight(self.frame);
-  [self sizeToFit];
-  CGRect frame = self.frame;
-  frame.size.height = initialHeight;
-  self.frame = frame;
+    CGFloat initialHeight = CGRectGetHeight(self.frame);
+    [self sizeToFit];
+    CGRect frame = self.frame;
+    frame.size.height = initialHeight;
+    self.frame = frame;
 }
 
 - (void)sizeToFitKeepHeightAlignRight{
-  CGRect beforeFrame = self.frame;
-  [self sizeToFitKeepHeight];
-  CGRect afterFrame = self.frame;
-  self.frame = CGRectMake(beforeFrame.origin.x + beforeFrame.size.width - afterFrame.size.width, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
+    CGRect beforeFrame = self.frame;
+    [self sizeToFitKeepHeight];
+    CGRect afterFrame = self.frame;
+    self.frame = CGRectMake(beforeFrame.origin.x + beforeFrame.size.width - afterFrame.size.width, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
 }
 
 - (void)sizeToFitKeepWidth
 {
-  CGFloat initialWidth = CGRectGetWidth(self.frame);
-  [self sizeToFit];
-  CGRect frame = self.frame;
-  frame.size.width = initialWidth;
-  self.frame = frame;
+    CGFloat initialWidth = CGRectGetWidth(self.frame);
+    [self sizeToFit];
+    CGRect frame = self.frame;
+    frame.size.width = initialWidth;
+    self.frame = frame;
 }
 
 - (CGFloat)expectedHeight
