@@ -108,9 +108,13 @@
 	NSCParameterAssert(product);
 	NSAssert([product isKindOfClass:[TMEProduct class]], @"Need product to config product cell");
 
-	self.lblProductName.text = product.name;
+    self.lblProductName.text = product.name;
+    self.lblProductName.font = [UIFont openSansRegularFontWithSize:15];
+    self.lblProductName.textColor = [UIColor colorWithHexString:@"333"];
 
-	self.lblProductPrice.text = product.price;
+    self.lblProductPrice.text = product.price;
+    self.lblProductPrice.font = [UIFont openSansRegularFontWithSize:11];
+    self.lblProductPrice.textColor = [UIColor colorWithHexString:@"ff401a"];
 
     self.btnLike.titleLabel.text = NSStringf(@"%d", product.likeCount);
 	self.btnLike.selected = product.liked;
@@ -118,10 +122,13 @@
 	self.btnComment.titleLabel.text = product.comments;
 
 	self.lblUsername.text = product.user.fullName;
+    self.lblUsername.font = [UIFont openSansSemiBoldFontWithSize:12];
+    self.lblUsername.textColor = [UIColor colorWithHexString:@"333"];
 	self.lblUsername.text = [product.createAt relativeDate];
 }
 
-- (void)loadImages:(TMEProduct *)product {
+- (void)loadImages:(TMEProduct *)product
+{
 	TMEProductImage *firstImage = [product.images firstObject];
 	[self.imgProduct tme_setImageWithURL:firstImage.mediumURL placeholderImage:[UIImage imageNamed:@"photo-placeholder"]];
 

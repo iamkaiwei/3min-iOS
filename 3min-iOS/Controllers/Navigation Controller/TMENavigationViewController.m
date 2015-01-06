@@ -16,37 +16,41 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
-    // Custom initialization
-
-    if (IS_IOS7_OR_ABOVE) {
-      self.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-      //self.navigationBar.translucent = YES;
-      self.navigationBar.barTintColor = [UIColor redColor];;
-      self.navigationBar.tintColor = [UIColor whiteColor];
-
-        // TODO: Needs to fix this navigation bar
-//        [[UINavigationBar appearance] setTitleTextAttributes:
-//         @{ UITextAttributeTextColor: [UIColor whiteColor],
-//            UITextAttributeTextShadowColor: [UIColor clearColor],
-//            UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
-//            UITextAttributeFont: [UIFont fontWithName:@"HelveticaNeue-Thin" size:25.0f]
-//            }];
-
-    } else {
-        //self.navigationBar.frame = CGRectMake(0, 0, 320, 44);
-        [[UINavigationBar appearance] setTitleTextAttributes:
-         @{ UITextAttributeTextColor: [UIColor whiteColor],
-            UITextAttributeTextShadowColor: [UIColor clearColor],
-            UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
-            UITextAttributeFont: [UIFont fontWithName:@"HelveticaNeue-Light" size:22.0f]
-            }];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        
+        if (IS_IOS7_OR_ABOVE) {
+            self.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+            //self.navigationBar.translucent = YES;
+            self.navigationBar.barTintColor = [UIColor redColor];;
+            self.navigationBar.tintColor = [UIColor whiteColor];
+            
+            NSShadow *shadow = [[NSShadow alloc] init];
+            shadow.shadowColor = [UIColor whiteColor];
+            shadow.shadowOffset = CGSizeMake(0.f, 0.f);
+            // TODO: Needs to fix this navigation bar
+            [[UINavigationBar appearance] setTitleTextAttributes:
+             @{
+               NSForegroundColorAttributeName: [UIColor whiteColor],
+               NSShadowAttributeName: shadow,
+               NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:25.0f]
+               }];
+            
+        } else {
+            //self.navigationBar.frame = CGRectMake(0, 0, 320, 44);
+            [[UINavigationBar appearance] setTitleTextAttributes:
+             @{
+               UITextAttributeTextColor: [UIColor whiteColor],
+               UITextAttributeTextShadowColor: [UIColor clearColor],
+               UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
+               UITextAttributeFont: [UIFont fontWithName:@"HelveticaNeue-Thin" size:25.0f]
+               }];
+        }
+        
     }
-
-  }
-
-  return self;
+    
+    return self;
 }
 
 @end

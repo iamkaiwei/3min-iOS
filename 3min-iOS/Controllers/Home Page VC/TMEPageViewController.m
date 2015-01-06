@@ -28,8 +28,8 @@
     self = [super init];
     if (self) {
 		self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
-		                                                      navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
-		                                                                    options:nil];
+                        navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
+                                      options:nil];
 		self.edgesForExtendedLayout = UIRectEdgeNone;
 
 		_pageDataSource = [[TMEHomePageViewDatasource alloc] init];
@@ -65,8 +65,13 @@
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [button setTitleColor:[UIColor colorWithHexString:@"#FF938D"] forState:UIControlStateNormal];
     [button setTitle:@"Everything" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont openSansRegularFontWithSize:21]];
     [button addTarget:self.buttonsController action:@selector(onTapTitleButton:) forControlEvents:UIControlEventTouchUpInside];
     button.selected = YES;
+    UIImageView *dropdownImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arow_dropdown_hide"]
+                                                   highlightedImage:[UIImage imageNamed:@"arow_dropdown"]];
+    dropdownImage.center = CGPointMake(CGRectGetMidX(button.bounds)*1.7, CGRectGetMidY(button.bounds));
+    [button addSubview:dropdownImage];
     [titleView addSubview:button];
     return titleView;
 }
