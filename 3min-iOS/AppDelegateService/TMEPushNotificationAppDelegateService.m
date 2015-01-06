@@ -9,6 +9,7 @@
 #import "TMEPushNotificationAppDelegateService.h"
 #import <Orbiter/Orbiter.h>
 #import "TMEPushNotificationManager.h"
+#import "TMEProductDetailOnlyTableVC.h"
 
 @interface TMEPushNotificationAppDelegateService () 
 
@@ -57,86 +58,84 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    NSLog(@"remote notification payload: %@", userInfo);
-    
-    // FIXME: handle push notification
-    UIApplicationState state = [[UIApplication sharedApplication] applicationState];
-
-    NSString *alert = userInfo[@"aps"][@"alert"];
-    NSString *productID = userInfo[@"aps"][@"other"][@"product_id"];
-    NSString *conversationID = userInfo[@"aps"][@"other"][@"conversation_id"];
-
-    IIViewDeckController __block *deckController = (IIViewDeckController *)self.window.rootViewController;
-    UITabBarController __block *homeController = (UITabBarController *)deckController.centerController;
-    UINavigationController *navController = (UINavigationController *) [homeController selectedViewController];
-
-    if ([navController.topViewController isMemberOfClass:[TMESubmitViewController class]])
-    {
-        TMESubmitViewController *submitVC = (TMESubmitViewController *)navController.topViewController;
-        if ([submitVC.conversation.conversationID isEqual:conversationID]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
-            return;
-        }
-    }
-
-#warning THIS PART NEED TO BE CHECKED LATER
-//    TMEConversation *notificationConversation = [[TMEConversation MR_findByAttribute:@"id" withValue:conversationID] lastObject];
-//    TMEProduct *notificationProduct = [[TMEProduct MR_findByAttribute:@"id" withValue:productID] lastObject];
-//
-//    if (state == UIApplicationStateActive) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION object:nil];
-//
-//        [TSMessage dismissActiveNotification];
-//
-//        if ([alert length] > 40) {
-//            alert = [[alert substringToIndex: 40] stringByAppendingString:@"..."];
-//        }
-//
-//        [TSMessage showNotificationInViewController:homeController
-//                                              title:alert
-//                                           subtitle:nil
-//                                              image:nil
-//                                               type:TSMessageNotificationTypeMessage
-//                                           duration:4.0f
-//                                           callback:^
-//         {
-//             if (notificationConversation && notificationProduct) {
-//                 TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
-//                 submitVC.conversation = notificationConversation;
-//                 submitVC.product = notificationProduct;
-//
-//                 [navController pushViewController:submitVC animated:YES];
-//                 return;
-//             }
-//
-//             [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowHomeViewControllerNotification
-//                                                                 object:nil
-//                                                               userInfo:@{@"index": @(3)
-//                                                                          }];
-//
-//         }
-//                                        buttonTitle:nil
-//                                     buttonCallback:nil
-//                                         atPosition:TSMessageNotificationPositionTop
-//                                canBeDismisedByUser:YES];
-//        return;
-//    }
-//
-//    if (notificationConversation && notificationProduct) {
-//        TMESubmitViewController *submitVC = [[TMESubmitViewController alloc] init];
-//        submitVC.conversation = notificationConversation;
-//        submitVC.product = notificationProduct;
-//
-//        [navController pushViewController:submitVC animated:YES];
-//        return;
-//    }
-//
-//    [[NSNotificationCenter defaultCenter] postNotificationName:TMEShowHomeViewControllerNotification
-//                                                        object:nil
-//                                                      userInfo:@{@"index": @(3)
-//                                                                 }];
-
+    NSLog(@"remote notification payload:\n%@", userInfo);
+    [self handleRemoteNotificationWithPayload:userInfo];
 }
 
+#pragma mark - Handle Remote Notification
+
+- (void)handleRemoteNotificationWithPayload:(NSDictionary *)payload
+{
+    if (!payload) {
+        return;
+    }
+    
+    // reset application badge number
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
+    // application state
+    UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+    if (state == UIApplicationStateActive) {
+        // payload
+        NSString *alertMessage = payload[@"aps"][@"alert"];
+        
+        UINavigationController *navigationController = [self navigationController];
+        UIViewController *topViewController = navigationController.topViewController;
+        [TSMessage showNotificationInViewController:topViewController
+                                              title:nil
+                                           subtitle:alertMessage
+                                              image:nil
+                                               type:TSMessageNotificationTypeMessage
+                                           duration:TSMessageNotificationDurationEndless
+                                           callback:nil
+                                        buttonTitle:NSLocalizedString(@"View", nil)
+                                     buttonCallback:^{
+                                         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RELOAD_CONVERSATION
+                                                                                             object:nil];
+                                     }
+                                         atPosition:TSMessageNotificationPositionTop
+                                canBeDismisedByUser:YES];
+        return;
+    }
+    
+    // detail
+    NSString *productID = payload[@"aps"][@"other"][@"product_id"];
+    if (productID.length > 0) {
+        [self navigateToProductDetailsWithProductID:productID];
+    }
+    else {
+        // conversation
+        NSString *conversationID = payload[@"aps"][@"other"][@"conversation_id"];
+        if (conversationID.length > 0) {
+            [self navigateToProductDetailsWithConversationID:conversationID];
+        }
+    }
+}
+
+#pragma mark - Navigate
+
+- (void)navigateToProductDetailsWithConversationID:(NSString *)conversationID
+{
+    TMEProductDetailOnlyTableVC *productViewController = [TMEProductDetailOnlyTableVC tme_instantiateFromStoryboardNamed:@"TMEProductDetailOnlyTableVC"];
+    UINavigationController *navigationController = [self navigationController];
+    [navigationController pushViewController:productViewController animated:YES];
+}
+
+- (void)navigateToProductDetailsWithProductID:(NSString *)productID
+{
+    TMESubmitViewController *submitViewController = [[TMESubmitViewController alloc] init];
+    UINavigationController *navigationController = [self navigationController];
+    [navigationController pushViewController:submitViewController animated:YES];
+}
+
+#pragma mark - Private
+
+- (UINavigationController *)navigationController
+{
+    UIWindow *keyWindow = [[[UIApplication sharedApplication] delegate] window];
+    IIViewDeckController *deckController = (IIViewDeckController *)keyWindow.rootViewController;
+    UINavigationController *navigationController = (UINavigationController *)deckController.centerController;
+    return navigationController;
+}
 
 @end

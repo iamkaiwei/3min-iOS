@@ -1956,13 +1956,7 @@
 				B68DCD6A1A0C75230023A877 /* TMESubmitCellFactory.m */,
 				B68DCD6C1A0C76000023A877 /* TMESubmitLoadingOperation.h */,
 				B68DCD6D1A0C76000023A877 /* TMESubmitLoadingOperation.m */,
-				B68DCD6F1A0C76380023A877 /* TMEMessageContentViewController.h */,
-				B68DCD701A0C76380023A877 /* TMEMessageContentViewController.m */,
-				B68DCD711A0C76380023A877 /* TMEMessageContentViewController.xib */,
-				B68DCD741A0C7D7A0023A877 /* TMEMessageCollectionViewCell.h */,
-				B68DCD751A0C7D7A0023A877 /* TMEMessageCollectionViewCell.m */,
-				B68DCD761A0C7D7A0023A877 /* TMEMessageCollectionViewCell.xib */,
-				B68DCD7E1A0C7E670023A877 /* TMEMessageRightCollectionViewCell.xib */,
+				A32C0A6E1A4D41A500CC343A /* Message */,
 			);
 			name = "Submit VCs";
 			path = "../Controllers/Submit VCs";
@@ -2135,6 +2129,20 @@
 				99EA0F9E1978574000872EE4 /* YIFullScreenScroll.m */,
 			);
 			path = YIFullScreenScroll;
+			sourceTree = "<group>";
+		};
+		A32C0A6E1A4D41A500CC343A /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				B68DCD6F1A0C76380023A877 /* TMEMessageContentViewController.h */,
+				B68DCD701A0C76380023A877 /* TMEMessageContentViewController.m */,
+				B68DCD711A0C76380023A877 /* TMEMessageContentViewController.xib */,
+				B68DCD741A0C7D7A0023A877 /* TMEMessageCollectionViewCell.h */,
+				B68DCD751A0C7D7A0023A877 /* TMEMessageCollectionViewCell.m */,
+				B68DCD761A0C7D7A0023A877 /* TMEMessageCollectionViewCell.xib */,
+				B68DCD7E1A0C7E670023A877 /* TMEMessageRightCollectionViewCell.xib */,
+			);
+			name = Message;
 			sourceTree = "<group>";
 		};
 		A37B74071A482D7800831E56 /* Feedbacks */ = {

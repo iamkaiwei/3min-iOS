@@ -26,7 +26,6 @@
     KHOrderedDataProvider *provider = (KHOrderedDataProvider *)[model sectionAtIndex:indexPath.section];
     TMEReply *reply = [provider objectAtIndex:indexPath.item withTriggerPagination:NO];
     return CGSizeMake(collectionView.width, [self _getHeightWithContent:reply.reply]);
-    
 }
 
 - (UICollectionViewCell<KHCellProtocol> *)collectionView:(UICollectionView *)collection cellAtIndexPath:(NSIndexPath *)indexPath withModel:(id<KHTableViewModel>)model
@@ -57,8 +56,8 @@
     return cell;
 }
 
-
-- (CGFloat)_getHeightWithContent:(NSString *)content{
+- (CGFloat)_getHeightWithContent:(NSString *)content
+{
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 22)];
     label.numberOfLines = 0;
     label.font = [UIFont openSansRegularFontWithSize:17.0f];

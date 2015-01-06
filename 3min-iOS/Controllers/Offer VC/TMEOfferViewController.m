@@ -25,16 +25,17 @@ UIAlertViewDelegate
 
 @implementation TMEOfferViewController
 
-- (void)viewDidLoad
+#pragma mark - View Lifecycle
+
+- (void)awakeFromNib
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.title = NSLocalizedString(@"You Offer", nil);
-    [self setUpView];
+    [super awakeFromNib];
 }
 
-- (void)setUpView{
-    self.navigationItem.rightBarButtonItem = [self rightNavigationButtonSubmit];
+- (void)setUpView
+{
+    [self setupNavigationItems];
+    
     self.labelDetail.text = [NSString stringWithFormat:NSLocalizedString(@"%@ is selling it for %@ VND", nil), self.product.user.fullName, self.product.price];
     
     self.labelPriceOffer.text = [NSString stringWithFormat:@"%@ VND",self.product.price];
@@ -47,19 +48,16 @@ UIAlertViewDelegate
     }
 }
 
-- (IBAction)onBtnChangePrice:(id)sender {
-    [CAAnimation addAnimationToLayer:self.buttonTapToChange.layer
-                         withKeyPath:@"transform.rotation.z"
-                            duration:1
-                                  to:-2*M_PI
-                      easingFunction:CAAnimationEasingFunctionEaseOutBack];
-    self.buttonTapToChange.userInteractionEnabled = NO;
-    
-    [self.txtPrice becomeFirstResponder];
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self setUpView];
 }
 
+#pragma mark - Private
 
-- (void)setOfferPriceToConversation{
+- (void)setOfferPriceToConversation
+{
     [TMEConversationManager createConversationWithProductID:self.product.id
                                                    toUserID:self.product.user.userID
                                              withOfferPrice:@([self.txtPrice.text integerValue])
@@ -80,45 +78,14 @@ UIAlertViewDelegate
 
 - (UIBarButtonItem *)rightNavigationButtonSubmit
 {
-    UIImage *rightButtonBackgroundNormalImage = [UIImage oneTimeImageWithImageName:@"button-submit" isIcon:YES];
-    UIImage *rightButtonBackgroundSelectedImage = [UIImage oneTimeImageWithImageName:@"button-submit-pressed" isIcon:YES];
+    UIImage *rightButtonBackgroundNormalImage = [UIImage imageNamed:@"button-submit"];
+    UIImage *rightButtonBackgroundSelectedImage = [UIImage imageNamed:@"button-submit-pressed"];
     UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 75, 40)];
     [rightButton addTarget:self action:@selector(onSubmitButton:) forControlEvents:UIControlEventTouchUpInside];
     [rightButton setBackgroundImage:rightButtonBackgroundNormalImage forState:UIControlStateNormal];
     [rightButton setBackgroundImage:rightButtonBackgroundSelectedImage forState:UIControlStateHighlighted];
     
     return [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-}
-
-- (void)onBtnBack{
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
-- (void)onCancelButton:(id)sender {
-    [self.view endEditing:YES];
-    
-    self.labelPriceOffer.text = [NSString stringWithFormat:@"%@ VND", self.product.price];
-    self.txtPrice.text = @"";
-    [self sizeToKeepLabelPriceHeightAlignCenter];
-}
-
-- (void)onDoneButton:(id)sender {
-    if (![self invalidateOfferPrice]) {
-        self.txtPrice.text = @"";
-        self.labelPriceOffer.text = [NSString stringWithFormat:@"%@ VND", self.product.price];
-        [self sizeToKeepLabelPriceHeightAlignCenter];
-    }
-    [self.view findAndResignFirstResponder];
-}
-
-- (void)onSubmitButton:(UIButton *)sender{
-    
-    if (![self invalidateOfferPrice]) {
-        [self showSubmitAlert];
-        return;
-    }
-    
-    [self setOfferPriceToConversation];
 }
 
 #pragma mark - UITextField delegate
@@ -133,7 +100,7 @@ UIAlertViewDelegate
 {
     self.keyboardShowing = NO;
 //    [self addNavigationItems];
-    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.leftBarButtonItem = nil; // ???
     self.navigationItem.rightBarButtonItem = [self rightNavigationButtonSubmit];
     self.buttonTapToChange.userInteractionEnabled = YES;
     return YES;
@@ -160,19 +127,22 @@ UIAlertViewDelegate
     return YES;
 }
 
-- (BOOL)invalidateOfferPrice{
+- (BOOL)invalidateOfferPrice
+{
     if ([self.txtPrice.text isEqualToString:@"0"] || [self.txtPrice.text isEqualToString:@""]) {
         return NO;
     }
     return YES;
 }
 
-- (void)sizeToKeepLabelPriceHeightAlignCenter{
+- (void)sizeToKeepLabelPriceHeightAlignCenter
+{
     [self.labelPriceOffer sizeToFitKeepHeight];
     [self.labelPriceOffer alignHorizontalCenterToView:self.view];
 }
 
-- (void)showSubmitAlert{
+- (void)showSubmitAlert
+{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirm", nil)
                                                     message:NSLocalizedString(@"Do you want to offer with original price?", nil)
                                                    delegate:self
@@ -181,15 +151,77 @@ UIAlertViewDelegate
     [alert show];
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if (buttonIndex) {
         self.txtPrice.text = self.product.price;
         [self setOfferPriceToConversation];
     }
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
     [self performSelector:@selector(onDoneButton:) withObject:self.navigationItem.rightBarButtonItem];
+}
+
+#pragma mark - Action
+
+- (void)setupNavigationItems
+{
+    self.navigationItem.rightBarButtonItem = [self rightNavigationButtonSubmit];
+    self.navigationItem.title = NSLocalizedString(@"You Offer", nil);
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn_back"]
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(didPressBackBarButton:)];
+    backButton.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+
+- (void)didPressBackBarButton:(UIBarButtonItem *)button
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)onBtnChangePrice:(id)sender
+{
+    [CAAnimation addAnimationToLayer:self.buttonTapToChange.layer
+                         withKeyPath:@"transform.rotation.z"
+                            duration:1
+                                  to:-2*M_PI
+                      easingFunction:CAAnimationEasingFunctionEaseOutBack];
+    self.buttonTapToChange.userInteractionEnabled = NO;
+    
+    [self.txtPrice becomeFirstResponder];
+}
+
+- (void)onCancelButton:(id)sender
+{
+    [self.view endEditing:YES];
+    
+    self.labelPriceOffer.text = [NSString stringWithFormat:@"%@ VND", self.product.price];
+    self.txtPrice.text = @"";
+    [self sizeToKeepLabelPriceHeightAlignCenter];
+}
+
+- (void)onDoneButton:(id)sender
+{
+    if (![self invalidateOfferPrice]) {
+        self.txtPrice.text = @"";
+        self.labelPriceOffer.text = [NSString stringWithFormat:@"%@ VND", self.product.price];
+        [self sizeToKeepLabelPriceHeightAlignCenter];
+    }
+    [self.view findAndResignFirstResponder];
+}
+
+- (void)onSubmitButton:(UIButton *)sender
+{
+    if (![self invalidateOfferPrice]) {
+        [self showSubmitAlert];
+        return;
+    }
+    
+    [self setOfferPriceToConversation];
 }
 
 @end

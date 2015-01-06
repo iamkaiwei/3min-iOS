@@ -56,7 +56,8 @@ PTPusherPresenceChannelDelegate
 
 @implementation TMESubmitViewController
 
-- (NSMutableArray *)arrayClientReplies{
+- (NSMutableArray *)arrayClientReplies
+{
     if (!_arrayClientReplies) {
         _arrayClientReplies = [[NSMutableArray alloc] init];
     }
@@ -65,7 +66,8 @@ PTPusherPresenceChannelDelegate
 
 #pragma mark - View controller life cycle
 
-- (void)viewDidLoad{
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.title = NSLocalizedString(@"You Offer", nil);
     [self setupTextView];
@@ -103,14 +105,16 @@ PTPusherPresenceChannelDelegate
     [messageContent.view layoutIfNeeded];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
     [self subscribeChannel];
     self.currentPostMode = TMEPostModeOffline;
     self.isTyping = NO;
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
+- (void)viewWillDisappear:(BOOL)animated
+{
     [super viewWillDisappear:animated];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         self.tabBarController.tabBar.translucent = YES;
@@ -122,7 +126,8 @@ PTPusherPresenceChannelDelegate
     }
 }
 
-- (void)setupTextView {
+- (void)setupTextView
+{
     self.textViewInputMessage.delegate = self;
     self.textViewInputMessage.isScrollable = NO;
     self.textViewInputMessage.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
@@ -140,7 +145,8 @@ PTPusherPresenceChannelDelegate
     [self.textViewInputMessage.internalTextView setTintColor:[UIColor colorWithHexString:@"e4e4e4"]];
 }
 
-- (void)setupUIFont {
+- (void)setupUIFont
+{
     self.buttonMarkAsSold.titleLabel.font = [UIFont openSansSemiBoldFontWithSize:self.buttonMarkAsSold.titleLabel.font.pointSize];
     self.lblProductName.font = [UIFont openSansSemiBoldFontWithSize:self.lblProductName.font.pointSize];
     self.listedPriceLabel.font = [UIFont openSansRegularFontWithSize:self.listedPriceLabel.font.pointSize];
@@ -167,15 +173,15 @@ PTPusherPresenceChannelDelegate
         self.labelTyping.text = @"";
         TMEUser *user = [TMEUser userWithID:self.conversation.userID
                                    fullName:self.conversation.userFullname
-                                  photoURL:self.conversation.userAvatar];
-
+                                   photoURL:self.conversation.userAvatar];
+        
         TMEReply *reply = [TMEReply replyWithContent:channelEvent.data[@"message"]
                                               sender:user
                                            timeStamp:channelEvent.data[@"timestamp"]];
         [self.dataArray addObject:reply];
         [self reloadTableViewConversationShowBottom:YES];
     }];
-
+    
     [self.presenceChannel bindToEventNamed:kChatEventTyping handleWithBlock:^(PTPusherEvent *channelEvent) {
         self.labelTyping.text = channelEvent.data[@"text"];
         [self.labelTyping performSelector:@selector(setText:)
@@ -184,21 +190,24 @@ PTPusherPresenceChannelDelegate
     }];
 }
 
-- (void)setUpTableView{
+- (void)setUpTableView
+{
     self.repliesArrayDataSource = [[TMESubmitViewControllerArrayDataSource alloc] initWithItems:self.dataArray cellIdentifier:[TMESubmitTableCell kind] cellRightIdentifier:kRightTableViewCellIdentifier conversation:self.conversation paging:self.paging];
     
     self.tableView.dataSource = self.repliesArrayDataSource;
     [self.tableView reloadData];
 }
 
-- (void)registerNibForTableView{
+- (void)registerNibForTableView
+{
     self.arrayCellIdentifier = @[[TMESubmitTableCell kind], kRightTableViewCellIdentifier];
     self.registerLoadMoreCell = YES;
 }
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if (self.paging && indexPath.row == 0) {
         TMELoadMoreTableViewCell *cell = (TMELoadMoreTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
         [cell startLoading];
@@ -209,7 +218,8 @@ PTPusherPresenceChannelDelegate
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if (self.paging && indexPath.row == 0) {
         return [TMELoadMoreTableViewCell getHeight];
     }
@@ -220,12 +230,19 @@ PTPusherPresenceChannelDelegate
 
 #pragma mark - Post message
 
-- (void)postMessage{
+- (void)postMessage
+{
     self.textViewInputMessage.text = [self.textViewInputMessage.text trim];
     if ([self.textViewInputMessage.text isEqual: @""]) {
         return;
     }
-    TMEUserMessageParameter *postMessageParameter = [[TMEUserMessageParameter alloc] initWithMessage:self.textViewInputMessage.text ofUser:[TMEUserManager sharedManager].loggedUser presenceChannel:self.presenceChannel latestReplyID:[self getLastestReplyID] conversationID:self.conversation.conversationID postMode:self.currentPostMode];
+    
+    TMEUserMessageParameter *postMessageParameter = [[TMEUserMessageParameter alloc] initWithMessage:self.textViewInputMessage.text
+                                                                                              ofUser:[TMEUserManager sharedManager].loggedUser
+                                                                                     presenceChannel:self.presenceChannel
+                                                                                       latestReplyID:[self getLastestReplyID]
+                                                                                      conversationID:self.conversation.conversationID
+                                                                                            postMode:self.currentPostMode];
     __weak TMEUserMessageParameter *weakPostMessageParameter = postMessageParameter;
     postMessageParameter.shouldPostMessageBlock = ^void(TMEReply *reply, TMEPostMode postMode) {
         [self.dataArray addObject:reply];
@@ -267,44 +284,42 @@ PTPusherPresenceChannelDelegate
                                          largerReplyID:largerReplyID
                                         smallerReplyID:smallerReplyID
                                               withPage:page
-                                        onSuccessBlock:^(TMEConversation *conversation)
-     {
-         self.paging = NO;
-         TMEReply *pendingReply = [self.dataArray lastObject];
-         if (!pendingReply.timeStamp) {
-             [self.dataArray removeLastObject];
-         }
-         if (!largerReplyID && !smallerReplyID) {
-             if ([conversation.replies count] % 10 == 0 && [conversation.replies count])
-                 self.paging = YES;
-         }
-
-         self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:conversation.replies] mutableCopy];
-         conversation.replies = self.dataArray;
-         self.conversation = conversation;
-         self.dataArray = [[self.dataArray sortByAttribute:@"timeStamp" ascending:YES] mutableCopy];
-         [self reloadTableViewConversationShowBottom:showBottom];
-     }
-                                          failureBlock:^(NSError *error)
-     {
-         [self failureBlockHandleWithError:error];
-     }];
+                                        onSuccessBlock:^(TMEConversation *conversation) {
+                                            self.paging = NO;
+                                            TMEReply *pendingReply = [self.dataArray lastObject];
+                                            if (!pendingReply.timeStamp) {
+                                                [self.dataArray removeLastObject];
+                                            }
+                                            if (!largerReplyID && !smallerReplyID) {
+                                                if ([conversation.replies count] % 10 == 0 && [conversation.replies count])
+                                                    self.paging = YES;
+                                            }
+                                            
+                                            self.dataArray = [[self.dataArray arrayUniqueByAddingObjectsFromArray:conversation.replies] mutableCopy];
+                                            conversation.replies = self.dataArray;
+                                            self.conversation = conversation;
+                                            self.dataArray = [[self.dataArray sortByAttribute:@"timeStamp" ascending:YES] mutableCopy];
+                                            [self reloadTableViewConversationShowBottom:showBottom];
+                                        } failureBlock:^(NSError *error) {
+                                            [self failureBlockHandleWithError:error];
+                                        }];
 }
 
 - (void)loadMessageWithReplyIDWithPage:(NSInteger)page
                             showBottom:(BOOL)showBottom
 {
     [self loadMessageWithReplyIDLargerID:0 orSmallerID:0 withPage:page showBottom:showBottom];
-    
 }
 
 #pragma mark - Helper method
 
-- (NSInteger)getLastestReplyID{
+- (NSInteger)getLastestReplyID
+{
     return [[self.dataArray valueForKeyPath:@"@max.replyID"] integerValue];
 }
 
-- (void)handleMarkAsSoldButtonTitle{
+- (void)handleMarkAsSoldButtonTitle
+{
     if (self.product.soldOut) {
         self.buttonMarkAsSold.enabled = NO;
         [self.buttonMarkAsSold setTitle:NSLocalizedString(@"Sold", nil) forState:UIControlStateNormal];
@@ -317,7 +332,8 @@ PTPusherPresenceChannelDelegate
     }
 }
 
-- (void)loadProductDetail{
+- (void)loadProductDetail
+{
     if ([self.textViewInputMessage respondsToSelector:@selector(setTintColor:)]) {
         [self.textViewInputMessage setTintColor:[UIColor orangeMainColor]];
     }
@@ -330,7 +346,8 @@ PTPusherPresenceChannelDelegate
     [self handleMarkAsSoldButtonTitle];
 }
 
-- (void)reloadTableViewConversationShowBottom:(BOOL)showBottom{
+- (void)reloadTableViewConversationShowBottom:(BOOL)showBottom
+{
     [self setUpTableView];
     self.tableView.height = self.tableView.contentSize.height;
     [self.labelTyping alignBelowView:self.tableView offsetY:10 sameWidth:YES];
@@ -341,7 +358,7 @@ PTPusherPresenceChannelDelegate
         if (!self.isKeyboardShowing) {
             bottomOffset = CGPointMake(0, self.scrollViewContent.contentSize.height - CGRectGetHeight(self.scrollViewContent.bounds));
         }
-        else{
+        else {
             bottomOffset = CGPointMake(0, self.scrollViewContent.contentSize.height - CGRectGetHeight(self.scrollViewContent.bounds) + 216.0f);
         }
         [self.scrollViewContent setContentOffset:bottomOffset animated:YES];
@@ -350,35 +367,38 @@ PTPusherPresenceChannelDelegate
     [self finishLoading];
 }
 
-- (void)getCacheMessage{
-//    self.conversation = [[TMEConversation MR_findByAttribute:@"id" withValue:self.conversation.id] lastObject];
-//    self.dataArray = [self.conversation.replies mutableCopy];
-//    if (self.dataArray.count) {
-//        self.dataArray = [[self.dataArray sortByAttribute:@"time_stamp" ascending:YES] mutableCopy];
-//        [self reloadTableViewConversationShowBottom:NO];
-//    }
+- (void)getCacheMessage
+{
+    //    self.conversation = [[TMEConversation MR_findByAttribute:@"id" withValue:self.conversation.id] lastObject];
+    //    self.dataArray = [self.conversation.replies mutableCopy];
+    //    if (self.dataArray.count) {
+    //        self.dataArray = [[self.dataArray sortByAttribute:@"time_stamp" ascending:YES] mutableCopy];
+    //        [self reloadTableViewConversationShowBottom:NO];
+    //    }
 }
 
-- (void)postMessagesToServer{
+- (void)postMessagesToServer
+{
     if (![self isReachable]) {
         return;
     }
-
+    
     [TMEConversationManager createBulkWithConversationID:self.conversation.conversationID
                                            arrayMessages:self.arrayClientReplies
                                           onSuccessBlock:^()
-    {
-        [self.arrayClientReplies removeAllObjects];
-    }
+     {
+         [self.arrayClientReplies removeAllObjects];
+     }
                                             failureBlock:^(NSError *error)
-    {
-        DLog(@"%@", error);
-    }];
+     {
+         DLog(@"%@", error);
+     }];
 }
 
 #pragma mark - Remote Notification
 
-- (void)reloadMessageNotification:(NSNotification *)sender{
+- (void)reloadMessageNotification:(NSNotification *)sender
+{
     [self loadMessageWithReplyIDLargerID:[self getLastestReplyID]
                              orSmallerID:0
                                 withPage:1
@@ -435,8 +455,9 @@ PTPusherPresenceChannelDelegate
     self.containerView.frame = r;
 }
 
-- (IBAction)buttonSendAction:(id)sender {
-    if(![self isReachable]){
+- (IBAction)buttonSendAction:(id)sender
+{
+    if(![self isReachable]) {
         return;
     }
     [self postMessage];
@@ -446,7 +467,8 @@ PTPusherPresenceChannelDelegate
 
 #pragma mark - Navigation back button override
 
-- (void)onBtnBack{
+- (void)onBtnBack
+{
     UIViewController *root = self.navigationController.viewControllers[0];
     if ([root isKindOfClass:[TMEPageViewController class]]) {
         [self.navigationController popToRootViewControllerAnimated:YES];
@@ -456,7 +478,8 @@ PTPusherPresenceChannelDelegate
 
 #pragma mark - Override KeyboardShowNotification
 
-- (void)onKeyboardWillShowNotification:(NSNotification *)sender{
+- (void)onKeyboardWillShowNotification:(NSNotification *)sender
+{
     self.keyboardShowing = YES;
     
     CGRect keyBoardFrame = [[[sender userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
@@ -475,7 +498,8 @@ PTPusherPresenceChannelDelegate
     [self.scrollViewContent setContentOffset:bottomOffset animated:YES];
 }
 
-- (void)onKeyboardWillHideNotification:(NSNotification *)sender {
+- (void)onKeyboardWillHideNotification:(NSNotification *)sender
+{
     self.keyboardShowing = NO;
     
     CGSize kbSize = [[[sender userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
@@ -491,7 +515,8 @@ PTPusherPresenceChannelDelegate
     } completion:nil];
 }
 
-- (IBAction)btnMarkAsSoldPressed:(id)sender {
+- (IBAction)btnMarkAsSoldPressed:(id)sender
+{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirm", nil)
                                                     message:NSLocalizedString(@"Do you want to Mark as sold your product?", nil)
                                                    delegate:self
@@ -500,7 +525,8 @@ PTPusherPresenceChannelDelegate
     [alert show];
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if (buttonIndex) {
         [TMEProductsManager putSoldOutWithProductID:self.product.productID
                                      onSuccessBlock:nil
@@ -512,8 +538,8 @@ PTPusherPresenceChannelDelegate
 
 #pragma mark - Handle changing reachability
 
-- (void)reachabilityDidChange:(NSNotification *)notification {
-    
+- (void)reachabilityDidChange:(NSNotification *)notification
+{
     if ([TMEReachabilityManager isReachable]) {
         if (![TMEReachabilityManager sharedInstance].lastState) {
             [TSMessage showNotificationWithTitle:NSLocalizedString(@"Connected", nil) type:TSMessageNotificationTypeSuccess];
