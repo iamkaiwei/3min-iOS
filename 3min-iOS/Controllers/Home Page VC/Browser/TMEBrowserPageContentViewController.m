@@ -72,7 +72,7 @@
 	[[NSNotificationCenter defaultCenter] addObserverForName:TMEHomeCategoryDidChangedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock: ^(NSNotification *note) {
 	    TMEDropDownMenuViewController *vc = note.object;
 	    weakSelf.currentCategory = vc.selectedCategory;
-	    UIButton *centerBtn = [weakSelf.parentViewController.navigationItem.titleView getButton];
+	    UIButton *centerBtn = [weakSelf.parentViewController.parentViewController.navigationItem.titleView getButton];
 	    [centerBtn setTitle:weakSelf.currentCategory.name forState:UIControlStateNormal];
 	    [centerBtn setTitle:weakSelf.currentCategory.name forState:UIControlStateSelected];
 
