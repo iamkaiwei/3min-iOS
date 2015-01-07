@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -14,13 +14,14 @@
                         <viewControllerLayoutGuide type="top" id="lt6-ss-m1H"/>
                         <viewControllerLayoutGuide type="bottom" id="M57-jK-TZY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jZn-A3-jpm">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="jZn-A3-jpm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Emf-Qj-Joq">
-                                <rect key="frame" x="8" y="49" width="584" height="580"/>
-                                <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="14" y="58" width="572" height="542"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="-6" maxY="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ozc-Mu-OM4">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -40,7 +41,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3U-hu-IqW">
-                                <rect key="frame" x="131" y="20" width="60" height="21"/>
+                                <rect key="frame" x="270" y="29" width="60" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="39h-Ib-rTC"/>
                                     <constraint firstAttribute="height" constant="21" id="6Z1-BU-FsJ"/>
@@ -50,14 +51,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="S3U-hu-IqW" firstAttribute="leading" secondItem="jZn-A3-jpm" secondAttribute="leadingMargin" constant="115" id="8Ih-jV-gng"/>
-                            <constraint firstItem="Emf-Qj-Joq" firstAttribute="top" secondItem="S3U-hu-IqW" secondAttribute="bottom" constant="8" id="CT8-iU-JHM"/>
-                            <constraint firstItem="Emf-Qj-Joq" firstAttribute="leading" secondItem="jZn-A3-jpm" secondAttribute="leadingMargin" constant="-8" id="OL9-r2-AK8"/>
-                            <constraint firstItem="M57-jK-TZY" firstAttribute="top" secondItem="Emf-Qj-Joq" secondAttribute="bottom" constant="-29" id="eMr-Zz-V7b"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Emf-Qj-Joq" secondAttribute="trailing" constant="-8" id="fyc-bo-m16"/>
-                            <constraint firstItem="S3U-hu-IqW" firstAttribute="top" secondItem="lt6-ss-m1H" secondAttribute="bottom" id="y0m-8m-Na2"/>
+                            <constraint firstItem="Emf-Qj-Joq" firstAttribute="top" secondItem="lt6-ss-m1H" secondAttribute="bottom" constant="38" id="AJI-CN-ocA"/>
+                            <constraint firstItem="Emf-Qj-Joq" firstAttribute="leading" secondItem="jZn-A3-jpm" secondAttribute="leadingMargin" constant="-2" id="OL9-r2-AK8"/>
+                            <constraint firstAttribute="centerX" secondItem="S3U-hu-IqW" secondAttribute="centerX" id="dlb-3D-oQA"/>
+                            <constraint firstItem="M57-jK-TZY" firstAttribute="top" secondItem="Emf-Qj-Joq" secondAttribute="bottom" id="eMr-Zz-V7b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Emf-Qj-Joq" secondAttribute="trailing" constant="-2" id="fyc-bo-m16"/>
+                            <constraint firstItem="S3U-hu-IqW" firstAttribute="top" secondItem="lt6-ss-m1H" secondAttribute="bottom" constant="9" id="y0m-8m-Na2"/>
                         </constraints>
                     </view>
                     <connections>
