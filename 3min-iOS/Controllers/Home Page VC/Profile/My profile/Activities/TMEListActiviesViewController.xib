@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TMEListActiviesViewController">
@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="05q-zy-sOb">
-                    <rect key="frame" x="0.0" y="37" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="37" width="375" height="630"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="p5t-8S-RCs">
                         <size key="itemSize" width="370" height="60"/>
@@ -30,8 +30,12 @@
                         <outlet property="delegate" destination="-1" id="Cvv-jI-Dla"/>
                     </connections>
                 </collectionView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3R-bG-c4N">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3R-bG-c4N">
                     <rect key="frame" x="159" y="8" width="56" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="0jW-qt-vJ9"/>
+                        <constraint firstAttribute="width" constant="56" id="Fay-WN-5tU"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -42,7 +46,9 @@
                 <constraint firstItem="05q-zy-sOb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SuT-7k-TXB"/>
                 <constraint firstItem="05q-zy-sOb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="37" id="Vpt-sY-UAd"/>
                 <constraint firstAttribute="trailing" secondItem="05q-zy-sOb" secondAttribute="trailing" id="ZDU-1f-vA7"/>
-                <constraint firstAttribute="bottom" secondItem="05q-zy-sOb" secondAttribute="bottom" constant="-37" id="xjv-LJ-XHk"/>
+                <constraint firstAttribute="centerX" secondItem="E3R-bG-c4N" secondAttribute="centerX" constant="0.5" id="gP9-b5-I0E"/>
+                <constraint firstItem="E3R-bG-c4N" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="vB8-Qb-nmn"/>
+                <constraint firstAttribute="bottom" secondItem="05q-zy-sOb" secondAttribute="bottom" id="xjv-LJ-XHk"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
