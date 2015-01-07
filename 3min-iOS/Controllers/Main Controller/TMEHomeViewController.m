@@ -15,11 +15,9 @@ typedef NS_ENUM(NSInteger, TMETabbarButtonType){
 };
 
 #import "TMEBrowserCollectionViewController.h"
-#import "TMEPublishProductViewController.h"
 #import "TMEBrowserProductsViewController.h"
 #import "TMEPhotoButton.h"
 #import "TMEBrowserProductsViewController.h"
-#import "TMEPublishProductViewController.h"
 #import "PBImageHelper.h"
 #import "HTKContainerViewController.h"
 #import "TMEMeViewController.h"
@@ -30,7 +28,6 @@ static CGFloat const TabbarHeight = 50;
 
 @interface TMEHomeViewController ()
 <
-AFPhotoEditorControllerDelegate,
 UITabBarDelegate,
 UIImagePickerControllerDelegate
 >
@@ -131,10 +128,6 @@ UIImagePickerControllerDelegate
 
 - (void)addPublishButton
 {
-    TMEPublishProductViewController *publishVC = [[TMEPublishProductViewController alloc] init];
-    TMENavigationViewController *navigationViewController = [[TMENavigationViewController alloc] initWithRootViewController:publishVC];
-    [self addViewController:navigationViewController
-               withIconName:@"tabbar-sell-icon"];
 }
 
 - (void)setStatusBarViewAlpha:(CGFloat)alpha{

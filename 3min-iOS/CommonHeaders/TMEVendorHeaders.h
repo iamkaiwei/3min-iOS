@@ -10,7 +10,6 @@
 #import "FLEXManager.h"
 #endif
 
-#import "CoreData+MagicalRecord.h"
 #import "SVProgressHUD.h"
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/UIButton+AFNetworking.h>
@@ -32,7 +31,6 @@
 #import <Pusher/Pusher.h>
 #import <Pusher/PTPusherChannel.h>
 #import <FacebookSDK/FacebookSDK.h>
-#import <AviarySDK/AviarySDK.h>
 #import <Mantle/Mantle.h>
 #import <CocoaLumberjack/DDLog.h>
 #import <Masonry/Masonry.h>
