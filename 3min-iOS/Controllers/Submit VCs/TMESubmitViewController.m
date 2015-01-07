@@ -69,14 +69,15 @@ PTPusherPresenceChannelDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"You Offer", nil);
+    
+    [self setupNavigationBar];
     [self setupTextView];
     [self registerForKeyboardNotifications];
     [self setEdgeForExtendedLayoutNone];
     [self getCacheMessage];
     [self loadProductDetail];
     [self setupUIFont];
-    
+    [self handleTapToDismissKeyboardForView:self.view];
     [self loadMessageWithReplyIDWithPage:1
                               showBottom:YES];
     
@@ -86,7 +87,10 @@ PTPusherPresenceChannelDelegate
                                                object:nil];
     
     TMEMessageContentViewController *messageContent = [[TMEMessageContentViewController alloc] init];
-    messageContent.parameter = [[TMEUserMessageParameter alloc] initWithLatestReplyID:0 conversationID:self.conversation.conversationID smallerReplyID:0 page:1];
+    messageContent.parameter = [[TMEUserMessageParameter alloc] initWithLatestReplyID:0
+                                                                       conversationID:self.conversation.conversationID
+                                                                       smallerReplyID:0
+                                                                                 page:1];
     
     [messageContent willMoveToParentViewController:self];
     [self.viewMessagesContain addSubview:messageContent.view];
@@ -124,6 +128,23 @@ PTPusherPresenceChannelDelegate
     if (self.arrayClientReplies.count) {
         [self postMessagesToServer];
     }
+}
+
+#pragma mark - Setup
+
+- (void)setupNavigationBar
+{
+    // title string
+    NSString *fullName = self.product.user.fullName;
+    self.title = fullName.length > 0 ? fullName : NSLocalizedString(@"You Offer", nil); // display as product's owner name, if nil then we display the string 'You Offer'
+    
+    // bar button
+    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn_back"]
+                                                                          style:UIBarButtonItemStylePlain
+                                                                         target:self
+                                                                         action:@selector(onBtnBack)];
+    backBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = backBarButtonItem;
 }
 
 - (void)setupTextView
@@ -192,7 +213,11 @@ PTPusherPresenceChannelDelegate
 
 - (void)setUpTableView
 {
-    self.repliesArrayDataSource = [[TMESubmitViewControllerArrayDataSource alloc] initWithItems:self.dataArray cellIdentifier:[TMESubmitTableCell kind] cellRightIdentifier:kRightTableViewCellIdentifier conversation:self.conversation paging:self.paging];
+    self.repliesArrayDataSource = [[TMESubmitViewControllerArrayDataSource alloc] initWithItems:self.dataArray
+                                                                                 cellIdentifier:[TMESubmitTableCell kind]
+                                                                            cellRightIdentifier:kRightTableViewCellIdentifier
+                                                                                   conversation:self.conversation
+                                                                                         paging:self.paging];
     
     self.tableView.dataSource = self.repliesArrayDataSource;
     [self.tableView reloadData];
@@ -202,6 +227,14 @@ PTPusherPresenceChannelDelegate
 {
     self.arrayCellIdentifier = @[[TMESubmitTableCell kind], kRightTableViewCellIdentifier];
     self.registerLoadMoreCell = YES;
+}
+
+- (void)handleTapToDismissKeyboardForView:(UIView *)view
+{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(didTapToDismissKeyboard:)];
+    tap.numberOfTapsRequired = 1;
+    [view addGestureRecognizer:tap];
 }
 
 #pragma mark - Table view delegate
@@ -418,11 +451,8 @@ PTPusherPresenceChannelDelegate
 
 - (BOOL)growingTextViewShouldEndEditing:(HPGrowingTextView *)growingTextView
 {
-    [self addNavigationItems];
-    self.navigationItem.rightBarButtonItem = nil;
     self.keyboardShowing = NO;
     self.isTyping = NO;
-    self.title = NSLocalizedString(@"You Offer", nil);
     
     if ([growingTextView.text isEqualToString:@""]) {
         growingTextView.textColor = [UIColor lightGrayColor];
@@ -434,10 +464,6 @@ PTPusherPresenceChannelDelegate
 
 - (BOOL)growingTextViewShouldBeginEditing:(HPGrowingTextView *)growingTextView
 {
-    self.navigationItem.leftBarButtonItem = [self leftNavigationButtonCancel];
-    self.navigationItem.rightBarButtonItem = [self rightNavigationButtonDone];
-    self.title = @"";
-    
     if ([growingTextView.text isEqualToString:NSLocalizedString(@"Type message here to chat", nil)]) {
         growingTextView.text = @"";
         growingTextView.textColor = [UIColor blackColor];
@@ -469,10 +495,6 @@ PTPusherPresenceChannelDelegate
 
 - (void)onBtnBack
 {
-    UIViewController *root = self.navigationController.viewControllers[0];
-    if ([root isKindOfClass:[TMEPageViewController class]]) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -551,6 +573,15 @@ PTPusherPresenceChannelDelegate
     if ([TMEReachabilityManager sharedInstance].lastState) {
         [TSMessage showNotificationWithTitle:NSLocalizedString(@"No connection!", nil) type:TSMessageNotificationTypeError];
         [TMEReachabilityManager sharedInstance].lastState = 0;
+    }
+}
+
+#pragma mark - Actions
+
+- (void)didTapToDismissKeyboard:(UITapGestureRecognizer *)tap
+{
+    if ([self.textViewInputMessage isFirstResponder]) {
+        [self.textViewInputMessage resignFirstResponder];
     }
 }
 
