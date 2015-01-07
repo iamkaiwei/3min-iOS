@@ -181,10 +181,6 @@
 		99EA0F6A1978492D00872EE4 /* TMEListOffersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EA0E711978492D00872EE4 /* TMEListOffersTableViewCell.xib */; };
 		99EA0F6B1978492D00872EE4 /* TMEProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0E731978492D00872EE4 /* TMEProductDetailsViewController.m */; };
 		99EA0F6C1978492D00872EE4 /* TMEProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EA0E741978492D00872EE4 /* TMEProductDetailsViewController.xib */; };
-		99EA0F6D1978492D00872EE4 /* PublishLocationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0E771978492D00872EE4 /* PublishLocationPickerViewController.m */; };
-		99EA0F6E1978492D00872EE4 /* PublishLocationPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EA0E781978492D00872EE4 /* PublishLocationPickerViewController.xib */; };
-		99EA0F6F1978492D00872EE4 /* TMEPublishProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0E7A1978492D00872EE4 /* TMEPublishProductViewController.m */; };
-		99EA0F701978492D00872EE4 /* TMEPublishProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EA0E7B1978492D00872EE4 /* TMEPublishProductViewController.xib */; };
 		99EA0F711978492D00872EE4 /* TMESearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0E7E1978492D00872EE4 /* TMESearchTableViewCell.m */; };
 		99EA0F721978492D00872EE4 /* TMESearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EA0E7F1978492D00872EE4 /* TMESearchTableViewCell.xib */; };
 		99EA0F731978492D00872EE4 /* TMESearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EA0E811978492D00872EE4 /* TMESearchViewController.m */; };
@@ -765,12 +761,6 @@
 		99EA0E721978492D00872EE4 /* TMEProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEProductDetailsViewController.h; sourceTree = "<group>"; };
 		99EA0E731978492D00872EE4 /* TMEProductDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEProductDetailsViewController.m; sourceTree = "<group>"; };
 		99EA0E741978492D00872EE4 /* TMEProductDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEProductDetailsViewController.xib; sourceTree = "<group>"; };
-		99EA0E761978492D00872EE4 /* PublishLocationPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishLocationPickerViewController.h; sourceTree = "<group>"; };
-		99EA0E771978492D00872EE4 /* PublishLocationPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishLocationPickerViewController.m; sourceTree = "<group>"; };
-		99EA0E781978492D00872EE4 /* PublishLocationPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PublishLocationPickerViewController.xib; sourceTree = "<group>"; };
-		99EA0E791978492D00872EE4 /* TMEPublishProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMEPublishProductViewController.h; sourceTree = "<group>"; };
-		99EA0E7A1978492D00872EE4 /* TMEPublishProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMEPublishProductViewController.m; sourceTree = "<group>"; };
-		99EA0E7B1978492D00872EE4 /* TMEPublishProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMEPublishProductViewController.xib; sourceTree = "<group>"; };
 		99EA0E7D1978492D00872EE4 /* TMESearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMESearchTableViewCell.h; sourceTree = "<group>"; };
 		99EA0E7E1978492D00872EE4 /* TMESearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMESearchTableViewCell.m; sourceTree = "<group>"; };
 		99EA0E7F1978492D00872EE4 /* TMESearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMESearchTableViewCell.xib; sourceTree = "<group>"; };
@@ -1716,7 +1706,6 @@
 				99EA0E631978492D00872EE4 /* Navigation Controller */,
 				99EA0E661978492D00872EE4 /* Offer VC */,
 				99EA0E6A1978492D00872EE4 /* Product Details */,
-				99EA0E751978492D00872EE4 /* Publish Products */,
 				99EA0E7C1978492D00872EE4 /* Search VCs */,
 				99EA0E9A1978492D00872EE4 /* Tutorial */,
 				B4AE17DA198EAE1F00F6D601 /* Home Page VC */,
@@ -1910,19 +1899,6 @@
 				99EA0E6E1978492D00872EE4 /* TMEListOffersTableViewController.xib */,
 			);
 			path = "List Offers";
-			sourceTree = "<group>";
-		};
-		99EA0E751978492D00872EE4 /* Publish Products */ = {
-			isa = PBXGroup;
-			children = (
-				99EA0E761978492D00872EE4 /* PublishLocationPickerViewController.h */,
-				99EA0E771978492D00872EE4 /* PublishLocationPickerViewController.m */,
-				99EA0E781978492D00872EE4 /* PublishLocationPickerViewController.xib */,
-				99EA0E791978492D00872EE4 /* TMEPublishProductViewController.h */,
-				99EA0E7A1978492D00872EE4 /* TMEPublishProductViewController.m */,
-				99EA0E7B1978492D00872EE4 /* TMEPublishProductViewController.xib */,
-			);
-			path = "Publish Products";
 			sourceTree = "<group>";
 		};
 		99EA0E7C1978492D00872EE4 /* Search VCs */ = {
@@ -2947,7 +2923,6 @@
 				B4AE17F4198EAFAD00F6D601 /* TMEProfilePageContentViewController.xib in Resources */,
 				B4F513D719AEDCB9003DE851 /* TMEDropDownMenuViewController.xib in Resources */,
 				998A11291A1B98B3007F62FF /* EditProductLocation.storyboard in Resources */,
-				99EA0F6E1978492D00872EE4 /* PublishLocationPickerViewController.xib in Resources */,
 				99EA0F681978492D00872EE4 /* TMEListOffersTableViewController.xib in Resources */,
 				B47FBD9B1A0B534F002A75F3 /* TMEMyItemViewController.xib in Resources */,
 				99EA0F611978492D00872EE4 /* TMEMeTableViewCell.xib in Resources */,
@@ -2985,7 +2960,6 @@
 				B4CE71B31A063D4600DF9E78 /* TMEFollowingViewController.storyboard in Resources */,
 				B486FC271A0893660058D8B7 /* TMEBrowserPageContentViewController.storyboard in Resources */,
 				D295D2D119E29F2C008B9BC4 /* ProductLikes.storyboard in Resources */,
-				99EA0F701978492D00872EE4 /* TMEPublishProductViewController.xib in Resources */,
 				B40D948219FA4B9E00432DD0 /* TMEListActiviesViewController.xib in Resources */,
 				D2E07CC21A1CA3D600D54014 /* Camera.storyboard in Resources */,
 				99EA0F461978492D00872EE4 /* TMEBrowserProductTableViewHeader.xib in Resources */,
@@ -3069,13 +3043,11 @@
 				B63FE7501A0A349E006AD188 /* TMEPostMessageOffline.m in Sources */,
 				D295D30919E29FCF008B9BC4 /* TMEProductDetailVC.m in Sources */,
 				D2B425361A1DDFD700FE6F65 /* IMGLYLeninFilter.m in Sources */,
-				99EA0F6D1978492D00872EE4 /* PublishLocationPickerViewController.m in Sources */,
 				D2B424FF1A1DDFD700FE6F65 /* IMGLYBreezeFilter.m in Sources */,
 				B4AE17EE198EAF9500F6D601 /* TMEBrowserPageContentViewController.m in Sources */,
 				D2B425401A1DDFD700FE6F65 /* IMGLYOpenGLUtils.m in Sources */,
 				B40D946819FA4B4C00432DD0 /* TMEBrowserProductPaginationCollectionViewDataSource.m in Sources */,
 				99EA0EEB1978492D00872EE4 /* TMEFacebookAppDelegateService.m in Sources */,
-				99EA0F6F1978492D00872EE4 /* TMEPublishProductViewController.m in Sources */,
 				D2B425181A1DDFD700FE6F65 /* IMGLYEditorEnhancementViewcontroller.m in Sources */,
 				99AA4B2219A26F0600268345 /* NSObject+TMENotification.m in Sources */,
 				D2B425011A1DDFD700FE6F65 /* IMGLYBrightnessOperation.m in Sources */,

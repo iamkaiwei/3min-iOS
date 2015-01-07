@@ -6,6 +6,6 @@
 //
 //
 
-@interface TMEBasePhotoEditorViewController : AFPhotoEditorController
+@interface TMEBasePhotoEditorViewController : UIViewController
 
 @end
